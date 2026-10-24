@@ -1,0 +1,93 @@
+# Compiled source #
+###################
+*.pyc
+*.pyd
+*.so
+*.o
+__pycache__/
+
+# OS generated files #
+######################
+.fuse_hidden*
+*~
+
+# Pip generated folders #
+#########################
+*.egg-info/
+build/
+dist/
+
+# MISC #
+########
+.mypy_cache
+
+
+# doc generated #
+#################
+docs/_build
+_build
+
+# testing coverage and cache #
+##############################
+.pytest_cache/
+tests/.coverage
+tests/htmlcov/
+
+# windows #
+###########
+test.bat
+
+# Jupyter notebook cache #
+##########################
+**/.ipynb_checkpoints
+
+# Code coverage results #
+#########################
+htmlcov
+.coverage
+*,cover
+
+# Mac #
+#######
+.DS_Store
+**/.DS_Store
+
+# Testing output #
+##################
+tests/ERROR_OUTPUT.txt
+
+# emacs #
+#########
+*#
+.#
+flycheck*
+
+# vim #
+#######
+*.swp
+
+# PyCharm #
+###########
+.idea/
+
+# virtual environments #
+########################
+venv/
+.venv/
+
+# VSCode #
+##########
+.vscode/
+
+# LaTeX #
+#########
+*.dvi
+*.fdb_latexmk
+*.fls
+*.aux
+*.log
+*.out
+*.synctex.gz
+
+others/uc/
+others/doc_src
