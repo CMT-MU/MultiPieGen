@@ -10,8 +10,10 @@
 
 \section{前提}
 \begin{itemize}
-\item 対称操作と一般点のWyckoff位置の順序はITAに合わせており、一対一対応している。
-%\item ある群の対称操作とその親の群の対称操作を対応させるとWyckoff位置も対応する。
+\item ITAの標準セッティングのみ使用。
+\item 対称操作とWyckoff位置の順序はITAと同一。
+\item 対称操作と一般点のWyckoff位置の順序は一対一対応している。
+\item 結晶点群と空間群の対称操作の順序は部分並進を除くと一致する。
 \end{itemize}
 
 \section{ルートクラスター}
@@ -48,27 +50,43 @@ M=\begin{pmatrix}
 \end{align}
 のように得られる\footnote{鏡映操作$M$は$\bar{g}_i$を$O_{\rm h}$に含まれない対称操作に変えてしまうので、$\bar{\bm{x}}_{i+48}=M\bar{\bm{x}}_i$は成り立たないことに注意する。}。
 $\bm{x}_j$と$\bar{\bm{x}}_j$ ($j=1,\cdots,96$)の並び順は異なるが一対一対応がある。
-ルートクラスターを図\ref{fig:vc}に示す。
+ルートクラスターの点と対称操作の区分を図\ref{fig:vc}および\ref{fig:vc_no}に示す。
 
 \begin{figure}[t]
 \caption{ルートクラスター。$D_{\rm 6h}$の主軸ごとに色分けした。}
 \label{fig:vc}
 \begin{center}
-\includegraphics[width=7cm]{vc.eps}
+\includegraphics[width=6cm]{vc.eps}
+\end{center}
+\end{figure}
+\begin{figure}[t]
+\caption{ルートクラスターの対称操作区分。}
+\label{fig:vc_no}
+\begin{center}
+\includegraphics[width=15cm]{vc_no.eps}
 \end{center}
 \end{figure}
 
 \section{部分群との関係}
 
 結晶点群は回転群の部分群であり、各結晶点群間にも部分群の関係がある。
-親群の対称操作と部分群の対称操作の関係を
+親群(p)の対称操作と部分群(c)の対称操作(1から)の関係をリスト\texttt{coset[n][j]}を用いて
 \begin{align}
-g_{\rm parent}[{\rm coset}[0][i-1]]=\hat{R}\hat{g}_{\rm child}[i-1]\hat{R}^{-1}
+&
+\hat{g}_{\rm p}[{\rm coset}[0][i-1]]=\hat{R}\hat{g}_{\rm c}[i]\hat{R}^{-1},
+\quad
+(i=1,2,\cdots)
+\cr&
+\hat{g}_{\rm p}[{\rm coset}[n][i-1]]=\hat{g}_{\rm parent}^{(n)}\hat{g}_{\rm p}[{\rm coset}[0][i-1]]
+\quad
+(n=1,2,\cdots)
 \end{align}
 と表す。
-また、coset[1:]は、部分群に含まれない対称操作を用いて$\hat{g}_{\rm parent}'^{[1:]}({\rm coset}[0])$により得られる。
-ここで、$\hat{R}$は主軸変換の行列であり、単位行列になるべく近く、また空間群では原点移動が小さくなるように選ばれている。
-親群と部分群の関係を表\ref{tbl:1}に示す。
+ここで$\hat{g}_{\rm p}^{(n)}$は、親群の部分群に含まれない対称操作(の代表)を表す。
+空間群の場合も$\hat{R}$が$4\times4$になること以外は同様である。
+$\hat{R}$は主軸変換の行列であり、単位行列になるべく近く、また空間群では原点移動が小さくなるように選ばれている。
+結晶点群について親群と部分群の関係を表\ref{tbl:1}に示す。
+必要な主軸変換行列は分率座標系で
 \begin{align}
 &
 \hat{R}_c = \begin{pmatrix}
@@ -93,14 +111,12 @@ g_{\rm parent}[{\rm coset}[0][i-1]]=\hat{R}\hat{g}_{\rm child}[i-1]\hat{R}^{-1}
 \quad
 \hat{R}_z = \begin{pmatrix} 0 & 1 & 0 \\ -1 & 0 & 0 \\ 0 & 0 & 1 \end{pmatrix}
 \end{align}
-また、Cartesin座標系と分率座標系の変換行列は
+また、デカルト座標系と分率座標系の変換行列は
 \begin{align}
 T = \begin{pmatrix} 1 & -\frac{1}{2} & 0 \\ 0 & \frac{\sqrt{3}}{2} & 0 \\ 0 & 0 & 1 \end{pmatrix}
 \end{align}
 である。
-
 すべての結晶点群の一般点はルートクラスターに含まれ、特殊点は一般点を平均化することにより得られる。
-
 
 \begin{table}[t]
 \caption{親群と部分群の関係。}
@@ -229,11 +245,7 @@ T$_{\rm d}$ & O$_{\rm h}$ & \\ \hline\hline
 \end{center}
 \end{table}
 
-Cartesian座標系で点$(x,y,z)$を考える。
-O$_{\rm h}$の一般点48点に加えて、これと重ならないD$_{\rm 6h}$の一般点を加える。
-
-
---- 以下、考察中メモ ---
+\section{考察中}
 
 この変換を通じて、Wyckoff位置の対応関係を求める。
 残りの点群についても一般点の対応関係を求めることができる。
