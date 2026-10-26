@@ -69,7 +69,7 @@ def check(c_group, p_group):
 
 
 # ==================================================
-from data_parent_pg import data_parent_pg as data
+from creation.data_parent_pg import data_parent_pg as data
 
 err = 0
 for c_group, v in data.items():

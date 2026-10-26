@@ -2,12 +2,13 @@
 Create group mapping to root cluster.
 
 note:
-- copy data_parent_pg.py in this directory.
 - output is moved to data_root_cluster.py
 """
 
-from data_parent_pg import data_representative_parent_pg as rep
-from data_parent_pg import data_parent_pg as data
+from data_parent_pg import data_representative_parent_pg as p_rep
+from data_parent_pg import data_parent_pg as p_data
+from data_parent_sg import data_representative_parent_sg as s_rep
+from data_parent_sg import data_parent_sg as s_data
 
 # ==================================================
 mapping_oh = [
@@ -119,21 +120,26 @@ mapping_d6h = [
     [73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96],
 ]
 
+p_oh = ["Oh"]
+p_d6h = ["D6h"]
+s_oh = [221, 222, 223, 224, 225, 226, 227, 228, 229, 230]
+s_d6h = [191, 192, 193, 194]
+
 
 # ==================================================
-def create_mapping_root_cluster(c_group):
+def create_mapping_root_cluster(c_group, rep, data, oh, d6h):
     lst = []
     while 1:
         p_group = rep[c_group]
         lst.append(c_group)
-        if p_group in ["Oh", "D6h"]:
+        if p_group in oh + d6h:
             lst.append(p_group)
             break
         c_group = p_group
     lst = lst[::-1]
     # print(lst)
 
-    mapping = mapping_oh if lst[0] == "Oh" else mapping_d6h
+    mapping = mapping_oh if lst[0] in oh else mapping_d6h
     # print(lst[0], "=>", lst[1], ":", mapping)
     for i in range(1, len(lst)):
         p_group = lst[i - 1]
@@ -150,16 +156,27 @@ def create_mapping_root_cluster(c_group):
 
 
 # ==================================================
-def create_mapping():
+def create_mapping(rep, data, oh, d6h):
     dic = {}
     for c_group in rep.keys():
-        mapping = create_mapping_root_cluster(c_group)
+        mapping = create_mapping_root_cluster(c_group, rep, data, oh, d6h)
         dic[c_group] = mapping
-    dic["Oh"] = mapping_oh
-    dic["D6h"] = mapping_d6h
+    for i in oh:
+        dic[i] = mapping_oh
+    for i in d6h:
+        dic[i] = mapping_d6h
 
     return dic
 
 
 # ==================================================
-print(create_mapping())
+def create_mapping_all():
+    p_mapping = create_mapping(p_rep, p_data, p_oh, p_d6h)
+    s_mapping = create_mapping(s_rep, s_data, s_oh, s_d6h)
+    mapping = p_mapping | s_mapping
+
+    print(f"mapping_root_cluster = {mapping}")
+
+
+# ==================================================
+create_mapping_all()

@@ -157,7 +157,7 @@ def create():
 # ==================================================
 def create_file():
     cur_dir = os.path.dirname(os.path.abspath(__file__))
-    out_file = os.path.join(cur_dir, "data_parent_pg.py")
+    out_file = os.path.join(cur_dir, "data_parent_pg_out.py")
     dic, rep = create()
     with open(out_file, "w", encoding="utf-8") as f:
         print('"""' + header + '"""', file=f)

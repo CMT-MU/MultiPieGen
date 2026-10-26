@@ -1,6 +1,6 @@
 import numpy as np
 from multipie import Group
-from data_parent_pg import data_representative_parent_pg, data_parent_pg
+from creation.data_parent_pg import data_representative_parent_pg, data_parent_pg
 
 
 def check_each_pg(c_group):
