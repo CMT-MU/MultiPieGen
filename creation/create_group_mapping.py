@@ -1,5 +1,5 @@
 """
-Create group mapping to root cluster.
+Create group mapping to root cluster, and D6h and Oh.
 
 note:
 - output is moved to data_root_cluster.py
@@ -11,7 +11,7 @@ from data_parent_sg import data_representative_parent_sg as s_rep
 from data_parent_sg import data_parent_sg as s_data
 
 # ==================================================
-mapping_oh = [
+mapping_rc_oh = [
     [
         1,
         92,
@@ -113,12 +113,16 @@ mapping_oh = [
         5,
     ],
 ]
-mapping_d6h = [
+mapping_rc_d6h = [
     [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24],
     [25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48],
     [49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72],
     [73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96],
 ]
+
+mapping_oh = [list(range(1, 49))]
+mapping_d6h = [list(range(1, 25))]
+
 
 p_oh = ["Oh"]
 p_d6h = ["D6h"]
@@ -127,7 +131,7 @@ s_d6h = [191, 192, 193, 194]
 
 
 # ==================================================
-def create_mapping_root_cluster(c_group, rep, data, oh, d6h):
+def create_mapping_root_cluster(c_group, rep, data, oh, d6h, mapping_oh, mapping_d6h):
     lst = []
     while 1:
         p_group = rep[c_group]
@@ -156,10 +160,10 @@ def create_mapping_root_cluster(c_group, rep, data, oh, d6h):
 
 
 # ==================================================
-def create_mapping(rep, data, oh, d6h):
+def create_mapping(rep, data, oh, d6h, mapping_oh, mapping_d6h):
     dic = {}
     for c_group in rep.keys():
-        mapping = create_mapping_root_cluster(c_group, rep, data, oh, d6h)
+        mapping = create_mapping_root_cluster(c_group, rep, data, oh, d6h, mapping_oh, mapping_d6h)
         dic[c_group] = mapping
     for i in oh:
         dic[i] = mapping_oh
@@ -171,11 +175,17 @@ def create_mapping(rep, data, oh, d6h):
 
 # ==================================================
 def create_mapping_all():
-    p_mapping = create_mapping(p_rep, p_data, p_oh, p_d6h)
-    s_mapping = create_mapping(s_rep, s_data, s_oh, s_d6h)
+    # mapping to root cluster.
+    p_mapping = create_mapping(p_rep, p_data, p_oh, p_d6h, mapping_rc_oh, mapping_rc_d6h)
+    s_mapping = create_mapping(s_rep, s_data, s_oh, s_d6h, mapping_rc_oh, mapping_rc_d6h)
     mapping = p_mapping | s_mapping
-
     print(f"mapping_root_cluster = {mapping}")
+
+    # mapping to D6h and Oh.
+    p_mapping = create_mapping(p_rep, p_data, p_oh, p_d6h, mapping_oh, mapping_d6h)
+    s_mapping = create_mapping(s_rep, s_data, s_oh, s_d6h, mapping_oh, mapping_d6h)
+    mapping = p_mapping | s_mapping
+    print(f"mapping_d6h_oh = {mapping}")
 
 
 # ==================================================
