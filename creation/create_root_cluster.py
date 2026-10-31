@@ -1,9 +1,11 @@
 """
 Create root cluster.
+    - root_cluster_cart: points of root cluster in cartesian coordinate.
+    - d6h_cluster_frac: points of Oh cluster in fractional coordinate (=oh0).
+    - oh_cluster_frac: points of D6h cluster in fractional coordinate (=d6h0 when principal axis is taken to be [111]).
 
-- root_cluster_cart: points of root cluster in cartesian coordinate.
-- d6h_cluster_frac: points of Oh cluster in fractional coordinate (=oh0).
-- oh_cluster_frac: points of D6h cluster in fractional coordinate (=d6h0 when principal axis is taken to be [111]).
+note:
+    - output is moved to data_root_cluster.py
 """
 
 import numpy as np

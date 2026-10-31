@@ -2,7 +2,7 @@
 Create group mapping to root cluster, and D6h and Oh.
 
 note:
-- output is moved to data_root_cluster.py
+    - output is moved to data_mapping.py
 """
 
 from data_parent_pg import data_representative_parent_pg as p_rep
@@ -156,19 +156,25 @@ def create_mapping_root_cluster(c_group, rep, data, oh, d6h, mapping_oh, mapping
         # print(p_group, "=>", c_group, ":", mapping1)
         mapping = mapping1
 
-    return mapping
+    return lst[0], mapping
 
 
 # ==================================================
-def create_mapping(rep, data, oh, d6h, mapping_oh, mapping_d6h):
+def create_mapping(rep, data, oh, d6h, mapping_oh, mapping_d6h, rc):
     dic = {}
     for c_group in rep.keys():
-        mapping = create_mapping_root_cluster(c_group, rep, data, oh, d6h, mapping_oh, mapping_d6h)
-        dic[c_group] = mapping
-    for i in oh:
-        dic[i] = mapping_oh
-    for i in d6h:
-        dic[i] = mapping_d6h
+        top, mapping = create_mapping_root_cluster(c_group, rep, data, oh, d6h, mapping_oh, mapping_d6h)
+        dic[c_group] = (top, mapping)
+    if rc:
+        for i in oh:
+            dic[i] = ("RC", mapping_oh)
+        for i in d6h:
+            dic[i] = ("RC", mapping_d6h)
+    else:
+        for i in oh:
+            dic[i] = (i, mapping_oh)
+        for i in d6h:
+            dic[i] = (i, mapping_d6h)
 
     return dic
 
@@ -176,14 +182,14 @@ def create_mapping(rep, data, oh, d6h, mapping_oh, mapping_d6h):
 # ==================================================
 def create_mapping_all():
     # mapping to root cluster.
-    p_mapping = create_mapping(p_rep, p_data, p_oh, p_d6h, mapping_rc_oh, mapping_rc_d6h)
-    s_mapping = create_mapping(s_rep, s_data, s_oh, s_d6h, mapping_rc_oh, mapping_rc_d6h)
+    p_mapping = create_mapping(p_rep, p_data, p_oh, p_d6h, mapping_rc_oh, mapping_rc_d6h, rc=True)
+    s_mapping = create_mapping(s_rep, s_data, s_oh, s_d6h, mapping_rc_oh, mapping_rc_d6h, rc=True)
     mapping = p_mapping | s_mapping
     print(f"mapping_root_cluster = {mapping}")
 
     # mapping to D6h and Oh.
-    p_mapping = create_mapping(p_rep, p_data, p_oh, p_d6h, mapping_oh, mapping_d6h)
-    s_mapping = create_mapping(s_rep, s_data, s_oh, s_d6h, mapping_oh, mapping_d6h)
+    p_mapping = create_mapping(p_rep, p_data, p_oh, p_d6h, mapping_oh, mapping_d6h, rc=False)
+    s_mapping = create_mapping(s_rep, s_data, s_oh, s_d6h, mapping_oh, mapping_d6h, rc=False)
     mapping = p_mapping | s_mapping
     print(f"mapping_d6h_oh = {mapping}")
 
