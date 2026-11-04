@@ -1,5 +1,7 @@
 """
 Create parent point group mapping.
+    - data_parent_pg: operation mapping to parent PG.
+    - data_representative_parent_pg: representative parent PG.
 """
 
 import os
@@ -166,4 +168,5 @@ def create_file():
         print("data_representative_parent_pg =", rep, file=f)
 
 
+# ==================================================
 create_file()

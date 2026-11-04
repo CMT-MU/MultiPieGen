@@ -2,7 +2,7 @@
 Parent group information for all space groups.
 
 - data_parent_sg.
-    { child SG_id: { parent SG_id: ([[parent SO]], R) } }.
+    { child SG_id: { parent SG_id: ([[parent SO]], R) } }. [only one parent group compatible with representative parent PG]
     SO: 1-based, [parent SO] in order of child-SG SO.
     R: rotation + translation matrix for converting principal axis (fractional).
 

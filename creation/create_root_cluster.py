@@ -1,13 +1,11 @@
 """
 Create root cluster.
-    - root_cluster_cart: points of root cluster in cartesian coordinate.
-    - d6h_cluster_frac: points of Oh cluster in fractional coordinate (=oh0).
     - oh_cluster_frac: points of D6h cluster in fractional coordinate (=d6h0 when principal axis is taken to be [111]).
-
-note:
-    - output is moved to data_root_cluster.py
+    - d6h_cluster_frac: points of Oh cluster in fractional coordinate (=oh0).
+    - root_cluster_cart: points of root cluster in cartesian coordinate.
 """
 
+import os
 import numpy as np
 import sympy as sp
 from multipie import Group
@@ -87,14 +85,26 @@ def check_oh(cluster):
 
 
 # ==================================================
-root_cluster = create_root_cluster()
-print(f'root_cluster_cart = "{root_cluster}"')
-d6h_cluster = create_d6h_001_cluster()
-print(f'd6h_cluster_frac = "{d6h_cluster}"')
-oh_cluster = create_oh_cluster()
-print(f'oh_cluster_frac = "{oh_cluster}"')
+def create_file():
+    cur_dir = os.path.dirname(os.path.abspath(__file__))
+    out_file = os.path.join(cur_dir, "data_root_cluster.py")
 
-if check_oh(root_cluster):
-    print("no error")
-else:
-    print("d6h-based cluster n.e. oh-based one.")
+    root_cluster = create_root_cluster()
+    d6h_cluster = create_d6h_001_cluster()
+    oh_cluster = create_oh_cluster()
+
+    with open(out_file, "w", encoding="utf-8") as f:
+        print("oh_cluster_frac =", oh_cluster, file=f)
+        print("", file=f)
+        print("d6h_cluster_frac =", d6h_cluster, file=f)
+        print("", file=f)
+        print("root_cluster_cart =", root_cluster, file=f)
+
+    if check_oh(root_cluster):
+        print("no error")
+    else:
+        print("d6h-based cluster n.e. oh-based one.")
+
+
+# ==================================================
+create_file()

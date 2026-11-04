@@ -86,10 +86,15 @@ def _shift(a, var):
     Returns:
         - (ndarray) -- shifted wyckoff positions.
     """
-    a = np.vectorize(
-        lambda e: sp.expand(e - e.subs({var[0]: 0, var[1]: 0, var[2]: 0})) + e.subs({var[0]: 0, var[1]: 0, var[2]: 0}) % 1,
-        otypes=[object],
-    )(a)
+    site = a.shape[1] == 3
+    if site:
+        a = np.vectorize(
+            lambda e: sp.expand(e - e.subs({var[0]: 0, var[1]: 0, var[2]: 0})) + e.subs({var[0]: 0, var[1]: 0, var[2]: 0}) % 1,
+            otypes=[object],
+        )(a)
+    else:
+        pass
+
     return a
 
 
@@ -105,7 +110,12 @@ def _inversion(a, var):
     Returns:
         - (ndarray) -- inversion + minus sign.
     """
-    a = np.vectorize(lambda i: -i.subs({"x": -var[0], "y": -var[1], "z": -var[2]}))(a)
+    site = a.shape[1] == 3
+    if site:
+        a = np.vectorize(lambda i: -i.subs({"x": -var[0], "y": -var[1], "z": -var[2]}))(a)
+    else:
+        pass
+
     return _shift(a, var)
 
 
@@ -144,12 +154,20 @@ def check_wyckoff_inversion():
 
     for group in [chiral_pg, sohncke_sg]:
         for c_group in group:
-            print(c_group)
+            print("===", c_group, "===")
             cg = Group(c_group)
+            print("--- site ---")
             for wp in cg.wyckoff["site"].keys():
                 wyckoff = cg.wyckoff["site"][wp]["conventional"]
                 wyckoff_bar = _inversion(wyckoff, var)
                 print(" ", wp, str(wyckoff.tolist()).replace(" ", "") == str(wyckoff_bar.tolist()).replace(" ", ""))
+            """
+            print("--- bond ---")
+            for wp in cg.wyckoff["bond"].keys():
+                wyckoff = cg.wyckoff["bond"][wp]["conventional"]
+                wyckoff_bar = _inversion(wyckoff, var)
+                print(" ", wp, str(wyckoff.tolist()).replace(" ", "") == str(wyckoff_bar.tolist()).replace(" ", ""))
+            """
 
 
 # ==================================================

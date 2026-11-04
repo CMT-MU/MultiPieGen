@@ -1,10 +1,10 @@
 """
-Create group mapping to root cluster, and D6h and Oh.
-
-note:
-    - output is moved to data_mapping.py
+Create operation mapping to D6h and Oh, and root cluster.
+    - op_mapping_d6h_oh: operation mapping to D6h and Oh.
+    - op_mapping_root_cluster: operation mapping to root cluster.
 """
 
+import os
 from multipiegen.data.data_parent_pg import data_representative_parent_pg as p_rep
 from multipiegen.data.data_parent_pg import data_parent_pg as p_data
 from multipiegen.data.data_parent_sg import data_representative_parent_sg as s_rep
@@ -184,15 +184,28 @@ def create_mapping_all():
     # mapping to root cluster.
     p_mapping = create_mapping(p_rep, p_data, p_oh, p_d6h, mapping_rc_oh, mapping_rc_d6h, rc=True)
     s_mapping = create_mapping(s_rep, s_data, s_oh, s_d6h, mapping_rc_oh, mapping_rc_d6h, rc=True)
-    mapping = p_mapping | s_mapping
-    print(f"mapping_root_cluster = {mapping}")
+    root_mapping = p_mapping | s_mapping
 
     # mapping to D6h and Oh.
     p_mapping = create_mapping(p_rep, p_data, p_oh, p_d6h, mapping_oh, mapping_d6h, rc=False)
     s_mapping = create_mapping(s_rep, s_data, s_oh, s_d6h, mapping_oh, mapping_d6h, rc=False)
-    mapping = p_mapping | s_mapping
-    print(f"mapping_d6h_oh = {mapping}")
+    d6h_oh_mapping = p_mapping | s_mapping
+
+    return root_mapping, d6h_oh_mapping
 
 
 # ==================================================
-create_mapping_all()
+def create_file():
+    cur_dir = os.path.dirname(os.path.abspath(__file__))
+    out_file = os.path.join(cur_dir, "data_root_cluster.py")
+
+    root_mapping, d6h_oh_mapping = create_mapping_all()
+
+    with open(out_file, "w", encoding="utf-8") as f:
+        print("op_mapping_d6h_oh =", d6h_oh_mapping, file=f)
+        print("", file=f)
+        print("op_mapping_root_cluster =", root_mapping, file=f)
+
+
+# ==================================================
+create_file()
