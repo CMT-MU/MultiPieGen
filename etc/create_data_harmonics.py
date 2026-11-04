@@ -34,8 +34,8 @@ from multipie.util.util import timer, str_to_sympy
 from multipie.util.util_dict import Dict
 from multipie.util.util_binary import BinaryManager
 
-from data_top_harmonics import top_harmonics, top_harmonics_tag
-from data_compatibility_relation import compatibility_relation
+from multipiegen.data.data_top_harmonics import top_harmonics, top_harmonics_tag
+from multipiegen.data.data_compatibility_relation import compatibility_relation
 
 # ==================================================
 h_harmonics = """

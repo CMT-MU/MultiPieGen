@@ -5,10 +5,10 @@ note:
     - output is moved to data_mapping.py
 """
 
-from data_parent_pg import data_representative_parent_pg as p_rep
-from data_parent_pg import data_parent_pg as p_data
-from data_parent_sg import data_representative_parent_sg as s_rep
-from data_parent_sg import data_parent_sg as s_data
+from multipiegen.data.data_parent_pg import data_representative_parent_pg as p_rep
+from multipiegen.data.data_parent_pg import data_parent_pg as p_data
+from multipiegen.data.data_parent_sg import data_representative_parent_sg as s_rep
+from multipiegen.data.data_parent_sg import data_parent_sg as s_data
 
 # ==================================================
 mapping_rc_oh = [

@@ -4,9 +4,9 @@ Parent group information for all point groups.
 - data_parent_pg.
     { child PG_id: { parent PG_id: ([[parent SO]], R) } }.
     SO: 1-based, [parent SO] in order of child-PG SO.
-    R: rotaion matrix for converting principal axis (fractional).
+    R: rotation matrix for converting principal axis (fractional).
 
-- data_representative_parent_pg.
+- data_representative_parent_pg (first parent PG in data_parent_pg).
     { child PG_id: parent_PG_id }.
 """
 

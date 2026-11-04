@@ -106,7 +106,7 @@ def check(c_group, p_group):
 
 
 # ==================================================
-from creation.data_parent_sg import data_parent_sg as data
+from multipiegen.data.data_parent_sg import data_parent_sg as data
 
 err = 0
 for c_group, v in data.items():

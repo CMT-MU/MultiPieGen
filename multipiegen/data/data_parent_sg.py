@@ -4,7 +4,7 @@ Parent group information for all space groups.
 - data_parent_sg.
     { child SG_id: { parent SG_id: ([[parent SO]], R) } }.
     SO: 1-based, [parent SO] in order of child-SG SO.
-    R: rotaion + translation matrix for converting principal axis (fractional).
+    R: rotation + translation matrix for converting principal axis (fractional).
 
 - data_representative_parent_sg.
     { child SG_id: parent_SG_id }.

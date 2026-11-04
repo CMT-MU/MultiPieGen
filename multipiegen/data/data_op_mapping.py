@@ -1,16 +1,16 @@
 """
 Mapping of symmetry operations to top parent group.
 
-- mapping_root_cluster (dict): mapping to root cluster (operation no. 1-based).
+- op_mapping_root_cluster (dict): mapping to root cluster (operation no. 1-based).
     - PG_tag/SG_no : ("RC", mapping), mapping[coset][parent op no. of child op. from 1 to g].
-- mapping_d6h_oh (dict): mapping to top Oh/D6h cluster (operation no. 1-based).
+- op_mapping_d6h_oh (dict): mapping to top Oh/D6h cluster (operation no. 1-based).
     - PG_tag/SG_no : (top group, mapping), mapping[coset][parent op no. of child op. from 1 to g].
     - top group is child when child belongs to Oh/D6h.
 """
 
 # ==================================================
 # operation mapping of general points of point and space groups to root cluster (1-based).
-mapping_root_cluster = {
+op_mapping_root_cluster = {
     "C1": (
         "Oh",
         [
@@ -6404,7 +6404,7 @@ mapping_root_cluster = {
 
 # ==================================================
 # operation mapping of general points of point and space groups to D6h and Oh cluster (1-based).
-mapping_d6h_oh = {
+op_mapping_d6h_oh = {
     "C1": (
         "Oh",
         [
