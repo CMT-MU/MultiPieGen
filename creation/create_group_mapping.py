@@ -1,9 +1,13 @@
 """
 Create operation mapping to D6h and Oh, and root cluster.
-    - op_mapping_d6h_oh: operation mapping to D6h and Oh.
+    - op_mapping_d6h_oh_cluster: operation mapping to D6h and Oh cluster.
     - op_mapping_root_cluster: operation mapping to root cluster.
 """
 
+import sys
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 import os
 from multipiegen.data.data_parent_pg import data_representative_parent_pg as p_rep
 from multipiegen.data.data_parent_pg import data_parent_pg as p_data
@@ -164,7 +168,10 @@ def create_mapping(rep, data, oh, d6h, mapping_oh, mapping_d6h, rc):
     dic = {}
     for c_group in rep.keys():
         top, mapping = create_mapping_root_cluster(c_group, rep, data, oh, d6h, mapping_oh, mapping_d6h)
-        dic[c_group] = (top, mapping)
+        if rc:
+            dic[c_group] = ("RC", mapping)
+        else:
+            dic[c_group] = (top, mapping)
     if rc:
         for i in oh:
             dic[i] = ("RC", mapping_oh)
@@ -182,9 +189,9 @@ def create_mapping(rep, data, oh, d6h, mapping_oh, mapping_d6h, rc):
 # ==================================================
 def create_mapping_all():
     # mapping to root cluster.
-    p_mapping = create_mapping(p_rep, p_data, p_oh, p_d6h, mapping_rc_oh, mapping_rc_d6h, rc=True)
-    s_mapping = create_mapping(s_rep, s_data, s_oh, s_d6h, mapping_rc_oh, mapping_rc_d6h, rc=True)
-    root_mapping = p_mapping | s_mapping
+    rc_p_mapping = create_mapping(p_rep, p_data, p_oh, p_d6h, mapping_rc_oh, mapping_rc_d6h, rc=True)
+    rc_s_mapping = create_mapping(s_rep, s_data, s_oh, s_d6h, mapping_rc_oh, mapping_rc_d6h, rc=True)
+    root_mapping = rc_p_mapping | rc_s_mapping
 
     # mapping to D6h and Oh.
     p_mapping = create_mapping(p_rep, p_data, p_oh, p_d6h, mapping_oh, mapping_d6h, rc=False)
@@ -197,12 +204,12 @@ def create_mapping_all():
 # ==================================================
 def create_file():
     cur_dir = os.path.dirname(os.path.abspath(__file__))
-    out_file = os.path.join(cur_dir, "data_root_cluster.py")
+    out_file = os.path.join(cur_dir, "data_op_mapping.py")
 
     root_mapping, d6h_oh_mapping = create_mapping_all()
 
     with open(out_file, "w", encoding="utf-8") as f:
-        print("op_mapping_d6h_oh =", d6h_oh_mapping, file=f)
+        print("op_mapping_d6h_oh_cluster =", d6h_oh_mapping, file=f)
         print("", file=f)
         print("op_mapping_root_cluster =", root_mapping, file=f)
 

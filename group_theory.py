@@ -8,7 +8,7 @@ import sympy as sp
 from multipie import Group
 from multipie.util.util import str_to_sympy
 from multipiegen.data.data_root_cluster import root_cluster_cart, oh_cluster_frac, d6h_cluster_frac, root_cluster_cart_site0
-from multipiegen.data.data_op_mapping import op_mapping_root_cluster, op_mapping_d6h_oh
+from multipiegen.data.data_op_mapping import op_mapping_root_cluster, op_mapping_d6h_oh_cluster
 from multipiegen.data.data_parent_pg import data_parent_pg, data_representative_parent_pg
 from multipiegen.data.data_parent_sg import data_parent_sg, data_representative_parent_sg
 
