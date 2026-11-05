@@ -1,8 +1,29 @@
-from multipiegen.data.data_top_harmonics import top_harmonics, top_harmonics_tag
+"""
+Create harmonics mapping from D6h and Oh to each PG.
+    - harmonics_mapping: mapping and coeffcient to each PG.
+"""
+
+import sys
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+import os
+from multipiegen.data.data_top_harmonics import top_harmonics_tag
 from multipiegen.data.data_compatibility_relation import compatibility_relation
 
+# ==================================================
 # polar (Q) and axial (G).
 HARMONICS_TYPES = ("Q", "G")
+
+# ==================================================
+header = """
+Mapping of harmonics key to each PG.
+
+- data_harmonics_mapping.
+    { PG: { "top": "Oh/D6h", "Q/G": { pg_harm_key: (coeff, top_harm_key) } } }.
+    pg_harm_key = (rank, irrep, multiplicity (1-based), component (0-based)) [-1: no multiplicity/single component]
+    top_harm_key = (rank, irrep, multiplicity, component)
+"""
 
 
 # ==================================================
@@ -52,12 +73,13 @@ def create_mapping(group_tag):
     top, cr = compatibility_relation[group_tag]
 
     mapping = {X: {} for X in HARMONICS_TYPES}
+    mapping["top"] = top
     for rank, irrep, mul, comp in top_harmonics_tag[top]:
         polar, axial = cr[(irrep, comp)]
         for X, (sub_irrep, sub_comp, coeff) in zip(HARMONICS_TYPES, (polar, axial)):
             top_irrep, top_comp = _top_irrep_comp(irrep, comp, sub_irrep)
             key = (rank, sub_irrep, sub_comp)
-            mapping[X].setdefault(key, []).append((coeff, (top, rank, top_irrep, mul, top_comp)))
+            mapping[X].setdefault(key, []).append((coeff, (rank, top_irrep, mul, top_comp)))
 
     return mapping
 
@@ -93,6 +115,8 @@ def renumber_multiplicity(mapping):
         - n = -1 if only one top harmonics belongs to the key, otherwise n = 1, 2, ... in the list order.
     """
     renumbered = {X: {} for X in HARMONICS_TYPES}
+    renumbered["top"] = mapping["top"]
+    del mapping["top"]
     for X, mapping_X in mapping.items():
         for (rank, irrep, comp), data in mapping_X.items():
             if len(data) == 1:
@@ -104,15 +128,23 @@ def renumber_multiplicity(mapping):
 
 
 # ==================================================
-def output_mapping():
-    """
-    Output only mapping.
-    """
+def create_harmonics_mapping():
     group_tags = list(compatibility_relation)
     mappings = create_mappings(group_tags)
     mappings = {tag: renumber_multiplicity(m) for tag, m in mappings.items()}
 
-    print(mappings)
+    return mappings
 
 
-output_mapping()
+# ==================================================
+def create_file():
+    cur_dir = os.path.dirname(os.path.abspath(__file__))
+    out_file = os.path.join(cur_dir, "data_harmonics_mapping.py")
+    mapping = create_harmonics_mapping()
+    with open(out_file, "w", encoding="utf-8") as f:
+        print('"""' + header + '"""', file=f)
+        print("data_harmonics_mapping =", mapping, file=f)
+
+
+# ==================================================
+create_file()

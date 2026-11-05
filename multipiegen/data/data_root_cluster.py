@@ -4,8 +4,8 @@ Definition of root cluseter.
 - root_cluster_cart_site0 (str): representative site of root cluster.
 - root_cluster_cart_vector0 (str): representative vector of root cluster.
 - root_cluster_scale (int): scale factor (site -> site/scale).
-- oh_cluster_frac (str): sites of Oh cluster (first=[x,y,z]).
-- d6h_cluster_frac (str): sites of D6h cluster (first=[x,y,z]).
+- oh_cluster_cart (str): sites of Oh cluster (first=[x,y,z]).
+- d6h_cluster_cart (str): sites of D6h cluster (first=[x,y,z]).
 - root_cluster_cart (str): sites of root cluster (first=[x,y,z]). [future extension]
 
 note:
@@ -35,15 +35,15 @@ root_cluster_cart_vector0 = "[sqrt(3),5,2]"
 root_cluster_scale = 5
 
 # ==================================================
-# positions of oh0 cluster in fractional coordinate (48 points).
+# positions of oh0 cluster in cartesian coordinate (48 points).
 #   principal axis [001].
-oh_cluster_frac = "[[x,y,z],[-x,-y,z],[-x,y,-z],[x,-y,-z],[z,x,y],[z,-x,-y],[-z,-x,y],[-z,x,-y],[y,z,x],[-y,z,-x],[y,-z,-x],[-y,-z,x],[y,x,-z],[-y,-x,-z],[y,-x,z],[-y,x,z],[x,z,-y],[-x,z,y],[-x,-z,-y],[x,-z,y],[z,y,-x],[z,-y,x],[-z,y,x],[-z,-y,-x],[-x,-y,-z],[x,y,-z],[x,-y,z],[-x,y,z],[-z,-x,-y],[-z,x,y],[z,x,-y],[z,-x,y],[-y,-z,-x],[y,-z,x],[-y,z,x],[y,z,-x],[-y,-x,z],[y,x,z],[-y,x,-z],[y,-x,-z],[-x,-z,y],[x,-z,-y],[x,z,y],[-x,z,-y],[-z,-y,x],[-z,y,-x],[z,-y,-x],[z,y,x]]"
+oh_cluster_cart = "[[x,y,z],[-x,-y,z],[-x,y,-z],[x,-y,-z],[z,x,y],[z,-x,-y],[-z,-x,y],[-z,x,-y],[y,z,x],[-y,z,-x],[y,-z,-x],[-y,-z,x],[y,x,-z],[-y,-x,-z],[y,-x,z],[-y,x,z],[x,z,-y],[-x,z,y],[-x,-z,-y],[x,-z,y],[z,y,-x],[z,-y,x],[-z,y,x],[-z,-y,-x],[-x,-y,-z],[x,y,-z],[x,-y,z],[-x,y,z],[-z,-x,-y],[-z,x,y],[z,x,-y],[z,-x,y],[-y,-z,-x],[y,-z,x],[-y,z,x],[y,z,-x],[-y,-x,z],[y,x,z],[-y,x,-z],[y,-x,-z],[-x,-z,y],[x,-z,-y],[x,z,y],[-x,z,-y],[-z,-y,x],[-z,y,-x],[z,-y,-x],[z,y,x]]"
 
 # ==================================================
-# positions of D6h cluster in fractional coordinate (24 points).
+# positions of D6h cluster in cartesian coordinate (24 points).
 #   principal axis [001].
 #   these points coincide with those in d6h0 cluster, when principal axis is taken as [111].
-d6h_cluster_frac = "[[-2sqrt(2)x/3+sqrt(2)y/3+sqrt(2)z/3,-sqrt(2)x/3-sqrt(2)y/3+2sqrt(2)z/3,sqrt(3)x/3+sqrt(3)y/3+sqrt(3)z/3],[sqrt(2)x/3+sqrt(2)y/3-2sqrt(2)z/3,-sqrt(2)x/3+2sqrt(2)y/3-sqrt(2)z/3,sqrt(3)x/3+sqrt(3)y/3+sqrt(3)z/3],[sqrt(2)x/3-2sqrt(2)y/3+sqrt(2)z/3,2sqrt(2)x/3-sqrt(2)y/3-sqrt(2)z/3,sqrt(3)x/3+sqrt(3)y/3+sqrt(3)z/3],[2sqrt(2)x/3-sqrt(2)y/3-sqrt(2)z/3,sqrt(2)x/3+sqrt(2)y/3-2sqrt(2)z/3,sqrt(3)x/3+sqrt(3)y/3+sqrt(3)z/3],[-sqrt(2)x/3-sqrt(2)y/3+2sqrt(2)z/3,sqrt(2)x/3-2sqrt(2)y/3+sqrt(2)z/3,sqrt(3)x/3+sqrt(3)y/3+sqrt(3)z/3],[-sqrt(2)x/3+2sqrt(2)y/3-sqrt(2)z/3,-2sqrt(2)x/3+sqrt(2)y/3+sqrt(2)z/3,sqrt(3)x/3+sqrt(3)y/3+sqrt(3)z/3],[-sqrt(2)x/3-sqrt(2)y/3+2sqrt(2)z/3,-2sqrt(2)x/3+sqrt(2)y/3+sqrt(2)z/3,-sqrt(3)x/3-sqrt(3)y/3-sqrt(3)z/3],[-sqrt(2)x/3+2sqrt(2)y/3-sqrt(2)z/3,sqrt(2)x/3+sqrt(2)y/3-2sqrt(2)z/3,-sqrt(3)x/3-sqrt(3)y/3-sqrt(3)z/3],[2sqrt(2)x/3-sqrt(2)y/3-sqrt(2)z/3,sqrt(2)x/3-2sqrt(2)y/3+sqrt(2)z/3,-sqrt(3)x/3-sqrt(3)y/3-sqrt(3)z/3],[sqrt(2)x/3+sqrt(2)y/3-2sqrt(2)z/3,2sqrt(2)x/3-sqrt(2)y/3-sqrt(2)z/3,-sqrt(3)x/3-sqrt(3)y/3-sqrt(3)z/3],[sqrt(2)x/3-2sqrt(2)y/3+sqrt(2)z/3,-sqrt(2)x/3-sqrt(2)y/3+2sqrt(2)z/3,-sqrt(3)x/3-sqrt(3)y/3-sqrt(3)z/3],[-2sqrt(2)x/3+sqrt(2)y/3+sqrt(2)z/3,-sqrt(2)x/3+2sqrt(2)y/3-sqrt(2)z/3,-sqrt(3)x/3-sqrt(3)y/3-sqrt(3)z/3],[2sqrt(2)x/3-sqrt(2)y/3-sqrt(2)z/3,sqrt(2)x/3+sqrt(2)y/3-2sqrt(2)z/3,-sqrt(3)x/3-sqrt(3)y/3-sqrt(3)z/3],[-sqrt(2)x/3-sqrt(2)y/3+2sqrt(2)z/3,sqrt(2)x/3-2sqrt(2)y/3+sqrt(2)z/3,-sqrt(3)x/3-sqrt(3)y/3-sqrt(3)z/3],[-sqrt(2)x/3+2sqrt(2)y/3-sqrt(2)z/3,-2sqrt(2)x/3+sqrt(2)y/3+sqrt(2)z/3,-sqrt(3)x/3-sqrt(3)y/3-sqrt(3)z/3],[-2sqrt(2)x/3+sqrt(2)y/3+sqrt(2)z/3,-sqrt(2)x/3-sqrt(2)y/3+2sqrt(2)z/3,-sqrt(3)x/3-sqrt(3)y/3-sqrt(3)z/3],[sqrt(2)x/3+sqrt(2)y/3-2sqrt(2)z/3,-sqrt(2)x/3+2sqrt(2)y/3-sqrt(2)z/3,-sqrt(3)x/3-sqrt(3)y/3-sqrt(3)z/3],[sqrt(2)x/3-2sqrt(2)y/3+sqrt(2)z/3,2sqrt(2)x/3-sqrt(2)y/3-sqrt(2)z/3,-sqrt(3)x/3-sqrt(3)y/3-sqrt(3)z/3],[sqrt(2)x/3+sqrt(2)y/3-2sqrt(2)z/3,2sqrt(2)x/3-sqrt(2)y/3-sqrt(2)z/3,sqrt(3)x/3+sqrt(3)y/3+sqrt(3)z/3],[sqrt(2)x/3-2sqrt(2)y/3+sqrt(2)z/3,-sqrt(2)x/3-sqrt(2)y/3+2sqrt(2)z/3,sqrt(3)x/3+sqrt(3)y/3+sqrt(3)z/3],[-2sqrt(2)x/3+sqrt(2)y/3+sqrt(2)z/3,-sqrt(2)x/3+2sqrt(2)y/3-sqrt(2)z/3,sqrt(3)x/3+sqrt(3)y/3+sqrt(3)z/3],[-sqrt(2)x/3-sqrt(2)y/3+2sqrt(2)z/3,-2sqrt(2)x/3+sqrt(2)y/3+sqrt(2)z/3,sqrt(3)x/3+sqrt(3)y/3+sqrt(3)z/3],[-sqrt(2)x/3+2sqrt(2)y/3-sqrt(2)z/3,sqrt(2)x/3+sqrt(2)y/3-2sqrt(2)z/3,sqrt(3)x/3+sqrt(3)y/3+sqrt(3)z/3],[2sqrt(2)x/3-sqrt(2)y/3-sqrt(2)z/3,sqrt(2)x/3-2sqrt(2)y/3+sqrt(2)z/3,sqrt(3)x/3+sqrt(3)y/3+sqrt(3)z/3]]"
+d6h_cluster_cart = "[[sqrt(2)(-x+y)/2,sqrt(6)(-x-y+2z)/6,sqrt(3)(x+y+z)/3],[sqrt(2)(x-z)/2,sqrt(6)(-x+2y-z)/6,sqrt(3)(x+y+z)/3],[sqrt(2)(-y+z)/2,sqrt(6)(2x-y-z)/6,sqrt(3)(x+y+z)/3],[sqrt(2)(x-y)/2,sqrt(6)(x+y-2z)/6,sqrt(3)(x+y+z)/3],[sqrt(2)(-x+z)/2,sqrt(6)(x-2y+z)/6,sqrt(3)(x+y+z)/3],[sqrt(2)(y-z)/2,sqrt(6)(-2x+y+z)/6,sqrt(3)(x+y+z)/3],[sqrt(2)(-y+z)/2,sqrt(6)(-2x+y+z)/6,sqrt(3)(-x-y-z)/3],[sqrt(2)(-x+y)/2,sqrt(6)(x+y-2z)/6,sqrt(3)(-x-y-z)/3],[sqrt(2)(x-z)/2,sqrt(6)(x-2y+z)/6,sqrt(3)(-x-y-z)/3],[sqrt(2)(y-z)/2,sqrt(6)(2x-y-z)/6,sqrt(3)(-x-y-z)/3],[sqrt(2)(x-y)/2,sqrt(6)(-x-y+2z)/6,sqrt(3)(-x-y-z)/3],[sqrt(2)(-x+z)/2,sqrt(6)(-x+2y-z)/6,sqrt(3)(-x-y-z)/3],[sqrt(2)(x-y)/2,sqrt(6)(x+y-2z)/6,sqrt(3)(-x-y-z)/3],[sqrt(2)(-x+z)/2,sqrt(6)(x-2y+z)/6,sqrt(3)(-x-y-z)/3],[sqrt(2)(y-z)/2,sqrt(6)(-2x+y+z)/6,sqrt(3)(-x-y-z)/3],[sqrt(2)(-x+y)/2,sqrt(6)(-x-y+2z)/6,sqrt(3)(-x-y-z)/3],[sqrt(2)(x-z)/2,sqrt(6)(-x+2y-z)/6,sqrt(3)(-x-y-z)/3],[sqrt(2)(-y+z)/2,sqrt(6)(2x-y-z)/6,sqrt(3)(-x-y-z)/3],[sqrt(2)(y-z)/2,sqrt(6)(2x-y-z)/6,sqrt(3)(x+y+z)/3],[sqrt(2)(x-y)/2,sqrt(6)(-x-y+2z)/6,sqrt(3)(x+y+z)/3],[sqrt(2)(-x+z)/2,sqrt(6)(-x+2y-z)/6,sqrt(3)(x+y+z)/3],[sqrt(2)(-y+z)/2,sqrt(6)(-2x+y+z)/6,sqrt(3)(x+y+z)/3],[sqrt(2)(-x+y)/2,sqrt(6)(x+y-2z)/6,sqrt(3)(x+y+z)/3],[sqrt(2)(x-z)/2,sqrt(6)(x-2y+z)/6,sqrt(3)(x+y+z)/3]]"
 
 # ==================================================
 # positions of root cluster in cartesian coordinate (24x4=96 points).

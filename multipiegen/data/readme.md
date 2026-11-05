@@ -3,11 +3,14 @@
 ## new
 
 - data_basis.py: atomic and multipolar PG harmonics basis (original)
-- data_harmonics.py: harmonics (original)
 - data_op_mapping.py: operation mapping (original)
 - data_parent_pg.py: parent PG from child PG (original)
 - data_parent_sg.py: parent SG from child SG (original)
 - data_root_cluster.py: root cluster (original)
+- data_harmonics_mapping.py: mapping of harmonics keys (original)
+- data_top_harmonics_info.py: harmonics information (original)
+
+- data_harmonics.py: harmonics (original)
 
 ## from MultiPie Ver.2.4.0
 

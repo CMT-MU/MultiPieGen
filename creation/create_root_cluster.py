@@ -1,7 +1,7 @@
 """
 Create root cluster.
-    - oh_cluster_frac: points of D6h cluster in fractional coordinate (=d6h0 when principal axis is taken to be [111]).
-    - d6h_cluster_frac: points of Oh cluster in fractional coordinate (=oh0).
+    - oh_cluster_cart: points of D6h cluster in cartesian coordinate (=d6h0 when principal axis is taken to be [111]).
+    - d6h_cluster_cart: points of Oh cluster in cartesian coordinate (=oh0).
     - root_cluster_cart: points of root cluster in cartesian coordinate.
 """
 
@@ -51,9 +51,10 @@ def create_root_cluster():
 # ==================================================
 def create_d6h_001_cluster():
     x, y, z = sp.symbols("x y z", real=True)
-    x0 = Ti @ np.array(Rci) @ np.array([x, y, z])
+    x0 = np.array(Rci) @ np.array([x, y, z])
     gr = Group("D6h")
-    xi = gr.symmetry_operation["fractional"] @ x0
+    xi = gr.symmetry_operation["cartesian"] @ x0
+    xi = np.array([sp.simplify(i) for i in xi])
     xi = str(xi.tolist()).replace(" ", "").replace("*", "")
     return xi
 
@@ -63,7 +64,8 @@ def create_oh_cluster():
     x, y, z = sp.symbols("x y z", real=True)
     x0 = np.array([x, y, z])
     gr = Group("Oh")
-    xi = gr.symmetry_operation["fractional"] @ x0
+    xi = gr.symmetry_operation["cartesian"] @ x0
+    xi = np.array([sp.simplify(i) for i in xi])
     xi = str(xi.tolist()).replace(" ", "").replace("*", "")
     return xi
 
@@ -98,11 +100,13 @@ def create_file():
     oh_cluster = create_oh_cluster()
 
     with open(out_file, "w", encoding="utf-8") as f:
-        print("oh_cluster_frac =", oh_cluster, file=f)
+        # print("oh_cluster_frac =", oh_cluster, file=f)
+        print(f'oh_cluster_cart = "{oh_cluster}"', file=f)
         print("", file=f)
-        print("d6h_cluster_frac =", d6h_cluster, file=f)
+        # print("d6h_cluster_frac =", d6h_cluster, file=f)
+        print(f'd6h_cluster_cart = "{d6h_cluster}"', file=f)
         print("", file=f)
-        print("root_cluster_cart =", root_cluster, file=f)
+        print(f'root_cluster_cart = "{root_cluster}"', file=f)
 
     if check_oh(root_cluster):
         print("no error")
