@@ -132,82 +132,100 @@ cubic_basis = [sum([[f"({m},{s})" for s in atomic_spin_basis] for m in rank], []
 hexagonal_basis = [sum([[f"({m},{s})" for s in atomic_spin_basis] for m in rank], []) for rank in hexagonal_orbital_basis]
 
 # ==================================================
-# convert to cubic latex name up to rank 4 (+alpha) for multipolar PG harmonics and response tensor (add prefix Q/G/T/M).
-cubic_latex_name = {
-    # rank 0
-    "s": "_0",
-    # rank 1
-    "px": "_x",
-    "py": "_y",
-    "pz": "_z",
-    # rank 2
-    "du": "_u",
-    "dv": "_v",
-    "dyz": "_{yz}",
-    "dxz": "_{xz}",
+# convert to latex name up to for internal basis of multipolar PG harmonics and response tensor (add prefix Q/G/T/M).
+orbital_latex_name = {
+    # common for orbital(tesseral), cubic, hexagonal.
+    "s": "_{0}",
+    "px": "_{x}",
+    "py": "_{y}",
+    "pz": "_{z}",
+    "dv": "_{v}",
     "dxy": "_{xy}",
-    # rank 3
-    "f3": "_{xyz}",
-    "fax": r"_x^\alpha",
-    "fay": r"_y^\alpha",
-    "faz": r"_z^\alpha",
-    "fbx": r"_x^\beta",
-    "fby": r"_y^\beta",
-    "fbz": r"_z^\beta",
-    # rank 4
-    "g": "_4",
-    "gu": "_{4u}",
-    "gv": "_{4v}",
-    "gax": r"_{4x}^\alpha",
-    "gay": r"_{4y}^\alpha",
-    "gaz": r"_{4z}^\alpha",
-    "gbx": r"_{4x}^\beta",
-    "gby": r"_{4y}^\beta",
-    "gbz": r"_{4z}^\beta",
-    # rank 5
-    "hu": "_{5u}",
-    "hv": "_{5v}",
-    # rank 6
-    "i": "_{6a}",
-    # rank 9
-    "l": "_9",
-}
-
-# ==================================================
-# convert to hexagonal latex name up to rank 4 (+alpha) for multipolar PG harmonics and response tensor.
-hexagonal_latex_name = {
-    # rank 0
-    "s": "_0",
-    # rank 1
-    "px": "_x",
-    "py": "_y",
-    "pz": "_z",
-    # rank 2
-    "du": "_u",
-    "dv": "_v",
-    "dyz": "_{yz}",
     "dxz": "_{xz}",
-    "dxy": "_{xy}",
-    # rank 3
-    "f1": "_{3b}",
+    "dyz": "_{yz}",
+    "du": "_{u}",
     "f2": "_{3a}",
+    "f1": "_{3b}",
+    "fbz": r"_{z}^{\beta}",
     "f3": "_{xyz}",
     "f3x": "_{3u}",
     "f3y": "_{3v}",
-    "faz": r"_z^\alpha",
-    "fbz": r"_z^\beta",
-    # rank 4
+    "faz": r"_{z}^{\alpha}",
+    # for cubic.
+    "fax": r"_{x}^{\alpha}",
+    "fay": r"_{y}^{\alpha}",
+    "fbx": r"_{x}^{\beta}",
+    "fby": r"_{y}^{\beta}",
+    "g": "_{4}",
+    "gu": "_{4u}",
+    "gv": "_{4v}",
+    "gax": r"_{4x}^{\alpha}",
+    "gay": r"_{4y}^{\alpha}",
+    "gaz": r"_{4z}^{\alpha}",
+    "gbx": r"_{4x}^{\beta}",
+    "gby": r"_{4y}^{\beta}",
+    "gbz": r"_{4z}^{\beta}",
+    "hu": "_{5u}",
+    "hv": "_{5v}",
+    "i": "_{6a}",
+    "l": "_{9}",
+    # for hexagonal.
     "g0": "_{40}",
     "ga": "_{4b}",
     "gb": "_{4a}",
     "gc": r"_{4u}^{\beta1}",
-    "gv": r"_{4u}^{\beta2}",
-    "gau": r"_{4v}^\alpha",
-    "gav": r"_{4u}^\alpha",
-    "gaz": r"_{4v}^{\beta1}",
-    "gbz": r"_{4v}^{\beta2}",
-    # rank 6
+    "gau": r"_{4v}^{\alpha}",
+    "gav": r"_{4u}^{\alpha}",
     "i0": "_{6b}",
-    # rank 7
-    "j": "_7",
+    "j": "_{7}",
+}
+
+# ==================================================
+# convert from name to key, ("tesseral", (l,m)), ("Oh", (rank, irrep, mul, comp)), ("D6h", (rank, irrep, mul, comp)).
+# negative m represents S, otherwise C.
+harmonics_key = {
+    # common for orbital(tesseral), cubic, hexagonal.
+    "s": ("tesseral", (0, 0)),
+    "px": ("tesseral", (1, 1)),
+    "py": ("tesseral", (1, -1)),
+    "pz": ("tesseral", (1, 0)),
+    "dv": ("tesseral", (2, 2)),
+    "dxy": ("tesseral", (2, -2)),
+    "dxz": ("tesseral", (2, 1)),
+    "dyz": ("tesseral", (2, -1)),
+    "du": ("tesseral", (2, 0)),
+    "f2": ("tesseral", (3, 3)),
+    "f1": ("tesseral", (3, -3)),
+    "fbz": ("tesseral", (3, 2)),
+    "f3": ("tesseral", (3, -2)),
+    "f3x": ("tesseral", (3, 1)),
+    "f3y": ("tesseral", (3, -1)),
+    "faz": ("tesseral", (3, 0)),
+    # for cubic.
+    "fax": ("Oh", (3, "T1u", -1, 0)),
+    "fay": ("Oh", (3, "T1u", -1, 1)),
+    "fbx": ("Oh", (3, "T2u", -1, 0)),
+    "fby": ("Oh", (3, "T2u", -1, 1)),
+    "g": ("Oh", (4, "A1g", -1, -1)),
+    "gu": ("Oh", (4, "Eg", -1, 0)),
+    "gv": ("Oh", (4, "Eg", -1, 1)),  # -gv
+    "gax": ("Oh", (4, "T1g", -1, 0)),
+    "gay": ("Oh", (4, "T1g", -1, 1)),
+    "gaz": ("Oh", (4, "T1g", -1, 2)),
+    "gbx": ("Oh", (4, "T2g", -1, 0)),
+    "gby": ("Oh", (4, "T2g", -1, 1)),
+    "gbz": ("Oh", (4, "T2g", -1, 2)),
+    "hu": ("Oh", (5, "Eu", -1, 0)),
+    "hv": ("Oh", (5, "Eu", -1, 1)),
+    "i": ("Oh", (6, "A2g", -1, -1)),
+    "l": ("Oh", (9, "A1u", -1, -1)),
+    # for hexagonal.
+    "g0": ("D6h", (4, "A1g", -1, -1)),
+    "ga": ("D6h", (4, "B1g", -1, -1)),
+    "gb": ("D6h", (4, "B2g", -1, -1)),
+    "gc": ("D6h", (4, "E2g", 1, 0)),
+    "gau": ("D6h", (4, "E1g", -1, 0)),
+    "gav": ("D6h", (4, "E1g", -1, 1)),
+    "i0": ("D6h", (6, "A2g", -1, -1)),
+    "j": ("D6h", (7, "A1u", -1, -1)),
 }

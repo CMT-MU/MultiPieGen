@@ -6,6 +6,11 @@
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 """
+Note:
+definitions of ("D6h", 4, "E2g", 2, 0) and ("D6h", 4, "E2g", 2, 1) are changed. (both is multiplied by (-1))
+"""
+
+"""
 Harmonics tag upto rank 11 for Oh and D6h (polar, real only).
     [(rank, irrep, multiplicity, component)].
 """
@@ -987,8 +992,8 @@ top_harmonics = {
     ("D6h", 4, "E1g", -1, 1): ("-C1", "sqrt(10)*x*z*(3*x**2+3*y**2-4*z**2)/4", "[0,0,0,sqrt(2)/2,0,-sqrt(2)/2,0,0,0]"),
     ("D6h", 4, "E2g", 1, 0): ("C4", "sqrt(35)*(x**2-2*x*y-y**2)*(x**2+2*x*y-y**2)/8", "[sqrt(2)/2,0,0,0,0,0,0,0,sqrt(2)/2]"),
     ("D6h", 4, "E2g", 1, 1): ("S4", "sqrt(35)*x*y*(x-y)*(x+y)/2", "[-sqrt(2)*I/2,0,0,0,0,0,0,0,sqrt(2)*I/2]"),
-    ("D6h", 4, "E2g", 2, 0): ("C2", "-sqrt(5)*(x-y)*(x+y)*(x**2+y**2-6*z**2)/4", "[0,0,sqrt(2)/2,0,0,0,sqrt(2)/2,0,0]"),
-    ("D6h", 4, "E2g", 2, 1): ("-S2", "sqrt(5)*x*y*(x**2+y**2-6*z**2)/2", "[0,0,sqrt(2)*I/2,0,0,0,-sqrt(2)*I/2,0,0]"),
+    ("D6h", 4, "E2g", 2, 0): ("-C2", "sqrt(5)*(x-y)*(x+y)*(x**2+y**2-6*z**2)/4", "[0,0,-sqrt(2)/2,0,0,0,-sqrt(2)/2,0,0]"),
+    ("D6h", 4, "E2g", 2, 1): ("S2", "-sqrt(5)*x*y*(x**2+y**2-6*z**2)/2", "[0,0,-sqrt(2)*I/2,0,0,0,sqrt(2)*I/2,0,0]"),
     ("D6h", 5, "A2u", -1, -1): (
         "C0",
         "z*(15*x**4+30*x**2*y**2-40*x**2*z**2+15*y**4-40*y**2*z**2+8*z**4)/8",

@@ -22,6 +22,7 @@
 - data_group_sg.py: space group (original)
 - data_group_name_list.py: group name (original)
 - data_top_harmonics.py: harmonics of D6h and Oh (orignal)
+- data_top_harmonics_info.py: information of harmonics (orignal)
 - data_wyckoff_site.py: wyckoff site for PG and SG (original)
 - data_wyckoff_bond.py: wyckoff bond for PG and SG (original) [to add site symmetry]
 - data_wyckoff_mpg.py: wyckoff site for MPG (original)
