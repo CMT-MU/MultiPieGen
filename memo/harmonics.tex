@@ -221,7 +221,7 @@ $O_{\rm h}$ ($D_{\rm 6h}$)の$E$, $T$表現($E$表現)の順序と符号は、$4
 name & irrep. (axial) & expression & $4_{001}^{+}$ & $3_{111}^{+}$ \\ \hline
 {\tt s} & $A_{1g}$ ($A_{1u}$) & $1$ & $(1)$ & $(1)$ \\
 {\tt g} & & $\frac{\sqrt{21}}{12}[5(x^4+y^4+z^4)-3r^4]$ & & \\ \hline
-{\tt i} & $A_{2g}$ ($A_{2u}$) & $\frac{\sqrt{2310}}{8}(y^{2}-z^{2})(z^{2}-x^{2})(x^{2}-y^{2})$ & $(-1)$ & $(1)$ \\ \hline
+{\tt i} \textcolor{red}{(i3)} & $A_{2g}$ ($A_{2u}$) & $\frac{\sqrt{2310}}{8}(y^{2}-z^{2})(z^{2}-x^{2})(x^{2}-y^{2})$ & $(-1)$ & $(1)$ \\ \hline
 {\tt du} & $E_{g}$ ($E_{u}$) & $\frac{1}{2}(3z^{2}-r^{2})$ & \multirow{2}{*}{$\begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}$} & \multirow{2}{*}{$\begin{pmatrix} -\frac{1}{2} & -\frac{\sqrt{3}}{2} \\ \frac{\sqrt{3}}{2} & -\frac{1}{2} \end{pmatrix}$} \\
 {\tt dv} & & $\frac{\sqrt{3}}{2}(x^{2}-y^{2})$ \\
 {\tt gu} & & $\frac{\sqrt{15}}{12}[7(2z^4-x^4-y^4)-6r^2(3z^2-r^2)]$ & & \\
@@ -235,7 +235,7 @@ name & irrep. (axial) & expression & $4_{001}^{+}$ & $3_{111}^{+}$ \\ \hline
 {\tt gbx} & & $\frac{\sqrt{5}}{2}yz(7x^2-r^2)$ & & \\
 {\tt gby} & & $\frac{\sqrt{5}}{2}zx(7y^2-r^2)$ & & \\
 {\tt gbz} & & $\frac{\sqrt{5}}{2}xy(7z^2-r^2)$ & & \\ \hline
-{\tt l} & $A_{1u}$ ($A_{1g}$) & $\frac{\sqrt{510510}}{8}xyz(y^2-z^2)(z^2-x^2)(x^2-y^2)$ & $(1)$ & $(1)$ \\ \hline
+{\tt l} \textcolor{red}{(l3)} & $A_{1u}$ ($A_{1g}$) & $\frac{\sqrt{510510}}{8}xyz(y^2-z^2)(z^2-x^2)(x^2-y^2)$ & $(1)$ & $(1)$ \\ \hline
 {\tt f3} & $A_{2u}$ ($A_{2g}$) & $\sqrt{15}xyz$ & $(-1)$ & $(1)$ \\ \hline
 {\tt hu} & $E_{u}$ ($E_{g}$) & $\frac{3 \sqrt{35}}{2}xyz(x^{2}-y^{2})$ & \multirow{2}{*}{$\begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}$} & \multirow{2}{*}{$\begin{pmatrix} -\frac{1}{2} & -\frac{\sqrt{3}}{2} \\ \frac{\sqrt{3}}{2} & -\frac{1}{2} \end{pmatrix}$} \\
 {\tt hv} & & $-\frac{\sqrt{105}}{2}xyz(3z^{2}-r^{2})$ \\ \hline
@@ -260,25 +260,25 @@ name & irrep. (axial) & expression & $4_{001}^{+}$ & $3_{111}^{+}$ \\ \hline
 name & irrep. (axial) & expression & $2_{100}$ & $6_{001}^{+}$ \\ \hline
 {\tt s} \quad[{\tt du}] & $A_{1g}$ ($A_{1u}$) & $1$ \quad\quad[$\frac{1}{2}(3z^{2}-r^{2})$] & $(1)$ & $(1)$ \\
 {\tt g0} & & $\frac{1}{8}[35z^4-3r^2(10z^2-r^2)]$ & \\ \hline
-{\tt i0} & $A_{2g}$ ($A_{2u}$) & $\frac{\sqrt{462}}{16}xy(x^{2}-3y^{2})(3x^{2}-y^{2})$ & $(-1)$ & $(1)$ \\ \hline
-{\tt ga} & $B_{1g}$ ($B_{1u}$) & $\frac{\sqrt{70}}{4}xz(x^{2}-3y^{2})$ & $(-1)$ & $(-1)$ \\ \hline
-{\tt gb} & $B_{2g}$ ($B_{2u}$) & $\frac{\sqrt{70}}{4}yz(3x^{2}-y^{2})$ & $(1)$ & $(-1)$ \\ \hline
+{\tt i0} \textcolor{red}{(ixy)} & $A_{2g}$ ($A_{2u}$) & $\frac{\sqrt{462}}{16}xy(x^{2}-3y^{2})(3x^{2}-y^{2})$ & $(-1)$ & $(1)$ \\ \hline
+{\tt ga} \textcolor{red}{(gc)} & $B_{1g}$ ($B_{1u}$) & $\frac{\sqrt{70}}{4}xz(x^{2}-3y^{2})$ & $(-1)$ & $(-1)$ \\ \hline
+{\tt gb} \textcolor{red}{(gs)} & $B_{2g}$ ($B_{2u}$) & $\frac{\sqrt{70}}{4}yz(3x^{2}-y^{2})$ & $(1)$ & $(-1)$ \\ \hline
 {\tt dyz} & $E_{1g}$ ($E_{1u}$) & $\sqrt{3}yz$ & \multirow{2}{*}{$\begin{pmatrix}1&0\\0&-1\end{pmatrix}$} & \multirow{2}{*}{$\begin{pmatrix}\frac{1}{2}&-\frac{\sqrt{3}}{2}\\\frac{\sqrt{3}}{2}&\frac{1}{2}\end{pmatrix}$} \\
 {\tt dxz'} & & $-\sqrt{3}xz$ \\
 {\tt gau} & & $\frac{\sqrt{10}}{4}yz(7z^2-3r^2)$ \\
 {\tt gav} & & $-\frac{\sqrt{10}}{4}xz(7z^2-3r^2)$ \\ \hline
 {\tt dv} & $E_{2g}$ ($E_{2u}$) & $\frac{\sqrt{3}}{2}(x^{2}-y^{2})$ & \multirow{2}{*}{$\begin{pmatrix}1&0\\0&-1\end{pmatrix}$} & \multirow{2}{*}{$\begin{pmatrix}-\frac{1}{2}&\frac{\sqrt{3}}{2}\\-\frac{\sqrt{3}}{2}&-\frac{1}{2}\end{pmatrix}$} \\
 {\tt dxy'} & & $-\sqrt{3}xy$ \\
-{\tt gc} & & $\frac{\sqrt{35}}{8}[4(x^4+y^4)-3z^4+3r^2(2z^2-r^2)]$ \\
+{\tt gc} \textcolor{red}{(gc4)} & & $\frac{\sqrt{35}}{8}[4(x^4+y^4)-3z^4+3r^2(2z^2-r^2)]$ \\
 {\tt gaz} & & $\frac{\sqrt{35}}{2}xy(x^2-y^2)$ \\
 {\tt gv} & & $\textcolor{red}{-}\frac{\sqrt{5}}{4}(x^2-y^2)(7z^2-r^2)$ \\
 \textcolor{red}{{\tt gbz}} & & $\frac{\sqrt{5}}{2}xy(7z^2-r^2)$ \\ \hline
-{\tt j} & $A_{1u}$ ($A_{1g}$) & $\frac{\sqrt{6006}}{16}xyz(x^{2}-3y^{2})(3x^{2}-y^{2})$ & $(1)$ & $(1)$ \\ \hline
+{\tt j} \textcolor{red}{(j3)} & $A_{1u}$ ($A_{1g}$) & $\frac{\sqrt{6006}}{16}xyz(x^{2}-3y^{2})(3x^{2}-y^{2})$ & $(1)$ & $(1)$ \\ \hline
 {\tt pz} \quad[{\tt faz}] & $A_{2u}$ ($A_{2g}$) & $z$ \quad\quad[$\frac{1}{2}z(5z^{2}-3r^{2})$] & $(-1)$ & $(1)$ \\ \hline
-{\tt f1} & $B_{1u}$ ($B_{1g}$) & $\frac{\sqrt{10}}{4}y(3x^{2}-y^{2})$ & $(-1)$ & $(-1)$ \\ \hline
-{\tt f2} & $B_{2u}$ ($B_{2g}$) & $\frac{\sqrt{10}}{4}x(x^{2}-3y^{2})$ & $(1)$ & $(-1)$ \\ \hline
-{\tt px} \quad[{\tt f3x}] & $E_{1u}$ ($E_{1g}$) & $x$ \quad\quad[$\frac{\sqrt{6}}{4}x(5z^{2}-r^{2})$] & \multirow{2}{*}{$\begin{pmatrix}1&0\\0&-1\end{pmatrix}$} & \multirow{2}{*}{$\begin{pmatrix}\frac{1}{2}&-\frac{\sqrt{3}}{2}\\\frac{\sqrt{3}}{2}&\frac{1}{2}\end{pmatrix}$} \\
-{\tt py} \quad[{\tt f3y}] & & $y$ \quad\quad[$\frac{\sqrt{6}}{4}y(5z^{2}-r^{2})$] \\ \hline
+{\tt f1} \textcolor{red}{(fs)} & $B_{1u}$ ($B_{1g}$) & $\frac{\sqrt{10}}{4}y(3x^{2}-y^{2})$ & $(-1)$ & $(-1)$ \\ \hline
+{\tt f2} \textcolor{red}{(fc)} & $B_{2u}$ ($B_{2g}$) & $\frac{\sqrt{10}}{4}x(x^{2}-3y^{2})$ & $(1)$ & $(-1)$ \\ \hline
+{\tt px} \quad[{\tt f3x}] \textcolor{red}{(fx)} & $E_{1u}$ ($E_{1g}$) & $x$ \quad\quad[$\frac{\sqrt{6}}{4}x(5z^{2}-r^{2})$] & \multirow{2}{*}{$\begin{pmatrix}1&0\\0&-1\end{pmatrix}$} & \multirow{2}{*}{$\begin{pmatrix}\frac{1}{2}&-\frac{\sqrt{3}}{2}\\\frac{\sqrt{3}}{2}&\frac{1}{2}\end{pmatrix}$} \\
+{\tt py} \quad[{\tt f3y}] \textcolor{red}{(fy)} & & $y$ \quad\quad[$\frac{\sqrt{6}}{4}y(5z^{2}-r^{2})$] \\ \hline
 {\tt f3} & $E_{2u}$ ($E_{2g}$) & $\sqrt{15}xyz$ & \multirow{2}{*}{$\begin{pmatrix}1&0\\0&-1\end{pmatrix}$} & \multirow{2}{*}{$\begin{pmatrix}-\frac{1}{2}&\frac{\sqrt{3}}{2}\\-\frac{\sqrt{3}}{2}&-\frac{1}{2}\end{pmatrix}$} \\
 {\tt fbz} & & $\frac{\sqrt{15}}{2}z(x^{2}-y^{2})$ \\
 \hline\hline
@@ -595,12 +595,12 @@ $s$ & $\gamma$ & name & orbital & Wannier90 \\ \hline
   & $s(2,1)$ & {\tt Qyz} ($q_{yz}$) & {\tt dyz} \\
   & $c(2,0)$ & {\tt Qu} ($q_{u}$) &  {\tt du} & {\tt dz2} \\
 \hline
-3 & $c(3,3)$ & {\tt Q2} ($q_{2}$) & {\tt f2} & {\tt fx(x2-3y2)} \\
-  & $s(3,3)$ & {\tt Q1} ($q_{1}$) & {\tt f1} & {\tt fy(3x2-y2)} \\
+3 & $c(3,3)$ & {\tt Q2} ($q_{2}$) & {\tt f2} \textcolor{red}{(3c)} & {\tt fx(x2-3y2)} \\
+  & $s(3,3)$ & {\tt Q1} ($q_{1}$) & {\tt f1} \textcolor{red}{(3s)} & {\tt fy(3x2-y2)} \\
   & $c(3,2)$ & {\tt Qbz} ($q_{bz}$) & {\tt fbz} & {\tt fz(x2-y2)} \\
   & $s(3,2)$ & {\tt Q3} ($q_{3}$) & {\tt f3} & {\tt fxyz} \\
-  & $c(3,1)$ & {\tt Q3x} ($q_{3x}$) & {\tt f3x} & {\tt fxz2} \\
-  & $s(3,1)$ & {\tt Q3y} ($q_{3y}$) & {\tt f3y} & {\tt fyz2} \\
+  & $c(3,1)$ & {\tt Q3x} ($q_{3x}$) & {\tt f3x} \textcolor{red}{(fx)} & {\tt fxz2} \\
+  & $s(3,1)$ & {\tt Q3y} ($q_{3y}$) & {\tt f3y} \textcolor{red}{(fy)} & {\tt fyz2} \\
   & $c(3,0)$ & {\tt Qaz} ($q_{az}$) & {\tt faz} & {\tt fz3} \\
 \hline\hline
 \end{tabular}
@@ -683,7 +683,7 @@ $L$ & basis (hexagonal) \\ \hline
 0 (s) & {\tt s} \\ \hline
 1 (p) & {\tt px}, {\tt py}, {\tt pz} \\ \hline
 2 (d) & {\tt du}, {\tt dxz}, {\tt dyz}, {\tt dxy}, {\tt dv} \\ \hline
-3 (f) & {\tt faz}, {\tt f1}, {\tt f2}, {\tt f3x}, {\tt f3y}, {\tt f3}, {\tt fbz} \\
+3 (f) & {\tt faz}, {\tt f1} \textcolor{red}{(fs)}, {\tt f2} \textcolor{red}{(fc)}, {\tt f3x} \textcolor{red}{(fx)}, {\tt f3y} \textcolor{red}{(fy)}, {\tt f3}, {\tt fbz} \\
 \hline\hline
 \end{tabular}
 \end{center}

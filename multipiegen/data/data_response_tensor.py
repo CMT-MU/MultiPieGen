@@ -7,7 +7,8 @@
 
 """
 Note:
-definition of gv is changed. (it is multiplied by (-1))
+definition of gv is changed. (it is multiplied by (-1)).
+change name.
 """
 
 """
@@ -47,25 +48,25 @@ rt_multipole_list = {
         "s",
         "pz",
         "du",
-        "f1",
-        "f2",
+        "fs",
+        "fc",
         "faz",
         "g0",
-        "ga",
-        "gb",
+        "gc",
+        "gs",
         "px",
         "py",
         "dyz",
         "dxz",
         "dv",
         "dxy",
-        "f3x",
-        "f3y",
+        "fx",
+        "fy",
         "f3",
         "fbz",
         "gau",
         "gav",
-        "gc",
+        "gc4",
         "gaz",
         "gv",
         "gbz",
@@ -122,28 +123,28 @@ rt_cartesian_multipole = {
         "yy": [(-1, "du"), (-1, "dv")],  # same as cubic.
         "yz": [(1, "dyz")],  # same as cubic.
         "zz": [(2, "du")],  # same as cubic.
-        "xxx": [(-3, "f3x"), (1, "f2")],
-        "xxy": [(-1, "f3y"), (1, "f1")],
+        "xxx": [(-3, "fx"), (1, "fc")],
+        "xxy": [(-1, "fy"), (1, "fs")],
         "xxz": [(-1, "faz"), (1, "fbz")],  # same as cubic.
-        "xyy": [(-1, "f3x"), (-1, "f2")],
+        "xyy": [(-1, "fx"), (-1, "fc")],
         "xyz": [(1, "f3")],  # same as cubic.
-        "xzz": [(4, "f3x")],
-        "yyy": [(-3, "f3y"), (-1, "f1")],
+        "xzz": [(4, "fx")],
+        "yyy": [(-3, "fy"), (-1, "fs")],
         "yyz": [(-1, "faz"), (-1, "fbz")],  # same as cubic.
-        "yzz": [(4, "f3y")],
+        "yzz": [(4, "fy")],
         "zzz": [(2, "faz")],  # same as cubic.
-        "xxxx": [(3, "g0"), (1, "gc"), (-1, "gv")],  # fix incorrect expression.
+        "xxxx": [(3, "g0"), (1, "gc4"), (-1, "gv")],  # fix incorrect expression.
         "xxxy": [(1, "gaz"), (-1, "gbz")],  # same as cubic.
-        "xxxz": [(1, "ga"), (-3, "gav")],
-        "xxyy": [(1, "g0"), (-1, "gc")],
-        "xxyz": [(-1, "gau"), (1, "gb")],
+        "xxxz": [(1, "gc"), (-3, "gav")],
+        "xxyy": [(1, "g0"), (-1, "gc4")],
+        "xxyz": [(-1, "gau"), (1, "gs")],
         "xxzz": [(-4, "g0"), (1, "gv")],  # fix incorrect expression.
         "xyyy": [(-1, "gaz"), (-1, "gbz")],  # same as cubic.
-        "xyyz": [(-1, "ga"), (-1, "gav")],
+        "xyyz": [(-1, "gc"), (-1, "gav")],
         "xyzz": [(2, "gbz")],  # same as cubic.
         "xzzz": [(4, "gav")],
-        "yyyy": [(3, "g0"), (1, "gc"), (1, "gv")],  # fix incorrect expression.
-        "yyyz": [(-3, "gau"), (-1, "gb")],
+        "yyyy": [(3, "g0"), (1, "gc4"), (1, "gv")],  # fix incorrect expression.
+        "yyyz": [(-3, "gau"), (-1, "gs")],
         "yyzz": [(-4, "g0"), (-1, "gv")],  # fix incorrect expression.
         "yzzz": [(4, "gau")],
         "zzzz": [(8, "g0")],

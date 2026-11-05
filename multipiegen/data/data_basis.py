@@ -11,7 +11,7 @@ atomic_orbital_basis = [
     ["s"],  # C0,0
     ["px", "py", "pz"],  # C1,1, S1,1, C1,0
     ["dv", "dxy", "dxz", "dyz", "du"],  # C2,2, S2,2, C2,1, S2,1, C2,0
-    ["f2", "f1", "fbz", "f3", "f3x", "f3y", "faz"],  # C3,3, S3,3, C3,2, S3,2, C3,1, S3,1, C3,0
+    ["fc", "fs", "fbz", "f3", "fx", "fy", "faz"],  # C3,3, S3,3, C3,2, S3,2, C3,1, S3,1, C3,0
 ]
 
 # ==================================================
@@ -75,23 +75,23 @@ atomic_latex_name = {
     # orbital rank 0
     "s": "s",
     # orbital rank 1
-    "px": "p_x",
-    "py": "p_y",
-    "pz": "p_z",
+    "px": "p_{x}",
+    "py": "p_{y}",
+    "pz": "p_{z}",
     # orbital rank 2
-    "dv": "d_v",
+    "dv": "d_{v}",
     "dxy": "d_{xy}",
     "dxz": "d_{xz}",
     "dyz": "d_{yz}",
-    "du": "d_u",
+    "du": "d_{u}",
     # orbital rank 3
-    "f2": "f_2",
-    "f1": "f_1",
-    "fbz": r"f_z^\beta",
-    "f3": "f_3",
-    "f3x": "f_{3x}",
-    "f3y": "f_{3y}",
-    "faz": r"f_z^\alpha",
+    "fc": "f_{c}",
+    "fs": "f_{s}",
+    "fbz": r"f_{z}^{\beta}",
+    "f3": "f_{xyz}",
+    "fx": "f_{x}",
+    "fy": "f_{y}",
+    "faz": r"f_{z}^{\alpha}",
 }
 
 # ==================================================
@@ -99,31 +99,31 @@ atomic_latex_name = {
 wannier90_orbital = {
     "dx2-y2": "dv",
     "dz2": "du",
-    "fx(x2-3y2)": "f2",
-    "fy(3x2-y2)": "f1",
+    "fx(x2-3y2)": "fc",
+    "fy(3x2-y2)": "fs",
     "fz(x2-y2)": "fbz",
     "fxyz": "f3",
-    "fxz2": "f3x",
-    "fyz2": "f3y",
+    "fxz2": "fx",
+    "fyz2": "fy",
     "fz3": "faz",
 }
 
 # ==================================================
 # cubic basis order (multipolar PG harmonics internal basis).
 cubic_orbital_basis = [
-    ["s"],
-    ["px", "py", "pz"],
-    ["du", "dv", "dyz", "dxz", "dxy"],
-    ["f3", "fax", "fay", "faz", "fbx", "fby", "fbz"],
+    ["s"],  # A1g
+    ["px", "py", "pz"],  # T1u
+    ["du", "dv", "dyz", "dxz", "dxy"],  # Eg, T2g
+    ["f3", "fax", "fay", "faz", "fbx", "fby", "fbz"],  # A2u, T1u, T2u
 ]
 
 # ==================================================
 # hexagonal basis order (multipolar PG harmonics internal basis).
 hexagonal_orbital_basis = [
-    ["s"],
-    ["px", "py", "pz"],
-    ["du", "dxz", "dyz", "dxy", "dv"],
-    ["faz", "f1", "f2", "f3x", "f3y", "f3", "fbz"],
+    ["s"],  # A1g
+    ["px", "py", "pz"],  # E1u, A2u
+    ["du", "dxz", "dyz", "dxy", "dv"],  # A1g, E1g, E2g
+    ["faz", "fs", "fc", "fx", "fy", "f3", "fbz"],  # A2u, B1u, B2u, E1u, E2u
 ]
 
 # ==================================================
@@ -139,18 +139,14 @@ orbital_latex_name = {
     "px": "_{x}",
     "py": "_{y}",
     "pz": "_{z}",
-    "dv": "_{v}",
-    "dxy": "_{xy}",
-    "dxz": "_{xz}",
-    "dyz": "_{yz}",
     "du": "_{u}",
-    "f2": "_{3a}",
-    "f1": "_{3b}",
-    "fbz": r"_{z}^{\beta}",
+    "dv": "_{v}",
+    "dyz": "_{yz}",
+    "dxz": "_{xz}",
+    "dxy": "_{xy}",
     "f3": "_{xyz}",
-    "f3x": "_{3u}",
-    "f3y": "_{3v}",
     "faz": r"_{z}^{\alpha}",
+    "fbz": r"_{z}^{\beta}",
     # for cubic.
     "fax": r"_{x}^{\alpha}",
     "fay": r"_{y}^{\alpha}",
@@ -167,17 +163,21 @@ orbital_latex_name = {
     "gbz": r"_{4z}^{\beta}",
     "hu": "_{5u}",
     "hv": "_{5v}",
-    "i": "_{6a}",
-    "l": "_{9}",
+    "i3": "_{63}",  # old i
+    "l3": "_{9xyz}",  # old l
     # for hexagonal.
+    "fc": "_{3c}",  # old f2
+    "fs": "_{3s}",  # old f1
+    "fx": "_{3x}",  # old f3x
+    "fy": "_{3y}",  # old f3y
     "g0": "_{40}",
-    "ga": "_{4b}",
-    "gb": "_{4a}",
-    "gc": r"_{4u}^{\beta1}",
-    "gau": r"_{4v}^{\alpha}",
-    "gav": r"_{4u}^{\alpha}",
-    "i0": "_{6b}",
-    "j": "_{7}",
+    "gc": "_{4c}",  # old ga
+    "gs": "_{4s}",  # old gb
+    "gc4": "_{4c4}",  # old gc
+    "gau": r"_{4u}^{\alpha}",
+    "gav": r"_{4v}^{\alpha}",
+    "ixy": "_{6xy}",  # old i0
+    "j3": "_{7xyz}",  # old j
 }
 
 # ==================================================
@@ -189,18 +189,14 @@ harmonics_key = {
     "px": ("tesseral", (1, 1)),
     "py": ("tesseral", (1, -1)),
     "pz": ("tesseral", (1, 0)),
-    "dv": ("tesseral", (2, 2)),
-    "dxy": ("tesseral", (2, -2)),
-    "dxz": ("tesseral", (2, 1)),
-    "dyz": ("tesseral", (2, -1)),
     "du": ("tesseral", (2, 0)),
-    "f2": ("tesseral", (3, 3)),
-    "f1": ("tesseral", (3, -3)),
-    "fbz": ("tesseral", (3, 2)),
+    "dv": ("tesseral", (2, 2)),
+    "dyz": ("tesseral", (2, -1)),
+    "dxz": ("tesseral", (2, 1)),
+    "dxy": ("tesseral", (2, -2)),
     "f3": ("tesseral", (3, -2)),
-    "f3x": ("tesseral", (3, 1)),
-    "f3y": ("tesseral", (3, -1)),
     "faz": ("tesseral", (3, 0)),
+    "fbz": ("tesseral", (3, 2)),
     # for cubic.
     "fax": ("Oh", (3, "T1u", -1, 0)),
     "fay": ("Oh", (3, "T1u", -1, 1)),
@@ -208,7 +204,7 @@ harmonics_key = {
     "fby": ("Oh", (3, "T2u", -1, 1)),
     "g": ("Oh", (4, "A1g", -1, -1)),
     "gu": ("Oh", (4, "Eg", -1, 0)),
-    "gv": ("Oh", (4, "Eg", -1, 1)),  # -gv
+    "gv": ("Oh", (4, "Eg", -1, 1)),
     "gax": ("Oh", (4, "T1g", -1, 0)),
     "gay": ("Oh", (4, "T1g", -1, 1)),
     "gaz": ("Oh", (4, "T1g", -1, 2)),
@@ -217,15 +213,19 @@ harmonics_key = {
     "gbz": ("Oh", (4, "T2g", -1, 2)),
     "hu": ("Oh", (5, "Eu", -1, 0)),
     "hv": ("Oh", (5, "Eu", -1, 1)),
-    "i": ("Oh", (6, "A2g", -1, -1)),
-    "l": ("Oh", (9, "A1u", -1, -1)),
+    "i3": ("Oh", (6, "A2g", -1, -1)),
+    "l3": ("Oh", (9, "A1u", -1, -1)),
     # for hexagonal.
+    "fc": ("D6h", (3, "B2u", -1, -1)),
+    "fs": ("D6h", (3, "B1u", -1, -1)),
+    "fx": ("D6h", (3, "E1u", -1, 0)),
+    "fy": ("D6h", (3, "E1u", -1, 1)),
     "g0": ("D6h", (4, "A1g", -1, -1)),
-    "ga": ("D6h", (4, "B1g", -1, -1)),
-    "gb": ("D6h", (4, "B2g", -1, -1)),
-    "gc": ("D6h", (4, "E2g", 1, 0)),
+    "gc": ("D6h", (4, "B1g", -1, -1)),
+    "gs": ("D6h", (4, "B2g", -1, -1)),
+    "gc4": ("D6h", (4, "E2g", 1, 0)),
     "gau": ("D6h", (4, "E1g", -1, 0)),
     "gav": ("D6h", (4, "E1g", -1, 1)),
-    "i0": ("D6h", (6, "A2g", -1, -1)),
-    "j": ("D6h", (7, "A1u", -1, -1)),
+    "ixy": ("D6h", (6, "A2g", -1, -1)),
+    "j3": ("D6h", (7, "A1u", -1, -1)),
 }

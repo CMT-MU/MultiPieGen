@@ -491,38 +491,38 @@ xyyy= -\texttt{gaz} - \texttt{gbz}
 \end{align}
 
 \subsection{六方晶系}
-Cartesian座標系と多極子の関係\textcolor{red}{(gvの定義に$-$を加えたことによる変更)}
+Cartesian座標系と多極子の関係\textcolor{red}{(gvの定義に$-$を加えたこと、名称変更による変更)}
 \begin{align}
 &
-xxx= -3 \texttt{f3x} + \texttt{f2},
+xxx= -3 \textcolor{red}{\texttt{fx}} + \textcolor{red}{\texttt{fc}},
 \quad
-xxy= -\texttt{f3y} + \texttt{f1},
+xxy= -\textcolor{red}{\texttt{fy}} + \textcolor{red}{\texttt{fs}},
 \quad
-xyy= -\texttt{f3x} - \texttt{f2},
+xyy= -\textcolor{red}{\texttt{fx}} - \textcolor{red}{\texttt{fc}},
 \quad
-yyy= -3 \texttt{f3y} - \texttt{f1}
+yyy= -3 \textcolor{red}{\texttt{fy}} - \textcolor{red}{\texttt{fs}}
 \cr&
-xzz= 4 \texttt{f3x},
+xzz= 4 \textcolor{red}{\texttt{fx}},
 \quad
-yzz= 4 \texttt{f3y}
+yzz= 4 \textcolor{red}{\texttt{fy}}
 \cr&
-xxxx= 3 \texttt{g0} + \texttt{gc} \textcolor{red}{-} \texttt{gv},
+xxxx= 3 \texttt{g0} + \textcolor{red}{\texttt{gc4}} \textcolor{red}{-} \texttt{gv},
 \quad
-yyyy= 3 \texttt{g0} + \texttt{gc} \textcolor{red}{+} \texttt{gv},
+yyyy= 3 \texttt{g0} + \textcolor{red}{\texttt{gc4}} \textcolor{red}{+} \texttt{gv},
 \cr&
 xxzz= -4 \texttt{g0} \textcolor{red}{+} \texttt{gv},
 \quad
 yyzz= -4 \texttt{g0} \textcolor{red}{-} \texttt{gv},
 \quad
-xxyy= \texttt{g0} - \texttt{gc}
+xxyy= \texttt{g0} - \textcolor{red}{\texttt{gc4}}
 \cr&
-xxyz= -\texttt{gau} + \texttt{gb},
+xxyz= -\texttt{gau} + \textcolor{red}{\texttt{gs}},
 \quad
-yyyz= -3 \texttt{gau} - \texttt{gb}
+yyyz= -3 \texttt{gau} - \textcolor{red}{\texttt{gs}}
 \cr&
-xxxz= \texttt{ga} - 3 \texttt{gav}
+xxxz= \textcolor{red}{\texttt{gc}} - 3 \texttt{gav}
 \quad
-xyyz= -\texttt{ga} - \texttt{gav}
+xyyz= -\textcolor{red}{\texttt{gc}} - \texttt{gav}
 \cr&
 zzzz= 8 \texttt{g0}
 \quad
@@ -576,11 +576,11 @@ xyzz
 \texttt{dxz}),
 (\texttt{f3},
 \texttt{fbz}),
-(\texttt{f3x},
-\texttt{f3y}),
+(\textcolor{red}{\texttt{fx}},
+\textcolor{red}{\texttt{fy}}),
 (\texttt{gau},
 \texttt{gav}),
-(\texttt{gc},
+(\textcolor{red}{\texttt{gc4}},
 \texttt{gaz}),
 (\texttt{gv},
 \texttt{gbz})
@@ -593,7 +593,6 @@ xyzz
 \caption{立方晶系(C)と六方晶系(H)の多極子の定義。略称は\cite{Hayami18,Yatsushiro22}の表記に従った。
 記号は、MultiPieに登録されている基底調和関数を表し、係数$\times$記号が略称の定義に等しい。
 *は不活性。
-$Q_{4v}^{\beta1}=Q_{4z}^\alpha$, $Q_{4u}^{\beta2}=Q_{4v}$, $Q_{4v}^{\beta2}=Q_{4z}^\beta$。
 \textcolor{red}{名称はcubic/hexagonalで共通のものが複数の記号になっていたり分かりにくいので、全体的に関数形を想像しやすい名前に改める。また$gv$の定義に$-$を加えたため変更。}
 \label{tbl:muldef}}
 \renewcommand{\arraystretch}{1.3}
@@ -615,34 +614,34 @@ $l$ & 略称 & 係数 & 記号 & 定義 & 略称 & 係数 & 記号 & 定義 \\
  \hline
 3 & $Q_{xyz}$ & $\frac{1}{\sqrt{15}}$ & \texttt{f3} & $ x y z $ & 同左* & & & \\
   & $Q_x^\alpha$ & $\frac{1}{5}$ & \texttt{fax} & $\to\frac{x^3}{2}$, $-\frac{x(y^2+z^2)}{2}$ &
-$Q_{3a}$ & $\frac{1}{\sqrt{10}}$ & \texttt{f2} & $ \frac{x(x^{2}-3y^{2})}{4}$ \\
+\textcolor{red}{$Q_{3c}$} & $\frac{1}{\sqrt{10}}$ & \textcolor{red}{\texttt{fc}} & $ \frac{x(x^{2}-3y^{2})}{4}$ \\
   & $Q_y^\alpha$ & $\frac{1}{5}$ & \texttt{fay} & $\to\frac{y^3}{2}$, $-\frac{y(z^2+x^2)}{2}$ &
-$Q_{3b}$ & $\frac{1}{\sqrt{10}}$ & \texttt{f1} & $ \frac{y(3x^{2}-y^{2})}{4}$ \\
+\textcolor{red}{$Q_{3s}$} & $\frac{1}{\sqrt{10}}$ & \textcolor{red}{\texttt{fs}} & $ \frac{y(3x^{2}-y^{2})}{4}$ \\
   & $Q_z^\alpha$ & $\frac{1}{5}$ & \texttt{faz} & $\to\frac{z^3}{2}$, $-\frac{z(x^2+y^2)}{2}$ & 同左 & & & \\
   & $Q_x^\beta$ & $\frac{1}{\sqrt{15}}$ & \texttt{fbx} & $ \frac{x(y^2-z^2)}{2}$ &
-$Q_{3u}*$ & $\frac{1}{5\sqrt{6}}$ & \texttt{f3x} & $\to\frac{xz^2}{4}$, $-\frac{x(x^2+y^2)}{4}$ \\
+\textcolor{red}{$Q_{3x}*$} & $\frac{1}{5\sqrt{6}}$ & \textcolor{red}{\texttt{fx}} & $\to\frac{xz^2}{4}$, $-\frac{x(x^2+y^2)}{4}$ \\
   & $Q_y^\beta$ & $\frac{1}{\sqrt{15}}$ & \texttt{fby} & $ \frac{y(z^2-x^2)}{2}$ &
-$Q_{3v}*$ & $\frac{1}{5\sqrt{6}}$ & \texttt{f3y} & $\to\frac{yz^2}{4}$, $-\frac{y(x^2+y^2)}{4}$ \\
+\textcolor{red}{$Q_{3y}*$} & $\frac{1}{5\sqrt{6}}$ & \textcolor{red}{\texttt{fy}} & $\to\frac{yz^2}{4}$, $-\frac{y(x^2+y^2)}{4}$ \\
   & $Q_z^\beta$ & $\frac{1}{\sqrt{15}}$ & \texttt{fbz} & $ \frac{z(x^2-y^2)}{2}$ & 同左* & & & \\
  \hline
 4 & $Q_4$ & $\frac{2}{5\sqrt{21}}$ & \texttt{g} & $\to\frac{x^{4}+y^4+z^4}{6}$, $-\frac{y^2z^2+z^2x^2+x^2y^2}{3}$ &
 $Q_{40}$ & $\frac{1}{35}$ & \texttt{g0} & $\to\frac{z^4}{8}$, $-\frac{(x^2+y^2)z^2}{8}$ \\
   & $Q_{4u}$ & $\frac{2}{7\sqrt{15}}$ & \texttt{gu} & $\to\frac{2z^4-x^4-y^4}{6}$, $\frac{2x^2y^2-y^2z^2-z^2x^2}{6}$ &
-$Q_{4a}$ & $\frac{1}{\sqrt{70}}$ & \texttt{gb} & $\frac{yz(3x^{2}-y^{2})}{4}$ \\
+\textcolor{red}{$Q_{4s}$} & $\frac{1}{\sqrt{70}}$ & \textcolor{red}{\texttt{gs}} & $\frac{yz(3x^{2}-y^{2})}{4}$ \\
   & $Q_{4v}$ & $\textcolor{red}{+}\frac{2}{7\sqrt{5}}$ & \texttt{gv} & $\to\frac{x^4-y^4}{2}$, $-\frac{(x^2-y^2)z^2}{2}$ &
-$Q_{4u}^{\beta2}$* & 同左 & & \\
+同左* & & & \\
   & $Q_{4x}^\alpha$ & $\frac{1}{\sqrt{35}}$ & \texttt{gax} & $ \frac{yz(y^2-z^2)}{2} $ &
 $Q_{4u}^\alpha$* & $-\frac{1}{7\sqrt{10}}$ & \texttt{gav} & $\to\frac{xz^3}{4}$, $-\frac{xz(x^2+y^2)}{4}$ \\
   &$ Q_{4y}^\alpha$ & $\frac{1}{\sqrt{35}}$ & \texttt{gay} & $\frac{zx(z^2-x^2)}{2} $ &
 $Q_{4v}^\alpha$* & $\frac{1}{7\sqrt{10}}$ & \texttt{gau} & $\to\frac{yz^3}{4}$, $-\frac{yz(x^2+y^2)}{4}$ \\
   & $Q_{4z}^\alpha$ & $\frac{1}{\sqrt{35}}$ & \texttt{gaz} & $\frac{xy(x^2-y^2)}{2} $ &
-$Q_{4v}^{\beta1}$* & 同左 & & \\
+同左* & & & \\
   & $Q_{4x}^\beta$ & $\frac{1}{7\sqrt{5}}$ & \texttt{gbx} & $\to\frac{yzx^2}{2}$, $-\frac{yz(y^2+z^2)}{2}$ &
-$Q_{4u}^{\beta1}$* & $\frac{1}{\sqrt{35}}$ & \texttt{gc} & $\frac{4(x^4+y^4)-3z^4}{8}$, $-\frac{(x^2+y^2)z^2+8x^2y^2}{8}$ \\
+\textcolor{red}{$Q_{4c4}$*} & $\frac{1}{\sqrt{35}}$ & \textcolor{red}{\texttt{gc4}} & $\frac{4(x^4+y^4)-3z^4}{8}$, $-\frac{(x^2+y^2)z^2+8x^2y^2}{8}$ \\
   & $Q_{4y}^\beta$ & $\frac{1}{7\sqrt{5}}$ & \texttt{gby} & $\to\frac{zxy^2}{2}$, $-\frac{zx(z^2+x^2)}{2}$ &
-$Q_{4b}$ & $\frac{1}{\sqrt{70}}$ & \texttt{ga} & $\frac{xz(x^{2}-3y^{2})}{4}$ \\
+\textcolor{red}{$Q_{4c}$} & $\frac{1}{\sqrt{70}}$ & \textcolor{red}{\texttt{gc}} & $\frac{xz(x^{2}-3y^{2})}{4}$ \\
   & $Q_{4z}^\beta$ & $\frac{1}{7\sqrt{5}}$ & \texttt{gbz} & $\to\frac{xyz^2}{2}$, $-\frac{xy(x^2+y^2)}{2}$ &
-$Q_{4v}^{\beta2}$* & 同左 & & \\
+同左* & & & \\
  \hline \hline
 \end{tabular}
 \end{center}
