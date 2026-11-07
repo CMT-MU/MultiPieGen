@@ -211,6 +211,72 @@ $O_{\rm h}$および$D_{\rm 6h}$の既約表現のうち最低ランクのもの
 $O_{\rm h}$ ($D_{\rm 6h}$)の$E$, $T$表現($E$表現)の順序と符号は、$4_{001}^{+}$, $3_{111}^{+}$ ($2_{100}$, $6_{001}^{+}$)の表現行列が表\ref{tbl:4}, \ref{tbl:5}に示したものになるように選んだ\footnote{{\tt MultiPie} Ver.1とは、$D_{\rm 6h}$の$E_{1g}$, $E_{2u}$表現の順序と符号が異なる。}。
 この選び方によって、同じ既約表現の全ての対称操作の表現行列(表\ref{tbl:6}, \ref{tbl:7}参照)は一致する。
 
+
+\subsection{MultiPieで使用する代表的な軌道}
+
+MultiPieではatomic SAMBの基底に対してはWannier90等の出力と相性のよい方域関数基底を用いる。
+それ以外の用途(多極子調和関数の内部自由度の基底や応答関数の行列要素、SAMBの異方性等)については点群の調和関数を用いる。
+点群の調和関数は$O_{\rm h}$または$D_{\rm 6h}$の極性調和関数を基準として、既約表現の付け替えと成分の並べ替えや符号の付け替えで得られる。
+軸性調和関数については、$O_{\rm h}$または$D_{\rm 6h}$の極性調和関数の既約表現$(g,u)$を$(u,g)$に読み替えると得られる。
+代表的な軌道を表\ref{tbl:orb}にまとめておく。
+
+\begin{table}[ht!]
+\small
+\begin{center}
+\caption{代表的な軌道}
+\label{tbl:orb}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{ccclcc} \hline\hline
+rank & tag & symbol & expression & remark [Wannier90] \\ \hline
+0 & s & $Q_0$ & $1$ & 方域、立方晶、六方晶共通 [s] \\
+1 & px & $Q_x$ & $x$ & [px] \\
+& py & $Q_y$ & $y$ & [py] \\
+& pz & $Q_z$ & $z$ & [pz] \\
+2 & du & $Q_u$ & $\frac{1}{2}(3z^2-r^2)$ & [dz2] \\
+& dv & $Q_v$ & $\frac{\sqrt{3}}{2}(x^2-y^2)$ & [d2x-y2] \\
+& dyz & $Q_{yz}$ & $\sqrt{3}yz$ & [dyz] \\
+& dxz & $Q_{xz}$ & $\sqrt{3}zx$ & [dxz] \\
+& dxy & $Q_{xy}$ & $\sqrt{3}xy$ & [dxy] \\
+3 & f3 & $Q_{xyz}$ & $\sqrt{15}xyz$ & [fxyz] \\
+& faz & $Q_z^\alpha$ & $\frac{1}{2}z(5z^2-3r^2)$ & [fz3] \\
+& fbz & $Q_z^\beta$ & $\frac{\sqrt{15}}{2}z(x^2-y^2)$ & [fz(x2-y2)] \\ \hline
+3 & fax & $Q_x^\alpha$ & $\frac{1}{2}x(5x^2-3r^2)$ & 立方晶のみ \\
+& fay & $Q_y^\alpha$ & $\frac{1}{2}y(5y^2-3r^2)$ & \\
+& fbx & $Q_x^\beta$ & $\frac{\sqrt{15}}{2}x(y^2-z^2)$ & \\
+& fby & $Q_y^\beta$ & $\frac{\sqrt{15}}{2}y(z^2-x^2)$ & \\
+4 & g & $Q_4$ & $\frac{\sqrt{21}}{12}[5(x^4+y^4+z^4)-3r^4]$ & \\
+& gu & $Q_{4u}$ & $\frac{\sqrt{15}}{12}[7(2z^4-x^4-y^4)-6r^2(3z^2-r^2)]$ & \\
+& gv & $Q_{4v}$ & $-\frac{\sqrt{5}}{4}(x^2-y^2)(7z^2-r^2)$ & \\
+& gax & $Q_{4x}^\alpha$ & $\frac{\sqrt{35}}{2}yz(y^2-z^2)$ & \\
+& gay & $Q_{4y}^\alpha$ & $\frac{\sqrt{35}}{2}zx(z^2-x^2)$ & \\
+& gaz & $Q_{4z}^\alpha$ & $\frac{\sqrt{35}}{2}xy(x^2-y^2)$ & \\
+& gbx & $Q_{4x}^\beta$ & $\frac{\sqrt{5}}{2}yz(7x^2-r^2)$ & \\
+& gby & $Q_{4y}^\beta$ & $\frac{\sqrt{5}}{2}zx(7y^2-r^2)$ & \\
+& gbz & $Q_{4z}^\beta$ & $\frac{\sqrt{5}}{2}xy(7z^2-r^2)$ & \\
+5 & hu & $Q_{5u}$ & $\frac{3\sqrt{35}}{2}xyz(x^2-y^2)$ & \\
+& hv & $Q_{5v}$ & $-\frac{\sqrt{105}}{2}xyz(3z^2-r^2)$ & \\
+6 & i3 & $Q_{63}$ & $\frac{\sqrt{2310}}{8}(x^2-y^2)(y^2-z^2)(z^2-x^2)$ & \\
+9 & l3 & $Q_{9xyz}$ & $\frac{\sqrt{510510}}{8}xyz(x^2-y^2)(y^2-z^2)(z^2-x^2)$ & \\ \hline
+3 & fc & $Q_{3c}$ & $\frac{\sqrt{10}}{4}x(x^2-3y^2)$ & 方域、六方晶共通 [fx(x2-3y2)] \\
+& fs & $Q_{3s}$ & $\frac{\sqrt{10}}{4}y(3x^2-y^2)$ & [fy(3x2-y2)] \\
+& fx & $Q_{3x}$ & $\frac{\sqrt{6}}{4}x(5z^2-r^2)$ & [fxz2] \\
+& fy & $Q_{3y}$ & $\frac{\sqrt{6}}{4}y(5z^2-r^2)$ & [fyz2] \\ \hline
+4 & g0 & $Q_{40}$ & $\frac{1}{8}[35z^4-3r^2(10z^2-r^2)]$ & 六方晶のみ \\
+& gc & $Q_{4c}$ & $\frac{\sqrt{70}}{4}xz(x^2-3y^2)$ & \\
+& gs & $Q_{4s}$ & $\frac{\sqrt{70}}{4}yz(3x^2-y^2)$ & \\
+& gc4 & $Q_{4c4}$ & $\frac{\sqrt{35}}{8}(x^2-y^2+2xy)(x^2-y^2-2xy)$ & \\
+& gau & $Q_{4u}^\alpha$ & $\frac{\sqrt{10}}{4}yz(7z^2-3r^2)$ & \\
+& gav & $Q_{4v}^\alpha$ & $-\frac{\sqrt{10}}{4}xz(7z^2-3r^2)$ & \\
+6 & ixy & $Q_{6xy}$ & $\frac{\sqrt{462}}{16}xy(x^2-3y^2)(3x^2-y^2)$ & \\
+7 & j3 & $Q_{7xyz}$ & $\frac{\sqrt{6006}}{16}xyz(x^2-3y^2)(3x^2-y^2)$ & \\
+\hline\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+
+
+
 \begin{table}[ht!]
 \small
 \begin{center}
@@ -285,7 +351,6 @@ name & irrep. (axial) & expression & $2_{100}$ & $6_{001}^{+}$ \\ \hline
 \end{tabular}
 \end{center}
 \end{table}
-
 
 
 

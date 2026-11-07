@@ -134,7 +134,7 @@ hexagonal_basis = [sum([[f"({m},{s})" for s in atomic_spin_basis] for m in rank]
 # ==================================================
 # convert to latex name up to for internal basis of multipolar PG harmonics and response tensor (add prefix Q/G/T/M).
 orbital_latex_name = {
-    # common for orbital(tesseral), cubic, hexagonal.
+    # common for tesseral, cubic, hexagonal.
     "s": "_{0}",
     "px": "_{x}",
     "py": "_{y}",
@@ -147,7 +147,7 @@ orbital_latex_name = {
     "f3": "_{xyz}",
     "faz": r"_{z}^{\alpha}",
     "fbz": r"_{z}^{\beta}",
-    # for cubic.
+    # for cubic only.
     "fax": r"_{x}^{\alpha}",
     "fay": r"_{y}^{\alpha}",
     "fbx": r"_{x}^{\beta}",
@@ -165,11 +165,12 @@ orbital_latex_name = {
     "hv": "_{5v}",
     "i3": "_{63}",  # old i
     "l3": "_{9xyz}",  # old l
-    # for hexagonal.
+    # common for tesseral and hexagonal.
     "fc": "_{3c}",  # old f2
     "fs": "_{3s}",  # old f1
     "fx": "_{3x}",  # old f3x
     "fy": "_{3y}",  # old f3y
+    # for hexagonal only.
     "g0": "_{40}",
     "gc": "_{4c}",  # old ga
     "gs": "_{4s}",  # old gb
@@ -184,7 +185,7 @@ orbital_latex_name = {
 # convert from name to key, ("tesseral", (l,m)), ("Oh", (rank, irrep, mul, comp)), ("D6h", (rank, irrep, mul, comp)).
 # negative m represents S, otherwise C.
 harmonics_key = {
-    # common for orbital(tesseral), cubic, hexagonal.
+    # common for tesseral, cubic, hexagonal.
     "s": ("tesseral", (0, 0)),
     "px": ("tesseral", (1, 1)),
     "py": ("tesseral", (1, -1)),
@@ -197,7 +198,7 @@ harmonics_key = {
     "f3": ("tesseral", (3, -2)),
     "faz": ("tesseral", (3, 0)),
     "fbz": ("tesseral", (3, 2)),
-    # for cubic.
+    # for cubic only.
     "fax": ("Oh", (3, "T1u", -1, 0)),
     "fay": ("Oh", (3, "T1u", -1, 1)),
     "fbx": ("Oh", (3, "T2u", -1, 0)),
@@ -215,11 +216,12 @@ harmonics_key = {
     "hv": ("Oh", (5, "Eu", -1, 1)),
     "i3": ("Oh", (6, "A2g", -1, -1)),
     "l3": ("Oh", (9, "A1u", -1, -1)),
-    # for hexagonal.
+    # common for tesseral and hexagonal.
     "fc": ("D6h", (3, "B2u", -1, -1)),
     "fs": ("D6h", (3, "B1u", -1, -1)),
     "fx": ("D6h", (3, "E1u", -1, 0)),
     "fy": ("D6h", (3, "E1u", -1, 1)),
+    # for hexagonal only.
     "g0": ("D6h", (4, "A1g", -1, -1)),
     "gc": ("D6h", (4, "B1g", -1, -1)),
     "gs": ("D6h", (4, "B2g", -1, -1)),
