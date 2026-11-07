@@ -107,10 +107,8 @@ def create_file():
     oh_cluster = create_oh_cluster()
 
     with open(out_file, "w", encoding="utf-8") as f:
-        # print("oh_cluster_frac =", oh_cluster, file=f)
         print(f'oh_cluster_cart = "{oh_cluster}"', file=f)
         print("", file=f)
-        # print("d6h_cluster_frac =", d6h_cluster, file=f)
         print(f'd6h_cluster_cart = "{d6h_cluster}"', file=f)
         print("", file=f)
         print(f'root_cluster_cart = "{root_cluster}"', file=f)
