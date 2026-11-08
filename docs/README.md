@@ -15,7 +15,8 @@ pip install -e ".[dev]"
 ```
 multipiegen/        package
   data/             generated data tables (see data/readme.md)
-  util/             utilities (multipolar harmonics)
+  util/             utilities (multipolar harmonics, cluster basis)
+  binary_data/      binary data (cluster_basis.pkl: orthonormal Oh/D6h cluster basis)
 tests/              pytest tests (consistency of parent-group mappings)
 others/             non-package material
   creation/         scripts that generate the data tables
