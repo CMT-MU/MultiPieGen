@@ -11,8 +11,8 @@ Example: polar and axial symbols of harmonics of point groups, and the harmonics
     python docs/examples/harmonics_symbol.py
 
 An axial harmonics has the same expression as the polar one; only the irrep, component,
-and sign change. The PDF (others/pdf/PG/{no}-{tag}/harmonics.pdf) is created by
-others/create_pdf/create_pdf_harmonics.py.
+and sign change. The PDF (multipiegen/pdf/PG/{no}-{tag}/harmonics.pdf) is created by
+multipiegen/create_pdf/create_pdf_harmonics.py.
 """
 
 from multipiegen.util.util_harmonics_symbol import harmonics_symbol_table, polar_to_axial, multipole_symbol
@@ -45,4 +45,4 @@ for key, p_sym, a_sym, expr in harmonics_symbol_table("C3h-c")[1:4]:
 
 # ==================================================
 # 4. create the PDFs of all 47 point groups (needs ptex2pdf):
-#    python others/create_pdf/create_pdf_harmonics.py
+#    python -m multipiegen.create_pdf.create_pdf_harmonics

@@ -8,6 +8,8 @@
 """
 Create orthonormal cluster basis of Oh and D6h, and save it as binary.
     - multipiegen/binary_data/cluster_basis.pkl (load by multipiegen.util.util_cluster_basis.load_cluster_basis).
+
+Run:  python -m multipiegen.create_binary.create_cluster_basis
 """
 
 from multipiegen.util.util_cluster_basis import save_cluster_basis
