@@ -37,6 +37,7 @@ from multipiegen.data.data_root_cluster import (
     d6h_cluster_cart_site0,
 )
 from multipiegen.data.data_top_harmonics_info import top_harmonics_symmetry
+from multipiegen.util.util_harmonics_symbol import is_real_irrep
 
 # ==================================================
 cluster_basis_file = "cluster_basis"
@@ -55,20 +56,6 @@ def _simplify(e):
 # ==================================================
 def _dot(u, v):
     return _simplify(sum(a * b for a, b in zip(u, v)))
-
-
-# ==================================================
-def is_real_irrep(irrep):
-    """
-    Is real irrep ? (complex combinations have irrep names ending with "a" or "b").
-
-    Args:
-        irrep (str): irrep name.
-
-    Returns:
-        - (bool) -- real irrep ?
-    """
-    return irrep[-1] in "gu"
 
 
 # ==================================================
