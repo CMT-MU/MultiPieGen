@@ -11,7 +11,7 @@ Example: polar and axial symbols of harmonics of point groups, and the harmonics
     python docs/examples/harmonics_symbol.py
 
 An axial harmonics has the same expression as the polar one; only the irrep, component,
-and sign change. The PDF (others/pdf/PG/{no}-{tag}/harmonics.pdf) is created by
+and sign change. The PDF (multipiegen/pdf/PG/{no}-{tag}/harmonics.pdf) is created by
 multipiegen/create_pdf/create_pdf_harmonics.py.
 """
 

@@ -7,7 +7,7 @@
 
 """
 Create LaTeX and PDF of harmonics with polar and axial symbols side by side, for all 47 point groups.
-    - others/pdf/PG/{no}-{tag}/harmonics.{tex,pdf}
+    - multipiegen/pdf/PG/{no}-{tag}/harmonics.{tex,pdf}
 
 The expression is that of the polar harmonics. The axial symbol is obtained from the polar one
 by changing irrep, interchanging components, and adding a sign (data_harmonics_mapping).
@@ -22,14 +22,14 @@ from multipiegen import __top_dir__
 from multipiegen.data.data_group_pg import pg_id_set, pg_tag
 from multipiegen.util.util_harmonics_symbol import harmonics_symbol_table
 
-pdfdir = os.path.join(__top_dir__, "others", "pdf")
+pdfdir = os.path.join(__top_dir__, "multipiegen", "pdf")
 max_rank = 11
 
 
 # ==================================================
 def group_dir(tag):
     """
-    Output directory of a point group, e.g., others/pdf/PG/032-Oh.
+    Output directory of a point group, e.g., multipiegen/pdf/PG/032-Oh.
     """
     group = Group(tag)
     no = int(group.info.PG.split(":")[1])

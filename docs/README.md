@@ -18,12 +18,12 @@ multipiegen/        package
   util/             utilities (multipolar harmonics, cluster basis, harmonics symbols)
   binary_data/      binary data (cluster_basis.pkl: orthonormal Oh/D6h cluster basis)
   create_binary/    code that generates the binary data
-  create_pdf/       code that generates the PDFs in others/pdf (needs ptex2pdf)
+  create_pdf/       code that generates the PDFs (needs ptex2pdf)
+  pdf/              generated LaTeX and PDF (PG/032-Oh/harmonics.pdf, ...)
 docs/examples/      sample code for each feature
 tests/              pytest tests
 others/             non-package material
   creation/         scripts that generate the data tables
-  pdf/              generated LaTeX and PDF (PG/032-Oh/harmonics.pdf, ...)
   etc/              harmonics data generation (draft)
   notebooks/        notebooks for plotting and trials
   memo/             notes (TeX/PDF)
