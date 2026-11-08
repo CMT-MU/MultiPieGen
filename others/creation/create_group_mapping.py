@@ -11,10 +11,6 @@ Create operation mapping to D6h and Oh, and root cluster.
     - op_mapping_root_cluster: operation mapping to root cluster.
 """
 
-import sys
-from pathlib import Path
-
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 import os
 from multipiegen.data.data_parent_pg import data_representative_parent_pg as p_rep
 from multipiegen.data.data_parent_pg import data_parent_pg as p_data
@@ -222,4 +218,5 @@ def create_file():
 
 
 # ==================================================
-create_file()
+if __name__ == "__main__":
+    create_file()

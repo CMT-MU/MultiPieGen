@@ -16,15 +16,11 @@ note:
     - representation matrices of all symmetry operations are common for the same irrep. irrespective of polar or axial (checked).
 """
 
-import sys
-from pathlib import Path
-
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 import os
 import sympy as sp
 import re
 from multipiegen.data.data_top_harmonics import top_harmonics
-from util_multipolar_harmonics import Olm, max_rank, _create_unitary_matrix_tesseral
+from multipiegen.util.util_multipolar_harmonics import Olm, max_rank, _create_unitary_matrix_tesseral
 
 # ==================================================
 header = """
@@ -90,4 +86,5 @@ def create_file():
 
 
 # ==================================================
-create_file()
+if __name__ == "__main__":
+    create_file()

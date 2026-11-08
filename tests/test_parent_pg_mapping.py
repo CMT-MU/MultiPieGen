@@ -78,15 +78,15 @@ def check(c_group, p_group):
 # ==================================================
 from multipiegen.data.data_parent_pg import data_parent_pg as data
 
-err = 0
-for c_group, v in data.items():
-    for p_group in v.keys():
-        print(f"{p_group} => {c_group}")
-        lst = check(c_group, p_group)
-        if lst:
-            print(f"error in {p_group} => {c_group}.")
-            for i in lst:
-                print("   ", i)
-            err += 1
-if err == 0:
-    print("no error.")
+
+def test_parent_pg_mapping():
+    err = 0
+    for c_group, v in data.items():
+        for p_group in v.keys():
+            lst = check(c_group, p_group)
+            if lst:
+                print(f"error in {p_group} => {c_group}.")
+                for i in lst:
+                    print("   ", i)
+                err += 1
+    assert err == 0

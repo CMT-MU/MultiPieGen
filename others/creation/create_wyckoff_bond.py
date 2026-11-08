@@ -36,10 +36,6 @@ if both the position and the vector match, so several entries may share one posi
 """
 
 from __future__ import annotations
-import sys
-from pathlib import Path
-
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 import os
 
 import re
@@ -872,7 +868,7 @@ def diagnose(ops, entry, *, only_differing=False, **kw):
 
 # ==================================================
 def create_bond_symmetry():
-    from creation.data_wyckoff_bond import wyckoff_bond_data
+    from data_wyckoff_bond import wyckoff_bond_data  # same directory (run as a script)
     from multipie import Group
 
     so = {}
@@ -912,4 +908,5 @@ def create_file():
 
 
 # ==================================================
-create_file()
+if __name__ == "__main__":
+    create_file()

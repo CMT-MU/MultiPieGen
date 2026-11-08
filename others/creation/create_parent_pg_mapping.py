@@ -11,10 +11,6 @@ Create parent point group mapping.
     - data_representative_parent_pg: representative parent PG.
 """
 
-import sys
-from pathlib import Path
-
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 import os
 import sympy as sp
 import numpy as np
@@ -180,4 +176,5 @@ def create_file():
 
 
 # ==================================================
-create_file()
+if __name__ == "__main__":
+    create_file()
