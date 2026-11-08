@@ -1,5 +1,7 @@
 # MultiPieGen
 
+[![test](https://github.com/hiro-k-phys/mp-newbasis/actions/workflows/test.yml/badge.svg)](https://github.com/hiro-k-phys/mp-newbasis/actions/workflows/test.yml)
+
 Generation code and data for the new multipole basis of [MultiPie](https://github.com/CMT-MU/MultiPie).
 
 ## Install (development)
