@@ -10,16 +10,19 @@ Generation code and data for the new multipole basis of [MultiPie](https://githu
 pip install -e ".[dev]"
 ```
 
+The binary data (`multipiegen/binary_data`) and the PDFs (`multipiegen/pdf`) are kept in the repository
+but are not included in the package, so use the editable install above to load them.
+
 ## Layout
 
 ```
 multipiegen/        package
   data/             generated data tables (see data/readme.md)
   util/             utilities (multipolar harmonics, cluster basis, harmonics symbols)
-  binary_data/      binary data (cluster_basis.pkl: orthonormal Oh/D6h cluster basis)
+  binary_data/      binary data (cluster_basis.pkl: orthonormal Oh/D6h cluster basis) [not packaged]
   create_binary/    code that generates the binary data
   create_pdf/       code that generates the PDFs (needs ptex2pdf)
-  pdf/              generated LaTeX and PDF (PG/032-Oh/harmonics.pdf, ...)
+  pdf/              generated LaTeX and PDF (PG/032-Oh/harmonics.pdf, ...) [not packaged]
 docs/examples/      sample code for each feature
 tests/              pytest tests
 others/             non-package material
