@@ -1,0 +1,27 @@
+#!/bin/sh
+# Delete local branches merged into develop whose remote branch is gone.
+# Runs after `git pull` on develop (or main).
+# Enable once per clone:  git config core.hooksPath .githooks && git config fetch.prune true
+
+current=$(git symbolic-ref --quiet --short HEAD) || exit 0
+case "$current" in
+  develop|main) ;;
+  *) exit 0 ;;
+esac
+
+# drop remote-tracking refs of deleted remote branches.
+git fetch --prune --quiet origin 2>/dev/null
+
+git for-each-ref --format='%(refname:short) %(upstream:track)' refs/heads |
+while read -r branch track; do
+  case "$branch" in
+    main|develop|"$current") continue ;;
+  esac
+  [ "$track" = "[gone]" ] || continue
+  if git merge-base --is-ancestor "$branch" origin/develop 2>/dev/null; then
+    git branch -d "$branch" >/dev/null && echo "post-merge: deleted merged branch '$branch'"
+  else
+    echo "post-merge: '$branch' is gone on remote but not merged into develop; kept (delete with git branch -D $branch)"
+  fi
+done
+exit 0

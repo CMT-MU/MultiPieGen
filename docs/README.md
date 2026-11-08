@@ -34,3 +34,17 @@ copy the result into `multipiegen/data/` when it is final.
 ```bash
 pytest
 ```
+
+## Branches
+
+- Branch from `develop`, and open pull requests against `develop`.
+- When a pull request is merged into `develop`, the workflow `delete merged branch` deletes its branch on GitHub.
+- To delete the merged branch locally as well, enable the hook once per clone:
+
+```bash
+git config core.hooksPath .githooks
+git config fetch.prune true
+```
+
+  After that, `git pull` on `develop` deletes the local branches that are merged and gone on the remote.
+- `develop` is merged into `main` manually on GitHub; `develop` is never deleted.
