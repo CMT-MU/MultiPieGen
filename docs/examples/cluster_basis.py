@@ -11,7 +11,8 @@ Example: orthonormal cluster basis of Oh and D6h.
     python docs/examples/cluster_basis.py
 
 The binary data (multipiegen/binary_data/cluster_basis.pkl) is created by
-others/creation/create_cluster_basis.py.
+multipiegen/create_binary/create_cluster_basis.py
+(python -m multipiegen.create_binary.create_cluster_basis).
 """
 
 import numpy as np

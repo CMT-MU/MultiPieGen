@@ -10,7 +10,9 @@ Create LaTeX and PDF of harmonics with polar and axial symbols side by side, for
     - others/pdf/PG/{no}-{tag}/harmonics.{tex,pdf}
 
 The expression is that of the polar harmonics. The axial symbol is obtained from the polar one
-by changing irrep, interchanging components, and adding a sign (compatibility relation).
+by changing irrep, interchanging components, and adding a sign (data_harmonics_mapping).
+
+Run:  python -m multipiegen.create_pdf.create_pdf_harmonics
 """
 
 import os
