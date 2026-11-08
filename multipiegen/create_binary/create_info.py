@@ -100,7 +100,7 @@ h_info = """
   - "variable_site" (str): (ndarray(3,sympy)) variable of site, [x,y,z].
   - "variable_vector" (str): (ndarray(3,sympy)) variable of (bond) vector, [X,Y,Z].
   - "internal_basis" (str): (dict) internal basis of multipolar harmonics.
-    - "tesseral/cubic/hexagonal" (str): (dict) basis.
+    - "cubic/hexagonal" (str): (dict) basis (data_basis.cubic_orbital_basis/hexagonal_orbital_basis).
       - (s,x) (int,str): ([sympy]) list of basis, x = "q" (polar)/"g" (axial).
   - "atomic_basis" (str): (dict) atomic basis.
     - "spinless" (str): (dict) spinless basis.
@@ -239,9 +239,9 @@ def basis_function():
 # ==================================================
 def internal_basis():
     """
-    Internal basis of multipolar harmonics, {"tesseral/cubic/hexagonal": {(s,x): [symbol]}}.
+    Internal basis of multipolar harmonics, {"cubic/hexagonal": {(s,x): [symbol]}}.
     """
-    sets = {"tesseral": atomic_orbital_basis, "cubic": cubic_orbital_basis, "hexagonal": hexagonal_orbital_basis}
+    sets = {"cubic": cubic_orbital_basis, "hexagonal": hexagonal_orbital_basis}
     dic = {}
     for b_type, basis in sets.items():
         dic[b_type] = {}
