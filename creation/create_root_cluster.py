@@ -7,8 +7,8 @@
 
 """
 Create root cluster.
-    - oh_cluster_cart: points of D6h cluster in cartesian coordinate (=d6h0 when principal axis is taken to be [111]).
-    - d6h_cluster_cart: points of Oh cluster in cartesian coordinate (=oh0).
+    - d6h_cluster_cart: points of D6h cluster in cartesian coordinate (=d6h0 when principal axis is taken to be [111]). [same as general Wyckoff points]
+    - oh_cluster_cart: points of Oh cluster in cartesian coordinate (=oh0). [same as general Wyckoff points]
     - root_cluster_cart: points of root cluster in cartesian coordinate.
 """
 
@@ -58,7 +58,8 @@ def create_root_cluster():
 # ==================================================
 def create_d6h_001_cluster():
     x, y, z = sp.symbols("x y z", real=True)
-    x0 = np.array(Rci) @ np.array([x, y, z])
+    # x0 = np.array(Rci) @ np.array([x, y, z])
+    x0 = np.array([x, y, z])
     gr = Group("D6h")
     xi = gr.symmetry_operation["cartesian"] @ x0
     xi = np.array([sp.simplify(i) for i in xi])
@@ -106,7 +107,26 @@ def create_file():
     d6h_cluster = create_d6h_001_cluster()
     oh_cluster = create_oh_cluster()
 
+    site0 = "[1,5,6]"
+    vector0 = "[5,1,6]"
+    site0h = str((np.array(Rci) @ str_to_sympy(site0)).tolist()).replace(" ", "")
+    vector0h = str((np.array(Rci) @ str_to_sympy(vector0)).tolist()).replace(" ", "")
+
     with open(out_file, "w", encoding="utf-8") as f:
+
+        print(f'root_cluster_cart_site0 = "{site0}"', file=f)
+        print(f'oh_cluster_cart_site0 = "{site0}"', file=f)
+        print(f'd6h_cluster_cart_site0 = "{site0h}"', file=f)
+        print("", file=f)
+
+        print(f'root_cluster_cart_vector0 = "{vector0}"', file=f)
+        print(f'oh_cluster_cart_vector0 = "{vector0}"', file=f)
+        print(f'd6h_cluster_cart_vector0 = "{vector0h}"', file=f)
+        print("", file=f)
+
+        print(f"cluster_scale = 5", file=f)
+        print("", file=f)
+
         print(f'oh_cluster_cart = "{oh_cluster}"', file=f)
         print("", file=f)
         print(f'd6h_cluster_cart = "{d6h_cluster}"', file=f)

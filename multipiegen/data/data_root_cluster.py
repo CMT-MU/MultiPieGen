@@ -9,8 +9,12 @@
 Definition of root cluseter.
 
 - root_cluster_cart_site0 (str): representative site of root cluster.
+- oh_cluster_cart_site0 (str): representative site of Oh cluster.
+- d6h_cluster_cart_site0 (str): representative site of D6h cluster. (same as oh for principal axis [111])
 - root_cluster_cart_vector0 (str): representative vector of root cluster.
-- root_cluster_scale (int): scale factor (site -> site/scale).
+- oh_cluster_cart_vector0 (str): representative vector of Oh cluster.
+- d6h_cluster_cart_vector0 (str): representative vector of D6h cluster. (same as oh for principal axis [111])
+- cluster_scale (int): scale factor (site -> site/scale).
 - oh_cluster_cart (str): sites of Oh cluster (first=[x,y,z]).
 - d6h_cluster_cart (str): sites of D6h cluster (first=[x,y,z]).
 - root_cluster_cart (str): sites of root cluster (first=[x,y,z]). [future extension]
@@ -28,29 +32,34 @@ note:
 """
 
 # ==================================================
-# representative site in cartesian coordinate (to be normalized as r=1), radius of scaled one is given by 1/scale.
-root_cluster_cart_site0 = "[5,sqrt(3),2]"
+# representative site in cartesian coordinate (normalized when necessary), radius of scaled one is given by 1/scale.
+#   d6h with principal axis [111] is equivanlent to oh.
+root_cluster_cart_site0 = "[1,5,6]"
+oh_cluster_cart_site0 = "[1,5,6]"
+d6h_cluster_cart_site0 = "[2sqrt(2),sqrt(6),4sqrt(3)]"
 
 # ==================================================
-# representative vector in cartesian coordinate (to be normalized as v=1).
+# representative vector in cartesian coordinate (normalized when necessary).
 #   it should not be parallel nor perpendicular to site0 vector.
-root_cluster_cart_vector0 = "[sqrt(3),5,2]"
+#   d6h with principal axis [111] is equivanlent to oh.
+root_cluster_cart_vector0 = "[5,1,6]"
+oh_cluster_cart_vector0 = "[5,1,6]"
+d6h_cluster_cart_vector0 = "[-2*sqrt(2),sqrt(6),4*sqrt(3)]"
 
 # ==================================================
 # scale factor for space group purpose.
 #   site0 is scaled as site0/scale.
-root_cluster_scale = 5
+cluster_scale = 5
 
 # ==================================================
 # positions of oh0 cluster in cartesian coordinate (48 points).
-#   principal axis [001].
+#   principal axis [001]. (same as general Wyckoff points)
 oh_cluster_cart = "[[x,y,z],[-x,-y,z],[-x,y,-z],[x,-y,-z],[z,x,y],[z,-x,-y],[-z,-x,y],[-z,x,-y],[y,z,x],[-y,z,-x],[y,-z,-x],[-y,-z,x],[y,x,-z],[-y,-x,-z],[y,-x,z],[-y,x,z],[x,z,-y],[-x,z,y],[-x,-z,-y],[x,-z,y],[z,y,-x],[z,-y,x],[-z,y,x],[-z,-y,-x],[-x,-y,-z],[x,y,-z],[x,-y,z],[-x,y,z],[-z,-x,-y],[-z,x,y],[z,x,-y],[z,-x,y],[-y,-z,-x],[y,-z,x],[-y,z,x],[y,z,-x],[-y,-x,z],[y,x,z],[-y,x,-z],[y,-x,-z],[-x,-z,y],[x,-z,-y],[x,z,y],[-x,z,-y],[-z,-y,x],[-z,y,-x],[z,-y,-x],[z,y,x]]"
 
 # ==================================================
 # positions of D6h cluster in cartesian coordinate (24 points).
-#   principal axis [001].
-#   these points coincide with those in d6h0 cluster, when principal axis is taken as [111].
-d6h_cluster_cart = "[[sqrt(2)(-x+y)/2,sqrt(6)(-x-y+2z)/6,sqrt(3)(x+y+z)/3],[sqrt(2)(x-z)/2,sqrt(6)(-x+2y-z)/6,sqrt(3)(x+y+z)/3],[sqrt(2)(-y+z)/2,sqrt(6)(2x-y-z)/6,sqrt(3)(x+y+z)/3],[sqrt(2)(x-y)/2,sqrt(6)(x+y-2z)/6,sqrt(3)(x+y+z)/3],[sqrt(2)(-x+z)/2,sqrt(6)(x-2y+z)/6,sqrt(3)(x+y+z)/3],[sqrt(2)(y-z)/2,sqrt(6)(-2x+y+z)/6,sqrt(3)(x+y+z)/3],[sqrt(2)(-y+z)/2,sqrt(6)(-2x+y+z)/6,sqrt(3)(-x-y-z)/3],[sqrt(2)(-x+y)/2,sqrt(6)(x+y-2z)/6,sqrt(3)(-x-y-z)/3],[sqrt(2)(x-z)/2,sqrt(6)(x-2y+z)/6,sqrt(3)(-x-y-z)/3],[sqrt(2)(y-z)/2,sqrt(6)(2x-y-z)/6,sqrt(3)(-x-y-z)/3],[sqrt(2)(x-y)/2,sqrt(6)(-x-y+2z)/6,sqrt(3)(-x-y-z)/3],[sqrt(2)(-x+z)/2,sqrt(6)(-x+2y-z)/6,sqrt(3)(-x-y-z)/3],[sqrt(2)(x-y)/2,sqrt(6)(x+y-2z)/6,sqrt(3)(-x-y-z)/3],[sqrt(2)(-x+z)/2,sqrt(6)(x-2y+z)/6,sqrt(3)(-x-y-z)/3],[sqrt(2)(y-z)/2,sqrt(6)(-2x+y+z)/6,sqrt(3)(-x-y-z)/3],[sqrt(2)(-x+y)/2,sqrt(6)(-x-y+2z)/6,sqrt(3)(-x-y-z)/3],[sqrt(2)(x-z)/2,sqrt(6)(-x+2y-z)/6,sqrt(3)(-x-y-z)/3],[sqrt(2)(-y+z)/2,sqrt(6)(2x-y-z)/6,sqrt(3)(-x-y-z)/3],[sqrt(2)(y-z)/2,sqrt(6)(2x-y-z)/6,sqrt(3)(x+y+z)/3],[sqrt(2)(x-y)/2,sqrt(6)(-x-y+2z)/6,sqrt(3)(x+y+z)/3],[sqrt(2)(-x+z)/2,sqrt(6)(-x+2y-z)/6,sqrt(3)(x+y+z)/3],[sqrt(2)(-y+z)/2,sqrt(6)(-2x+y+z)/6,sqrt(3)(x+y+z)/3],[sqrt(2)(-x+y)/2,sqrt(6)(x+y-2z)/6,sqrt(3)(x+y+z)/3],[sqrt(2)(x-z)/2,sqrt(6)(x-2y+z)/6,sqrt(3)(x+y+z)/3]]"
+#   principal axis [001]. (same as general Wyckoff points)
+d6h_cluster_cart = "[[x,y,z],[-x/2-sqrt(3)y/2,sqrt(3)x/2-y/2,z],[-x/2+sqrt(3)y/2,-sqrt(3)x/2-y/2,z],[-x,-y,z],[x/2+sqrt(3)y/2,-sqrt(3)x/2+y/2,z],[x/2-sqrt(3)y/2,sqrt(3)x/2+y/2,z],[-x/2+sqrt(3)y/2,sqrt(3)x/2+y/2,-z],[x,-y,-z],[-x/2-sqrt(3)y/2,-sqrt(3)x/2+y/2,-z],[x/2-sqrt(3)y/2,-sqrt(3)x/2-y/2,-z],[-x,y,-z],[x/2+sqrt(3)y/2,sqrt(3)x/2-y/2,-z],[-x,-y,-z],[x/2+sqrt(3)y/2,-sqrt(3)x/2+y/2,-z],[x/2-sqrt(3)y/2,sqrt(3)x/2+y/2,-z],[x,y,-z],[-x/2-sqrt(3)y/2,sqrt(3)x/2-y/2,-z],[-x/2+sqrt(3)y/2,-sqrt(3)x/2-y/2,-z],[x/2-sqrt(3)y/2,-sqrt(3)x/2-y/2,z],[-x,y,z],[x/2+sqrt(3)y/2,sqrt(3)x/2-y/2,z],[-x/2+sqrt(3)y/2,sqrt(3)x/2+y/2,z],[x,-y,z],[-x/2-sqrt(3)y/2,-sqrt(3)x/2+y/2,z]]"
 
 # ==================================================
 # positions of root cluster in cartesian coordinate (24x4=96 points).
