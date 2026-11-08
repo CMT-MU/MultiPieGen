@@ -21,6 +21,8 @@ docs/examples/      sample code for each feature
 tests/              pytest tests (consistency of parent-group mappings)
 others/             non-package material
   creation/         scripts that generate the data tables
+  create_pdf/       scripts that generate the PDFs (needs ptex2pdf)
+  pdf/              generated LaTeX and PDF (PG/032-Oh/harmonics.pdf, ...)
   etc/              harmonics data generation (draft)
   notebooks/        notebooks for plotting and trials
 memo/               notes (TeX/PDF)
