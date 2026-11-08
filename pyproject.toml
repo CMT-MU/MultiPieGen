@@ -1,0 +1,51 @@
+[build-system]
+requires = ["setuptools>=77"]  # 77: license as an SPDX expression (PEP 639).
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "multipiegen"
+dependencies = [
+    "multipie>=2.4",
+    "numpy>=2",
+    "sympy",
+]
+dynamic = ["version"]
+requires-python = ">=3.12"
+authors = [
+  { name="Hiroaki Kusunose", email="hiroaki.kusunose@gmail.com" },
+]
+description = "Generation code and data for the new multipole basis of MultiPie (root cluster, parent groups, harmonics mapping)."
+readme = {file = "docs/README.md", content-type = "text/markdown"}
+license = "MPL-2.0"
+license-files = ["LICENSE"]
+keywords = ["group theory", "condensed matter", "materials science", "symmetry-adapted basis"]
+classifiers = [
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Physics",
+    "Topic :: Scientific/Engineering :: Mathematics",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+]
+
+[project.optional-dependencies]
+dev = [
+    "black",
+    "pytest",
+    "pytest-xdist",
+    "qtdraw",
+]
+
+[tool.setuptools.dynamic]
+version = {attr = "multipiegen.__version__"}
+
+[tool.setuptools.package-data]
+multipiegen = ["binary_data/**/*.pkl"]
+[tool.setuptools.packages.find]
+include = ["multipiegen", "multipiegen.*"]
+exclude = ["build", "tests"]
+
+[tool.black]
+line-length = 130
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

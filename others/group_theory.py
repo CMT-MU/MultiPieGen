@@ -145,7 +145,7 @@ def create_coset_so():
         so = [pg.symmetry_operation["tag"][mp[0] - 1] for mp in mapping[1:]]
         dic[c_group] = (p_group, so)
 
-    outfile = "data_coset_so.py"
+    outfile = os.path.join(__top_dir__, "multipiegen", "data", "data_coset_so.py")
     f = open(outfile, "w")
     print('"""\nSymmetry operations of coset.\n\n- data_coset_so = { child: (parent, [SO]) }\n"""\n', file=f)
     print("data_coset_so =", dic, file=f)
@@ -178,5 +178,6 @@ def check_wyckoff_inversion():
 
 
 # ==================================================
-# create_coset_so()
-check_wyckoff_inversion()
+if __name__ == "__main__":
+    # create_coset_so()
+    check_wyckoff_inversion()

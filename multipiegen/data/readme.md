@@ -7,6 +7,7 @@
 - data_parent_pg.py: parent PG from child PG (original)
 - data_parent_sg.py: parent SG from child SG (original)
 - data_root_cluster.py: root cluster (original)
+- data_coset_so.py: symmetry operations of coset to parent group (original)
 - data_harmonics_mapping.py: mapping of harmonics keys (original)
 - data_top_harmonics_info.py: harmonics information (original)
 
@@ -24,7 +25,7 @@
 - data_top_harmonics.py: harmonics of D6h and Oh (orignal)
 - data_top_harmonics_info.py: information of harmonics (orignal)
 - data_wyckoff_site.py: wyckoff site for PG and SG (original)
-- data_wyckoff_bond.py: wyckoff bond for PG and SG (original) [to add site symmetry]
+- data_wyckoff_bond_sym.py: wyckoff bond for PG and SG with bond symmetry (original)
 - data_wyckoff_mpg.py: wyckoff site for MPG (original)
 - data_wyckoff_msg.py: wyckoff site for MSG (original)
 

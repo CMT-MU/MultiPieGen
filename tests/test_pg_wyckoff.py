@@ -34,21 +34,14 @@ def check_each_pg(c_group):
     return site_err, bond_err
 
 
-def check_pg():
-    cnt_site = 0
-    cnt_bond = 0
+def test_pg_wyckoff():
+    site_err_groups = []
+    bond_err_groups = []
     for c_group in data_representative_parent_pg.keys():
         site_err, bond_err = check_each_pg(c_group)
         if site_err:
-            cnt_site += 1
+            site_err_groups.append(c_group)
         if bond_err:
-            bond_err += 1
-    if cnt_site > 0:
-        print("found error in site wyckoff.")
-    if cnt_bond > 0:
-        print("found error in bond wyckoff.")
-    if cnt_site == 0 and cnt_bond == 0:
-        print("no error.")
-
-
-check_pg()
+            bond_err_groups.append(c_group)
+    assert not site_err_groups, f"site wyckoff error: {site_err_groups}"
+    assert not bond_err_groups, f"bond wyckoff error: {bond_err_groups}"

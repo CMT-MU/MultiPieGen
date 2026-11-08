@@ -10,10 +10,6 @@ Create harmonics mapping from D6h and Oh to each PG.
     - harmonics_mapping: mapping and coeffcient to each PG.
 """
 
-import sys
-from pathlib import Path
-
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 import os
 from multipiegen.data.data_top_harmonics import top_harmonics_tag
 from multipiegen.data.data_compatibility_relation import compatibility_relation
@@ -154,4 +150,5 @@ def create_file():
 
 
 # ==================================================
-create_file()
+if __name__ == "__main__":
+    create_file()
