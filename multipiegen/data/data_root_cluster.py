@@ -42,9 +42,9 @@ d6h_cluster_cart_site0 = "[2sqrt(2),sqrt(6),4sqrt(3)]"
 # representative vector in cartesian coordinate (normalized when necessary).
 #   it should not be parallel nor perpendicular to site0 vector.
 #   d6h with principal axis [111] is equivanlent to oh.
-root_cluster_cart_vector0 = "[5,1,6]"
-oh_cluster_cart_vector0 = "[5,1,6]"
-d6h_cluster_cart_vector0 = "[-2*sqrt(2),sqrt(6),4*sqrt(3)]"
+root_cluster_cart_vector0 = "[6,1,5]"
+oh_cluster_cart_vector0 = "[6,1,5]"
+d6h_cluster_cart_vector0 = "[-5*sqrt(2)/2,sqrt(6)/2,4*sqrt(3)]"
 
 # ==================================================
 # scale factor for space group purpose.

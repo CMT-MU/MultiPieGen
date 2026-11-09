@@ -6,7 +6,7 @@
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 """
-Orthonormal cluster basis of Oh and D6h clusters.
+Orthonormal (scalar) cluster basis of Oh and D6h clusters (binary: cluster_scalar_basis.pkl).
 
 The cluster is made by substituting the representative site (site0) into the general points
 of the Oh (48 points) or D6h (24 points) cluster. The value of each real top harmonics at
@@ -15,17 +15,22 @@ by symmetry. Within each (irrep, component), the vectors are orthogonalized by t
 Gram-Schmidt process from lower rank (then lower multiplicity), and linearly dependent ones
 are dropped. The result is an orthonormal basis of 48 (Oh) or 24 (D6h) vectors.
 
-- cluster_basis (dict).
+- cluster_scalar_basis (dict)::
+
     { "Oh/D6h": {
         "site0": [x0,y0,z0] (sympy),
         "cluster": cluster points, ndarray (N,3) (sympy),
-        "basis": { top_key: ndarray (N,) (sympy) },  # orthonormal, sum_i |v_i|^2 = 1.
-        "dropped": [top_key],  # harmonics linearly dependent on lower ones.
+        "basis": { PGMultipoleType: ndarray (dim,N) (sympy) },  # orthonormal, sum_i v_i^2 = 1 per component.
+        "dropped": [ PGMultipoleType ],  # harmonics linearly dependent on lower ones (whole multiplets).
     } }
-    top_key = (rank, irrep, multiplicity [1-based], component [0-based]), -1: unique.
+
+    PGMultipoleType = (X, l, Gamma, n, p, s, k, x) as the site SAMB of MultiPie: X = "Q", rank l, irrep,
+        multiplicity n (1-based, -1: unique) of the top harmonics, p = -1, s = 0, k = 0, x = "q".
+        All components of a multiplet are in the value (rows, in the order of components).
 """
 
 import numpy as np
+from multipie import PGMultipoleType
 import sympy as sp
 from multipie.util.util import str_to_sympy
 from multipie.util.util_binary import BinaryManager
@@ -40,7 +45,7 @@ from multipiegen.data.data_top_harmonics_info import top_harmonics_symmetry
 from multipiegen.util.util_harmonics_symbol import is_real_irrep
 
 # ==================================================
-cluster_basis_file = "cluster_basis"
+cluster_basis_file = "cluster_scalar_basis"
 _cluster_data = {
     "Oh": (oh_cluster_cart, oh_cluster_cart_site0),
     "D6h": (d6h_cluster_cart, d6h_cluster_cart_site0),
@@ -169,13 +174,36 @@ def create_cluster_basis(group):
     _check_components(basis, dropped)
     if len(basis) != len(cluster):
         raise ValueError(f"number of basis ({len(basis)}) differs from number of cluster points ({len(cluster)}).")
+    basis = _multipole_keys(basis)
+    dropped = list(_multipole_keys({k: None for k in dropped}).keys())
     return {"site0": site0, "cluster": cluster, "basis": basis, "dropped": dropped}
+
+
+# ==================================================
+def _multipole_keys(basis):
+    """
+    Re-key by PGMultipoleType("Q", l, Gamma, n, p=-1, s=0, k=0, x="q"), with components stacked.
+
+    Args:
+        basis (dict): { top_key: ndarray (N,) or None }, complete multiplets.
+
+    Returns:
+        - (dict) -- { PGMultipoleType: ndarray (dim,N) (or None) }, in the order of first appearance.
+    """
+    multiplets = {}
+    for (rank, irrep, mul, comp), v in basis.items():
+        multiplets.setdefault((rank, irrep, mul), {})[comp] = v
+    res = {}
+    for (rank, irrep, mul), comps in multiplets.items():
+        vals = [comps[c] for c in sorted(comps)]
+        res[PGMultipoleType("Q", rank, irrep, mul, -1, 0, 0, "q")] = None if vals[0] is None else np.array(vals, dtype=object)
+    return res
 
 
 # ==================================================
 def save_cluster_basis(groups=("Oh", "D6h"), verbose=True):
     """
-    Create and save cluster basis as binary (multipiegen/binary/cluster_basis.pkl).
+    Create and save cluster basis as binary (multipiegen/binary/cluster_scalar_basis.pkl).
 
     Args:
         groups (tuple, optional): groups.
@@ -201,18 +229,22 @@ def load_cluster_basis():
 # ==================================================
 def cluster_basis_matrix(data, numeric=True):
     """
-    Basis as matrix, each row is a basis vector.
+    Basis as matrix, each row is a component of a basis multiplet.
 
     Args:
         data (dict): cluster basis of a group, load_cluster_basis()[group].
         numeric (bool, optional): float ndarray ? otherwise sympy object ndarray.
 
     Returns:
-        - (ndarray) -- basis matrix (n_basis, N).
-        - (list) -- top_key of each row.
+        - (ndarray) -- basis matrix (N, N).
+        - (list) -- (PGMultipoleType, component index) of each row.
     """
-    keys = list(data["basis"].keys())
-    m = np.array([data["basis"][k] for k in keys], dtype=object)
+    rows, keys = [], []
+    for key, v in data["basis"].items():
+        for c, vc in enumerate(v):
+            rows.append(vc)
+            keys.append((key, c))
+    m = np.array(rows, dtype=object)
     if numeric:
         m = m.astype(float)
     return m, keys
