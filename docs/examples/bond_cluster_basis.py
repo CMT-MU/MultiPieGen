@@ -28,14 +28,14 @@ for group in ["Oh", "D6h"]:
         m, keys = bond_cluster_basis_matrix(d, x)
         ok = np.allclose(m @ m.T, np.eye(len(m)))
         n_mult = len([k for k in d["basis"] if k.x == x])
-        n_drop = len([k for k in d["dropped"] if k[6] == x])
-        print(f"  x={x}: {len(keys)} vectors in {n_mult} multiplets, orthonormal: {ok}, dropped: {n_drop}")
+        n_drop = len([k for k in d["dropped"] if k.x == x])
+        print(f"  x={x}: {len(keys)} vectors in {n_mult} multiplets, orthonormal: {ok}, dropped vector multiplets: {n_drop}")
 
 # ==================================================
 # keys: PGMultipoleType(X, l, Gamma, n, p, s=0, k=0, x) as MultiPie bond_a; value: (dim, N) values on the bonds.
-# source: the multiplet (X, l, Gamma, n, k, x) of the vector cluster basis.
+# source: the multiplet of the vector cluster basis (PGMultipoleType with s=1).
 d = data["Oh"]
 for key in list(d["basis"])[:4]:
     print(key, d["basis"][key].shape, "<-", d["source"][key])
 print("with add_multiplicity:", [k for k in d["basis"] if k.p != -1][:2])
-print("dropped (vector cluster basis key + x, first 3):", d["dropped"][:3])
+print("dropped vector cluster basis multiplets (first 2):", d["dropped"][:2])

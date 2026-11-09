@@ -51,16 +51,17 @@ def test_irrep_count(group, x):
 # ==================================================
 @pytest.mark.parametrize("group, x", CASES)
 def test_keys(group, x):
-    # keys as MultiPie bond_a: PGMultipoleType(X, l, Gamma, n, p, s=0, k=0, x); kept + dropped = all vector cluster basis.
-    vkeys = list(load_cluster_vector_basis()[group]["basis"][x].keys())
-    kept = []
-    for key, v in _multiplets(group, x).items():
+    # keys as MultiPie bond_a: PGMultipoleType(X, l, Gamma, n, p, s=0, k=0, x);
+    # source + dropped = all multiplets of the vector cluster basis.
+    vkeys = [k for k in load_cluster_vector_basis()[group]["basis"] if k.x == x]
+    src = []
+    for key in _multiplets(group, x):
         assert key.s == 0 and key.k == 0
-        X, l, Gamma, n, k, xs = data[group]["source"][key]
-        assert (X, l, Gamma, n, xs) == (key.X, key.l, key.Gamma, key.n, x)
-        kept += [(X, l, Gamma, n, -1 if len(v) == 1 else c, k) for c in range(len(v))]
-    dropped = [k[:6] for k in data[group]["dropped"] if k[6] == x]
-    assert sorted(kept + dropped) == sorted(vkeys)
+        v = data[group]["source"][key]
+        assert (v.X, v.l, v.Gamma, v.n, v.x) == (key.X, key.l, key.Gamma, key.n, x)
+        src.append(v)
+    dropped = [k for k in data[group]["dropped"] if k.x == x]
+    assert sorted(src + dropped) == sorted(vkeys)
     # add_multiplicity: -1 if unique, otherwise 1, 2, ... in the order of k of the source.
     same = collections.defaultdict(list)
     for key in _multiplets(group, x):
@@ -69,7 +70,7 @@ def test_keys(group, x):
         if len(lst) == 1:
             assert lst[0].p == -1
         else:
-            lst = sorted(lst, key=lambda k: data[group]["source"][k][4])
+            lst = sorted(lst, key=lambda k: data[group]["source"][k].k)
             assert [k.p for k in lst] == list(range(1, len(lst) + 1))
 
 

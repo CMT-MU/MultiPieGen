@@ -32,8 +32,8 @@ Orthonormal bond cluster basis of Oh and D6h clusters.
         "cluster": cluster points, ndarray (N,3) (sympy),
         "bond": bond vectors b_i, ndarray (N,3) (sympy),
         "basis": { PGMultipoleType: ndarray (dim, N) (sympy) },  # orthonormal, rows = components.
-        "source": { PGMultipoleType: (X, rank, irrep, multiplicity, k, x) },  # multiplet of the vector cluster basis.
-        "dropped": [ (X, rank, irrep, multiplicity, component, k, x) ],  # vector cluster basis keys (+ x) dropped.
+        "source": { PGMultipoleType: PGMultipoleType },  # multiplet of the vector cluster basis (s=1).
+        "dropped": [ PGMultipoleType ],  # multiplets of the vector cluster basis dropped.
     } }
 
     PGMultipoleType = (X, l, Gamma, n, p, s, k, x): type Q/G, rank, irrep, multiplicity (-1: unique),
@@ -133,7 +133,7 @@ def _multipole_keys(basis, x):
 
     Returns:
         - (dict) -- { PGMultipoleType: ndarray (dim, N) } with components stacked.
-        - (dict) -- { PGMultipoleType: (X, rank, irrep, mul, k, x) } source multiplet of the vector cluster basis.
+        - (dict) -- { PGMultipoleType: PGMultipoleType } source multiplet of the vector cluster basis.
     """
     multiplets = {}
     for (X, rank, irrep, mul, comp, k), v in basis.items():
@@ -152,7 +152,7 @@ def _multipole_keys(basis, x):
         X, rank, irrep, mul, k = m
         key = PGMultipoleType(X, rank, irrep, mul, p_of[m], 0, 0, x)
         res[key] = np.array([comps[c] for c in sorted(comps)], dtype=object)
-        source[key] = (*m, x)
+        source[key] = PGMultipoleType(X, rank, irrep, mul, -1, 1, k, x)
     return res, source
 
 
@@ -175,7 +175,12 @@ def create_bond_cluster_basis(group, verbose=False):
 
     basis, source, dropped = {}, {}, []
     for x in ["q", "g"]:
-        vbx = vb["basis"][x]
+        # components of the vector cluster basis, keyed by (X, rank, irrep, mul, comp, k).
+        vbx = {}
+        for key, v in vb["basis"].items():
+            if key.x == x:
+                for c, vc in enumerate(v):
+                    vbx[(key.X, key.l, key.Gamma, key.n, -1 if len(v) == 1 else c, key.k)] = vc
         num = {k: np.einsum("ia,ia->i", np.array(v, dtype=float), bond_f) for k, v in vbx.items()}
         kept, drop, (rk, rd) = _numerical_selection(num)
         if verbose:
@@ -189,7 +194,7 @@ def create_bond_cluster_basis(group, verbose=False):
         bx, sx = _multipole_keys({k: b[k] for k in vbx if k in b}, x)
         basis.update(bx)
         source.update(sx)
-        dropped += [(*k, x) for k in vbx if k in drop]
+        dropped += list(dict.fromkeys(PGMultipoleType(k[0], k[1], k[2], k[3], -1, 1, k[5], x) for k in vbx if k in drop))
 
     return {
         "site0": vb["site0"],

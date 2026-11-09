@@ -31,10 +31,17 @@ def test_orthonormal(group, x):
 
 
 # ==================================================
+def _multiplets(group, x):
+    return {key: np.array(v, dtype=float) for key, v in data[group]["basis"].items() if key.x == x}
+
+
+# ==================================================
 @pytest.mark.parametrize("group, x", CASES)
 def test_irrep_count(group, x):
     # vector (3 dim) x regular representation: each irrep appears 3 d^2 times (d components).
-    count = collections.Counter(key[2] for key in data[group]["basis"][x])
+    count = collections.Counter()
+    for key, v in _multiplets(group, x).items():
+        count[key.Gamma] += len(v)
     for irrep, chi in character[group][1].items():
         d = int(chi.strip("[]").split(",")[0])
         assert count[irrep] == 3 * d * d, irrep
@@ -42,11 +49,14 @@ def test_irrep_count(group, x):
 
 # ==================================================
 @pytest.mark.parametrize("group, x", CASES)
-def test_type(group, x):
-    # polar internal basis: Q for even s+k, G for odd s+k (s=1); interchanged for axial internal basis.
-    for X, rank, irrep, mul, comp, k in data[group]["basis"][x]:
-        even = (1 + k) % 2 == 0
-        assert X == (("Q" if even else "G") if x == "q" else ("G" if even else "Q"))
+def test_keys(group, x):
+    # PGMultipoleType as MultiPie vector SAMB: p = -1, s = 1; Q for even s+k (q), interchanged for g.
+    for key in _multiplets(group, x):
+        assert key.p == -1 and key.s == 1
+        even = (1 + key.k) % 2 == 0
+        assert key.X == (("Q" if even else "G") if x == "q" else ("G" if even else "Q"))
+    keys = [k for k in data[group]["basis"]] + data[group]["dropped"]
+    assert len(set(keys)) == len(keys)
 
 
 # ==================================================
@@ -58,17 +68,14 @@ def test_representation_matrix(group, x):
     _, R, det = _group(group)
     D = {ir: m.astype(complex).real for ir, m in representation_matrix(group)["matrix"].items()}
     perm = [[int(np.argmin(np.linalg.norm(P - q, axis=1))) for q in P @ Rg] for Rg in R]
-    blocks = collections.defaultdict(dict)
-    for (X, rank, irrep, mul, comp, k), v in data[group]["basis"][x].items():
-        blocks[(X, rank, irrep, mul, k)][comp] = np.array(v, dtype=float)
-    for (X, rank, irrep, mul, k), comps in blocks.items():
-        V = [comps[c] for c in sorted(comps)]
+    for key, V in _multiplets(group, x).items():
+        assert len(V) == D[key.Gamma].shape[1], key
         for g in range(len(R)):
             s = det[g] if x == "g" else 1.0
             for c in range(len(V)):
                 gv = s * (V[c][perm[g]] @ R[g].T)
-                pred = sum(V[cp] * D[irrep][g][cp, c] for cp in range(len(V)))
-                assert np.allclose(gv, pred), (X, rank, irrep, mul, k, g)
+                pred = sum(V[cp] * D[key.Gamma][g][cp, c] for cp in range(len(V)))
+                assert np.allclose(gv, pred), (key, g)
 
 
 # ==================================================
@@ -76,8 +83,7 @@ def test_representation_matrix(group, x):
 def test_binary_is_up_to_date(group):
     new = create_cluster_vector_basis(group)
     old = data[group]
-    for x in ["q", "g"]:
-        assert list(new["basis"][x].keys()) == list(old["basis"][x].keys())
-        assert new["dropped"][x] == old["dropped"][x]
-        for k in new["basis"][x]:
-            assert repr(new["basis"][x][k]) == repr(old["basis"][x][k]), k
+    assert list(new["basis"].keys()) == list(old["basis"].keys())
+    assert new["dropped"] == old["dropped"]
+    for k in new["basis"]:
+        assert repr(new["basis"][k]) == repr(old["basis"][k]), k

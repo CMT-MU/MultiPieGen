@@ -14,7 +14,7 @@ Load the orthonormal Oh/D6h cluster basis, inspect keys and values, expand a fun
 
 ## cluster_vector_basis.py
 
-Load the orthonormal vector cluster basis (internal rank s=1, polar/axial internal basis) of the Oh/D6h clusters, expand a vector field.
+Load the orthonormal vector cluster basis (internal rank s=1, polar/axial internal basis) of the Oh/D6h clusters, keyed by PGMultipoleType, expand a vector field.
 
 ```{literalinclude} ../examples/cluster_vector_basis.py
 :language: python

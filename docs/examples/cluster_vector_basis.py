@@ -25,15 +25,16 @@ for group in ["Oh", "D6h"]:
     print(f"{group}: {len(d['cluster'])} points, internal basis {d['internal_basis']}")
     for x in ["q", "g"]:
         m, keys = cluster_vector_basis_matrix(d, x)
-        print(
-            f"  x={x}: {len(keys)} vectors, orthonormal: {np.allclose(m @ m.T, np.eye(len(m)))}, dropped: {len(d['dropped'][x])}"
-        )
+        n_mult = len([k for k in d["basis"] if k.x == x])
+        n_drop = len([k for k in d["dropped"] if k.x == x])
+        ok = np.allclose(m @ m.T, np.eye(len(m)))
+        print(f"  x={x}: {len(keys)} vectors in {n_mult} multiplets, orthonormal: {ok}, dropped multiplets: {n_drop}")
 
 # ==================================================
-# keys: (X, rank, irrep, multiplicity, component, k); value: (N,3) vectors at the cluster points.
+# keys: PGMultipoleType(X, l, Gamma, n, p=-1, s=1, k, x) as MultiPie vector SAMB; value: (dim, N, 3) at the cluster points.
 d = data["Oh"]
-for key in list(d["basis"]["q"])[:4]:
-    print(key, "at the first point:", d["basis"]["q"][key][0])
+for key in list(d["basis"])[:4]:
+    print(key, "at the first point:", d["basis"][key][:, 0].tolist())
 
 # a vector field on the cluster expanded in the basis: coefficients = <basis|field>.
 P = np.array(d["cluster"], dtype=float)
