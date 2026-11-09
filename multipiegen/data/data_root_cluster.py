@@ -41,7 +41,6 @@ d6h_cluster_cart_site0 = "[2sqrt(2),sqrt(6),4sqrt(3)]"
 # ==================================================
 # representative vector in cartesian coordinate (normalized when necessary).
 #   it should not be parallel nor perpendicular to site0 vector.
-#   [6,1,5]: no bond cluster function of Oh/D6h vanishes accidentally ([5,1,6] made some vanish).
 #   d6h with principal axis [111] is equivanlent to oh.
 root_cluster_cart_vector0 = "[6,1,5]"
 oh_cluster_cart_vector0 = "[6,1,5]"
