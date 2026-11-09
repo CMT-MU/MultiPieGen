@@ -9,6 +9,7 @@ parts:
     - file: src/data
     - file: src/binary_data
     - file: src/harmonics_pdf
+    - file: src/info_pdf
     - file: src/examples
 - caption: API reference
   chapters:
@@ -26,3 +27,4 @@ parts:
       - file: src/api_create/create_group
       - file: src/api_create/create_cluster_basis
       - file: src/api_create/create_pdf_harmonics
+      - file: src/api_create/create_pdf_info

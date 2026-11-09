@@ -36,6 +36,7 @@ The binary data (`multipiegen/binary_data`) and the PDFs (`multipiegen/pdf`) are
 | `binary_data/cluster_basis.pkl` | orthonormal cluster basis of the Oh (48) and D6h (24) clusters | `python -m multipiegen.create_binary.create_cluster_basis` | `multipiegen.util.util_cluster_basis.load_cluster_basis()` |
 | `binary_data/group.pkl` | data of all PG (47), SG, MPG and MSG: symmetry operations, product table, mapping to the Oh/D6h cluster, character, Wyckoff site and bond, active multipoles | `python -m multipiegen.create_binary.create_group` | `multipiegen.util.util_group.load_group()` |
 | `pdf/PG/{no}-{tag}/harmonics.{tex,pdf}` | harmonics of all 47 point groups, with polar and axial symbols side by side | `python -m multipiegen.create_pdf.create_pdf_harmonics` | |
+| `pdf/info/*.{tex,pdf}` | overall information: lists of PG, SG, MPG and MSG, compatibility relation with orbitals, active multipoles | `python -m multipiegen.create_pdf.create_pdf_info` | |
 
 The binaries use the format of MultiPie's `BinaryManager` (gzip-compressed pickle with a header). `str(load_info())`
 shows the description of the contents.
@@ -60,7 +61,7 @@ multipiegen/        package
   create_binary/    code that generates the binary data
   create_pdf/       code that generates the PDFs
   binary_data/      generated binary data (info.pkl, cluster_basis.pkl, group.pkl) [not packaged]
-  pdf/              generated LaTeX and PDF (PG/032-Oh/harmonics.pdf, ...) [not packaged]
+  pdf/              generated LaTeX and PDF (PG/032-Oh/harmonics.pdf, info/PG.pdf, ...) [not packaged]
 docs/
   examples/         sample code for each feature
 tests/              pytest tests

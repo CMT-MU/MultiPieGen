@@ -9,4 +9,5 @@ Run each as `python -m <module>`.
     multipiegen.create_binary.create_group
     multipiegen.create_binary.create_cluster_basis
     multipiegen.create_pdf.create_pdf_harmonics
+    multipiegen.create_pdf.create_pdf_info
 ```
