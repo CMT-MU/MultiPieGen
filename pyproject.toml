@@ -30,6 +30,8 @@ classifiers = [
 [project.optional-dependencies]
 dev = [
     "black",
+    "jupyter-book==1.0.4.post1",
+    "ghp-import",
     "pytest",
     "pytest-xdist",
     "qtdraw",
@@ -38,11 +40,13 @@ dev = [
 [tool.setuptools.dynamic]
 version = {attr = "multipiegen.__version__"}
 
-[tool.setuptools.package-data]
-multipiegen = ["binary_data/**/*.pkl"]
+# binary (generated binaries) and pdf (generated PDFs) are kept in the repository but not packaged.
+[tool.setuptools]
+include-package-data = false
+
 [tool.setuptools.packages.find]
 include = ["multipiegen", "multipiegen.*"]
-exclude = ["build", "tests"]
+exclude = ["build", "tests", "multipiegen.binary*", "multipiegen.pdf*"]
 
 [tool.black]
 line-length = 130

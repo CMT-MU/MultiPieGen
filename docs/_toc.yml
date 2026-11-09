@@ -1,0 +1,34 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: README
+parts:
+- caption: Documentation
+  chapters:
+    - file: src/data
+    - file: src/binary
+    - file: src/pg_pdf
+    - file: src/sg_pdf
+    - file: src/mpg_pdf
+    - file: src/msg_pdf
+    - file: src/info_pdf
+    - file: src/examples
+- caption: API reference
+  chapters:
+    - file: src/api_util
+      sections:
+      - file: src/api_util/util_info
+      - file: src/api_util/util_group
+      - file: src/api_util/util_cluster_basis
+      - file: src/api_util/util_harmonics_symbol
+      - file: src/api_util/util_multipolar_harmonics
+      - file: src/api_util/util_symmetry_operation
+    - file: src/api_create
+      sections:
+      - file: src/api_create/create_info
+      - file: src/api_create/create_group
+      - file: src/api_create/create_cluster_basis
+      - file: src/api_create/create_pdf_harmonics
+      - file: src/api_create/create_pdf_info
+      - file: src/api_create/create_pdf_group
