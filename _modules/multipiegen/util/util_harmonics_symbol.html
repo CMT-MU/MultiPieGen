@@ -1,0 +1,562 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>multipiegen.util.util_harmonics_symbol &#8212; MultiPieGen</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=34ddd5e8" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+
+    <script src="../../../_static/documentation_options.js?v=a8e58a58"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/multipiegen/util/util_harmonics_symbol';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <script src="../../../_static/custom.js?v=9c3a2667"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../../_static/searchtools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    <script src="../../../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../README.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">MultiPieGen</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Documentation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../src/data.html">Data tables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../src/binary.html">Binary data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../src/pg_pdf.html">Point groups</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../src/sg_pdf.html">Space groups</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../src/mpg_pdf.html">Magnetic point groups</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../src/msg_pdf.html">Magnetic space groups</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../src/info_pdf.html">Overall information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../src/examples.html">Examples</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">API reference</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../src/api_util.html">Utilities</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_util/util_info.html">Info</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_util/util_group.html">Group</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_util/util_cluster_basis.html">Cluster basis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_util/util_harmonics_symbol.html">Harmonics symbol</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_util/util_multipolar_harmonics.html">Multipolar harmonics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_util/util_symmetry_operation.html">Symmetry operation</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../src/api_create.html">Generators</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_create/create_info.html">Info binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_create/create_group.html">Group binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_create/create_cluster_basis.html">Cluster basis binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_create/create_pdf_harmonics.html">Harmonics PDF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_create/create_pdf_info.html">Information PDF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_create/create_pdf_group.html">Group PDF</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/hiro-k-phys/mp-newbasis.git" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for multipiegen.util.util_harmonics_symbol</h1><div class="highlight"><pre>
+<span></span><span class="c1"># SPDX-License-Identifier: MPL-2.0</span>
+<span class="c1"># Copyright (C) 2021- The MultiPieGen developers</span>
+<span class="c1">#</span>
+<span class="c1"># This Source Code Form is subject to the terms of the Mozilla Public</span>
+<span class="c1"># License, v. 2.0. If a copy of the MPL was not distributed with this</span>
+<span class="c1"># file, You can obtain one at https://mozilla.org/MPL/2.0/.</span>
+
+<span class="sd">"""</span>
+<span class="sd">Polar and axial symbols of harmonics for all point groups.</span>
+
+<span class="sd">Each harmonics of a point group comes from a top (Oh/D6h) harmonics T (data_harmonics_mapping).</span>
+<span class="sd">    polar : Q(key_p) = cp T,</span>
+<span class="sd">    axial : G(key_a) = ca T,</span>
+<span class="sd">so that the polar harmonics Q(key_p) and the axial harmonics (cp ca) G(key_a) have the same</span>
+<span class="sd">expression cp T. The axial symbol differs from the polar one only by irrep, component, and sign.</span>
+
+<span class="sd">- harmonics key = (rank, irrep, multiplicity [1-based], component [0-based]), -1: unique.</span>
+<span class="sd">"""</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">sympy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sp</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">multipie.util.util</span><span class="w"> </span><span class="kn">import</span> <span class="n">str_to_sympy</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">multipiegen.data.data_character_table</span><span class="w"> </span><span class="kn">import</span> <span class="n">character</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">multipiegen.data.data_harmonics_mapping</span><span class="w"> </span><span class="kn">import</span> <span class="n">data_harmonics_mapping</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">multipiegen.data.data_top_harmonics_info</span><span class="w"> </span><span class="kn">import</span> <span class="n">top_harmonics_symmetry</span>
+
+
+<span class="c1"># ==================================================</span>
+<div class="viewcode-block" id="is_real_irrep">
+<a class="viewcode-back" href="../../../src/api_util/util_harmonics_symbol.html#multipiegen.util.util_harmonics_symbol.is_real_irrep">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">is_real_irrep</span><span class="p">(</span><span class="n">irrep</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Is real irrep of top group (Oh/D6h) ? (complex combinations have irrep names ending with "a" or "b").</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        irrep (str): irrep name of top group.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        - (bool) -- real irrep ?</span>
+<span class="sd">    """</span>
+    <span class="k">return</span> <span class="n">irrep</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="ow">in</span> <span class="s2">"gu"</span></div>
+
+
+
+<span class="c1"># ==================================================</span>
+<div class="viewcode-block" id="irrep_latex">
+<a class="viewcode-back" href="../../../src/api_util/util_harmonics_symbol.html#multipiegen.util.util_harmonics_symbol.irrep_latex">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">irrep_latex</span><span class="p">(</span><span class="n">irrep</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Irrep in LaTeX (same format as MultiPie).</span>
+<span class="sd">        e.g., "T1u" -&gt; "T_{1u}", "A2''" -&gt; "A_{2}^{\\prime\\prime}", "E1ua" -&gt; "E_{1u}^{(a)}", "Ea'" -&gt; "E^{\\prime(a)}".</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        irrep (str): irrep name.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        - (str) -- irrep in LaTeX.</span>
+<span class="sd">    """</span>
+    <span class="n">body</span> <span class="o">=</span> <span class="n">irrep</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s2">"'"</span><span class="p">)</span>
+    <span class="n">prime</span> <span class="o">=</span> <span class="s2">"</span><span class="se">\\</span><span class="s2">prime"</span> <span class="o">*</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">irrep</span><span class="p">)</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">body</span><span class="p">))</span>
+    <span class="n">cmplx</span> <span class="o">=</span> <span class="s2">""</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">body</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">body</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="ow">in</span> <span class="s2">"ab"</span><span class="p">:</span>  <span class="c1"># complex irrep, e.g., Ea, E1ga.</span>
+        <span class="n">cmplx</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"(</span><span class="si">{</span><span class="n">body</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">)"</span>
+        <span class="n">body</span> <span class="o">=</span> <span class="n">body</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="n">body</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="sa">f</span><span class="s2">"_</span><span class="se">{{</span><span class="si">{</span><span class="n">body</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span><span class="si">}</span><span class="se">}}</span><span class="s2">"</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">body</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="k">else</span> <span class="s2">""</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">prime</span> <span class="ow">or</span> <span class="n">cmplx</span><span class="p">:</span>
+        <span class="n">s</span> <span class="o">+=</span> <span class="s2">"^{"</span> <span class="o">+</span> <span class="n">prime</span> <span class="o">+</span> <span class="n">cmplx</span> <span class="o">+</span> <span class="s2">"}"</span>
+    <span class="k">return</span> <span class="n">s</span></div>
+
+
+
+<span class="c1"># ==================================================</span>
+<div class="viewcode-block" id="multipole_symbol">
+<a class="viewcode-back" href="../../../src/api_util/util_harmonics_symbol.html#multipiegen.util.util_harmonics_symbol.multipole_symbol">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">multipole_symbol</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">sign</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Multipole symbol in LaTeX (same format as MultiPie), e.g., "\\mathbb{Q}_{1,1}(T_{1u})".</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        X (str): "Q" (polar) or "G" (axial).</span>
+<span class="sd">        key (tuple): harmonics key (rank, irrep, multiplicity, component).</span>
+<span class="sd">        sign (int, optional): sign of symbol (+1/-1).</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        - (str) -- multipole symbol in LaTeX.</span>
+<span class="sd">    """</span>
+    <span class="n">rank</span><span class="p">,</span> <span class="n">irrep</span><span class="p">,</span> <span class="n">mul</span><span class="p">,</span> <span class="n">comp</span> <span class="o">=</span> <span class="n">key</span>
+    <span class="n">sub</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">rank</span><span class="si">}</span><span class="s2">"</span> <span class="k">if</span> <span class="n">comp</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span> <span class="k">else</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">rank</span><span class="si">}</span><span class="s2">,</span><span class="si">{</span><span class="n">comp</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s2">"</span>
+    <span class="n">arg</span> <span class="o">=</span> <span class="n">irrep_latex</span><span class="p">(</span><span class="n">irrep</span><span class="p">)</span> <span class="k">if</span> <span class="n">mul</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span> <span class="k">else</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">irrep_latex</span><span class="p">(</span><span class="n">irrep</span><span class="p">)</span><span class="si">}</span><span class="s2">,</span><span class="si">{</span><span class="n">mul</span><span class="si">}</span><span class="s2">"</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="se">\\</span><span class="s2">mathbb</span><span class="se">{{</span><span class="si">{</span><span class="n">X</span><span class="si">}</span><span class="se">}}</span><span class="s2">_</span><span class="se">{{</span><span class="si">{</span><span class="n">sub</span><span class="si">}</span><span class="se">}}</span><span class="s2">(</span><span class="si">{</span><span class="n">arg</span><span class="si">}</span><span class="s2">)"</span>
+    <span class="k">return</span> <span class="p">(</span><span class="s2">"-"</span> <span class="k">if</span> <span class="n">sign</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="s2">""</span><span class="p">)</span> <span class="o">+</span> <span class="n">s</span></div>
+
+
+
+<span class="c1"># ==================================================</span>
+<div class="viewcode-block" id="polar_to_axial">
+<a class="viewcode-back" href="../../../src/api_util/util_harmonics_symbol.html#multipiegen.util.util_harmonics_symbol.polar_to_axial">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">polar_to_axial</span><span class="p">(</span><span class="n">group</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Axial key and sign of the axial harmonics having the same expression as a polar harmonics.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        group (str): point group tag.</span>
+<span class="sd">        key (tuple): polar harmonics key (rank, irrep, multiplicity, component).</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        - (tuple) -- axial harmonics key (rank, irrep, multiplicity, component).</span>
+<span class="sd">        - (int) -- sign (+1/-1), polar Q(key) and sign*G(axial key) have the same expression.</span>
+<span class="sd">    """</span>
+    <span class="n">mapping</span> <span class="o">=</span> <span class="n">data_harmonics_mapping</span><span class="p">[</span><span class="n">group</span><span class="p">]</span>
+    <span class="n">cp</span><span class="p">,</span> <span class="n">top_key</span> <span class="o">=</span> <span class="n">mapping</span><span class="p">[</span><span class="s2">"Q"</span><span class="p">][</span><span class="n">key</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">a_key</span><span class="p">,</span> <span class="p">(</span><span class="n">ca</span><span class="p">,</span> <span class="n">t_key</span><span class="p">)</span> <span class="ow">in</span> <span class="n">mapping</span><span class="p">[</span><span class="s2">"G"</span><span class="p">]</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">t_key</span> <span class="o">==</span> <span class="n">top_key</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">a_key</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">cp</span><span class="p">)</span> <span class="o">*</span> <span class="nb">int</span><span class="p">(</span><span class="n">ca</span><span class="p">)</span>
+    <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"no axial harmonics of </span><span class="si">{</span><span class="n">group</span><span class="si">}</span><span class="s2"> comes from </span><span class="si">{</span><span class="n">top_key</span><span class="si">}</span><span class="s2">."</span><span class="p">)</span></div>
+
+
+
+<span class="c1"># ==================================================</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_sort_key</span><span class="p">(</span><span class="n">group</span><span class="p">):</span>
+    <span class="n">order</span> <span class="o">=</span> <span class="p">{</span><span class="n">irrep</span><span class="p">:</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">irrep</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">character</span><span class="p">[</span><span class="n">group</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">())}</span>
+    <span class="k">return</span> <span class="k">lambda</span> <span class="n">k</span><span class="p">:</span> <span class="p">(</span><span class="n">k</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">order</span><span class="p">[</span><span class="n">k</span><span class="p">[</span><span class="mi">1</span><span class="p">]],</span> <span class="n">k</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">k</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+
+
+<span class="c1"># ==================================================</span>
+<div class="viewcode-block" id="harmonics_symbol_table">
+<a class="viewcode-back" href="../../../src/api_util/util_harmonics_symbol.html#multipiegen.util.util_harmonics_symbol.harmonics_symbol_table">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">harmonics_symbol_table</span><span class="p">(</span><span class="n">group</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Table of harmonics with polar and axial symbols.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        group (str): point group tag.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        - (list) -- [(key, polar symbol, axial symbol, expression in LaTeX)],</span>
+<span class="sd">          sorted by (rank, irrep in character table, multiplicity, component) as in MultiPie.</span>
+<span class="sd">    """</span>
+    <span class="n">mapping</span> <span class="o">=</span> <span class="n">data_harmonics_mapping</span><span class="p">[</span><span class="n">group</span><span class="p">]</span>
+    <span class="n">top</span> <span class="o">=</span> <span class="n">mapping</span><span class="p">[</span><span class="s2">"top"</span><span class="p">]</span>
+    <span class="n">axial</span> <span class="o">=</span> <span class="p">{</span><span class="n">t_key</span><span class="p">:</span> <span class="p">(</span><span class="n">a_key</span><span class="p">,</span> <span class="n">ca</span><span class="p">)</span> <span class="k">for</span> <span class="n">a_key</span><span class="p">,</span> <span class="p">(</span><span class="n">ca</span><span class="p">,</span> <span class="n">t_key</span><span class="p">)</span> <span class="ow">in</span> <span class="n">mapping</span><span class="p">[</span><span class="s2">"G"</span><span class="p">]</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+
+    <span class="n">tbl</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">mapping</span><span class="p">[</span><span class="s2">"Q"</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">(),</span> <span class="n">key</span><span class="o">=</span><span class="n">_sort_key</span><span class="p">(</span><span class="n">group</span><span class="p">)):</span>
+        <span class="n">cp</span><span class="p">,</span> <span class="n">top_key</span> <span class="o">=</span> <span class="n">mapping</span><span class="p">[</span><span class="s2">"Q"</span><span class="p">][</span><span class="n">key</span><span class="p">]</span>
+        <span class="n">a_key</span><span class="p">,</span> <span class="n">ca</span> <span class="o">=</span> <span class="n">axial</span><span class="p">[</span><span class="n">top_key</span><span class="p">]</span>
+        <span class="n">expr</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">latex</span><span class="p">(</span><span class="n">cp</span> <span class="o">*</span> <span class="n">str_to_sympy</span><span class="p">(</span><span class="n">top_harmonics_symmetry</span><span class="p">[</span><span class="n">top</span><span class="p">][</span><span class="n">top_key</span><span class="p">]))</span>
+        <span class="n">tbl</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">key</span><span class="p">,</span> <span class="n">multipole_symbol</span><span class="p">(</span><span class="s2">"Q"</span><span class="p">,</span> <span class="n">key</span><span class="p">),</span> <span class="n">multipole_symbol</span><span class="p">(</span><span class="s2">"G"</span><span class="p">,</span> <span class="n">a_key</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">cp</span><span class="p">)</span> <span class="o">*</span> <span class="nb">int</span><span class="p">(</span><span class="n">ca</span><span class="p">)),</span> <span class="n">expr</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">tbl</span></div>
+
+</pre></div>
+
+                </article>
+              
+
+              
+              
+              
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Hiroaki Kusunose
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2021-.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

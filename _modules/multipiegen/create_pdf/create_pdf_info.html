@@ -1,0 +1,787 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>multipiegen.create_pdf.create_pdf_info &#8212; MultiPieGen</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=34ddd5e8" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+
+    <script src="../../../_static/documentation_options.js?v=a8e58a58"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/multipiegen/create_pdf/create_pdf_info';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <script src="../../../_static/custom.js?v=9c3a2667"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../../_static/searchtools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    <script src="../../../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../README.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">MultiPieGen</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Documentation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../src/data.html">Data tables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../src/binary.html">Binary data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../src/pg_pdf.html">Point groups</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../src/sg_pdf.html">Space groups</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../src/mpg_pdf.html">Magnetic point groups</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../src/msg_pdf.html">Magnetic space groups</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../src/info_pdf.html">Overall information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../src/examples.html">Examples</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">API reference</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../src/api_util.html">Utilities</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_util/util_info.html">Info</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_util/util_group.html">Group</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_util/util_cluster_basis.html">Cluster basis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_util/util_harmonics_symbol.html">Harmonics symbol</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_util/util_multipolar_harmonics.html">Multipolar harmonics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_util/util_symmetry_operation.html">Symmetry operation</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../src/api_create.html">Generators</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_create/create_info.html">Info binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_create/create_group.html">Group binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_create/create_cluster_basis.html">Cluster basis binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_create/create_pdf_harmonics.html">Harmonics PDF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_create/create_pdf_info.html">Information PDF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_create/create_pdf_group.html">Group PDF</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/hiro-k-phys/mp-newbasis.git" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for multipiegen.create_pdf.create_pdf_info</h1><div class="highlight"><pre>
+<span></span><span class="c1"># SPDX-License-Identifier: MPL-2.0</span>
+<span class="c1"># Copyright (C) 2021- The MultiPieGen developers</span>
+<span class="c1">#</span>
+<span class="c1"># This Source Code Form is subject to the terms of the Mozilla Public</span>
+<span class="c1"># License, v. 2.0. If a copy of the MPL was not distributed with this</span>
+<span class="c1"># file, You can obtain one at https://mozilla.org/MPL/2.0/.</span>
+
+<span class="sd">"""</span>
+<span class="sd">Create LaTeX and PDF of overall information (based on MultiPie others/tools/create_PDF/create_pdf_group_info.py,</span>
+<span class="sd">create_pdf_compatibility_relation.py, create_pdf_active_multipole.py).</span>
+
+<span class="sd">    - multipiegen/pdf/info/{PG,SG,MPG,MSG}.{tex,pdf}: group information.</span>
+<span class="sd">    - multipiegen/pdf/info/compatibility_relation.{tex,pdf}: compatibility relation of Oh and D6h subgroups, with</span>
+<span class="sd">      the orbitals of each irrep (component), and the list of orbitals.</span>
+<span class="sd">    - multipiegen/pdf/info/active_multipole.{tex,pdf}: active multipoles in magnetic point groups.</span>
+
+<span class="sd">The data are taken from info.pkl and group.pkl.</span>
+
+<span class="sd">Run:  python -m multipiegen.create_pdf.create_pdf_info</span>
+<span class="sd">"""</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">sympy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sp</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">multipie.util.util</span><span class="w"> </span><span class="kn">import</span> <span class="n">str_to_sympy</span><span class="p">,</span> <span class="n">to_latex</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">multipie.util.util_pdf_latex</span><span class="w"> </span><span class="kn">import</span> <span class="n">PDFviaLaTeX</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">multipie.util.util_tag</span><span class="w"> </span><span class="kn">import</span> <span class="n">TagIrrep</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">multipiegen</span><span class="w"> </span><span class="kn">import</span> <span class="n">__top_dir__</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">multipiegen.data.data_harmonics_mapping</span><span class="w"> </span><span class="kn">import</span> <span class="n">data_harmonics_mapping</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">multipiegen.data.data_top_harmonics_info</span><span class="w"> </span><span class="kn">import</span> <span class="n">top_harmonics_symmetry</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">multipiegen.util.util_group</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_group</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">multipiegen.util.util_info</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_info</span>
+
+<span class="n">pdfdir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">__top_dir__</span><span class="p">,</span> <span class="s2">"multipiegen"</span><span class="p">,</span> <span class="s2">"pdf"</span><span class="p">,</span> <span class="s2">"info"</span><span class="p">)</span>
+<span class="n">top_group</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"Oh"</span><span class="p">,</span> <span class="s2">"D6h"</span><span class="p">]</span>
+<span class="n">component_name</span> <span class="o">=</span> <span class="s2">"xyz"</span>
+
+<span class="n">_x</span><span class="p">,</span> <span class="n">_y</span><span class="p">,</span> <span class="n">_z</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s2">"x y z"</span><span class="p">,</span> <span class="n">real</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+
+<span class="c1"># ==================================================</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_changes</span><span class="p">(</span><span class="n">keys</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Row indices after which the key changes (horizontal lines of a table)."""</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">keys</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="k">if</span> <span class="n">keys</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="n">keys</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]]</span>
+
+
+<span class="c1"># ==================================================</span>
+<div class="viewcode-block" id="create_group_info_pg">
+<a class="viewcode-back" href="../../../src/api_create/create_pdf_info.html#multipiegen.create_pdf.create_pdf_info.create_group_info_pg">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">create_group_info_pg</span><span class="p">(</span><span class="n">info</span><span class="p">,</span> <span class="n">group</span><span class="p">):</span>
+    <span class="n">pdf</span> <span class="o">=</span> <span class="n">PDFviaLaTeX</span><span class="p">(</span><span class="s2">"PG"</span><span class="p">,</span> <span class="nb">dir</span><span class="o">=</span><span class="n">pdfdir</span><span class="p">,</span> <span class="n">pt</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s2">"narrowest"</span><span class="p">,</span> <span class="n">english</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="n">ids</span> <span class="o">=</span> <span class="n">info</span><span class="p">[</span><span class="s2">"id_set"</span><span class="p">][</span><span class="s2">"PG"</span><span class="p">][</span><span class="s2">"all"</span><span class="p">]</span> <span class="o">+</span> <span class="n">info</span><span class="p">[</span><span class="s2">"id_set"</span><span class="p">][</span><span class="s2">"PG"</span><span class="p">][</span><span class="s2">"complex"</span><span class="p">]</span>
+    <span class="n">col</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"tag"</span><span class="p">,</span> <span class="s2">""</span><span class="p">,</span> <span class="sa">r</span><span class="s2">"Sch</span><span class="se">\"</span><span class="s2">onflies"</span><span class="p">,</span> <span class="s2">"international"</span><span class="p">,</span> <span class="s2">"setting"</span><span class="p">,</span> <span class="s2">"crystal"</span><span class="p">]</span>
+    <span class="n">row</span><span class="p">,</span> <span class="n">tbl</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">ids</span><span class="p">:</span>
+        <span class="n">g</span> <span class="o">=</span> <span class="n">group</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="s2">"info"</span><span class="p">]</span>
+        <span class="n">row</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">r</span><span class="s2">"\texttt{"</span> <span class="o">+</span> <span class="n">i</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">":"</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="s2">"}"</span><span class="p">)</span>
+        <span class="n">tbl</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+            <span class="p">[</span><span class="sa">r</span><span class="s2">"\texttt{"</span> <span class="o">+</span> <span class="n">g</span><span class="o">.</span><span class="n">tag</span> <span class="o">+</span> <span class="s2">"}"</span><span class="p">,</span> <span class="sa">r</span><span class="s2">"\texttt{"</span> <span class="o">+</span> <span class="n">i</span> <span class="o">+</span> <span class="s2">"}"</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"$</span><span class="si">{</span><span class="n">g</span><span class="o">.</span><span class="n">schoenflies</span><span class="si">}</span><span class="s2">$"</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"$</span><span class="si">{</span><span class="n">g</span><span class="o">.</span><span class="n">international</span><span class="si">}</span><span class="s2">$"</span><span class="p">,</span> <span class="n">g</span><span class="o">.</span><span class="n">setting</span><span class="p">,</span> <span class="n">g</span><span class="o">.</span><span class="n">crystal</span><span class="p">]</span>
+        <span class="p">)</span>
+    <span class="n">hl</span> <span class="o">=</span> <span class="n">_changes</span><span class="p">([</span><span class="n">group</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="s2">"info"</span><span class="p">]</span><span class="o">.</span><span class="n">crystal</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">ids</span><span class="p">])</span>
+
+    <span class="n">pdf</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="sa">r</span><span class="s2">"\begin</span><span class="si">{center}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="n">pdf</span><span class="o">.</span><span class="n">table</span><span class="p">(</span><span class="n">tbl</span><span class="p">,</span> <span class="n">row</span><span class="p">,</span> <span class="n">col</span><span class="p">,</span> <span class="s2">"ID"</span><span class="p">,</span> <span class="n">caption</span><span class="o">=</span><span class="s2">"Point group information."</span><span class="p">,</span> <span class="n">stretch</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">long</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">hl</span><span class="o">=</span><span class="n">hl</span><span class="p">,</span> <span class="n">cpos</span><span class="o">=</span><span class="s2">"lllllll"</span><span class="p">)</span>
+    <span class="n">pdf</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="sa">r</span><span class="s2">"\end</span><span class="si">{center}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="n">pdf</span><span class="o">.</span><span class="n">build</span><span class="p">()</span></div>
+
+
+
+<span class="c1"># ==================================================</span>
+<div class="viewcode-block" id="create_group_info_sg">
+<a class="viewcode-back" href="../../../src/api_create/create_pdf_info.html#multipiegen.create_pdf.create_pdf_info.create_group_info_sg">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">create_group_info_sg</span><span class="p">(</span><span class="n">info</span><span class="p">,</span> <span class="n">group</span><span class="p">):</span>
+    <span class="n">pdf</span> <span class="o">=</span> <span class="n">PDFviaLaTeX</span><span class="p">(</span><span class="s2">"SG"</span><span class="p">,</span> <span class="nb">dir</span><span class="o">=</span><span class="n">pdfdir</span><span class="p">,</span> <span class="n">pt</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s2">"narrowest"</span><span class="p">,</span> <span class="n">english</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="n">ids</span> <span class="o">=</span> <span class="n">info</span><span class="p">[</span><span class="s2">"id_set"</span><span class="p">][</span><span class="s2">"SG"</span><span class="p">][</span><span class="s2">"all"</span><span class="p">]</span>
+    <span class="n">col</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"tag"</span><span class="p">,</span> <span class="s2">""</span><span class="p">,</span> <span class="s2">""</span><span class="p">,</span> <span class="sa">r</span><span class="s2">"Sch</span><span class="se">\"</span><span class="s2">onflies"</span><span class="p">,</span> <span class="s2">"international"</span><span class="p">,</span> <span class="s2">"setting"</span><span class="p">,</span> <span class="s2">"crystal"</span><span class="p">,</span> <span class="s2">"PG"</span><span class="p">]</span>
+    <span class="n">row</span><span class="p">,</span> <span class="n">tbl</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">ids</span><span class="p">:</span>
+        <span class="n">g</span> <span class="o">=</span> <span class="n">group</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="s2">"info"</span><span class="p">]</span>
+        <span class="n">no</span> <span class="o">=</span> <span class="n">i</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">":"</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">pg</span> <span class="o">=</span> <span class="s2">"$"</span> <span class="o">+</span> <span class="n">group</span><span class="p">[</span><span class="n">g</span><span class="o">.</span><span class="n">PG</span><span class="p">][</span><span class="s2">"info"</span><span class="p">]</span><span class="o">.</span><span class="n">schoenflies</span> <span class="o">+</span> <span class="s2">"$"</span>
+        <span class="n">row</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">r</span><span class="s2">"\texttt{"</span> <span class="o">+</span> <span class="n">no</span> <span class="o">+</span> <span class="s2">"}"</span><span class="p">)</span>
+        <span class="n">tbl</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+            <span class="p">[</span>
+                <span class="sa">r</span><span class="s2">"\texttt{"</span> <span class="o">+</span> <span class="n">g</span><span class="o">.</span><span class="n">tag</span> <span class="o">+</span> <span class="s2">"}"</span><span class="p">,</span>
+                <span class="sa">r</span><span class="s2">"\texttt{"</span> <span class="o">+</span> <span class="n">i</span> <span class="o">+</span> <span class="s2">"}"</span><span class="p">,</span>
+                <span class="sa">r</span><span class="s2">"\texttt{"</span> <span class="o">+</span> <span class="n">no</span> <span class="o">+</span> <span class="s2">"}"</span><span class="p">,</span>
+                <span class="sa">f</span><span class="s2">"$</span><span class="si">{</span><span class="n">g</span><span class="o">.</span><span class="n">schoenflies</span><span class="si">}</span><span class="s2">$"</span><span class="p">,</span>
+                <span class="sa">f</span><span class="s2">"$</span><span class="si">{</span><span class="n">g</span><span class="o">.</span><span class="n">international</span><span class="si">}</span><span class="s2">$"</span><span class="p">,</span>
+                <span class="n">g</span><span class="o">.</span><span class="n">setting</span><span class="p">,</span>
+                <span class="n">g</span><span class="o">.</span><span class="n">crystal</span><span class="p">,</span>
+                <span class="n">pg</span><span class="p">,</span>
+            <span class="p">]</span>
+        <span class="p">)</span>
+    <span class="c1"># lines between point groups (settings "-1" are not separated).</span>
+    <span class="n">hl</span> <span class="o">=</span> <span class="n">_changes</span><span class="p">([</span><span class="n">group</span><span class="p">[</span><span class="n">group</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="s2">"info"</span><span class="p">]</span><span class="o">.</span><span class="n">PG</span><span class="p">][</span><span class="s2">"info"</span><span class="p">]</span><span class="o">.</span><span class="n">tag</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"-"</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">ids</span><span class="p">])</span>
+
+    <span class="n">pdf</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="sa">r</span><span class="s2">"\begin</span><span class="si">{center}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="n">pdf</span><span class="o">.</span><span class="n">table</span><span class="p">(</span><span class="n">tbl</span><span class="p">,</span> <span class="n">row</span><span class="p">,</span> <span class="n">col</span><span class="p">,</span> <span class="s2">"ID"</span><span class="p">,</span> <span class="n">caption</span><span class="o">=</span><span class="s2">"Space group information."</span><span class="p">,</span> <span class="n">stretch</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">long</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">hl</span><span class="o">=</span><span class="n">hl</span><span class="p">,</span> <span class="n">cpos</span><span class="o">=</span><span class="s2">"lllllllll"</span><span class="p">)</span>
+    <span class="n">pdf</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="sa">r</span><span class="s2">"\end</span><span class="si">{center}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="n">pdf</span><span class="o">.</span><span class="n">build</span><span class="p">()</span></div>
+
+
+
+<span class="c1"># ==================================================</span>
+<div class="viewcode-block" id="create_group_info_mpg">
+<a class="viewcode-back" href="../../../src/api_create/create_pdf_info.html#multipiegen.create_pdf.create_pdf_info.create_group_info_mpg">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">create_group_info_mpg</span><span class="p">(</span><span class="n">info</span><span class="p">,</span> <span class="n">group</span><span class="p">):</span>
+    <span class="n">pdf</span> <span class="o">=</span> <span class="n">PDFviaLaTeX</span><span class="p">(</span><span class="s2">"MPG"</span><span class="p">,</span> <span class="nb">dir</span><span class="o">=</span><span class="n">pdfdir</span><span class="p">,</span> <span class="n">pt</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s2">"narrowest"</span><span class="p">,</span> <span class="n">english</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="n">ids</span> <span class="o">=</span> <span class="n">info</span><span class="p">[</span><span class="s2">"id_set"</span><span class="p">][</span><span class="s2">"MPG"</span><span class="p">][</span><span class="s2">"all"</span><span class="p">]</span>
+    <span class="n">col</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"tag"</span><span class="p">,</span> <span class="s2">"international"</span><span class="p">,</span> <span class="s2">"setting"</span><span class="p">,</span> <span class="s2">"crystal"</span><span class="p">,</span> <span class="s2">"PG"</span><span class="p">,</span> <span class="s2">"type"</span><span class="p">]</span>
+    <span class="n">row</span><span class="p">,</span> <span class="n">tbl</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">ids</span><span class="p">:</span>
+        <span class="n">g</span> <span class="o">=</span> <span class="n">group</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="s2">"info"</span><span class="p">]</span>
+        <span class="n">pg</span> <span class="o">=</span> <span class="s2">"$"</span> <span class="o">+</span> <span class="n">group</span><span class="p">[</span><span class="n">g</span><span class="o">.</span><span class="n">PG</span><span class="p">][</span><span class="s2">"info"</span><span class="p">]</span><span class="o">.</span><span class="n">schoenflies</span> <span class="o">+</span> <span class="s2">"$"</span>
+        <span class="n">row</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">r</span><span class="s2">"\texttt{"</span> <span class="o">+</span> <span class="n">i</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">":"</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="s2">"}"</span><span class="p">)</span>
+        <span class="n">tbl</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="sa">r</span><span class="s2">"\texttt{MPG:"</span> <span class="o">+</span> <span class="n">g</span><span class="o">.</span><span class="n">tag</span> <span class="o">+</span> <span class="s2">"}"</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"$</span><span class="si">{</span><span class="n">g</span><span class="o">.</span><span class="n">international</span><span class="si">}</span><span class="s2">$"</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"$</span><span class="si">{</span><span class="n">g</span><span class="o">.</span><span class="n">setting</span><span class="si">}</span><span class="s2">$"</span><span class="p">,</span> <span class="n">g</span><span class="o">.</span><span class="n">crystal</span><span class="p">,</span> <span class="n">pg</span><span class="p">,</span> <span class="n">g</span><span class="o">.</span><span class="n">type</span><span class="p">])</span>
+    <span class="n">hl</span> <span class="o">=</span> <span class="n">_changes</span><span class="p">([</span><span class="n">group</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="s2">"info"</span><span class="p">]</span><span class="o">.</span><span class="n">PG</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">ids</span><span class="p">])</span>
+
+    <span class="n">pdf</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="sa">r</span><span class="s2">"\begin</span><span class="si">{center}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="n">pdf</span><span class="o">.</span><span class="n">table</span><span class="p">(</span><span class="n">tbl</span><span class="p">,</span> <span class="n">row</span><span class="p">,</span> <span class="n">col</span><span class="p">,</span> <span class="s2">"ID"</span><span class="p">,</span> <span class="n">caption</span><span class="o">=</span><span class="s2">"Magnetic point group information."</span><span class="p">,</span> <span class="n">stretch</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">long</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">hl</span><span class="o">=</span><span class="n">hl</span><span class="p">,</span> <span class="n">cpos</span><span class="o">=</span><span class="s2">"lllllll"</span><span class="p">)</span>
+    <span class="n">pdf</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="sa">r</span><span class="s2">"\end</span><span class="si">{center}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="n">pdf</span><span class="o">.</span><span class="n">build</span><span class="p">()</span></div>
+
+
+
+<span class="c1"># ==================================================</span>
+<div class="viewcode-block" id="create_group_info_msg">
+<a class="viewcode-back" href="../../../src/api_create/create_pdf_info.html#multipiegen.create_pdf.create_pdf_info.create_group_info_msg">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">create_group_info_msg</span><span class="p">(</span><span class="n">info</span><span class="p">,</span> <span class="n">group</span><span class="p">):</span>
+    <span class="n">pdf</span> <span class="o">=</span> <span class="n">PDFviaLaTeX</span><span class="p">(</span><span class="s2">"MSG"</span><span class="p">,</span> <span class="nb">dir</span><span class="o">=</span><span class="n">pdfdir</span><span class="p">,</span> <span class="n">pt</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s2">"narrowest"</span><span class="p">,</span> <span class="n">english</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="n">ids</span> <span class="o">=</span> <span class="n">info</span><span class="p">[</span><span class="s2">"id_set"</span><span class="p">][</span><span class="s2">"MSG"</span><span class="p">][</span><span class="s2">"all"</span><span class="p">]</span>
+    <span class="n">col</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"tag"</span><span class="p">,</span> <span class="s2">"BNS"</span><span class="p">,</span> <span class="s2">"OG"</span><span class="p">,</span> <span class="s2">"crystal"</span><span class="p">,</span> <span class="s2">"PG"</span><span class="p">,</span> <span class="s2">"SG"</span><span class="p">,</span> <span class="s2">"MPG"</span><span class="p">,</span> <span class="s2">"type"</span><span class="p">]</span>
+    <span class="n">row</span><span class="p">,</span> <span class="n">tbl</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">ids</span><span class="p">:</span>
+        <span class="n">g</span> <span class="o">=</span> <span class="n">group</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="s2">"info"</span><span class="p">]</span>
+        <span class="n">pg</span> <span class="o">=</span> <span class="s2">"$"</span> <span class="o">+</span> <span class="n">group</span><span class="p">[</span><span class="n">g</span><span class="o">.</span><span class="n">PG</span><span class="p">][</span><span class="s2">"info"</span><span class="p">]</span><span class="o">.</span><span class="n">schoenflies</span> <span class="o">+</span> <span class="s2">"$"</span>
+        <span class="n">sg</span> <span class="o">=</span> <span class="s2">"$"</span> <span class="o">+</span> <span class="n">group</span><span class="p">[</span><span class="n">g</span><span class="o">.</span><span class="n">SG</span><span class="p">][</span><span class="s2">"info"</span><span class="p">]</span><span class="o">.</span><span class="n">schoenflies</span> <span class="o">+</span> <span class="s2">"$"</span>
+        <span class="n">mpg</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">"\texttt{"</span> <span class="o">+</span> <span class="n">g</span><span class="o">.</span><span class="n">MPG</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">":"</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="s2">"} $("</span> <span class="o">+</span> <span class="n">group</span><span class="p">[</span><span class="n">g</span><span class="o">.</span><span class="n">MPG</span><span class="p">][</span><span class="s2">"info"</span><span class="p">]</span><span class="o">.</span><span class="n">international</span> <span class="o">+</span> <span class="s2">")$"</span>
+        <span class="n">row</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">r</span><span class="s2">"\texttt{"</span> <span class="o">+</span> <span class="n">i</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">":"</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="s2">"}"</span><span class="p">)</span>
+        <span class="n">tbl</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="sa">r</span><span class="s2">"\texttt{MSG:"</span> <span class="o">+</span> <span class="n">g</span><span class="o">.</span><span class="n">tag</span> <span class="o">+</span> <span class="s2">"}"</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"$</span><span class="si">{</span><span class="n">g</span><span class="o">.</span><span class="n">BNS</span><span class="si">}</span><span class="s2">$"</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"$</span><span class="si">{</span><span class="n">g</span><span class="o">.</span><span class="n">OG</span><span class="si">}</span><span class="s2">$"</span><span class="p">,</span> <span class="n">g</span><span class="o">.</span><span class="n">crystal</span><span class="p">,</span> <span class="n">pg</span><span class="p">,</span> <span class="n">sg</span><span class="p">,</span> <span class="n">mpg</span><span class="p">,</span> <span class="n">g</span><span class="o">.</span><span class="n">type</span><span class="p">])</span>
+    <span class="n">hl</span> <span class="o">=</span> <span class="n">_changes</span><span class="p">([</span><span class="n">group</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="s2">"info"</span><span class="p">]</span><span class="o">.</span><span class="n">SG</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">ids</span><span class="p">])</span>
+
+    <span class="n">pdf</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="sa">r</span><span class="s2">"\begin</span><span class="si">{center}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="n">pdf</span><span class="o">.</span><span class="n">table</span><span class="p">(</span><span class="n">tbl</span><span class="p">,</span> <span class="n">row</span><span class="p">,</span> <span class="n">col</span><span class="p">,</span> <span class="s2">"ID"</span><span class="p">,</span> <span class="n">caption</span><span class="o">=</span><span class="s2">"Magnetic space group information."</span><span class="p">,</span> <span class="n">stretch</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">long</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">hl</span><span class="o">=</span><span class="n">hl</span><span class="p">,</span> <span class="n">cpos</span><span class="o">=</span><span class="s2">"lllllllll"</span><span class="p">)</span>
+    <span class="n">pdf</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="sa">r</span><span class="s2">"\end</span><span class="si">{center}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="n">pdf</span><span class="o">.</span><span class="n">build</span><span class="p">()</span></div>
+
+
+
+<span class="c1"># ==================================================</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_expression</span><span class="p">(</span><span class="n">e</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""sympy expression of a top harmonics (string) in real x, y, z."""</span>
+    <span class="n">e</span> <span class="o">=</span> <span class="n">str_to_sympy</span><span class="p">(</span><span class="n">e</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="k">else</span> <span class="n">e</span>
+    <span class="k">return</span> <span class="n">sp</span><span class="o">.</span><span class="n">expand</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">s</span><span class="p">:</span> <span class="p">{</span><span class="s2">"x"</span><span class="p">:</span> <span class="n">_x</span><span class="p">,</span> <span class="s2">"y"</span><span class="p">:</span> <span class="n">_y</span><span class="p">,</span> <span class="s2">"z"</span><span class="p">:</span> <span class="n">_z</span><span class="p">}[</span><span class="n">s</span><span class="o">.</span><span class="n">name</span><span class="p">]</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">e</span><span class="o">.</span><span class="n">free_symbols</span><span class="p">}))</span>
+
+
+<span class="c1"># ==================================================</span>
+<div class="viewcode-block" id="orbital_top_key">
+<a class="viewcode-back" href="../../../src/api_create/create_pdf_info.html#multipiegen.create_pdf.create_pdf_info.orbital_top_key">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">orbital_top_key</span><span class="p">(</span><span class="n">info</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Top harmonics of each orbital.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        info (BinaryManager): info.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        - (dict) -- {top group: {orbital: (top_key, c)}}, top harmonics = c * orbital, for orbitals in top harmonics.</span>
+<span class="sd">    """</span>
+    <span class="n">bf</span> <span class="o">=</span> <span class="n">info</span><span class="p">[</span><span class="s2">"harmonics"</span><span class="p">][</span><span class="s2">"basis_function"</span><span class="p">]</span>
+    <span class="n">names</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">info</span><span class="p">[</span><span class="s2">"harmonics"</span><span class="p">][</span><span class="s2">"latex"</span><span class="p">][</span><span class="s2">"orbital"</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+    <span class="n">rnd</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">Random</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">pts</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="p">{</span><span class="n">_x</span><span class="p">:</span> <span class="n">sp</span><span class="o">.</span><span class="n">Rational</span><span class="p">(</span><span class="n">rnd</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">97</span><span class="p">),</span> <span class="mi">7</span><span class="p">),</span> <span class="n">_y</span><span class="p">:</span> <span class="n">sp</span><span class="o">.</span><span class="n">Rational</span><span class="p">(</span><span class="n">rnd</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">97</span><span class="p">),</span> <span class="mi">11</span><span class="p">),</span> <span class="n">_z</span><span class="p">:</span> <span class="n">sp</span><span class="o">.</span><span class="n">Rational</span><span class="p">(</span><span class="n">rnd</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">97</span><span class="p">),</span> <span class="mi">13</span><span class="p">)}</span>
+        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+    <span class="p">]</span>
+
+    <span class="n">dic</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">top</span> <span class="ow">in</span> <span class="n">top_group</span><span class="p">:</span>
+        <span class="n">expr</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">_expression</span><span class="p">(</span><span class="n">e</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">top_harmonics_symmetry</span><span class="p">[</span><span class="n">top</span><span class="p">]</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+        <span class="n">dic</span><span class="p">[</span><span class="n">top</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">names</span><span class="p">:</span>
+            <span class="n">b</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">expand</span><span class="p">(</span><span class="n">bf</span><span class="p">[</span><span class="n">name</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+            <span class="n">rank</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Poly</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">_x</span><span class="p">,</span> <span class="n">_y</span><span class="p">,</span> <span class="n">_z</span><span class="p">)</span><span class="o">.</span><span class="n">total_degree</span><span class="p">()</span>
+            <span class="n">bv</span> <span class="o">=</span> <span class="p">[</span><span class="n">b</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">pts</span><span class="p">]</span>
+            <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">expr</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                <span class="k">if</span> <span class="n">k</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="n">rank</span><span class="p">:</span>
+                    <span class="k">continue</span>
+                <span class="n">ratio</span> <span class="o">=</span> <span class="p">[</span><span class="n">sp</span><span class="o">.</span><span class="n">nsimplify</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="o">/</span> <span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">p</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">pts</span><span class="p">,</span> <span class="n">bv</span><span class="p">)]</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">ratio</span><span class="p">))</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">sp</span><span class="o">.</span><span class="n">expand</span><span class="p">(</span><span class="n">e</span> <span class="o">-</span> <span class="n">ratio</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">b</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="n">dic</span><span class="p">[</span><span class="n">top</span><span class="p">][</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">ratio</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+                    <span class="k">break</span>
+    <span class="k">return</span> <span class="n">dic</span></div>
+
+
+
+<span class="c1"># ==================================================</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_signed</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""LaTeX math of s with the sign of c."""</span>
+    <span class="k">return</span> <span class="s2">"$"</span> <span class="o">+</span> <span class="p">(</span><span class="s2">"-"</span> <span class="k">if</span> <span class="n">c</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="s2">""</span><span class="p">)</span> <span class="o">+</span> <span class="n">s</span> <span class="o">+</span> <span class="s2">"$"</span>
+
+
+<span class="c1"># ==================================================</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_irrep_latex</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""LaTeX of irrep with component, e.g. 'T1u(x)' or '-Eg(y)'."""</span>
+    <span class="n">sign</span> <span class="o">=</span> <span class="s2">"-"</span> <span class="k">if</span> <span class="n">s</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">"-"</span><span class="p">)</span> <span class="k">else</span> <span class="s2">""</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">lstrip</span><span class="p">(</span><span class="s2">"-"</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">s</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">"("</span><span class="p">):</span>
+        <span class="n">ir</span><span class="p">,</span> <span class="n">p</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"("</span><span class="p">)</span>
+        <span class="k">return</span> <span class="s2">"$"</span> <span class="o">+</span> <span class="n">sign</span> <span class="o">+</span> <span class="n">TagIrrep</span><span class="o">.</span><span class="n">latex</span><span class="p">(</span><span class="n">ir</span><span class="p">)</span> <span class="o">+</span> <span class="sa">f</span><span class="s2">"(</span><span class="si">{</span><span class="n">p</span><span class="si">}</span><span class="s2">"</span> <span class="o">+</span> <span class="s2">"$"</span>
+    <span class="k">return</span> <span class="s2">"$"</span> <span class="o">+</span> <span class="n">sign</span> <span class="o">+</span> <span class="n">TagIrrep</span><span class="o">.</span><span class="n">latex</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">+</span> <span class="s2">"$"</span>
+
+
+<span class="c1"># ==================================================</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_tag_latex</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""LaTeX of point group tag, e.g. 'D4h' or 'D2d-1'."""</span>
+    <span class="k">if</span> <span class="n">s</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">"-"</span><span class="p">):</span>
+        <span class="n">t</span><span class="p">,</span> <span class="n">p</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"-"</span><span class="p">)</span>
+        <span class="k">return</span> <span class="s2">"$"</span> <span class="o">+</span> <span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="sa">r</span><span class="s2">"_{\rm "</span> <span class="o">+</span> <span class="n">t</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">+</span> <span class="s2">"}$("</span> <span class="o">+</span> <span class="n">p</span> <span class="o">+</span> <span class="s2">")"</span>
+    <span class="k">return</span> <span class="s2">"$"</span> <span class="o">+</span> <span class="n">s</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="sa">r</span><span class="s2">"_{\rm "</span> <span class="o">+</span> <span class="n">s</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">+</span> <span class="s2">"}$"</span>
+
+
+<span class="c1"># ==================================================</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_column_key</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""(irrep, component) of compatibility-relation column, e.g. 'T1u(x)' -&gt; ('T1u', 0), 'A1g' -&gt; ('A1g', -1)."""</span>
+    <span class="k">if</span> <span class="n">s</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">"("</span><span class="p">):</span>
+        <span class="n">ir</span><span class="p">,</span> <span class="n">p</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"("</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">ir</span><span class="p">,</span> <span class="n">component_name</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">s</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span>
+
+
+<span class="c1"># ==================================================</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_orbitals</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">top</span><span class="p">,</span> <span class="n">irrep</span><span class="p">,</span> <span class="n">comp</span><span class="p">,</span> <span class="n">top_key</span><span class="p">,</span> <span class="n">latex</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""'/'-separated LaTeX of orbitals of X (Q or G) harmonics of (irrep, comp) in top group."""</span>
+    <span class="n">lst</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">tk</span><span class="p">)</span> <span class="ow">in</span> <span class="n">data_harmonics_mapping</span><span class="p">[</span><span class="n">top</span><span class="p">][</span><span class="n">X</span><span class="p">]</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">key</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="n">irrep</span> <span class="ow">or</span> <span class="n">key</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">!=</span> <span class="n">comp</span><span class="p">:</span>
+            <span class="k">continue</span>
+        <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span> <span class="ow">in</span> <span class="n">top_key</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">k</span> <span class="o">==</span> <span class="n">tk</span><span class="p">:</span>  <span class="c1"># X(key) = c * top(tk) = c * r * orbital.</span>
+                <span class="n">lst</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">key</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">_signed</span><span class="p">(</span><span class="n">c</span> <span class="o">*</span> <span class="n">r</span><span class="p">,</span> <span class="n">X</span> <span class="o">+</span> <span class="n">latex</span><span class="p">[</span><span class="n">name</span><span class="p">])))</span>
+    <span class="k">return</span> <span class="sa">r</span><span class="s2">"{\footnotesize "</span> <span class="o">+</span> <span class="s2">"/"</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">s</span> <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">lst</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span> <span class="o">+</span> <span class="s2">"}"</span>
+
+
+<span class="c1"># ==================================================</span>
+<div class="viewcode-block" id="create_compatibility_relation">
+<a class="viewcode-back" href="../../../src/api_create/create_pdf_info.html#multipiegen.create_pdf.create_pdf_info.create_compatibility_relation">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">create_compatibility_relation</span><span class="p">(</span><span class="n">info</span><span class="p">,</span> <span class="n">group</span><span class="p">,</span> <span class="n">top_key</span><span class="p">):</span>
+    <span class="n">cr</span> <span class="o">=</span> <span class="n">info</span><span class="p">[</span><span class="s2">"character"</span><span class="p">][</span><span class="s2">"compatibility_relation"</span><span class="p">]</span>
+    <span class="n">latex</span> <span class="o">=</span> <span class="n">info</span><span class="p">[</span><span class="s2">"harmonics"</span><span class="p">][</span><span class="s2">"latex"</span><span class="p">][</span><span class="s2">"orbital"</span><span class="p">]</span>
+    <span class="n">pdf</span> <span class="o">=</span> <span class="n">PDFviaLaTeX</span><span class="p">(</span><span class="s2">"compatibility_relation"</span><span class="p">,</span> <span class="nb">dir</span><span class="o">=</span><span class="n">pdfdir</span><span class="p">,</span> <span class="n">pt</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">landscape</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s2">"narrowest"</span><span class="p">,</span> <span class="n">english</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">pdf</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">"Compatibility Relation for Point Groups"</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">top</span> <span class="ow">in</span> <span class="n">top_group</span><span class="p">:</span>
+        <span class="n">cols</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">cr</span><span class="p">[(</span><span class="n">top</span><span class="p">,</span> <span class="n">top</span><span class="p">)]]</span>
+        <span class="n">col</span> <span class="o">=</span> <span class="p">[</span><span class="n">_irrep_latex</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">cols</span><span class="p">]</span>
+        <span class="n">row</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"Q"</span><span class="p">,</span> <span class="s2">"G"</span><span class="p">]</span>
+        <span class="n">tbl</span> <span class="o">=</span> <span class="p">[[</span><span class="n">_orbitals</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">top</span><span class="p">,</span> <span class="o">*</span><span class="n">_column_key</span><span class="p">(</span><span class="n">c</span><span class="p">),</span> <span class="n">top_key</span><span class="p">[</span><span class="n">top</span><span class="p">],</span> <span class="n">latex</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">cols</span><span class="p">]</span> <span class="k">for</span> <span class="n">X</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">"Q"</span><span class="p">,</span> <span class="s2">"G"</span><span class="p">]]</span>
+        <span class="n">crystal</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">cr</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">k</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">top</span><span class="p">:</span>
+                <span class="n">row</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">_tag_latex</span><span class="p">(</span><span class="n">k</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+                <span class="n">tbl</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">_irrep_latex</span><span class="p">(</span><span class="n">i</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">v</span><span class="p">])</span>
+                <span class="n">crystal</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">group</span><span class="p">[</span><span class="n">info</span><span class="p">[</span><span class="s2">"id"</span><span class="p">][</span><span class="n">k</span><span class="p">[</span><span class="mi">1</span><span class="p">]]][</span><span class="s2">"info"</span><span class="p">]</span><span class="o">.</span><span class="n">crystal</span><span class="p">)</span>
+        <span class="n">hl</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">_changes</span><span class="p">(</span><span class="n">crystal</span><span class="p">)]</span>
+
+        <span class="c1"># vertical line between g and u.</span>
+        <span class="n">parity</span> <span class="o">=</span> <span class="p">[</span><span class="n">_column_key</span><span class="p">(</span><span class="n">c</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">cols</span><span class="p">]</span>
+        <span class="n">cpos</span> <span class="o">=</span> <span class="s2">"c|"</span> <span class="o">+</span> <span class="s2">""</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">"c"</span> <span class="o">+</span> <span class="p">(</span><span class="s2">"|"</span> <span class="k">if</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">_changes</span><span class="p">(</span><span class="n">parity</span><span class="p">)</span> <span class="k">else</span> <span class="s2">""</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">cols</span><span class="p">)))</span>
+        <span class="n">cap</span> <span class="o">=</span> <span class="n">_tag_latex</span><span class="p">(</span><span class="n">top</span><span class="p">)</span> <span class="o">+</span> <span class="s2">" subgroup."</span>
+        <span class="n">pdf</span><span class="o">.</span><span class="n">table</span><span class="p">(</span><span class="n">tbl</span><span class="p">,</span> <span class="n">row</span><span class="p">,</span> <span class="n">col</span><span class="p">,</span> <span class="n">_tag_latex</span><span class="p">(</span><span class="n">top</span><span class="p">),</span> <span class="n">caption</span><span class="o">=</span><span class="n">cap</span><span class="p">,</span> <span class="n">stretch</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">cmath</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">tmath</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">hl</span><span class="o">=</span><span class="n">hl</span><span class="p">,</span> <span class="n">cpos</span><span class="o">=</span><span class="n">cpos</span><span class="p">)</span>
+        <span class="n">pdf</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="sa">r</span><span class="s2">"\newpage"</span><span class="p">)</span>
+
+    <span class="n">bf</span> <span class="o">=</span> <span class="n">info</span><span class="p">[</span><span class="s2">"harmonics"</span><span class="p">][</span><span class="s2">"basis_function"</span><span class="p">]</span>
+    <span class="n">names</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">latex</span><span class="o">.</span><span class="n">keys</span><span class="p">(),</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">n</span><span class="p">:</span> <span class="n">sp</span><span class="o">.</span><span class="n">Poly</span><span class="p">(</span><span class="n">bf</span><span class="p">[</span><span class="n">n</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">_x</span><span class="p">,</span> <span class="n">_y</span><span class="p">,</span> <span class="n">_z</span><span class="p">)</span><span class="o">.</span><span class="n">total_degree</span><span class="p">())</span>
+    <span class="n">orbital_table</span><span class="p">(</span><span class="n">pdf</span><span class="p">,</span> <span class="n">info</span><span class="p">,</span> <span class="n">names</span><span class="p">,</span> <span class="s2">"Orbitals (harmonics)."</span><span class="p">)</span>
+    <span class="n">pdf</span><span class="o">.</span><span class="n">build</span><span class="p">()</span></div>
+
+
+
+<span class="c1"># ==================================================</span>
+<div class="viewcode-block" id="orbital_table">
+<a class="viewcode-back" href="../../../src/api_create/create_pdf_info.html#multipiegen.create_pdf.create_pdf_info.orbital_table">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">orbital_table</span><span class="p">(</span><span class="n">pdf</span><span class="p">,</span> <span class="n">info</span><span class="p">,</span> <span class="n">names</span><span class="p">,</span> <span class="n">caption</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Table of orbitals: rank (first row of each rank only), symbol and expression (lines between ranks)."""</span>
+    <span class="n">bf</span> <span class="o">=</span> <span class="n">info</span><span class="p">[</span><span class="s2">"harmonics"</span><span class="p">][</span><span class="s2">"basis_function"</span><span class="p">]</span>
+    <span class="n">latex</span> <span class="o">=</span> <span class="n">info</span><span class="p">[</span><span class="s2">"harmonics"</span><span class="p">][</span><span class="s2">"latex"</span><span class="p">][</span><span class="s2">"orbital"</span><span class="p">]</span>
+    <span class="n">rank</span> <span class="o">=</span> <span class="p">[</span><span class="n">sp</span><span class="o">.</span><span class="n">Poly</span><span class="p">(</span><span class="n">bf</span><span class="p">[</span><span class="n">n</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">_x</span><span class="p">,</span> <span class="n">_y</span><span class="p">,</span> <span class="n">_z</span><span class="p">)</span><span class="o">.</span><span class="n">total_degree</span><span class="p">()</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">names</span><span class="p">]</span>
+    <span class="n">row</span> <span class="o">=</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">r</span><span class="p">)</span> <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">r</span> <span class="o">!=</span> <span class="n">rank</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="k">else</span> <span class="s2">""</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">r</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">rank</span><span class="p">)]</span>
+    <span class="n">tbl</span> <span class="o">=</span> <span class="p">[[</span><span class="sa">r</span><span class="s2">"$\mathbb</span><span class="si">{X}</span><span class="s2">"</span> <span class="o">+</span> <span class="n">latex</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">+</span> <span class="s2">"$"</span><span class="p">,</span> <span class="s2">"$"</span> <span class="o">+</span> <span class="n">to_latex</span><span class="p">(</span><span class="n">bf</span><span class="p">[</span><span class="n">n</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span> <span class="o">+</span> <span class="s2">"$"</span><span class="p">]</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">names</span><span class="p">]</span>
+    <span class="n">col</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"symbol"</span><span class="p">,</span> <span class="s2">"expression"</span><span class="p">]</span>
+    <span class="n">pdf</span><span class="o">.</span><span class="n">table</span><span class="p">(</span><span class="n">tbl</span><span class="p">,</span> <span class="n">row</span><span class="p">,</span> <span class="n">col</span><span class="p">,</span> <span class="s2">"rank"</span><span class="p">,</span> <span class="n">cpos</span><span class="o">=</span><span class="s2">"cll"</span><span class="p">,</span> <span class="n">long</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">stretch</span><span class="o">=</span><span class="mf">1.6</span><span class="p">,</span> <span class="n">caption</span><span class="o">=</span><span class="n">caption</span><span class="p">,</span> <span class="n">hl</span><span class="o">=</span><span class="n">_changes</span><span class="p">(</span><span class="n">rank</span><span class="p">))</span></div>
+
+
+
+<span class="c1"># ==================================================</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_active_list</span><span class="p">(</span><span class="n">active</span><span class="p">,</span> <span class="n">order</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">[</span><span class="sa">r</span><span class="s2">"$\bullet$"</span> <span class="k">if</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">active</span> <span class="k">else</span> <span class="s2">""</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">order</span><span class="p">]</span>
+
+
+<span class="c1"># ==================================================</span>
+<div class="viewcode-block" id="create_active_multipole">
+<a class="viewcode-back" href="../../../src/api_create/create_pdf_info.html#multipiegen.create_pdf.create_pdf_info.create_active_multipole">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">create_active_multipole</span><span class="p">(</span><span class="n">info</span><span class="p">,</span> <span class="n">group</span><span class="p">,</span> <span class="n">top_key</span><span class="p">):</span>
+    <span class="n">basis</span> <span class="o">=</span> <span class="n">info</span><span class="p">[</span><span class="s2">"response_tensor"</span><span class="p">][</span><span class="s2">"multipole"</span><span class="p">]</span>
+    <span class="n">pdf</span> <span class="o">=</span> <span class="n">PDFviaLaTeX</span><span class="p">(</span><span class="s2">"active_multipole"</span><span class="p">,</span> <span class="nb">dir</span><span class="o">=</span><span class="n">pdfdir</span><span class="p">,</span> <span class="n">landscape</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s2">"narrow"</span><span class="p">,</span> <span class="n">pt</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">english</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">pdf</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">"Active Multipoles in Magnetic Point Groups"</span><span class="p">)</span>
+
+    <span class="n">names</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">dict</span><span class="o">.</span><span class="n">fromkeys</span><span class="p">(</span><span class="n">basis</span><span class="p">[</span><span class="s2">"cubic"</span><span class="p">]</span> <span class="o">+</span> <span class="n">basis</span><span class="p">[</span><span class="s2">"hexagonal"</span><span class="p">]))</span>
+    <span class="n">bf</span> <span class="o">=</span> <span class="n">info</span><span class="p">[</span><span class="s2">"harmonics"</span><span class="p">][</span><span class="s2">"basis_function"</span><span class="p">]</span>
+    <span class="n">names</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">n</span><span class="p">:</span> <span class="n">sp</span><span class="o">.</span><span class="n">Poly</span><span class="p">(</span><span class="n">bf</span><span class="p">[</span><span class="n">n</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">_x</span><span class="p">,</span> <span class="n">_y</span><span class="p">,</span> <span class="n">_z</span><span class="p">)</span><span class="o">.</span><span class="n">total_degree</span><span class="p">())</span>
+    <span class="n">orbital_table</span><span class="p">(</span><span class="n">pdf</span><span class="p">,</span> <span class="n">info</span><span class="p">,</span> <span class="n">names</span><span class="p">,</span> <span class="s2">"Multipoles in response tensor."</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">crystal</span><span class="p">,</span> <span class="n">top</span><span class="p">,</span> <span class="n">cap</span> <span class="ow">in</span> <span class="p">[(</span><span class="s2">"cubic"</span><span class="p">,</span> <span class="s2">"Oh"</span><span class="p">,</span> <span class="s2">"cubic subgroups"</span><span class="p">),</span> <span class="p">(</span><span class="s2">"hexagonal"</span><span class="p">,</span> <span class="s2">"D6h"</span><span class="p">,</span> <span class="s2">"hexagonal subgroups"</span><span class="p">)]:</span>
+        <span class="n">order</span> <span class="o">=</span> <span class="n">basis</span><span class="p">[</span><span class="n">crystal</span><span class="p">]</span>
+        <span class="n">latex</span> <span class="o">=</span> <span class="n">info</span><span class="p">[</span><span class="s2">"harmonics"</span><span class="p">][</span><span class="s2">"latex"</span><span class="p">][</span><span class="s2">"orbital"</span><span class="p">]</span>
+        <span class="n">lbl</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"MPG"</span><span class="p">,</span> <span class="s2">"Type"</span><span class="p">,</span> <span class="s2">"Crystal"</span><span class="p">,</span> <span class="s2">"X"</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="sa">r</span><span class="s2">"$\mathbb</span><span class="si">{X}</span><span class="s2">"</span> <span class="o">+</span> <span class="n">latex</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="s2">"$"</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">order</span><span class="p">]</span>
+        <span class="c1"># vertical lines between (rank, irrep, multiplicity) of the top group.</span>
+        <span class="n">tk</span> <span class="o">=</span> <span class="p">[</span><span class="n">top_key</span><span class="p">[</span><span class="n">top</span><span class="p">][</span><span class="n">n</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">order</span><span class="p">]</span>
+        <span class="n">cpos</span> <span class="o">=</span> <span class="s2">"lllll|"</span> <span class="o">+</span> <span class="s2">""</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">"l"</span> <span class="o">+</span> <span class="p">(</span><span class="s2">"|"</span> <span class="k">if</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">_changes</span><span class="p">(</span><span class="n">tk</span><span class="p">)</span> <span class="k">else</span> <span class="s2">""</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">order</span><span class="p">)))</span>
+
+        <span class="n">row</span><span class="p">,</span> <span class="n">tbl</span><span class="p">,</span> <span class="n">hl</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[],</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">id_s</span> <span class="ow">in</span> <span class="n">info</span><span class="p">[</span><span class="s2">"id_set"</span><span class="p">][</span><span class="s2">"MPG"</span><span class="p">][</span><span class="s2">"all"</span><span class="p">]:</span>
+            <span class="n">g</span> <span class="o">=</span> <span class="n">group</span><span class="p">[</span><span class="n">id_s</span><span class="p">]</span>
+            <span class="n">gi</span> <span class="o">=</span> <span class="n">g</span><span class="p">[</span><span class="s2">"info"</span><span class="p">]</span>
+            <span class="n">hexagonal</span> <span class="o">=</span> <span class="n">gi</span><span class="o">.</span><span class="n">crystal</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">"trigonal"</span><span class="p">,</span> <span class="s2">"hexagonal"</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">hexagonal</span> <span class="o">!=</span> <span class="p">(</span><span class="n">crystal</span> <span class="o">==</span> <span class="s2">"hexagonal"</span><span class="p">):</span>
+                <span class="k">continue</span>
+            <span class="n">active</span> <span class="o">=</span> <span class="p">{</span><span class="n">X</span><span class="p">:</span> <span class="p">[</span><span class="n">i</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">g</span><span class="p">[</span><span class="s2">"active_multipole"</span><span class="p">]</span> <span class="k">if</span> <span class="n">i</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">X</span><span class="p">]</span> <span class="k">for</span> <span class="n">X</span> <span class="ow">in</span> <span class="s2">"QGTM"</span><span class="p">}</span>
+            <span class="n">row</span> <span class="o">+=</span> <span class="p">[</span><span class="n">id_s</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">":"</span><span class="p">)[</span><span class="mi">1</span><span class="p">],</span> <span class="s2">"("</span> <span class="o">+</span> <span class="n">gi</span><span class="o">.</span><span class="n">PG</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">":"</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="s2">")"</span><span class="p">,</span> <span class="s2">""</span><span class="p">,</span> <span class="s2">""</span><span class="p">]</span>
+            <span class="n">ss</span> <span class="o">=</span> <span class="s2">"$"</span> <span class="o">+</span> <span class="n">group</span><span class="p">[</span><span class="n">gi</span><span class="o">.</span><span class="n">PG</span><span class="p">][</span><span class="s2">"info"</span><span class="p">]</span><span class="o">.</span><span class="n">schoenflies</span> <span class="o">+</span> <span class="s2">"$"</span>
+            <span class="n">tbl</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="sa">r</span><span class="s2">"\texttt{$"</span> <span class="o">+</span> <span class="n">gi</span><span class="o">.</span><span class="n">international</span> <span class="o">+</span> <span class="s2">"$}"</span><span class="p">,</span> <span class="n">gi</span><span class="o">.</span><span class="n">type</span><span class="p">,</span> <span class="n">gi</span><span class="o">.</span><span class="n">crystal</span><span class="p">,</span> <span class="s2">"Q"</span><span class="p">]</span> <span class="o">+</span> <span class="n">_active_list</span><span class="p">(</span><span class="n">active</span><span class="p">[</span><span class="s2">"Q"</span><span class="p">],</span> <span class="n">order</span><span class="p">))</span>
+            <span class="n">tbl</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">ss</span><span class="p">,</span> <span class="s2">""</span><span class="p">,</span> <span class="s2">""</span><span class="p">,</span> <span class="s2">"G"</span><span class="p">]</span> <span class="o">+</span> <span class="n">_active_list</span><span class="p">(</span><span class="n">active</span><span class="p">[</span><span class="s2">"G"</span><span class="p">],</span> <span class="n">order</span><span class="p">))</span>
+            <span class="n">tbl</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="s2">""</span><span class="p">,</span> <span class="s2">""</span><span class="p">,</span> <span class="s2">""</span><span class="p">,</span> <span class="s2">"T"</span><span class="p">]</span> <span class="o">+</span> <span class="n">_active_list</span><span class="p">(</span><span class="n">active</span><span class="p">[</span><span class="s2">"T"</span><span class="p">],</span> <span class="n">order</span><span class="p">))</span>
+            <span class="n">tbl</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="s2">""</span><span class="p">,</span> <span class="s2">""</span><span class="p">,</span> <span class="s2">""</span><span class="p">,</span> <span class="s2">"M"</span><span class="p">]</span> <span class="o">+</span> <span class="n">_active_list</span><span class="p">(</span><span class="n">active</span><span class="p">[</span><span class="s2">"M"</span><span class="p">],</span> <span class="n">order</span><span class="p">))</span>
+            <span class="n">hl</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">tbl</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+
+        <span class="n">pdf</span><span class="o">.</span><span class="n">table</span><span class="p">(</span><span class="n">tbl</span><span class="p">,</span> <span class="n">row</span><span class="p">,</span> <span class="n">lbl</span><span class="p">,</span> <span class="sa">r</span><span class="s2">"\#"</span><span class="p">,</span> <span class="n">cpos</span><span class="o">=</span><span class="n">cpos</span><span class="p">,</span> <span class="n">long</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">stretch</span><span class="o">=</span><span class="mf">1.6</span><span class="p">,</span> <span class="n">hl</span><span class="o">=</span><span class="n">hl</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">caption</span><span class="o">=</span><span class="sa">f</span><span class="s2">"Active Multipole (</span><span class="si">{</span><span class="n">cap</span><span class="si">}</span><span class="s2">)"</span><span class="p">)</span>
+
+    <span class="n">pdf</span><span class="o">.</span><span class="n">build</span><span class="p">()</span></div>
+
+
+
+<span class="c1"># ==================================================</span>
+<div class="viewcode-block" id="create_pdf_info">
+<a class="viewcode-back" href="../../../src/api_create/create_pdf_info.html#multipiegen.create_pdf.create_pdf_info.create_pdf_info">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">create_pdf_info</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Create all PDFs of overall information in multipiegen/pdf/info.</span>
+<span class="sd">    """</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">pdfdir</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">info</span> <span class="o">=</span> <span class="n">load_info</span><span class="p">()</span>
+    <span class="n">group</span> <span class="o">=</span> <span class="n">load_group</span><span class="p">()</span>
+    <span class="n">top_key</span> <span class="o">=</span> <span class="n">orbital_top_key</span><span class="p">(</span><span class="n">info</span><span class="p">)</span>
+
+    <span class="n">create_group_info_pg</span><span class="p">(</span><span class="n">info</span><span class="p">,</span> <span class="n">group</span><span class="p">)</span>
+    <span class="n">create_group_info_sg</span><span class="p">(</span><span class="n">info</span><span class="p">,</span> <span class="n">group</span><span class="p">)</span>
+    <span class="n">create_group_info_mpg</span><span class="p">(</span><span class="n">info</span><span class="p">,</span> <span class="n">group</span><span class="p">)</span>
+    <span class="n">create_group_info_msg</span><span class="p">(</span><span class="n">info</span><span class="p">,</span> <span class="n">group</span><span class="p">)</span>
+    <span class="n">create_compatibility_relation</span><span class="p">(</span><span class="n">info</span><span class="p">,</span> <span class="n">group</span><span class="p">,</span> <span class="n">top_key</span><span class="p">)</span>
+    <span class="n">create_active_multipole</span><span class="p">(</span><span class="n">info</span><span class="p">,</span> <span class="n">group</span><span class="p">,</span> <span class="n">top_key</span><span class="p">)</span></div>
+
+
+
+<span class="c1"># ==================================================</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="n">create_pdf_info</span><span class="p">()</span>
+</pre></div>
+
+                </article>
+              
+
+              
+              
+              
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Hiroaki Kusunose
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2021-.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

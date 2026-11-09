@@ -1,0 +1,1245 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>multipiegen.create_binary.create_group &#8212; MultiPieGen</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=34ddd5e8" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+
+    <script src="../../../_static/documentation_options.js?v=a8e58a58"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/multipiegen/create_binary/create_group';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <script src="../../../_static/custom.js?v=9c3a2667"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../../_static/searchtools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    <script src="../../../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../README.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">MultiPieGen</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Documentation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../src/data.html">Data tables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../src/binary.html">Binary data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../src/pg_pdf.html">Point groups</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../src/sg_pdf.html">Space groups</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../src/mpg_pdf.html">Magnetic point groups</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../src/msg_pdf.html">Magnetic space groups</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../src/info_pdf.html">Overall information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../src/examples.html">Examples</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">API reference</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../src/api_util.html">Utilities</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_util/util_info.html">Info</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_util/util_group.html">Group</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_util/util_cluster_basis.html">Cluster basis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_util/util_harmonics_symbol.html">Harmonics symbol</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_util/util_multipolar_harmonics.html">Multipolar harmonics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_util/util_symmetry_operation.html">Symmetry operation</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../src/api_create.html">Generators</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_create/create_info.html">Info binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_create/create_group.html">Group binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_create/create_cluster_basis.html">Cluster basis binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_create/create_pdf_harmonics.html">Harmonics PDF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_create/create_pdf_info.html">Information PDF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_create/create_pdf_group.html">Group PDF</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/hiro-k-phys/mp-newbasis.git" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for multipiegen.create_binary.create_group</h1><div class="highlight"><pre>
+<span></span><span class="c1"># SPDX-License-Identifier: MPL-2.0</span>
+<span class="c1"># Copyright (C) 2021- The MultiPieGen developers</span>
+<span class="c1">#</span>
+<span class="c1"># This Source Code Form is subject to the terms of the Mozilla Public</span>
+<span class="c1"># License, v. 2.0. If a copy of the MPL was not distributed with this</span>
+<span class="c1"># file, You can obtain one at https://mozilla.org/MPL/2.0/.</span>
+
+<span class="sd">"""</span>
+<span class="sd">Create group.pkl (symmetry operation, character, Wyckoff site/bond for all PG, SG, MPG and MSG).</span>
+
+<span class="sd">    python -m multipiegen.create_binary.create_group [--serial]</span>
+
+<span class="sd">Based on MultiPie (others/tools/create_binary/create_data_group.py, create_data_group_mapping.py,</span>
+<span class="sd">create_data_group_bond.py), which are merged here. Differences from MultiPie:</span>
+
+<span class="sd">    - the representative site/vector are those of the new root cluster (info.pkl).</span>
+<span class="sd">    - "mapping" of symmetry operation is the mapping to the Oh/D6h cluster (data_op_mapping), for PG and SG.</span>
+<span class="sd">    - Wyckoff bond has "symmetry" (bond symmetry).</span>
+<span class="sd">    - complex PG ("-c") has all data, copied from the real PG except for the character.</span>
+<span class="sd">    - all sympy values are stored in a simple form (simplify_value).</span>
+<span class="sd">"""</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">argparse</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">multiprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Pool</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sympy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sp</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">multipie</span><span class="w"> </span><span class="kn">import</span> <span class="n">SOMatrixType</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">multipie.util.util</span><span class="w"> </span><span class="kn">import</span> <span class="n">normalize_vector</span><span class="p">,</span> <span class="n">str_to_sympy</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">multipie.util.util_binary</span><span class="w"> </span><span class="kn">import</span> <span class="n">BinaryManager</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">multipie.util.util_crystal</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">convert_to_cartesian_hexagonal</span><span class="p">,</span>
+    <span class="n">convert_to_fractional_hexagonal</span><span class="p">,</span>
+    <span class="n">convert_to_fractional_hexagonal_matrix</span><span class="p">,</span>
+    <span class="n">convert_to_primitive</span><span class="p">,</span>
+    <span class="n">convert_to_primitive_matrix</span><span class="p">,</span>
+    <span class="n">t_dict</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">multipie.util.util_dict</span><span class="w"> </span><span class="kn">import</span> <span class="n">Dict</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">multipie.util.util_tag</span><span class="w"> </span><span class="kn">import</span> <span class="n">TagIrrep</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">multipiegen</span><span class="w"> </span><span class="kn">import</span> <span class="n">__bin_dir__</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">multipiegen.data.data_character_table</span><span class="w"> </span><span class="kn">import</span> <span class="n">character</span><span class="p">,</span> <span class="n">character_plus</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">multipiegen.data.data_group_mpg</span><span class="w"> </span><span class="kn">import</span> <span class="n">mpg_info</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">multipiegen.data.data_group_msg</span><span class="w"> </span><span class="kn">import</span> <span class="n">msg_info</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">multipiegen.data.data_group_pg</span><span class="w"> </span><span class="kn">import</span> <span class="n">pg_info</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">multipiegen.data.data_group_sg</span><span class="w"> </span><span class="kn">import</span> <span class="n">sg_info</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">multipiegen.data.data_op_mapping</span><span class="w"> </span><span class="kn">import</span> <span class="n">op_mapping_d6h_oh_cluster</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">multipiegen.data.data_wyckoff_bond_sym</span><span class="w"> </span><span class="kn">import</span> <span class="n">wyckoff_bond_data</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">multipiegen.data.data_wyckoff_mpg</span><span class="w"> </span><span class="kn">import</span> <span class="n">wyckoff_mpg_data</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">multipiegen.data.data_wyckoff_msg</span><span class="w"> </span><span class="kn">import</span> <span class="n">wyckoff_msg_data</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">multipiegen.data.data_wyckoff_site</span><span class="w"> </span><span class="kn">import</span> <span class="n">wyckoff_site_data</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">multipiegen.util.util_group</span><span class="w"> </span><span class="kn">import</span> <span class="n">group_file</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">multipiegen.util.util_info</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_info</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">multipiegen.util.util_symmetry_operation</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">point_tag</span><span class="p">,</span>
+    <span class="n">simplify_array</span><span class="p">,</span>
+    <span class="n">simplify_value</span><span class="p">,</span>
+    <span class="n">symmetry_operation_matrix</span><span class="p">,</span>
+    <span class="n">symmetry_operation_matrix_multipole</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">TOL</span> <span class="o">=</span> <span class="mf">1e-8</span>
+
+<span class="c1"># ==================================================</span>
+<span class="n">h_group</span> <span class="o">=</span> <span class="s2">"""</span>
+<span class="s2">* Information for all PG ("PG").</span>
+<span class="s2">- PG_id (str): (dict) id, "PG:</span><span class="si">{ID}</span><span class="s2">".</span>
+<span class="s2">  - "info" (str): (namedtuple) info.</span>
+<span class="s2">    - tag: Schoenflies in text.</span>
+<span class="s2">    - international: international short symbol in LaTeX.</span>
+<span class="s2">    - schoenflies: Schoenflies symbol in LaTeX.</span>
+<span class="s2">    - crystal: triclinic, monoclinic, orthorhombic, tetragonal, trigonal, hexagonal, cubic.</span>
+<span class="s2">    - setting: setting.</span>
+<span class="s2">    - PG: = id.</span>
+<span class="s2">    - SG: associated SG, 1st SG in the same PGs.</span>
+<span class="s2">    - MPG: associated MPG, 1st MPG with type II in the same PGs.</span>
+<span class="s2">    - MSG: associated MSG, PG -&gt; MPG -&gt; MSG.</span>
+<span class="s2">    - lattice: "0".</span>
+<span class="s2">    - hexagonal_g: trigonal or hexagonal ?</span>
+<span class="s2">    - SO: symmetry operations.</span>
+<span class="s2">    - SO_gen: generator of SOs.</span>
+<span class="s2">  - "symmetry_operation" (str): (dict) symmetry operation (SO) of group.</span>
+<span class="s2">    - "tag" (str): ([str]) list of SO tag.</span>
+<span class="s2">    - "generator" (str): ([str]) list of generator SO tag.</span>
+<span class="s2">    - "cartesian" (str): (ndarray(n,3,3,sympy)) list of SO matrix (cartesian).</span>
+<span class="s2">    - "fractional" (str): (ndarray(n,3,3,sympy)) list of SO matrix (fractional).</span>
+<span class="s2">    - "det" (str): (ndarray(n,sympy)) list of determinant of SO matrix.</span>
+<span class="s2">    - "so_matrix" (str): (Dict) dict of SO matrix (X="Q/G", s=0,1, cartesian).</span>
+<span class="s2">      - (X,s) (str,int): ([ndarray(2s+1,2s+1,sympy)]) list of SO matrix.</span>
+<span class="s2">    - "product" (str): (dict) product table.</span>
+<span class="s2">      - (SO_tag1,SO_tag2) (str,str): (str) SO_tag of product, SO1 SO2.</span>
+<span class="s2">    - "mapping" (str): (dict) mapping of SO to the Oh/D6h cluster (data_op_mapping).</span>
+<span class="s2">      - "top" (str): (str) top group, "Oh" or "D6h".</span>
+<span class="s2">      - "mapping" (str): ([[int]]) mapping[coset][i] = SO number (from 1) of top group for i-th SO of group.</span>
+<span class="s2">    NOTE:</span>
+<span class="s2">      - SOs are in the same order of ITA (BCS).</span>
+<span class="s2">      - SOs of SG and PG (without translational part) are in the same order.</span>
+<span class="s2">      - SO matrices are in the same order of "tag".</span>
+<span class="s2">      - monopole (s=0) and dipole (s=1) basis are [1] and [x,y,z].</span>
+<span class="s2">      - mapping[0] is the group itself, and mapping[k] (k&gt;0) is the left coset g_k * group.</span>
+<span class="s2">  - "wyckoff" (str): (dict) Wyckoff site/bond of group.</span>
+<span class="s2">    - "site" (str): (dict) info. of Wyckoff site.</span>
+<span class="s2">      - sw_tag (str): (dict) site Wyckoff tag.</span>
+<span class="s2">        - "symmetry" (str): (str) site symmetry.</span>
+<span class="s2">        - "conventional" (str): (ndarray(n,3,sympy)) list of Wyckoff site (fractional).</span>
+<span class="s2">        - "reference" (str): (ndarray(n,3,sympy)) list of representative site (fractional).</span>
+<span class="s2">        - "mapping" (str): ([[int]]) list of SO number (from 1) for each site.</span>
+<span class="s2">        - "bond" (str): ([str]) list of bw_tag.</span>
+<span class="s2">    - "bond" (str): (dict) info. of Wyckoff bond.</span>
+<span class="s2">      - bw_tag (str): (dict) bond Wyckoff tag.</span>
+<span class="s2">        - "symmetry" (str): (str) bond symmetry.</span>
+<span class="s2">        - "conventional" (str): (ndarray(n,6,sympy)) list of Wyckoff bond (vector+center) (fractional).</span>
+<span class="s2">        - "reference" (str): (ndarray(n,6,sympy)) list of representative bond (vector+center) (fractional).</span>
+<span class="s2">        - "mapping" (str): ([[int]]) list of SO number (from 1) for each bond (opposite direction with negative sign).</span>
+<span class="s2">    NOTE:</span>
+<span class="s2">      - only for standard setting, (unique b axes, origin choice 2, hexagonal axes, abc).</span>
+<span class="s2">      - Wyckoff sites are in the same order of ITA (BCS).</span>
+<span class="s2">      - representative site/vector are scaled site0/vector0 of the root cluster (info["root_cluster"]).</span>
+<span class="s2">  - "character" (str): (dict) character table of group.</span>
+<span class="s2">    - "conjugacy" (str): ([[str]]) list of SO_tag in each conjugacy class.</span>
+<span class="s2">    - "dimension" (str): (dict) dimension of irrep.</span>
+<span class="s2">      - irrep_tag (str): (int) dimension.</span>
+<span class="s2">    - "table" (str): (dict) character table (first SO in each conjugacy class).</span>
+<span class="s2">      - irrep_tag (str): (ndarray(n,sympy) list of character.</span>
+<span class="s2">    - "table_full" (str): (dict) character table for all SO.</span>
+<span class="s2">      - irrep_tag (str): (ndarray(n,sympy) list of character.</span>
+<span class="s2">    - "polar_axial_conversion" (str): (dict) conversion between polar and axial.</span>
+<span class="s2">      - irrep_tag (str): (str) converted irrep_tag.</span>
+<span class="s2">    - "symmetric_product" (str): (dict) symmetric product decomposition.</span>
+<span class="s2">      - (irrep_tag,irrep_tag) (str,str): [(int,str)] list of (n, irrep_tag).</span>
+<span class="s2">    - "anti_symmetric_product" (str): (dict) anti-symmetric product decomposition.</span>
+<span class="s2">      - irrep_tag (str): ([(int,str)]) list of (n,irrep_tag).</span>
+<span class="s2">    NOTE:</span>
+<span class="s2">      - wp = exp(+2pi i/3), wm = exp(-2pi i/3) in "table", and they are substituted in "table_full".</span>
+<span class="s2">      - for complex character, use PG_tag with "-c", otherwise without "-c", real version is given.</span>
+<span class="s2">  NOTE:</span>
+<span class="s2">    - complex PG ("-c") has the same "symmetry_operation" and "wyckoff" as the real PG.</span>
+
+<span class="s2">* Information for all SG ("SG").</span>
+<span class="s2">- SG_id (str): (dict) id, "SG:</span><span class="si">{ID}</span><span class="s2">".</span>
+<span class="s2">  - "info" (str): (namedtuple) info.</span>
+<span class="s2">    - tag: Schoenflies in text.</span>
+<span class="s2">    - international: international short symbol in LaTeX.</span>
+<span class="s2">    - schoenflies: Schoenflies symbol in LaTeX.</span>
+<span class="s2">    - crystal: triclinic, monoclinic, orthorhombic, tetragonal, trigonal, hexagonal, cubic.</span>
+<span class="s2">    - setting: setting comment.</span>
+<span class="s2">    - PG: associated PG, unique.</span>
+<span class="s2">    - SG: = id.</span>
+<span class="s2">    - MPG: associated MPG, SG -&gt; PG -&gt; MPG.</span>
+<span class="s2">    - MSG: associated MSG, 1st MSG with type II in the same SGs.</span>
+<span class="s2">    - lattice: A, B, C, P, I, F, R.</span>
+<span class="s2">    - hexagonal_g: trigonal or hexagonal ?</span>
+<span class="s2">    - SO: symmetry operations.</span>
+<span class="s2">    - SO_gen: generator of SOs.</span>
+<span class="s2">  - "symmetry_operation" (str): (dict) symmetry operation (SO) of group.</span>
+<span class="s2">    - "tag" (str): ([str]) list of SO tag.</span>
+<span class="s2">    - "generator" (str): ([str]) list of generator SO tag.</span>
+<span class="s2">    - "cartesian" (str): (ndarray(n,4,4,sympy)) list of SO matrix (cartesian, conventional).</span>
+<span class="s2">    - "fractional" (str): (ndarray(n,4,4,sympy)) list of SO matrix (fractional, conventional).</span>
+<span class="s2">    - "det" (str): (ndarray(n,sympy)) list of determinant of SO matrix.</span>
+<span class="s2">    - "cartesian_primitive" (str): (ndarray(n,4,4,sympy)) list of SO matrix (cartesian, primitive).</span>
+<span class="s2">    - "fractional_primitive" (str): (ndarray(n,4,4,sympy)) list of SO matrix (fractional, primitive).</span>
+<span class="s2">    - "plus_set" (str): (ndarray(n,3,sympy)) list of plus set vector (fractional, conventional).</span>
+<span class="s2">    - "so_matrix" (str): (Dict) dict of SO matrix (X="Q/G", s=0,1, cartesian).</span>
+<span class="s2">      - (X,s) (str,int): ([ndarray(2s+1,2s+1,sympy)]) list of SO matrix.</span>
+<span class="s2">    - "mapping" (str): (dict) mapping of SO to the Oh/D6h cluster (data_op_mapping).</span>
+<span class="s2">      - "top" (str): (int) top SG number (SG whose PG is Oh or D6h), the SG itself if its PG is Oh or D6h.</span>
+<span class="s2">      - "mapping" (str): ([[int]]) mapping[coset][i] = SO number (from 1) of top SG for i-th SO of group.</span>
+<span class="s2">    NOTE:</span>
+<span class="s2">      - SOs are in the same order of ITA (BCS).</span>
+<span class="s2">      - SOs of SG and PG (without translational part) are in the same order.</span>
+<span class="s2">      - SO matrices are in the same order of "tag".</span>
+<span class="s2">  - "wyckoff" (str): (dict) Wyckoff site/bond of group.</span>
+<span class="s2">    - "site" (str): (dict) info. of Wyckoff site.</span>
+<span class="s2">      - sw_tag (str): (dict) site Wyckoff tag.</span>
+<span class="s2">        - "symmetry" (str): (str) site symmetry.</span>
+<span class="s2">        - "conventional" (str): (ndarray(n,3,sympy)) list of Wyckoff site (fractional, conventional, no plus set).</span>
+<span class="s2">        - "primitive" (str): (ndarray(n,3,sympy)) list of Wyckoff site (fractional, primitive).</span>
+<span class="s2">        - "reference" (str): (ndarray(n,3,sympy)) list of representative site (fractional, conventional, plus set).</span>
+<span class="s2">        - "mapping" (str): ([[int]]) list of SO number (from 1) for each site.</span>
+<span class="s2">        - "bond" (str): ([str]) list of bw_tag.</span>
+<span class="s2">    - "bond" (str): (dict) info. of Wyckoff bond.</span>
+<span class="s2">      - bw_tag (str): (dict) bond Wyckoff tag.</span>
+<span class="s2">        - "symmetry" (str): (str) bond symmetry.</span>
+<span class="s2">        - "conventional" (str): (ndarray(n,6,sympy)) list of Wyckoff bond (vector+center) (fractional, conventional, no plus set).</span>
+<span class="s2">        - "primitive" (str): (ndarray(n,6,sympy)) list of Wyckoff bond (vector+center) (fractional, primitive).</span>
+<span class="s2">        - "reference" (str): (ndarray(n,6,sympy)) list of representative bond (vector+center) (fractional, conventional, plus set).</span>
+<span class="s2">        - "mapping" (str): ([[int]]) list of SO number (from 1) for each bond (opposite direction with negative sign).</span>
+<span class="s2">    NOTE:</span>
+<span class="s2">      - only for standard setting, (unique b axes, origin choice 2, hexagonal axes, abc).</span>
+<span class="s2">      - Wyckoff sites are in the same order of ITA (BCS).</span>
+
+<span class="s2">* Information for all MPG ("MPG").</span>
+<span class="s2">- MPG_id (str): (dict) id, "MPG:</span><span class="si">{PG}</span><span class="s2">.</span><span class="si">{no}</span><span class="s2">.</span><span class="si">{ID}</span><span class="s2">".</span>
+<span class="s2">  - "info" (str): (namedtuple) info.</span>
+<span class="s2">    - tag: MPG_id (PG.no.ID).</span>
+<span class="s2">    - international: international short symbol in LaTeX.</span>
+<span class="s2">    - schoenflies: Schoenflies symbol in LaTeX.</span>
+<span class="s2">    - crystal: triclinic, monoclinic, orthorhombic, tetragonal, trigonal, hexagonal, cubic.</span>
+<span class="s2">    - setting: setting.</span>
+<span class="s2">    - PG: associated PG, unique.</span>
+<span class="s2">    - SG: associated SG, MPG -&gt; MSG -&gt; SG.</span>
+<span class="s2">    - MPG: = id.</span>
+<span class="s2">    - MSG: associated MSG, 1st MSG in the same MPGs.</span>
+<span class="s2">    - lattice: "0".</span>
+<span class="s2">    - hexagonal_g: trigonal or hexagonal ?</span>
+<span class="s2">    - type: type I, II, III.</span>
+<span class="s2">    - SO: symmetry operations.</span>
+<span class="s2">  - "symmetry_operation" (str): (dict) symmetry operation (SO) of group.</span>
+<span class="s2">    - "tag" (str): ([str]) list of SO tag.</span>
+<span class="s2">    - "cartesian" (str): (ndarray(n,3,3,sympy)) list of SO matrix (cartesian).</span>
+<span class="s2">    - "fractional" (str): (ndarray(n,3,3,sympy)) list of SO matrix (fractional).</span>
+<span class="s2">    - "det" (str): (ndarray(n,sympy)) list of determinant of SO matrix.</span>
+<span class="s2">    - "tr_sign" (str): (ndarray(n,sympy)) list of time-reversal sign of SO matrix.</span>
+<span class="s2">    NOTE:</span>
+<span class="s2">      - SOs are in the same order of ITA (BCS).</span>
+<span class="s2">      - SO matrices are in the same order of "tag".</span>
+<span class="s2">  - "wyckoff" (str): (dict) Wyckoff site of group.</span>
+<span class="s2">    - "site" (str): (dict) info. of Wyckoff site.</span>
+<span class="s2">      - sw_tag (str): (dict) site Wyckoff tag.</span>
+<span class="s2">        - "symmetry" (str): (str) site symmetry.</span>
+<span class="s2">        - "conventional" (str): (ndarray(n,3,sympy)) list of Wyckoff site (fractional).</span>
+<span class="s2">        - "reference" (str): (ndarray(n,3,sympy)) list of representative site (fractional).</span>
+<span class="s2">        - "mapping" (str): ([[int]]) list of SO number (from 1) for each site.</span>
+<span class="s2">  - "active_multipole" (list): active MPs list, [str] (multipoles in info["response_tensor"]["multipole"]).</span>
+
+<span class="s2">* Information for all MSG ("MSG").</span>
+<span class="s2">- MSG_id (str): (dict) id, "MSG:</span><span class="si">{SG}</span><span class="s2">.</span><span class="si">{no}</span><span class="s2">".</span>
+<span class="s2">  - "info" (str): (namedtuple) info.</span>
+<span class="s2">    - tag: BNS_id (SG.no).</span>
+<span class="s2">    - BNS: Belov-Neronova-Smirnova (international) notation in LaTeX.</span>
+<span class="s2">    - OG: Opechowski-Guccione notation in LaTeX.</span>
+<span class="s2">    - schoenflies: Schoenflies symbol in LaTeX.</span>
+<span class="s2">    - crystal: triclinic, monoclinic, orthorhombic, tetragonal, trigonal, hexagonal, cubic.</span>
+<span class="s2">    - setting: setting.</span>
+<span class="s2">    - PG: associated PG, unique.</span>
+<span class="s2">    - SG: associated SG, unique.</span>
+<span class="s2">    - MPG: associated MPG, unique.</span>
+<span class="s2">    - MSG: = id.</span>
+<span class="s2">    - lattice: A, B, C, P, I, F, R.</span>
+<span class="s2">    - hexagonal_g: trigonal or hexagonal ?</span>
+<span class="s2">    - type: type I, II, III, IV.</span>
+<span class="s2">    - SO: symmetry operations.</span>
+<span class="s2">  - "symmetry_operation" (str): (dict) symmetry operation (SO) of group.</span>
+<span class="s2">    - "tag" (str): ([str]) list of SO tag.</span>
+<span class="s2">    - "cartesian" (str): (ndarray(n,4,4,sympy)) list of SO matrix (cartesian, conventional).</span>
+<span class="s2">    - "fractional" (str): (ndarray(n,4,4,sympy)) list of SO matrix (fractional, conventional).</span>
+<span class="s2">    - "det" (str): (ndarray(n,sympy)) list of determinant of SO matrix.</span>
+<span class="s2">    - "tr_sign" (str): (ndarray(n,sympy)) list of time-reversal sign of SO matrix.</span>
+<span class="s2">    NOTE:</span>
+<span class="s2">      - SOs are in the same order of ITA (BCS).</span>
+<span class="s2">      - SO matrices are in the same order of "tag".</span>
+<span class="s2">  - "wyckoff" (str): (dict) Wyckoff site of group.</span>
+<span class="s2">    - "site" (str): (dict) info. of Wyckoff site.</span>
+<span class="s2">      - sw_tag (str): (dict) site Wyckoff tag.</span>
+<span class="s2">        - "symmetry" (str): (str) site symmetry.</span>
+<span class="s2">        - "conventional" (str): (ndarray(n,3,sympy)) list of Wyckoff site (fractional, conventional, no plus set).</span>
+<span class="s2">        - "reference" (str): (ndarray(n,3,sympy)) list of representative site (fractional, conventional).</span>
+<span class="s2">        - "mapping" (str): ([[int]]) list of SO number (from 1) for each site.</span>
+
+<span class="s2">* all sympy values are expanded with rationalized denominators.</span>
+<span class="s2">"""</span>
+
+<span class="n">_wp_wm</span> <span class="o">=</span> <span class="p">{</span><span class="n">sp</span><span class="o">.</span><span class="n">Symbol</span><span class="p">(</span><span class="s2">"wp"</span><span class="p">):</span> <span class="o">-</span><span class="n">sp</span><span class="o">.</span><span class="n">S</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">sp</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">*</span> <span class="n">sp</span><span class="o">.</span><span class="n">I</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="n">sp</span><span class="o">.</span><span class="n">Symbol</span><span class="p">(</span><span class="s2">"wm"</span><span class="p">):</span> <span class="o">-</span><span class="n">sp</span><span class="o">.</span><span class="n">S</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">-</span> <span class="n">sp</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">*</span> <span class="n">sp</span><span class="o">.</span><span class="n">I</span> <span class="o">/</span> <span class="mi">2</span><span class="p">}</span>
+
+
+<span class="c1"># ================================================== representative site/vector, basis functions (per process).</span>
+<span class="n">_shared</span> <span class="o">=</span> <span class="p">{}</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_info_data</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Data taken from info.pkl (loaded once per process).</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        - (dict) -- "site"/"vector": {hexagonal(bool): ndarray(3)} (fractional), "multipole": {hexagonal: [str]},</span>
+<span class="sd">          "basis_function": {name: sympy}.</span>
+<span class="sd">    """</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">_shared</span><span class="p">:</span>
+        <span class="n">info</span> <span class="o">=</span> <span class="n">load_info</span><span class="p">()</span>
+        <span class="n">rc</span> <span class="o">=</span> <span class="n">info</span><span class="p">[</span><span class="s2">"root_cluster"</span><span class="p">]</span>
+        <span class="n">_shared</span><span class="p">[</span><span class="s2">"site"</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="kc">False</span><span class="p">:</span> <span class="n">rc</span><span class="p">[</span><span class="s2">"oh_scaled_site0_frac"</span><span class="p">],</span> <span class="kc">True</span><span class="p">:</span> <span class="n">rc</span><span class="p">[</span><span class="s2">"d6h_scaled_site0_frac"</span><span class="p">]}</span>
+        <span class="n">_shared</span><span class="p">[</span><span class="s2">"vector"</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="kc">False</span><span class="p">:</span> <span class="n">rc</span><span class="p">[</span><span class="s2">"oh_vector0_frac"</span><span class="p">],</span> <span class="kc">True</span><span class="p">:</span> <span class="n">rc</span><span class="p">[</span><span class="s2">"d6h_vector0_frac"</span><span class="p">]}</span>
+        <span class="n">mp</span> <span class="o">=</span> <span class="n">info</span><span class="p">[</span><span class="s2">"response_tensor"</span><span class="p">][</span><span class="s2">"multipole"</span><span class="p">]</span>
+        <span class="n">_shared</span><span class="p">[</span><span class="s2">"multipole"</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="kc">False</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="n">mp</span><span class="p">[</span><span class="s2">"cubic"</span><span class="p">]),</span> <span class="kc">True</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="n">mp</span><span class="p">[</span><span class="s2">"hexagonal"</span><span class="p">])}</span>
+        <span class="n">bf</span> <span class="o">=</span> <span class="n">info</span><span class="p">[</span><span class="s2">"harmonics"</span><span class="p">][</span><span class="s2">"basis_function"</span><span class="p">]</span>
+        <span class="n">_shared</span><span class="p">[</span><span class="s2">"basis_function"</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="n">name</span><span class="p">:</span> <span class="n">bf</span><span class="p">[</span><span class="n">name</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">mp</span><span class="p">[</span><span class="s2">"cubic"</span><span class="p">]</span> <span class="o">+</span> <span class="n">mp</span><span class="p">[</span><span class="s2">"hexagonal"</span><span class="p">]}</span>
+    <span class="k">return</span> <span class="n">_shared</span>
+
+
+<span class="c1"># ==================================================</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_sub</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Substitute x,y,z (or X,Y,Z) in a string expression by the components of s."""</span>
+    <span class="k">for</span> <span class="n">c</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="s2">"xyz"</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
+        <span class="n">expr</span> <span class="o">=</span> <span class="n">expr</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"(</span><span class="si">{</span><span class="n">v</span><span class="si">}</span><span class="s2">)"</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">expr</span>
+
+
+<span class="c1"># ==================================================</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_is_zero_mod1</span><span class="p">(</span><span class="n">d</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Is float array d zero modulo 1 (all components) ?"""</span>
+    <span class="k">return</span> <span class="nb">bool</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">d</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">d</span><span class="p">))</span> <span class="o">&lt;</span> <span class="n">TOL</span><span class="p">))</span>
+
+
+<span class="c1"># ==================================================</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_real_tag</span><span class="p">(</span><span class="n">tag</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Real PG tag of complex PG ("-c")."""</span>
+    <span class="k">return</span> <span class="n">tag</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">"-c"</span><span class="p">,</span> <span class="s2">""</span><span class="p">)</span>
+
+
+<span class="c1"># ==================================================</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_so_mapping</span><span class="p">(</span><span class="n">key</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Mapping of SO to the Oh/D6h cluster.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        key (str or int): PG tag (real) or SG number.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        - (dict) -- {"top": "Oh"/"D6h" (PG) or top SG number (SG), "mapping": [[int]]}.</span>
+<span class="sd">    """</span>
+    <span class="n">top</span><span class="p">,</span> <span class="n">mapping</span> <span class="o">=</span> <span class="n">op_mapping_d6h_oh_cluster</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">"top"</span><span class="p">:</span> <span class="n">top</span><span class="p">,</span> <span class="s2">"mapping"</span><span class="p">:</span> <span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">mapping</span><span class="p">]}</span>
+
+
+<span class="c1"># ==================================================</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_product_table</span><span class="p">(</span><span class="n">tag</span><span class="p">,</span> <span class="n">frac</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Product table of point group.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        tag (list): SO tags.</span>
+<span class="sd">        frac (ndarray): SO matrices (fractional, integer entries).</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        - (dict) -- {(SO_tag1,SO_tag2): SO_tag of SO1 SO2}.</span>
+<span class="sd">    """</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">frac</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">()</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+    <span class="n">key</span> <span class="o">=</span> <span class="p">{</span><span class="n">mi</span><span class="o">.</span><span class="n">tobytes</span><span class="p">():</span> <span class="n">t</span> <span class="k">for</span> <span class="n">mi</span><span class="p">,</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">tag</span><span class="p">)}</span>
+    <span class="k">return</span> <span class="p">{(</span><span class="n">t1</span><span class="p">,</span> <span class="n">t2</span><span class="p">):</span> <span class="n">key</span><span class="p">[(</span><span class="n">m1</span> <span class="o">@</span> <span class="n">m2</span><span class="p">)</span><span class="o">.</span><span class="n">tobytes</span><span class="p">()]</span> <span class="k">for</span> <span class="n">t1</span><span class="p">,</span> <span class="n">m1</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">tag</span><span class="p">,</span> <span class="n">m</span><span class="p">)</span> <span class="k">for</span> <span class="n">t2</span><span class="p">,</span> <span class="n">m2</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">tag</span><span class="p">,</span> <span class="n">m</span><span class="p">)}</span>
+
+
+<span class="c1"># ==================================================</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_matrices</span><span class="p">(</span><span class="n">so</span><span class="p">,</span> <span class="n">hexagonal</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Cartesian and fractional SO matrices.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        so (list): SO tags.</span>
+<span class="sd">        hexagonal (bool): hexagonal ?</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        - (ndarray) -- cartesian SO matrices.</span>
+<span class="sd">        - (ndarray) -- fractional SO matrices.</span>
+<span class="sd">        - (ndarray) -- determinants.</span>
+<span class="sd">    """</span>
+    <span class="n">cart</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">([</span><span class="n">symmetry_operation_matrix</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">hexagonal</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">so</span><span class="p">])</span>
+    <span class="n">frac</span> <span class="o">=</span> <span class="n">simplify_array</span><span class="p">(</span><span class="n">convert_to_fractional_hexagonal_matrix</span><span class="p">(</span><span class="n">cart</span><span class="p">))</span> <span class="k">if</span> <span class="n">hexagonal</span> <span class="k">else</span> <span class="n">cart</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">det</span> <span class="o">=</span> <span class="n">simplify_array</span><span class="p">([</span><span class="n">sp</span><span class="o">.</span><span class="n">Matrix</span><span class="p">(</span><span class="n">i</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">])</span><span class="o">.</span><span class="n">det</span><span class="p">()</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">cart</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">cart</span><span class="p">,</span> <span class="n">frac</span><span class="p">,</span> <span class="n">det</span>
+
+
+<span class="c1"># ==================================================</span>
+<div class="viewcode-block" id="create_symmetry_operation">
+<a class="viewcode-back" href="../../../src/api_create/create_group.html#multipiegen.create_binary.create_group.create_symmetry_operation">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">create_symmetry_operation</span><span class="p">(</span><span class="n">g_info</span><span class="p">,</span> <span class="n">tag</span><span class="p">,</span> <span class="n">mapping_key</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Symmetry operation of PG or SG.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        g_info (namedtuple): PGInfoType or SGInfoType.</span>
+<span class="sd">        tag (str): group tag (SG has "^").</span>
+<span class="sd">        mapping_key (str or int): key of data_op_mapping (real PG tag or SG number).</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        - (dict) -- symmetry operation.</span>
+<span class="sd">    """</span>
+    <span class="n">hexagonal</span> <span class="o">=</span> <span class="n">g_info</span><span class="o">.</span><span class="n">hexagonal_g</span>
+    <span class="n">so</span> <span class="o">=</span> <span class="n">g_info</span><span class="o">.</span><span class="n">SO</span>
+    <span class="n">cart</span><span class="p">,</span> <span class="n">frac</span><span class="p">,</span> <span class="n">det</span> <span class="o">=</span> <span class="n">_matrices</span><span class="p">(</span><span class="n">so</span><span class="p">,</span> <span class="n">hexagonal</span><span class="p">)</span>
+
+    <span class="n">dic</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"tag"</span><span class="p">:</span> <span class="n">so</span><span class="p">,</span> <span class="s2">"generator"</span><span class="p">:</span> <span class="n">g_info</span><span class="o">.</span><span class="n">SO_gen</span><span class="p">,</span> <span class="s2">"cartesian"</span><span class="p">:</span> <span class="n">cart</span><span class="p">,</span> <span class="s2">"fractional"</span><span class="p">:</span> <span class="n">frac</span><span class="p">,</span> <span class="s2">"det"</span><span class="p">:</span> <span class="n">det</span><span class="p">}</span>
+    <span class="k">if</span> <span class="n">tag</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">"^"</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">lattice</span> <span class="o">=</span> <span class="n">g_info</span><span class="o">.</span><span class="n">lattice</span>
+        <span class="n">dic</span><span class="p">[</span><span class="s2">"cartesian_primitive"</span><span class="p">]</span> <span class="o">=</span> <span class="n">simplify_array</span><span class="p">(</span><span class="n">convert_to_primitive_matrix</span><span class="p">(</span><span class="n">lattice</span><span class="p">,</span> <span class="n">cart</span><span class="p">))</span>
+        <span class="n">dic</span><span class="p">[</span><span class="s2">"fractional_primitive"</span><span class="p">]</span> <span class="o">=</span> <span class="n">simplify_array</span><span class="p">(</span><span class="n">convert_to_primitive_matrix</span><span class="p">(</span><span class="n">lattice</span><span class="p">,</span> <span class="n">frac</span><span class="p">))</span>
+        <span class="n">dic</span><span class="p">[</span><span class="s2">"plus_set"</span><span class="p">]</span> <span class="o">=</span> <span class="n">simplify_array</span><span class="p">(</span><span class="n">t_dict</span><span class="p">[</span><span class="n">lattice</span><span class="p">])</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">dic</span><span class="p">[</span><span class="s2">"product"</span><span class="p">]</span> <span class="o">=</span> <span class="n">_product_table</span><span class="p">(</span><span class="n">so</span><span class="p">,</span> <span class="n">frac</span><span class="p">)</span>
+
+    <span class="n">so_mat</span> <span class="o">=</span> <span class="n">Dict</span><span class="p">(</span><span class="n">SOMatrixType</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>
+        <span class="n">so_mat</span><span class="p">[(</span><span class="s2">"Q"</span><span class="p">,</span> <span class="n">s</span><span class="p">)]</span> <span class="o">=</span> <span class="p">[</span><span class="n">symmetry_operation_matrix_multipole</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">hexagonal</span><span class="p">,</span> <span class="n">axial</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">tesseral</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">so</span><span class="p">]</span>
+        <span class="n">so_mat</span><span class="p">[(</span><span class="s2">"G"</span><span class="p">,</span> <span class="n">s</span><span class="p">)]</span> <span class="o">=</span> <span class="p">[</span><span class="n">symmetry_operation_matrix_multipole</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">hexagonal</span><span class="p">,</span> <span class="n">axial</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">tesseral</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">so</span><span class="p">]</span>
+    <span class="n">dic</span><span class="p">[</span><span class="s2">"so_matrix"</span><span class="p">]</span> <span class="o">=</span> <span class="n">so_mat</span>
+    <span class="n">dic</span><span class="p">[</span><span class="s2">"mapping"</span><span class="p">]</span> <span class="o">=</span> <span class="n">_so_mapping</span><span class="p">(</span><span class="n">mapping_key</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">dic</span></div>
+
+
+
+<span class="c1"># ==================================================</span>
+<div class="viewcode-block" id="create_m_symmetry_operation">
+<a class="viewcode-back" href="../../../src/api_create/create_group.html#multipiegen.create_binary.create_group.create_m_symmetry_operation">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">create_m_symmetry_operation</span><span class="p">(</span><span class="n">g_info</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Symmetry operation of MPG or MSG.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        g_info (namedtuple): MPGInfoType or MSGInfoType.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        - (dict) -- symmetry operation.</span>
+<span class="sd">    """</span>
+    <span class="n">so</span> <span class="o">=</span> <span class="n">g_info</span><span class="o">.</span><span class="n">SO</span>
+    <span class="n">cart</span><span class="p">,</span> <span class="n">frac</span><span class="p">,</span> <span class="n">det</span> <span class="o">=</span> <span class="n">_matrices</span><span class="p">(</span><span class="n">so</span><span class="p">,</span> <span class="n">g_info</span><span class="o">.</span><span class="n">hexagonal_g</span><span class="p">)</span>
+    <span class="n">tr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">([</span><span class="o">-</span><span class="n">sp</span><span class="o">.</span><span class="n">S</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="k">if</span> <span class="n">i</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">"'"</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="n">sp</span><span class="o">.</span><span class="n">S</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">so</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">object</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">"tag"</span><span class="p">:</span> <span class="n">so</span><span class="p">,</span> <span class="s2">"tr_sign"</span><span class="p">:</span> <span class="n">tr</span><span class="p">,</span> <span class="s2">"cartesian"</span><span class="p">:</span> <span class="n">cart</span><span class="p">,</span> <span class="s2">"fractional"</span><span class="p">:</span> <span class="n">frac</span><span class="p">,</span> <span class="s2">"det"</span><span class="p">:</span> <span class="n">det</span><span class="p">}</span></div>
+
+
+
+<span class="c1"># ==================================================</span>
+<div class="viewcode-block" id="create_character">
+<a class="viewcode-back" href="../../../src/api_create/create_group.html#multipiegen.create_binary.create_group.create_character">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">create_character</span><span class="p">(</span><span class="n">tag</span><span class="p">,</span> <span class="n">so_tag</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Character of PG.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        tag (str): PG tag (with "-c" for complex PG).</span>
+<span class="sd">        so_tag (list): SO tags.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        - (dict) -- character.</span>
+<span class="sd">    """</span>
+    <span class="n">conjugacy</span><span class="p">,</span> <span class="n">table</span> <span class="o">=</span> <span class="n">character</span><span class="p">[</span><span class="n">tag</span><span class="p">]</span>
+    <span class="n">plus</span> <span class="o">=</span> <span class="n">character_plus</span><span class="p">[</span><span class="n">tag</span><span class="p">]</span>
+
+    <span class="bp">cls</span> <span class="o">=</span> <span class="p">{</span><span class="n">s</span><span class="p">:</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">conjugacy</span><span class="p">)</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">c</span><span class="p">}</span>
+    <span class="n">table</span> <span class="o">=</span> <span class="p">{</span><span class="n">irrep</span><span class="p">:</span> <span class="n">str_to_sympy</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">irrep</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">table</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+    <span class="n">table_full</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">irrep</span><span class="p">,</span> <span class="n">ch</span> <span class="ow">in</span> <span class="n">table</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="n">v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">([</span><span class="n">ch</span><span class="p">[</span><span class="bp">cls</span><span class="p">[</span><span class="n">s</span><span class="p">]]</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">so_tag</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">object</span><span class="p">)</span>
+        <span class="n">table_full</span><span class="p">[</span><span class="n">irrep</span><span class="p">]</span> <span class="o">=</span> <span class="n">simplify_array</span><span class="p">([</span><span class="n">sp</span><span class="o">.</span><span class="n">S</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">_wp_wm</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">v</span><span class="p">])</span>
+
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="s2">"conjugacy"</span><span class="p">:</span> <span class="n">conjugacy</span><span class="p">,</span>
+        <span class="s2">"dimension"</span><span class="p">:</span> <span class="p">{</span><span class="n">i</span><span class="p">:</span> <span class="n">TagIrrep</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">i</span><span class="p">)[</span><span class="s2">"dimension"</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">table</span><span class="o">.</span><span class="n">keys</span><span class="p">()},</span>
+        <span class="s2">"table"</span><span class="p">:</span> <span class="n">table</span><span class="p">,</span>
+        <span class="s2">"table_full"</span><span class="p">:</span> <span class="n">table_full</span><span class="p">,</span>
+        <span class="s2">"polar_axial_conversion"</span><span class="p">:</span> <span class="n">plus</span><span class="p">[</span><span class="s2">"polar_axial"</span><span class="p">],</span>
+        <span class="s2">"symmetric_product"</span><span class="p">:</span> <span class="n">plus</span><span class="p">[</span><span class="s2">"symmetric_product"</span><span class="p">],</span>
+        <span class="s2">"anti_symmetric_product"</span><span class="p">:</span> <span class="n">plus</span><span class="p">[</span><span class="s2">"anti_symmetric_product"</span><span class="p">],</span>
+    <span class="p">}</span></div>
+
+
+
+<span class="c1"># ==================================================</span>
+<div class="viewcode-block" id="create_wyckoff_site">
+<a class="viewcode-back" href="../../../src/api_create/create_group.html#multipiegen.create_binary.create_group.create_wyckoff_site">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">create_wyckoff_site</span><span class="p">(</span><span class="n">g_info</span><span class="p">,</span> <span class="n">wyckoff</span><span class="p">,</span> <span class="n">sym_op</span><span class="p">,</span> <span class="n">space_group</span><span class="p">,</span> <span class="n">plus_set</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Wyckoff site.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        g_info (namedtuple): group info.</span>
+<span class="sd">        wyckoff (dict): Wyckoff data of group, {wp: (expression, symmetry)}.</span>
+<span class="sd">        sym_op (dict): symmetry operation.</span>
+<span class="sd">        space_group (bool): space group (translation part) ?</span>
+<span class="sd">        plus_set (bool, optional): add plus set for space group (SG) ?</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        - (dict) -- Wyckoff site.</span>
+<span class="sd">    """</span>
+    <span class="n">hexagonal</span> <span class="o">=</span> <span class="n">g_info</span><span class="o">.</span><span class="n">hexagonal_g</span>
+    <span class="n">lattice</span> <span class="o">=</span> <span class="n">g_info</span><span class="o">.</span><span class="n">lattice</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="n">_info_data</span><span class="p">()[</span><span class="s2">"site"</span><span class="p">][</span><span class="n">hexagonal</span><span class="p">]</span>
+    <span class="n">so</span> <span class="o">=</span> <span class="n">sym_op</span><span class="p">[</span><span class="s2">"fractional"</span><span class="p">]</span>
+    <span class="n">so_f</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">so</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+    <span class="n">t_lst</span> <span class="o">=</span> <span class="n">sym_op</span><span class="p">[</span><span class="s2">"plus_set"</span><span class="p">]</span> <span class="k">if</span> <span class="n">space_group</span> <span class="ow">and</span> <span class="n">plus_set</span> <span class="k">else</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">object</span><span class="p">)</span>
+    <span class="n">t_f</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">t_lst</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+
+    <span class="n">dic</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">wp</span><span class="p">,</span> <span class="p">(</span><span class="n">wp_data</span><span class="p">,</span> <span class="n">sym</span><span class="p">)</span> <span class="ow">in</span> <span class="n">wyckoff</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="n">pos</span> <span class="o">=</span> <span class="n">str_to_sympy</span><span class="p">(</span><span class="n">_sub</span><span class="p">(</span><span class="n">wp_data</span><span class="p">,</span> <span class="n">s</span><span class="p">))</span>
+        <span class="n">pos_f</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">pos</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+
+        <span class="c1"># mapping by applying SO to the first site.</span>
+        <span class="k">if</span> <span class="n">space_group</span><span class="p">:</span>
+            <span class="n">pw</span> <span class="o">=</span> <span class="p">(</span><span class="n">so_f</span> <span class="o">@</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pos_f</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mf">1.0</span><span class="p">))[:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
+            <span class="n">mapping</span> <span class="o">=</span> <span class="p">[[</span><span class="n">no</span> <span class="o">+</span> <span class="mi">1</span> <span class="k">for</span> <span class="n">no</span><span class="p">,</span> <span class="n">q</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">pw</span><span class="p">)</span> <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="n">_is_zero_mod1</span><span class="p">(</span><span class="n">p</span> <span class="o">-</span> <span class="n">q</span> <span class="o">-</span> <span class="n">t</span><span class="p">)</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">t_f</span><span class="p">)]</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">pos_f</span><span class="p">]</span>
+            <span class="n">pos</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mod</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">pos</span> <span class="o">+</span> <span class="n">t</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">t_lst</span><span class="p">]),</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">pw</span> <span class="o">=</span> <span class="n">so_f</span> <span class="o">@</span> <span class="n">pos_f</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">mapping</span> <span class="o">=</span> <span class="p">[[</span><span class="n">no</span> <span class="o">+</span> <span class="mi">1</span> <span class="k">for</span> <span class="n">no</span><span class="p">,</span> <span class="n">q</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">pw</span><span class="p">)</span> <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">p</span> <span class="o">-</span> <span class="n">q</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">TOL</span><span class="p">)]</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">pos_f</span><span class="p">]</span>
+
+            <span class="c1"># normalize site in cartesian coordinate.</span>
+            <span class="n">cart</span> <span class="o">=</span> <span class="n">convert_to_cartesian_hexagonal</span><span class="p">(</span><span class="n">pos</span><span class="p">)</span> <span class="k">if</span> <span class="n">hexagonal</span> <span class="k">else</span> <span class="n">pos</span>
+            <span class="n">cart</span> <span class="o">=</span> <span class="n">normalize_vector</span><span class="p">(</span><span class="n">simplify_array</span><span class="p">(</span><span class="n">cart</span><span class="p">))</span>
+            <span class="n">pos</span> <span class="o">=</span> <span class="n">convert_to_fractional_hexagonal</span><span class="p">(</span><span class="n">simplify_array</span><span class="p">(</span><span class="n">cart</span><span class="p">))</span> <span class="k">if</span> <span class="n">hexagonal</span> <span class="k">else</span> <span class="n">cart</span>
+
+        <span class="n">pos_ex</span> <span class="o">=</span> <span class="n">simplify_array</span><span class="p">(</span><span class="n">str_to_sympy</span><span class="p">(</span><span class="n">wp_data</span><span class="p">))</span>
+        <span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"symmetry"</span><span class="p">:</span> <span class="n">sym</span><span class="p">,</span> <span class="s2">"conventional"</span><span class="p">:</span> <span class="n">pos_ex</span><span class="p">}</span>
+        <span class="k">if</span> <span class="n">space_group</span> <span class="ow">and</span> <span class="n">plus_set</span><span class="p">:</span>
+            <span class="n">d</span><span class="p">[</span><span class="s2">"primitive"</span><span class="p">]</span> <span class="o">=</span> <span class="n">simplify_array</span><span class="p">(</span><span class="n">convert_to_primitive</span><span class="p">(</span><span class="n">lattice</span><span class="p">,</span> <span class="n">pos_ex</span><span class="p">,</span> <span class="n">shift</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+        <span class="n">d</span><span class="p">[</span><span class="s2">"reference"</span><span class="p">]</span> <span class="o">=</span> <span class="n">simplify_array</span><span class="p">(</span><span class="n">pos</span><span class="p">)</span>
+        <span class="n">d</span><span class="p">[</span><span class="s2">"mapping"</span><span class="p">]</span> <span class="o">=</span> <span class="n">mapping</span>
+        <span class="n">dic</span><span class="p">[</span><span class="n">wp</span><span class="p">]</span> <span class="o">=</span> <span class="n">d</span>
+
+    <span class="k">return</span> <span class="n">dic</span></div>
+
+
+
+<span class="c1"># ==================================================</span>
+<div class="viewcode-block" id="create_wyckoff_bond">
+<a class="viewcode-back" href="../../../src/api_create/create_group.html#multipiegen.create_binary.create_group.create_wyckoff_bond">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">create_wyckoff_bond</span><span class="p">(</span><span class="n">g_info</span><span class="p">,</span> <span class="n">bond_data</span><span class="p">,</span> <span class="n">site</span><span class="p">,</span> <span class="n">sym_op</span><span class="p">,</span> <span class="n">space_group</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Wyckoff bond (and bond list of each Wyckoff site, added to site).</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        g_info (namedtuple): group info.</span>
+<span class="sd">        bond_data (dict): bond data of group, {bw: (vector, center, mapping, bond_symmetry)}.</span>
+<span class="sd">        site (dict): Wyckoff site (bond list is added).</span>
+<span class="sd">        sym_op (dict): symmetry operation.</span>
+<span class="sd">        space_group (bool): space group ?</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        - (dict) -- Wyckoff bond.</span>
+<span class="sd">    """</span>
+    <span class="n">hexagonal</span> <span class="o">=</span> <span class="n">g_info</span><span class="o">.</span><span class="n">hexagonal_g</span>
+    <span class="n">lattice</span> <span class="o">=</span> <span class="n">g_info</span><span class="o">.</span><span class="n">lattice</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="n">_info_data</span><span class="p">()[</span><span class="s2">"vector"</span><span class="p">][</span><span class="n">hexagonal</span><span class="p">]</span>
+
+    <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">site</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+        <span class="n">v</span><span class="p">[</span><span class="s2">"bond"</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="n">dic</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">bw</span><span class="p">,</span> <span class="p">(</span><span class="n">vector</span><span class="p">,</span> <span class="n">center</span><span class="p">,</span> <span class="n">mapping</span><span class="p">,</span> <span class="n">b_sym</span><span class="p">)</span> <span class="ow">in</span> <span class="n">bond_data</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="n">s_wp</span> <span class="o">=</span> <span class="n">bw</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"@"</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">site</span><span class="p">[</span><span class="n">s_wp</span><span class="p">][</span><span class="s2">"bond"</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">bw</span><span class="p">)</span>
+        <span class="n">n_site</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">site</span><span class="p">[</span><span class="n">s_wp</span><span class="p">][</span><span class="s2">"conventional"</span><span class="p">])</span>
+        <span class="n">site_mp</span> <span class="o">=</span> <span class="p">{</span><span class="nb">tuple</span><span class="p">(</span><span class="n">c</span><span class="p">):</span> <span class="n">r</span> <span class="k">for</span> <span class="n">c</span><span class="p">,</span> <span class="n">r</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">site</span><span class="p">[</span><span class="n">s_wp</span><span class="p">][</span><span class="s2">"conventional"</span><span class="p">],</span> <span class="n">site</span><span class="p">[</span><span class="n">s_wp</span><span class="p">][</span><span class="s2">"reference"</span><span class="p">][:</span><span class="n">n_site</span><span class="p">])}</span>
+
+        <span class="n">center</span> <span class="o">=</span> <span class="n">simplify_array</span><span class="p">(</span><span class="n">str_to_sympy</span><span class="p">(</span><span class="n">center</span><span class="p">))</span>
+        <span class="n">bond_v</span> <span class="o">=</span> <span class="n">simplify_array</span><span class="p">(</span><span class="n">str_to_sympy</span><span class="p">(</span><span class="n">_sub</span><span class="p">(</span><span class="n">vector</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">"X"</span><span class="p">,</span> <span class="s2">"x"</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">"Y"</span><span class="p">,</span> <span class="s2">"y"</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">"Z"</span><span class="p">,</span> <span class="s2">"z"</span><span class="p">),</span> <span class="n">s</span><span class="p">)))</span>
+        <span class="n">bond_c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">([</span><span class="n">site_mp</span><span class="p">[</span><span class="nb">tuple</span><span class="p">(</span><span class="n">i</span><span class="p">)]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">center</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">object</span><span class="p">)</span>
+        <span class="n">vector</span> <span class="o">=</span> <span class="n">simplify_array</span><span class="p">(</span><span class="n">str_to_sympy</span><span class="p">(</span><span class="n">vector</span><span class="p">))</span>
+
+        <span class="k">if</span> <span class="n">space_group</span><span class="p">:</span>
+            <span class="n">plus_set</span> <span class="o">=</span> <span class="n">sym_op</span><span class="p">[</span><span class="s2">"plus_set"</span><span class="p">]</span>
+            <span class="n">bond_v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">tile</span><span class="p">(</span><span class="n">bond_v</span><span class="p">,</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">plus_set</span><span class="p">),</span> <span class="mi">1</span><span class="p">))</span>
+            <span class="n">bond_c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mod</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">bond_c</span> <span class="o">+</span> <span class="n">t</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">plus_set</span><span class="p">]),</span> <span class="mi">1</span><span class="p">)</span>
+
+        <span class="n">position</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">vector</span><span class="p">,</span> <span class="n">center</span><span class="p">))</span>
+        <span class="n">reference</span> <span class="o">=</span> <span class="n">simplify_array</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">bond_v</span><span class="p">,</span> <span class="n">bond_c</span><span class="p">)))</span>
+
+        <span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"symmetry"</span><span class="p">:</span> <span class="n">b_sym</span><span class="p">,</span> <span class="s2">"conventional"</span><span class="p">:</span> <span class="n">position</span><span class="p">}</span>
+        <span class="k">if</span> <span class="n">space_group</span><span class="p">:</span>
+            <span class="n">prim_c</span> <span class="o">=</span> <span class="n">convert_to_primitive</span><span class="p">(</span><span class="n">lattice</span><span class="p">,</span> <span class="n">center</span><span class="p">,</span> <span class="n">shift</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="n">d</span><span class="p">[</span><span class="s2">"primitive"</span><span class="p">]</span> <span class="o">=</span> <span class="n">simplify_array</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">vector</span><span class="p">,</span> <span class="n">prim_c</span><span class="p">)))</span>
+        <span class="n">d</span><span class="p">[</span><span class="s2">"reference"</span><span class="p">]</span> <span class="o">=</span> <span class="n">reference</span>
+        <span class="n">d</span><span class="p">[</span><span class="s2">"mapping"</span><span class="p">]</span> <span class="o">=</span> <span class="n">mapping</span>
+        <span class="n">dic</span><span class="p">[</span><span class="n">bw</span><span class="p">]</span> <span class="o">=</span> <span class="n">d</span>
+
+    <span class="k">return</span> <span class="n">dic</span></div>
+
+
+
+<span class="c1"># ==================================================</span>
+<span class="n">_bf_cache</span> <span class="o">=</span> <span class="p">{}</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_transformed_basis</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">ptag</span><span class="p">,</span> <span class="n">hexagonal</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Basis function of multipole transformed by SO (cached)."""</span>
+    <span class="n">key</span> <span class="o">=</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">ptag</span><span class="p">,</span> <span class="n">hexagonal</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">_bf_cache</span><span class="p">:</span>
+        <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s2">"x y z"</span><span class="p">,</span> <span class="n">real</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">bf</span> <span class="o">=</span> <span class="n">_info_data</span><span class="p">()[</span><span class="s2">"basis_function"</span><span class="p">][</span><span class="n">name</span><span class="p">]</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="n">symmetry_operation_matrix</span><span class="p">(</span><span class="n">ptag</span><span class="p">,</span> <span class="n">hexagonal</span><span class="p">)</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">])</span>
+        <span class="n">_bf_cache</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">expand</span><span class="p">(</span><span class="n">bf</span><span class="o">.</span><span class="n">subs</span><span class="p">({</span><span class="n">x</span><span class="p">:</span> <span class="n">r</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">y</span><span class="p">:</span> <span class="n">r</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">z</span><span class="p">:</span> <span class="n">r</span><span class="p">[</span><span class="mi">2</span><span class="p">]},</span> <span class="n">simultaneous</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">_bf_cache</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+
+
+<span class="c1"># ==================================================</span>
+<div class="viewcode-block" id="create_active_multipole">
+<a class="viewcode-back" href="../../../src/api_create/create_group.html#multipiegen.create_binary.create_group.create_active_multipole">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">create_active_multipole</span><span class="p">(</span><span class="n">g_info</span><span class="p">,</span> <span class="n">sym_op</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Active multipoles of MPG (invariant under all SOs).</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        g_info (namedtuple): MPGInfoType.</span>
+<span class="sd">        sym_op (dict): symmetry operation.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        - (list) -- active multipoles, ["Q..."] + ["G..."] + ["T..."] + ["M..."].</span>
+<span class="sd">    """</span>
+    <span class="n">hexagonal</span> <span class="o">=</span> <span class="n">g_info</span><span class="o">.</span><span class="n">hexagonal_g</span>
+    <span class="n">mp_list</span> <span class="o">=</span> <span class="n">_info_data</span><span class="p">()[</span><span class="s2">"multipole"</span><span class="p">][</span><span class="n">hexagonal</span><span class="p">]</span>
+    <span class="n">ptags</span> <span class="o">=</span> <span class="p">[</span><span class="n">point_tag</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">sym_op</span><span class="p">[</span><span class="s2">"tag"</span><span class="p">]]</span>
+    <span class="n">det</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">sym_op</span><span class="p">[</span><span class="s2">"det"</span><span class="p">]]</span>
+    <span class="n">tr</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">sym_op</span><span class="p">[</span><span class="s2">"tr_sign"</span><span class="p">]]</span>
+
+    <span class="n">signs</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">"Q"</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">ptags</span><span class="p">),</span>
+        <span class="s2">"G"</span><span class="p">:</span> <span class="n">det</span><span class="p">,</span>
+        <span class="s2">"T"</span><span class="p">:</span> <span class="n">tr</span><span class="p">,</span>
+        <span class="s2">"M"</span><span class="p">:</span> <span class="p">[</span><span class="n">d</span> <span class="o">*</span> <span class="n">t</span> <span class="k">for</span> <span class="n">d</span><span class="p">,</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">det</span><span class="p">,</span> <span class="n">tr</span><span class="p">)],</span>
+    <span class="p">}</span>
+    <span class="n">active</span> <span class="o">=</span> <span class="p">{</span><span class="n">X</span><span class="p">:</span> <span class="p">[]</span> <span class="k">for</span> <span class="n">X</span> <span class="ow">in</span> <span class="n">signs</span><span class="p">}</span>
+    <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">mp_list</span><span class="p">:</span>
+        <span class="n">bf</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">expand</span><span class="p">(</span><span class="n">_info_data</span><span class="p">()[</span><span class="s2">"basis_function"</span><span class="p">][</span><span class="n">name</span><span class="p">])</span>
+        <span class="n">tf</span> <span class="o">=</span> <span class="p">[</span><span class="n">_transformed_basis</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">hexagonal</span><span class="p">)</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">ptags</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">X</span><span class="p">,</span> <span class="n">sg</span> <span class="ow">in</span> <span class="n">signs</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">if</span> <span class="nb">all</span><span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">expand</span><span class="p">(</span><span class="n">c</span> <span class="o">*</span> <span class="n">f</span> <span class="o">-</span> <span class="n">bf</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">c</span><span class="p">,</span> <span class="n">f</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">sg</span><span class="p">,</span> <span class="n">tf</span><span class="p">)):</span>
+                <span class="n">active</span><span class="p">[</span><span class="n">X</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">X</span> <span class="o">+</span> <span class="n">name</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">active</span><span class="p">[</span><span class="s2">"Q"</span><span class="p">]</span> <span class="o">+</span> <span class="n">active</span><span class="p">[</span><span class="s2">"G"</span><span class="p">]</span> <span class="o">+</span> <span class="n">active</span><span class="p">[</span><span class="s2">"T"</span><span class="p">]</span> <span class="o">+</span> <span class="n">active</span><span class="p">[</span><span class="s2">"M"</span><span class="p">]</span></div>
+
+
+
+<span class="c1"># ==================================================</span>
+<div class="viewcode-block" id="create_pg">
+<a class="viewcode-back" href="../../../src/api_create/create_group.html#multipiegen.create_binary.create_group.create_pg">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">create_pg</span><span class="p">(</span><span class="n">pg_id</span><span class="p">,</span> <span class="n">tag</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Data of PG.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        pg_id (str): PG id.</span>
+<span class="sd">        tag (str): PG tag.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        - (dict) -- data of PG.</span>
+<span class="sd">    """</span>
+    <span class="n">rtag</span> <span class="o">=</span> <span class="n">_real_tag</span><span class="p">(</span><span class="n">tag</span><span class="p">)</span>
+    <span class="n">g_info</span> <span class="o">=</span> <span class="n">pg_info</span><span class="p">[</span><span class="n">pg_id</span><span class="p">]</span>
+    <span class="n">so</span> <span class="o">=</span> <span class="n">create_symmetry_operation</span><span class="p">(</span><span class="n">g_info</span><span class="p">,</span> <span class="n">rtag</span><span class="p">,</span> <span class="n">rtag</span><span class="p">)</span>
+    <span class="n">site</span> <span class="o">=</span> <span class="n">create_wyckoff_site</span><span class="p">(</span><span class="n">g_info</span><span class="p">,</span> <span class="n">wyckoff_site_data</span><span class="p">[</span><span class="n">rtag</span><span class="p">],</span> <span class="n">so</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+    <span class="n">bond</span> <span class="o">=</span> <span class="n">create_wyckoff_bond</span><span class="p">(</span><span class="n">g_info</span><span class="p">,</span> <span class="n">wyckoff_bond_data</span><span class="p">[</span><span class="n">rtag</span><span class="p">],</span> <span class="n">site</span><span class="p">,</span> <span class="n">so</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="s2">"info"</span><span class="p">:</span> <span class="n">g_info</span><span class="p">,</span>
+        <span class="s2">"symmetry_operation"</span><span class="p">:</span> <span class="n">so</span><span class="p">,</span>
+        <span class="s2">"wyckoff"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"site"</span><span class="p">:</span> <span class="n">site</span><span class="p">,</span> <span class="s2">"bond"</span><span class="p">:</span> <span class="n">bond</span><span class="p">},</span>
+        <span class="s2">"character"</span><span class="p">:</span> <span class="n">create_character</span><span class="p">(</span><span class="n">tag</span><span class="p">,</span> <span class="n">so</span><span class="p">[</span><span class="s2">"tag"</span><span class="p">]),</span>
+    <span class="p">}</span></div>
+
+
+
+<span class="c1"># ==================================================</span>
+<div class="viewcode-block" id="create_sg">
+<a class="viewcode-back" href="../../../src/api_create/create_group.html#multipiegen.create_binary.create_group.create_sg">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">create_sg</span><span class="p">(</span><span class="n">sg_id</span><span class="p">,</span> <span class="n">tag</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Data of SG.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        sg_id (str): SG id.</span>
+<span class="sd">        tag (str): SG tag.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        - (dict) -- data of SG.</span>
+<span class="sd">    """</span>
+    <span class="n">g_info</span> <span class="o">=</span> <span class="n">sg_info</span><span class="p">[</span><span class="n">sg_id</span><span class="p">]</span>
+    <span class="n">so</span> <span class="o">=</span> <span class="n">create_symmetry_operation</span><span class="p">(</span><span class="n">g_info</span><span class="p">,</span> <span class="n">tag</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">sg_id</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">":"</span><span class="p">)[</span><span class="mi">1</span><span class="p">]))</span>
+    <span class="n">site</span> <span class="o">=</span> <span class="n">create_wyckoff_site</span><span class="p">(</span><span class="n">g_info</span><span class="p">,</span> <span class="n">wyckoff_site_data</span><span class="p">[</span><span class="n">tag</span><span class="p">],</span> <span class="n">so</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+    <span class="n">bond</span> <span class="o">=</span> <span class="n">create_wyckoff_bond</span><span class="p">(</span><span class="n">g_info</span><span class="p">,</span> <span class="n">wyckoff_bond_data</span><span class="p">[</span><span class="n">tag</span><span class="p">],</span> <span class="n">site</span><span class="p">,</span> <span class="n">so</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">"info"</span><span class="p">:</span> <span class="n">g_info</span><span class="p">,</span> <span class="s2">"symmetry_operation"</span><span class="p">:</span> <span class="n">so</span><span class="p">,</span> <span class="s2">"wyckoff"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"site"</span><span class="p">:</span> <span class="n">site</span><span class="p">,</span> <span class="s2">"bond"</span><span class="p">:</span> <span class="n">bond</span><span class="p">}}</span></div>
+
+
+
+<span class="c1"># ==================================================</span>
+<div class="viewcode-block" id="create_mpg">
+<a class="viewcode-back" href="../../../src/api_create/create_group.html#multipiegen.create_binary.create_group.create_mpg">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">create_mpg</span><span class="p">(</span><span class="n">mpg_id</span><span class="p">,</span> <span class="n">tag</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Data of MPG.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        mpg_id (str): MPG id.</span>
+<span class="sd">        tag (str): MPG tag.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        - (dict) -- data of MPG.</span>
+<span class="sd">    """</span>
+    <span class="n">g_info</span> <span class="o">=</span> <span class="n">mpg_info</span><span class="p">[</span><span class="n">mpg_id</span><span class="p">]</span>
+    <span class="n">so</span> <span class="o">=</span> <span class="n">create_m_symmetry_operation</span><span class="p">(</span><span class="n">g_info</span><span class="p">)</span>
+    <span class="n">site</span> <span class="o">=</span> <span class="n">create_wyckoff_site</span><span class="p">(</span><span class="n">g_info</span><span class="p">,</span> <span class="n">wyckoff_mpg_data</span><span class="p">[</span><span class="n">mpg_id</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">":"</span><span class="p">)[</span><span class="mi">1</span><span class="p">]],</span> <span class="n">so</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="s2">"info"</span><span class="p">:</span> <span class="n">g_info</span><span class="p">,</span>
+        <span class="s2">"symmetry_operation"</span><span class="p">:</span> <span class="n">so</span><span class="p">,</span>
+        <span class="s2">"wyckoff"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"site"</span><span class="p">:</span> <span class="n">site</span><span class="p">},</span>
+        <span class="s2">"active_multipole"</span><span class="p">:</span> <span class="n">create_active_multipole</span><span class="p">(</span><span class="n">g_info</span><span class="p">,</span> <span class="n">so</span><span class="p">),</span>
+    <span class="p">}</span></div>
+
+
+
+<span class="c1"># ==================================================</span>
+<div class="viewcode-block" id="create_msg">
+<a class="viewcode-back" href="../../../src/api_create/create_group.html#multipiegen.create_binary.create_group.create_msg">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">create_msg</span><span class="p">(</span><span class="n">msg_id</span><span class="p">,</span> <span class="n">tag</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Data of MSG.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        msg_id (str): MSG id.</span>
+<span class="sd">        tag (str): MSG tag.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        - (dict) -- data of MSG.</span>
+<span class="sd">    """</span>
+    <span class="n">g_info</span> <span class="o">=</span> <span class="n">msg_info</span><span class="p">[</span><span class="n">msg_id</span><span class="p">]</span>
+    <span class="n">so</span> <span class="o">=</span> <span class="n">create_m_symmetry_operation</span><span class="p">(</span><span class="n">g_info</span><span class="p">)</span>
+    <span class="n">site</span> <span class="o">=</span> <span class="n">create_wyckoff_site</span><span class="p">(</span><span class="n">g_info</span><span class="p">,</span> <span class="n">wyckoff_msg_data</span><span class="p">[</span><span class="n">msg_id</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">":"</span><span class="p">)[</span><span class="mi">1</span><span class="p">]],</span> <span class="n">so</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="n">plus_set</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">"info"</span><span class="p">:</span> <span class="n">g_info</span><span class="p">,</span> <span class="s2">"symmetry_operation"</span><span class="p">:</span> <span class="n">so</span><span class="p">,</span> <span class="s2">"wyckoff"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"site"</span><span class="p">:</span> <span class="n">site</span><span class="p">}}</span></div>
+
+
+
+<span class="n">_creator</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"PG"</span><span class="p">:</span> <span class="n">create_pg</span><span class="p">,</span> <span class="s2">"SG"</span><span class="p">:</span> <span class="n">create_sg</span><span class="p">,</span> <span class="s2">"MPG"</span><span class="p">:</span> <span class="n">create_mpg</span><span class="p">,</span> <span class="s2">"MSG"</span><span class="p">:</span> <span class="n">create_msg</span><span class="p">}</span>
+
+
+<span class="c1"># ==================================================</span>
+<div class="viewcode-block" id="create_group_data">
+<a class="viewcode-back" href="../../../src/api_create/create_group.html#multipiegen.create_binary.create_group.create_group_data">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">create_group_data</span><span class="p">(</span><span class="n">group_id</span><span class="p">,</span> <span class="n">tag</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Data of a group.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        group_id (str): group id, "PG:32", "SG:221", "MPG:...", "MSG:...".</span>
+<span class="sd">        tag (str, optional): group tag (taken from info.pkl if None).</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        - (dict) -- data of the group.</span>
+<span class="sd">    """</span>
+    <span class="k">if</span> <span class="n">tag</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">tag</span> <span class="o">=</span> <span class="n">load_info</span><span class="p">()[</span><span class="s2">"tag"</span><span class="p">][</span><span class="n">group_id</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">_creator</span><span class="p">[</span><span class="n">group_id</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">":"</span><span class="p">)[</span><span class="mi">0</span><span class="p">]](</span><span class="n">group_id</span><span class="p">,</span> <span class="n">tag</span><span class="p">)</span></div>
+
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_worker</span><span class="p">(</span><span class="n">arg</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">arg</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">create_group_data</span><span class="p">(</span><span class="o">*</span><span class="n">arg</span><span class="p">)</span>
+
+
+<span class="c1"># ==================================================</span>
+<div class="viewcode-block" id="group_ids">
+<a class="viewcode-back" href="../../../src/api_create/create_group.html#multipiegen.create_binary.create_group.group_ids">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">group_ids</span><span class="p">(</span><span class="n">info</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    All group ids in group.pkl.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        info (BinaryManager, optional): info.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        - (list) -- [(group id, tag)].</span>
+<span class="sd">    """</span>
+    <span class="k">if</span> <span class="n">info</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">info</span> <span class="o">=</span> <span class="n">load_info</span><span class="p">()</span>
+    <span class="n">ids</span> <span class="o">=</span> <span class="n">info</span><span class="p">[</span><span class="s2">"id_set"</span><span class="p">]</span>
+    <span class="n">lst</span> <span class="o">=</span> <span class="n">ids</span><span class="p">[</span><span class="s2">"PG"</span><span class="p">][</span><span class="s2">"all"</span><span class="p">]</span> <span class="o">+</span> <span class="n">ids</span><span class="p">[</span><span class="s2">"PG"</span><span class="p">][</span><span class="s2">"complex"</span><span class="p">]</span> <span class="o">+</span> <span class="n">ids</span><span class="p">[</span><span class="s2">"SG"</span><span class="p">][</span><span class="s2">"all"</span><span class="p">]</span> <span class="o">+</span> <span class="n">ids</span><span class="p">[</span><span class="s2">"MPG"</span><span class="p">][</span><span class="s2">"all"</span><span class="p">]</span> <span class="o">+</span> <span class="n">ids</span><span class="p">[</span><span class="s2">"MSG"</span><span class="p">][</span><span class="s2">"all"</span><span class="p">]</span>
+    <span class="k">return</span> <span class="p">[(</span><span class="n">i</span><span class="p">,</span> <span class="n">info</span><span class="p">[</span><span class="s2">"tag"</span><span class="p">][</span><span class="n">i</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">lst</span><span class="p">]</span></div>
+
+
+
+<span class="c1"># ==================================================</span>
+<div class="viewcode-block" id="create_group">
+<a class="viewcode-back" href="../../../src/api_create/create_group.html#multipiegen.create_binary.create_group.create_group">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">create_group</span><span class="p">(</span><span class="n">ids</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">serial</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Create group (BinaryManager).</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        ids (list, optional): [(group id, tag)], all groups if None.</span>
+<span class="sd">        serial (bool, optional): run in a single process ?</span>
+<span class="sd">        verbose (bool, optional): verbose ?</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        - (BinaryManager) -- group.</span>
+<span class="sd">    """</span>
+    <span class="k">if</span> <span class="n">ids</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">ids</span> <span class="o">=</span> <span class="n">group_ids</span><span class="p">()</span>
+
+    <span class="n">group</span> <span class="o">=</span> <span class="n">BinaryManager</span><span class="p">(</span><span class="n">verbose</span><span class="o">=</span><span class="n">verbose</span><span class="p">,</span> <span class="n">topdir</span><span class="o">=</span><span class="n">__bin_dir__</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">serial</span><span class="p">:</span>
+        <span class="n">results</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="n">_worker</span><span class="p">,</span> <span class="n">ids</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">pool</span> <span class="o">=</span> <span class="n">Pool</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">cpu_count</span><span class="p">())</span>
+        <span class="n">results</span> <span class="o">=</span> <span class="n">pool</span><span class="o">.</span><span class="n">imap</span><span class="p">(</span><span class="n">_worker</span><span class="p">,</span> <span class="n">ids</span><span class="p">,</span> <span class="n">chunksize</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">gid</span><span class="p">,</span> <span class="n">data</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"created </span><span class="si">{</span><span class="n">gid</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+        <span class="n">group</span><span class="p">[</span><span class="n">gid</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">serial</span><span class="p">:</span>
+        <span class="n">pool</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="n">pool</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
+
+    <span class="n">group</span><span class="o">.</span><span class="n">add_comment</span><span class="p">(</span><span class="n">h_group</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">group</span></div>
+
+
+
+<span class="c1"># ==================================================</span>
+<div class="viewcode-block" id="save_group">
+<a class="viewcode-back" href="../../../src/api_create/create_group.html#multipiegen.create_binary.create_group.save_group">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">save_group</span><span class="p">(</span><span class="n">serial</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Create and save group.pkl in multipiegen/binary.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        serial (bool, optional): run in a single process ?</span>
+<span class="sd">    """</span>
+    <span class="n">t0</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+    <span class="n">create_group</span><span class="p">(</span><span class="n">serial</span><span class="o">=</span><span class="n">serial</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">save_binary</span><span class="p">(</span><span class="n">group_file</span><span class="p">)</span>
+    <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"group.pkl: </span><span class="si">{</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">t0</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> s"</span><span class="p">)</span></div>
+
+
+
+<span class="c1"># ==================================================</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s2">"</span><span class="si">%(message)s</span><span class="s2">"</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">)</span>
+    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">"create group.pkl"</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">"--serial"</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s2">"store_true"</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">"run in a single process"</span><span class="p">)</span>
+    <span class="n">save_group</span><span class="p">(</span><span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span><span class="o">.</span><span class="n">serial</span><span class="p">)</span>
+</pre></div>
+
+                </article>
+              
+
+              
+              
+              
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Hiroaki Kusunose
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2021-.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

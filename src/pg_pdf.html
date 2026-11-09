@@ -1,0 +1,1145 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Point groups &#8212; MultiPieGen</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=34ddd5e8" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+
+    <script src="../_static/documentation_options.js?v=a8e58a58"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"tex": {"macros": {"bm": ["\\boldsymbol{#1}", 1]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'src/pg_pdf';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <script src="../_static/custom.js?v=9c3a2667"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Space groups" href="sg_pdf.html" />
+    <link rel="prev" title="Binary data" href="binary.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../README.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">MultiPieGen</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Documentation</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="data.html">Data tables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="binary.html">Binary data</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Point groups</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sg_pdf.html">Space groups</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mpg_pdf.html">Magnetic point groups</a></li>
+<li class="toctree-l1"><a class="reference internal" href="msg_pdf.html">Magnetic space groups</a></li>
+<li class="toctree-l1"><a class="reference internal" href="info_pdf.html">Overall information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">API reference</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="api_util.html">Utilities</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="api_util/util_info.html">Info</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_util/util_group.html">Group</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_util/util_cluster_basis.html">Cluster basis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_util/util_harmonics_symbol.html">Harmonics symbol</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_util/util_multipolar_harmonics.html">Multipolar harmonics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_util/util_symmetry_operation.html">Symmetry operation</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="api_create.html">Generators</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="api_create/create_info.html">Info binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_create/create_group.html">Group binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_create/create_cluster_basis.html">Cluster basis binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_create/create_pdf_harmonics.html">Harmonics PDF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_create/create_pdf_info.html">Information PDF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_create/create_pdf_group.html">Group PDF</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/hiro-k-phys/mp-newbasis.git" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Point groups</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#triclinic">Triclinic</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#monoclinic">Monoclinic</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#orthorhombic">Orthorhombic</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tetragonal">Tetragonal</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#trigonal">Trigonal</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hexagonal">Hexagonal</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cubic">Cubic</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="point-groups">
+<h1>Point groups<a class="headerlink" href="#point-groups" title="Link to this heading">#</a></h1>
+<p>PDFs of all 47 point groups (32 crystallographic point groups, 5 other settings “-1”, and 10 complex groups “-c”),
+in <code class="docutils literal notranslate"><span class="pre">multipiegen/pdf/PG/{no}-{tag}/</span></code>.</p>
+<ul class="simple">
+<li><p>harmonics: harmonics up to rank 11, with the polar (Q) and axial (G) symbols side by side (the expression is that
+of the polar harmonics), created by <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">multipiegen.create_pdf.create_pdf_harmonics</span></code>.</p></li>
+<li><p>character, symmetry operation, Wyckoff site and bond: created by <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">multipiegen.create_pdf.create_pdf_group</span></code>.</p></li>
+</ul>
+<section id="triclinic">
+<h2>Triclinic<a class="headerlink" href="#triclinic" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>No.</p></th>
+<th class="head text-left"><p>Schoenflies</p></th>
+<th class="head text-left"><p>international</p></th>
+<th class="head text-left"><p>tag</p></th>
+<th class="head text-left"><p>harmonics</p></th>
+<th class="head text-left"><p>character</p></th>
+<th class="head text-left"><p>symmetry operation</p></th>
+<th class="head text-left"><p>Wyckoff site</p></th>
+<th class="head text-left"><p>Wyckoff bond</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>1</p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(C_{\rm 1}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(1\)</span></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">C1</span></code></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/6fea5dfd61934da4bd527d09abc791b3/harmonics.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/7cb0e5acfb35d4b59757def0e48c21e4/character_table.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/18e537fe93b702bd4c6ad4d04f194a43/symmetry_operation.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/4375dc1ea04a7b8de8b97ded87780b22/wyckoff_site.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/3464263d43cd35353bdcaab1c0ccd157/wyckoff_bond.pdf"><span class="xref download myst">PDF</span></a></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>2</p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(C_{\rm i}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(\bar{1}\)</span></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">Ci</span></code></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/6980e0b2399049e21788b8270c12d4c2/harmonics.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/9f9a1cebec8f5f3ce27698010625853a/character_table.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/5f5d7ba82e82492b9995bb7a62d42ed2/symmetry_operation.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/98a817c6d11dad7234a872af0bc3a6d6/wyckoff_site.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/d6be7023b4d79cd183cb578484703f0d/wyckoff_bond.pdf"><span class="xref download myst">PDF</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="monoclinic">
+<h2>Monoclinic<a class="headerlink" href="#monoclinic" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>No.</p></th>
+<th class="head text-left"><p>Schoenflies</p></th>
+<th class="head text-left"><p>international</p></th>
+<th class="head text-left"><p>tag</p></th>
+<th class="head text-left"><p>harmonics</p></th>
+<th class="head text-left"><p>character</p></th>
+<th class="head text-left"><p>symmetry operation</p></th>
+<th class="head text-left"><p>Wyckoff site</p></th>
+<th class="head text-left"><p>Wyckoff bond</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>3</p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(C_{\rm 2}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(2\)</span></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">C2</span></code></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/14ba396cf73670e722bb5bb42474cb50/harmonics.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/cd2eafff3d88b4ab9ddba8d911b1778b/character_table.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/f21fb532f067defe80c8736972ca27da/symmetry_operation.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/ad67db428fdc29d7bd4e3e36ea62a7f2/wyckoff_site.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/990b62edffc34ac7ae38fa5735dff68a/wyckoff_bond.pdf"><span class="xref download myst">PDF</span></a></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>4</p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(C_{\rm s}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(m\)</span></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">Cs</span></code></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/c190756678636a8ce1ad9d4e36ddca4c/harmonics.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/dcab3d80acde3067b639561388b3bc0f/character_table.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/6519409bde73e4ef6f0261e8258709a8/symmetry_operation.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/69e844d62baf3dadec9a1f54f8ef342b/wyckoff_site.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/88829d3216f1a87698a8d5d9fc80595b/wyckoff_bond.pdf"><span class="xref download myst">PDF</span></a></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>5</p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(C_{\rm 2h}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(2/m\)</span></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">C2h</span></code></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/4fff20293461b288362837264f5f3a29/harmonics.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/c731dbbb3516cffbf8adc11f13de552f/character_table.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/7db0fd65b60cdb5de4da65e1207c36ff/symmetry_operation.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/e7ad17222b39060c999f1035ec329f4f/wyckoff_site.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/4c9e9cbcfcb9f9e61362c28fd5372971/wyckoff_bond.pdf"><span class="xref download myst">PDF</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="orthorhombic">
+<h2>Orthorhombic<a class="headerlink" href="#orthorhombic" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>No.</p></th>
+<th class="head text-left"><p>Schoenflies</p></th>
+<th class="head text-left"><p>international</p></th>
+<th class="head text-left"><p>tag</p></th>
+<th class="head text-left"><p>harmonics</p></th>
+<th class="head text-left"><p>character</p></th>
+<th class="head text-left"><p>symmetry operation</p></th>
+<th class="head text-left"><p>Wyckoff site</p></th>
+<th class="head text-left"><p>Wyckoff bond</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>6</p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(D_{\rm 2}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(222\)</span></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">D2</span></code></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/16aa404f52d84539063a606992509f71/harmonics.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/dbe618865c3529e51ce0fcba65a60b9f/character_table.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/967b048efd9e6b0a05556cd32965121d/symmetry_operation.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/a6c1019f7a33a7809de594251dee34d1/wyckoff_site.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/86cd5df5d5cc2624bb887cf6115096e4/wyckoff_bond.pdf"><span class="xref download myst">PDF</span></a></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>7</p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(C_{\rm 2v}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(mm2\)</span></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">C2v</span></code></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/805386316e731b856de0794a4f0162b8/harmonics.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/6905705491a0975015200211f913d16a/character_table.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/8bfdfe59c3801cf6e19b4a486685de8c/symmetry_operation.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/df3d3c25c9fcff6cce2cd4591416e00d/wyckoff_site.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/2b53d72e68f6c412907c834f4a1dba85/wyckoff_bond.pdf"><span class="xref download myst">PDF</span></a></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>8</p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(D_{\rm 2h}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(mmm\)</span></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">D2h</span></code></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/1f745938b96066dbae9c16480a3c6691/harmonics.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/de0c74a939b6d1632f201f99546b0f1f/character_table.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/11fca2778953ec3f216b37e26eb07b33/symmetry_operation.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/943ba2eef6fa5c792832c9fe55ae4254/wyckoff_site.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/ba87c30aed508dd7a11d3a93c0767848/wyckoff_bond.pdf"><span class="xref download myst">PDF</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="tetragonal">
+<h2>Tetragonal<a class="headerlink" href="#tetragonal" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>No.</p></th>
+<th class="head text-left"><p>Schoenflies</p></th>
+<th class="head text-left"><p>international</p></th>
+<th class="head text-left"><p>tag</p></th>
+<th class="head text-left"><p>harmonics</p></th>
+<th class="head text-left"><p>character</p></th>
+<th class="head text-left"><p>symmetry operation</p></th>
+<th class="head text-left"><p>Wyckoff site</p></th>
+<th class="head text-left"><p>Wyckoff bond</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>9</p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(C_{\rm 4}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(4\)</span></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">C4</span></code></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/6fb56fce4eaa7b2f81b89e6155e00b95/harmonics.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/4d8ea8846bf0223d931f785096c25c9d/character_table.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/dbd2aa0d8425fd945b1d4cc546da52fd/symmetry_operation.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/b66c0835bb67cc9e0968db28f93074ed/wyckoff_site.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/a8f71536f0af39cb10ea3ad8b5d571e1/wyckoff_bond.pdf"><span class="xref download myst">PDF</span></a></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>10</p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(S_{\rm 4}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(\bar{4}\)</span></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">S4</span></code></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/dd1b55db74f0da0a6ed36426f3e3c985/harmonics.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/ff579c1fcca192d6201484c95c2baf89/character_table.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/75ed5cc7ca5264af427da1c8da5d802c/symmetry_operation.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/fcd0798bfcf68c852f50225cdccba2cd/wyckoff_site.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/133b58e8cbf9ed0dff87e677bff9fb48/wyckoff_bond.pdf"><span class="xref download myst">PDF</span></a></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>11</p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(C_{\rm 4h}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(4/m\)</span></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">C4h</span></code></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/b846eb571174023a7d2e50ebb88b74f0/harmonics.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/58accacdc2f96677444792ca91986d96/character_table.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/9754b661ff4b42491c22bbc2a872ec47/symmetry_operation.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/67b2cd646173394a6071d2bfa9438d06/wyckoff_site.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/44ef2d4c810ff0c54d879d573c8d92c7/wyckoff_bond.pdf"><span class="xref download myst">PDF</span></a></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>12</p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(D_{\rm 4}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(422\)</span></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">D4</span></code></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/75528e644f0f9a4005dc21b1da3dd0b8/harmonics.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/fca34193cba4cbbdca9502541a0ed0e3/character_table.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/ef0d2ebc01f23a2746fbae02b76c0dfd/symmetry_operation.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/ccdd834ee46a3f9ea50e0fa51a650925/wyckoff_site.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/61bbe7286688e0b0d3344e0ea030b159/wyckoff_bond.pdf"><span class="xref download myst">PDF</span></a></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>13</p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(C_{\rm 4v}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(4mm\)</span></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">C4v</span></code></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/e084ef5fb93f96c7e255d6e75a96b998/harmonics.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/11f35e5c59d4f6d2f1a890bfb1b8ffcd/character_table.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/29c66df3f6d9531eb2a53c509d15b0ff/symmetry_operation.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/fa40e405e298c62f5968aac6f36cf64d/wyckoff_site.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/fc66f496ce8213636dce1aa49ae36897/wyckoff_bond.pdf"><span class="xref download myst">PDF</span></a></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>14</p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(D_{\rm 2d}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(\bar{4}2m\)</span></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">D2d</span></code></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/694d5948bbf8cacc76456db7c26dca21/harmonics.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/62f3c3bfc5812224c0d85490593d1e73/character_table.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/5549c10ad644d2ab0b7a9548db6b52e9/symmetry_operation.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/de7c16f17da0370ebb6935b55b2b6c7e/wyckoff_site.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/641c3c9df652c3daf000e694e7a733c4/wyckoff_bond.pdf"><span class="xref download myst">PDF</span></a></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>15</p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(D_{\rm 4h}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(4/mmm\)</span></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">D4h</span></code></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/ba3923486506ae7a92b2a3c502dbc865/harmonics.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/bc71293eb198c8e7c007c2dc9e1459d4/character_table.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/a7ff19bc74f0060371bedf59061a978e/symmetry_operation.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/7584d9693f02b1870c67f89981613753/wyckoff_site.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/33ce0de275288a42d5a35e8bac1bea88/wyckoff_bond.pdf"><span class="xref download myst">PDF</span></a></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>33</p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(D_{\rm 2d}(1)\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(\bar{4}2m\)</span></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">D2d-1</span></code></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/c45ecae3a42557100044dc75f6f2ef37/harmonics.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/51ef5f165e32e4a116777d4a67b1674d/character_table.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/7afc5b8665bd09e9b58997c4a3cd8bc8/symmetry_operation.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/f8f42f7cf680b29c64fc3a056f6a4a9a/wyckoff_site.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/8595929e43b75f904822e64168e23256/wyckoff_bond.pdf"><span class="xref download myst">PDF</span></a></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>38</p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(C_{\rm 4}(c)\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(4\)</span></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">C4-c</span></code></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/3b4055926a2c1e998682be53d4a27e31/harmonics.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/bdf372dae46273aeaeeb9126bd58d42f/character_table.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/2b8cfdcecbff2d38a76220a357a0d8e0/symmetry_operation.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/9f4d4e91821f4209a73ac4af45921d80/wyckoff_site.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/801c54fc251c8177417d5ce6a78f6d51/wyckoff_bond.pdf"><span class="xref download myst">PDF</span></a></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>39</p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(S_{\rm 4}(c)\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(\bar{4}\)</span></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">S4-c</span></code></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/301b8e5d0f270073d626fc41623b31b1/harmonics.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/f7e723005062bd7033b2768da3281227/character_table.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/ed5da3146be96733c5e77c1b23ca7c36/symmetry_operation.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/78cce790b36916d114f1d911cd3401fe/wyckoff_site.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/f3133a9313fb6d98098ea78fb310e816/wyckoff_bond.pdf"><span class="xref download myst">PDF</span></a></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>40</p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(C_{\rm 4h}(c)\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(4/m\)</span></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">C4h-c</span></code></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/5464a2e2730abbe3a3c96b832ecef677/harmonics.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/1c82fdb4ce1e62b5a6746bff30ae8a6d/character_table.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/6343074e25939b5ade8d4c9a503218e9/symmetry_operation.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/663da7f8779f73dedeecd37537b38ce1/wyckoff_site.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/131c5ba186ed9aededeb8e2526af3fa0/wyckoff_bond.pdf"><span class="xref download myst">PDF</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="trigonal">
+<h2>Trigonal<a class="headerlink" href="#trigonal" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>No.</p></th>
+<th class="head text-left"><p>Schoenflies</p></th>
+<th class="head text-left"><p>international</p></th>
+<th class="head text-left"><p>tag</p></th>
+<th class="head text-left"><p>harmonics</p></th>
+<th class="head text-left"><p>character</p></th>
+<th class="head text-left"><p>symmetry operation</p></th>
+<th class="head text-left"><p>Wyckoff site</p></th>
+<th class="head text-left"><p>Wyckoff bond</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>16</p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(C_{\rm 3}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(3\)</span></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">C3</span></code></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/310825121fea0d67b82e3efda6121831/harmonics.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/a69cea00ff06ab02c2f421815a2e7f41/character_table.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/612d368430605009d825b38d3d7469fc/symmetry_operation.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/fb1113383b8362297b661679692b6a33/wyckoff_site.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/e5e8e6064b251d0ef4ef5e7f82a50fb4/wyckoff_bond.pdf"><span class="xref download myst">PDF</span></a></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>17</p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(C_{\rm 3i}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(\bar{3}\)</span></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">C3i</span></code></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/be98558be0fb126d39f6f8be0865e593/harmonics.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/4757c1e2edd0a4f11b19a1cbf55fd89e/character_table.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/416ea97df553f5ba32a31f7c9f85b3e1/symmetry_operation.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/bd0a58d9e8ad09d7245d9b166b14bbe7/wyckoff_site.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/35f5584a663b40cb9f35a69dd4c0830a/wyckoff_bond.pdf"><span class="xref download myst">PDF</span></a></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>18</p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(D_{\rm 3}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(32\)</span></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">D3</span></code></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/4d4b64a9f34f30ebc1d77576e8369c44/harmonics.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/aeeb502f0b55b385d725629b8f689634/character_table.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/83e1d9203a14308e8931ad235b12e8b9/symmetry_operation.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/0049ba4359cf944d2bf2e6105f8e67fa/wyckoff_site.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/61e38c784c063f95073ac8f75e8ac38c/wyckoff_bond.pdf"><span class="xref download myst">PDF</span></a></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>19</p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(C_{\rm 3v}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(3m\)</span></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">C3v</span></code></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/db7294a40febf1332ead668235791309/harmonics.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/1e6d857ee5e2a715c621c085195906a1/character_table.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/84aa87e8e9f9ba935a385c5eca98f2ed/symmetry_operation.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/a49a6e0f6e36c2100ec3ca033455c54c/wyckoff_site.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/b6b5cca25446e5bc44005659c6f21254/wyckoff_bond.pdf"><span class="xref download myst">PDF</span></a></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>20</p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(D_{\rm 3d}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(\bar{3}m\)</span></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">D3d</span></code></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/ac17e83e8f720b6a03eefc186477ad4f/harmonics.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/d2953e5474b3d5fbc47cddfb5cb93f64/character_table.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/2a9dabe69c38abfacded90399df12ade/symmetry_operation.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/6ef1aef38394947b5e1b14acc65d54f9/wyckoff_site.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/d7c7e4afea6690484a790fc932d3d814/wyckoff_bond.pdf"><span class="xref download myst">PDF</span></a></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>34</p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(D_{\rm 3}(1)\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(32\)</span></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">D3-1</span></code></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/21d1add1282081b21957e97dd8f6eb83/harmonics.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/60484cab7b15be12c7808bd9f27a7ba7/character_table.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/532596fecf93ec09b2d8e8abce9a87d8/symmetry_operation.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/1ad6a2e366caa6a3b4048f3959ba100a/wyckoff_site.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/1c19ac16f76bc1118070d9c74ee32d98/wyckoff_bond.pdf"><span class="xref download myst">PDF</span></a></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>35</p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(C_{\rm 3v}(1)\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(3m\)</span></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">C3v-1</span></code></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/e2e203618e72280bfd9338f7b6e9195f/harmonics.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/c7e37f89aa9e8b6fc7df93a6ffe41709/character_table.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/83c091aa8564ceafc9ea15c291603263/symmetry_operation.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/eb50a26fd5ca88b86a3d3e4701270b71/wyckoff_site.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/726d61b2eff75a81271a7b1e04f60a73/wyckoff_bond.pdf"><span class="xref download myst">PDF</span></a></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>36</p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(D_{\rm 3d}(1)\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(\bar{3}m\)</span></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">D3d-1</span></code></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/8b84939a40fdc57261c591b2b349348c/harmonics.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/062008266317556ff0d756092aaaf53f/character_table.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/4dab182625d8cc53197b4f1bae2e3e85/symmetry_operation.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/d3a7bf0f22d0e4e4d60ec2e546e40d24/wyckoff_site.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/bb9e30e4e7db030e51fd08f3961423b9/wyckoff_bond.pdf"><span class="xref download myst">PDF</span></a></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>41</p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(C_{\rm 3}(c)\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(3\)</span></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">C3-c</span></code></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/4f055c30f8437ed3194d7346ba6f4f1b/harmonics.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/1e04340057526dbf9741c4f1fb3e99e2/character_table.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/702c23e1623bd030fdebd03bc0b34af4/symmetry_operation.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/b92e4889333f83f09e40937e26eb6f82/wyckoff_site.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/7e0432ba65d226fe20c49486df503a7d/wyckoff_bond.pdf"><span class="xref download myst">PDF</span></a></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>42</p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(C_{\rm 3i}(c)\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(\bar{3}\)</span></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">C3i-c</span></code></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/6c1623dfda03bafc5818fd55b4cbe590/harmonics.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/15ad57697cbe274cf1dae0d82010d57b/character_table.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/74c2017dcc7e448c5665e0dac8b33a77/symmetry_operation.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/432a64ff89c37316aca681d55ca60f6f/wyckoff_site.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/e52ccccf9f6c1ec30fe4b7b88ddee60b/wyckoff_bond.pdf"><span class="xref download myst">PDF</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="hexagonal">
+<h2>Hexagonal<a class="headerlink" href="#hexagonal" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>No.</p></th>
+<th class="head text-left"><p>Schoenflies</p></th>
+<th class="head text-left"><p>international</p></th>
+<th class="head text-left"><p>tag</p></th>
+<th class="head text-left"><p>harmonics</p></th>
+<th class="head text-left"><p>character</p></th>
+<th class="head text-left"><p>symmetry operation</p></th>
+<th class="head text-left"><p>Wyckoff site</p></th>
+<th class="head text-left"><p>Wyckoff bond</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>21</p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(C_{\rm 6}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(6\)</span></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">C6</span></code></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/7ecd87310965910deb35babbf5123aff/harmonics.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/a8fbeca780a43e88a6bb81dc56084e2d/character_table.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/657abc4e1adb9583b84339af34aa3a99/symmetry_operation.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/a7bf0fc896c94bc01b7ebe65b11ac467/wyckoff_site.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/be168530a74648e2be95d93d660d1f48/wyckoff_bond.pdf"><span class="xref download myst">PDF</span></a></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>22</p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(C_{\rm 3h}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(\bar{6}\)</span></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">C3h</span></code></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/35a6fa6e3772e87d1a707026ac59fc35/harmonics.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/abeb9f21f5bf634325ef43026bfc4387/character_table.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/3dc52b4005c7c07bf5a028db1b90f72c/symmetry_operation.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/9d704bb421f0716d7ab226b950acb11e/wyckoff_site.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/470ba48db2aa32533c2391f531db35ef/wyckoff_bond.pdf"><span class="xref download myst">PDF</span></a></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>23</p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(C_{\rm 6h}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(6/m\)</span></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">C6h</span></code></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/710f5c9a034629af0ee1d1995b66d4c6/harmonics.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/69e29b5c5516addda29af4d4b1e9ce2c/character_table.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/4b919ef6dd18c70b24b78003678089d3/symmetry_operation.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/7073c87aa85ff24f06c6befe68f01573/wyckoff_site.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/47fe9769908914b214bde91ba33a00dd/wyckoff_bond.pdf"><span class="xref download myst">PDF</span></a></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>24</p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(D_{\rm 6}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(622\)</span></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">D6</span></code></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/1d6b42a5f0fceef1f5d702530566725e/harmonics.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/78e379cba64b911211a26220783afb08/character_table.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/d13682a7d2d4b333c84bd768422b719a/symmetry_operation.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/f6cf441a0b92f93272faea4f56e0e316/wyckoff_site.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/88f52b75e4b21585067167e9ed40465a/wyckoff_bond.pdf"><span class="xref download myst">PDF</span></a></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>25</p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(C_{\rm 6v}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(6mm\)</span></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">C6v</span></code></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/985b579557de79e9dab8d70f62dca855/harmonics.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/623366af8a7c4a45df83596817c147c8/character_table.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/b47cf80124b2905a584f36d628cb8182/symmetry_operation.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/0d8429e74a67fe9c1355f3c7651e77a1/wyckoff_site.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/0bd9d0537dcb5c78e7840b547bf55c0a/wyckoff_bond.pdf"><span class="xref download myst">PDF</span></a></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>26</p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(D_{\rm 3h}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(\bar{6}m2\)</span></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">D3h</span></code></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/9c8f6ccfa69d514ca37a33c50f4f0457/harmonics.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/28131517c107428a75477dc030871ed8/character_table.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/60edfc35acf1a4886b4e649629357379/symmetry_operation.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/2bcd7aed738c3de8bf2398c45d40e3c0/wyckoff_site.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/68a87b64072e7dbe4530a70e96aa3a66/wyckoff_bond.pdf"><span class="xref download myst">PDF</span></a></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>27</p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(D_{\rm 6h}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(6/mmm\)</span></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">D6h</span></code></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/e25d780de70b78e23cf0da6d17f9304b/harmonics.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/f946f6a98e169acb8de1d186ae6e84fd/character_table.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/2812c8a6147054c4891d8b36aa037a17/symmetry_operation.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/d2daee5de9467947928999bf17fbd406/wyckoff_site.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/a52397b4fd1326b29c9f6cc2e7bdd9ce/wyckoff_bond.pdf"><span class="xref download myst">PDF</span></a></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>37</p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(D_{\rm 3h}(1)\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(\bar{6}m2\)</span></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">D3h-1</span></code></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/24daa72e828d079daf12b4da86d351aa/harmonics.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/a61b010926830815aeaf68116339bba6/character_table.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/53737f2c9d241a5389de6cd3b2db635d/symmetry_operation.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/9420536521367981a52053d290e90733/wyckoff_site.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/bb5ed318afd6ff6de83a9903473ee752/wyckoff_bond.pdf"><span class="xref download myst">PDF</span></a></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>43</p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(C_{\rm 6}(c)\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(6\)</span></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">C6-c</span></code></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/72013cbe2d3eeadd74df55d6300d7a02/harmonics.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/746ec621f13149034ca5aa87a7d50f29/character_table.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/1ee1aa3775a3ab9f06c24337483c5322/symmetry_operation.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/7f7e225ce40f3035a7ab85e132900549/wyckoff_site.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/45bd402707b2c358d5677147b102832e/wyckoff_bond.pdf"><span class="xref download myst">PDF</span></a></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>44</p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(C_{\rm 3h}(c)\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(\bar{6}\)</span></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">C3h-c</span></code></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/db3e5047e734dfe7094e0e10b9a30082/harmonics.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/7ce9e915e69808c140ad779c1e22211e/character_table.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/064d55ee065d76bf41a72a3ca2e01b88/symmetry_operation.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/57d0d4a59fd475926f1e9b9244a99354/wyckoff_site.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/8c030269ec423eea745a0ac0ce2e1175/wyckoff_bond.pdf"><span class="xref download myst">PDF</span></a></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>45</p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(C_{\rm 6h}(c)\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(6/m\)</span></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">C6h-c</span></code></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/8e3779b2502a0301d095b089b1915b7e/harmonics.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/b155c98e68ba66245f518147284c2eb7/character_table.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/93709935323c47c1b0c92f31d5319f6a/symmetry_operation.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/e6c8584c7ca923383d48f0c27e0cf1fd/wyckoff_site.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/bce3e89a1bb04b50dbb7722b8ac84823/wyckoff_bond.pdf"><span class="xref download myst">PDF</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="cubic">
+<h2>Cubic<a class="headerlink" href="#cubic" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>No.</p></th>
+<th class="head text-left"><p>Schoenflies</p></th>
+<th class="head text-left"><p>international</p></th>
+<th class="head text-left"><p>tag</p></th>
+<th class="head text-left"><p>harmonics</p></th>
+<th class="head text-left"><p>character</p></th>
+<th class="head text-left"><p>symmetry operation</p></th>
+<th class="head text-left"><p>Wyckoff site</p></th>
+<th class="head text-left"><p>Wyckoff bond</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>28</p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(T_{\rm }\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(23\)</span></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">T</span></code></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/147f49525404c3e3c792b12287dfe418/harmonics.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/905c2564425b53203eab0f936a75a72f/character_table.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/926ac29355752f136c559e49f472d8ec/symmetry_operation.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/fc7bff4b49cccb607ceccadf0c88ef9d/wyckoff_site.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/0ef9638dea31d9ec4e5a747420bd6862/wyckoff_bond.pdf"><span class="xref download myst">PDF</span></a></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>29</p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(T_{\rm h}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(m\bar{3}\)</span></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">Th</span></code></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/e0c48d188b6564fdcd1396f180c84550/harmonics.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/5218a3f7c8626aaed652edc211ddbcae/character_table.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/400095db7c7e60e22e3e3a82cd20526d/symmetry_operation.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/ae10224e0a1a68f4e18d6000ecfbdefa/wyckoff_site.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/fea5dbf7b4ee4e0488450ffe8db160a3/wyckoff_bond.pdf"><span class="xref download myst">PDF</span></a></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>30</p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(O_{\rm }\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(432\)</span></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">O</span></code></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/ede14955f0bd595d616b7e057f0a9ef6/harmonics.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/5477fce0ce77630f3747a44b8613f2ba/character_table.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/ba40f2843278a0b7a2a5acc5d771455c/symmetry_operation.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/79986ccb8475f58690c491820ec07e77/wyckoff_site.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/46aec9ba9e44ad665e008938ef181772/wyckoff_bond.pdf"><span class="xref download myst">PDF</span></a></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>31</p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(T_{\rm d}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(\bar{4}3m\)</span></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">Td</span></code></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/2e510f7243b95d4e2761e442019d6da2/harmonics.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/e944bf0e8e08b4f5c170259bda13e916/character_table.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/395ebf4d904183d87cc7a863c809199b/symmetry_operation.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/141fc155100cc052007b63526e32a879/wyckoff_site.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/e164b0c0861d3a2f466aebb87c9977e4/wyckoff_bond.pdf"><span class="xref download myst">PDF</span></a></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>32</p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(O_{\rm h}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(m\bar{3}m\)</span></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">Oh</span></code></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/104339e5f9bc07b5323826e757492ee8/harmonics.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/53ce1ddd1213cc826bc528b7f2fb3dd3/character_table.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/89450ccf84bf1cbca608e321c04db5ee/symmetry_operation.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/6565492f8c62736caeb1299d14b95e9d/wyckoff_site.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/b6bc6b03348b9c502e9f8b2397debd5a/wyckoff_bond.pdf"><span class="xref download myst">PDF</span></a></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>46</p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(T_{\rm }(c)\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(23\)</span></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">T-c</span></code></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/7e3088b44258a901c44a1d480ed7186b/harmonics.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/41beeac93736364d74ce58d5c74676f1/character_table.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/9435846372719f4ec0862a59deffe5ad/symmetry_operation.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/31ef68793f3f0a1b4b9681074df26b4e/wyckoff_site.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/40f093f679a16528ce84b155cfd9593b/wyckoff_bond.pdf"><span class="xref download myst">PDF</span></a></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>47</p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(T_{\rm h}(c)\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(m\bar{3}\)</span></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">Th-c</span></code></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/1498bb3908c4af94ee80d4ca22cc7de2/harmonics.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/6de56a5bfd80dfc357216591d916316b/character_table.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/7c78b4d248fdaae348e2842c90cbd1db/symmetry_operation.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/3dd35c32dc2c1f586d3c3594d731e808/wyckoff_site.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/23465f1bc2c61b560eb388395c1eb4b1/wyckoff_bond.pdf"><span class="xref download myst">PDF</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./src"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#triclinic">Triclinic</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#monoclinic">Monoclinic</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#orthorhombic">Orthorhombic</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tetragonal">Tetragonal</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#trigonal">Trigonal</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hexagonal">Hexagonal</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cubic">Cubic</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Hiroaki Kusunose
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2021-.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
