@@ -298,7 +298,7 @@ def create_active_multipole(info, group, top_key):
     for crystal, top, cap in [("cubic", "Oh", "cubic subgroups"), ("hexagonal", "D6h", "hexagonal subgroups")]:
         order = basis[crystal]
         latex = info["harmonics"]["latex"]["orbital"]
-        lbl = ["MPG", "Type", "Crystal", "X"] + [r"\texttt{" + i + "}" for i in order]
+        lbl = ["MPG", "Type", "Crystal", "X"] + [r"$\mathbb{X}" + latex[i] + "$" for i in order]
         # vertical lines between (rank, irrep, multiplicity) of the top group.
         tk = [top_key[top][n][0][0:3] for n in order]
         cpos = "lllll|" + "".join("l" + ("|" if i in _changes(tk) else "") for i in range(len(order)))
