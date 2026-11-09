@@ -29,6 +29,7 @@ label = {
     "symmetry_operation": "symmetry operation",
     "wyckoff_site": "Wyckoff site",
     "wyckoff_bond": "Wyckoff bond",
+    "representation_matrix": "representation matrix",
 }
 
 head = {
@@ -39,7 +40,7 @@ in `multipiegen/pdf/PG/{no}-{tag}/`.
 
 - harmonics: harmonics up to rank 11, with the polar (Q) and axial (G) symbols side by side (the expression is that
   of the polar harmonics), created by `python -m multipiegen.create_pdf.create_pdf_harmonics`.
-- character, symmetry operation, Wyckoff site and bond: created by `python -m multipiegen.create_pdf.create_pdf_group`.
+- character, symmetry operation, Wyckoff site and bond, representation matrix: created by `python -m multipiegen.create_pdf.create_pdf_group`.
 """,
     "SG": """# Space groups
 

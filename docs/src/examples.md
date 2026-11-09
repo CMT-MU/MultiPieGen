@@ -21,6 +21,15 @@ Data of each group (group.pkl): symmetry operations, product, mapping to Oh/D6h,
 :start-at: from multipiegen.util.util_group import load_group
 ```
 
+## representation_matrix.py
+
+Representation matrices of a point group from the harmonics up to rank 11, and the check that all harmonics of an irrep give the same matrices.
+
+```{literalinclude} ../examples/representation_matrix.py
+:language: python
+:start-at: from multipiegen.util.util_representation_matrix import (
+```
+
 ## harmonics_symbol.py
 
 Polar and axial symbols of harmonics side by side for all 47 point groups (as in the harmonics PDF).

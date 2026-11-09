@@ -9,7 +9,8 @@
 Create LaTeX and PDF of each group (based on MultiPie others/tools/create_PDF/create_pdf_character.py,
 create_pdf_symmetry_operation.py, create_pdf_wyckoff.py), from group.pkl.
 
-    - multipiegen/pdf/PG/{no}-{tag}/{character_table,symmetry_operation,wyckoff_site,wyckoff_bond}.{tex,pdf}
+    - multipiegen/pdf/PG/{no}-{tag}/{character_table,symmetry_operation,wyckoff_site,wyckoff_bond,
+      representation_matrix}.{tex,pdf}
     - multipiegen/pdf/SG/{no}-{tag}/{symmetry_operation,wyckoff_site,wyckoff_bond}.{tex,pdf} ("^" in tag -> "_")
     - multipiegen/pdf/MPG/{id}/{symmetry_operation,wyckoff_site}.{tex,pdf}
     - multipiegen/pdf/MSG/{id}/{symmetry_operation,wyckoff_site}.{tex,pdf}
@@ -35,10 +36,11 @@ from multipie.util.util_tag import TagIrrep, TagSymmetryOperation
 from multipiegen import __top_dir__
 from multipiegen.util.util_group import load_group
 from multipiegen.util.util_info import load_info
+from multipiegen.util.util_representation_matrix import representation_matrix
 
 pdfdir = os.path.join(__top_dir__, "multipiegen", "pdf")
 kinds = {
-    "PG": ["character_table", "symmetry_operation", "wyckoff_site", "wyckoff_bond"],
+    "PG": ["character_table", "symmetry_operation", "wyckoff_site", "wyckoff_bond", "representation_matrix"],
     "SG": ["symmetry_operation", "wyckoff_site", "wyckoff_bond"],
     "MPG": ["symmetry_operation", "wyckoff_site"],
     "MSG": ["symmetry_operation", "wyckoff_site"],
@@ -204,6 +206,23 @@ def create_symmetry_operation(gid, tag):
 
 
 # ==================================================
+def create_representation_matrix(gid, tag):
+    """Representation matrices from the harmonics (util_representation_matrix), as MultiPie."""
+    rm = representation_matrix(tag)
+    pdf = _pdf("representation_matrix", gid, tag, landscape=True)
+
+    row, tbl = [], []
+    for irrep, mat in rm["matrix"].items():
+        row.append(TagIrrep.latex(irrep))
+        tbl.append([TagSymmetryOperation.latex(t) + ":" + to_latex(m, "matrix") for t, m in zip(rm["tag"], mat)])
+
+    col = [""] * 6
+    cap = "Representation matrices"
+    pdf.table(tbl, row, col, "Irrep.", hl=True, stretch=1.2, rmath=True, tmath=True, long=True, caption=cap)
+    pdf.build()
+
+
+# ==================================================
 def _chunk(lst, n=24):
     return [lst[i : i + n] for i in range(0, len(lst), n)] if len(lst) > n else [lst]
 
@@ -292,6 +311,7 @@ _creator = {
     "symmetry_operation": create_symmetry_operation,
     "wyckoff_site": create_wyckoff_site,
     "wyckoff_bond": create_wyckoff_bond,
+    "representation_matrix": create_representation_matrix,
 }
 
 
