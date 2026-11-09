@@ -6,7 +6,10 @@
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 """
-Orthonormal vector cluster basis (internal rank s=1) of Oh and D6h clusters.
+Orthonormal vector cluster basis (internal rank s=1) of Oh and D6h clusters (binary: cluster_vector_basis.pkl).
+
+This is an intermediate basis to create the bond cluster basis (util_bond_cluster_basis, cluster_bond_basis.pkl); whether it is used
+by itself is not decided yet.
 
 Same procedure as the cluster basis (util_cluster_basis), for the vector harmonics. s=0 is the cluster basis itself.
 
@@ -28,14 +31,17 @@ Same procedure as the cluster basis (util_cluster_basis), for the vector harmoni
         "site0": [x0,y0,z0] (sympy),
         "cluster": cluster points, ndarray (N,3) (sympy),
         "internal_basis": ["px","py","pz"],
-        "basis": { "q/g": { key: ndarray (N,3) (sympy) } },  # orthonormal, sum_{i,a} v_{ia}^2 = 1.
-        "dropped": { "q/g": [key] },  # vector harmonics linearly dependent on lower ones.
+        "basis": { PGMultipoleType: ndarray (dim,N,3) (sympy) },  # orthonormal, sum_{i,a} v_{ia}^2 = 1 per component.
+        "dropped": [ PGMultipoleType ],  # vector harmonics linearly dependent on lower ones (whole multiplets).
     } }
 
-    key = (X, rank, irrep, multiplicity [1-based], component [0-based], k), -1: unique (multiplicity/component).
+    PGMultipoleType = (X, l, Gamma, n, p, s, k, x) as the vector SAMB of MultiPie: type Q/G, rank, irrep,
+        multiplicity (-1: unique), add_multiplicity p = -1 (multiplets are distinguished by k), s = 1, k = -1, 0, 1,
+        internal type x = q/g. All components of a multiplet are in the value (rows, in the order of components).
 """
 
 import numpy as np
+from multipie import PGMultipoleType
 import sympy as sp
 from multipie.util.util import str_to_sympy
 from multipie.util.util_binary import BinaryManager
@@ -205,6 +211,29 @@ def _gram_schmidt_exact(vectors):
 
 
 # ==================================================
+def _multipole_keys(vectors, x):
+    """
+    Re-key by PGMultipoleType(X, l, Gamma, n, p=-1, s=1, k, x), with components stacked.
+
+    Args:
+        vectors (dict): { (X, rank, irrep, mul, comp, k): ndarray (N,3) or None }, complete multiplets.
+        x (str): internal type, "q" or "g".
+
+    Returns:
+        - (dict) -- { PGMultipoleType: ndarray (dim,N,3) (or None) }, in the order of first appearance.
+    """
+    multiplets = {}
+    for (X, rank, irrep, mul, comp, k), v in vectors.items():
+        multiplets.setdefault((X, rank, irrep, mul, k), {})[comp] = v
+    res = {}
+    for (X, rank, irrep, mul, k), comps in multiplets.items():
+        key = PGMultipoleType(X, rank, irrep, mul, -1, 1, k, x)
+        vals = [comps[c] for c in sorted(comps)]
+        res[key] = None if vals[0] is None else np.array(vals, dtype=object)
+    return res
+
+
+# ==================================================
 def create_cluster_vector_basis(group, verbose=False):
     """
     Create orthonormal vector cluster basis (s=1) for polar (q) and axial (g) internal basis.
@@ -237,7 +266,7 @@ def create_cluster_vector_basis(group, verbose=False):
             )
         return exact_cache[(tk, k)]
 
-    basis, dropped = {}, {}
+    basis, dropped = {}, []
     for x in ["q", "g"]:
         lab = {(tk, k): label(group, tk, k, x) for (tk, k) in vh}
         vec_num = {lab[t][0]: float(lab[t][1]) * num[t] for t in vh}
@@ -250,8 +279,8 @@ def create_cluster_vector_basis(group, verbose=False):
         vec = {key: np.array([_simplify(lab[inv[key]][1] * e) for e in exact(*inv[key])], dtype=object) for key in kept}
         b = _gram_schmidt_exact(vec)
         order = [lab[t][0] for t in vh]
-        basis[x] = {key: b[key].reshape(N, 3) for key in order if key in b}
-        dropped[x] = [key for key in order if key in drop]
+        basis.update(_multipole_keys({key: b[key].reshape(N, 3) for key in order if key in b}, x))
+        dropped += list(_multipole_keys({key: None for key in order if key in drop}, x).keys())
 
     return {
         "site0": site0,
@@ -291,7 +320,7 @@ def load_cluster_vector_basis():
 # ==================================================
 def cluster_vector_basis_matrix(data, x, numeric=True):
     """
-    Basis as matrix, each row is a basis vector (N,3) flattened.
+    Basis as matrix, each row is a component (N,3) flattened.
 
     Args:
         data (dict): vector cluster basis of a group, load_cluster_vector_basis()[group].
@@ -300,10 +329,16 @@ def cluster_vector_basis_matrix(data, x, numeric=True):
 
     Returns:
         - (ndarray) -- basis matrix (3N, 3N).
-        - (list) -- key of each row.
+        - (list) -- (PGMultipoleType, component index) of each row.
     """
-    keys = list(data["basis"][x].keys())
-    m = np.array([data["basis"][x][k].ravel() for k in keys], dtype=object)
+    rows, keys = [], []
+    for key, v in data["basis"].items():
+        if key.x != x:
+            continue
+        for c, vc in enumerate(v):
+            rows.append(vc.ravel())
+            keys.append((key, c))
+    m = np.array(rows, dtype=object)
     if numeric:
         m = m.astype(float)
     return m, keys

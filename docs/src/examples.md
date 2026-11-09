@@ -5,7 +5,7 @@ Sample code for each feature, in `docs/examples`. Run each file from anywhere af
 
 ## cluster_basis.py
 
-Load the orthonormal Oh/D6h cluster basis, inspect keys and values, expand a function on the cluster.
+Load the orthonormal (scalar) Oh/D6h cluster basis (cluster_scalar_basis.pkl), keyed by PGMultipoleType, expand a function on the cluster.
 
 ```{literalinclude} ../examples/cluster_basis.py
 :language: python
@@ -14,11 +14,20 @@ Load the orthonormal Oh/D6h cluster basis, inspect keys and values, expand a fun
 
 ## cluster_vector_basis.py
 
-Load the orthonormal vector cluster basis (internal rank s=1, polar/axial internal basis) of the Oh/D6h clusters, expand a vector field.
+Load the orthonormal vector cluster basis (internal rank s=1, polar/axial internal basis) of the Oh/D6h clusters, keyed by PGMultipoleType, expand a vector field.
 
 ```{literalinclude} ../examples/cluster_vector_basis.py
 :language: python
 :start-at: import numpy as np
+```
+
+## bond_cluster_basis.py
+
+Load the orthonormal bond cluster basis of the Oh/D6h clusters (vector cluster basis contracted with the bond vectors and re-orthonormalized), keyed by PGMultipoleType as MultiPie's bond_a.
+
+```{literalinclude} ../examples/bond_cluster_basis.py
+:language: python
+:start-at: from the vector cluster basis (cluster_vector_basis.pkl).
 ```
 
 ## group.py
