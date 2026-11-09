@@ -17,7 +17,7 @@ import os
 import re
 
 from multipiegen import __top_dir__
-from multipiegen.create_pdf.create_pdf_group import group_dir, kinds
+from multipiegen.create_pdf.create_pdf_group import group_dir, has_pdf, kinds
 from multipiegen.util.util_group import load_group
 from multipiegen.util.util_info import load_info
 
@@ -30,6 +30,10 @@ label = {
     "wyckoff_site": "Wyckoff site",
     "wyckoff_bond": "Wyckoff bond",
     "representation_matrix": "representation matrix",
+    "response_tensor_Q": "Q tensor",
+    "response_tensor_G": "G tensor",
+    "response_tensor_T": "T tensor",
+    "response_tensor_M": "M tensor",
 }
 
 head = {
@@ -50,7 +54,8 @@ PDFs of all 230 space groups, in `multipiegen/pdf/SG/{no}-{tag}/`, created by
     "MPG": """# Magnetic point groups
 
 PDFs of all 157 magnetic point groups, in `multipiegen/pdf/MPG/{id}/`, created by
-`python -m multipiegen.create_pdf.create_pdf_group`.
+`python -m multipiegen.create_pdf.create_pdf_group`. The response tensors (Q, G, T, M) are those of `response_tensor.pkl`;
+the magnetic tensors (T, M) are not given for type II (gray) groups.
 """,
     "MSG": """# Magnetic space groups
 
@@ -65,6 +70,9 @@ def _links(gid, tag, names):
     cells = []
     for k in names:
         path = os.path.relpath(os.path.join(group_dir(gid, tag), k + ".pdf"), os.path.join(__top_dir__, "docs", "src"))
+        if k in kinds["MPG"] and not has_pdf(k, gid):  # no magnetic tensor for type II.
+            cells.append("-")
+            continue
         assert os.path.isfile(os.path.join(__top_dir__, "docs", "src", path)), path
         cells.append(f"[PDF]({path})")
     return cells

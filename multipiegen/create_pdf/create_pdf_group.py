@@ -12,7 +12,8 @@ create_pdf_symmetry_operation.py, create_pdf_wyckoff.py), from group.pkl.
     - multipiegen/pdf/PG/{no}-{tag}/{character_table,symmetry_operation,wyckoff_site,wyckoff_bond,
       representation_matrix}.{tex,pdf}
     - multipiegen/pdf/SG/{no}-{tag}/{symmetry_operation,wyckoff_site,wyckoff_bond}.{tex,pdf} ("^" in tag -> "_")
-    - multipiegen/pdf/MPG/{id}/{symmetry_operation,wyckoff_site}.{tex,pdf}
+    - multipiegen/pdf/MPG/{id}/{symmetry_operation,wyckoff_site,response_tensor_X}.{tex,pdf}
+      (X = Q, G, and T, M except for type II, from response_tensor.pkl)
     - multipiegen/pdf/MSG/{id}/{symmetry_operation,wyckoff_site}.{tex,pdf}
 
 Differences from MultiPie:
@@ -28,6 +29,7 @@ import os
 import time
 from multiprocessing import Pool
 
+import numpy as np
 import sympy as sp
 from multipie.util.util import to_latex
 from multipie.util.util_pdf_latex import PDFviaLaTeX
@@ -37,12 +39,20 @@ from multipiegen import __top_dir__
 from multipiegen.util.util_group import load_group
 from multipiegen.util.util_info import load_info
 from multipiegen.util.util_representation_matrix import representation_matrix
+from multipiegen.util.util_response_tensor import load_response_tensor
 
 pdfdir = os.path.join(__top_dir__, "multipiegen", "pdf")
 kinds = {
     "PG": ["character_table", "symmetry_operation", "wyckoff_site", "wyckoff_bond", "representation_matrix"],
     "SG": ["symmetry_operation", "wyckoff_site", "wyckoff_bond"],
-    "MPG": ["symmetry_operation", "wyckoff_site"],
+    "MPG": [
+        "symmetry_operation",
+        "wyckoff_site",
+        "response_tensor_Q",
+        "response_tensor_G",
+        "response_tensor_T",
+        "response_tensor_M",
+    ],
     "MSG": ["symmetry_operation", "wyckoff_site"],
 }
 
@@ -52,10 +62,25 @@ _shared = {}
 # ==================================================
 def _data():
     """info and group (loaded once per process)."""
-    if not _shared:
+    if "info" not in _shared:
         _shared["info"] = load_info()
         _shared["group"] = load_group()
     return _shared["info"], _shared["group"]
+
+
+def _response_tensor():
+    """response tensors (loaded once per process)."""
+    if "response_tensor" not in _shared:
+        _shared["response_tensor"] = load_response_tensor()
+    return _shared["response_tensor"]
+
+
+# ==================================================
+def has_pdf(kind, gid):
+    """Is the PDF of kind created for the group ? (magnetic tensors T, M are not for type II MPG, as MultiPie)."""
+    if kind in ["response_tensor_T", "response_tensor_M"]:
+        return _data()[1][gid]["info"].type != "II"
+    return True
 
 
 # ==================================================
@@ -97,12 +122,12 @@ def group_latex(gid, g_info):
 
 
 # ==================================================
-def _pdf(name, gid, tag, landscape=False):
+def _pdf(name, gid, tag, landscape=False, suffix=""):
     _, group = _data()
     h_dir = group_dir(gid, tag)
     os.makedirs(h_dir, exist_ok=True)
     pdf = PDFviaLaTeX(name, dir=h_dir, pt=8, style="narrowest", landscape=landscape, english=True)
-    pdf.title(group_latex(gid, group[gid]["info"]))
+    pdf.title(group_latex(gid, group[gid]["info"]) + suffix)
     return pdf
 
 
@@ -306,12 +331,35 @@ def create_wyckoff_bond(gid, tag):
     pdf.build()
 
 
+def create_response_tensor(gid, tag, X):
+    """Response tensors of type X up to rank 4 (response_tensor.pkl), as MultiPie."""
+    d = _response_tensor()[gid]
+    pdf = _pdf(f"response_tensor_{X}", gid, tag, landscape=True, suffix=f" [{X} tensor]")
+
+    empty = True
+    for (Xt, rank, opt), (m, ex) in d.items():
+        if Xt != X:
+            continue
+        pdf.text(f"* Rank {rank} tensor." if opt == "" else f"* Rank {rank} tensor ({opt}).")
+        if not np.all(m == sp.S(0)):
+            empty = False
+            pdf.equation(to_latex(m, "matrix"))
+            pdf.equation([sp.latex(sp.Eq(i, j)) for i, j in ex.items()])
+    if empty:
+        pdf.text()
+    pdf.build()
+
+
 _creator = {
     "character_table": create_character_table,
     "symmetry_operation": create_symmetry_operation,
     "wyckoff_site": create_wyckoff_site,
     "wyckoff_bond": create_wyckoff_bond,
     "representation_matrix": create_representation_matrix,
+    "response_tensor_Q": lambda gid, tag: create_response_tensor(gid, tag, "Q"),
+    "response_tensor_G": lambda gid, tag: create_response_tensor(gid, tag, "G"),
+    "response_tensor_T": lambda gid, tag: create_response_tensor(gid, tag, "T"),
+    "response_tensor_M": lambda gid, tag: create_response_tensor(gid, tag, "M"),
 }
 
 
@@ -337,7 +385,7 @@ def create_pdf_group(group_types=("PG", "SG", "MPG", "MSG"), kind=None, serial=F
         ids = info["id_set"][tp]["all"] + (info["id_set"]["PG"]["complex"] if tp == "PG" else [])
         for k in kinds[tp]:
             if kind is None or k in kind:
-                tasks += [(k, gid, info["tag"][gid]) for gid in ids]
+                tasks += [(k, gid, info["tag"][gid]) for gid in ids if has_pdf(k, gid)]
 
     t0 = time.time()
     if serial:
