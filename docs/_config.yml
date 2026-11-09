@@ -1,0 +1,78 @@
+# ==================================================
+# Book settings
+title: MultiPieGen
+author: Hiroaki Kusunose
+copyright: "2021-"
+
+# ==================================================
+# Execution settings
+execute:
+  execute_notebooks: off
+
+# ==================================================
+# Parse and render settings
+parse:
+  myst_enable_extensions:
+    - amsmath
+    - colon_fence
+    - deflist
+    - dollarmath
+    - html_admonition
+    - html_image
+    - linkify
+    - replacements
+    - smartquotes
+    - substitution
+
+# ==================================================
+# HTML-specific settings
+html:
+  extra_css: ["_static/custom.css"]
+  home_page_in_navbar: false
+  use_edit_page_button: false
+  use_repository_button: true
+  use_issues_button: false
+  collapse_navigation: true
+
+# ==================================================
+# Information about where the book exists on the web
+repository:
+  url: https://github.com/hiro-k-phys/mp-newbasis.git
+  branch: main
+
+# ==================================================
+# Sphinx setting
+sphinx:
+  root_doc: "README.md"
+  recursive_update: true
+  extra_extensions:
+  - "sphinx.ext.autosummary"
+  - "sphinx.ext.autodoc"
+  - "sphinx.ext.napoleon"
+  - "sphinx.ext.viewcode"
+  config:
+    add_module_names: false
+    autoclass_content: "init"
+    autodoc_default_options:
+      members: true
+      member-order: "bysource"
+      undoc-members: true
+      show-inheritance: true
+    html_theme: sphinx_book_theme
+    html_static_path: ["_static"]
+    html_js_files:
+      - custom.js
+    html_theme_options:
+      show_prev_next: false
+      navigation_with_keys: false
+    html_show_sourcelink: false
+    html_copy_source : false
+    language: en
+    # pages that are not in the table of contents (examples/README.md is for GitHub).
+    exclude_patterns: ["_build", "examples/README.md", "create_pages.py"]
+    suppress_warnings: ["myst.xref_missing"]
+    mathjax_path: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+    mathjax3_config:
+      tex:
+        macros:
+          "bm": ["\\boldsymbol{#1}", 1]

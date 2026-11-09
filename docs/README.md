@@ -82,6 +82,17 @@ others/             non-package material
 
 When a feature is added, its generator goes in `create_binary/` or `create_pdf/`, and a sample goes in `docs/examples/`.
 
+## Documentation
+
+The documentation (this page, data, binary contents, harmonics PDFs, examples and API) is built with
+[Jupyter Book](https://jupyterbook.org) from `docs/`:
+
+```bash
+make -C docs build   # -> docs/_build/html (needs the dev install)
+```
+
+The workflow `docs` builds it for pull requests and pushes, and publishes it to the `gh-pages` branch on `main`.
+
 ## Test
 
 ```bash

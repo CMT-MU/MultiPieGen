@@ -26,6 +26,7 @@ python -m multipiegen.create_binary.create_cluster_basis   # -> binary_data/clus
 python -m multipiegen.create_binary.create_group           # -> binary_data/group.pkl (parallel ~35 s; --serial ~2 min)
 python -m multipiegen.create_pdf.create_pdf_harmonics      # -> pdf/PG/{no}-{tag}/harmonics.{tex,pdf} (needs ptex2pdf, ~1.5 min)
 python docs/examples/<name>.py                             # runnable samples
+make -C docs build                                         # Jupyter Book -> docs/_build/html (gh-pages on main)
 ```
 
 `binary_data/` and `pdf/` are in git but deliberately **not packaged** (`include-package-data = false`; the wheel is
@@ -79,7 +80,8 @@ Gram–Schmidt basis per (irrep, component), from lower rank, and must yield 48 
   curated by hand; regenerating them can silently undo manual fixes.
 - `others/` holds non-package material: memo, notebooks, drafts, and `claude/` (an earlier verification pipeline that
   contains stale absolute paths).
-- Every new feature also gets a runnable sample `docs/examples/<feature>.py` and a row in `docs/examples/README.md`.
+- Every new feature also gets a runnable sample `docs/examples/<feature>.py` and a row in `docs/examples/README.md`
+  (the docs page `docs/src/examples.md` is generated from that table by `docs/create_pages.py`).
 
 `others/group_theory.py` is known-broken: it imports names that no longer exist in `data_root_cluster`.
 
