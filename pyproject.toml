@@ -30,6 +30,8 @@ classifiers = [
 [project.optional-dependencies]
 dev = [
     "black",
+    "jupyter-book==1.0.4.post1",
+    "ghp-import",
     "pytest",
     "pytest-xdist",
     "qtdraw",
