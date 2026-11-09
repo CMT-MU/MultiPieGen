@@ -24,8 +24,9 @@ def test_orthonormal(group, n):
 def test_regular_representation(group):
     # every irrep appears, as many times as its dimension (character of identity).
     count = {}
-    for rank, irrep, mul, comp in data[group]["basis"].keys():
-        count[irrep] = count.get(irrep, 0) + 1
+    for key, v in data[group]["basis"].items():
+        assert (key.X, key.p, key.s, key.k, key.x) == ("Q", -1, 0, 0, "q")  # PGMultipoleType as MultiPie site SAMB.
+        count[key.Gamma] = count.get(key.Gamma, 0) + len(v)
     table = character[group][1]
     assert set(count) == set(table)
     for irrep, chi in table.items():
@@ -40,4 +41,4 @@ def test_binary_is_up_to_date(group):
     assert list(new["basis"].keys()) == list(old["basis"].keys())
     assert new["dropped"] == old["dropped"]
     for k in new["basis"]:
-        assert all(a == b for a, b in zip(new["basis"][k], old["basis"][k])), k
+        assert repr(new["basis"][k]) == repr(old["basis"][k]), k

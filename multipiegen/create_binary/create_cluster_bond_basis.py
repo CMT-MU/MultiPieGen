@@ -7,10 +7,10 @@
 
 """
 Create orthonormal bond cluster basis of Oh and D6h from the vector cluster basis, and save it as binary.
-    - multipiegen/binary/bond_cluster_basis.pkl
+    - multipiegen/binary/cluster_bond_basis.pkl
       (load by multipiegen.util.util_bond_cluster_basis.load_bond_cluster_basis).
 
-Run:  python -m multipiegen.create_binary.create_bond_cluster_basis   (needs cluster_vector_basis.pkl, a few s)
+Run:  python -m multipiegen.create_binary.create_cluster_bond_basis   (needs cluster_vector_basis.pkl, a few s)
 """
 
 from multipiegen.util.util_bond_cluster_basis import save_bond_cluster_basis

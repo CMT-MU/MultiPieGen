@@ -5,7 +5,7 @@ Sample code for each feature, in `docs/examples`. Run each file from anywhere af
 
 ## cluster_basis.py
 
-Load the orthonormal Oh/D6h cluster basis, inspect keys and values, expand a function on the cluster.
+Load the orthonormal (scalar) Oh/D6h cluster basis (cluster_scalar_basis.pkl), keyed by PGMultipoleType, expand a function on the cluster.
 
 ```{literalinclude} ../examples/cluster_basis.py
 :language: python

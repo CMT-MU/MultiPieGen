@@ -9,9 +9,9 @@ MultiPieGen. `str(data)` shows the description below.
 | `info.pkl` | `python -m multipiegen.create_binary.create_info` | `multipiegen.util.util_info.load_info()` |
 | `group.pkl` | `python -m multipiegen.create_binary.create_group` | `multipiegen.util.util_group.load_group()` |
 | `response_tensor.pkl` | `python -m multipiegen.create_binary.create_response_tensor` | `multipiegen.util.util_response_tensor.load_response_tensor()` |
-| `cluster_basis.pkl` | `python -m multipiegen.create_binary.create_cluster_basis` | `multipiegen.util.util_cluster_basis.load_cluster_basis()` |
+| `cluster_scalar_basis.pkl` | `python -m multipiegen.create_binary.create_cluster_scalar_basis` | `multipiegen.util.util_cluster_basis.load_cluster_basis()` |
 | `cluster_vector_basis.pkl` | `python -m multipiegen.create_binary.create_cluster_vector_basis` | `multipiegen.util.util_cluster_vector_basis.load_cluster_vector_basis()` |
-| `bond_cluster_basis.pkl` | `python -m multipiegen.create_binary.create_bond_cluster_basis` | `multipiegen.util.util_bond_cluster_basis.load_bond_cluster_basis()` |
+| `cluster_bond_basis.pkl` | `python -m multipiegen.create_binary.create_cluster_bond_basis` | `multipiegen.util.util_bond_cluster_basis.load_bond_cluster_basis()` |
 
 ## info.pkl
 
@@ -45,7 +45,7 @@ Response tensors (rank 0-4) of all magnetic point groups (157) in terms of activ
 :end-before: '"""'
 ```
 
-## cluster_basis.pkl
+## cluster_scalar_basis.pkl
 
 Orthonormal cluster basis of the Oh (48 points) and D6h (24 points) root clusters.
 
@@ -58,7 +58,7 @@ Orthonormal cluster basis of the Oh (48 points) and D6h (24 points) root cluster
 ## cluster_vector_basis.pkl
 
 Orthonormal vector cluster basis (internal rank s=1) of the Oh (144) and D6h (72) clusters, for polar (q) and axial (g)
-internal basis. It is an intermediate basis to create `bond_cluster_basis.pkl`.
+internal basis. It is an intermediate basis to create `cluster_bond_basis.pkl`.
 
 ```{literalinclude} ../../multipiegen/util/util_cluster_vector_basis.py
 :language: text
@@ -66,7 +66,7 @@ internal basis. It is an intermediate basis to create `bond_cluster_basis.pkl`.
 :end-before: '"""'
 ```
 
-## bond_cluster_basis.pkl
+## cluster_bond_basis.pkl
 
 Orthonormal bond cluster basis of the Oh (48) and D6h (24) clusters, from the vector cluster basis contracted with the
 bond vectors (vector0) and re-orthonormalized.

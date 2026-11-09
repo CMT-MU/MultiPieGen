@@ -6,7 +6,7 @@
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 """
-Orthonormal bond cluster basis of Oh and D6h clusters.
+Orthonormal bond cluster basis of Oh and D6h clusters (binary: cluster_bond_basis.pkl).
 
 - Bond vectors. b_i is the general point i of the Oh or D6h cluster with x,y,z replaced by vector0 (unit vector,
   info["root_cluster"]["oh/d6h_vector0_cart"]).
@@ -24,7 +24,7 @@ Orthonormal bond cluster basis of Oh and D6h clusters.
   (X, l, Gamma, n) [components] in the Gram-Schmidt order (k = -1, 0, 1) as 1, 2, ..., and is -1 if there is only
   one. x is the internal type of the vector cluster basis (MultiPie has x = q only).
 
-- bond_cluster_basis (dict)::
+- cluster_bond_basis (dict)::
 
     { "Oh/D6h": {
         "site0": [x0,y0,z0] (sympy),
@@ -59,7 +59,7 @@ from multipiegen.util.util_cluster_vector_basis import (
 from multipiegen.util.util_info import load_info
 
 # ==================================================
-bond_cluster_basis_file = "bond_cluster_basis"
+bond_cluster_basis_file = "cluster_bond_basis"
 _cluster_cart = {"Oh": oh_cluster_cart, "D6h": d6h_cluster_cart}
 _vector0 = {"Oh": "oh_vector0_cart", "D6h": "d6h_vector0_cart"}
 _xyz = sp.symbols("x y z")
@@ -210,7 +210,7 @@ def create_bond_cluster_basis(group, verbose=False):
 # ==================================================
 def save_bond_cluster_basis(groups=("Oh", "D6h"), verbose=True):
     """
-    Create and save bond cluster basis as binary (multipiegen/binary/bond_cluster_basis.pkl).
+    Create and save bond cluster basis as binary (multipiegen/binary/cluster_bond_basis.pkl).
 
     Args:
         groups (tuple, optional): groups.

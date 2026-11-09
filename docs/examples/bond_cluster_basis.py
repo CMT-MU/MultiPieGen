@@ -10,8 +10,8 @@ Example: orthonormal bond cluster basis of the Oh and D6h clusters.
 
     python docs/examples/bond_cluster_basis.py
 
-The binary data (multipiegen/binary/bond_cluster_basis.pkl) is created by
-multipiegen/create_binary/create_bond_cluster_basis.py (python -m multipiegen.create_binary.create_bond_cluster_basis)
+The binary data (multipiegen/binary/cluster_bond_basis.pkl) is created by
+multipiegen/create_binary/create_cluster_bond_basis.py (python -m multipiegen.create_binary.create_cluster_bond_basis)
 from the vector cluster basis (cluster_vector_basis.pkl).
 """
 

@@ -6,9 +6,9 @@
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 """
-Orthonormal vector cluster basis (internal rank s=1) of Oh and D6h clusters.
+Orthonormal vector cluster basis (internal rank s=1) of Oh and D6h clusters (binary: cluster_vector_basis.pkl).
 
-This is an intermediate basis to create the bond cluster basis (util_bond_cluster_basis); whether it is used
+This is an intermediate basis to create the bond cluster basis (util_bond_cluster_basis, cluster_bond_basis.pkl); whether it is used
 by itself is not decided yet.
 
 Same procedure as the cluster basis (util_cluster_basis), for the vector harmonics. s=0 is the cluster basis itself.

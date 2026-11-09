@@ -10,9 +10,9 @@ Example: orthonormal cluster basis of Oh and D6h.
 
     python docs/examples/cluster_basis.py
 
-The binary data (multipiegen/binary/cluster_basis.pkl) is created by
-multipiegen/create_binary/create_cluster_basis.py
-(python -m multipiegen.create_binary.create_cluster_basis).
+The binary data (multipiegen/binary/cluster_scalar_basis.pkl) is created by
+multipiegen/create_binary/create_cluster_scalar_basis.py
+(python -m multipiegen.create_binary.create_cluster_scalar_basis).
 """
 
 import numpy as np
@@ -31,19 +31,20 @@ for p in oh["cluster"][:3]:
     print("   ", p)
 
 # ==================================================
-# 2. basis vectors are keyed by top_key = (rank, irrep, multiplicity, component).
-print("\nbasis keys of Oh (rank, irrep, multiplicity, component):")
+# 2. basis multiplets are keyed by PGMultipoleType(X="Q", l, Gamma, n, p=-1, s=0, k=0, x="q") (MultiPie site SAMB);
+#    the value has all components, (dim, N).
+print("\nbasis keys of Oh:")
 for key in oh["basis"].keys():
-    print("   ", key)
+    print("   ", key, oh["basis"][key].shape)
 
-key = (1, "T1u", -1, 0)  # x-like basis.
-print(f"\n{key}, first 4 values (exact):", oh["basis"][key][:4])
+key = [k for k in oh["basis"] if k.l == 1 and k.Gamma == "T1u"][0]
+print(f"\n{key}, x component, first 4 values (exact):", oh["basis"][key][0][:4])
 
 # harmonics dropped by Gram-Schmidt (linearly dependent on lower ranks).
 print("number of dropped harmonics:", len(oh["dropped"]), ", e.g.", oh["dropped"][:3])
 
 # ==================================================
-# 3. basis as a float matrix (each row is a basis vector, columns follow oh["cluster"]).
+# 3. basis as a float matrix (each row is a component, columns follow oh["cluster"]); keys are (PGMultipoleType, comp).
 m, keys = cluster_basis_matrix(oh)
 print("\nbasis matrix shape:", m.shape)
 print("orthonormal ?", np.allclose(m @ m.T, np.eye(len(keys))))
@@ -64,7 +65,7 @@ print("reconstructed ?", np.allclose(c @ m, f))
 # weight of each irrep (sum of |c_k|^2 over the irrep), total equals |f|^2.
 weight = {}
 for k, ck in zip(keys, c):
-    weight[k[1]] = weight.get(k[1], 0.0) + ck**2
+    weight[k[0].Gamma] = weight.get(k[0].Gamma, 0.0) + ck**2
 print("irrep weights:", {ir: round(float(w), 6) for ir, w in weight.items() if w > 1e-8})
 print("|f|^2 =", round(float(f @ f), 6))
 
@@ -73,4 +74,4 @@ print("|f|^2 =", round(float(f @ f), 6))
 d6h = data["D6h"]
 m6, keys6 = cluster_basis_matrix(d6h)
 print("\nD6h basis matrix shape:", m6.shape, ", orthonormal ?", np.allclose(m6 @ m6.T, np.eye(len(keys6))))
-print("D6h irreps:", sorted({k[1] for k in keys6}))
+print("D6h irreps:", sorted({k[0].Gamma for k in keys6}))

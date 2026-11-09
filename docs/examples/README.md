@@ -4,7 +4,7 @@ Sample code for the features of MultiPieGen. Run each file from anywhere after `
 
 | file | content |
 |---|---|
-| [cluster_basis.py](cluster_basis.py) | load the orthonormal Oh/D6h cluster basis, inspect keys and values, expand a function on the cluster |
+| [cluster_basis.py](cluster_basis.py) | load the orthonormal (scalar) Oh/D6h cluster basis (cluster_scalar_basis.pkl), keyed by PGMultipoleType, expand a function on the cluster |
 | [cluster_vector_basis.py](cluster_vector_basis.py) | load the orthonormal vector cluster basis (internal rank s=1, polar/axial internal basis) of the Oh/D6h clusters, keyed by PGMultipoleType, expand a vector field |
 | [bond_cluster_basis.py](bond_cluster_basis.py) | load the orthonormal bond cluster basis of the Oh/D6h clusters (vector cluster basis contracted with the bond vectors and re-orthonormalized), keyed by PGMultipoleType as MultiPie's bond_a |
 | [group.py](group.py) | data of each group (group.pkl): symmetry operations, product, mapping to Oh/D6h, character, Wyckoff site and bond, active multipoles |
