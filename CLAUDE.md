@@ -23,6 +23,7 @@ black -l 130 <files>                                 # formatter (line length 13
 
 python -m multipiegen.create_binary.create_info            # -> binary_data/info.pkl
 python -m multipiegen.create_binary.create_cluster_basis   # -> binary_data/cluster_basis.pkl
+python -m multipiegen.create_binary.create_group           # -> binary_data/group.pkl (parallel ~35 s; --serial ~2 min)
 python -m multipiegen.create_pdf.create_pdf_harmonics      # -> pdf/PG/{no}-{tag}/harmonics.{tex,pdf} (needs ptex2pdf, ~1.5 min)
 python docs/examples/<name>.py                             # runnable samples
 ```
