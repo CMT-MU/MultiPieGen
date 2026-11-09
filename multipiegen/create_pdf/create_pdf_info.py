@@ -269,14 +269,14 @@ def create_compatibility_relation(info, group, top_key):
 
 # ==================================================
 def orbital_table(pdf, info, names, caption):
-    """Table of orbitals: rank (first row of each rank only), tag, symbol and expression (lines between ranks)."""
+    """Table of orbitals: rank (first row of each rank only), symbol and expression (lines between ranks)."""
     bf = info["harmonics"]["basis_function"]
     latex = info["harmonics"]["latex"]["orbital"]
     rank = [sp.Poly(bf[n][0], _x, _y, _z).total_degree() for n in names]
     row = [str(r) if i == 0 or r != rank[i - 1] else "" for i, r in enumerate(rank)]
-    tbl = [[r"\texttt{" + n + "}", r"$\mathbb{X}" + latex[n] + "$", "$" + to_latex(bf[n][0]) + "$"] for n in names]
-    col = ["tag", "symbol", "expression"]
-    pdf.table(tbl, row, col, "rank", cpos="cllll", long=True, stretch=1.6, caption=caption, hl=_changes(rank))
+    tbl = [[r"$\mathbb{X}" + latex[n] + "$", "$" + to_latex(bf[n][0]) + "$"] for n in names]
+    col = ["symbol", "expression"]
+    pdf.table(tbl, row, col, "rank", cpos="cll", long=True, stretch=1.6, caption=caption, hl=_changes(rank))
 
 
 # ==================================================
