@@ -58,7 +58,7 @@ Orthonormal cluster basis of the Oh (48 points) and D6h (24 points) root cluster
 ## cluster_vector_basis.pkl
 
 Orthonormal vector cluster basis (internal rank s=1) of the Oh (144) and D6h (72) clusters, for polar (q) and axial (g)
-internal basis.
+internal basis. It is an intermediate basis to create `bond_cluster_basis.pkl`.
 
 ```{literalinclude} ../../multipiegen/util/util_cluster_vector_basis.py
 :language: text

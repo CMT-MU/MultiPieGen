@@ -18,6 +18,11 @@ Orthonormal bond cluster basis of Oh and D6h clusters.
   then the kept vectors are orthonormalized exactly.
 - Symmetry. f_key transforms as a scalar function on the cluster, (g f)(i) = s f(j) with R_g^{-1} p_i = p_j,
   s = 1 (x = q) or det R_g (x = g), with the representation matrices of its irrep.
+- Key. As the anti-symmetric bond cluster SAMB (bond_a) of MultiPie, a kept multiplet is a scalar function on the
+  bonds keyed by PGMultipoleType(X, l, Gamma, n, p, s=0, k=0, x), with all components in the value. (X, l, Gamma, n)
+  are those of the vector cluster basis. p (add_multiplicity) numbers the multiplets with the same
+  (X, l, Gamma, n) [components] in the Gram-Schmidt order (k = -1, 0, 1) as 1, 2, ..., and is -1 if there is only
+  one. x is the internal type of the vector cluster basis (MultiPie has x = q only).
 
 - bond_cluster_basis (dict)::
 
@@ -26,14 +31,18 @@ Orthonormal bond cluster basis of Oh and D6h clusters.
         "vector0": [X0,Y0,Z0] (sympy),
         "cluster": cluster points, ndarray (N,3) (sympy),
         "bond": bond vectors b_i, ndarray (N,3) (sympy),
-        "basis": { "q/g": { key: ndarray (N,) (sympy) } },  # orthonormal.
-        "dropped": { "q/g": [key] },  # linearly dependent on lower ones (or vanishing).
+        "basis": { PGMultipoleType: ndarray (dim, N) (sympy) },  # orthonormal, rows = components.
+        "source": { PGMultipoleType: (X, rank, irrep, multiplicity, k, x) },  # multiplet of the vector cluster basis.
+        "dropped": [ (X, rank, irrep, multiplicity, component, k, x) ],  # vector cluster basis keys (+ x) dropped.
     } }
 
-    key = (X, rank, irrep, multiplicity [1-based], component [0-based], k) of the vector cluster basis.
+    PGMultipoleType = (X, l, Gamma, n, p, s, k, x): type Q/G, rank, irrep, multiplicity (-1: unique),
+        add_multiplicity (-1: unique), s = 0, k = 0, internal type of the vector cluster basis q/g.
+    The vector cluster basis (cluster_vector_basis.pkl) is an intermediate basis to create this one.
 """
 
 import numpy as np
+from multipie import PGMultipoleType
 import sympy as sp
 from multipie.util.util import str_to_sympy
 from multipie.util.util_binary import BinaryManager
@@ -114,6 +123,40 @@ def _numerical_selection(vectors_num):
 
 
 # ==================================================
+def _multipole_keys(basis, x):
+    """
+    Re-key orthonormal vectors by PGMultipoleType (s=0, k=0) with add_multiplicity, as MultiPie bond_a.
+
+    Args:
+        basis (dict): { (X, rank, irrep, mul, comp, k): ndarray (N,) } in the order of the vector cluster basis.
+        x (str): internal type, "q" or "g".
+
+    Returns:
+        - (dict) -- { PGMultipoleType: ndarray (dim, N) } with components stacked.
+        - (dict) -- { PGMultipoleType: (X, rank, irrep, mul, k, x) } source multiplet of the vector cluster basis.
+    """
+    multiplets = {}
+    for (X, rank, irrep, mul, comp, k), v in basis.items():
+        multiplets.setdefault((X, rank, irrep, mul, k), {})[comp] = v
+    count = {}
+    for X, rank, irrep, mul, k in multiplets:
+        count[(X, rank, irrep, mul)] = count.get((X, rank, irrep, mul), 0) + 1
+    p_of, seen = {}, {}
+    for X, rank, irrep, mul, k in sorted(multiplets, key=lambda m: (m[:4], m[4])):  # Gram-Schmidt order k = -1, 0, 1.
+        if count[(X, rank, irrep, mul)] > 1:
+            p_of[(X, rank, irrep, mul, k)] = seen[(X, rank, irrep, mul)] = seen.get((X, rank, irrep, mul), 0) + 1
+        else:
+            p_of[(X, rank, irrep, mul, k)] = -1
+    res, source = {}, {}
+    for m, comps in multiplets.items():  # order of the vector cluster basis.
+        X, rank, irrep, mul, k = m
+        key = PGMultipoleType(X, rank, irrep, mul, p_of[m], 0, 0, x)
+        res[key] = np.array([comps[c] for c in sorted(comps)], dtype=object)
+        source[key] = (*m, x)
+    return res, source
+
+
+# ==================================================
 def create_bond_cluster_basis(group, verbose=False):
     """
     Create orthonormal bond cluster basis from the vector cluster basis.
@@ -123,14 +166,14 @@ def create_bond_cluster_basis(group, verbose=False):
         verbose (bool, optional): print the separation of kept and dropped vectors ?
 
     Returns:
-        - (dict) -- { "site0", "vector0", "cluster", "bond", "basis", "dropped" }.
+        - (dict) -- { "site0", "vector0", "cluster", "bond", "basis", "source", "dropped" }.
     """
     vb = load_cluster_vector_basis()[group]
     vector0, bond = create_bond(group)
     N = len(bond)
     bond_f = np.array(bond, dtype=float)
 
-    basis, dropped = {}, {}
+    basis, source, dropped = {}, {}, []
     for x in ["q", "g"]:
         vbx = vb["basis"][x]
         num = {k: np.einsum("ia,ia->i", np.array(v, dtype=float), bond_f) for k, v in vbx.items()}
@@ -143,8 +186,10 @@ def create_bond_cluster_basis(group, verbose=False):
             k: np.array([_simplify(sum(a * b for a, b in zip(vbx[k][i], bond[i]))) for i in range(N)], dtype=object) for k in kept
         }
         b = _gram_schmidt_exact(vec)
-        basis[x] = {k: b[k] for k in vbx if k in b}
-        dropped[x] = [k for k in vbx if k in drop]
+        bx, sx = _multipole_keys({k: b[k] for k in vbx if k in b}, x)
+        basis.update(bx)
+        source.update(sx)
+        dropped += [(*k, x) for k in vbx if k in drop]
 
     return {
         "site0": vb["site0"],
@@ -152,6 +197,7 @@ def create_bond_cluster_basis(group, verbose=False):
         "cluster": vb["cluster"],
         "bond": bond,
         "basis": basis,
+        "source": source,
         "dropped": dropped,
     }
 
@@ -177,7 +223,7 @@ def load_bond_cluster_basis():
     Load bond cluster basis.
 
     Returns:
-        - (dict) -- { "Oh/D6h": { "site0", "vector0", "cluster", "bond", "basis", "dropped" } }.
+        - (dict) -- { "Oh/D6h": { "site0", "vector0", "cluster", "bond", "basis", "source", "dropped" } }.
     """
     return dict(BinaryManager(bond_cluster_basis_file, topdir=__bin_dir__))
 
@@ -185,7 +231,7 @@ def load_bond_cluster_basis():
 # ==================================================
 def bond_cluster_basis_matrix(data, x, numeric=True):
     """
-    Basis as matrix, each row is a basis vector.
+    Basis as matrix, each row is a component of a basis multiplet.
 
     Args:
         data (dict): bond cluster basis of a group, load_bond_cluster_basis()[group].
@@ -194,10 +240,16 @@ def bond_cluster_basis_matrix(data, x, numeric=True):
 
     Returns:
         - (ndarray) -- basis matrix (N, N).
-        - (list) -- key of each row.
+        - (list) -- (PGMultipoleType, component index) of each row.
     """
-    keys = list(data["basis"][x].keys())
-    m = np.array([data["basis"][x][k] for k in keys], dtype=object)
+    rows, keys = [], []
+    for key, v in data["basis"].items():
+        if key.x != x:
+            continue
+        for c, vc in enumerate(v):
+            rows.append(vc)
+            keys.append((key, c))
+    m = np.array(rows, dtype=object)
     if numeric:
         m = m.astype(float)
     return m, keys

@@ -8,6 +8,9 @@
 """
 Orthonormal vector cluster basis (internal rank s=1) of Oh and D6h clusters.
 
+This is an intermediate basis to create the bond cluster basis (util_bond_cluster_basis); whether it is used
+by itself is not decided yet.
+
 Same procedure as the cluster basis (util_cluster_basis), for the vector harmonics. s=0 is the cluster basis itself.
 
 - Vector harmonics. For a real top harmonics T (top key (l, irrep, mul, comp), u-matrix U) and k = -1, 0, 1,
