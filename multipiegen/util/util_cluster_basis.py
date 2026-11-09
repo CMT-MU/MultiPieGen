@@ -175,7 +175,7 @@ def create_cluster_basis(group):
 # ==================================================
 def save_cluster_basis(groups=("Oh", "D6h"), verbose=True):
     """
-    Create and save cluster basis as binary (multipiegen/binary_data/cluster_basis.pkl).
+    Create and save cluster basis as binary (multipiegen/binary/cluster_basis.pkl).
 
     Args:
         groups (tuple, optional): groups.

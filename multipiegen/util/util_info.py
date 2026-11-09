@@ -6,7 +6,7 @@
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 """
-Load overall information of groups (multipiegen/binary_data/info.pkl).
+Load overall information of groups (multipiegen/binary/info.pkl).
 
 The binary is created by multipiegen/create_binary/create_info.py.
 """

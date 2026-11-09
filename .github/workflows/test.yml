@@ -35,7 +35,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           python -m pip install -e . pytest pytest-xdist
-      # editable install: the binary data (multipiegen/binary_data) is not packaged, so the tests use the source tree.
+      # editable install: the binary data (multipiegen/binary) is not packaged, so the tests use the source tree.
       # -n auto: run the tests in parallel, one process per CPU core.
       - name: Test
         env:

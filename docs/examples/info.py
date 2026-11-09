@@ -10,7 +10,7 @@ Example: overall information of groups (info.pkl).
 
     python docs/examples/info.py
 
-The binary data (multipiegen/binary_data/info.pkl) is created by
+The binary data (multipiegen/binary/info.pkl) is created by
 multipiegen/create_binary/create_info.py (python -m multipiegen.create_binary.create_info).
 """
 
