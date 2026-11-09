@@ -25,16 +25,16 @@ the binaries and the PDFs to a separate repository.
 pip install -e ".[dev]"
 ```
 
-The binary data (`multipiegen/binary_data`) and the PDFs (`multipiegen/pdf`) are kept in the repository but are
+The binary data (`multipiegen/binary`) and the PDFs (`multipiegen/pdf`) are kept in the repository but are
 **not** included in the package; the package contains only `.py` files. Use the editable install above to load the binaries.
 
 ## Generated data
 
 | output | content | generate | load |
 |---|---|---|---|
-| `binary_data/info.pkl` | overall information: group id/tag/name, character alias and compatibility relation, root cluster, orbital basis and basis functions, response tensor | `python -m multipiegen.create_binary.create_info` | `multipiegen.util.util_info.load_info()` |
-| `binary_data/cluster_basis.pkl` | orthonormal cluster basis of the Oh (48) and D6h (24) clusters | `python -m multipiegen.create_binary.create_cluster_basis` | `multipiegen.util.util_cluster_basis.load_cluster_basis()` |
-| `binary_data/group.pkl` | data of all PG (47), SG, MPG and MSG: symmetry operations, product table, mapping to the Oh/D6h cluster, character, Wyckoff site and bond, active multipoles | `python -m multipiegen.create_binary.create_group` | `multipiegen.util.util_group.load_group()` |
+| `binary/info.pkl` | overall information: group id/tag/name, character alias and compatibility relation, root cluster, orbital basis and basis functions, response tensor | `python -m multipiegen.create_binary.create_info` | `multipiegen.util.util_info.load_info()` |
+| `binary/cluster_basis.pkl` | orthonormal cluster basis of the Oh (48) and D6h (24) clusters | `python -m multipiegen.create_binary.create_cluster_basis` | `multipiegen.util.util_cluster_basis.load_cluster_basis()` |
+| `binary/group.pkl` | data of all PG (47), SG, MPG and MSG: symmetry operations, product table, mapping to the Oh/D6h cluster, character, Wyckoff site and bond, active multipoles | `python -m multipiegen.create_binary.create_group` | `multipiegen.util.util_group.load_group()` |
 | `pdf/PG/{no}-{tag}/harmonics.{tex,pdf}` | harmonics of all 47 point groups, with polar and axial symbols side by side | `python -m multipiegen.create_pdf.create_pdf_harmonics` | |
 | `pdf/info/*.{tex,pdf}` | overall information: lists of PG, SG, MPG and MSG, compatibility relation with orbitals, active multipoles | `python -m multipiegen.create_pdf.create_pdf_info` | |
 
@@ -60,7 +60,7 @@ multipiegen/        package
   util/             utilities (multipolar harmonics, cluster basis, harmonics symbols, info, group, symmetry operation)
   create_binary/    code that generates the binary data
   create_pdf/       code that generates the PDFs
-  binary_data/      generated binary data (info.pkl, cluster_basis.pkl, group.pkl) [not packaged]
+  binary/           generated binary data (info.pkl, cluster_basis.pkl, group.pkl) [not packaged]
   pdf/              generated LaTeX and PDF (PG/032-Oh/harmonics.pdf, info/PG.pdf, ...) [not packaged]
 docs/
   examples/         sample code for each feature
@@ -77,7 +77,7 @@ others/             non-package material
 
 1. **Data tables**: the scripts in `others/creation/` write their output next to themselves. Copy the result into
    `multipiegen/data/` when it is final.
-2. **Binary data**: run the modules in `multipiegen/create_binary/`. Each writes to `multipiegen/binary_data/`.
+2. **Binary data**: run the modules in `multipiegen/create_binary/`. Each writes to `multipiegen/binary/`.
 3. **PDFs**: run the modules in `multipiegen/create_pdf/`. Each writes to `multipiegen/pdf/`.
 4. **Check**: run `pytest`. The tests also check that the saved binaries agree with the current data tables.
 

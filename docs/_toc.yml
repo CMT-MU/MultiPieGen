@@ -7,7 +7,7 @@ parts:
 - caption: Documentation
   chapters:
     - file: src/data
-    - file: src/binary_data
+    - file: src/binary
     - file: src/harmonics_pdf
     - file: src/info_pdf
     - file: src/examples

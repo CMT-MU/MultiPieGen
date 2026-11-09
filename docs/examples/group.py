@@ -10,7 +10,7 @@ Example: data of each group (group.pkl).
 
     python docs/examples/group.py
 
-The binary data (multipiegen/binary_data/group.pkl) is created by
+The binary data (multipiegen/binary/group.pkl) is created by
 multipiegen/create_binary/create_group.py (python -m multipiegen.create_binary.create_group).
 """
 

@@ -7,7 +7,7 @@
 
 """
 Create binary data of overall information of groups (info.pkl).
-    - multipiegen/binary_data/info.pkl (load by multipiegen.util.util_info.load_info).
+    - multipiegen/binary/info.pkl (load by multipiegen.util.util_info.load_info).
 
 Based on MultiPie's others/tools/create_binary/create_data_info.py, with
     - data_definition replaced by data_basis (orbital tags renamed), data_harmonics, data_root_cluster,
@@ -322,7 +322,7 @@ def create_info(verbose=True):
 # ==================================================
 def save_info():
     """
-    Create and save info.pkl in multipiegen/binary_data.
+    Create and save info.pkl in multipiegen/binary.
     """
     create_info().save_binary(info_file)
 

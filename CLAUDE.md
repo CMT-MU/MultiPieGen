@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 MultiPieGen (`multipiegen`, repo `hiro-k-phys/mp-newbasis`) is the generator for the new multipole basis of
 [MultiPie](https://github.com/CMT-MU/MultiPie). It holds data tables (`multipiegen/data`) and code that turns them into
-binaries (`multipiegen/binary_data/*.pkl`) and PDFs (`multipiegen/pdf/`). Those outputs are delivered elsewhere (part of
+binaries (`multipiegen/binary/*.pkl`) and PDFs (`multipiegen/pdf/`). Those outputs are delivered elsewhere (part of
 the binaries to MultiPie, the rest plus the PDFs to a separate repo), so keep binaries in MultiPie's `BinaryManager`
 format and readable without code from this repo. The installed `multipie` package (`Group`, `str_to_sympy`,
 `BinaryManager`, `PDFviaLaTeX`) is a runtime dependency; a sibling checkout `../MultiPie` (tools in
@@ -21,16 +21,16 @@ pytest -n auto -p no:cacheprovider tests             # what CI runs
 pytest tests/test_info.py::test_tesseral_tag         # single test
 black -l 130 <files>                                 # formatter (line length 130, from pyproject)
 
-python -m multipiegen.create_binary.create_info            # -> binary_data/info.pkl
-python -m multipiegen.create_binary.create_cluster_basis   # -> binary_data/cluster_basis.pkl
-python -m multipiegen.create_binary.create_group           # -> binary_data/group.pkl (parallel ~35 s; --serial ~2 min)
+python -m multipiegen.create_binary.create_info            # -> binary/info.pkl
+python -m multipiegen.create_binary.create_cluster_basis   # -> binary/cluster_basis.pkl
+python -m multipiegen.create_binary.create_group           # -> binary/group.pkl (parallel ~35 s; --serial ~2 min)
 python -m multipiegen.create_pdf.create_pdf_harmonics      # -> pdf/PG/{no}-{tag}/harmonics.{tex,pdf} (needs ptex2pdf, ~1.5 min)
 python -m multipiegen.create_pdf.create_pdf_info          # -> pdf/info/{PG,SG,MPG,MSG,compatibility_relation,active_multipole}.{tex,pdf} (~30 s)
 python docs/examples/<name>.py                             # runnable samples
 make -C docs build                                         # Jupyter Book -> docs/_build/html (gh-pages on main)
 ```
 
-`binary_data/` and `pdf/` are in git but deliberately **not packaged** (`include-package-data = false`; the wheel is
+`binary/` and `pdf/` are in git but deliberately **not packaged** (`include-package-data = false`; the wheel is
 `.py` only). Anything that loads a binary needs the editable install, and CI uses `pip install -e .`. Do not re-add
 package-data.
 

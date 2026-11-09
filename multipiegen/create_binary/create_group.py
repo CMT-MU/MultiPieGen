@@ -772,7 +772,7 @@ def create_group(ids=None, serial=False, verbose=True):
 # ==================================================
 def save_group(serial=False):
     """
-    Create and save group.pkl in multipiegen/binary_data.
+    Create and save group.pkl in multipiegen/binary.
 
     Args:
         serial (bool, optional): run in a single process ?

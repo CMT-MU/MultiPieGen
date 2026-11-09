@@ -40,13 +40,13 @@ dev = [
 [tool.setuptools.dynamic]
 version = {attr = "multipiegen.__version__"}
 
-# binary_data (generated binaries) and pdf (generated PDFs) are kept in the repository but not packaged.
+# binary (generated binaries) and pdf (generated PDFs) are kept in the repository but not packaged.
 [tool.setuptools]
 include-package-data = false
 
 [tool.setuptools.packages.find]
 include = ["multipiegen", "multipiegen.*"]
-exclude = ["build", "tests", "multipiegen.binary_data*", "multipiegen.pdf*"]
+exclude = ["build", "tests", "multipiegen.binary*", "multipiegen.pdf*"]
 
 [tool.black]
 line-length = 130
