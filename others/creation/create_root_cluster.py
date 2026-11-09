@@ -104,7 +104,7 @@ def create_file():
     oh_cluster = create_oh_cluster()
 
     site0 = "[1,5,6]"
-    vector0 = "[5,1,6]"
+    vector0 = "[6,1,5]"
     site0h = str((np.array(Rci) @ str_to_sympy(site0)).tolist()).replace(" ", "")
     vector0h = str((np.array(Rci) @ str_to_sympy(vector0)).tolist()).replace(" ", "")
 
