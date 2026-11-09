@@ -12,6 +12,15 @@ Load the orthonormal Oh/D6h cluster basis, inspect keys and values, expand a fun
 :start-at: import numpy as np
 ```
 
+## cluster_vector_basis.py
+
+Load the orthonormal vector cluster basis (internal rank s=1, polar/axial internal basis) of the Oh/D6h clusters, expand a vector field.
+
+```{literalinclude} ../examples/cluster_vector_basis.py
+:language: python
+:start-at: import numpy as np
+```
+
 ## group.py
 
 Data of each group (group.pkl): symmetry operations, product, mapping to Oh/D6h, character, Wyckoff site and bond, active multipoles.
