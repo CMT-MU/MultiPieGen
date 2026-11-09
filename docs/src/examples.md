@@ -30,6 +30,15 @@ Representation matrices of a point group from the harmonics up to rank 11, and t
 :start-at: from multipiegen.util.util_representation_matrix import (
 ```
 
+## response_tensor.py
+
+Response tensors (rank 0-4) of a magnetic point group in terms of active multipoles (response_tensor.pkl).
+
+```{literalinclude} ../examples/response_tensor.py
+:language: python
+:start-at: from multipiegen.util.util_group import load_group
+```
+
 ## harmonics_symbol.py
 
 Polar and axial symbols of harmonics side by side for all 47 point groups (as in the harmonics PDF).

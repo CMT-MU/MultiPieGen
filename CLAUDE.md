@@ -24,8 +24,9 @@ black -l 130 <files>                                 # formatter (line length 13
 python -m multipiegen.create_binary.create_info            # -> binary/info.pkl
 python -m multipiegen.create_binary.create_cluster_basis   # -> binary/cluster_basis.pkl
 python -m multipiegen.create_binary.create_group           # -> binary/group.pkl (parallel ~35 s; --serial ~2 min)
+python -m multipiegen.create_binary.create_response_tensor # -> binary/response_tensor.pkl (needs group.pkl; ~20 s)
 python -m multipiegen.create_pdf.create_pdf_harmonics      # -> pdf/PG/{no}-{tag}/harmonics.{tex,pdf} (needs ptex2pdf, ~1.5 min)
-python -m multipiegen.create_pdf.create_pdf_group         # -> pdf/{PG,SG,MPG,MSG}/*/{character_table,symmetry_operation,wyckoff_*,representation_matrix}.{tex,pdf} (~4350 PDFs, parallel; --group/--kind to limit)
+python -m multipiegen.create_pdf.create_pdf_group         # -> pdf/{PG,SG,MPG,MSG}/*/{character_table,symmetry_operation,wyckoff_*,representation_matrix,response_tensor_X}.{tex,pdf} (~4900 PDFs, parallel; --group/--kind to limit)
 python -m multipiegen.create_pdf.create_pdf_info          # -> pdf/info/{PG,SG,MPG,MSG,compatibility_relation,active_multipole}.{tex,pdf} (~30 s)
 python docs/examples/<name>.py                             # runnable samples
 make -C docs build                                         # Jupyter Book -> docs/_build/html (gh-pages on main)
