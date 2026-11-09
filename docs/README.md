@@ -34,9 +34,10 @@ The binary data (`multipiegen/binary`) and the PDFs (`multipiegen/pdf`) are kept
 |---|---|---|---|
 | `binary/info.pkl` | overall information: group id/tag/name, character alias and compatibility relation, root cluster, orbital basis and basis functions, response tensor | `python -m multipiegen.create_binary.create_info` | `multipiegen.util.util_info.load_info()` |
 | `binary/cluster_basis.pkl` | orthonormal cluster basis of the Oh (48) and D6h (24) clusters | `python -m multipiegen.create_binary.create_cluster_basis` | `multipiegen.util.util_cluster_basis.load_cluster_basis()` |
+| `binary/response_tensor.pkl` | response tensors (rank 0-4, Q/G/T/M) of all MPG in terms of active multipoles | `python -m multipiegen.create_binary.create_response_tensor` | `multipiegen.util.util_response_tensor.load_response_tensor()` |
 | `binary/group.pkl` | data of all PG (47), SG, MPG and MSG: symmetry operations, product table, mapping to the Oh/D6h cluster, character, Wyckoff site and bond, active multipoles | `python -m multipiegen.create_binary.create_group` | `multipiegen.util.util_group.load_group()` |
 | `pdf/PG/{no}-{tag}/harmonics.{tex,pdf}` | harmonics of all 47 point groups, with polar and axial symbols side by side | `python -m multipiegen.create_pdf.create_pdf_harmonics` | |
-| `pdf/{PG,SG,MPG,MSG}/*/{character_table,symmetry_operation,wyckoff_site,wyckoff_bond}.{tex,pdf}` | each group: character table (PG), symmetry operations, Wyckoff site and bond (PG, SG) | `python -m multipiegen.create_pdf.create_pdf_group` | |
+| `pdf/{PG,SG,MPG,MSG}/*/{character_table,symmetry_operation,wyckoff_site,wyckoff_bond,representation_matrix,response_tensor_X}.{tex,pdf}` | each group: character table and representation matrices (PG), symmetry operations, Wyckoff site and bond (PG, SG), response tensors (MPG) | `python -m multipiegen.create_pdf.create_pdf_group` | |
 | `pdf/info/*.{tex,pdf}` | overall information: lists of PG, SG, MPG and MSG, compatibility relation with orbitals, active multipoles | `python -m multipiegen.create_pdf.create_pdf_info` | |
 
 The binaries use the format of MultiPie's `BinaryManager` (gzip-compressed pickle with a header). `str(load_info())`
@@ -58,10 +59,10 @@ See [examples](examples/README.md) for runnable sample code for each feature.
 ```
 multipiegen/        package
   data/             data tables (see data/readme.md)
-  util/             utilities (multipolar harmonics, cluster basis, harmonics symbols, info, group, symmetry operation)
+  util/             utilities (multipolar harmonics, cluster basis, harmonics symbols, info, group, symmetry operation, representation matrix, response tensor)
   create_binary/    code that generates the binary data
   create_pdf/       code that generates the PDFs
-  binary/           generated binary data (info.pkl, cluster_basis.pkl, group.pkl) [not packaged]
+  binary/           generated binary data (info.pkl, cluster_basis.pkl, group.pkl, response_tensor.pkl) [not packaged]
   pdf/              generated LaTeX and PDF (PG/032-Oh/harmonics.pdf, info/PG.pdf, ...) [not packaged]
 docs/
   examples/         sample code for each feature

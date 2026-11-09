@@ -7,6 +7,7 @@ Run each as `python -m <module>`.
 .. autosummary::
     multipiegen.create_binary.create_info
     multipiegen.create_binary.create_group
+    multipiegen.create_binary.create_response_tensor
     multipiegen.create_binary.create_cluster_basis
     multipiegen.create_pdf.create_pdf_harmonics
     multipiegen.create_pdf.create_pdf_info

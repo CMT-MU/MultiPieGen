@@ -10,4 +10,6 @@ Loaders of the binary data and reusable logic (`multipiegen.util`).
     multipiegen.util.util_harmonics_symbol
     multipiegen.util.util_multipolar_harmonics
     multipiegen.util.util_symmetry_operation
+    multipiegen.util.util_representation_matrix
+    multipiegen.util.util_response_tensor
 ```

@@ -8,6 +8,7 @@ MultiPieGen. `str(data)` shows the description below.
 |---|---|---|
 | `info.pkl` | `python -m multipiegen.create_binary.create_info` | `multipiegen.util.util_info.load_info()` |
 | `group.pkl` | `python -m multipiegen.create_binary.create_group` | `multipiegen.util.util_group.load_group()` |
+| `response_tensor.pkl` | `python -m multipiegen.create_binary.create_response_tensor` | `multipiegen.util.util_response_tensor.load_response_tensor()` |
 | `cluster_basis.pkl` | `python -m multipiegen.create_binary.create_cluster_basis` | `multipiegen.util.util_cluster_basis.load_cluster_basis()` |
 
 ## info.pkl
@@ -29,6 +30,16 @@ Data of all point groups (PG, 47), space groups (SG, 230), magnetic point groups
 ```{literalinclude} ../../multipiegen/create_binary/create_group.py
 :language: text
 :start-after: h_group = """
+:end-before: '"""'
+```
+
+## response_tensor.pkl
+
+Response tensors (rank 0-4) of all magnetic point groups (157) in terms of active multipoles, keyed by MPG id.
+
+```{literalinclude} ../../multipiegen/create_binary/create_response_tensor.py
+:language: text
+:start-after: h_response_tensor = """
 :end-before: '"""'
 ```
 
