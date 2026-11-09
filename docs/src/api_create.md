@@ -10,6 +10,7 @@ Run each as `python -m <module>`.
     multipiegen.create_binary.create_response_tensor
     multipiegen.create_binary.create_cluster_basis
     multipiegen.create_binary.create_cluster_vector_basis
+    multipiegen.create_binary.create_bond_cluster_basis
     multipiegen.create_pdf.create_pdf_harmonics
     multipiegen.create_pdf.create_pdf_info
     multipiegen.create_pdf.create_pdf_group

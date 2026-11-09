@@ -35,6 +35,7 @@ The binary data (`multipiegen/binary`) and the PDFs (`multipiegen/pdf`) are kept
 | `binary/info.pkl` | overall information: group id/tag/name, character alias and compatibility relation, root cluster, orbital basis and basis functions, response tensor | `python -m multipiegen.create_binary.create_info` | `multipiegen.util.util_info.load_info()` |
 | `binary/cluster_basis.pkl` | orthonormal cluster basis of the Oh (48) and D6h (24) clusters | `python -m multipiegen.create_binary.create_cluster_basis` | `multipiegen.util.util_cluster_basis.load_cluster_basis()` |
 | `binary/cluster_vector_basis.pkl` | orthonormal vector cluster basis (internal rank s=1, polar q / axial g internal basis) of the Oh (144) and D6h (72) clusters | `python -m multipiegen.create_binary.create_cluster_vector_basis` | `multipiegen.util.util_cluster_vector_basis.load_cluster_vector_basis()` |
+| `binary/bond_cluster_basis.pkl` | orthonormal bond cluster basis of the Oh (48) and D6h (24) clusters, from the vector cluster basis and the bond vectors (vector0) | `python -m multipiegen.create_binary.create_bond_cluster_basis` | `multipiegen.util.util_bond_cluster_basis.load_bond_cluster_basis()` |
 | `binary/response_tensor.pkl` | response tensors (rank 0-4, Q/G/T/M) of all MPG in terms of active multipoles | `python -m multipiegen.create_binary.create_response_tensor` | `multipiegen.util.util_response_tensor.load_response_tensor()` |
 | `binary/group.pkl` | data of all PG (47), SG, MPG and MSG: symmetry operations, product table, mapping to the Oh/D6h cluster, character, Wyckoff site and bond, active multipoles | `python -m multipiegen.create_binary.create_group` | `multipiegen.util.util_group.load_group()` |
 | `pdf/PG/{no}-{tag}/harmonics.{tex,pdf}` | harmonics of all 47 point groups, with polar and axial symbols side by side | `python -m multipiegen.create_pdf.create_pdf_harmonics` | |
@@ -60,10 +61,10 @@ See [examples](examples/README.md) for runnable sample code for each feature.
 ```
 multipiegen/        package
   data/             data tables (see data/readme.md)
-  util/             utilities (multipolar harmonics, cluster basis, vector cluster basis, harmonics symbols, info, group, symmetry operation, representation matrix, response tensor)
+  util/             utilities (multipolar harmonics, cluster basis, vector cluster basis, bond cluster basis, harmonics symbols, info, group, symmetry operation, representation matrix, response tensor)
   create_binary/    code that generates the binary data
   create_pdf/       code that generates the PDFs
-  binary/           generated binary data (info.pkl, cluster_basis.pkl, cluster_vector_basis.pkl, group.pkl, response_tensor.pkl) [not packaged]
+  binary/           generated binary data (info.pkl, cluster_basis.pkl, cluster_vector_basis.pkl, bond_cluster_basis.pkl, group.pkl, response_tensor.pkl) [not packaged]
   pdf/              generated LaTeX and PDF (PG/032-Oh/harmonics.pdf, info/PG.pdf, ...) [not packaged]
 docs/
   examples/         sample code for each feature

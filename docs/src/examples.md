@@ -21,6 +21,15 @@ Load the orthonormal vector cluster basis (internal rank s=1, polar/axial intern
 :start-at: import numpy as np
 ```
 
+## bond_cluster_basis.py
+
+Load the orthonormal bond cluster basis of the Oh/D6h clusters (vector cluster basis contracted with the bond vectors and re-orthonormalized).
+
+```{literalinclude} ../examples/bond_cluster_basis.py
+:language: python
+:start-at: from the vector cluster basis (cluster_vector_basis.pkl).
+```
+
 ## group.py
 
 Data of each group (group.pkl): symmetry operations, product, mapping to Oh/D6h, character, Wyckoff site and bond, active multipoles.
