@@ -26,10 +26,12 @@ python -m multipiegen.create_binary.create_cluster_scalar_basis   # -> binary/cl
 python -m multipiegen.create_binary.create_cluster_vector_basis  # -> binary/cluster_vector_basis.pkl (s=1, intermediate for cluster_bond_basis, ~1 min)
 python -m multipiegen.create_binary.create_cluster_bond_basis    # -> binary/cluster_bond_basis.pkl (needs cluster_vector_basis.pkl)
 python -m multipiegen.create_binary.create_multipolar_harmonics  # -> binary/multipolar_harmonics.pkl (s=1..3, l<=3, 47 PGs, parallel ~2.5 min)
+python -m multipiegen.create_binary.create_atomic_multipole        # -> binary/atomic_multipole.pkl (l<=7, s=0,1, LMs/JML/LM; ~10 s)
+python -m multipiegen.create_binary.create_atomic_multipole_group  # -> binary/atomic_multipole_group.pkl (47 PGs, needs atomic_multipole.pkl; ~30 s)
 python -m multipiegen.create_binary.create_group           # -> binary/group.pkl (parallel ~35 s; --serial ~2 min)
 python -m multipiegen.create_binary.create_response_tensor # -> binary/response_tensor.pkl (needs group.pkl; ~20 s)
 python -m multipiegen.create_pdf.create_pdf_harmonics      # -> pdf/PG/{no}-{tag}/harmonics.{tex,pdf} (needs ptex2pdf, ~1.5 min)
-python -m multipiegen.create_pdf.create_pdf_group         # -> pdf/{PG,SG,MPG,MSG}/*/{character_table,symmetry_operation,wyckoff_*,representation_matrix,multipolar_harmonics_s*_*,response_tensor_X}.{tex,pdf} (~5200 PDFs, parallel; --group/--kind to limit)
+python -m multipiegen.create_pdf.create_pdf_group         # -> pdf/{PG,SG,MPG,MSG}/*/{character_table,symmetry_operation,wyckoff_*,representation_matrix,multipolar_harmonics_s*_*,atomic_multipole_*,response_tensor_X}.{tex,pdf} (~5200 PDFs, parallel; --group/--kind to limit)
 python -m multipiegen.create_pdf.create_pdf_info          # -> pdf/info/{PG,SG,MPG,MSG,compatibility_relation,active_multipole}.{tex,pdf} (~30 s)
 python docs/examples/<name>.py                             # runnable samples
 make -C docs build                                         # Jupyter Book -> docs/_build/html (gh-pages on main)

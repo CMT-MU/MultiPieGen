@@ -66,6 +66,15 @@ Multipolar harmonics (internal rank s=1,2,3, rank l<=3) with polar/axial interna
 :start-at: import collections
 ```
 
+## atomic_multipole.py
+
+Atomic multipole matrices (atomic_multipole.pkl) and atomic multipole SAMB of a point group in the jml/lgs/lg basis, keyed by PGMultipoleType (atomic_multipole_group.pkl).
+
+```{literalinclude} ../examples/atomic_multipole.py
+:language: python
+:start-at: import numpy as np
+```
+
 ## harmonics_symbol.py
 
 Polar and axial symbols of harmonics side by side for all 47 point groups (as in the harmonics PDF).

@@ -37,6 +37,9 @@ label = {
     "multipolar_harmonics_s2_g": "s=2 g",
     "multipolar_harmonics_s3_q": "s=3 q",
     "multipolar_harmonics_s3_g": "s=3 g",
+    "atomic_multipole_lg": "atomic lg",
+    "atomic_multipole_lgs": "atomic lgs",
+    "atomic_multipole_jml": "atomic jml",
     "response_tensor_G": "G tensor",
     "response_tensor_T": "T tensor",
     "response_tensor_M": "M tensor",
@@ -52,7 +55,9 @@ in `multipiegen/pdf/PG/{no}-{tag}/`.
   of the polar harmonics), created by `python -m multipiegen.create_pdf.create_pdf_harmonics`.
 - s=1..3 q/g: multipolar harmonics (internal rank s, polar q or axial g internal basis, rank <= 3) of
   multipolar_harmonics.pkl.
-- character, symmetry operation, Wyckoff site and bond, representation matrix, multipolar harmonics: created by `python -m multipiegen.create_pdf.create_pdf_group`.
+- atomic lg/lgs/jml: atomic multipole SAMB (matrices in the bra-ket blocks of s, p, d, f orbitals) in the
+  (L,gamma), (L,gamma,s), and (J,M;L) basis, of atomic_multipole_group.pkl.
+- character, symmetry operation, Wyckoff site and bond, representation matrix, multipolar harmonics, atomic multipole: created by `python -m multipiegen.create_pdf.create_pdf_group`.
 """,
     "SG": """# Space groups
 
