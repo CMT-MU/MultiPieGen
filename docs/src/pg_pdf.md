@@ -1,15 +1,14 @@
 # Point groups
 
-PDFs of all 47 point groups (32 crystallographic point groups, 5 other settings "-1", and 10 complex groups "-c"),
-in `multipiegen/pdf/PG/{no}-{tag}/`.
+All 47 point groups: 32 crystallographic point groups, 5 other settings ("-1"), and 10 complex groups ("-c").
 
 - harmonics: harmonics up to rank 11, with the polar (Q) and axial (G) symbols side by side (the expression is that
-  of the polar harmonics), created by `python -m multipiegen.create_pdf.create_pdf_harmonics`.
-- s=1..3 q/g: multipolar harmonics (internal rank s, polar q or axial g internal basis, rank <= 3) of
-  multipolar_harmonics.pkl.
+  of the polar harmonics).
+- character: character table, polar-axial conversion, and symmetric and anti-symmetric products.
+- symmetry operation, Wyckoff site and bond, representation matrix: as the names say.
+- s=1..3 q/g: multipolar harmonics (rank <= 3) with internal rank s and polar (q) or axial (g) internal basis.
 - atomic lg/lgs/jml: atomic multipole SAMB (matrices in the bra-ket blocks of s, p, d, f orbitals) in the
-  (L,gamma), (L,gamma,s), and (J,M;L) basis, of atomic_multipole_group.pkl.
-- character, symmetry operation, Wyckoff site and bond, representation matrix, multipolar harmonics, atomic multipole: created by `python -m multipiegen.create_pdf.create_pdf_group`.
+  (L,gamma), (L,gamma,s), and (J,M;L) basis.
 
 
 ## Triclinic
