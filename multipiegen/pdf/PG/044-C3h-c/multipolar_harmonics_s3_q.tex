@@ -1,0 +1,902 @@
+\documentclass[fleqn,8pt]{jsarticle}
+
+%%% package
+
+\usepackage[usenames]{color}
+\usepackage{amsmath}
+\usepackage{breqn}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{braket}
+\usepackage{multirow}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{caption}
+
+%%% layout setting
+
+\paperwidth=210truemm
+\paperheight=297truemm
+\textwidth=189.2truemm
+\textheight=269.2truemm
+\oddsidemargin=-15truemm
+\topmargin=-15truemm
+\footskip=7truemm
+
+%%% fixed
+
+\hoffset=0truemm
+\voffset=0truemm
+\headheight=0truemm
+\headsep=0truemm
+\marginparsep=0truemm
+\marginparwidth=0truemm
+
+%%% main text
+
+\begin{document}
+
+\setcounter{MaxMatrixCols}{32}
+
+\renewcommand{\tablename}{Table~}
+\renewcommand{\figurename}{Figure~}
+\begin{center}
+\LARGE
+PG No. 44\quad$C_{\rm 3h}(c)$\quad$\bar{6}$\quad[ hexagonal ] (internal polar octupole)
+\end{center}
+
+\noindent * Harmonics for rank 0
+
+\noindent\quad $\vec{\mathbb{Q}}_{0}^{(3,3)}[q](A^{\prime})$
+
+\noindent\quad ** symmetry
+\begin{dmath*}
+1
+\end{dmath*}
+\noindent\quad ** expression
+\begin{dmath*}
+\frac{\sqrt{70} Q_{3c} x \left(x^{2} - 3 y^{2}\right)}{28} + \frac{\sqrt{70} Q_{3s} y \left(3 x^{2} - y^{2}\right)}{28} - \frac{\sqrt{42} Q_{3x} x \left(x^{2} + y^{2} - 4 z^{2}\right)}{28} - \frac{\sqrt{42} Q_{3y} y \left(x^{2} + y^{2} - 4 z^{2}\right)}{28} + \frac{\sqrt{105} Q_{xyz} x y z}{7} - \frac{\sqrt{7} Q_{z}^{\alpha} z \left(3 x^{2} + 3 y^{2} - 2 z^{2}\right)}{14} + \frac{\sqrt{105} Q_{z}^{\beta} z \left(x - y\right) \left(x + y\right)}{14}
+\end{dmath*}
+
+\noindent * Harmonics for rank 1
+
+\noindent\quad $\vec{\mathbb{G}}_{1}^{(3,2)}[q](A^{\prime})$
+
+\noindent\quad ** symmetry
+\begin{dmath*}
+z
+\end{dmath*}
+\noindent\quad ** expression
+\begin{dmath*}
+\frac{3 \sqrt{70} Q_{3c} y \left(3 x^{2} - y^{2}\right)}{56} - \frac{3 \sqrt{70} Q_{3s} x \left(x^{2} - 3 y^{2}\right)}{56} - \frac{\sqrt{42} Q_{3x} y \left(x^{2} + y^{2} - 4 z^{2}\right)}{56} + \frac{\sqrt{42} Q_{3y} x \left(x^{2} + y^{2} - 4 z^{2}\right)}{56} - \frac{\sqrt{105} Q_{xyz} z \left(x - y\right) \left(x + y\right)}{14} + \frac{\sqrt{105} Q_{z}^{\beta} x y z}{7}
+\end{dmath*}
+\noindent\quad $\vec{\mathbb{Q}}_{1}^{(3,1)}[q](E^{\prime(a)})$
+
+\noindent\quad ** symmetry
+\begin{dmath*}
+\frac{\sqrt{2} x}{2} + \frac{\sqrt{2} i y}{2}
+\end{dmath*}
+\noindent\quad ** expression
+\begin{dmath*}
+\frac{3 \sqrt{7} Q_{3c} \left(x - i y\right)^{2}}{28} + \frac{3 \sqrt{7} i Q_{3s} \left(x - i y\right)^{2}}{28} - \frac{\sqrt{105} Q_{3x} \left(3 x^{2} + 2 i x y + y^{2} - 4 z^{2}\right)}{140} - \frac{\sqrt{105} i Q_{3y} \left(x^{2} - 2 i x y + 3 y^{2} - 4 z^{2}\right)}{140} + \frac{\sqrt{42} i Q_{xyz} z \left(x - i y\right)}{14} - \frac{3 \sqrt{70} Q_{z}^{\alpha} z \left(x + i y\right)}{70} + \frac{\sqrt{42} Q_{z}^{\beta} z \left(x - i y\right)}{14}
+\end{dmath*}
+\noindent\quad $\vec{\mathbb{Q}}_{1}^{(3,3)}[q](E^{\prime(a)})$
+
+\noindent\quad ** symmetry
+\begin{dmath*}
+\frac{\sqrt{2} x}{2} + \frac{\sqrt{2} i y}{2}
+\end{dmath*}
+\noindent\quad ** expression
+\begin{dmath*}
+\frac{\sqrt{105} Q_{3c} \left(4 x^{4} + 13 i x^{3} y - 21 x^{2} y^{2} - 3 x^{2} z^{2} - 15 i x y^{3} + 6 i x y z^{2} + 3 y^{4} + 3 y^{2} z^{2}\right)}{168} - \frac{\sqrt{105} i Q_{3s} \left(3 x^{4} + 15 i x^{3} y - 21 x^{2} y^{2} + 3 x^{2} z^{2} - 13 i x y^{3} - 6 i x y z^{2} + 4 y^{4} - 3 y^{2} z^{2}\right)}{168} - \frac{\sqrt{7} Q_{3x} \left(4 x^{4} + 5 i x^{3} y + 3 x^{2} y^{2} - 27 x^{2} z^{2} + 5 i x y^{3} - 30 i x y z^{2} - y^{4} + 3 y^{2} z^{2} + 4 z^{4}\right)}{56} + \frac{\sqrt{7} i Q_{3y} \left(x^{4} + 5 i x^{3} y - 3 x^{2} y^{2} - 3 x^{2} z^{2} + 5 i x y^{3} - 30 i x y z^{2} - 4 y^{4} + 27 y^{2} z^{2} - 4 z^{4}\right)}{56} - \frac{\sqrt{70} i Q_{xyz} z \left(x^{3} + 6 i x^{2} y - 6 x y^{2} + x z^{2} - i y^{3} - i y z^{2}\right)}{28} - \frac{5 \sqrt{42} Q_{z}^{\alpha} z \left(x + i y\right) \left(3 x^{2} + 3 y^{2} - 4 z^{2}\right)}{168} + \frac{\sqrt{70} Q_{z}^{\beta} z \left(5 x^{3} + 9 i x^{2} y - 9 x y^{2} - 2 x z^{2} - 5 i y^{3} + 2 i y z^{2}\right)}{56}
+\end{dmath*}
+\noindent\quad $\vec{\mathbb{Q}}_{1}^{(3,1)}[q](E^{\prime(b)})$
+
+\noindent\quad ** symmetry
+\begin{dmath*}
+\frac{\sqrt{2} x}{2} - \frac{\sqrt{2} i y}{2}
+\end{dmath*}
+\noindent\quad ** expression
+\begin{dmath*}
+\frac{3 \sqrt{7} Q_{3c} \left(x + i y\right)^{2}}{28} - \frac{3 \sqrt{7} i Q_{3s} \left(x + i y\right)^{2}}{28} - \frac{\sqrt{105} Q_{3x} \left(3 x^{2} - 2 i x y + y^{2} - 4 z^{2}\right)}{140} + \frac{\sqrt{105} i Q_{3y} \left(x^{2} + 2 i x y + 3 y^{2} - 4 z^{2}\right)}{140} - \frac{\sqrt{42} i Q_{xyz} z \left(x + i y\right)}{14} - \frac{3 \sqrt{70} Q_{z}^{\alpha} z \left(x - i y\right)}{70} + \frac{\sqrt{42} Q_{z}^{\beta} z \left(x + i y\right)}{14}
+\end{dmath*}
+\noindent\quad $\vec{\mathbb{Q}}_{1}^{(3,3)}[q](E^{\prime(b)})$
+
+\noindent\quad ** symmetry
+\begin{dmath*}
+\frac{\sqrt{2} x}{2} - \frac{\sqrt{2} i y}{2}
+\end{dmath*}
+\noindent\quad ** expression
+\begin{dmath*}
+\frac{\sqrt{105} Q_{3c} \left(4 x^{4} - 13 i x^{3} y - 21 x^{2} y^{2} - 3 x^{2} z^{2} + 15 i x y^{3} - 6 i x y z^{2} + 3 y^{4} + 3 y^{2} z^{2}\right)}{168} + \frac{\sqrt{105} i Q_{3s} \left(3 x^{4} - 15 i x^{3} y - 21 x^{2} y^{2} + 3 x^{2} z^{2} + 13 i x y^{3} + 6 i x y z^{2} + 4 y^{4} - 3 y^{2} z^{2}\right)}{168} - \frac{\sqrt{7} Q_{3x} \left(4 x^{4} - 5 i x^{3} y + 3 x^{2} y^{2} - 27 x^{2} z^{2} - 5 i x y^{3} + 30 i x y z^{2} - y^{4} + 3 y^{2} z^{2} + 4 z^{4}\right)}{56} - \frac{\sqrt{7} i Q_{3y} \left(x^{4} - 5 i x^{3} y - 3 x^{2} y^{2} - 3 x^{2} z^{2} - 5 i x y^{3} + 30 i x y z^{2} - 4 y^{4} + 27 y^{2} z^{2} - 4 z^{4}\right)}{56} + \frac{\sqrt{70} i Q_{xyz} z \left(x^{3} - 6 i x^{2} y - 6 x y^{2} + x z^{2} + i y^{3} + i y z^{2}\right)}{28} - \frac{5 \sqrt{42} Q_{z}^{\alpha} z \left(x - i y\right) \left(3 x^{2} + 3 y^{2} - 4 z^{2}\right)}{168} + \frac{\sqrt{70} Q_{z}^{\beta} z \left(5 x^{3} - 9 i x^{2} y - 9 x y^{2} - 2 x z^{2} + 5 i y^{3} - 2 i y z^{2}\right)}{56}
+\end{dmath*}
+\noindent\quad $\vec{\mathbb{Q}}_{1}^{(3,1)}[q](A^{\prime\prime})$
+
+\noindent\quad ** symmetry
+\begin{dmath*}
+z
+\end{dmath*}
+\noindent\quad ** expression
+\begin{dmath*}
+\frac{2 \sqrt{210} Q_{3x} x z}{35} + \frac{2 \sqrt{210} Q_{3y} y z}{35} + \frac{\sqrt{21} Q_{xyz} x y}{7} - \frac{3 \sqrt{35} Q_{z}^{\alpha} \left(x^{2} + y^{2} - 2 z^{2}\right)}{70} + \frac{\sqrt{21} Q_{z}^{\beta} \left(x - y\right) \left(x + y\right)}{14}
+\end{dmath*}
+\noindent\quad $\vec{\mathbb{Q}}_{1}^{(3,3)}[q](A^{\prime\prime})$
+
+\noindent\quad ** symmetry
+\begin{dmath*}
+z
+\end{dmath*}
+\noindent\quad ** expression
+\begin{dmath*}
+\frac{\sqrt{210} Q_{3c} x z \left(x^{2} - 3 y^{2}\right)}{24} + \frac{\sqrt{210} Q_{3s} y z \left(3 x^{2} - y^{2}\right)}{24} - \frac{5 \sqrt{14} Q_{3x} x z \left(3 x^{2} + 3 y^{2} - 4 z^{2}\right)}{56} - \frac{5 \sqrt{14} Q_{3y} y z \left(3 x^{2} + 3 y^{2} - 4 z^{2}\right)}{56} - \frac{\sqrt{35} Q_{xyz} x y \left(x^{2} + y^{2} - 6 z^{2}\right)}{14} + \frac{\sqrt{21} Q_{z}^{\alpha} \left(3 x^{4} + 6 x^{2} y^{2} - 24 x^{2} z^{2} + 3 y^{4} - 24 y^{2} z^{2} + 8 z^{4}\right)}{84} - \frac{\sqrt{35} Q_{z}^{\beta} \left(x - y\right) \left(x + y\right) \left(x^{2} + y^{2} - 6 z^{2}\right)}{28}
+\end{dmath*}
+\noindent\quad $\vec{\mathbb{G}}_{1}^{(3,2)}[q](E^{\prime\prime(a)})$
+
+\noindent\quad ** symmetry
+\begin{dmath*}
+\frac{\sqrt{2} x}{2} + \frac{\sqrt{2} i y}{2}
+\end{dmath*}
+\noindent\quad ** expression
+\begin{dmath*}
+- \frac{3 \sqrt{35} i Q_{3c} z \left(x - i y\right)^{2}}{56} + \frac{3 \sqrt{35} Q_{3s} z \left(x - i y\right)^{2}}{56} + \frac{\sqrt{21} i Q_{3x} z \left(11 x^{2} + 10 i x y + y^{2} - 4 z^{2}\right)}{56} - \frac{\sqrt{21} Q_{3y} z \left(x^{2} - 10 i x y + 11 y^{2} - 4 z^{2}\right)}{56} + \frac{\sqrt{210} i Q_{xyz} \left(x^{2} y + i x y^{2} - i x z^{2} - y z^{2}\right)}{28} - \frac{3 \sqrt{14} i Q_{z}^{\alpha} \left(x + i y\right) \left(x^{2} + y^{2} - 4 z^{2}\right)}{56} + \frac{\sqrt{210} i Q_{z}^{\beta} \left(x^{3} + i x^{2} y - x y^{2} - 2 x z^{2} - i y^{3} + 2 i y z^{2}\right)}{56}
+\end{dmath*}
+\noindent\quad $\vec{\mathbb{G}}_{1}^{(3,2)}[q](E^{\prime\prime(b)})$
+
+\noindent\quad ** symmetry
+\begin{dmath*}
+\frac{\sqrt{2} x}{2} - \frac{\sqrt{2} i y}{2}
+\end{dmath*}
+\noindent\quad ** expression
+\begin{dmath*}
+\frac{3 \sqrt{35} i Q_{3c} z \left(x + i y\right)^{2}}{56} + \frac{3 \sqrt{35} Q_{3s} z \left(x + i y\right)^{2}}{56} - \frac{\sqrt{21} i Q_{3x} z \left(11 x^{2} - 10 i x y + y^{2} - 4 z^{2}\right)}{56} - \frac{\sqrt{21} Q_{3y} z \left(x^{2} + 10 i x y + 11 y^{2} - 4 z^{2}\right)}{56} - \frac{\sqrt{210} i Q_{xyz} \left(x^{2} y - i x y^{2} + i x z^{2} - y z^{2}\right)}{28} + \frac{3 \sqrt{14} i Q_{z}^{\alpha} \left(x - i y\right) \left(x^{2} + y^{2} - 4 z^{2}\right)}{56} - \frac{\sqrt{210} i Q_{z}^{\beta} \left(x^{3} - i x^{2} y - x y^{2} - 2 x z^{2} + i y^{3} - 2 i y z^{2}\right)}{56}
+\end{dmath*}
+
+\noindent * Harmonics for rank 2
+
+\noindent\quad $\vec{\mathbb{Q}}_{2}^{(3,-1)}[q](A^{\prime})$
+
+\noindent\quad ** symmetry
+\begin{dmath*}
+- \frac{x^{2}}{2} - \frac{y^{2}}{2} + z^{2}
+\end{dmath*}
+\noindent\quad ** expression
+\begin{dmath*}
+\frac{\sqrt{14} Q_{3x} x}{7} + \frac{\sqrt{14} Q_{3y} y}{7} + \frac{\sqrt{21} Q_{z}^{\alpha} z}{7}
+\end{dmath*}
+\noindent\quad $\vec{\mathbb{Q}}_{2}^{(3,1)}[q](A^{\prime})$
+
+\noindent\quad ** symmetry
+\begin{dmath*}
+- \frac{x^{2}}{2} - \frac{y^{2}}{2} + z^{2}
+\end{dmath*}
+\noindent\quad ** expression
+\begin{dmath*}
+- \frac{5 \sqrt{210} Q_{3c} x \left(x^{2} - 3 y^{2}\right)}{168} - \frac{5 \sqrt{210} Q_{3s} y \left(3 x^{2} - y^{2}\right)}{168} - \frac{3 \sqrt{14} Q_{3x} x \left(x^{2} + y^{2} - 4 z^{2}\right)}{56} - \frac{3 \sqrt{14} Q_{3y} y \left(x^{2} + y^{2} - 4 z^{2}\right)}{56} - \frac{\sqrt{21} Q_{z}^{\alpha} z \left(3 x^{2} + 3 y^{2} - 2 z^{2}\right)}{21}
+\end{dmath*}
+\noindent\quad $\vec{\mathbb{Q}}_{2}^{(3,3)}[q](A^{\prime})$
+
+\noindent\quad ** symmetry
+\begin{dmath*}
+- \frac{x^{2}}{2} - \frac{y^{2}}{2} + z^{2}
+\end{dmath*}
+\noindent\quad ** expression
+\begin{dmath*}
+- \frac{\sqrt{1155} Q_{3c} x \left(x^{2} - 3 y^{2}\right) \left(x^{2} + y^{2} - 8 z^{2}\right)}{264} - \frac{\sqrt{1155} Q_{3s} y \left(3 x^{2} - y^{2}\right) \left(x^{2} + y^{2} - 8 z^{2}\right)}{264} + \frac{15 \sqrt{77} Q_{3x} x \left(x^{4} + 2 x^{2} y^{2} - 12 x^{2} z^{2} + y^{4} - 12 y^{2} z^{2} + 8 z^{4}\right)}{616} + \frac{15 \sqrt{77} Q_{3y} y \left(x^{4} + 2 x^{2} y^{2} - 12 x^{2} z^{2} + y^{4} - 12 y^{2} z^{2} + 8 z^{4}\right)}{616} - \frac{3 \sqrt{770} Q_{xyz} x y z \left(x^{2} + y^{2} - 2 z^{2}\right)}{44} + \frac{5 \sqrt{462} Q_{z}^{\alpha} z \left(15 x^{4} + 30 x^{2} y^{2} - 40 x^{2} z^{2} + 15 y^{4} - 40 y^{2} z^{2} + 8 z^{4}\right)}{1848} - \frac{3 \sqrt{770} Q_{z}^{\beta} z \left(x - y\right) \left(x + y\right) \left(x^{2} + y^{2} - 2 z^{2}\right)}{88}
+\end{dmath*}
+\noindent\quad $\vec{\mathbb{Q}}_{2}^{(3,-1)}[q](E^{\prime(a)})$
+
+\noindent\quad ** symmetry
+\begin{dmath*}
+\frac{\sqrt{6} x^{2}}{4} - \frac{\sqrt{6} i x y}{2} - \frac{\sqrt{6} y^{2}}{4}
+\end{dmath*}
+\noindent\quad ** expression
+\begin{dmath*}
+\frac{\sqrt{35} Q_{3c} \left(x + i y\right)}{14} - \frac{\sqrt{35} i Q_{3s} \left(x + i y\right)}{14} - \frac{\sqrt{21} Q_{3x} \left(x - i y\right)}{42} + \frac{\sqrt{21} i Q_{3y} \left(x - i y\right)}{42} - \frac{\sqrt{210} i Q_{xyz} z}{42} + \frac{\sqrt{210} Q_{z}^{\beta} z}{42}
+\end{dmath*}
+\noindent\quad $\vec{\mathbb{Q}}_{2}^{(3,1)}[q](E^{\prime(a)})$
+
+\noindent\quad ** symmetry
+\begin{dmath*}
+\frac{\sqrt{6} x^{2}}{4} - \frac{\sqrt{6} i x y}{2} - \frac{\sqrt{6} y^{2}}{4}
+\end{dmath*}
+\noindent\quad ** expression
+\begin{dmath*}
+\frac{\sqrt{35} Q_{3c} \left(x + i y\right) \left(x^{2} + y^{2} - 4 z^{2}\right)}{56} - \frac{\sqrt{35} i Q_{3s} \left(x + i y\right) \left(x^{2} + y^{2} - 4 z^{2}\right)}{56} - \frac{\sqrt{21} Q_{3x} \left(x - i y\right) \left(11 x^{2} - 10 i x y + y^{2} - 24 z^{2}\right)}{168} + \frac{\sqrt{21} i Q_{3y} \left(x - i y\right) \left(x^{2} + 10 i x y + 11 y^{2} - 24 z^{2}\right)}{168} - \frac{\sqrt{210} i Q_{xyz} z \left(3 x^{2} + 3 y^{2} - 2 z^{2}\right)}{84} - \frac{5 \sqrt{14} Q_{z}^{\alpha} z \left(x - i y\right)^{2}}{28} + \frac{\sqrt{210} Q_{z}^{\beta} z \left(3 x^{2} + 3 y^{2} - 2 z^{2}\right)}{84}
+\end{dmath*}
+\noindent\quad $\vec{\mathbb{Q}}_{2}^{(3,3)}[q](E^{\prime(a)})$
+
+\noindent\quad ** symmetry
+\begin{dmath*}
+\frac{\sqrt{6} x^{2}}{4} - \frac{\sqrt{6} i x y}{2} - \frac{\sqrt{6} y^{2}}{4}
+\end{dmath*}
+\noindent\quad ** expression
+\begin{dmath*}
+\frac{\sqrt{770} Q_{3c} \left(11 x^{5} - 52 i x^{4} y - 104 x^{3} y^{2} - 6 x^{3} z^{2} + 106 i x^{2} y^{3} - 6 i x^{2} y z^{2} + 53 x y^{4} - 6 x y^{2} z^{2} + 4 x z^{4} - 10 i y^{5} - 6 i y^{3} z^{2} + 4 i y z^{4}\right)}{1232} + \frac{\sqrt{770} i Q_{3s} \left(10 x^{5} - 53 i x^{4} y - 106 x^{3} y^{2} + 6 x^{3} z^{2} + 104 i x^{2} y^{3} + 6 i x^{2} y z^{2} + 52 x y^{4} + 6 x y^{2} z^{2} - 4 x z^{4} - 11 i y^{5} + 6 i y^{3} z^{2} - 4 i y z^{4}\right)}{1232} - \frac{5 \sqrt{462} Q_{3x} \left(x - i y\right) \left(5 x^{4} - 7 i x^{3} y + 3 x^{2} y^{2} - 46 x^{2} z^{2} - 7 i x y^{3} + 56 i x y z^{2} - 2 y^{4} + 10 y^{2} z^{2} + 12 z^{4}\right)}{3696} - \frac{5 \sqrt{462} i Q_{3y} \left(x - i y\right) \left(2 x^{4} - 7 i x^{3} y - 3 x^{2} y^{2} - 10 x^{2} z^{2} - 7 i x y^{3} + 56 i x y z^{2} - 5 y^{4} + 46 y^{2} z^{2} - 12 z^{4}\right)}{3696} + \frac{\sqrt{1155} i Q_{xyz} z \left(12 x^{4} - 63 i x^{3} y - 102 x^{2} y^{2} + 10 x^{2} z^{2} + 63 i x y^{3} + 12 y^{4} + 10 y^{2} z^{2} - 2 z^{4}\right)}{924} - \frac{5 \sqrt{77} Q_{z}^{\alpha} z \left(x - i y\right)^{2} \left(x^{2} + y^{2} - 2 z^{2}\right)}{88} + \frac{\sqrt{1155} Q_{z}^{\beta} z \left(39 x^{4} - 126 i x^{3} y - 174 x^{2} y^{2} - 20 x^{2} z^{2} + 126 i x y^{3} + 39 y^{4} - 20 y^{2} z^{2} + 4 z^{4}\right)}{1848}
+\end{dmath*}
+\noindent\quad $\vec{\mathbb{G}}_{2}^{(3,0)}[q](E^{\prime(a)})$
+
+\noindent\quad ** symmetry
+\begin{dmath*}
+\frac{\sqrt{6} x z}{2} + \frac{\sqrt{6} i y z}{2}
+\end{dmath*}
+\noindent\quad ** expression
+\begin{dmath*}
+\frac{\sqrt{210} i Q_{3c} \left(x - i y\right)^{2}}{56} - \frac{\sqrt{210} Q_{3s} \left(x - i y\right)^{2}}{56} + \frac{\sqrt{14} i Q_{3x} \left(5 x^{2} + 6 i x y - y^{2} - 4 z^{2}\right)}{56} + \frac{\sqrt{14} Q_{3y} \left(x^{2} + 6 i x y - 5 y^{2} + 4 z^{2}\right)}{56} + \frac{\sqrt{21} i Q_{z}^{\alpha} z \left(x + i y\right)}{7}
+\end{dmath*}
+\noindent\quad $\vec{\mathbb{G}}_{2}^{(3,2)}[q](E^{\prime(a)})$
+
+\noindent\quad ** symmetry
+\begin{dmath*}
+\frac{\sqrt{6} x z}{2} + \frac{\sqrt{6} i y z}{2}
+\end{dmath*}
+\noindent\quad ** expression
+\begin{dmath*}
+- \frac{\sqrt{105} i Q_{3c} \left(2 x^{4} + 17 i x^{3} y - 21 x^{2} y^{2} + 9 x^{2} z^{2} - 11 i x y^{3} - 18 i x y z^{2} + 5 y^{4} - 9 y^{2} z^{2}\right)}{168} - \frac{\sqrt{105} Q_{3s} \left(5 x^{4} + 11 i x^{3} y - 21 x^{2} y^{2} - 9 x^{2} z^{2} - 17 i x y^{3} + 18 i x y z^{2} + 2 y^{4} + 9 y^{2} z^{2}\right)}{168} - \frac{5 \sqrt{7} i Q_{3x} \left(2 x^{4} + i x^{3} y + 3 x^{2} y^{2} - 15 x^{2} z^{2} + i x y^{3} - 6 i x y z^{2} + y^{4} - 9 y^{2} z^{2} + 4 z^{4}\right)}{168} + \frac{5 \sqrt{7} Q_{3y} \left(x^{4} - i x^{3} y + 3 x^{2} y^{2} - 9 x^{2} z^{2} - i x y^{3} + 6 i x y z^{2} + 2 y^{4} - 15 y^{2} z^{2} + 4 z^{4}\right)}{168} - \frac{\sqrt{70} Q_{xyz} z \left(x^{3} - x z^{2} - i y^{3} + i y z^{2}\right)}{12} - \frac{5 \sqrt{42} i Q_{z}^{\alpha} z \left(x + i y\right) \left(3 x^{2} + 3 y^{2} - 4 z^{2}\right)}{168} + \frac{\sqrt{70} i Q_{z}^{\beta} z \left(x^{3} - 3 i x^{2} y + 3 x y^{2} - 2 x z^{2} - i y^{3} + 2 i y z^{2}\right)}{24}
+\end{dmath*}
+\noindent\quad $\vec{\mathbb{Q}}_{2}^{(3,-1)}[q](E^{\prime(b)})$
+
+\noindent\quad ** symmetry
+\begin{dmath*}
+\frac{\sqrt{6} x^{2}}{4} + \frac{\sqrt{6} i x y}{2} - \frac{\sqrt{6} y^{2}}{4}
+\end{dmath*}
+\noindent\quad ** expression
+\begin{dmath*}
+\frac{\sqrt{35} Q_{3c} \left(x - i y\right)}{14} + \frac{\sqrt{35} i Q_{3s} \left(x - i y\right)}{14} - \frac{\sqrt{21} Q_{3x} \left(x + i y\right)}{42} - \frac{\sqrt{21} i Q_{3y} \left(x + i y\right)}{42} + \frac{\sqrt{210} i Q_{xyz} z}{42} + \frac{\sqrt{210} Q_{z}^{\beta} z}{42}
+\end{dmath*}
+\noindent\quad $\vec{\mathbb{Q}}_{2}^{(3,1)}[q](E^{\prime(b)})$
+
+\noindent\quad ** symmetry
+\begin{dmath*}
+\frac{\sqrt{6} x^{2}}{4} + \frac{\sqrt{6} i x y}{2} - \frac{\sqrt{6} y^{2}}{4}
+\end{dmath*}
+\noindent\quad ** expression
+\begin{dmath*}
+\frac{\sqrt{35} Q_{3c} \left(x - i y\right) \left(x^{2} + y^{2} - 4 z^{2}\right)}{56} + \frac{\sqrt{35} i Q_{3s} \left(x - i y\right) \left(x^{2} + y^{2} - 4 z^{2}\right)}{56} - \frac{\sqrt{21} Q_{3x} \left(x + i y\right) \left(11 x^{2} + 10 i x y + y^{2} - 24 z^{2}\right)}{168} - \frac{\sqrt{21} i Q_{3y} \left(x + i y\right) \left(x^{2} - 10 i x y + 11 y^{2} - 24 z^{2}\right)}{168} + \frac{\sqrt{210} i Q_{xyz} z \left(3 x^{2} + 3 y^{2} - 2 z^{2}\right)}{84} - \frac{5 \sqrt{14} Q_{z}^{\alpha} z \left(x + i y\right)^{2}}{28} + \frac{\sqrt{210} Q_{z}^{\beta} z \left(3 x^{2} + 3 y^{2} - 2 z^{2}\right)}{84}
+\end{dmath*}
+\noindent\quad $\vec{\mathbb{Q}}_{2}^{(3,3)}[q](E^{\prime(b)})$
+
+\noindent\quad ** symmetry
+\begin{dmath*}
+\frac{\sqrt{6} x^{2}}{4} + \frac{\sqrt{6} i x y}{2} - \frac{\sqrt{6} y^{2}}{4}
+\end{dmath*}
+\noindent\quad ** expression
+\begin{dmath*}
+\frac{\sqrt{770} Q_{3c} \left(11 x^{5} + 52 i x^{4} y - 104 x^{3} y^{2} - 6 x^{3} z^{2} - 106 i x^{2} y^{3} + 6 i x^{2} y z^{2} + 53 x y^{4} - 6 x y^{2} z^{2} + 4 x z^{4} + 10 i y^{5} + 6 i y^{3} z^{2} - 4 i y z^{4}\right)}{1232} - \frac{\sqrt{770} i Q_{3s} \left(10 x^{5} + 53 i x^{4} y - 106 x^{3} y^{2} + 6 x^{3} z^{2} - 104 i x^{2} y^{3} - 6 i x^{2} y z^{2} + 52 x y^{4} + 6 x y^{2} z^{2} - 4 x z^{4} + 11 i y^{5} - 6 i y^{3} z^{2} + 4 i y z^{4}\right)}{1232} - \frac{5 \sqrt{462} Q_{3x} \left(x + i y\right) \left(5 x^{4} + 7 i x^{3} y + 3 x^{2} y^{2} - 46 x^{2} z^{2} + 7 i x y^{3} - 56 i x y z^{2} - 2 y^{4} + 10 y^{2} z^{2} + 12 z^{4}\right)}{3696} + \frac{5 \sqrt{462} i Q_{3y} \left(x + i y\right) \left(2 x^{4} + 7 i x^{3} y - 3 x^{2} y^{2} - 10 x^{2} z^{2} + 7 i x y^{3} - 56 i x y z^{2} - 5 y^{4} + 46 y^{2} z^{2} - 12 z^{4}\right)}{3696} - \frac{\sqrt{1155} i Q_{xyz} z \left(12 x^{4} + 63 i x^{3} y - 102 x^{2} y^{2} + 10 x^{2} z^{2} - 63 i x y^{3} + 12 y^{4} + 10 y^{2} z^{2} - 2 z^{4}\right)}{924} - \frac{5 \sqrt{77} Q_{z}^{\alpha} z \left(x + i y\right)^{2} \left(x^{2} + y^{2} - 2 z^{2}\right)}{88} + \frac{\sqrt{1155} Q_{z}^{\beta} z \left(39 x^{4} + 126 i x^{3} y - 174 x^{2} y^{2} - 20 x^{2} z^{2} - 126 i x y^{3} + 39 y^{4} - 20 y^{2} z^{2} + 4 z^{4}\right)}{1848}
+\end{dmath*}
+\noindent\quad $\vec{\mathbb{G}}_{2}^{(3,0)}[q](E^{\prime(b)})$
+
+\noindent\quad ** symmetry
+\begin{dmath*}
+\frac{\sqrt{6} x z}{2} - \frac{\sqrt{6} i y z}{2}
+\end{dmath*}
+\noindent\quad ** expression
+\begin{dmath*}
+- \frac{\sqrt{210} i Q_{3c} \left(x + i y\right)^{2}}{56} - \frac{\sqrt{210} Q_{3s} \left(x + i y\right)^{2}}{56} - \frac{\sqrt{14} i Q_{3x} \left(5 x^{2} - 6 i x y - y^{2} - 4 z^{2}\right)}{56} + \frac{\sqrt{14} Q_{3y} \left(x^{2} - 6 i x y - 5 y^{2} + 4 z^{2}\right)}{56} - \frac{\sqrt{21} i Q_{z}^{\alpha} z \left(x - i y\right)}{7}
+\end{dmath*}
+\noindent\quad $\vec{\mathbb{G}}_{2}^{(3,2)}[q](E^{\prime(b)})$
+
+\noindent\quad ** symmetry
+\begin{dmath*}
+\frac{\sqrt{6} x z}{2} - \frac{\sqrt{6} i y z}{2}
+\end{dmath*}
+\noindent\quad ** expression
+\begin{dmath*}
+\frac{\sqrt{105} i Q_{3c} \left(2 x^{4} - 17 i x^{3} y - 21 x^{2} y^{2} + 9 x^{2} z^{2} + 11 i x y^{3} + 18 i x y z^{2} + 5 y^{4} - 9 y^{2} z^{2}\right)}{168} - \frac{\sqrt{105} Q_{3s} \left(5 x^{4} - 11 i x^{3} y - 21 x^{2} y^{2} - 9 x^{2} z^{2} + 17 i x y^{3} - 18 i x y z^{2} + 2 y^{4} + 9 y^{2} z^{2}\right)}{168} + \frac{5 \sqrt{7} i Q_{3x} \left(2 x^{4} - i x^{3} y + 3 x^{2} y^{2} - 15 x^{2} z^{2} - i x y^{3} + 6 i x y z^{2} + y^{4} - 9 y^{2} z^{2} + 4 z^{4}\right)}{168} + \frac{5 \sqrt{7} Q_{3y} \left(x^{4} + i x^{3} y + 3 x^{2} y^{2} - 9 x^{2} z^{2} + i x y^{3} - 6 i x y z^{2} + 2 y^{4} - 15 y^{2} z^{2} + 4 z^{4}\right)}{168} - \frac{\sqrt{70} Q_{xyz} z \left(x^{3} - x z^{2} + i y^{3} - i y z^{2}\right)}{12} + \frac{5 \sqrt{42} i Q_{z}^{\alpha} z \left(x - i y\right) \left(3 x^{2} + 3 y^{2} - 4 z^{2}\right)}{168} - \frac{\sqrt{70} i Q_{z}^{\beta} z \left(x^{3} + 3 i x^{2} y + 3 x y^{2} - 2 x z^{2} + i y^{3} - 2 i y z^{2}\right)}{24}
+\end{dmath*}
+\noindent\quad $\vec{\mathbb{G}}_{2}^{(3,0)}[q](A^{\prime\prime})$
+
+\noindent\quad ** symmetry
+\begin{dmath*}
+- \frac{x^{2}}{2} - \frac{y^{2}}{2} + z^{2}
+\end{dmath*}
+\noindent\quad ** expression
+\begin{dmath*}
+\frac{\sqrt{21} Q_{3x} y z}{7} - \frac{\sqrt{21} Q_{3y} x z}{7} - \frac{\sqrt{210} Q_{xyz} \left(x - y\right) \left(x + y\right)}{28} + \frac{\sqrt{210} Q_{z}^{\beta} x y}{14}
+\end{dmath*}
+\noindent\quad $\vec{\mathbb{G}}_{2}^{(3,2)}[q](A^{\prime\prime})$
+
+\noindent\quad ** symmetry
+\begin{dmath*}
+- \frac{x^{2}}{2} - \frac{y^{2}}{2} + z^{2}
+\end{dmath*}
+\noindent\quad ** expression
+\begin{dmath*}
+\frac{\sqrt{70} Q_{3c} y z \left(3 x^{2} - y^{2}\right)}{8} - \frac{\sqrt{70} Q_{3s} x z \left(x^{2} - 3 y^{2}\right)}{8} - \frac{5 \sqrt{42} Q_{3x} y z \left(3 x^{2} + 3 y^{2} - 4 z^{2}\right)}{168} + \frac{5 \sqrt{42} Q_{3y} x z \left(3 x^{2} + 3 y^{2} - 4 z^{2}\right)}{168} + \frac{\sqrt{105} Q_{xyz} \left(x - y\right) \left(x + y\right) \left(x^{2} + y^{2} - 6 z^{2}\right)}{42} - \frac{\sqrt{105} Q_{z}^{\beta} x y \left(x^{2} + y^{2} - 6 z^{2}\right)}{21}
+\end{dmath*}
+\noindent\quad $\vec{\mathbb{Q}}_{2}^{(3,-1)}[q](E^{\prime\prime(a)})$
+
+\noindent\quad ** symmetry
+\begin{dmath*}
+\frac{\sqrt{6} x z}{2} + \frac{\sqrt{6} i y z}{2}
+\end{dmath*}
+\noindent\quad ** expression
+\begin{dmath*}
+\frac{2 \sqrt{21} Q_{3x} z}{21} + \frac{2 \sqrt{21} i Q_{3y} z}{21} + \frac{\sqrt{210} i Q_{xyz} \left(x - i y\right)}{42} - \frac{\sqrt{14} Q_{z}^{\alpha} \left(x + i y\right)}{14} + \frac{\sqrt{210} Q_{z}^{\beta} \left(x - i y\right)}{42}
+\end{dmath*}
+\noindent\quad $\vec{\mathbb{Q}}_{2}^{(3,1)}[q](E^{\prime\prime(a)})$
+
+\noindent\quad ** symmetry
+\begin{dmath*}
+\frac{\sqrt{6} x z}{2} + \frac{\sqrt{6} i y z}{2}
+\end{dmath*}
+\noindent\quad ** expression
+\begin{dmath*}
+\frac{5 \sqrt{35} Q_{3c} z \left(x - i y\right)^{2}}{56} + \frac{5 \sqrt{35} i Q_{3s} z \left(x - i y\right)^{2}}{56} + \frac{\sqrt{21} Q_{3x} z \left(9 x^{2} + 30 i x y - 21 y^{2} + 4 z^{2}\right)}{168} - \frac{\sqrt{21} i Q_{3y} z \left(21 x^{2} + 30 i x y - 9 y^{2} - 4 z^{2}\right)}{168} - \frac{\sqrt{210} i Q_{xyz} \left(2 x^{3} + 3 i x^{2} y - 3 x y^{2} - 3 x z^{2} - 2 i y^{3} + 3 i y z^{2}\right)}{84} - \frac{\sqrt{14} Q_{z}^{\alpha} \left(x + i y\right) \left(x^{2} + y^{2} - 4 z^{2}\right)}{56} + \frac{\sqrt{210} Q_{z}^{\beta} \left(x^{3} + 9 i x^{2} y - 9 x y^{2} + 6 x z^{2} - i y^{3} - 6 i y z^{2}\right)}{168}
+\end{dmath*}
+\noindent\quad $\vec{\mathbb{Q}}_{2}^{(3,3)}[q](E^{\prime\prime(a)})$
+
+\noindent\quad ** symmetry
+\begin{dmath*}
+\frac{\sqrt{6} x z}{2} + \frac{\sqrt{6} i y z}{2}
+\end{dmath*}
+\noindent\quad ** expression
+\begin{dmath*}
+\frac{\sqrt{770} Q_{3c} z \left(2 x^{4} + 5 i x^{3} y - 9 x^{2} y^{2} - x^{2} z^{2} - 7 i x y^{3} + 2 i x y z^{2} + y^{4} + y^{2} z^{2}\right)}{88} - \frac{\sqrt{770} i Q_{3s} z \left(x^{4} + 7 i x^{3} y - 9 x^{2} y^{2} + x^{2} z^{2} - 5 i x y^{3} - 2 i x y z^{2} + 2 y^{4} - y^{2} z^{2}\right)}{88} - \frac{5 \sqrt{462} Q_{3x} z \left(18 x^{4} + 21 i x^{3} y + 15 x^{2} y^{2} - 41 x^{2} z^{2} + 21 i x y^{3} - 42 i x y z^{2} - 3 y^{4} + y^{2} z^{2} + 4 z^{4}\right)}{1848} + \frac{5 \sqrt{462} i Q_{3y} z \left(3 x^{4} + 21 i x^{3} y - 15 x^{2} y^{2} - x^{2} z^{2} + 21 i x y^{3} - 42 i x y z^{2} - 18 y^{4} + 41 y^{2} z^{2} - 4 z^{4}\right)}{1848} + \frac{\sqrt{1155} i Q_{xyz} \left(x^{5} + 6 i x^{4} y - 5 x^{3} y^{2} - 5 x^{3} z^{2} + 5 i x^{2} y^{3} - 51 i x^{2} y z^{2} - 6 x y^{4} + 51 x y^{2} z^{2} - 6 x z^{4} - i y^{5} + 5 i y^{3} z^{2} + 6 i y z^{4}\right)}{462} + \frac{5 \sqrt{77} Q_{z}^{\alpha} \left(x + i y\right) \left(x^{4} + 2 x^{2} y^{2} - 12 x^{2} z^{2} + y^{4} - 12 y^{2} z^{2} + 8 z^{4}\right)}{308} - \frac{\sqrt{1155} Q_{z}^{\beta} \left(5 x^{5} + 9 i x^{4} y - 4 x^{3} y^{2} - 46 x^{3} z^{2} + 4 i x^{2} y^{3} - 66 i x^{2} y z^{2} - 9 x y^{4} + 66 x y^{2} z^{2} + 12 x z^{4} - 5 i y^{5} + 46 i y^{3} z^{2} - 12 i y z^{4}\right)}{924}
+\end{dmath*}
+\noindent\quad $\vec{\mathbb{G}}_{2}^{(3,0)}[q](E^{\prime\prime(a)})$
+
+\noindent\quad ** symmetry
+\begin{dmath*}
+\frac{\sqrt{6} x^{2}}{4} - \frac{\sqrt{6} i x y}{2} - \frac{\sqrt{6} y^{2}}{4}
+\end{dmath*}
+\noindent\quad ** expression
+\begin{dmath*}
+\frac{\sqrt{210} i Q_{3c} z \left(x + i y\right)}{28} + \frac{\sqrt{210} Q_{3s} z \left(x + i y\right)}{28} - \frac{3 \sqrt{14} i Q_{3x} z \left(x - i y\right)}{28} - \frac{3 \sqrt{14} Q_{3y} z \left(x - i y\right)}{28} - \frac{\sqrt{35} Q_{xyz} \left(x^{2} + y^{2} - 2 z^{2}\right)}{28} + \frac{\sqrt{21} i Q_{z}^{\alpha} \left(x - i y\right)^{2}}{28} - \frac{\sqrt{35} i Q_{z}^{\beta} \left(x^{2} + y^{2} - 2 z^{2}\right)}{28}
+\end{dmath*}
+\noindent\quad $\vec{\mathbb{G}}_{2}^{(3,2)}[q](E^{\prime\prime(a)})$
+
+\noindent\quad ** symmetry
+\begin{dmath*}
+\frac{\sqrt{6} x^{2}}{4} - \frac{\sqrt{6} i x y}{2} - \frac{\sqrt{6} y^{2}}{4}
+\end{dmath*}
+\noindent\quad ** expression
+\begin{dmath*}
+\frac{\sqrt{105} i Q_{3c} z \left(x + i y\right) \left(3 x^{2} + 3 y^{2} - 4 z^{2}\right)}{168} + \frac{\sqrt{105} Q_{3s} z \left(x + i y\right) \left(3 x^{2} + 3 y^{2} - 4 z^{2}\right)}{168} - \frac{5 \sqrt{7} i Q_{3x} z \left(x - i y\right) \left(13 x^{2} - 14 i x y - y^{2} - 8 z^{2}\right)}{168} + \frac{5 \sqrt{7} Q_{3y} z \left(x - i y\right) \left(x^{2} - 14 i x y - 13 y^{2} + 8 z^{2}\right)}{168} + \frac{\sqrt{70} Q_{xyz} \left(x^{4} - 7 i x^{3} y - 12 x^{2} y^{2} + 6 x^{2} z^{2} + 7 i x y^{3} + y^{4} + 6 y^{2} z^{2} - 2 z^{4}\right)}{84} + \frac{5 \sqrt{42} i Q_{z}^{\alpha} \left(x - i y\right)^{2} \left(x^{2} + y^{2} - 6 z^{2}\right)}{168} - \frac{\sqrt{70} i Q_{z}^{\beta} \left(5 x^{4} - 14 i x^{3} y - 18 x^{2} y^{2} - 12 x^{2} z^{2} + 14 i x y^{3} + 5 y^{4} - 12 y^{2} z^{2} + 4 z^{4}\right)}{168}
+\end{dmath*}
+\noindent\quad $\vec{\mathbb{Q}}_{2}^{(3,-1)}[q](E^{\prime\prime(b)})$
+
+\noindent\quad ** symmetry
+\begin{dmath*}
+\frac{\sqrt{6} x z}{2} - \frac{\sqrt{6} i y z}{2}
+\end{dmath*}
+\noindent\quad ** expression
+\begin{dmath*}
+\frac{2 \sqrt{21} Q_{3x} z}{21} - \frac{2 \sqrt{21} i Q_{3y} z}{21} - \frac{\sqrt{210} i Q_{xyz} \left(x + i y\right)}{42} - \frac{\sqrt{14} Q_{z}^{\alpha} \left(x - i y\right)}{14} + \frac{\sqrt{210} Q_{z}^{\beta} \left(x + i y\right)}{42}
+\end{dmath*}
+\noindent\quad $\vec{\mathbb{Q}}_{2}^{(3,1)}[q](E^{\prime\prime(b)})$
+
+\noindent\quad ** symmetry
+\begin{dmath*}
+\frac{\sqrt{6} x z}{2} - \frac{\sqrt{6} i y z}{2}
+\end{dmath*}
+\noindent\quad ** expression
+\begin{dmath*}
+\frac{5 \sqrt{35} Q_{3c} z \left(x + i y\right)^{2}}{56} - \frac{5 \sqrt{35} i Q_{3s} z \left(x + i y\right)^{2}}{56} + \frac{\sqrt{21} Q_{3x} z \left(9 x^{2} - 30 i x y - 21 y^{2} + 4 z^{2}\right)}{168} + \frac{\sqrt{21} i Q_{3y} z \left(21 x^{2} - 30 i x y - 9 y^{2} - 4 z^{2}\right)}{168} + \frac{\sqrt{210} i Q_{xyz} \left(2 x^{3} - 3 i x^{2} y - 3 x y^{2} - 3 x z^{2} + 2 i y^{3} - 3 i y z^{2}\right)}{84} - \frac{\sqrt{14} Q_{z}^{\alpha} \left(x - i y\right) \left(x^{2} + y^{2} - 4 z^{2}\right)}{56} + \frac{\sqrt{210} Q_{z}^{\beta} \left(x^{3} - 9 i x^{2} y - 9 x y^{2} + 6 x z^{2} + i y^{3} + 6 i y z^{2}\right)}{168}
+\end{dmath*}
+\noindent\quad $\vec{\mathbb{Q}}_{2}^{(3,3)}[q](E^{\prime\prime(b)})$
+
+\noindent\quad ** symmetry
+\begin{dmath*}
+\frac{\sqrt{6} x z}{2} - \frac{\sqrt{6} i y z}{2}
+\end{dmath*}
+\noindent\quad ** expression
+\begin{dmath*}
+\frac{\sqrt{770} Q_{3c} z \left(2 x^{4} - 5 i x^{3} y - 9 x^{2} y^{2} - x^{2} z^{2} + 7 i x y^{3} - 2 i x y z^{2} + y^{4} + y^{2} z^{2}\right)}{88} + \frac{\sqrt{770} i Q_{3s} z \left(x^{4} - 7 i x^{3} y - 9 x^{2} y^{2} + x^{2} z^{2} + 5 i x y^{3} + 2 i x y z^{2} + 2 y^{4} - y^{2} z^{2}\right)}{88} - \frac{5 \sqrt{462} Q_{3x} z \left(18 x^{4} - 21 i x^{3} y + 15 x^{2} y^{2} - 41 x^{2} z^{2} - 21 i x y^{3} + 42 i x y z^{2} - 3 y^{4} + y^{2} z^{2} + 4 z^{4}\right)}{1848} - \frac{5 \sqrt{462} i Q_{3y} z \left(3 x^{4} - 21 i x^{3} y - 15 x^{2} y^{2} - x^{2} z^{2} - 21 i x y^{3} + 42 i x y z^{2} - 18 y^{4} + 41 y^{2} z^{2} - 4 z^{4}\right)}{1848} - \frac{\sqrt{1155} i Q_{xyz} \left(x^{5} - 6 i x^{4} y - 5 x^{3} y^{2} - 5 x^{3} z^{2} - 5 i x^{2} y^{3} + 51 i x^{2} y z^{2} - 6 x y^{4} + 51 x y^{2} z^{2} - 6 x z^{4} + i y^{5} - 5 i y^{3} z^{2} - 6 i y z^{4}\right)}{462} + \frac{5 \sqrt{77} Q_{z}^{\alpha} \left(x - i y\right) \left(x^{4} + 2 x^{2} y^{2} - 12 x^{2} z^{2} + y^{4} - 12 y^{2} z^{2} + 8 z^{4}\right)}{308} - \frac{\sqrt{1155} Q_{z}^{\beta} \left(5 x^{5} - 9 i x^{4} y - 4 x^{3} y^{2} - 46 x^{3} z^{2} - 4 i x^{2} y^{3} + 66 i x^{2} y z^{2} - 9 x y^{4} + 66 x y^{2} z^{2} + 12 x z^{4} + 5 i y^{5} - 46 i y^{3} z^{2} + 12 i y z^{4}\right)}{924}
+\end{dmath*}
+\noindent\quad $\vec{\mathbb{G}}_{2}^{(3,0)}[q](E^{\prime\prime(b)})$
+
+\noindent\quad ** symmetry
+\begin{dmath*}
+\frac{\sqrt{6} x^{2}}{4} + \frac{\sqrt{6} i x y}{2} - \frac{\sqrt{6} y^{2}}{4}
+\end{dmath*}
+\noindent\quad ** expression
+\begin{dmath*}
+- \frac{\sqrt{210} i Q_{3c} z \left(x - i y\right)}{28} + \frac{\sqrt{210} Q_{3s} z \left(x - i y\right)}{28} + \frac{3 \sqrt{14} i Q_{3x} z \left(x + i y\right)}{28} - \frac{3 \sqrt{14} Q_{3y} z \left(x + i y\right)}{28} - \frac{\sqrt{35} Q_{xyz} \left(x^{2} + y^{2} - 2 z^{2}\right)}{28} - \frac{\sqrt{21} i Q_{z}^{\alpha} \left(x + i y\right)^{2}}{28} + \frac{\sqrt{35} i Q_{z}^{\beta} \left(x^{2} + y^{2} - 2 z^{2}\right)}{28}
+\end{dmath*}
+\noindent\quad $\vec{\mathbb{G}}_{2}^{(3,2)}[q](E^{\prime\prime(b)})$
+
+\noindent\quad ** symmetry
+\begin{dmath*}
+\frac{\sqrt{6} x^{2}}{4} + \frac{\sqrt{6} i x y}{2} - \frac{\sqrt{6} y^{2}}{4}
+\end{dmath*}
+\noindent\quad ** expression
+\begin{dmath*}
+- \frac{\sqrt{105} i Q_{3c} z \left(x - i y\right) \left(3 x^{2} + 3 y^{2} - 4 z^{2}\right)}{168} + \frac{\sqrt{105} Q_{3s} z \left(x - i y\right) \left(3 x^{2} + 3 y^{2} - 4 z^{2}\right)}{168} + \frac{5 \sqrt{7} i Q_{3x} z \left(x + i y\right) \left(13 x^{2} + 14 i x y - y^{2} - 8 z^{2}\right)}{168} + \frac{5 \sqrt{7} Q_{3y} z \left(x + i y\right) \left(x^{2} + 14 i x y - 13 y^{2} + 8 z^{2}\right)}{168} + \frac{\sqrt{70} Q_{xyz} \left(x^{4} + 7 i x^{3} y - 12 x^{2} y^{2} + 6 x^{2} z^{2} - 7 i x y^{3} + y^{4} + 6 y^{2} z^{2} - 2 z^{4}\right)}{84} - \frac{5 \sqrt{42} i Q_{z}^{\alpha} \left(x + i y\right)^{2} \left(x^{2} + y^{2} - 6 z^{2}\right)}{168} + \frac{\sqrt{70} i Q_{z}^{\beta} \left(5 x^{4} + 14 i x^{3} y - 18 x^{2} y^{2} - 12 x^{2} z^{2} - 14 i x y^{3} + 5 y^{4} - 12 y^{2} z^{2} + 4 z^{4}\right)}{168}
+\end{dmath*}
+
+\noindent * Harmonics for rank 3
+
+\noindent\quad $\vec{\mathbb{Q}}_{3}^{(3,-3)}[q](A^{\prime},1)$
+
+\noindent\quad ** symmetry
+\begin{dmath*}
+\frac{3 \sqrt{10} x^{2} y}{4} - \frac{\sqrt{10} y^{3}}{4}
+\end{dmath*}
+\noindent\quad ** expression
+\begin{dmath*}
+Q_{3s}
+\end{dmath*}
+\noindent\quad $\vec{\mathbb{Q}}_{3}^{(3,-3)}[q](A^{\prime},2)$
+
+\noindent\quad ** symmetry
+\begin{dmath*}
+\frac{\sqrt{10} x^{3}}{4} - \frac{3 \sqrt{10} x y^{2}}{4}
+\end{dmath*}
+\noindent\quad ** expression
+\begin{dmath*}
+Q_{3c}
+\end{dmath*}
+\noindent\quad $\vec{\mathbb{Q}}_{3}^{(3,-1)}[q](A^{\prime},1)$
+
+\noindent\quad ** symmetry
+\begin{dmath*}
+\frac{3 \sqrt{10} x^{2} y}{4} - \frac{\sqrt{10} y^{3}}{4}
+\end{dmath*}
+\noindent\quad ** expression
+\begin{dmath*}
+\frac{\sqrt{15} Q_{3s} \left(x^{2} + y^{2} - 2 z^{2}\right)}{12} - \frac{Q_{3x} x y}{2} - \frac{Q_{3y} \left(x - y\right) \left(x + y\right)}{4} + \frac{\sqrt{10} Q_{xyz} x z}{4} + \frac{\sqrt{10} Q_{z}^{\beta} y z}{4}
+\end{dmath*}
+\noindent\quad $\vec{\mathbb{Q}}_{3}^{(3,-1)}[q](A^{\prime},2)$
+
+\noindent\quad ** symmetry
+\begin{dmath*}
+\frac{\sqrt{10} x^{3}}{4} - \frac{3 \sqrt{10} x y^{2}}{4}
+\end{dmath*}
+\noindent\quad ** expression
+\begin{dmath*}
+\frac{\sqrt{15} Q_{3c} \left(x^{2} + y^{2} - 2 z^{2}\right)}{12} - \frac{Q_{3x} \left(x - y\right) \left(x + y\right)}{4} + \frac{Q_{3y} x y}{2} - \frac{\sqrt{10} Q_{xyz} y z}{4} + \frac{\sqrt{10} Q_{z}^{\beta} x z}{4}
+\end{dmath*}
+\noindent\quad $\vec{\mathbb{Q}}_{3}^{(3,1)}[q](A^{\prime},1)$
+
+\noindent\quad ** symmetry
+\begin{dmath*}
+\frac{3 \sqrt{10} x^{2} y}{4} - \frac{\sqrt{10} y^{3}}{4}
+\end{dmath*}
+\noindent\quad ** expression
+\begin{dmath*}
+\frac{\sqrt{22} Q_{3s} \left(3 x^{4} + 6 x^{2} y^{2} - 24 x^{2} z^{2} + 3 y^{4} - 24 y^{2} z^{2} + 8 z^{4}\right)}{176} - \frac{\sqrt{330} Q_{3x} x y \left(5 x^{2} - 2 y^{2} - 9 z^{2}\right)}{66} + \frac{\sqrt{330} Q_{3y} \left(x^{4} - 42 x^{2} y^{2} + 36 x^{2} z^{2} + 13 y^{4} - 36 y^{2} z^{2}\right)}{528} + \frac{5 \sqrt{33} Q_{xyz} x z \left(3 x^{2} + 3 y^{2} - 4 z^{2}\right)}{132} - \frac{7 \sqrt{55} Q_{z}^{\alpha} y z \left(3 x^{2} - y^{2}\right)}{44} + \frac{5 \sqrt{33} Q_{z}^{\beta} y z \left(3 x^{2} + 3 y^{2} - 4 z^{2}\right)}{132}
+\end{dmath*}
+\noindent\quad $\vec{\mathbb{Q}}_{3}^{(3,1)}[q](A^{\prime},2)$
+
+\noindent\quad ** symmetry
+\begin{dmath*}
+\frac{\sqrt{10} x^{3}}{4} - \frac{3 \sqrt{10} x y^{2}}{4}
+\end{dmath*}
+\noindent\quad ** expression
+\begin{dmath*}
+\frac{\sqrt{22} Q_{3c} \left(3 x^{4} + 6 x^{2} y^{2} - 24 x^{2} z^{2} + 3 y^{4} - 24 y^{2} z^{2} + 8 z^{4}\right)}{176} - \frac{\sqrt{330} Q_{3x} \left(13 x^{4} - 42 x^{2} y^{2} - 36 x^{2} z^{2} + y^{4} + 36 y^{2} z^{2}\right)}{528} - \frac{\sqrt{330} Q_{3y} x y \left(2 x^{2} - 5 y^{2} + 9 z^{2}\right)}{66} - \frac{5 \sqrt{33} Q_{xyz} y z \left(3 x^{2} + 3 y^{2} - 4 z^{2}\right)}{132} - \frac{7 \sqrt{55} Q_{z}^{\alpha} x z \left(x^{2} - 3 y^{2}\right)}{44} + \frac{5 \sqrt{33} Q_{z}^{\beta} x z \left(3 x^{2} + 3 y^{2} - 4 z^{2}\right)}{132}
+\end{dmath*}
+\noindent\quad $\vec{\mathbb{Q}}_{3}^{(3,3)}[q](A^{\prime},1)$
+
+\noindent\quad ** symmetry
+\begin{dmath*}
+\frac{3 \sqrt{10} x^{2} y}{4} - \frac{\sqrt{10} y^{3}}{4}
+\end{dmath*}
+\noindent\quad ** expression
+\begin{dmath*}
+\frac{7 \sqrt{429} Q_{3c} x y \left(x^{2} - 3 y^{2}\right) \left(3 x^{2} - y^{2}\right)}{208} - \frac{\sqrt{429} Q_{3s} \left(113 x^{6} - 1740 x^{4} y^{2} + 45 x^{4} z^{2} + 1725 x^{2} y^{4} + 90 x^{2} y^{2} z^{2} - 60 x^{2} z^{4} - 118 y^{6} + 45 y^{4} z^{2} - 60 y^{2} z^{4} + 8 z^{6}\right)}{6864} - \frac{7 \sqrt{715} Q_{3x} x y \left(7 x^{4} + 2 x^{2} y^{2} - 76 x^{2} z^{2} - 5 y^{4} + 44 y^{2} z^{2} + 16 z^{4}\right)}{2288} + \frac{7 \sqrt{715} Q_{3y} \left(x^{6} - 8 x^{4} y^{2} - 7 x^{4} z^{2} - 7 x^{2} y^{4} + 90 x^{2} y^{2} z^{2} - 8 x^{2} z^{4} + 2 y^{6} - 23 y^{4} z^{2} + 8 y^{2} z^{4}\right)}{2288} - \frac{7 \sqrt{286} Q_{xyz} x z \left(7 x^{4} - 85 x^{2} y^{2} + 5 x^{2} z^{2} + 40 y^{4} + 5 y^{2} z^{2} - 2 z^{4}\right)}{1144} - \frac{7 \sqrt{4290} Q_{z}^{\alpha} y z \left(3 x^{2} - y^{2}\right) \left(3 x^{2} + 3 y^{2} - 8 z^{2}\right)}{2288} + \frac{7 \sqrt{286} Q_{z}^{\beta} y z \left(85 x^{4} - 160 x^{2} y^{2} - 10 x^{2} z^{2} + 19 y^{4} - 10 y^{2} z^{2} + 4 z^{4}\right)}{2288}
+\end{dmath*}
+\noindent\quad $\vec{\mathbb{Q}}_{3}^{(3,3)}[q](A^{\prime},2)$
+
+\noindent\quad ** symmetry
+\begin{dmath*}
+\frac{\sqrt{10} x^{3}}{4} - \frac{3 \sqrt{10} x y^{2}}{4}
+\end{dmath*}
+\noindent\quad ** expression
+\begin{dmath*}
+\frac{\sqrt{429} Q_{3c} \left(118 x^{6} - 1725 x^{4} y^{2} - 45 x^{4} z^{2} + 1740 x^{2} y^{4} - 90 x^{2} y^{2} z^{2} + 60 x^{2} z^{4} - 113 y^{6} - 45 y^{4} z^{2} + 60 y^{2} z^{4} - 8 z^{6}\right)}{6864} + \frac{7 \sqrt{429} Q_{3s} x y \left(x^{2} - 3 y^{2}\right) \left(3 x^{2} - y^{2}\right)}{208} - \frac{7 \sqrt{715} Q_{3x} \left(2 x^{6} - 7 x^{4} y^{2} - 23 x^{4} z^{2} - 8 x^{2} y^{4} + 90 x^{2} y^{2} z^{2} + 8 x^{2} z^{4} + y^{6} - 7 y^{4} z^{2} - 8 y^{2} z^{4}\right)}{2288} - \frac{7 \sqrt{715} Q_{3y} x y \left(5 x^{4} - 2 x^{2} y^{2} - 44 x^{2} z^{2} - 7 y^{4} + 76 y^{2} z^{2} - 16 z^{4}\right)}{2288} + \frac{7 \sqrt{286} Q_{xyz} y z \left(40 x^{4} - 85 x^{2} y^{2} + 5 x^{2} z^{2} + 7 y^{4} + 5 y^{2} z^{2} - 2 z^{4}\right)}{1144} - \frac{7 \sqrt{4290} Q_{z}^{\alpha} x z \left(x^{2} - 3 y^{2}\right) \left(3 x^{2} + 3 y^{2} - 8 z^{2}\right)}{2288} + \frac{7 \sqrt{286} Q_{z}^{\beta} x z \left(19 x^{4} - 160 x^{2} y^{2} - 10 x^{2} z^{2} + 85 y^{4} - 10 y^{2} z^{2} + 4 z^{4}\right)}{2288}
+\end{dmath*}
+\noindent\quad $\vec{\mathbb{G}}_{3}^{(3,-2)}[q](A^{\prime})$
+
+\noindent\quad ** symmetry
+\begin{dmath*}
+- \frac{3 x^{2} z}{2} - \frac{3 y^{2} z}{2} + z^{3}
+\end{dmath*}
+\noindent\quad ** expression
+\begin{dmath*}
+\frac{\sqrt{2} Q_{3x} y}{2} - \frac{\sqrt{2} Q_{3y} x}{2}
+\end{dmath*}
+\noindent\quad $\vec{\mathbb{G}}_{3}^{(3,0)}[q](A^{\prime})$
+
+\noindent\quad ** symmetry
+\begin{dmath*}
+- \frac{3 x^{2} z}{2} - \frac{3 y^{2} z}{2} + z^{3}
+\end{dmath*}
+\noindent\quad ** expression
+\begin{dmath*}
+- \frac{\sqrt{15} Q_{3c} y \left(3 x^{2} - y^{2}\right)}{12} + \frac{\sqrt{15} Q_{3s} x \left(x^{2} - 3 y^{2}\right)}{12} - \frac{Q_{3x} y \left(x^{2} + y^{2} - 4 z^{2}\right)}{4} + \frac{Q_{3y} x \left(x^{2} + y^{2} - 4 z^{2}\right)}{4} - \frac{\sqrt{10} Q_{xyz} z \left(x - y\right) \left(x + y\right)}{4} + \frac{\sqrt{10} Q_{z}^{\beta} x y z}{2}
+\end{dmath*}
+\noindent\quad $\vec{\mathbb{G}}_{3}^{(3,2)}[q](A^{\prime})$
+
+\noindent\quad ** symmetry
+\begin{dmath*}
+- \frac{3 x^{2} z}{2} - \frac{3 y^{2} z}{2} + z^{3}
+\end{dmath*}
+\noindent\quad ** expression
+\begin{dmath*}
+- \frac{7 \sqrt{330} Q_{3c} y \left(3 x^{2} - y^{2}\right) \left(x^{2} + y^{2} - 8 z^{2}\right)}{528} + \frac{7 \sqrt{330} Q_{3s} x \left(x^{2} - 3 y^{2}\right) \left(x^{2} + y^{2} - 8 z^{2}\right)}{528} + \frac{5 \sqrt{22} Q_{3x} y \left(x^{4} + 2 x^{2} y^{2} - 12 x^{2} z^{2} + y^{4} - 12 y^{2} z^{2} + 8 z^{4}\right)}{176} - \frac{5 \sqrt{22} Q_{3y} x \left(x^{4} + 2 x^{2} y^{2} - 12 x^{2} z^{2} + y^{4} - 12 y^{2} z^{2} + 8 z^{4}\right)}{176} + \frac{7 \sqrt{55} Q_{xyz} z \left(x - y\right) \left(x + y\right) \left(x^{2} + y^{2} - 2 z^{2}\right)}{44} - \frac{7 \sqrt{55} Q_{z}^{\beta} x y z \left(x^{2} + y^{2} - 2 z^{2}\right)}{22}
+\end{dmath*}
+\noindent\quad $\vec{\mathbb{Q}}_{3}^{(3,-3)}[q](E^{\prime(a)})$
+
+\noindent\quad ** symmetry
+\begin{dmath*}
+- \frac{\sqrt{3} x^{3}}{4} - \frac{\sqrt{3} i x^{2} y}{4} - \frac{\sqrt{3} x y^{2}}{4} + \sqrt{3} x z^{2} - \frac{\sqrt{3} i y^{3}}{4} + \sqrt{3} i y z^{2}
+\end{dmath*}
+\noindent\quad ** expression
+\begin{dmath*}
+\frac{\sqrt{2} Q_{3x}}{2} + \frac{\sqrt{2} i Q_{3y}}{2}
+\end{dmath*}
+\noindent\quad $\vec{\mathbb{Q}}_{3}^{(3,-1)}[q](E^{\prime(a)})$
+
+\noindent\quad ** symmetry
+\begin{dmath*}
+- \frac{\sqrt{3} x^{3}}{4} - \frac{\sqrt{3} i x^{2} y}{4} - \frac{\sqrt{3} x y^{2}}{4} + \sqrt{3} x z^{2} - \frac{\sqrt{3} i y^{3}}{4} + \sqrt{3} i y z^{2}
+\end{dmath*}
+\noindent\quad ** expression
+\begin{dmath*}
+- \frac{\sqrt{2} Q_{3c} \left(x - i y\right)^{2}}{8} - \frac{\sqrt{2} i Q_{3s} \left(x - i y\right)^{2}}{8} + \frac{\sqrt{30} Q_{3x} \left(x^{2} + 4 i x y - 3 y^{2} + 2 z^{2}\right)}{40} - \frac{\sqrt{30} i Q_{3y} \left(3 x^{2} + 4 i x y - y^{2} - 2 z^{2}\right)}{40} + \frac{\sqrt{3} i Q_{xyz} z \left(x - i y\right)}{4} + \frac{\sqrt{5} Q_{z}^{\alpha} z \left(x + i y\right)}{10} + \frac{\sqrt{3} Q_{z}^{\beta} z \left(x - i y\right)}{4}
+\end{dmath*}
+\noindent\quad $\vec{\mathbb{Q}}_{3}^{(3,1)}[q](E^{\prime(a)})$
+
+\noindent\quad ** symmetry
+\begin{dmath*}
+- \frac{\sqrt{3} x^{3}}{4} - \frac{\sqrt{3} i x^{2} y}{4} - \frac{\sqrt{3} x y^{2}}{4} + \sqrt{3} x z^{2} - \frac{\sqrt{3} i y^{3}}{4} + \sqrt{3} i y z^{2}
+\end{dmath*}
+\noindent\quad ** expression
+\begin{dmath*}
+- \frac{\sqrt{165} Q_{3c} \left(13 x^{4} + 16 i x^{3} y - 42 x^{2} y^{2} - 36 x^{2} z^{2} - 40 i x y^{3} + 72 i x y z^{2} + y^{4} + 36 y^{2} z^{2}\right)}{528} + \frac{\sqrt{165} i Q_{3s} \left(x^{4} + 40 i x^{3} y - 42 x^{2} y^{2} + 36 x^{2} z^{2} - 16 i x y^{3} - 72 i x y z^{2} + 13 y^{4} - 36 y^{2} z^{2}\right)}{528} - \frac{\sqrt{11} Q_{3x} \left(17 x^{4} + 40 i x^{3} y - 6 x^{2} y^{2} - 96 x^{2} z^{2} + 40 i x y^{3} - 240 i x y z^{2} - 23 y^{4} + 144 y^{2} z^{2} - 8 z^{4}\right)}{528} + \frac{\sqrt{11} i Q_{3y} \left(23 x^{4} + 40 i x^{3} y + 6 x^{2} y^{2} - 144 x^{2} z^{2} + 40 i x y^{3} - 240 i x y z^{2} - 17 y^{4} + 96 y^{2} z^{2} + 8 z^{4}\right)}{528} - \frac{\sqrt{110} i Q_{xyz} z \left(19 x^{3} + 9 i x^{2} y - 9 x y^{2} - 16 x z^{2} - 19 i y^{3} + 16 i y z^{2}\right)}{264} - \frac{5 \sqrt{66} Q_{z}^{\alpha} z \left(x + i y\right) \left(3 x^{2} + 3 y^{2} - 4 z^{2}\right)}{264} - \frac{\sqrt{110} Q_{z}^{\beta} z \left(5 x^{3} - 33 i x^{2} y + 33 x y^{2} - 16 x z^{2} - 5 i y^{3} + 16 i y z^{2}\right)}{264}
+\end{dmath*}
+\noindent\quad $\vec{\mathbb{Q}}_{3}^{(3,3)}[q](E^{\prime(a)})$
+
+\noindent\quad ** symmetry
+\begin{dmath*}
+- \frac{\sqrt{3} x^{3}}{4} - \frac{\sqrt{3} i x^{2} y}{4} - \frac{\sqrt{3} x y^{2}}{4} + \sqrt{3} x z^{2} - \frac{\sqrt{3} i y^{3}}{4} + \sqrt{3} i y z^{2}
+\end{dmath*}
+\noindent\quad ** expression
+\begin{dmath*}
+- \frac{7 \sqrt{1430} Q_{3c} \left(2 x^{6} + 5 i x^{5} y - 7 x^{4} y^{2} - 23 x^{4} z^{2} - 2 i x^{3} y^{3} - 44 i x^{3} y z^{2} - 8 x^{2} y^{4} + 90 x^{2} y^{2} z^{2} + 8 x^{2} z^{4} - 7 i x y^{5} + 76 i x y^{3} z^{2} - 16 i x y z^{4} + y^{6} - 7 y^{4} z^{2} - 8 y^{2} z^{4}\right)}{4576} + \frac{7 \sqrt{1430} i Q_{3s} \left(x^{6} + 7 i x^{5} y - 8 x^{4} y^{2} - 7 x^{4} z^{2} + 2 i x^{3} y^{3} - 76 i x^{3} y z^{2} - 7 x^{2} y^{4} + 90 x^{2} y^{2} z^{2} - 8 x^{2} z^{4} - 5 i x y^{5} + 44 i x y^{3} z^{2} + 16 i x y z^{4} + 2 y^{6} - 23 y^{4} z^{2} + 8 y^{2} z^{4}\right)}{4576} + \frac{5 \sqrt{858} Q_{3x} \left(6 x^{6} + 7 i x^{5} y + 11 x^{4} y^{2} - 101 x^{4} z^{2} + 14 i x^{3} y^{3} - 112 i x^{3} y z^{2} + 4 x^{2} y^{4} - 90 x^{2} y^{2} z^{2} + 116 x^{2} z^{4} + 7 i x y^{5} - 112 i x y^{3} z^{2} + 112 i x y z^{4} - y^{6} + 11 y^{4} z^{2} + 4 y^{2} z^{4} - 8 z^{6}\right)}{4576} - \frac{5 \sqrt{858} i Q_{3y} \left(x^{6} + 7 i x^{5} y - 4 x^{4} y^{2} - 11 x^{4} z^{2} + 14 i x^{3} y^{3} - 112 i x^{3} y z^{2} - 11 x^{2} y^{4} + 90 x^{2} y^{2} z^{2} - 4 x^{2} z^{4} + 7 i x y^{5} - 112 i x y^{3} z^{2} + 112 i x y z^{4} - 6 y^{6} + 101 y^{4} z^{2} - 116 y^{2} z^{4} + 8 z^{6}\right)}{4576} + \frac{7 \sqrt{2145} i Q_{xyz} z \left(x^{5} + 8 i x^{4} y - 7 x^{3} y^{2} - x^{3} z^{2} + 7 i x^{2} y^{3} - 23 i x^{2} y z^{2} - 8 x y^{4} + 23 x y^{2} z^{2} - 2 x z^{4} - i y^{5} + i y^{3} z^{2} + 2 i y z^{4}\right)}{1144} + \frac{35 \sqrt{143} Q_{z}^{\alpha} z \left(x + i y\right) \left(5 x^{4} + 10 x^{2} y^{2} - 20 x^{2} z^{2} + 5 y^{4} - 20 y^{2} z^{2} + 8 z^{4}\right)}{2288} - \frac{7 \sqrt{2145} Q_{z}^{\beta} z \left(7 x^{5} + 11 i x^{4} y - 4 x^{3} y^{2} - 22 x^{3} z^{2} + 4 i x^{2} y^{3} - 26 i x^{2} y z^{2} - 11 x y^{4} + 26 x y^{2} z^{2} + 4 x z^{4} - 7 i y^{5} + 22 i y^{3} z^{2} - 4 i y z^{4}\right)}{2288}
+\end{dmath*}
+\noindent\quad $\vec{\mathbb{G}}_{3}^{(3,-2)}[q](E^{\prime(a)})$
+
+\noindent\quad ** symmetry
+\begin{dmath*}
+\frac{\sqrt{30} x^{2} z}{4} - \frac{\sqrt{30} i x y z}{2} - \frac{\sqrt{30} y^{2} z}{4}
+\end{dmath*}
+\noindent\quad ** expression
+\begin{dmath*}
+- \frac{i Q_{3c} \left(x + i y\right)}{4} - \frac{Q_{3s} \left(x + i y\right)}{4} - \frac{\sqrt{15} i Q_{3x} \left(x - i y\right)}{12} - \frac{\sqrt{15} Q_{3y} \left(x - i y\right)}{12} + \frac{\sqrt{6} Q_{xyz} z}{6} + \frac{\sqrt{6} i Q_{z}^{\beta} z}{6}
+\end{dmath*}
+\noindent\quad $\vec{\mathbb{G}}_{3}^{(3,0)}[q](E^{\prime(a)})$
+
+\noindent\quad ** symmetry
+\begin{dmath*}
+\frac{\sqrt{30} x^{2} z}{4} - \frac{\sqrt{30} i x y z}{2} - \frac{\sqrt{30} y^{2} z}{4}
+\end{dmath*}
+\noindent\quad ** expression
+\begin{dmath*}
+- \frac{\sqrt{2} i Q_{3c} \left(x + i y\right) \left(x^{2} + y^{2} - 4 z^{2}\right)}{8} - \frac{\sqrt{2} Q_{3s} \left(x + i y\right) \left(x^{2} + y^{2} - 4 z^{2}\right)}{8} - \frac{\sqrt{30} i Q_{3x} \left(x - i y\right)^{3}}{24} + \frac{\sqrt{30} Q_{3y} \left(x - i y\right)^{3}}{24} - \frac{\sqrt{3} Q_{xyz} z \left(3 x^{2} + 3 y^{2} - 2 z^{2}\right)}{12} - \frac{\sqrt{5} i Q_{z}^{\alpha} z \left(x - i y\right)^{2}}{4} - \frac{\sqrt{3} i Q_{z}^{\beta} z \left(3 x^{2} + 3 y^{2} - 2 z^{2}\right)}{12}
+\end{dmath*}
+\noindent\quad $\vec{\mathbb{G}}_{3}^{(3,2)}[q](E^{\prime(a)})$
+
+\noindent\quad ** symmetry
+\begin{dmath*}
+\frac{\sqrt{30} x^{2} z}{4} - \frac{\sqrt{30} i x y z}{2} - \frac{\sqrt{30} y^{2} z}{4}
+\end{dmath*}
+\noindent\quad ** expression
+\begin{dmath*}
+\frac{\sqrt{11} i Q_{3c} \left(8 x^{5} - 55 i x^{4} y - 110 x^{3} y^{2} + 30 x^{3} z^{2} + 100 i x^{2} y^{3} + 30 i x^{2} y z^{2} + 50 x y^{4} + 30 x y^{2} z^{2} - 20 x z^{4} - 13 i y^{5} + 30 i y^{3} z^{2} - 20 i y z^{4}\right)}{176} - \frac{\sqrt{11} Q_{3s} \left(13 x^{5} - 50 i x^{4} y - 100 x^{3} y^{2} - 30 x^{3} z^{2} + 110 i x^{2} y^{3} - 30 i x^{2} y z^{2} + 55 x y^{4} - 30 x y^{2} z^{2} + 20 x z^{4} - 8 i y^{5} - 30 i y^{3} z^{2} + 20 i y z^{4}\right)}{176} + \frac{\sqrt{165} i Q_{3x} \left(x - i y\right) \left(8 x^{4} - 7 i x^{3} y + 9 x^{2} y^{2} - 82 x^{2} z^{2} - 7 i x y^{3} + 56 i x y z^{2} + y^{4} - 26 y^{2} z^{2} + 36 z^{4}\right)}{528} + \frac{\sqrt{165} Q_{3y} \left(x - i y\right) \left(x^{4} + 7 i x^{3} y + 9 x^{2} y^{2} - 26 x^{2} z^{2} + 7 i x y^{3} - 56 i x y z^{2} + 8 y^{4} - 82 y^{2} z^{2} + 36 z^{4}\right)}{528} - \frac{\sqrt{66} Q_{xyz} z \left(15 x^{4} + 30 x^{2} y^{2} - 40 x^{2} z^{2} + 15 y^{4} - 40 y^{2} z^{2} + 8 z^{4}\right)}{264} + \frac{7 \sqrt{110} i Q_{z}^{\alpha} z \left(x - i y\right)^{2} \left(x^{2} + y^{2} - 2 z^{2}\right)}{88} - \frac{\sqrt{66} i Q_{z}^{\beta} z \left(15 x^{4} + 30 x^{2} y^{2} - 40 x^{2} z^{2} + 15 y^{4} - 40 y^{2} z^{2} + 8 z^{4}\right)}{264}
+\end{dmath*}
+\noindent\quad $\vec{\mathbb{Q}}_{3}^{(3,-3)}[q](E^{\prime(b)})$
+
+\noindent\quad ** symmetry
+\begin{dmath*}
+- \frac{\sqrt{3} x^{3}}{4} + \frac{\sqrt{3} i x^{2} y}{4} - \frac{\sqrt{3} x y^{2}}{4} + \sqrt{3} x z^{2} + \frac{\sqrt{3} i y^{3}}{4} - \sqrt{3} i y z^{2}
+\end{dmath*}
+\noindent\quad ** expression
+\begin{dmath*}
+\frac{\sqrt{2} Q_{3x}}{2} - \frac{\sqrt{2} i Q_{3y}}{2}
+\end{dmath*}
+\noindent\quad $\vec{\mathbb{Q}}_{3}^{(3,-1)}[q](E^{\prime(b)})$
+
+\noindent\quad ** symmetry
+\begin{dmath*}
+- \frac{\sqrt{3} x^{3}}{4} + \frac{\sqrt{3} i x^{2} y}{4} - \frac{\sqrt{3} x y^{2}}{4} + \sqrt{3} x z^{2} + \frac{\sqrt{3} i y^{3}}{4} - \sqrt{3} i y z^{2}
+\end{dmath*}
+\noindent\quad ** expression
+\begin{dmath*}
+- \frac{\sqrt{2} Q_{3c} \left(x + i y\right)^{2}}{8} + \frac{\sqrt{2} i Q_{3s} \left(x + i y\right)^{2}}{8} + \frac{\sqrt{30} Q_{3x} \left(x^{2} - 4 i x y - 3 y^{2} + 2 z^{2}\right)}{40} + \frac{\sqrt{30} i Q_{3y} \left(3 x^{2} - 4 i x y - y^{2} - 2 z^{2}\right)}{40} - \frac{\sqrt{3} i Q_{xyz} z \left(x + i y\right)}{4} + \frac{\sqrt{5} Q_{z}^{\alpha} z \left(x - i y\right)}{10} + \frac{\sqrt{3} Q_{z}^{\beta} z \left(x + i y\right)}{4}
+\end{dmath*}
+\noindent\quad $\vec{\mathbb{Q}}_{3}^{(3,1)}[q](E^{\prime(b)})$
+
+\noindent\quad ** symmetry
+\begin{dmath*}
+- \frac{\sqrt{3} x^{3}}{4} + \frac{\sqrt{3} i x^{2} y}{4} - \frac{\sqrt{3} x y^{2}}{4} + \sqrt{3} x z^{2} + \frac{\sqrt{3} i y^{3}}{4} - \sqrt{3} i y z^{2}
+\end{dmath*}
+\noindent\quad ** expression
+\begin{dmath*}
+- \frac{\sqrt{165} Q_{3c} \left(13 x^{4} - 16 i x^{3} y - 42 x^{2} y^{2} - 36 x^{2} z^{2} + 40 i x y^{3} - 72 i x y z^{2} + y^{4} + 36 y^{2} z^{2}\right)}{528} - \frac{\sqrt{165} i Q_{3s} \left(x^{4} - 40 i x^{3} y - 42 x^{2} y^{2} + 36 x^{2} z^{2} + 16 i x y^{3} + 72 i x y z^{2} + 13 y^{4} - 36 y^{2} z^{2}\right)}{528} - \frac{\sqrt{11} Q_{3x} \left(17 x^{4} - 40 i x^{3} y - 6 x^{2} y^{2} - 96 x^{2} z^{2} - 40 i x y^{3} + 240 i x y z^{2} - 23 y^{4} + 144 y^{2} z^{2} - 8 z^{4}\right)}{528} - \frac{\sqrt{11} i Q_{3y} \left(23 x^{4} - 40 i x^{3} y + 6 x^{2} y^{2} - 144 x^{2} z^{2} - 40 i x y^{3} + 240 i x y z^{2} - 17 y^{4} + 96 y^{2} z^{2} + 8 z^{4}\right)}{528} + \frac{\sqrt{110} i Q_{xyz} z \left(19 x^{3} - 9 i x^{2} y - 9 x y^{2} - 16 x z^{2} + 19 i y^{3} - 16 i y z^{2}\right)}{264} - \frac{5 \sqrt{66} Q_{z}^{\alpha} z \left(x - i y\right) \left(3 x^{2} + 3 y^{2} - 4 z^{2}\right)}{264} - \frac{\sqrt{110} Q_{z}^{\beta} z \left(5 x^{3} + 33 i x^{2} y + 33 x y^{2} - 16 x z^{2} + 5 i y^{3} - 16 i y z^{2}\right)}{264}
+\end{dmath*}
+\noindent\quad $\vec{\mathbb{Q}}_{3}^{(3,3)}[q](E^{\prime(b)})$
+
+\noindent\quad ** symmetry
+\begin{dmath*}
+- \frac{\sqrt{3} x^{3}}{4} + \frac{\sqrt{3} i x^{2} y}{4} - \frac{\sqrt{3} x y^{2}}{4} + \sqrt{3} x z^{2} + \frac{\sqrt{3} i y^{3}}{4} - \sqrt{3} i y z^{2}
+\end{dmath*}
+\noindent\quad ** expression
+\begin{dmath*}
+- \frac{7 \sqrt{1430} Q_{3c} \left(2 x^{6} - 5 i x^{5} y - 7 x^{4} y^{2} - 23 x^{4} z^{2} + 2 i x^{3} y^{3} + 44 i x^{3} y z^{2} - 8 x^{2} y^{4} + 90 x^{2} y^{2} z^{2} + 8 x^{2} z^{4} + 7 i x y^{5} - 76 i x y^{3} z^{2} + 16 i x y z^{4} + y^{6} - 7 y^{4} z^{2} - 8 y^{2} z^{4}\right)}{4576} - \frac{7 \sqrt{1430} i Q_{3s} \left(x^{6} - 7 i x^{5} y - 8 x^{4} y^{2} - 7 x^{4} z^{2} - 2 i x^{3} y^{3} + 76 i x^{3} y z^{2} - 7 x^{2} y^{4} + 90 x^{2} y^{2} z^{2} - 8 x^{2} z^{4} + 5 i x y^{5} - 44 i x y^{3} z^{2} - 16 i x y z^{4} + 2 y^{6} - 23 y^{4} z^{2} + 8 y^{2} z^{4}\right)}{4576} + \frac{5 \sqrt{858} Q_{3x} \left(6 x^{6} - 7 i x^{5} y + 11 x^{4} y^{2} - 101 x^{4} z^{2} - 14 i x^{3} y^{3} + 112 i x^{3} y z^{2} + 4 x^{2} y^{4} - 90 x^{2} y^{2} z^{2} + 116 x^{2} z^{4} - 7 i x y^{5} + 112 i x y^{3} z^{2} - 112 i x y z^{4} - y^{6} + 11 y^{4} z^{2} + 4 y^{2} z^{4} - 8 z^{6}\right)}{4576} + \frac{5 \sqrt{858} i Q_{3y} \left(x^{6} - 7 i x^{5} y - 4 x^{4} y^{2} - 11 x^{4} z^{2} - 14 i x^{3} y^{3} + 112 i x^{3} y z^{2} - 11 x^{2} y^{4} + 90 x^{2} y^{2} z^{2} - 4 x^{2} z^{4} - 7 i x y^{5} + 112 i x y^{3} z^{2} - 112 i x y z^{4} - 6 y^{6} + 101 y^{4} z^{2} - 116 y^{2} z^{4} + 8 z^{6}\right)}{4576} - \frac{7 \sqrt{2145} i Q_{xyz} z \left(x^{5} - 8 i x^{4} y - 7 x^{3} y^{2} - x^{3} z^{2} - 7 i x^{2} y^{3} + 23 i x^{2} y z^{2} - 8 x y^{4} + 23 x y^{2} z^{2} - 2 x z^{4} + i y^{5} - i y^{3} z^{2} - 2 i y z^{4}\right)}{1144} + \frac{35 \sqrt{143} Q_{z}^{\alpha} z \left(x - i y\right) \left(5 x^{4} + 10 x^{2} y^{2} - 20 x^{2} z^{2} + 5 y^{4} - 20 y^{2} z^{2} + 8 z^{4}\right)}{2288} - \frac{7 \sqrt{2145} Q_{z}^{\beta} z \left(7 x^{5} - 11 i x^{4} y - 4 x^{3} y^{2} - 22 x^{3} z^{2} - 4 i x^{2} y^{3} + 26 i x^{2} y z^{2} - 11 x y^{4} + 26 x y^{2} z^{2} + 4 x z^{4} + 7 i y^{5} - 22 i y^{3} z^{2} + 4 i y z^{4}\right)}{2288}
+\end{dmath*}
+\noindent\quad $\vec{\mathbb{G}}_{3}^{(3,-2)}[q](E^{\prime(b)})$
+
+\noindent\quad ** symmetry
+\begin{dmath*}
+\frac{\sqrt{30} x^{2} z}{4} + \frac{\sqrt{30} i x y z}{2} - \frac{\sqrt{30} y^{2} z}{4}
+\end{dmath*}
+\noindent\quad ** expression
+\begin{dmath*}
+\frac{i Q_{3c} \left(x - i y\right)}{4} - \frac{Q_{3s} \left(x - i y\right)}{4} + \frac{\sqrt{15} i Q_{3x} \left(x + i y\right)}{12} - \frac{\sqrt{15} Q_{3y} \left(x + i y\right)}{12} + \frac{\sqrt{6} Q_{xyz} z}{6} - \frac{\sqrt{6} i Q_{z}^{\beta} z}{6}
+\end{dmath*}
+\noindent\quad $\vec{\mathbb{G}}_{3}^{(3,0)}[q](E^{\prime(b)})$
+
+\noindent\quad ** symmetry
+\begin{dmath*}
+\frac{\sqrt{30} x^{2} z}{4} + \frac{\sqrt{30} i x y z}{2} - \frac{\sqrt{30} y^{2} z}{4}
+\end{dmath*}
+\noindent\quad ** expression
+\begin{dmath*}
+\frac{\sqrt{2} i Q_{3c} \left(x - i y\right) \left(x^{2} + y^{2} - 4 z^{2}\right)}{8} - \frac{\sqrt{2} Q_{3s} \left(x - i y\right) \left(x^{2} + y^{2} - 4 z^{2}\right)}{8} + \frac{\sqrt{30} i Q_{3x} \left(x + i y\right)^{3}}{24} + \frac{\sqrt{30} Q_{3y} \left(x + i y\right)^{3}}{24} - \frac{\sqrt{3} Q_{xyz} z \left(3 x^{2} + 3 y^{2} - 2 z^{2}\right)}{12} + \frac{\sqrt{5} i Q_{z}^{\alpha} z \left(x + i y\right)^{2}}{4} + \frac{\sqrt{3} i Q_{z}^{\beta} z \left(3 x^{2} + 3 y^{2} - 2 z^{2}\right)}{12}
+\end{dmath*}
+\noindent\quad $\vec{\mathbb{G}}_{3}^{(3,2)}[q](E^{\prime(b)})$
+
+\noindent\quad ** symmetry
+\begin{dmath*}
+\frac{\sqrt{30} x^{2} z}{4} + \frac{\sqrt{30} i x y z}{2} - \frac{\sqrt{30} y^{2} z}{4}
+\end{dmath*}
+\noindent\quad ** expression
+\begin{dmath*}
+- \frac{\sqrt{11} i Q_{3c} \left(8 x^{5} + 55 i x^{4} y - 110 x^{3} y^{2} + 30 x^{3} z^{2} - 100 i x^{2} y^{3} - 30 i x^{2} y z^{2} + 50 x y^{4} + 30 x y^{2} z^{2} - 20 x z^{4} + 13 i y^{5} - 30 i y^{3} z^{2} + 20 i y z^{4}\right)}{176} - \frac{\sqrt{11} Q_{3s} \left(13 x^{5} + 50 i x^{4} y - 100 x^{3} y^{2} - 30 x^{3} z^{2} - 110 i x^{2} y^{3} + 30 i x^{2} y z^{2} + 55 x y^{4} - 30 x y^{2} z^{2} + 20 x z^{4} + 8 i y^{5} + 30 i y^{3} z^{2} - 20 i y z^{4}\right)}{176} - \frac{\sqrt{165} i Q_{3x} \left(x + i y\right) \left(8 x^{4} + 7 i x^{3} y + 9 x^{2} y^{2} - 82 x^{2} z^{2} + 7 i x y^{3} - 56 i x y z^{2} + y^{4} - 26 y^{2} z^{2} + 36 z^{4}\right)}{528} + \frac{\sqrt{165} Q_{3y} \left(x + i y\right) \left(x^{4} - 7 i x^{3} y + 9 x^{2} y^{2} - 26 x^{2} z^{2} - 7 i x y^{3} + 56 i x y z^{2} + 8 y^{4} - 82 y^{2} z^{2} + 36 z^{4}\right)}{528} - \frac{\sqrt{66} Q_{xyz} z \left(15 x^{4} + 30 x^{2} y^{2} - 40 x^{2} z^{2} + 15 y^{4} - 40 y^{2} z^{2} + 8 z^{4}\right)}{264} - \frac{7 \sqrt{110} i Q_{z}^{\alpha} z \left(x + i y\right)^{2} \left(x^{2} + y^{2} - 2 z^{2}\right)}{88} + \frac{\sqrt{66} i Q_{z}^{\beta} z \left(15 x^{4} + 30 x^{2} y^{2} - 40 x^{2} z^{2} + 15 y^{4} - 40 y^{2} z^{2} + 8 z^{4}\right)}{264}
+\end{dmath*}
+\noindent\quad $\vec{\mathbb{Q}}_{3}^{(3,-3)}[q](A^{\prime\prime})$
+
+\noindent\quad ** symmetry
+\begin{dmath*}
+- \frac{3 x^{2} z}{2} - \frac{3 y^{2} z}{2} + z^{3}
+\end{dmath*}
+\noindent\quad ** expression
+\begin{dmath*}
+Q_{z}^{\alpha}
+\end{dmath*}
+\noindent\quad $\vec{\mathbb{Q}}_{3}^{(3,-1)}[q](A^{\prime\prime})$
+
+\noindent\quad ** symmetry
+\begin{dmath*}
+- \frac{3 x^{2} z}{2} - \frac{3 y^{2} z}{2} + z^{3}
+\end{dmath*}
+\noindent\quad ** expression
+\begin{dmath*}
+\frac{\sqrt{10} Q_{3x} x z}{10} + \frac{\sqrt{10} Q_{3y} y z}{10} - Q_{xyz} x y - \frac{\sqrt{15} Q_{z}^{\alpha} \left(x^{2} + y^{2} - 2 z^{2}\right)}{15} - \frac{Q_{z}^{\beta} \left(x - y\right) \left(x + y\right)}{2}
+\end{dmath*}
+\noindent\quad $\vec{\mathbb{Q}}_{3}^{(3,1)}[q](A^{\prime\prime})$
+
+\noindent\quad ** symmetry
+\begin{dmath*}
+- \frac{3 x^{2} z}{2} - \frac{3 y^{2} z}{2} + z^{3}
+\end{dmath*}
+\noindent\quad ** expression
+\begin{dmath*}
+- \frac{7 \sqrt{55} Q_{3c} x z \left(x^{2} - 3 y^{2}\right)}{44} - \frac{7 \sqrt{55} Q_{3s} y z \left(3 x^{2} - y^{2}\right)}{44} - \frac{5 \sqrt{33} Q_{3x} x z \left(3 x^{2} + 3 y^{2} - 4 z^{2}\right)}{132} - \frac{5 \sqrt{33} Q_{3y} y z \left(3 x^{2} + 3 y^{2} - 4 z^{2}\right)}{132} + \frac{\sqrt{330} Q_{xyz} x y \left(x^{2} + y^{2} - 6 z^{2}\right)}{132} + \frac{\sqrt{22} Q_{z}^{\alpha} \left(3 x^{4} + 6 x^{2} y^{2} - 24 x^{2} z^{2} + 3 y^{4} - 24 y^{2} z^{2} + 8 z^{4}\right)}{88} + \frac{\sqrt{330} Q_{z}^{\beta} \left(x - y\right) \left(x + y\right) \left(x^{2} + y^{2} - 6 z^{2}\right)}{264}
+\end{dmath*}
+\noindent\quad $\vec{\mathbb{Q}}_{3}^{(3,3)}[q](A^{\prime\prime})$
+
+\noindent\quad ** symmetry
+\begin{dmath*}
+- \frac{3 x^{2} z}{2} - \frac{3 y^{2} z}{2} + z^{3}
+\end{dmath*}
+\noindent\quad ** expression
+\begin{dmath*}
+- \frac{7 \sqrt{4290} Q_{3c} x z \left(x^{2} - 3 y^{2}\right) \left(3 x^{2} + 3 y^{2} - 8 z^{2}\right)}{2288} - \frac{7 \sqrt{4290} Q_{3s} y z \left(3 x^{2} - y^{2}\right) \left(3 x^{2} + 3 y^{2} - 8 z^{2}\right)}{2288} + \frac{35 \sqrt{286} Q_{3x} x z \left(5 x^{4} + 10 x^{2} y^{2} - 20 x^{2} z^{2} + 5 y^{4} - 20 y^{2} z^{2} + 8 z^{4}\right)}{2288} + \frac{35 \sqrt{286} Q_{3y} y z \left(5 x^{4} + 10 x^{2} y^{2} - 20 x^{2} z^{2} + 5 y^{4} - 20 y^{2} z^{2} + 8 z^{4}\right)}{2288} + \frac{7 \sqrt{715} Q_{xyz} x y \left(x^{4} + 2 x^{2} y^{2} - 16 x^{2} z^{2} + y^{4} - 16 y^{2} z^{2} + 16 z^{4}\right)}{572} - \frac{5 \sqrt{429} Q_{z}^{\alpha} \left(5 x^{6} + 15 x^{4} y^{2} - 90 x^{4} z^{2} + 15 x^{2} y^{4} - 180 x^{2} y^{2} z^{2} + 120 x^{2} z^{4} + 5 y^{6} - 90 y^{4} z^{2} + 120 y^{2} z^{4} - 16 z^{6}\right)}{3432} + \frac{7 \sqrt{715} Q_{z}^{\beta} \left(x - y\right) \left(x + y\right) \left(x^{4} + 2 x^{2} y^{2} - 16 x^{2} z^{2} + y^{4} - 16 y^{2} z^{2} + 16 z^{4}\right)}{1144}
+\end{dmath*}
+\noindent\quad $\vec{\mathbb{G}}_{3}^{(3,-2)}[q](A^{\prime\prime},1)$
+
+\noindent\quad ** symmetry
+\begin{dmath*}
+\frac{3 \sqrt{10} x^{2} y}{4} - \frac{\sqrt{10} y^{3}}{4}
+\end{dmath*}
+\noindent\quad ** expression
+\begin{dmath*}
+- \frac{\sqrt{3} Q_{3c} z}{2} - \frac{\sqrt{2} Q_{xyz} y}{4} + \frac{\sqrt{2} Q_{z}^{\beta} x}{4}
+\end{dmath*}
+\noindent\quad $\vec{\mathbb{G}}_{3}^{(3,-2)}[q](A^{\prime\prime},2)$
+
+\noindent\quad ** symmetry
+\begin{dmath*}
+\frac{\sqrt{10} x^{3}}{4} - \frac{3 \sqrt{10} x y^{2}}{4}
+\end{dmath*}
+\noindent\quad ** expression
+\begin{dmath*}
+\frac{\sqrt{3} Q_{3s} z}{2} - \frac{\sqrt{2} Q_{xyz} x}{4} - \frac{\sqrt{2} Q_{z}^{\beta} y}{4}
+\end{dmath*}
+\noindent\quad $\vec{\mathbb{G}}_{3}^{(3,0)}[q](A^{\prime\prime},1)$
+
+\noindent\quad ** symmetry
+\begin{dmath*}
+\frac{3 \sqrt{10} x^{2} y}{4} - \frac{\sqrt{10} y^{3}}{4}
+\end{dmath*}
+\noindent\quad ** expression
+\begin{dmath*}
+- \frac{\sqrt{6} Q_{3c} z \left(3 x^{2} + 3 y^{2} - 2 z^{2}\right)}{12} + \frac{\sqrt{10} Q_{3x} z \left(x - y\right) \left(x + y\right)}{4} - \frac{\sqrt{10} Q_{3y} x y z}{2} - \frac{Q_{xyz} y \left(x^{2} + y^{2} - 4 z^{2}\right)}{4} - \frac{\sqrt{15} Q_{z}^{\alpha} x \left(x^{2} - 3 y^{2}\right)}{12} + \frac{Q_{z}^{\beta} x \left(x^{2} + y^{2} - 4 z^{2}\right)}{4}
+\end{dmath*}
+\noindent\quad $\vec{\mathbb{G}}_{3}^{(3,0)}[q](A^{\prime\prime},2)$
+
+\noindent\quad ** symmetry
+\begin{dmath*}
+\frac{\sqrt{10} x^{3}}{4} - \frac{3 \sqrt{10} x y^{2}}{4}
+\end{dmath*}
+\noindent\quad ** expression
+\begin{dmath*}
+\frac{\sqrt{6} Q_{3s} z \left(3 x^{2} + 3 y^{2} - 2 z^{2}\right)}{12} - \frac{\sqrt{10} Q_{3x} x y z}{2} - \frac{\sqrt{10} Q_{3y} z \left(x - y\right) \left(x + y\right)}{4} - \frac{Q_{xyz} x \left(x^{2} + y^{2} - 4 z^{2}\right)}{4} + \frac{\sqrt{15} Q_{z}^{\alpha} y \left(3 x^{2} - y^{2}\right)}{12} - \frac{Q_{z}^{\beta} y \left(x^{2} + y^{2} - 4 z^{2}\right)}{4}
+\end{dmath*}
+\noindent\quad $\vec{\mathbb{G}}_{3}^{(3,2)}[q](A^{\prime\prime},1)$
+
+\noindent\quad ** symmetry
+\begin{dmath*}
+\frac{3 \sqrt{10} x^{2} y}{4} - \frac{\sqrt{10} y^{3}}{4}
+\end{dmath*}
+\noindent\quad ** expression
+\begin{dmath*}
+- \frac{\sqrt{33} Q_{3c} z \left(15 x^{4} + 30 x^{2} y^{2} - 40 x^{2} z^{2} + 15 y^{4} - 40 y^{2} z^{2} + 8 z^{4}\right)}{528} + \frac{7 \sqrt{55} Q_{3x} z \left(5 x^{4} - 18 x^{2} y^{2} - 4 x^{2} z^{2} + y^{4} + 4 y^{2} z^{2}\right)}{176} + \frac{7 \sqrt{55} Q_{3y} x y z \left(x^{2} - 2 y^{2} + z^{2}\right)}{22} + \frac{\sqrt{22} Q_{xyz} y \left(25 x^{4} - 55 x^{2} y^{2} + 15 x^{2} z^{2} + 4 y^{4} + 15 y^{2} z^{2} - 10 z^{4}\right)}{88} - \frac{7 \sqrt{330} Q_{z}^{\alpha} x \left(x^{2} - 3 y^{2}\right) \left(x^{2} + y^{2} - 8 z^{2}\right)}{528} + \frac{\sqrt{22} Q_{z}^{\beta} x \left(13 x^{4} - 100 x^{2} y^{2} - 30 x^{2} z^{2} + 55 y^{4} - 30 y^{2} z^{2} + 20 z^{4}\right)}{176}
+\end{dmath*}
+\noindent\quad $\vec{\mathbb{G}}_{3}^{(3,2)}[q](A^{\prime\prime},2)$
+
+\noindent\quad ** symmetry
+\begin{dmath*}
+\frac{\sqrt{10} x^{3}}{4} - \frac{3 \sqrt{10} x y^{2}}{4}
+\end{dmath*}
+\noindent\quad ** expression
+\begin{dmath*}
+\frac{\sqrt{33} Q_{3s} z \left(15 x^{4} + 30 x^{2} y^{2} - 40 x^{2} z^{2} + 15 y^{4} - 40 y^{2} z^{2} + 8 z^{4}\right)}{528} - \frac{7 \sqrt{55} Q_{3x} x y z \left(2 x^{2} - y^{2} - z^{2}\right)}{22} + \frac{7 \sqrt{55} Q_{3y} z \left(x^{4} - 18 x^{2} y^{2} + 4 x^{2} z^{2} + 5 y^{4} - 4 y^{2} z^{2}\right)}{176} + \frac{\sqrt{22} Q_{xyz} x \left(4 x^{4} - 55 x^{2} y^{2} + 15 x^{2} z^{2} + 25 y^{4} + 15 y^{2} z^{2} - 10 z^{4}\right)}{88} + \frac{7 \sqrt{330} Q_{z}^{\alpha} y \left(3 x^{2} - y^{2}\right) \left(x^{2} + y^{2} - 8 z^{2}\right)}{528} - \frac{\sqrt{22} Q_{z}^{\beta} y \left(55 x^{4} - 100 x^{2} y^{2} - 30 x^{2} z^{2} + 13 y^{4} - 30 y^{2} z^{2} + 20 z^{4}\right)}{176}
+\end{dmath*}
+\noindent\quad $\vec{\mathbb{Q}}_{3}^{(3,-3)}[q](E^{\prime\prime(a)})$
+
+\noindent\quad ** symmetry
+\begin{dmath*}
+\frac{\sqrt{30} x^{2} z}{4} - \frac{\sqrt{30} i x y z}{2} - \frac{\sqrt{30} y^{2} z}{4}
+\end{dmath*}
+\noindent\quad ** expression
+\begin{dmath*}
+- \frac{\sqrt{2} i Q_{xyz}}{2} + \frac{\sqrt{2} Q_{z}^{\beta}}{2}
+\end{dmath*}
+\noindent\quad $\vec{\mathbb{Q}}_{3}^{(3,-1)}[q](E^{\prime\prime(a)})$
+
+\noindent\quad ** symmetry
+\begin{dmath*}
+\frac{\sqrt{30} x^{2} z}{4} - \frac{\sqrt{30} i x y z}{2} - \frac{\sqrt{30} y^{2} z}{4}
+\end{dmath*}
+\noindent\quad ** expression
+\begin{dmath*}
+\frac{\sqrt{5} Q_{3c} z \left(x + i y\right)}{4} - \frac{\sqrt{5} i Q_{3s} z \left(x + i y\right)}{4} + \frac{\sqrt{3} Q_{3x} z \left(x - i y\right)}{4} - \frac{\sqrt{3} i Q_{3y} z \left(x - i y\right)}{4} - \frac{\sqrt{2} Q_{z}^{\alpha} \left(x - i y\right)^{2}}{4}
+\end{dmath*}
+\noindent\quad $\vec{\mathbb{Q}}_{3}^{(3,1)}[q](E^{\prime\prime(a)})$
+
+\noindent\quad ** symmetry
+\begin{dmath*}
+\frac{\sqrt{30} x^{2} z}{4} - \frac{\sqrt{30} i x y z}{2} - \frac{\sqrt{30} y^{2} z}{4}
+\end{dmath*}
+\noindent\quad ** expression
+\begin{dmath*}
+\frac{5 \sqrt{66} Q_{3c} z \left(x + i y\right) \left(3 x^{2} + 3 y^{2} - 4 z^{2}\right)}{264} - \frac{5 \sqrt{66} i Q_{3s} z \left(x + i y\right) \left(3 x^{2} + 3 y^{2} - 4 z^{2}\right)}{264} - \frac{\sqrt{110} Q_{3x} z \left(x - i y\right) \left(5 x^{2} + 14 i x y + 19 y^{2} - 16 z^{2}\right)}{264} + \frac{\sqrt{110} i Q_{3y} z \left(x - i y\right) \left(19 x^{2} - 14 i x y + 5 y^{2} - 16 z^{2}\right)}{264} + \frac{7 \sqrt{11} i Q_{xyz} \left(2 x^{4} - 5 i x^{3} y - 6 x^{2} y^{2} - 6 x^{2} z^{2} + 5 i x y^{3} + 2 y^{4} - 6 y^{2} z^{2} + 2 z^{4}\right)}{132} + \frac{\sqrt{165} Q_{z}^{\alpha} \left(x - i y\right)^{2} \left(x^{2} + y^{2} - 6 z^{2}\right)}{264} + \frac{7 \sqrt{11} Q_{z}^{\beta} \left(x^{4} - 10 i x^{3} y - 18 x^{2} y^{2} + 12 x^{2} z^{2} + 10 i x y^{3} + y^{4} + 12 y^{2} z^{2} - 4 z^{4}\right)}{264}
+\end{dmath*}
+\noindent\quad $\vec{\mathbb{Q}}_{3}^{(3,3)}[q](E^{\prime\prime(a)})$
+
+\noindent\quad ** symmetry
+\begin{dmath*}
+\frac{\sqrt{30} x^{2} z}{4} - \frac{\sqrt{30} i x y z}{2} - \frac{\sqrt{30} y^{2} z}{4}
+\end{dmath*}
+\noindent\quad ** expression
+\begin{dmath*}
+\frac{7 \sqrt{143} Q_{3c} z \left(19 x^{5} - 80 i x^{4} y - 160 x^{3} y^{2} - 10 x^{3} z^{2} + 170 i x^{2} y^{3} - 10 i x^{2} y z^{2} + 85 x y^{4} - 10 x y^{2} z^{2} + 4 x z^{4} - 14 i y^{5} - 10 i y^{3} z^{2} + 4 i y z^{4}\right)}{2288} + \frac{7 \sqrt{143} i Q_{3s} z \left(14 x^{5} - 85 i x^{4} y - 170 x^{3} y^{2} + 10 x^{3} z^{2} + 160 i x^{2} y^{3} + 10 i x^{2} y z^{2} + 80 x y^{4} + 10 x y^{2} z^{2} - 4 x z^{4} - 19 i y^{5} + 10 i y^{3} z^{2} - 4 i y z^{4}\right)}{2288} - \frac{7 \sqrt{2145} Q_{3x} z \left(x - i y\right) \left(7 x^{4} - 9 i x^{3} y + 5 x^{2} y^{2} - 22 x^{2} z^{2} - 9 i x y^{3} + 24 i x y z^{2} - 2 y^{4} + 2 y^{2} z^{2} + 4 z^{4}\right)}{2288} - \frac{7 \sqrt{2145} i Q_{3y} z \left(x - i y\right) \left(2 x^{4} - 9 i x^{3} y - 5 x^{2} y^{2} - 2 x^{2} z^{2} - 9 i x y^{3} + 24 i x y z^{2} - 7 y^{4} + 22 y^{2} z^{2} - 4 z^{4}\right)}{2288} - \frac{\sqrt{858} i Q_{xyz} \left(4 x^{6} - 21 i x^{5} y - 30 x^{4} y^{2} - 30 x^{4} z^{2} + 210 i x^{3} y z^{2} - 30 x^{2} y^{4} + 360 x^{2} y^{2} z^{2} - 30 x^{2} z^{4} + 21 i x y^{5} - 210 i x y^{3} z^{2} + 4 y^{6} - 30 y^{4} z^{2} - 30 y^{2} z^{4} + 4 z^{6}\right)}{1144} + \frac{7 \sqrt{1430} Q_{z}^{\alpha} \left(x - i y\right)^{2} \left(x^{4} + 2 x^{2} y^{2} - 16 x^{2} z^{2} + y^{4} - 16 y^{2} z^{2} + 16 z^{4}\right)}{2288} - \frac{\sqrt{858} Q_{z}^{\beta} \left(13 x^{6} - 42 i x^{5} y - 45 x^{4} y^{2} - 150 x^{4} z^{2} + 420 i x^{3} y z^{2} - 45 x^{2} y^{4} + 540 x^{2} y^{2} z^{2} + 60 x^{2} z^{4} + 42 i x y^{5} - 420 i x y^{3} z^{2} + 13 y^{6} - 150 y^{4} z^{2} + 60 y^{2} z^{4} - 8 z^{6}\right)}{2288}
+\end{dmath*}
+\noindent\quad $\vec{\mathbb{G}}_{3}^{(3,-2)}[q](E^{\prime\prime(a)})$
+
+\noindent\quad ** symmetry
+\begin{dmath*}
+- \frac{\sqrt{3} x^{3}}{4} - \frac{\sqrt{3} i x^{2} y}{4} - \frac{\sqrt{3} x y^{2}}{4} + \sqrt{3} x z^{2} - \frac{\sqrt{3} i y^{3}}{4} + \sqrt{3} i y z^{2}
+\end{dmath*}
+\noindent\quad ** expression
+\begin{dmath*}
+- \frac{\sqrt{6} i Q_{3x} z}{12} + \frac{\sqrt{6} Q_{3y} z}{12} - \frac{\sqrt{15} Q_{xyz} \left(x - i y\right)}{12} + \frac{i Q_{z}^{\alpha} \left(x + i y\right)}{2} + \frac{\sqrt{15} i Q_{z}^{\beta} \left(x - i y\right)}{12}
+\end{dmath*}
+\noindent\quad $\vec{\mathbb{G}}_{3}^{(3,0)}[q](E^{\prime\prime(a)})$
+
+\noindent\quad ** symmetry
+\begin{dmath*}
+- \frac{\sqrt{3} x^{3}}{4} - \frac{\sqrt{3} i x^{2} y}{4} - \frac{\sqrt{3} x y^{2}}{4} + \sqrt{3} x z^{2} - \frac{\sqrt{3} i y^{3}}{4} + \sqrt{3} i y z^{2}
+\end{dmath*}
+\noindent\quad ** expression
+\begin{dmath*}
+\frac{\sqrt{5} i Q_{3c} z \left(x - i y\right)^{2}}{4} - \frac{\sqrt{5} Q_{3s} z \left(x - i y\right)^{2}}{4} + \frac{\sqrt{3} i Q_{3x} z \left(3 x^{2} + 3 y^{2} - 2 z^{2}\right)}{12} - \frac{\sqrt{3} Q_{3y} z \left(3 x^{2} + 3 y^{2} - 2 z^{2}\right)}{12} - \frac{\sqrt{30} Q_{xyz} \left(x + i y\right)^{3}}{24} - \frac{\sqrt{2} i Q_{z}^{\alpha} \left(x + i y\right) \left(x^{2} + y^{2} - 4 z^{2}\right)}{8} - \frac{\sqrt{30} i Q_{z}^{\beta} \left(x + i y\right)^{3}}{24}
+\end{dmath*}
+\noindent\quad $\vec{\mathbb{G}}_{3}^{(3,2)}[q](E^{\prime\prime(a)})$
+
+\noindent\quad ** symmetry
+\begin{dmath*}
+- \frac{\sqrt{3} x^{3}}{4} - \frac{\sqrt{3} i x^{2} y}{4} - \frac{\sqrt{3} x y^{2}}{4} + \sqrt{3} x z^{2} - \frac{\sqrt{3} i y^{3}}{4} + \sqrt{3} i y z^{2}
+\end{dmath*}
+\noindent\quad ** expression
+\begin{dmath*}
+- \frac{7 \sqrt{110} i Q_{3c} z \left(x^{4} + 16 i x^{3} y - 18 x^{2} y^{2} + 4 x^{2} z^{2} - 8 i x y^{3} - 8 i x y z^{2} + 5 y^{4} - 4 y^{2} z^{2}\right)}{352} - \frac{7 \sqrt{110} Q_{3s} z \left(5 x^{4} + 8 i x^{3} y - 18 x^{2} y^{2} - 4 x^{2} z^{2} - 16 i x y^{3} + 8 i x y z^{2} + y^{4} + 4 y^{2} z^{2}\right)}{352} - \frac{5 \sqrt{66} i Q_{3x} z \left(15 x^{4} + 30 x^{2} y^{2} - 40 x^{2} z^{2} + 15 y^{4} - 40 y^{2} z^{2} + 8 z^{4}\right)}{1056} + \frac{5 \sqrt{66} Q_{3y} z \left(15 x^{4} + 30 x^{2} y^{2} - 40 x^{2} z^{2} + 15 y^{4} - 40 y^{2} z^{2} + 8 z^{4}\right)}{1056} + \frac{\sqrt{165} Q_{xyz} \left(4 x^{5} + 3 i x^{4} y + x^{3} y^{2} - 41 x^{3} z^{2} - i x^{2} y^{3} - 15 i x^{2} y z^{2} - 3 x y^{4} + 15 x y^{2} z^{2} + 18 x z^{4} - 4 i y^{5} + 41 i y^{3} z^{2} - 18 i y z^{4}\right)}{264} + \frac{5 \sqrt{11} i Q_{z}^{\alpha} \left(x + i y\right) \left(x^{4} + 2 x^{2} y^{2} - 12 x^{2} z^{2} + y^{4} - 12 y^{2} z^{2} + 8 z^{4}\right)}{176} - \frac{\sqrt{165} i Q_{z}^{\beta} \left(x^{5} - 15 i x^{4} y + 16 x^{3} y^{2} - 26 x^{3} z^{2} - 16 i x^{2} y^{3} + 138 i x^{2} y z^{2} + 15 x y^{4} - 138 x y^{2} z^{2} + 36 x z^{4} - i y^{5} + 26 i y^{3} z^{2} - 36 i y z^{4}\right)}{528}
+\end{dmath*}
+\noindent\quad $\vec{\mathbb{Q}}_{3}^{(3,-3)}[q](E^{\prime\prime(b)})$
+
+\noindent\quad ** symmetry
+\begin{dmath*}
+\frac{\sqrt{30} x^{2} z}{4} + \frac{\sqrt{30} i x y z}{2} - \frac{\sqrt{30} y^{2} z}{4}
+\end{dmath*}
+\noindent\quad ** expression
+\begin{dmath*}
+\frac{\sqrt{2} i Q_{xyz}}{2} + \frac{\sqrt{2} Q_{z}^{\beta}}{2}
+\end{dmath*}
+\noindent\quad $\vec{\mathbb{Q}}_{3}^{(3,-1)}[q](E^{\prime\prime(b)})$
+
+\noindent\quad ** symmetry
+\begin{dmath*}
+\frac{\sqrt{30} x^{2} z}{4} + \frac{\sqrt{30} i x y z}{2} - \frac{\sqrt{30} y^{2} z}{4}
+\end{dmath*}
+\noindent\quad ** expression
+\begin{dmath*}
+\frac{\sqrt{5} Q_{3c} z \left(x - i y\right)}{4} + \frac{\sqrt{5} i Q_{3s} z \left(x - i y\right)}{4} + \frac{\sqrt{3} Q_{3x} z \left(x + i y\right)}{4} + \frac{\sqrt{3} i Q_{3y} z \left(x + i y\right)}{4} - \frac{\sqrt{2} Q_{z}^{\alpha} \left(x + i y\right)^{2}}{4}
+\end{dmath*}
+\noindent\quad $\vec{\mathbb{Q}}_{3}^{(3,1)}[q](E^{\prime\prime(b)})$
+
+\noindent\quad ** symmetry
+\begin{dmath*}
+\frac{\sqrt{30} x^{2} z}{4} + \frac{\sqrt{30} i x y z}{2} - \frac{\sqrt{30} y^{2} z}{4}
+\end{dmath*}
+\noindent\quad ** expression
+\begin{dmath*}
+\frac{5 \sqrt{66} Q_{3c} z \left(x - i y\right) \left(3 x^{2} + 3 y^{2} - 4 z^{2}\right)}{264} + \frac{5 \sqrt{66} i Q_{3s} z \left(x - i y\right) \left(3 x^{2} + 3 y^{2} - 4 z^{2}\right)}{264} - \frac{\sqrt{110} Q_{3x} z \left(x + i y\right) \left(5 x^{2} - 14 i x y + 19 y^{2} - 16 z^{2}\right)}{264} - \frac{\sqrt{110} i Q_{3y} z \left(x + i y\right) \left(19 x^{2} + 14 i x y + 5 y^{2} - 16 z^{2}\right)}{264} - \frac{7 \sqrt{11} i Q_{xyz} \left(2 x^{4} + 5 i x^{3} y - 6 x^{2} y^{2} - 6 x^{2} z^{2} - 5 i x y^{3} + 2 y^{4} - 6 y^{2} z^{2} + 2 z^{4}\right)}{132} + \frac{\sqrt{165} Q_{z}^{\alpha} \left(x + i y\right)^{2} \left(x^{2} + y^{2} - 6 z^{2}\right)}{264} + \frac{7 \sqrt{11} Q_{z}^{\beta} \left(x^{4} + 10 i x^{3} y - 18 x^{2} y^{2} + 12 x^{2} z^{2} - 10 i x y^{3} + y^{4} + 12 y^{2} z^{2} - 4 z^{4}\right)}{264}
+\end{dmath*}
+\noindent\quad $\vec{\mathbb{Q}}_{3}^{(3,3)}[q](E^{\prime\prime(b)})$
+
+\noindent\quad ** symmetry
+\begin{dmath*}
+\frac{\sqrt{30} x^{2} z}{4} + \frac{\sqrt{30} i x y z}{2} - \frac{\sqrt{30} y^{2} z}{4}
+\end{dmath*}
+\noindent\quad ** expression
+\begin{dmath*}
+\frac{7 \sqrt{143} Q_{3c} z \left(19 x^{5} + 80 i x^{4} y - 160 x^{3} y^{2} - 10 x^{3} z^{2} - 170 i x^{2} y^{3} + 10 i x^{2} y z^{2} + 85 x y^{4} - 10 x y^{2} z^{2} + 4 x z^{4} + 14 i y^{5} + 10 i y^{3} z^{2} - 4 i y z^{4}\right)}{2288} - \frac{7 \sqrt{143} i Q_{3s} z \left(14 x^{5} + 85 i x^{4} y - 170 x^{3} y^{2} + 10 x^{3} z^{2} - 160 i x^{2} y^{3} - 10 i x^{2} y z^{2} + 80 x y^{4} + 10 x y^{2} z^{2} - 4 x z^{4} + 19 i y^{5} - 10 i y^{3} z^{2} + 4 i y z^{4}\right)}{2288} - \frac{7 \sqrt{2145} Q_{3x} z \left(x + i y\right) \left(7 x^{4} + 9 i x^{3} y + 5 x^{2} y^{2} - 22 x^{2} z^{2} + 9 i x y^{3} - 24 i x y z^{2} - 2 y^{4} + 2 y^{2} z^{2} + 4 z^{4}\right)}{2288} + \frac{7 \sqrt{2145} i Q_{3y} z \left(x + i y\right) \left(2 x^{4} + 9 i x^{3} y - 5 x^{2} y^{2} - 2 x^{2} z^{2} + 9 i x y^{3} - 24 i x y z^{2} - 7 y^{4} + 22 y^{2} z^{2} - 4 z^{4}\right)}{2288} + \frac{\sqrt{858} i Q_{xyz} \left(4 x^{6} + 21 i x^{5} y - 30 x^{4} y^{2} - 30 x^{4} z^{2} - 210 i x^{3} y z^{2} - 30 x^{2} y^{4} + 360 x^{2} y^{2} z^{2} - 30 x^{2} z^{4} - 21 i x y^{5} + 210 i x y^{3} z^{2} + 4 y^{6} - 30 y^{4} z^{2} - 30 y^{2} z^{4} + 4 z^{6}\right)}{1144} + \frac{7 \sqrt{1430} Q_{z}^{\alpha} \left(x + i y\right)^{2} \left(x^{4} + 2 x^{2} y^{2} - 16 x^{2} z^{2} + y^{4} - 16 y^{2} z^{2} + 16 z^{4}\right)}{2288} - \frac{\sqrt{858} Q_{z}^{\beta} \left(13 x^{6} + 42 i x^{5} y - 45 x^{4} y^{2} - 150 x^{4} z^{2} - 420 i x^{3} y z^{2} - 45 x^{2} y^{4} + 540 x^{2} y^{2} z^{2} + 60 x^{2} z^{4} - 42 i x y^{5} + 420 i x y^{3} z^{2} + 13 y^{6} - 150 y^{4} z^{2} + 60 y^{2} z^{4} - 8 z^{6}\right)}{2288}
+\end{dmath*}
+\noindent\quad $\vec{\mathbb{G}}_{3}^{(3,-2)}[q](E^{\prime\prime(b)})$
+
+\noindent\quad ** symmetry
+\begin{dmath*}
+- \frac{\sqrt{3} x^{3}}{4} + \frac{\sqrt{3} i x^{2} y}{4} - \frac{\sqrt{3} x y^{2}}{4} + \sqrt{3} x z^{2} + \frac{\sqrt{3} i y^{3}}{4} - \sqrt{3} i y z^{2}
+\end{dmath*}
+\noindent\quad ** expression
+\begin{dmath*}
+\frac{\sqrt{6} i Q_{3x} z}{12} + \frac{\sqrt{6} Q_{3y} z}{12} - \frac{\sqrt{15} Q_{xyz} \left(x + i y\right)}{12} - \frac{i Q_{z}^{\alpha} \left(x - i y\right)}{2} - \frac{\sqrt{15} i Q_{z}^{\beta} \left(x + i y\right)}{12}
+\end{dmath*}
+\noindent\quad $\vec{\mathbb{G}}_{3}^{(3,0)}[q](E^{\prime\prime(b)})$
+
+\noindent\quad ** symmetry
+\begin{dmath*}
+- \frac{\sqrt{3} x^{3}}{4} + \frac{\sqrt{3} i x^{2} y}{4} - \frac{\sqrt{3} x y^{2}}{4} + \sqrt{3} x z^{2} + \frac{\sqrt{3} i y^{3}}{4} - \sqrt{3} i y z^{2}
+\end{dmath*}
+\noindent\quad ** expression
+\begin{dmath*}
+- \frac{\sqrt{5} i Q_{3c} z \left(x + i y\right)^{2}}{4} - \frac{\sqrt{5} Q_{3s} z \left(x + i y\right)^{2}}{4} - \frac{\sqrt{3} i Q_{3x} z \left(3 x^{2} + 3 y^{2} - 2 z^{2}\right)}{12} - \frac{\sqrt{3} Q_{3y} z \left(3 x^{2} + 3 y^{2} - 2 z^{2}\right)}{12} - \frac{\sqrt{30} Q_{xyz} \left(x - i y\right)^{3}}{24} + \frac{\sqrt{2} i Q_{z}^{\alpha} \left(x - i y\right) \left(x^{2} + y^{2} - 4 z^{2}\right)}{8} + \frac{\sqrt{30} i Q_{z}^{\beta} \left(x - i y\right)^{3}}{24}
+\end{dmath*}
+\noindent\quad $\vec{\mathbb{G}}_{3}^{(3,2)}[q](E^{\prime\prime(b)})$
+
+\noindent\quad ** symmetry
+\begin{dmath*}
+- \frac{\sqrt{3} x^{3}}{4} + \frac{\sqrt{3} i x^{2} y}{4} - \frac{\sqrt{3} x y^{2}}{4} + \sqrt{3} x z^{2} + \frac{\sqrt{3} i y^{3}}{4} - \sqrt{3} i y z^{2}
+\end{dmath*}
+\noindent\quad ** expression
+\begin{dmath*}
+\frac{7 \sqrt{110} i Q_{3c} z \left(x^{4} - 16 i x^{3} y - 18 x^{2} y^{2} + 4 x^{2} z^{2} + 8 i x y^{3} + 8 i x y z^{2} + 5 y^{4} - 4 y^{2} z^{2}\right)}{352} - \frac{7 \sqrt{110} Q_{3s} z \left(5 x^{4} - 8 i x^{3} y - 18 x^{2} y^{2} - 4 x^{2} z^{2} + 16 i x y^{3} - 8 i x y z^{2} + y^{4} + 4 y^{2} z^{2}\right)}{352} + \frac{5 \sqrt{66} i Q_{3x} z \left(15 x^{4} + 30 x^{2} y^{2} - 40 x^{2} z^{2} + 15 y^{4} - 40 y^{2} z^{2} + 8 z^{4}\right)}{1056} + \frac{5 \sqrt{66} Q_{3y} z \left(15 x^{4} + 30 x^{2} y^{2} - 40 x^{2} z^{2} + 15 y^{4} - 40 y^{2} z^{2} + 8 z^{4}\right)}{1056} + \frac{\sqrt{165} Q_{xyz} \left(4 x^{5} - 3 i x^{4} y + x^{3} y^{2} - 41 x^{3} z^{2} + i x^{2} y^{3} + 15 i x^{2} y z^{2} - 3 x y^{4} + 15 x y^{2} z^{2} + 18 x z^{4} + 4 i y^{5} - 41 i y^{3} z^{2} + 18 i y z^{4}\right)}{264} - \frac{5 \sqrt{11} i Q_{z}^{\alpha} \left(x - i y\right) \left(x^{4} + 2 x^{2} y^{2} - 12 x^{2} z^{2} + y^{4} - 12 y^{2} z^{2} + 8 z^{4}\right)}{176} + \frac{\sqrt{165} i Q_{z}^{\beta} \left(x^{5} + 15 i x^{4} y + 16 x^{3} y^{2} - 26 x^{3} z^{2} + 16 i x^{2} y^{3} - 138 i x^{2} y z^{2} + 15 x y^{4} - 138 x y^{2} z^{2} + 36 x z^{4} + i y^{5} - 26 i y^{3} z^{2} + 36 i y z^{4}\right)}{528}
+\end{dmath*}
+
+\end{document}

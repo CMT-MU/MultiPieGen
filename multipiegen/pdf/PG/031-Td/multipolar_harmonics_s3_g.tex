@@ -1,0 +1,706 @@
+\documentclass[fleqn,8pt]{jsarticle}
+
+%%% package
+
+\usepackage[usenames]{color}
+\usepackage{amsmath}
+\usepackage{breqn}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{braket}
+\usepackage{multirow}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{caption}
+
+%%% layout setting
+
+\paperwidth=210truemm
+\paperheight=297truemm
+\textwidth=189.2truemm
+\textheight=269.2truemm
+\oddsidemargin=-15truemm
+\topmargin=-15truemm
+\footskip=7truemm
+
+%%% fixed
+
+\hoffset=0truemm
+\voffset=0truemm
+\headheight=0truemm
+\headsep=0truemm
+\marginparsep=0truemm
+\marginparwidth=0truemm
+
+%%% main text
+
+\begin{document}
+
+\setcounter{MaxMatrixCols}{32}
+
+\renewcommand{\tablename}{Table~}
+\renewcommand{\figurename}{Figure~}
+\begin{center}
+\LARGE
+PG No. 31\quad$T_{\rm d}$\quad$\bar{4}3m$\quad[ cubic ] (internal axial octupole)
+\end{center}
+
+\noindent * Harmonics for rank 0
+
+\noindent\quad $\vec{\mathbb{G}}_{0}^{(3,3)}[g](A_{2})$
+
+\noindent\quad ** symmetry
+\begin{dmath*}
+1
+\end{dmath*}
+\noindent\quad ** expression
+\begin{dmath*}
+\frac{\sqrt{105} G_{xyz} x y z}{7} + \frac{\sqrt{7} G_{x}^{\alpha} x \left(2 x^{2} - 3 y^{2} - 3 z^{2}\right)}{14} + \frac{\sqrt{105} G_{x}^{\beta} x \left(y - z\right) \left(y + z\right)}{14} - \frac{\sqrt{7} G_{y}^{\alpha} y \left(3 x^{2} - 2 y^{2} + 3 z^{2}\right)}{14} - \frac{\sqrt{105} G_{y}^{\beta} y \left(x - z\right) \left(x + z\right)}{14} - \frac{\sqrt{7} G_{z}^{\alpha} z \left(3 x^{2} + 3 y^{2} - 2 z^{2}\right)}{14} + \frac{\sqrt{105} G_{z}^{\beta} z \left(x - y\right) \left(x + y\right)}{14}
+\end{dmath*}
+
+\noindent * Harmonics for rank 1
+
+\noindent\quad $\vec{\mathbb{G}}_{1,1}^{(3,1)}[g](T_{1})$, $\vec{\mathbb{G}}_{1,2}^{(3,1)}[g](T_{1})$, $\vec{\mathbb{G}}_{1,3}^{(3,1)}[g](T_{1})$
+
+\noindent\quad ** symmetry
+\begin{dmath*}
+x
+\end{dmath*}
+\begin{dmath*}
+y
+\end{dmath*}
+\begin{dmath*}
+z
+\end{dmath*}
+\noindent\quad ** expression
+\begin{dmath*}
+\frac{\sqrt{21} G_{xyz} y z}{7} + \frac{3 \sqrt{35} G_{x}^{\alpha} \left(2 x^{2} - y^{2} - z^{2}\right)}{70} + \frac{\sqrt{21} G_{x}^{\beta} \left(y - z\right) \left(y + z\right)}{14} - \frac{3 \sqrt{35} G_{y}^{\alpha} x y}{35} - \frac{\sqrt{21} G_{y}^{\beta} x y}{7} - \frac{3 \sqrt{35} G_{z}^{\alpha} x z}{35} + \frac{\sqrt{21} G_{z}^{\beta} x z}{7}
+\end{dmath*}
+\begin{dmath*}
+\frac{\sqrt{21} G_{xyz} x z}{7} - \frac{3 \sqrt{35} G_{x}^{\alpha} x y}{35} + \frac{\sqrt{21} G_{x}^{\beta} x y}{7} - \frac{3 \sqrt{35} G_{y}^{\alpha} \left(x^{2} - 2 y^{2} + z^{2}\right)}{70} - \frac{\sqrt{21} G_{y}^{\beta} \left(x - z\right) \left(x + z\right)}{14} - \frac{3 \sqrt{35} G_{z}^{\alpha} y z}{35} - \frac{\sqrt{21} G_{z}^{\beta} y z}{7}
+\end{dmath*}
+\begin{dmath*}
+\frac{\sqrt{21} G_{xyz} x y}{7} - \frac{3 \sqrt{35} G_{x}^{\alpha} x z}{35} - \frac{\sqrt{21} G_{x}^{\beta} x z}{7} - \frac{3 \sqrt{35} G_{y}^{\alpha} y z}{35} + \frac{\sqrt{21} G_{y}^{\beta} y z}{7} - \frac{3 \sqrt{35} G_{z}^{\alpha} \left(x^{2} + y^{2} - 2 z^{2}\right)}{70} + \frac{\sqrt{21} G_{z}^{\beta} \left(x - y\right) \left(x + y\right)}{14}
+\end{dmath*}
+\noindent\quad $\vec{\mathbb{G}}_{1,1}^{(3,3)}[g](T_{1})$, $\vec{\mathbb{G}}_{1,2}^{(3,3)}[g](T_{1})$, $\vec{\mathbb{G}}_{1,3}^{(3,3)}[g](T_{1})$
+
+\noindent\quad ** symmetry
+\begin{dmath*}
+x
+\end{dmath*}
+\begin{dmath*}
+y
+\end{dmath*}
+\begin{dmath*}
+z
+\end{dmath*}
+\noindent\quad ** expression
+\begin{dmath*}
+\frac{\sqrt{35} G_{xyz} y z \left(6 x^{2} - y^{2} - z^{2}\right)}{14} + \frac{\sqrt{21} G_{x}^{\alpha} \left(8 x^{4} - 24 x^{2} y^{2} - 24 x^{2} z^{2} + 3 y^{4} + 6 y^{2} z^{2} + 3 z^{4}\right)}{84} + \frac{\sqrt{35} G_{x}^{\beta} \left(y - z\right) \left(y + z\right) \left(6 x^{2} - y^{2} - z^{2}\right)}{28} - \frac{5 \sqrt{21} G_{y}^{\alpha} x y \left(3 x^{2} - 4 y^{2} + 3 z^{2}\right)}{84} - \frac{\sqrt{35} G_{y}^{\beta} x y \left(5 x^{2} - 2 y^{2} - 9 z^{2}\right)}{28} - \frac{5 \sqrt{21} G_{z}^{\alpha} x z \left(3 x^{2} + 3 y^{2} - 4 z^{2}\right)}{84} + \frac{\sqrt{35} G_{z}^{\beta} x z \left(5 x^{2} - 9 y^{2} - 2 z^{2}\right)}{28}
+\end{dmath*}
+\begin{dmath*}
+- \frac{\sqrt{35} G_{xyz} x z \left(x^{2} - 6 y^{2} + z^{2}\right)}{14} + \frac{5 \sqrt{21} G_{x}^{\alpha} x y \left(4 x^{2} - 3 y^{2} - 3 z^{2}\right)}{84} - \frac{\sqrt{35} G_{x}^{\beta} x y \left(2 x^{2} - 5 y^{2} + 9 z^{2}\right)}{28} + \frac{\sqrt{21} G_{y}^{\alpha} \left(3 x^{4} - 24 x^{2} y^{2} + 6 x^{2} z^{2} + 8 y^{4} - 24 y^{2} z^{2} + 3 z^{4}\right)}{84} + \frac{\sqrt{35} G_{y}^{\beta} \left(x - z\right) \left(x + z\right) \left(x^{2} - 6 y^{2} + z^{2}\right)}{28} - \frac{5 \sqrt{21} G_{z}^{\alpha} y z \left(3 x^{2} + 3 y^{2} - 4 z^{2}\right)}{84} + \frac{\sqrt{35} G_{z}^{\beta} y z \left(9 x^{2} - 5 y^{2} + 2 z^{2}\right)}{28}
+\end{dmath*}
+\begin{dmath*}
+- \frac{\sqrt{35} G_{xyz} x y \left(x^{2} + y^{2} - 6 z^{2}\right)}{14} + \frac{5 \sqrt{21} G_{x}^{\alpha} x z \left(4 x^{2} - 3 y^{2} - 3 z^{2}\right)}{84} + \frac{\sqrt{35} G_{x}^{\beta} x z \left(2 x^{2} + 9 y^{2} - 5 z^{2}\right)}{28} - \frac{5 \sqrt{21} G_{y}^{\alpha} y z \left(3 x^{2} - 4 y^{2} + 3 z^{2}\right)}{84} - \frac{\sqrt{35} G_{y}^{\beta} y z \left(9 x^{2} + 2 y^{2} - 5 z^{2}\right)}{28} + \frac{\sqrt{21} G_{z}^{\alpha} \left(3 x^{4} + 6 x^{2} y^{2} - 24 x^{2} z^{2} + 3 y^{4} - 24 y^{2} z^{2} + 8 z^{4}\right)}{84} - \frac{\sqrt{35} G_{z}^{\beta} \left(x - y\right) \left(x + y\right) \left(x^{2} + y^{2} - 6 z^{2}\right)}{28}
+\end{dmath*}
+\noindent\quad $\vec{\mathbb{Q}}_{1,1}^{(3,2)}[g](T_{2})$, $\vec{\mathbb{Q}}_{1,2}^{(3,2)}[g](T_{2})$, $\vec{\mathbb{Q}}_{1,3}^{(3,2)}[g](T_{2})$
+
+\noindent\quad ** symmetry
+\begin{dmath*}
+x
+\end{dmath*}
+\begin{dmath*}
+y
+\end{dmath*}
+\begin{dmath*}
+z
+\end{dmath*}
+\noindent\quad ** expression
+\begin{dmath*}
+- \frac{\sqrt{105} G_{xyz} x \left(y - z\right) \left(y + z\right)}{14} + \frac{\sqrt{105} G_{x}^{\beta} x y z}{7} - \frac{3 \sqrt{7} G_{y}^{\alpha} z \left(x^{2} - 4 y^{2} + z^{2}\right)}{28} - \frac{\sqrt{105} G_{y}^{\beta} z \left(x^{2} + 2 y^{2} - z^{2}\right)}{28} + \frac{3 \sqrt{7} G_{z}^{\alpha} y \left(x^{2} + y^{2} - 4 z^{2}\right)}{28} - \frac{\sqrt{105} G_{z}^{\beta} y \left(x^{2} - y^{2} + 2 z^{2}\right)}{28}
+\end{dmath*}
+\begin{dmath*}
+\frac{\sqrt{105} G_{xyz} y \left(x - z\right) \left(x + z\right)}{14} - \frac{3 \sqrt{7} G_{x}^{\alpha} z \left(4 x^{2} - y^{2} - z^{2}\right)}{28} - \frac{\sqrt{105} G_{x}^{\beta} z \left(2 x^{2} + y^{2} - z^{2}\right)}{28} + \frac{\sqrt{105} G_{y}^{\beta} x y z}{7} - \frac{3 \sqrt{7} G_{z}^{\alpha} x \left(x^{2} + y^{2} - 4 z^{2}\right)}{28} + \frac{\sqrt{105} G_{z}^{\beta} x \left(x^{2} - y^{2} - 2 z^{2}\right)}{28}
+\end{dmath*}
+\begin{dmath*}
+- \frac{\sqrt{105} G_{xyz} z \left(x - y\right) \left(x + y\right)}{14} + \frac{3 \sqrt{7} G_{x}^{\alpha} y \left(4 x^{2} - y^{2} - z^{2}\right)}{28} - \frac{\sqrt{105} G_{x}^{\beta} y \left(2 x^{2} - y^{2} + z^{2}\right)}{28} + \frac{3 \sqrt{7} G_{y}^{\alpha} x \left(x^{2} - 4 y^{2} + z^{2}\right)}{28} + \frac{\sqrt{105} G_{y}^{\beta} x \left(x^{2} - 2 y^{2} - z^{2}\right)}{28} + \frac{\sqrt{105} G_{z}^{\beta} x y z}{7}
+\end{dmath*}
+
+\noindent * Harmonics for rank 2
+
+\noindent\quad $\vec{\mathbb{Q}}_{2,1}^{(3,0)}[g](E)$, $\vec{\mathbb{Q}}_{2,2}^{(3,0)}[g](E)$
+
+\noindent\quad ** symmetry
+\begin{dmath*}
+- \frac{x^{2}}{2} - \frac{y^{2}}{2} + z^{2}
+\end{dmath*}
+\begin{dmath*}
+\frac{\sqrt{3} x^{2}}{2} - \frac{\sqrt{3} y^{2}}{2}
+\end{dmath*}
+\noindent\quad ** expression
+\begin{dmath*}
+- \frac{\sqrt{210} G_{xyz} \left(x - y\right) \left(x + y\right)}{28} - \frac{3 \sqrt{14} G_{x}^{\alpha} y z}{28} - \frac{\sqrt{210} G_{x}^{\beta} y z}{28} + \frac{3 \sqrt{14} G_{y}^{\alpha} x z}{28} - \frac{\sqrt{210} G_{y}^{\beta} x z}{28} + \frac{\sqrt{210} G_{z}^{\beta} x y}{14}
+\end{dmath*}
+\begin{dmath*}
+- \frac{\sqrt{70} G_{xyz} \left(x^{2} + y^{2} - 2 z^{2}\right)}{28} - \frac{\sqrt{42} G_{x}^{\alpha} y z}{28} + \frac{3 \sqrt{70} G_{x}^{\beta} y z}{28} - \frac{\sqrt{42} G_{y}^{\alpha} x z}{28} - \frac{3 \sqrt{70} G_{y}^{\beta} x z}{28} + \frac{\sqrt{42} G_{z}^{\alpha} x y}{14}
+\end{dmath*}
+\noindent\quad $\vec{\mathbb{Q}}_{2,1}^{(3,2)}[g](E)$, $\vec{\mathbb{Q}}_{2,2}^{(3,2)}[g](E)$
+
+\noindent\quad ** symmetry
+\begin{dmath*}
+- \frac{x^{2}}{2} - \frac{y^{2}}{2} + z^{2}
+\end{dmath*}
+\begin{dmath*}
+\frac{\sqrt{3} x^{2}}{2} - \frac{\sqrt{3} y^{2}}{2}
+\end{dmath*}
+\noindent\quad ** expression
+\begin{dmath*}
+\frac{\sqrt{105} G_{xyz} \left(x - y\right) \left(x + y\right) \left(x^{2} + y^{2} - 6 z^{2}\right)}{42} + \frac{5 \sqrt{7} G_{x}^{\alpha} y z \left(6 x^{2} - y^{2} - z^{2}\right)}{28} - \frac{\sqrt{105} G_{x}^{\beta} y z \left(12 x^{2} - 9 y^{2} + 5 z^{2}\right)}{84} + \frac{5 \sqrt{7} G_{y}^{\alpha} x z \left(x^{2} - 6 y^{2} + z^{2}\right)}{28} + \frac{\sqrt{105} G_{y}^{\beta} x z \left(9 x^{2} - 12 y^{2} - 5 z^{2}\right)}{84} - \frac{\sqrt{105} G_{z}^{\beta} x y \left(x^{2} + y^{2} - 6 z^{2}\right)}{21}
+\end{dmath*}
+\begin{dmath*}
+\frac{\sqrt{35} G_{xyz} \left(x^{4} - 12 x^{2} y^{2} + 6 x^{2} z^{2} + y^{4} + 6 y^{2} z^{2} - 2 z^{4}\right)}{42} + \frac{5 \sqrt{21} G_{x}^{\alpha} y z \left(6 x^{2} - y^{2} - z^{2}\right)}{84} + \frac{\sqrt{35} G_{x}^{\beta} y z \left(36 x^{2} + y^{2} - 13 z^{2}\right)}{84} - \frac{5 \sqrt{21} G_{y}^{\alpha} x z \left(x^{2} - 6 y^{2} + z^{2}\right)}{84} - \frac{\sqrt{35} G_{y}^{\beta} x z \left(x^{2} + 36 y^{2} - 13 z^{2}\right)}{84} + \frac{5 \sqrt{21} G_{z}^{\alpha} x y \left(x^{2} + y^{2} - 6 z^{2}\right)}{42} - \frac{\sqrt{35} G_{z}^{\beta} x y \left(x - y\right) \left(x + y\right)}{6}
+\end{dmath*}
+\noindent\quad $\vec{\mathbb{G}}_{2,1}^{(3,-1)}[g](E)$, $\vec{\mathbb{G}}_{2,2}^{(3,-1)}[g](E)$
+
+\noindent\quad ** symmetry
+\begin{dmath*}
+- \frac{\sqrt{3} x^{2}}{2} + \frac{\sqrt{3} y^{2}}{2}
+\end{dmath*}
+\begin{dmath*}
+- \frac{x^{2}}{2} - \frac{y^{2}}{2} + z^{2}
+\end{dmath*}
+\noindent\quad ** expression
+\begin{dmath*}
+- \frac{3 \sqrt{7} G_{x}^{\alpha} x}{14} + \frac{\sqrt{105} G_{x}^{\beta} x}{42} + \frac{3 \sqrt{7} G_{y}^{\alpha} y}{14} + \frac{\sqrt{105} G_{y}^{\beta} y}{42} - \frac{\sqrt{105} G_{z}^{\beta} z}{21}
+\end{dmath*}
+\begin{dmath*}
+- \frac{\sqrt{21} G_{x}^{\alpha} x}{14} - \frac{\sqrt{35} G_{x}^{\beta} x}{14} - \frac{\sqrt{21} G_{y}^{\alpha} y}{14} + \frac{\sqrt{35} G_{y}^{\beta} y}{14} + \frac{\sqrt{21} G_{z}^{\alpha} z}{7}
+\end{dmath*}
+\noindent\quad $\vec{\mathbb{G}}_{2,1}^{(3,1)}[g](E)$, $\vec{\mathbb{G}}_{2,2}^{(3,1)}[g](E)$
+
+\noindent\quad ** symmetry
+\begin{dmath*}
+- \frac{\sqrt{3} x^{2}}{2} + \frac{\sqrt{3} y^{2}}{2}
+\end{dmath*}
+\begin{dmath*}
+- \frac{x^{2}}{2} - \frac{y^{2}}{2} + z^{2}
+\end{dmath*}
+\noindent\quad ** expression
+\begin{dmath*}
+- \frac{\sqrt{7} G_{x}^{\alpha} x \left(4 x^{2} - y^{2} - 11 z^{2}\right)}{28} - \frac{\sqrt{105} G_{x}^{\beta} x \left(2 x^{2} - 3 y^{2} - 3 z^{2}\right)}{84} - \frac{\sqrt{7} G_{y}^{\alpha} y \left(x^{2} - 4 y^{2} + 11 z^{2}\right)}{28} + \frac{\sqrt{105} G_{y}^{\beta} y \left(3 x^{2} - 2 y^{2} + 3 z^{2}\right)}{84} + \frac{5 \sqrt{7} G_{z}^{\alpha} z \left(x - y\right) \left(x + y\right)}{14} - \frac{\sqrt{105} G_{z}^{\beta} z \left(3 x^{2} + 3 y^{2} - 2 z^{2}\right)}{42}
+\end{dmath*}
+\begin{dmath*}
+- \frac{\sqrt{21} G_{x}^{\alpha} x \left(4 x^{2} - 21 y^{2} + 9 z^{2}\right)}{84} + \frac{\sqrt{35} G_{x}^{\beta} x \left(2 x^{2} - 3 y^{2} - 3 z^{2}\right)}{28} + \frac{\sqrt{21} G_{y}^{\alpha} y \left(21 x^{2} - 4 y^{2} - 9 z^{2}\right)}{84} + \frac{\sqrt{35} G_{y}^{\beta} y \left(3 x^{2} - 2 y^{2} + 3 z^{2}\right)}{28} - \frac{\sqrt{21} G_{z}^{\alpha} z \left(3 x^{2} + 3 y^{2} - 2 z^{2}\right)}{21}
+\end{dmath*}
+\noindent\quad $\vec{\mathbb{G}}_{2,1}^{(3,3)}[g](E)$, $\vec{\mathbb{G}}_{2,2}^{(3,3)}[g](E)$
+
+\noindent\quad ** symmetry
+\begin{dmath*}
+- \frac{\sqrt{3} x^{2}}{2} + \frac{\sqrt{3} y^{2}}{2}
+\end{dmath*}
+\begin{dmath*}
+- \frac{x^{2}}{2} - \frac{y^{2}}{2} + z^{2}
+\end{dmath*}
+\noindent\quad ** expression
+\begin{dmath*}
+- \frac{3 \sqrt{2310} G_{xyz} x y z \left(x - y\right) \left(x + y\right)}{44} - \frac{5 \sqrt{154} G_{x}^{\alpha} x \left(4 x^{4} - 27 x^{2} y^{2} - 13 x^{2} z^{2} + 11 y^{4} + 15 y^{2} z^{2} + 4 z^{4}\right)}{616} + \frac{\sqrt{2310} G_{x}^{\beta} x \left(2 x^{4} - 73 x^{2} y^{2} + 53 x^{2} z^{2} + 51 y^{4} - 87 y^{2} z^{2} - 12 z^{4}\right)}{1848} + \frac{5 \sqrt{154} G_{y}^{\alpha} y \left(11 x^{4} - 27 x^{2} y^{2} + 15 x^{2} z^{2} + 4 y^{4} - 13 y^{2} z^{2} + 4 z^{4}\right)}{616} + \frac{\sqrt{2310} G_{y}^{\beta} y \left(51 x^{4} - 73 x^{2} y^{2} - 87 x^{2} z^{2} + 2 y^{4} + 53 y^{2} z^{2} - 12 z^{4}\right)}{1848} + \frac{5 \sqrt{154} G_{z}^{\alpha} z \left(x - y\right) \left(x + y\right) \left(x^{2} + y^{2} - 2 z^{2}\right)}{88} - \frac{\sqrt{2310} G_{z}^{\beta} z \left(39 x^{4} - 174 x^{2} y^{2} - 20 x^{2} z^{2} + 39 y^{4} - 20 y^{2} z^{2} + 4 z^{4}\right)}{1848}
+\end{dmath*}
+\begin{dmath*}
+- \frac{3 \sqrt{770} G_{xyz} x y z \left(x^{2} + y^{2} - 2 z^{2}\right)}{44} - \frac{5 \sqrt{462} G_{x}^{\alpha} x \left(4 x^{4} + x^{2} y^{2} - 41 x^{2} z^{2} - 3 y^{4} + 15 y^{2} z^{2} + 18 z^{4}\right)}{1848} - \frac{\sqrt{770} G_{x}^{\beta} x \left(2 x^{4} + 11 x^{2} y^{2} - 31 x^{2} z^{2} + 9 y^{4} - 87 y^{2} z^{2} + 30 z^{4}\right)}{616} + \frac{5 \sqrt{462} G_{y}^{\alpha} y \left(3 x^{4} - x^{2} y^{2} - 15 x^{2} z^{2} - 4 y^{4} + 41 y^{2} z^{2} - 18 z^{4}\right)}{1848} + \frac{\sqrt{770} G_{y}^{\beta} y \left(9 x^{4} + 11 x^{2} y^{2} - 87 x^{2} z^{2} + 2 y^{4} - 31 y^{2} z^{2} + 30 z^{4}\right)}{616} + \frac{5 \sqrt{462} G_{z}^{\alpha} z \left(15 x^{4} + 30 x^{2} y^{2} - 40 x^{2} z^{2} + 15 y^{4} - 40 y^{2} z^{2} + 8 z^{4}\right)}{1848} - \frac{3 \sqrt{770} G_{z}^{\beta} z \left(x - y\right) \left(x + y\right) \left(x^{2} + y^{2} - 2 z^{2}\right)}{88}
+\end{dmath*}
+\noindent\quad $\vec{\mathbb{G}}_{2,1}^{(3,-1)}[g](T_{1})$, $\vec{\mathbb{G}}_{2,2}^{(3,-1)}[g](T_{1})$, $\vec{\mathbb{G}}_{2,3}^{(3,-1)}[g](T_{1})$
+
+\noindent\quad ** symmetry
+\begin{dmath*}
+\sqrt{3} y z
+\end{dmath*}
+\begin{dmath*}
+\sqrt{3} x z
+\end{dmath*}
+\begin{dmath*}
+\sqrt{3} x y
+\end{dmath*}
+\noindent\quad ** expression
+\begin{dmath*}
+\frac{\sqrt{105} G_{xyz} x}{21} - \frac{\sqrt{7} G_{y}^{\alpha} z}{7} + \frac{\sqrt{105} G_{y}^{\beta} z}{21} - \frac{\sqrt{7} G_{z}^{\alpha} y}{7} - \frac{\sqrt{105} G_{z}^{\beta} y}{21}
+\end{dmath*}
+\begin{dmath*}
+\frac{\sqrt{105} G_{xyz} y}{21} - \frac{\sqrt{7} G_{x}^{\alpha} z}{7} - \frac{\sqrt{105} G_{x}^{\beta} z}{21} - \frac{\sqrt{7} G_{z}^{\alpha} x}{7} + \frac{\sqrt{105} G_{z}^{\beta} x}{21}
+\end{dmath*}
+\begin{dmath*}
+\frac{\sqrt{105} G_{xyz} z}{21} - \frac{\sqrt{7} G_{x}^{\alpha} y}{7} + \frac{\sqrt{105} G_{x}^{\beta} y}{21} - \frac{\sqrt{7} G_{y}^{\alpha} x}{7} - \frac{\sqrt{105} G_{y}^{\beta} x}{21}
+\end{dmath*}
+\noindent\quad $\vec{\mathbb{G}}_{2,1}^{(3,1)}[g](T_{1})$, $\vec{\mathbb{G}}_{2,2}^{(3,1)}[g](T_{1})$, $\vec{\mathbb{G}}_{2,3}^{(3,1)}[g](T_{1})$
+
+\noindent\quad ** symmetry
+\begin{dmath*}
+\sqrt{3} y z
+\end{dmath*}
+\begin{dmath*}
+\sqrt{3} x z
+\end{dmath*}
+\begin{dmath*}
+\sqrt{3} x y
+\end{dmath*}
+\noindent\quad ** expression
+\begin{dmath*}
+- \frac{\sqrt{105} G_{xyz} x \left(2 x^{2} - 3 y^{2} - 3 z^{2}\right)}{42} - \frac{5 \sqrt{7} G_{x}^{\alpha} x y z}{7} - \frac{\sqrt{7} G_{y}^{\alpha} z \left(x^{2} - 4 y^{2} + z^{2}\right)}{28} - \frac{\sqrt{105} G_{y}^{\beta} z \left(9 x^{2} - 6 y^{2} - z^{2}\right)}{84} - \frac{\sqrt{7} G_{z}^{\alpha} y \left(x^{2} + y^{2} - 4 z^{2}\right)}{28} + \frac{\sqrt{105} G_{z}^{\beta} y \left(9 x^{2} - y^{2} - 6 z^{2}\right)}{84}
+\end{dmath*}
+\begin{dmath*}
+\frac{\sqrt{105} G_{xyz} y \left(3 x^{2} - 2 y^{2} + 3 z^{2}\right)}{42} + \frac{\sqrt{7} G_{x}^{\alpha} z \left(4 x^{2} - y^{2} - z^{2}\right)}{28} - \frac{\sqrt{105} G_{x}^{\beta} z \left(6 x^{2} - 9 y^{2} + z^{2}\right)}{84} - \frac{5 \sqrt{7} G_{y}^{\alpha} x y z}{7} - \frac{\sqrt{7} G_{z}^{\alpha} x \left(x^{2} + y^{2} - 4 z^{2}\right)}{28} + \frac{\sqrt{105} G_{z}^{\beta} x \left(x^{2} - 9 y^{2} + 6 z^{2}\right)}{84}
+\end{dmath*}
+\begin{dmath*}
+\frac{\sqrt{105} G_{xyz} z \left(3 x^{2} + 3 y^{2} - 2 z^{2}\right)}{42} + \frac{\sqrt{7} G_{x}^{\alpha} y \left(4 x^{2} - y^{2} - z^{2}\right)}{28} + \frac{\sqrt{105} G_{x}^{\beta} y \left(6 x^{2} + y^{2} - 9 z^{2}\right)}{84} - \frac{\sqrt{7} G_{y}^{\alpha} x \left(x^{2} - 4 y^{2} + z^{2}\right)}{28} - \frac{\sqrt{105} G_{y}^{\beta} x \left(x^{2} + 6 y^{2} - 9 z^{2}\right)}{84} - \frac{5 \sqrt{7} G_{z}^{\alpha} x y z}{7}
+\end{dmath*}
+\noindent\quad $\vec{\mathbb{G}}_{2,1}^{(3,3)}[g](T_{1})$, $\vec{\mathbb{G}}_{2,2}^{(3,3)}[g](T_{1})$, $\vec{\mathbb{G}}_{2,3}^{(3,3)}[g](T_{1})$
+
+\noindent\quad ** symmetry
+\begin{dmath*}
+\sqrt{3} y z
+\end{dmath*}
+\begin{dmath*}
+\sqrt{3} x z
+\end{dmath*}
+\begin{dmath*}
+\sqrt{3} x y
+\end{dmath*}
+\noindent\quad ** expression
+\begin{dmath*}
+\frac{\sqrt{2310} G_{xyz} x \left(x^{4} - 5 x^{2} y^{2} - 5 x^{2} z^{2} - 6 y^{4} + 51 y^{2} z^{2} - 6 z^{4}\right)}{462} + \frac{5 \sqrt{154} G_{x}^{\alpha} x y z \left(2 x^{2} - y^{2} - z^{2}\right)}{44} + \frac{3 \sqrt{2310} G_{x}^{\beta} x y z \left(y - z\right) \left(y + z\right)}{44} + \frac{5 \sqrt{154} G_{y}^{\alpha} z \left(x^{4} - 12 x^{2} y^{2} + 2 x^{2} z^{2} + 8 y^{4} - 12 y^{2} z^{2} + z^{4}\right)}{308} + \frac{\sqrt{2310} G_{y}^{\beta} z \left(9 x^{4} - 66 x^{2} y^{2} + 4 x^{2} z^{2} - 12 y^{4} + 46 y^{2} z^{2} - 5 z^{4}\right)}{924} + \frac{5 \sqrt{154} G_{z}^{\alpha} y \left(x^{4} + 2 x^{2} y^{2} - 12 x^{2} z^{2} + y^{4} - 12 y^{2} z^{2} + 8 z^{4}\right)}{308} - \frac{\sqrt{2310} G_{z}^{\beta} y \left(9 x^{4} + 4 x^{2} y^{2} - 66 x^{2} z^{2} - 5 y^{4} + 46 y^{2} z^{2} - 12 z^{4}\right)}{924}
+\end{dmath*}
+\begin{dmath*}
+- \frac{\sqrt{2310} G_{xyz} y \left(6 x^{4} + 5 x^{2} y^{2} - 51 x^{2} z^{2} - y^{4} + 5 y^{2} z^{2} + 6 z^{4}\right)}{462} + \frac{5 \sqrt{154} G_{x}^{\alpha} z \left(8 x^{4} - 12 x^{2} y^{2} - 12 x^{2} z^{2} + y^{4} + 2 y^{2} z^{2} + z^{4}\right)}{308} + \frac{\sqrt{2310} G_{x}^{\beta} z \left(12 x^{4} + 66 x^{2} y^{2} - 46 x^{2} z^{2} - 9 y^{4} - 4 y^{2} z^{2} + 5 z^{4}\right)}{924} - \frac{5 \sqrt{154} G_{y}^{\alpha} x y z \left(x^{2} - 2 y^{2} + z^{2}\right)}{44} - \frac{3 \sqrt{2310} G_{y}^{\beta} x y z \left(x - z\right) \left(x + z\right)}{44} + \frac{5 \sqrt{154} G_{z}^{\alpha} x \left(x^{4} + 2 x^{2} y^{2} - 12 x^{2} z^{2} + y^{4} - 12 y^{2} z^{2} + 8 z^{4}\right)}{308} - \frac{\sqrt{2310} G_{z}^{\beta} x \left(5 x^{4} - 4 x^{2} y^{2} - 46 x^{2} z^{2} - 9 y^{4} + 66 y^{2} z^{2} + 12 z^{4}\right)}{924}
+\end{dmath*}
+\begin{dmath*}
+- \frac{\sqrt{2310} G_{xyz} z \left(6 x^{4} - 51 x^{2} y^{2} + 5 x^{2} z^{2} + 6 y^{4} + 5 y^{2} z^{2} - z^{4}\right)}{462} + \frac{5 \sqrt{154} G_{x}^{\alpha} y \left(8 x^{4} - 12 x^{2} y^{2} - 12 x^{2} z^{2} + y^{4} + 2 y^{2} z^{2} + z^{4}\right)}{308} - \frac{\sqrt{2310} G_{x}^{\beta} y \left(12 x^{4} - 46 x^{2} y^{2} + 66 x^{2} z^{2} + 5 y^{4} - 4 y^{2} z^{2} - 9 z^{4}\right)}{924} + \frac{5 \sqrt{154} G_{y}^{\alpha} x \left(x^{4} - 12 x^{2} y^{2} + 2 x^{2} z^{2} + 8 y^{4} - 12 y^{2} z^{2} + z^{4}\right)}{308} + \frac{\sqrt{2310} G_{y}^{\beta} x \left(5 x^{4} - 46 x^{2} y^{2} - 4 x^{2} z^{2} + 12 y^{4} + 66 y^{2} z^{2} - 9 z^{4}\right)}{924} - \frac{5 \sqrt{154} G_{z}^{\alpha} x y z \left(x^{2} + y^{2} - 2 z^{2}\right)}{44} + \frac{3 \sqrt{2310} G_{z}^{\beta} x y z \left(x - y\right) \left(x + y\right)}{44}
+\end{dmath*}
+\noindent\quad $\vec{\mathbb{Q}}_{2,1}^{(3,0)}[g](T_{2})$, $\vec{\mathbb{Q}}_{2,2}^{(3,0)}[g](T_{2})$, $\vec{\mathbb{Q}}_{2,3}^{(3,0)}[g](T_{2})$
+
+\noindent\quad ** symmetry
+\begin{dmath*}
+\sqrt{3} y z
+\end{dmath*}
+\begin{dmath*}
+\sqrt{3} x z
+\end{dmath*}
+\begin{dmath*}
+\sqrt{3} x y
+\end{dmath*}
+\noindent\quad ** expression
+\begin{dmath*}
+- \frac{\sqrt{42} G_{x}^{\alpha} \left(y - z\right) \left(y + z\right)}{28} - \frac{\sqrt{70} G_{x}^{\beta} \left(2 x^{2} - y^{2} - z^{2}\right)}{28} - \frac{\sqrt{42} G_{y}^{\alpha} x y}{7} + \frac{\sqrt{42} G_{z}^{\alpha} x z}{7}
+\end{dmath*}
+\begin{dmath*}
+\frac{\sqrt{42} G_{x}^{\alpha} x y}{7} + \frac{\sqrt{42} G_{y}^{\alpha} \left(x - z\right) \left(x + z\right)}{28} + \frac{\sqrt{70} G_{y}^{\beta} \left(x^{2} - 2 y^{2} + z^{2}\right)}{28} - \frac{\sqrt{42} G_{z}^{\alpha} y z}{7}
+\end{dmath*}
+\begin{dmath*}
+- \frac{\sqrt{42} G_{x}^{\alpha} x z}{7} + \frac{\sqrt{42} G_{y}^{\alpha} y z}{7} - \frac{\sqrt{42} G_{z}^{\alpha} \left(x - y\right) \left(x + y\right)}{28} + \frac{\sqrt{70} G_{z}^{\beta} \left(x^{2} + y^{2} - 2 z^{2}\right)}{28}
+\end{dmath*}
+\noindent\quad $\vec{\mathbb{Q}}_{2,1}^{(3,2)}[g](T_{2})$, $\vec{\mathbb{Q}}_{2,2}^{(3,2)}[g](T_{2})$, $\vec{\mathbb{Q}}_{2,3}^{(3,2)}[g](T_{2})$
+
+\noindent\quad ** symmetry
+\begin{dmath*}
+\sqrt{3} y z
+\end{dmath*}
+\begin{dmath*}
+\sqrt{3} x z
+\end{dmath*}
+\begin{dmath*}
+\sqrt{3} x y
+\end{dmath*}
+\noindent\quad ** expression
+\begin{dmath*}
+\frac{\sqrt{35} G_{xyz} y z \left(y - z\right) \left(y + z\right)}{6} + \frac{5 \sqrt{21} G_{x}^{\alpha} \left(y - z\right) \left(y + z\right) \left(6 x^{2} - y^{2} - z^{2}\right)}{84} + \frac{\sqrt{35} G_{x}^{\beta} \left(4 x^{4} - 12 x^{2} y^{2} - 12 x^{2} z^{2} + 5 y^{4} - 18 y^{2} z^{2} + 5 z^{4}\right)}{84} + \frac{5 \sqrt{21} G_{y}^{\alpha} x y \left(3 x^{2} - 4 y^{2} + 3 z^{2}\right)}{84} + \frac{\sqrt{35} G_{y}^{\beta} x y \left(x^{2} - 2 y^{2} + 3 z^{2}\right)}{12} - \frac{5 \sqrt{21} G_{z}^{\alpha} x z \left(3 x^{2} + 3 y^{2} - 4 z^{2}\right)}{84} + \frac{\sqrt{35} G_{z}^{\beta} x z \left(x^{2} + 3 y^{2} - 2 z^{2}\right)}{12}
+\end{dmath*}
+\begin{dmath*}
+- \frac{\sqrt{35} G_{xyz} x z \left(x - z\right) \left(x + z\right)}{6} + \frac{5 \sqrt{21} G_{x}^{\alpha} x y \left(4 x^{2} - 3 y^{2} - 3 z^{2}\right)}{84} - \frac{\sqrt{35} G_{x}^{\beta} x y \left(2 x^{2} - y^{2} - 3 z^{2}\right)}{12} + \frac{5 \sqrt{21} G_{y}^{\alpha} \left(x - z\right) \left(x + z\right) \left(x^{2} - 6 y^{2} + z^{2}\right)}{84} + \frac{\sqrt{35} G_{y}^{\beta} \left(5 x^{4} - 12 x^{2} y^{2} - 18 x^{2} z^{2} + 4 y^{4} - 12 y^{2} z^{2} + 5 z^{4}\right)}{84} + \frac{5 \sqrt{21} G_{z}^{\alpha} y z \left(3 x^{2} + 3 y^{2} - 4 z^{2}\right)}{84} + \frac{\sqrt{35} G_{z}^{\beta} y z \left(3 x^{2} + y^{2} - 2 z^{2}\right)}{12}
+\end{dmath*}
+\begin{dmath*}
+\frac{\sqrt{35} G_{xyz} x y \left(x - y\right) \left(x + y\right)}{6} - \frac{5 \sqrt{21} G_{x}^{\alpha} x z \left(4 x^{2} - 3 y^{2} - 3 z^{2}\right)}{84} - \frac{\sqrt{35} G_{x}^{\beta} x z \left(2 x^{2} - 3 y^{2} - z^{2}\right)}{12} - \frac{5 \sqrt{21} G_{y}^{\alpha} y z \left(3 x^{2} - 4 y^{2} + 3 z^{2}\right)}{84} + \frac{\sqrt{35} G_{y}^{\beta} y z \left(3 x^{2} - 2 y^{2} + z^{2}\right)}{12} - \frac{5 \sqrt{21} G_{z}^{\alpha} \left(x - y\right) \left(x + y\right) \left(x^{2} + y^{2} - 6 z^{2}\right)}{84} + \frac{\sqrt{35} G_{z}^{\beta} \left(5 x^{4} - 18 x^{2} y^{2} - 12 x^{2} z^{2} + 5 y^{4} - 12 y^{2} z^{2} + 4 z^{4}\right)}{84}
+\end{dmath*}
+
+\noindent * Harmonics for rank 3
+
+\noindent\quad $\vec{\mathbb{Q}}_{3}^{(3,-2)}[g](A_{1})$
+
+\noindent\quad ** symmetry
+\begin{dmath*}
+\sqrt{15} x y z
+\end{dmath*}
+\noindent\quad ** expression
+\begin{dmath*}
+- \frac{\sqrt{3} G_{x}^{\beta} x}{3} - \frac{\sqrt{3} G_{y}^{\beta} y}{3} - \frac{\sqrt{3} G_{z}^{\beta} z}{3}
+\end{dmath*}
+\noindent\quad $\vec{\mathbb{Q}}_{3}^{(3,0)}[g](A_{1})$
+
+\noindent\quad ** symmetry
+\begin{dmath*}
+\sqrt{15} x y z
+\end{dmath*}
+\noindent\quad ** expression
+\begin{dmath*}
+\frac{\sqrt{10} G_{x}^{\alpha} x \left(y - z\right) \left(y + z\right)}{4} - \frac{\sqrt{6} G_{x}^{\beta} x \left(2 x^{2} - 3 y^{2} - 3 z^{2}\right)}{12} - \frac{\sqrt{10} G_{y}^{\alpha} y \left(x - z\right) \left(x + z\right)}{4} + \frac{\sqrt{6} G_{y}^{\beta} y \left(3 x^{2} - 2 y^{2} + 3 z^{2}\right)}{12} + \frac{\sqrt{10} G_{z}^{\alpha} z \left(x - y\right) \left(x + y\right)}{4} + \frac{\sqrt{6} G_{z}^{\beta} z \left(3 x^{2} + 3 y^{2} - 2 z^{2}\right)}{12}
+\end{dmath*}
+\noindent\quad $\vec{\mathbb{Q}}_{3}^{(3,2)}[g](A_{1})$
+
+\noindent\quad ** symmetry
+\begin{dmath*}
+\sqrt{15} x y z
+\end{dmath*}
+\noindent\quad ** expression
+\begin{dmath*}
+\frac{7 \sqrt{55} G_{x}^{\alpha} x \left(y - z\right) \left(y + z\right) \left(2 x^{2} - y^{2} - z^{2}\right)}{44} + \frac{\sqrt{33} G_{x}^{\beta} x \left(8 x^{4} - 40 x^{2} y^{2} - 40 x^{2} z^{2} + 15 y^{4} + 30 y^{2} z^{2} + 15 z^{4}\right)}{132} + \frac{7 \sqrt{55} G_{y}^{\alpha} y \left(x - z\right) \left(x + z\right) \left(x^{2} - 2 y^{2} + z^{2}\right)}{44} + \frac{\sqrt{33} G_{y}^{\beta} y \left(15 x^{4} - 40 x^{2} y^{2} + 30 x^{2} z^{2} + 8 y^{4} - 40 y^{2} z^{2} + 15 z^{4}\right)}{132} - \frac{7 \sqrt{55} G_{z}^{\alpha} z \left(x - y\right) \left(x + y\right) \left(x^{2} + y^{2} - 2 z^{2}\right)}{44} + \frac{\sqrt{33} G_{z}^{\beta} z \left(15 x^{4} + 30 x^{2} y^{2} - 40 x^{2} z^{2} + 15 y^{4} - 40 y^{2} z^{2} + 8 z^{4}\right)}{132}
+\end{dmath*}
+\noindent\quad $\vec{\mathbb{G}}_{3}^{(3,-3)}[g](A_{2})$
+
+\noindent\quad ** symmetry
+\begin{dmath*}
+\sqrt{15} x y z
+\end{dmath*}
+\noindent\quad ** expression
+\begin{dmath*}
+G_{xyz}
+\end{dmath*}
+\noindent\quad $\vec{\mathbb{G}}_{3}^{(3,-1)}[g](A_{2})$
+
+\noindent\quad ** symmetry
+\begin{dmath*}
+\sqrt{15} x y z
+\end{dmath*}
+\noindent\quad ** expression
+\begin{dmath*}
+- G_{x}^{\alpha} y z - G_{y}^{\alpha} x z - G_{z}^{\alpha} x y
+\end{dmath*}
+\noindent\quad $\vec{\mathbb{G}}_{3}^{(3,1)}[g](A_{2})$
+
+\noindent\quad ** symmetry
+\begin{dmath*}
+\sqrt{15} x y z
+\end{dmath*}
+\noindent\quad ** expression
+\begin{dmath*}
+- \frac{7 \sqrt{22} G_{xyz} \left(x^{4} - 3 x^{2} y^{2} - 3 x^{2} z^{2} + y^{4} - 3 y^{2} z^{2} + z^{4}\right)}{66} - \frac{\sqrt{330} G_{x}^{\alpha} y z \left(6 x^{2} - y^{2} - z^{2}\right)}{132} + \frac{35 \sqrt{22} G_{x}^{\beta} y z \left(y - z\right) \left(y + z\right)}{132} + \frac{\sqrt{330} G_{y}^{\alpha} x z \left(x^{2} - 6 y^{2} + z^{2}\right)}{132} - \frac{35 \sqrt{22} G_{y}^{\beta} x z \left(x - z\right) \left(x + z\right)}{132} + \frac{\sqrt{330} G_{z}^{\alpha} x y \left(x^{2} + y^{2} - 6 z^{2}\right)}{132} + \frac{35 \sqrt{22} G_{z}^{\beta} x y \left(x - y\right) \left(x + y\right)}{132}
+\end{dmath*}
+\noindent\quad $\vec{\mathbb{G}}_{3}^{(3,3)}[g](A_{2})$
+
+\noindent\quad ** symmetry
+\begin{dmath*}
+\sqrt{15} x y z
+\end{dmath*}
+\noindent\quad ** expression
+\begin{dmath*}
+\frac{\sqrt{429} G_{xyz} \left(2 x^{6} - 15 x^{4} y^{2} - 15 x^{4} z^{2} - 15 x^{2} y^{4} + 180 x^{2} y^{2} z^{2} - 15 x^{2} z^{4} + 2 y^{6} - 15 y^{4} z^{2} - 15 y^{2} z^{4} + 2 z^{6}\right)}{286} + \frac{7 \sqrt{715} G_{x}^{\alpha} y z \left(16 x^{4} - 16 x^{2} y^{2} - 16 x^{2} z^{2} + y^{4} + 2 y^{2} z^{2} + z^{4}\right)}{572} + \frac{21 \sqrt{429} G_{x}^{\beta} y z \left(y - z\right) \left(y + z\right) \left(10 x^{2} - y^{2} - z^{2}\right)}{572} + \frac{7 \sqrt{715} G_{y}^{\alpha} x z \left(x^{4} - 16 x^{2} y^{2} + 2 x^{2} z^{2} + 16 y^{4} - 16 y^{2} z^{2} + z^{4}\right)}{572} + \frac{21 \sqrt{429} G_{y}^{\beta} x z \left(x - z\right) \left(x + z\right) \left(x^{2} - 10 y^{2} + z^{2}\right)}{572} + \frac{7 \sqrt{715} G_{z}^{\alpha} x y \left(x^{4} + 2 x^{2} y^{2} - 16 x^{2} z^{2} + y^{4} - 16 y^{2} z^{2} + 16 z^{4}\right)}{572} - \frac{21 \sqrt{429} G_{z}^{\beta} x y \left(x - y\right) \left(x + y\right) \left(x^{2} + y^{2} - 10 z^{2}\right)}{572}
+\end{dmath*}
+\noindent\quad $\vec{\mathbb{Q}}_{3,1}^{(3,-2)}[g](T_{1})$, $\vec{\mathbb{Q}}_{3,2}^{(3,-2)}[g](T_{1})$, $\vec{\mathbb{Q}}_{3,3}^{(3,-2)}[g](T_{1})$
+
+\noindent\quad ** symmetry
+\begin{dmath*}
+\frac{\sqrt{15} x y^{2}}{2} - \frac{\sqrt{15} x z^{2}}{2}
+\end{dmath*}
+\begin{dmath*}
+- \frac{\sqrt{15} x^{2} y}{2} + \frac{\sqrt{15} y z^{2}}{2}
+\end{dmath*}
+\begin{dmath*}
+\frac{\sqrt{15} x^{2} z}{2} - \frac{\sqrt{15} y^{2} z}{2}
+\end{dmath*}
+\noindent\quad ** expression
+\begin{dmath*}
+\frac{\sqrt{3} G_{xyz} x}{3} + \frac{\sqrt{5} G_{y}^{\alpha} z}{4} + \frac{\sqrt{3} G_{y}^{\beta} z}{12} + \frac{\sqrt{5} G_{z}^{\alpha} y}{4} - \frac{\sqrt{3} G_{z}^{\beta} y}{12}
+\end{dmath*}
+\begin{dmath*}
+\frac{\sqrt{3} G_{xyz} y}{3} + \frac{\sqrt{5} G_{x}^{\alpha} z}{4} - \frac{\sqrt{3} G_{x}^{\beta} z}{12} + \frac{\sqrt{5} G_{z}^{\alpha} x}{4} + \frac{\sqrt{3} G_{z}^{\beta} x}{12}
+\end{dmath*}
+\begin{dmath*}
+\frac{\sqrt{3} G_{xyz} z}{3} + \frac{\sqrt{5} G_{x}^{\alpha} y}{4} + \frac{\sqrt{3} G_{x}^{\beta} y}{12} + \frac{\sqrt{5} G_{y}^{\alpha} x}{4} - \frac{\sqrt{3} G_{y}^{\beta} x}{12}
+\end{dmath*}
+\noindent\quad $\vec{\mathbb{Q}}_{3,1}^{(3,0)}[g](T_{1})$, $\vec{\mathbb{Q}}_{3,2}^{(3,0)}[g](T_{1})$, $\vec{\mathbb{Q}}_{3,3}^{(3,0)}[g](T_{1})$
+
+\noindent\quad ** symmetry
+\begin{dmath*}
+\frac{\sqrt{15} x y^{2}}{2} - \frac{\sqrt{15} x z^{2}}{2}
+\end{dmath*}
+\begin{dmath*}
+- \frac{\sqrt{15} x^{2} y}{2} + \frac{\sqrt{15} y z^{2}}{2}
+\end{dmath*}
+\begin{dmath*}
+\frac{\sqrt{15} x^{2} z}{2} - \frac{\sqrt{15} y^{2} z}{2}
+\end{dmath*}
+\noindent\quad ** expression
+\begin{dmath*}
+\frac{\sqrt{6} G_{xyz} x \left(2 x^{2} - 3 y^{2} - 3 z^{2}\right)}{12} - \frac{\sqrt{10} G_{x}^{\alpha} x y z}{2} - \frac{\sqrt{10} G_{y}^{\alpha} z \left(x - y\right) \left(x + y\right)}{4} + \frac{\sqrt{6} G_{y}^{\beta} z \left(3 x^{2} + 3 y^{2} - 2 z^{2}\right)}{12} - \frac{\sqrt{10} G_{z}^{\alpha} y \left(x - z\right) \left(x + z\right)}{4} - \frac{\sqrt{6} G_{z}^{\beta} y \left(3 x^{2} - 2 y^{2} + 3 z^{2}\right)}{12}
+\end{dmath*}
+\begin{dmath*}
+- \frac{\sqrt{6} G_{xyz} y \left(3 x^{2} - 2 y^{2} + 3 z^{2}\right)}{12} + \frac{\sqrt{10} G_{x}^{\alpha} z \left(x - y\right) \left(x + y\right)}{4} - \frac{\sqrt{6} G_{x}^{\beta} z \left(3 x^{2} + 3 y^{2} - 2 z^{2}\right)}{12} - \frac{\sqrt{10} G_{y}^{\alpha} x y z}{2} - \frac{\sqrt{10} G_{z}^{\alpha} x \left(y - z\right) \left(y + z\right)}{4} - \frac{\sqrt{6} G_{z}^{\beta} x \left(2 x^{2} - 3 y^{2} - 3 z^{2}\right)}{12}
+\end{dmath*}
+\begin{dmath*}
+- \frac{\sqrt{6} G_{xyz} z \left(3 x^{2} + 3 y^{2} - 2 z^{2}\right)}{12} + \frac{\sqrt{10} G_{x}^{\alpha} y \left(x - z\right) \left(x + z\right)}{4} + \frac{\sqrt{6} G_{x}^{\beta} y \left(3 x^{2} - 2 y^{2} + 3 z^{2}\right)}{12} + \frac{\sqrt{10} G_{y}^{\alpha} x \left(y - z\right) \left(y + z\right)}{4} + \frac{\sqrt{6} G_{y}^{\beta} x \left(2 x^{2} - 3 y^{2} - 3 z^{2}\right)}{12} - \frac{\sqrt{10} G_{z}^{\alpha} x y z}{2}
+\end{dmath*}
+\noindent\quad $\vec{\mathbb{Q}}_{3,1}^{(3,2)}[g](T_{1})$, $\vec{\mathbb{Q}}_{3,2}^{(3,2)}[g](T_{1})$, $\vec{\mathbb{Q}}_{3,3}^{(3,2)}[g](T_{1})$
+
+\noindent\quad ** symmetry
+\begin{dmath*}
+\frac{\sqrt{15} x y^{2}}{2} - \frac{\sqrt{15} x z^{2}}{2}
+\end{dmath*}
+\begin{dmath*}
+- \frac{\sqrt{15} x^{2} y}{2} + \frac{\sqrt{15} y z^{2}}{2}
+\end{dmath*}
+\begin{dmath*}
+\frac{\sqrt{15} x^{2} z}{2} - \frac{\sqrt{15} y^{2} z}{2}
+\end{dmath*}
+\noindent\quad ** expression
+\begin{dmath*}
+- \frac{\sqrt{33} G_{xyz} x \left(8 x^{4} - 40 x^{2} y^{2} - 40 x^{2} z^{2} + 15 y^{4} + 30 y^{2} z^{2} + 15 z^{4}\right)}{132} - \frac{7 \sqrt{55} G_{x}^{\alpha} x y z \left(2 x^{2} - y^{2} - z^{2}\right)}{22} - \frac{\sqrt{55} G_{y}^{\alpha} z \left(4 x^{4} - 27 x^{2} y^{2} + x^{2} z^{2} - 10 y^{4} + 29 y^{2} z^{2} - 3 z^{4}\right)}{88} - \frac{\sqrt{33} G_{y}^{\beta} z \left(60 x^{4} - 195 x^{2} y^{2} - 55 x^{2} z^{2} + 60 y^{4} - 55 y^{2} z^{2} + 11 z^{4}\right)}{264} - \frac{\sqrt{55} G_{z}^{\alpha} y \left(4 x^{4} + x^{2} y^{2} - 27 x^{2} z^{2} - 3 y^{4} + 29 y^{2} z^{2} - 10 z^{4}\right)}{88} + \frac{\sqrt{33} G_{z}^{\beta} y \left(60 x^{4} - 55 x^{2} y^{2} - 195 x^{2} z^{2} + 11 y^{4} - 55 y^{2} z^{2} + 60 z^{4}\right)}{264}
+\end{dmath*}
+\begin{dmath*}
+- \frac{\sqrt{33} G_{xyz} y \left(15 x^{4} - 40 x^{2} y^{2} + 30 x^{2} z^{2} + 8 y^{4} - 40 y^{2} z^{2} + 15 z^{4}\right)}{132} + \frac{\sqrt{55} G_{x}^{\alpha} z \left(10 x^{4} + 27 x^{2} y^{2} - 29 x^{2} z^{2} - 4 y^{4} - y^{2} z^{2} + 3 z^{4}\right)}{88} + \frac{\sqrt{33} G_{x}^{\beta} z \left(60 x^{4} - 195 x^{2} y^{2} - 55 x^{2} z^{2} + 60 y^{4} - 55 y^{2} z^{2} + 11 z^{4}\right)}{264} + \frac{7 \sqrt{55} G_{y}^{\alpha} x y z \left(x^{2} - 2 y^{2} + z^{2}\right)}{22} + \frac{\sqrt{55} G_{z}^{\alpha} x \left(3 x^{4} - x^{2} y^{2} - 29 x^{2} z^{2} - 4 y^{4} + 27 y^{2} z^{2} + 10 z^{4}\right)}{88} - \frac{\sqrt{33} G_{z}^{\beta} x \left(11 x^{4} - 55 x^{2} y^{2} - 55 x^{2} z^{2} + 60 y^{4} - 195 y^{2} z^{2} + 60 z^{4}\right)}{264}
+\end{dmath*}
+\begin{dmath*}
+- \frac{\sqrt{33} G_{xyz} z \left(15 x^{4} + 30 x^{2} y^{2} - 40 x^{2} z^{2} + 15 y^{4} - 40 y^{2} z^{2} + 8 z^{4}\right)}{132} + \frac{\sqrt{55} G_{x}^{\alpha} y \left(10 x^{4} - 29 x^{2} y^{2} + 27 x^{2} z^{2} + 3 y^{4} - y^{2} z^{2} - 4 z^{4}\right)}{88} - \frac{\sqrt{33} G_{x}^{\beta} y \left(60 x^{4} - 55 x^{2} y^{2} - 195 x^{2} z^{2} + 11 y^{4} - 55 y^{2} z^{2} + 60 z^{4}\right)}{264} + \frac{\sqrt{55} G_{y}^{\alpha} x \left(3 x^{4} - 29 x^{2} y^{2} - x^{2} z^{2} + 10 y^{4} + 27 y^{2} z^{2} - 4 z^{4}\right)}{88} + \frac{\sqrt{33} G_{y}^{\beta} x \left(11 x^{4} - 55 x^{2} y^{2} - 55 x^{2} z^{2} + 60 y^{4} - 195 y^{2} z^{2} + 60 z^{4}\right)}{264} + \frac{7 \sqrt{55} G_{z}^{\alpha} x y z \left(x^{2} + y^{2} - 2 z^{2}\right)}{22}
+\end{dmath*}
+\noindent\quad $\vec{\mathbb{G}}_{3,1}^{(3,-3)}[g](T_{1})$, $\vec{\mathbb{G}}_{3,2}^{(3,-3)}[g](T_{1})$, $\vec{\mathbb{G}}_{3,3}^{(3,-3)}[g](T_{1})$
+
+\noindent\quad ** symmetry
+\begin{dmath*}
+x^{3} - \frac{3 x y^{2}}{2} - \frac{3 x z^{2}}{2}
+\end{dmath*}
+\begin{dmath*}
+- \frac{3 x^{2} y}{2} + y^{3} - \frac{3 y z^{2}}{2}
+\end{dmath*}
+\begin{dmath*}
+- \frac{3 x^{2} z}{2} - \frac{3 y^{2} z}{2} + z^{3}
+\end{dmath*}
+\noindent\quad ** expression
+\begin{dmath*}
+G_{x}^{\alpha}
+\end{dmath*}
+\begin{dmath*}
+G_{y}^{\alpha}
+\end{dmath*}
+\begin{dmath*}
+G_{z}^{\alpha}
+\end{dmath*}
+\noindent\quad $\vec{\mathbb{G}}_{3,1}^{(3,-1)}[g](T_{1})$, $\vec{\mathbb{G}}_{3,2}^{(3,-1)}[g](T_{1})$, $\vec{\mathbb{G}}_{3,3}^{(3,-1)}[g](T_{1})$
+
+\noindent\quad ** symmetry
+\begin{dmath*}
+x^{3} - \frac{3 x y^{2}}{2} - \frac{3 x z^{2}}{2}
+\end{dmath*}
+\begin{dmath*}
+- \frac{3 x^{2} y}{2} + y^{3} - \frac{3 y z^{2}}{2}
+\end{dmath*}
+\begin{dmath*}
+- \frac{3 x^{2} z}{2} - \frac{3 y^{2} z}{2} + z^{3}
+\end{dmath*}
+\noindent\quad ** expression
+\begin{dmath*}
+- G_{xyz} y z + \frac{\sqrt{15} G_{x}^{\alpha} \left(2 x^{2} - y^{2} - z^{2}\right)}{15} - \frac{G_{x}^{\beta} \left(y - z\right) \left(y + z\right)}{2} - \frac{\sqrt{15} G_{y}^{\alpha} x y}{20} - \frac{G_{y}^{\beta} x y}{4} - \frac{\sqrt{15} G_{z}^{\alpha} x z}{20} + \frac{G_{z}^{\beta} x z}{4}
+\end{dmath*}
+\begin{dmath*}
+- G_{xyz} x z - \frac{\sqrt{15} G_{x}^{\alpha} x y}{20} + \frac{G_{x}^{\beta} x y}{4} - \frac{\sqrt{15} G_{y}^{\alpha} \left(x^{2} - 2 y^{2} + z^{2}\right)}{15} + \frac{G_{y}^{\beta} \left(x - z\right) \left(x + z\right)}{2} - \frac{\sqrt{15} G_{z}^{\alpha} y z}{20} - \frac{G_{z}^{\beta} y z}{4}
+\end{dmath*}
+\begin{dmath*}
+- G_{xyz} x y - \frac{\sqrt{15} G_{x}^{\alpha} x z}{20} - \frac{G_{x}^{\beta} x z}{4} - \frac{\sqrt{15} G_{y}^{\alpha} y z}{20} + \frac{G_{y}^{\beta} y z}{4} - \frac{\sqrt{15} G_{z}^{\alpha} \left(x^{2} + y^{2} - 2 z^{2}\right)}{15} - \frac{G_{z}^{\beta} \left(x - y\right) \left(x + y\right)}{2}
+\end{dmath*}
+\noindent\quad $\vec{\mathbb{G}}_{3,1}^{(3,1)}[g](T_{1})$, $\vec{\mathbb{G}}_{3,2}^{(3,1)}[g](T_{1})$, $\vec{\mathbb{G}}_{3,3}^{(3,1)}[g](T_{1})$
+
+\noindent\quad ** symmetry
+\begin{dmath*}
+x^{3} - \frac{3 x y^{2}}{2} - \frac{3 x z^{2}}{2}
+\end{dmath*}
+\begin{dmath*}
+- \frac{3 x^{2} y}{2} + y^{3} - \frac{3 y z^{2}}{2}
+\end{dmath*}
+\begin{dmath*}
+- \frac{3 x^{2} z}{2} - \frac{3 y^{2} z}{2} + z^{3}
+\end{dmath*}
+\noindent\quad ** expression
+\begin{dmath*}
+- \frac{\sqrt{330} G_{xyz} y z \left(6 x^{2} - y^{2} - z^{2}\right)}{132} + \frac{\sqrt{22} G_{x}^{\alpha} \left(8 x^{4} - 24 x^{2} y^{2} - 24 x^{2} z^{2} + 3 y^{4} + 6 y^{2} z^{2} + 3 z^{4}\right)}{88} - \frac{\sqrt{330} G_{x}^{\beta} \left(y - z\right) \left(y + z\right) \left(6 x^{2} - y^{2} - z^{2}\right)}{264} - \frac{5 \sqrt{22} G_{y}^{\alpha} x y \left(x^{2} + y^{2} - 6 z^{2}\right)}{44} - \frac{\sqrt{330} G_{y}^{\beta} x y \left(5 x^{2} - 9 y^{2} + 12 z^{2}\right)}{132} - \frac{5 \sqrt{22} G_{z}^{\alpha} x z \left(x^{2} - 6 y^{2} + z^{2}\right)}{44} + \frac{\sqrt{330} G_{z}^{\beta} x z \left(5 x^{2} + 12 y^{2} - 9 z^{2}\right)}{132}
+\end{dmath*}
+\begin{dmath*}
+\frac{\sqrt{330} G_{xyz} x z \left(x^{2} - 6 y^{2} + z^{2}\right)}{132} - \frac{5 \sqrt{22} G_{x}^{\alpha} x y \left(x^{2} + y^{2} - 6 z^{2}\right)}{44} - \frac{\sqrt{330} G_{x}^{\beta} x y \left(9 x^{2} - 5 y^{2} - 12 z^{2}\right)}{132} + \frac{\sqrt{22} G_{y}^{\alpha} \left(3 x^{4} - 24 x^{2} y^{2} + 6 x^{2} z^{2} + 8 y^{4} - 24 y^{2} z^{2} + 3 z^{4}\right)}{88} - \frac{\sqrt{330} G_{y}^{\beta} \left(x - z\right) \left(x + z\right) \left(x^{2} - 6 y^{2} + z^{2}\right)}{264} + \frac{5 \sqrt{22} G_{z}^{\alpha} y z \left(6 x^{2} - y^{2} - z^{2}\right)}{44} - \frac{\sqrt{330} G_{z}^{\beta} y z \left(12 x^{2} + 5 y^{2} - 9 z^{2}\right)}{132}
+\end{dmath*}
+\begin{dmath*}
+\frac{\sqrt{330} G_{xyz} x y \left(x^{2} + y^{2} - 6 z^{2}\right)}{132} - \frac{5 \sqrt{22} G_{x}^{\alpha} x z \left(x^{2} - 6 y^{2} + z^{2}\right)}{44} + \frac{\sqrt{330} G_{x}^{\beta} x z \left(9 x^{2} - 12 y^{2} - 5 z^{2}\right)}{132} + \frac{5 \sqrt{22} G_{y}^{\alpha} y z \left(6 x^{2} - y^{2} - z^{2}\right)}{44} + \frac{\sqrt{330} G_{y}^{\beta} y z \left(12 x^{2} - 9 y^{2} + 5 z^{2}\right)}{132} + \frac{\sqrt{22} G_{z}^{\alpha} \left(3 x^{4} + 6 x^{2} y^{2} - 24 x^{2} z^{2} + 3 y^{4} - 24 y^{2} z^{2} + 8 z^{4}\right)}{88} + \frac{\sqrt{330} G_{z}^{\beta} \left(x - y\right) \left(x + y\right) \left(x^{2} + y^{2} - 6 z^{2}\right)}{264}
+\end{dmath*}
+\noindent\quad $\vec{\mathbb{G}}_{3,1}^{(3,3)}[g](T_{1})$, $\vec{\mathbb{G}}_{3,2}^{(3,3)}[g](T_{1})$, $\vec{\mathbb{G}}_{3,3}^{(3,3)}[g](T_{1})$
+
+\noindent\quad ** symmetry
+\begin{dmath*}
+x^{3} - \frac{3 x y^{2}}{2} - \frac{3 x z^{2}}{2}
+\end{dmath*}
+\begin{dmath*}
+- \frac{3 x^{2} y}{2} + y^{3} - \frac{3 y z^{2}}{2}
+\end{dmath*}
+\begin{dmath*}
+- \frac{3 x^{2} z}{2} - \frac{3 y^{2} z}{2} + z^{3}
+\end{dmath*}
+\noindent\quad ** expression
+\begin{dmath*}
+\frac{7 \sqrt{715} G_{xyz} y z \left(16 x^{4} - 16 x^{2} y^{2} - 16 x^{2} z^{2} + y^{4} + 2 y^{2} z^{2} + z^{4}\right)}{572} + \frac{5 \sqrt{429} G_{x}^{\alpha} \left(16 x^{6} - 120 x^{4} y^{2} - 120 x^{4} z^{2} + 90 x^{2} y^{4} + 180 x^{2} y^{2} z^{2} + 90 x^{2} z^{4} - 5 y^{6} - 15 y^{4} z^{2} - 15 y^{2} z^{4} - 5 z^{6}\right)}{3432} + \frac{7 \sqrt{715} G_{x}^{\beta} \left(y - z\right) \left(y + z\right) \left(16 x^{4} - 16 x^{2} y^{2} - 16 x^{2} z^{2} + y^{4} + 2 y^{2} z^{2} + z^{4}\right)}{1144} - \frac{35 \sqrt{429} G_{y}^{\alpha} x y \left(2 x^{4} - 7 x^{2} y^{2} + x^{2} z^{2} + 2 y^{4} + y^{2} z^{2} - z^{4}\right)}{1144} - \frac{7 \sqrt{715} G_{y}^{\beta} x y \left(10 x^{4} - 19 x^{2} y^{2} - 43 x^{2} z^{2} + 4 y^{4} + 17 y^{2} z^{2} + 13 z^{4}\right)}{1144} - \frac{35 \sqrt{429} G_{z}^{\alpha} x z \left(2 x^{4} + x^{2} y^{2} - 7 x^{2} z^{2} - y^{4} + y^{2} z^{2} + 2 z^{4}\right)}{1144} + \frac{7 \sqrt{715} G_{z}^{\beta} x z \left(10 x^{4} - 43 x^{2} y^{2} - 19 x^{2} z^{2} + 13 y^{4} + 17 y^{2} z^{2} + 4 z^{4}\right)}{1144}
+\end{dmath*}
+\begin{dmath*}
+\frac{7 \sqrt{715} G_{xyz} x z \left(x^{4} - 16 x^{2} y^{2} + 2 x^{2} z^{2} + 16 y^{4} - 16 y^{2} z^{2} + z^{4}\right)}{572} - \frac{35 \sqrt{429} G_{x}^{\alpha} x y \left(2 x^{4} - 7 x^{2} y^{2} + x^{2} z^{2} + 2 y^{4} + y^{2} z^{2} - z^{4}\right)}{1144} + \frac{7 \sqrt{715} G_{x}^{\beta} x y \left(4 x^{4} - 19 x^{2} y^{2} + 17 x^{2} z^{2} + 10 y^{4} - 43 y^{2} z^{2} + 13 z^{4}\right)}{1144} - \frac{5 \sqrt{429} G_{y}^{\alpha} \left(5 x^{6} - 90 x^{4} y^{2} + 15 x^{4} z^{2} + 120 x^{2} y^{4} - 180 x^{2} y^{2} z^{2} + 15 x^{2} z^{4} - 16 y^{6} + 120 y^{4} z^{2} - 90 y^{2} z^{4} + 5 z^{6}\right)}{3432} - \frac{7 \sqrt{715} G_{y}^{\beta} \left(x - z\right) \left(x + z\right) \left(x^{4} - 16 x^{2} y^{2} + 2 x^{2} z^{2} + 16 y^{4} - 16 y^{2} z^{2} + z^{4}\right)}{1144} + \frac{35 \sqrt{429} G_{z}^{\alpha} y z \left(x^{4} - x^{2} y^{2} - x^{2} z^{2} - 2 y^{4} + 7 y^{2} z^{2} - 2 z^{4}\right)}{1144} - \frac{7 \sqrt{715} G_{z}^{\beta} y z \left(13 x^{4} - 43 x^{2} y^{2} + 17 x^{2} z^{2} + 10 y^{4} - 19 y^{2} z^{2} + 4 z^{4}\right)}{1144}
+\end{dmath*}
+\begin{dmath*}
+\frac{7 \sqrt{715} G_{xyz} x y \left(x^{4} + 2 x^{2} y^{2} - 16 x^{2} z^{2} + y^{4} - 16 y^{2} z^{2} + 16 z^{4}\right)}{572} - \frac{35 \sqrt{429} G_{x}^{\alpha} x z \left(2 x^{4} + x^{2} y^{2} - 7 x^{2} z^{2} - y^{4} + y^{2} z^{2} + 2 z^{4}\right)}{1144} - \frac{7 \sqrt{715} G_{x}^{\beta} x z \left(4 x^{4} + 17 x^{2} y^{2} - 19 x^{2} z^{2} + 13 y^{4} - 43 y^{2} z^{2} + 10 z^{4}\right)}{1144} + \frac{35 \sqrt{429} G_{y}^{\alpha} y z \left(x^{4} - x^{2} y^{2} - x^{2} z^{2} - 2 y^{4} + 7 y^{2} z^{2} - 2 z^{4}\right)}{1144} + \frac{7 \sqrt{715} G_{y}^{\beta} y z \left(13 x^{4} + 17 x^{2} y^{2} - 43 x^{2} z^{2} + 4 y^{4} - 19 y^{2} z^{2} + 10 z^{4}\right)}{1144} - \frac{5 \sqrt{429} G_{z}^{\alpha} \left(5 x^{6} + 15 x^{4} y^{2} - 90 x^{4} z^{2} + 15 x^{2} y^{4} - 180 x^{2} y^{2} z^{2} + 120 x^{2} z^{4} + 5 y^{6} - 90 y^{4} z^{2} + 120 y^{2} z^{4} - 16 z^{6}\right)}{3432} + \frac{7 \sqrt{715} G_{z}^{\beta} \left(x - y\right) \left(x + y\right) \left(x^{4} + 2 x^{2} y^{2} - 16 x^{2} z^{2} + y^{4} - 16 y^{2} z^{2} + 16 z^{4}\right)}{1144}
+\end{dmath*}
+\noindent\quad $\vec{\mathbb{Q}}_{3,1}^{(3,-2)}[g](T_{2})$, $\vec{\mathbb{Q}}_{3,2}^{(3,-2)}[g](T_{2})$, $\vec{\mathbb{Q}}_{3,3}^{(3,-2)}[g](T_{2})$
+
+\noindent\quad ** symmetry
+\begin{dmath*}
+x^{3} - \frac{3 x y^{2}}{2} - \frac{3 x z^{2}}{2}
+\end{dmath*}
+\begin{dmath*}
+- \frac{3 x^{2} y}{2} + y^{3} - \frac{3 y z^{2}}{2}
+\end{dmath*}
+\begin{dmath*}
+- \frac{3 x^{2} z}{2} - \frac{3 y^{2} z}{2} + z^{3}
+\end{dmath*}
+\noindent\quad ** expression
+\begin{dmath*}
+- \frac{\sqrt{3} G_{y}^{\alpha} z}{4} - \frac{\sqrt{5} G_{y}^{\beta} z}{4} + \frac{\sqrt{3} G_{z}^{\alpha} y}{4} - \frac{\sqrt{5} G_{z}^{\beta} y}{4}
+\end{dmath*}
+\begin{dmath*}
+\frac{\sqrt{3} G_{x}^{\alpha} z}{4} - \frac{\sqrt{5} G_{x}^{\beta} z}{4} - \frac{\sqrt{3} G_{z}^{\alpha} x}{4} - \frac{\sqrt{5} G_{z}^{\beta} x}{4}
+\end{dmath*}
+\begin{dmath*}
+- \frac{\sqrt{3} G_{x}^{\alpha} y}{4} - \frac{\sqrt{5} G_{x}^{\beta} y}{4} + \frac{\sqrt{3} G_{y}^{\alpha} x}{4} - \frac{\sqrt{5} G_{y}^{\beta} x}{4}
+\end{dmath*}
+\noindent\quad $\vec{\mathbb{Q}}_{3,1}^{(3,0)}[g](T_{2})$, $\vec{\mathbb{Q}}_{3,2}^{(3,0)}[g](T_{2})$, $\vec{\mathbb{Q}}_{3,3}^{(3,0)}[g](T_{2})$
+
+\noindent\quad ** symmetry
+\begin{dmath*}
+x^{3} - \frac{3 x y^{2}}{2} - \frac{3 x z^{2}}{2}
+\end{dmath*}
+\begin{dmath*}
+- \frac{3 x^{2} y}{2} + y^{3} - \frac{3 y z^{2}}{2}
+\end{dmath*}
+\begin{dmath*}
+- \frac{3 x^{2} z}{2} - \frac{3 y^{2} z}{2} + z^{3}
+\end{dmath*}
+\noindent\quad ** expression
+\begin{dmath*}
+- \frac{\sqrt{10} G_{xyz} x \left(y - z\right) \left(y + z\right)}{4} + \frac{\sqrt{10} G_{x}^{\beta} x y z}{2} - \frac{\sqrt{6} G_{y}^{\alpha} z \left(3 x^{2} + 3 y^{2} - 2 z^{2}\right)}{12} - \frac{\sqrt{10} G_{y}^{\beta} z \left(x - y\right) \left(x + y\right)}{4} + \frac{\sqrt{6} G_{z}^{\alpha} y \left(3 x^{2} - 2 y^{2} + 3 z^{2}\right)}{12} - \frac{\sqrt{10} G_{z}^{\beta} y \left(x - z\right) \left(x + z\right)}{4}
+\end{dmath*}
+\begin{dmath*}
+\frac{\sqrt{10} G_{xyz} y \left(x - z\right) \left(x + z\right)}{4} + \frac{\sqrt{6} G_{x}^{\alpha} z \left(3 x^{2} + 3 y^{2} - 2 z^{2}\right)}{12} + \frac{\sqrt{10} G_{x}^{\beta} z \left(x - y\right) \left(x + y\right)}{4} + \frac{\sqrt{10} G_{y}^{\beta} x y z}{2} + \frac{\sqrt{6} G_{z}^{\alpha} x \left(2 x^{2} - 3 y^{2} - 3 z^{2}\right)}{12} - \frac{\sqrt{10} G_{z}^{\beta} x \left(y - z\right) \left(y + z\right)}{4}
+\end{dmath*}
+\begin{dmath*}
+- \frac{\sqrt{10} G_{xyz} z \left(x - y\right) \left(x + y\right)}{4} - \frac{\sqrt{6} G_{x}^{\alpha} y \left(3 x^{2} - 2 y^{2} + 3 z^{2}\right)}{12} + \frac{\sqrt{10} G_{x}^{\beta} y \left(x - z\right) \left(x + z\right)}{4} - \frac{\sqrt{6} G_{y}^{\alpha} x \left(2 x^{2} - 3 y^{2} - 3 z^{2}\right)}{12} + \frac{\sqrt{10} G_{y}^{\beta} x \left(y - z\right) \left(y + z\right)}{4} + \frac{\sqrt{10} G_{z}^{\beta} x y z}{2}
+\end{dmath*}
+\noindent\quad $\vec{\mathbb{Q}}_{3,1}^{(3,2)}[g](T_{2})$, $\vec{\mathbb{Q}}_{3,2}^{(3,2)}[g](T_{2})$, $\vec{\mathbb{Q}}_{3,3}^{(3,2)}[g](T_{2})$
+
+\noindent\quad ** symmetry
+\begin{dmath*}
+x^{3} - \frac{3 x y^{2}}{2} - \frac{3 x z^{2}}{2}
+\end{dmath*}
+\begin{dmath*}
+- \frac{3 x^{2} y}{2} + y^{3} - \frac{3 y z^{2}}{2}
+\end{dmath*}
+\begin{dmath*}
+- \frac{3 x^{2} z}{2} - \frac{3 y^{2} z}{2} + z^{3}
+\end{dmath*}
+\noindent\quad ** expression
+\begin{dmath*}
+- \frac{7 \sqrt{55} G_{xyz} x \left(y - z\right) \left(y + z\right) \left(2 x^{2} - y^{2} - z^{2}\right)}{44} + \frac{7 \sqrt{55} G_{x}^{\beta} x y z \left(2 x^{2} - y^{2} - z^{2}\right)}{22} - \frac{5 \sqrt{33} G_{y}^{\alpha} z \left(6 x^{4} - 51 x^{2} y^{2} + 5 x^{2} z^{2} + 6 y^{4} + 5 y^{2} z^{2} - z^{4}\right)}{264} - \frac{\sqrt{55} G_{y}^{\beta} z \left(10 x^{4} + 27 x^{2} y^{2} - 29 x^{2} z^{2} - 4 y^{4} - y^{2} z^{2} + 3 z^{4}\right)}{88} + \frac{5 \sqrt{33} G_{z}^{\alpha} y \left(6 x^{4} + 5 x^{2} y^{2} - 51 x^{2} z^{2} - y^{4} + 5 y^{2} z^{2} + 6 z^{4}\right)}{264} - \frac{\sqrt{55} G_{z}^{\beta} y \left(10 x^{4} - 29 x^{2} y^{2} + 27 x^{2} z^{2} + 3 y^{4} - y^{2} z^{2} - 4 z^{4}\right)}{88}
+\end{dmath*}
+\begin{dmath*}
+- \frac{7 \sqrt{55} G_{xyz} y \left(x - z\right) \left(x + z\right) \left(x^{2} - 2 y^{2} + z^{2}\right)}{44} + \frac{5 \sqrt{33} G_{x}^{\alpha} z \left(6 x^{4} - 51 x^{2} y^{2} + 5 x^{2} z^{2} + 6 y^{4} + 5 y^{2} z^{2} - z^{4}\right)}{264} + \frac{\sqrt{55} G_{x}^{\beta} z \left(4 x^{4} - 27 x^{2} y^{2} + x^{2} z^{2} - 10 y^{4} + 29 y^{2} z^{2} - 3 z^{4}\right)}{88} - \frac{7 \sqrt{55} G_{y}^{\beta} x y z \left(x^{2} - 2 y^{2} + z^{2}\right)}{22} + \frac{5 \sqrt{33} G_{z}^{\alpha} x \left(x^{4} - 5 x^{2} y^{2} - 5 x^{2} z^{2} - 6 y^{4} + 51 y^{2} z^{2} - 6 z^{4}\right)}{264} - \frac{\sqrt{55} G_{z}^{\beta} x \left(3 x^{4} - 29 x^{2} y^{2} - x^{2} z^{2} + 10 y^{4} + 27 y^{2} z^{2} - 4 z^{4}\right)}{88}
+\end{dmath*}
+\begin{dmath*}
+\frac{7 \sqrt{55} G_{xyz} z \left(x - y\right) \left(x + y\right) \left(x^{2} + y^{2} - 2 z^{2}\right)}{44} - \frac{5 \sqrt{33} G_{x}^{\alpha} y \left(6 x^{4} + 5 x^{2} y^{2} - 51 x^{2} z^{2} - y^{4} + 5 y^{2} z^{2} + 6 z^{4}\right)}{264} + \frac{\sqrt{55} G_{x}^{\beta} y \left(4 x^{4} + x^{2} y^{2} - 27 x^{2} z^{2} - 3 y^{4} + 29 y^{2} z^{2} - 10 z^{4}\right)}{88} - \frac{5 \sqrt{33} G_{y}^{\alpha} x \left(x^{4} - 5 x^{2} y^{2} - 5 x^{2} z^{2} - 6 y^{4} + 51 y^{2} z^{2} - 6 z^{4}\right)}{264} - \frac{\sqrt{55} G_{y}^{\beta} x \left(3 x^{4} - x^{2} y^{2} - 29 x^{2} z^{2} - 4 y^{4} + 27 y^{2} z^{2} + 10 z^{4}\right)}{88} - \frac{7 \sqrt{55} G_{z}^{\beta} x y z \left(x^{2} + y^{2} - 2 z^{2}\right)}{22}
+\end{dmath*}
+\noindent\quad $\vec{\mathbb{G}}_{3,1}^{(3,-3)}[g](T_{2})$, $\vec{\mathbb{G}}_{3,2}^{(3,-3)}[g](T_{2})$, $\vec{\mathbb{G}}_{3,3}^{(3,-3)}[g](T_{2})$
+
+\noindent\quad ** symmetry
+\begin{dmath*}
+\frac{\sqrt{15} x y^{2}}{2} - \frac{\sqrt{15} x z^{2}}{2}
+\end{dmath*}
+\begin{dmath*}
+- \frac{\sqrt{15} x^{2} y}{2} + \frac{\sqrt{15} y z^{2}}{2}
+\end{dmath*}
+\begin{dmath*}
+\frac{\sqrt{15} x^{2} z}{2} - \frac{\sqrt{15} y^{2} z}{2}
+\end{dmath*}
+\noindent\quad ** expression
+\begin{dmath*}
+G_{x}^{\beta}
+\end{dmath*}
+\begin{dmath*}
+G_{y}^{\beta}
+\end{dmath*}
+\begin{dmath*}
+G_{z}^{\beta}
+\end{dmath*}
+\noindent\quad $\vec{\mathbb{G}}_{3,1}^{(3,-1)}[g](T_{2})$, $\vec{\mathbb{G}}_{3,2}^{(3,-1)}[g](T_{2})$, $\vec{\mathbb{G}}_{3,3}^{(3,-1)}[g](T_{2})$
+
+\noindent\quad ** symmetry
+\begin{dmath*}
+\frac{\sqrt{15} x y^{2}}{2} - \frac{\sqrt{15} x z^{2}}{2}
+\end{dmath*}
+\begin{dmath*}
+- \frac{\sqrt{15} x^{2} y}{2} + \frac{\sqrt{15} y z^{2}}{2}
+\end{dmath*}
+\begin{dmath*}
+\frac{\sqrt{15} x^{2} z}{2} - \frac{\sqrt{15} y^{2} z}{2}
+\end{dmath*}
+\noindent\quad ** expression
+\begin{dmath*}
+- \frac{G_{x}^{\alpha} \left(y - z\right) \left(y + z\right)}{2} + \frac{G_{y}^{\alpha} x y}{4} - \frac{\sqrt{15} G_{y}^{\beta} x y}{4} - \frac{G_{z}^{\alpha} x z}{4} - \frac{\sqrt{15} G_{z}^{\beta} x z}{4}
+\end{dmath*}
+\begin{dmath*}
+- \frac{G_{x}^{\alpha} x y}{4} - \frac{\sqrt{15} G_{x}^{\beta} x y}{4} + \frac{G_{y}^{\alpha} \left(x - z\right) \left(x + z\right)}{2} + \frac{G_{z}^{\alpha} y z}{4} - \frac{\sqrt{15} G_{z}^{\beta} y z}{4}
+\end{dmath*}
+\begin{dmath*}
+\frac{G_{x}^{\alpha} x z}{4} - \frac{\sqrt{15} G_{x}^{\beta} x z}{4} - \frac{G_{y}^{\alpha} y z}{4} - \frac{\sqrt{15} G_{y}^{\beta} y z}{4} - \frac{G_{z}^{\alpha} \left(x - y\right) \left(x + y\right)}{2}
+\end{dmath*}
+\noindent\quad $\vec{\mathbb{G}}_{3,1}^{(3,1)}[g](T_{2})$, $\vec{\mathbb{G}}_{3,2}^{(3,1)}[g](T_{2})$, $\vec{\mathbb{G}}_{3,3}^{(3,1)}[g](T_{2})$
+
+\noindent\quad ** symmetry
+\begin{dmath*}
+\frac{\sqrt{15} x y^{2}}{2} - \frac{\sqrt{15} x z^{2}}{2}
+\end{dmath*}
+\begin{dmath*}
+- \frac{\sqrt{15} x^{2} y}{2} + \frac{\sqrt{15} y z^{2}}{2}
+\end{dmath*}
+\begin{dmath*}
+\frac{\sqrt{15} x^{2} z}{2} - \frac{\sqrt{15} y^{2} z}{2}
+\end{dmath*}
+\noindent\quad ** expression
+\begin{dmath*}
+\frac{35 \sqrt{22} G_{xyz} y z \left(y - z\right) \left(y + z\right)}{132} - \frac{\sqrt{330} G_{x}^{\alpha} \left(y - z\right) \left(y + z\right) \left(6 x^{2} - y^{2} - z^{2}\right)}{264} - \frac{7 \sqrt{22} G_{x}^{\beta} \left(4 x^{4} - 12 x^{2} y^{2} - 12 x^{2} z^{2} - y^{4} + 18 y^{2} z^{2} - z^{4}\right)}{264} - \frac{\sqrt{330} G_{y}^{\alpha} x y \left(9 x^{2} - 5 y^{2} - 12 z^{2}\right)}{132} - \frac{5 \sqrt{22} G_{y}^{\beta} x y \left(x^{2} + y^{2} - 6 z^{2}\right)}{132} + \frac{\sqrt{330} G_{z}^{\alpha} x z \left(9 x^{2} - 12 y^{2} - 5 z^{2}\right)}{132} - \frac{5 \sqrt{22} G_{z}^{\beta} x z \left(x^{2} - 6 y^{2} + z^{2}\right)}{132}
+\end{dmath*}
+\begin{dmath*}
+- \frac{35 \sqrt{22} G_{xyz} x z \left(x - z\right) \left(x + z\right)}{132} - \frac{\sqrt{330} G_{x}^{\alpha} x y \left(5 x^{2} - 9 y^{2} + 12 z^{2}\right)}{132} - \frac{5 \sqrt{22} G_{x}^{\beta} x y \left(x^{2} + y^{2} - 6 z^{2}\right)}{132} - \frac{\sqrt{330} G_{y}^{\alpha} \left(x - z\right) \left(x + z\right) \left(x^{2} - 6 y^{2} + z^{2}\right)}{264} + \frac{7 \sqrt{22} G_{y}^{\beta} \left(x^{4} + 12 x^{2} y^{2} - 18 x^{2} z^{2} - 4 y^{4} + 12 y^{2} z^{2} + z^{4}\right)}{264} + \frac{\sqrt{330} G_{z}^{\alpha} y z \left(12 x^{2} - 9 y^{2} + 5 z^{2}\right)}{132} + \frac{5 \sqrt{22} G_{z}^{\beta} y z \left(6 x^{2} - y^{2} - z^{2}\right)}{132}
+\end{dmath*}
+\begin{dmath*}
+\frac{35 \sqrt{22} G_{xyz} x y \left(x - y\right) \left(x + y\right)}{132} + \frac{\sqrt{330} G_{x}^{\alpha} x z \left(5 x^{2} + 12 y^{2} - 9 z^{2}\right)}{132} - \frac{5 \sqrt{22} G_{x}^{\beta} x z \left(x^{2} - 6 y^{2} + z^{2}\right)}{132} - \frac{\sqrt{330} G_{y}^{\alpha} y z \left(12 x^{2} + 5 y^{2} - 9 z^{2}\right)}{132} + \frac{5 \sqrt{22} G_{y}^{\beta} y z \left(6 x^{2} - y^{2} - z^{2}\right)}{132} + \frac{\sqrt{330} G_{z}^{\alpha} \left(x - y\right) \left(x + y\right) \left(x^{2} + y^{2} - 6 z^{2}\right)}{264} + \frac{7 \sqrt{22} G_{z}^{\beta} \left(x^{4} - 18 x^{2} y^{2} + 12 x^{2} z^{2} + y^{4} + 12 y^{2} z^{2} - 4 z^{4}\right)}{264}
+\end{dmath*}
+\noindent\quad $\vec{\mathbb{G}}_{3,1}^{(3,3)}[g](T_{2})$, $\vec{\mathbb{G}}_{3,2}^{(3,3)}[g](T_{2})$, $\vec{\mathbb{G}}_{3,3}^{(3,3)}[g](T_{2})$
+
+\noindent\quad ** symmetry
+\begin{dmath*}
+\frac{\sqrt{15} x y^{2}}{2} - \frac{\sqrt{15} x z^{2}}{2}
+\end{dmath*}
+\begin{dmath*}
+- \frac{\sqrt{15} x^{2} y}{2} + \frac{\sqrt{15} y z^{2}}{2}
+\end{dmath*}
+\begin{dmath*}
+\frac{\sqrt{15} x^{2} z}{2} - \frac{\sqrt{15} y^{2} z}{2}
+\end{dmath*}
+\noindent\quad ** expression
+\begin{dmath*}
+\frac{21 \sqrt{429} G_{xyz} y z \left(y - z\right) \left(y + z\right) \left(10 x^{2} - y^{2} - z^{2}\right)}{572} + \frac{7 \sqrt{715} G_{x}^{\alpha} \left(y - z\right) \left(y + z\right) \left(16 x^{4} - 16 x^{2} y^{2} - 16 x^{2} z^{2} + y^{4} + 2 y^{2} z^{2} + z^{4}\right)}{1144} + \frac{\sqrt{429} G_{x}^{\beta} \left(8 x^{6} - 60 x^{4} y^{2} - 60 x^{4} z^{2} + 150 x^{2} y^{4} - 540 x^{2} y^{2} z^{2} + 150 x^{2} z^{4} - 13 y^{6} + 45 y^{4} z^{2} + 45 y^{2} z^{4} - 13 z^{6}\right)}{1144} + \frac{7 \sqrt{715} G_{y}^{\alpha} x y \left(4 x^{4} - 19 x^{2} y^{2} + 17 x^{2} z^{2} + 10 y^{4} - 43 y^{2} z^{2} + 13 z^{4}\right)}{1144} + \frac{7 \sqrt{429} G_{y}^{\beta} x y \left(4 x^{4} - 25 x^{2} y^{2} + 35 x^{2} z^{2} + 4 y^{4} + 35 y^{2} z^{2} - 35 z^{4}\right)}{1144} - \frac{7 \sqrt{715} G_{z}^{\alpha} x z \left(4 x^{4} + 17 x^{2} y^{2} - 19 x^{2} z^{2} + 13 y^{4} - 43 y^{2} z^{2} + 10 z^{4}\right)}{1144} + \frac{7 \sqrt{429} G_{z}^{\beta} x z \left(4 x^{4} + 35 x^{2} y^{2} - 25 x^{2} z^{2} - 35 y^{4} + 35 y^{2} z^{2} + 4 z^{4}\right)}{1144}
+\end{dmath*}
+\begin{dmath*}
+\frac{21 \sqrt{429} G_{xyz} x z \left(x - z\right) \left(x + z\right) \left(x^{2} - 10 y^{2} + z^{2}\right)}{572} - \frac{7 \sqrt{715} G_{x}^{\alpha} x y \left(10 x^{4} - 19 x^{2} y^{2} - 43 x^{2} z^{2} + 4 y^{4} + 17 y^{2} z^{2} + 13 z^{4}\right)}{1144} + \frac{7 \sqrt{429} G_{x}^{\beta} x y \left(4 x^{4} - 25 x^{2} y^{2} + 35 x^{2} z^{2} + 4 y^{4} + 35 y^{2} z^{2} - 35 z^{4}\right)}{1144} - \frac{7 \sqrt{715} G_{y}^{\alpha} \left(x - z\right) \left(x + z\right) \left(x^{4} - 16 x^{2} y^{2} + 2 x^{2} z^{2} + 16 y^{4} - 16 y^{2} z^{2} + z^{4}\right)}{1144} - \frac{\sqrt{429} G_{y}^{\beta} \left(13 x^{6} - 150 x^{4} y^{2} - 45 x^{4} z^{2} + 60 x^{2} y^{4} + 540 x^{2} y^{2} z^{2} - 45 x^{2} z^{4} - 8 y^{6} + 60 y^{4} z^{2} - 150 y^{2} z^{4} + 13 z^{6}\right)}{1144} + \frac{7 \sqrt{715} G_{z}^{\alpha} y z \left(13 x^{4} + 17 x^{2} y^{2} - 43 x^{2} z^{2} + 4 y^{4} - 19 y^{2} z^{2} + 10 z^{4}\right)}{1144} - \frac{7 \sqrt{429} G_{z}^{\beta} y z \left(35 x^{4} - 35 x^{2} y^{2} - 35 x^{2} z^{2} - 4 y^{4} + 25 y^{2} z^{2} - 4 z^{4}\right)}{1144}
+\end{dmath*}
+\begin{dmath*}
+- \frac{21 \sqrt{429} G_{xyz} x y \left(x - y\right) \left(x + y\right) \left(x^{2} + y^{2} - 10 z^{2}\right)}{572} + \frac{7 \sqrt{715} G_{x}^{\alpha} x z \left(10 x^{4} - 43 x^{2} y^{2} - 19 x^{2} z^{2} + 13 y^{4} + 17 y^{2} z^{2} + 4 z^{4}\right)}{1144} + \frac{7 \sqrt{429} G_{x}^{\beta} x z \left(4 x^{4} + 35 x^{2} y^{2} - 25 x^{2} z^{2} - 35 y^{4} + 35 y^{2} z^{2} + 4 z^{4}\right)}{1144} - \frac{7 \sqrt{715} G_{y}^{\alpha} y z \left(13 x^{4} - 43 x^{2} y^{2} + 17 x^{2} z^{2} + 10 y^{4} - 19 y^{2} z^{2} + 4 z^{4}\right)}{1144} - \frac{7 \sqrt{429} G_{y}^{\beta} y z \left(35 x^{4} - 35 x^{2} y^{2} - 35 x^{2} z^{2} - 4 y^{4} + 25 y^{2} z^{2} - 4 z^{4}\right)}{1144} + \frac{7 \sqrt{715} G_{z}^{\alpha} \left(x - y\right) \left(x + y\right) \left(x^{4} + 2 x^{2} y^{2} - 16 x^{2} z^{2} + y^{4} - 16 y^{2} z^{2} + 16 z^{4}\right)}{1144} - \frac{\sqrt{429} G_{z}^{\beta} \left(13 x^{6} - 45 x^{4} y^{2} - 150 x^{4} z^{2} - 45 x^{2} y^{4} + 540 x^{2} y^{2} z^{2} + 60 x^{2} z^{4} + 13 y^{6} - 150 y^{4} z^{2} + 60 y^{2} z^{4} - 8 z^{6}\right)}{1144}
+\end{dmath*}
+
+\end{document}

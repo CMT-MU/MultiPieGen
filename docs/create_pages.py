@@ -31,6 +31,12 @@ label = {
     "wyckoff_bond": "Wyckoff bond",
     "representation_matrix": "representation matrix",
     "response_tensor_Q": "Q tensor",
+    "multipolar_harmonics_s1_q": "s=1 q",
+    "multipolar_harmonics_s1_g": "s=1 g",
+    "multipolar_harmonics_s2_q": "s=2 q",
+    "multipolar_harmonics_s2_g": "s=2 g",
+    "multipolar_harmonics_s3_q": "s=3 q",
+    "multipolar_harmonics_s3_g": "s=3 g",
     "response_tensor_G": "G tensor",
     "response_tensor_T": "T tensor",
     "response_tensor_M": "M tensor",
@@ -44,7 +50,9 @@ in `multipiegen/pdf/PG/{no}-{tag}/`.
 
 - harmonics: harmonics up to rank 11, with the polar (Q) and axial (G) symbols side by side (the expression is that
   of the polar harmonics), created by `python -m multipiegen.create_pdf.create_pdf_harmonics`.
-- character, symmetry operation, Wyckoff site and bond, representation matrix: created by `python -m multipiegen.create_pdf.create_pdf_group`.
+- s=1..3 q/g: multipolar harmonics (internal rank s, polar q or axial g internal basis, rank <= 3) of
+  multipolar_harmonics.pkl.
+- character, symmetry operation, Wyckoff site and bond, representation matrix, multipolar harmonics: created by `python -m multipiegen.create_pdf.create_pdf_group`.
 """,
     "SG": """# Space groups
 

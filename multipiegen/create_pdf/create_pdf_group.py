@@ -10,7 +10,8 @@ Create LaTeX and PDF of each group (based on MultiPie others/tools/create_PDF/cr
 create_pdf_symmetry_operation.py, create_pdf_wyckoff.py), from group.pkl.
 
     - multipiegen/pdf/PG/{no}-{tag}/{character_table,symmetry_operation,wyckoff_site,wyckoff_bond,
-      representation_matrix}.{tex,pdf}
+      representation_matrix,multipolar_harmonics_s{1,2,3}_{q,g}}.{tex,pdf}
+      (multipolar harmonics from multipolar_harmonics.pkl, split by internal rank s and internal type q/g)
     - multipiegen/pdf/SG/{no}-{tag}/{symmetry_operation,wyckoff_site,wyckoff_bond}.{tex,pdf} ("^" in tag -> "_")
     - multipiegen/pdf/MPG/{id}/{symmetry_operation,wyckoff_site,response_tensor_X}.{tex,pdf}
       (X = Q, G, and T, M except for type II, from response_tensor.pkl)
@@ -40,10 +41,13 @@ from multipiegen.util.util_group import load_group
 from multipiegen.util.util_info import load_info
 from multipiegen.util.util_representation_matrix import representation_matrix
 from multipiegen.util.util_response_tensor import load_response_tensor
+from multipiegen.util.util_harmonics_multipole import load_multipolar_harmonics, max_rank as mh_max_rank
+from multipie.util.util_tag import TagMultipole
 
 pdfdir = os.path.join(__top_dir__, "multipiegen", "pdf")
 kinds = {
-    "PG": ["character_table", "symmetry_operation", "wyckoff_site", "wyckoff_bond", "representation_matrix"],
+    "PG": ["character_table", "symmetry_operation", "wyckoff_site", "wyckoff_bond", "representation_matrix"]
+    + [f"multipolar_harmonics_s{s}_{x}" for s in (1, 2, 3) for x in ("q", "g")],
     "SG": ["symmetry_operation", "wyckoff_site", "wyckoff_bond"],
     "MPG": [
         "symmetry_operation",
@@ -73,6 +77,13 @@ def _response_tensor():
     if "response_tensor" not in _shared:
         _shared["response_tensor"] = load_response_tensor()
     return _shared["response_tensor"]
+
+
+def _multipolar_harmonics():
+    """multipolar harmonics (loaded once per process)."""
+    if "multipolar_harmonics" not in _shared:
+        _shared["multipolar_harmonics"] = load_multipolar_harmonics()
+    return _shared["multipolar_harmonics"]
 
 
 # ==================================================
@@ -350,6 +361,31 @@ def create_response_tensor(gid, tag, X):
     pdf.build()
 
 
+def create_multipolar_harmonics(gid, tag, s, x):
+    """Multipolar harmonics of internal rank s and internal type x (multipolar_harmonics.pkl), as MultiPie."""
+    mrank = {1: "dipole", 2: "quadrupole", 3: "octupole"}
+    itype = {"q": "polar", "g": "axial"}
+    d = _multipolar_harmonics()[gid]
+    pdf = _pdf(f"multipolar_harmonics_s{s}_{x}", gid, tag, suffix=f" (internal {itype[x]} {mrank[s]})")
+
+    for rank in range(mh_max_rank + 1):
+        pdf.text("\n" + r"\noindent * Harmonics for rank " + str(rank) + "\n")
+        for key, (ex, _, m_ex) in d.items():
+            if key.s != s or key.x != x or key.l != rank:
+                continue
+            dim = len(ex)
+            tags = [TagMultipole.latex(key, "point_group", -1 if dim == 1 else i + 1, "", True, True) for i in range(dim)]
+            pdf.text(r"\noindent\quad " + "$" + "$, $".join(tags) + "$\n")
+            pdf.text(r"\noindent\quad ** symmetry")
+            for t in ex:
+                pdf.equation(sp.latex(t), long=True)
+            pdf.text(r"\noindent\quad ** expression")
+            for t in m_ex:
+                pdf.equation(sp.latex(t), long=True)
+
+    pdf.build()
+
+
 _creator = {
     "character_table": create_character_table,
     "symmetry_operation": create_symmetry_operation,
@@ -360,6 +396,12 @@ _creator = {
     "response_tensor_G": lambda gid, tag: create_response_tensor(gid, tag, "G"),
     "response_tensor_T": lambda gid, tag: create_response_tensor(gid, tag, "T"),
     "response_tensor_M": lambda gid, tag: create_response_tensor(gid, tag, "M"),
+    "multipolar_harmonics_s1_q": lambda gid, tag: create_multipolar_harmonics(gid, tag, 1, "q"),
+    "multipolar_harmonics_s1_g": lambda gid, tag: create_multipolar_harmonics(gid, tag, 1, "g"),
+    "multipolar_harmonics_s2_q": lambda gid, tag: create_multipolar_harmonics(gid, tag, 2, "q"),
+    "multipolar_harmonics_s2_g": lambda gid, tag: create_multipolar_harmonics(gid, tag, 2, "g"),
+    "multipolar_harmonics_s3_q": lambda gid, tag: create_multipolar_harmonics(gid, tag, 3, "q"),
+    "multipolar_harmonics_s3_g": lambda gid, tag: create_multipolar_harmonics(gid, tag, 3, "g"),
 }
 
 
