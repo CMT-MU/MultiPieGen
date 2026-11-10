@@ -1,8 +1,17 @@
 # Magnetic point groups
 
-PDFs of all 157 magnetic point groups, in `multipiegen/pdf/MPG/{id}/`, created by
-`python -m multipiegen.create_pdf.create_pdf_group`. The response tensors (Q, G, T, M) are those of `response_tensor.pkl`;
-the magnetic tensors (T, M) are not given for type II (gray) groups.
+All 157 magnetic point groups: symmetry operations, Wyckoff sites, and response tensors (Q, G, T, M up to rank 4).
+The magnetic tensors (T, M) are not given for type II (gray) groups.
+
+ID "a.b.c":
+
+- a: number of the point group (PG column), 1-32 for the crystallographic point groups and 33-37 for the other
+  settings.
+- b: number in the point group, 1 for type I (the point group itself), 2 for type II (gray group, with the time
+  reversal 1'), and 3 or more for type III (black-white groups).
+- c: serial number of the magnetic point groups, 1-157.
+
+Type: I (ordinary), II (gray), III (black-white, some operations combined with the time reversal).
 
 
 ## Triclinic

@@ -1,7 +1,17 @@
 # Magnetic space groups
 
-PDFs of all 1651 magnetic space groups, in `multipiegen/pdf/MSG/{id}/`, created by
-`python -m multipiegen.create_pdf.create_pdf_group`.
+All 1651 magnetic space groups: symmetry operations and Wyckoff sites. Only the standard setting of the BNS
+description is given for each magnetic space group.
+
+ID "a.b" is the BNS number:
+
+- a: number of the space group.
+- b: serial number in each crystal family, starting from 1 in triclinic, monoclinic, orthorhombic, tetragonal,
+  trigonal and hexagonal, and cubic groups.
+
+The BNS and OG columns are the Belov-Neronova-Smirnova and Opechowski-Guccione symbols. Type: I (ordinary),
+II (gray), III (black-white, some operations combined with the time reversal), IV (black-white, the time reversal
+combined with a translation).
 
 
 ## Triclinic

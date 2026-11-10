@@ -6,14 +6,16 @@ root: README
 parts:
 - caption: Documentation
   chapters:
-    - file: src/data
-    - file: src/binary
-    - file: src/pg_pdf
-    - file: src/sg_pdf
-    - file: src/mpg_pdf
-    - file: src/msg_pdf
-    - file: src/info_pdf
+    - file: src/group_info
+      sections:
+      - file: src/info_pdf
+      - file: src/pg_pdf
+      - file: src/sg_pdf
+      - file: src/mpg_pdf
+      - file: src/msg_pdf
     - file: src/examples
+    - file: src/binary
+    - file: src/data
 - caption: API reference
   chapters:
     - file: src/api_util
@@ -24,7 +26,9 @@ parts:
       - file: src/api_util/util_cluster_vector_basis
       - file: src/api_util/util_bond_cluster_basis
       - file: src/api_util/util_harmonics_symbol
+      - file: src/api_util/util_harmonics_multipole
       - file: src/api_util/util_multipolar_harmonics
+      - file: src/api_util/util_atomic_multipole
       - file: src/api_util/util_symmetry_operation
       - file: src/api_util/util_representation_matrix
       - file: src/api_util/util_response_tensor
@@ -33,6 +37,9 @@ parts:
       - file: src/api_create/create_info
       - file: src/api_create/create_group
       - file: src/api_create/create_response_tensor
+      - file: src/api_create/create_multipolar_harmonics
+      - file: src/api_create/create_atomic_multipole
+      - file: src/api_create/create_atomic_multipole_group
       - file: src/api_create/create_cluster_scalar_basis
       - file: src/api_create/create_cluster_vector_basis
       - file: src/api_create/create_cluster_bond_basis

@@ -1,7 +1,14 @@
 # Space groups
 
-PDFs of all 230 space groups, in `multipiegen/pdf/SG/{no}-{tag}/`, created by
-`python -m multipiegen.create_pdf.create_pdf_group`.
+All 230 space groups: symmetry operations, Wyckoff sites, and Wyckoff bonds.
+
+The numbers, Hermann-Mauguin symbols, symmetry operations, and Wyckoff positions are consistent with the
+International Tables for Crystallography, Vol. A (ITA) and the Bilbao Crystallographic Server. Only the standard
+setting of each space group is given (the default setting of the Bilbao Crystallographic Server):
+
+- monoclinic groups: unique axis b, cell choice 1.
+- groups with two origin choices: origin choice 2 (inversion center at the origin).
+- rhombohedral groups: hexagonal axes.
 
 
 ## Triclinic

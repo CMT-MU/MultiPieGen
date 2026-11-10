@@ -7,7 +7,9 @@
 
 """
 Create generated pages of the documentation.
-    - docs/src/{pg,sg,mpg,msg}_pdf.md: lists of the PDFs of each group (multipiegen/pdf/{PG,SG,MPG,MSG}).
+    - docs/src/{pg,sg,mpg,msg}_pdf.md: lists of the PDFs of each group (multipiegen/pdf/{PG,SG,MPG,MSG}), sub-pages of
+      "Group Information" (docs/src/group_info.md). These pages are meant to be linked from outside (e.g. MultiPie),
+      so they describe the content only, not how it is generated.
     - docs/src/examples.md: code of the examples listed in docs/examples/README.md.
 
     python docs/create_pages.py    (run by "make build" in docs)
@@ -31,6 +33,15 @@ label = {
     "wyckoff_bond": "Wyckoff bond",
     "representation_matrix": "representation matrix",
     "response_tensor_Q": "Q tensor",
+    "multipolar_harmonics_s1_q": "s=1 q",
+    "multipolar_harmonics_s1_g": "s=1 g",
+    "multipolar_harmonics_s2_q": "s=2 q",
+    "multipolar_harmonics_s2_g": "s=2 g",
+    "multipolar_harmonics_s3_q": "s=3 q",
+    "multipolar_harmonics_s3_g": "s=3 g",
+    "atomic_multipole_lg": "atomic lg",
+    "atomic_multipole_lgs": "atomic lgs",
+    "atomic_multipole_jml": "atomic jml",
     "response_tensor_G": "G tensor",
     "response_tensor_T": "T tensor",
     "response_tensor_M": "M tensor",
@@ -39,28 +50,57 @@ label = {
 head = {
     "PG": """# Point groups
 
-PDFs of all 47 point groups (32 crystallographic point groups, 5 other settings "-1", and 10 complex groups "-c"),
-in `multipiegen/pdf/PG/{no}-{tag}/`.
+All 47 point groups: 32 crystallographic point groups, 5 other settings ("-1"), and 10 complex groups ("-c").
 
 - harmonics: harmonics up to rank 11, with the polar (Q) and axial (G) symbols side by side (the expression is that
-  of the polar harmonics), created by `python -m multipiegen.create_pdf.create_pdf_harmonics`.
-- character, symmetry operation, Wyckoff site and bond, representation matrix: created by `python -m multipiegen.create_pdf.create_pdf_group`.
+  of the polar harmonics).
+- character: character table, polar-axial conversion, and symmetric and anti-symmetric products.
+- symmetry operation, Wyckoff site and bond, representation matrix: as the names say.
+- s=1..3 q/g: multipolar harmonics (rank <= 3) with internal rank s and polar (q) or axial (g) internal basis.
+- atomic lg/lgs/jml: atomic multipole SAMB (matrices in the bra-ket blocks of s, p, d, f orbitals) in the
+  (L,gamma), (L,gamma,s), and (J,M;L) basis.
 """,
     "SG": """# Space groups
 
-PDFs of all 230 space groups, in `multipiegen/pdf/SG/{no}-{tag}/`, created by
-`python -m multipiegen.create_pdf.create_pdf_group`.
+All 230 space groups: symmetry operations, Wyckoff sites, and Wyckoff bonds.
+
+The numbers, Hermann-Mauguin symbols, symmetry operations, and Wyckoff positions are consistent with the
+International Tables for Crystallography, Vol. A (ITA) and the Bilbao Crystallographic Server. Only the standard
+setting of each space group is given (the default setting of the Bilbao Crystallographic Server):
+
+- monoclinic groups: unique axis b, cell choice 1.
+- groups with two origin choices: origin choice 2 (inversion center at the origin).
+- rhombohedral groups: hexagonal axes.
 """,
     "MPG": """# Magnetic point groups
 
-PDFs of all 157 magnetic point groups, in `multipiegen/pdf/MPG/{id}/`, created by
-`python -m multipiegen.create_pdf.create_pdf_group`. The response tensors (Q, G, T, M) are those of `response_tensor.pkl`;
-the magnetic tensors (T, M) are not given for type II (gray) groups.
+All 157 magnetic point groups: symmetry operations, Wyckoff sites, and response tensors (Q, G, T, M up to rank 4).
+The magnetic tensors (T, M) are not given for type II (gray) groups.
+
+ID "a.b.c":
+
+- a: number of the point group (PG column), 1-32 for the crystallographic point groups and 33-37 for the other
+  settings.
+- b: number in the point group, 1 for type I (the point group itself), 2 for type II (gray group, with the time
+  reversal 1'), and 3 or more for type III (black-white groups).
+- c: serial number of the magnetic point groups, 1-157.
+
+Type: I (ordinary), II (gray), III (black-white, some operations combined with the time reversal).
 """,
     "MSG": """# Magnetic space groups
 
-PDFs of all 1651 magnetic space groups, in `multipiegen/pdf/MSG/{id}/`, created by
-`python -m multipiegen.create_pdf.create_pdf_group`.
+All 1651 magnetic space groups: symmetry operations and Wyckoff sites. Only the standard setting of the BNS
+description is given for each magnetic space group.
+
+ID "a.b" is the BNS number:
+
+- a: number of the space group.
+- b: serial number in each crystal family, starting from 1 in triclinic, monoclinic, orthorhombic, tetragonal,
+  trigonal and hexagonal, and cubic groups.
+
+The BNS and OG columns are the Belov-Neronova-Smirnova and Opechowski-Guccione symbols. Type: I (ordinary),
+II (gray), III (black-white, some operations combined with the time reversal), IV (black-white, the time reversal
+combined with a translation).
 """,
 }
 
