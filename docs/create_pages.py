@@ -89,7 +89,8 @@ Type: I (ordinary), II (gray), III (black-white, some operations combined with t
 """,
     "MSG": """# Magnetic space groups
 
-All 1651 magnetic space groups: symmetry operations and Wyckoff sites.
+All 1651 magnetic space groups: symmetry operations and Wyckoff sites. Only the standard setting of the BNS
+description is given for each magnetic space group.
 
 ID "a.b" is the BNS number:
 
