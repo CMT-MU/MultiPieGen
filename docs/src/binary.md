@@ -8,6 +8,8 @@ MultiPieGen. `str(data)` shows the description below.
 |---|---|---|
 | `info.pkl` | `python -m multipiegen.create_binary.create_info` | `multipiegen.util.util_info.load_info()` |
 | `group.pkl` | `python -m multipiegen.create_binary.create_group` | `multipiegen.util.util_group.load_group()` |
+| `atomic_multipole.pkl` | `python -m multipiegen.create_binary.create_atomic_multipole` | `multipiegen.util.util_atomic_multipole.load_atomic_multipole()` |
+| `atomic_multipole_group.pkl` | `python -m multipiegen.create_binary.create_atomic_multipole_group` | `multipiegen.util.util_atomic_multipole.load_atomic_multipole_group()` |
 | `multipolar_harmonics.pkl` | `python -m multipiegen.create_binary.create_multipolar_harmonics` | `multipiegen.util.util_harmonics_multipole.load_multipolar_harmonics()` |
 | `response_tensor.pkl` | `python -m multipiegen.create_binary.create_response_tensor` | `multipiegen.util.util_response_tensor.load_response_tensor()` |
 | `cluster_scalar_basis.pkl` | `python -m multipiegen.create_binary.create_cluster_scalar_basis` | `multipiegen.util.util_cluster_basis.load_cluster_basis()` |
@@ -84,6 +86,17 @@ Multipolar harmonics (internal rank s = 1, 2, 3, rank l <= 3) of all 47 point gr
 internal basis.
 
 ```{literalinclude} ../../multipiegen/util/util_harmonics_multipole.py
+:language: text
+:start-after: '"""'
+:end-before: '"""'
+```
+
+## atomic_multipole.pkl, atomic_multipole_group.pkl
+
+Matrices of atomic multipoles (rank l <= 7, s = 0, 1) in the s, p, d, f orbitals, and the atomic multipole SAMB of
+all 47 point groups.
+
+```{literalinclude} ../../multipiegen/util/util_atomic_multipole.py
 :language: text
 :start-after: '"""'
 :end-before: '"""'

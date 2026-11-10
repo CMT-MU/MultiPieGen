@@ -12,6 +12,7 @@ create_pdf_symmetry_operation.py, create_pdf_wyckoff.py), from group.pkl.
     - multipiegen/pdf/PG/{no}-{tag}/{character_table,symmetry_operation,wyckoff_site,wyckoff_bond,
       representation_matrix,multipolar_harmonics_s{1,2,3}_{q,g}}.{tex,pdf}
       (multipolar harmonics from multipolar_harmonics.pkl, split by internal rank s and internal type q/g)
+    - multipiegen/pdf/PG/{no}-{tag}/atomic_multipole_{jml,lgs,lg}.{tex,pdf} (from atomic_multipole_group.pkl)
     - multipiegen/pdf/SG/{no}-{tag}/{symmetry_operation,wyckoff_site,wyckoff_bond}.{tex,pdf} ("^" in tag -> "_")
     - multipiegen/pdf/MPG/{id}/{symmetry_operation,wyckoff_site,response_tensor_X}.{tex,pdf}
       (X = Q, G, and T, M except for type II, from response_tensor.pkl)
@@ -21,6 +22,7 @@ Differences from MultiPie:
 
     - complex PG ("-c") also has wyckoff_site and wyckoff_bond (same as the real PG).
     - the caption of a Wyckoff bond shows the bond symmetry.
+    - complex PG ("-c") also has atomic_multipole_{jml,lgs,lg}.
 
 Run:  python -m multipiegen.create_pdf.create_pdf_group [--group PG,SG,MPG,MSG] [--kind ...] [--serial]
 """
@@ -42,12 +44,16 @@ from multipiegen.util.util_info import load_info
 from multipiegen.util.util_representation_matrix import representation_matrix
 from multipiegen.util.util_response_tensor import load_response_tensor
 from multipiegen.util.util_harmonics_multipole import load_multipolar_harmonics, max_rank as mh_max_rank
-from multipie.util.util_tag import TagMultipole
+from multipie.util.util_tag import TagBasis, TagMultipole
+
+from multipiegen.data.data_basis import atomic_jm_basis, atomic_latex_name, atomic_lgs_basis, atomic_orbital_basis
+from multipiegen.util.util_atomic_multipole import load_atomic_multipole_group
 
 pdfdir = os.path.join(__top_dir__, "multipiegen", "pdf")
 kinds = {
     "PG": ["character_table", "symmetry_operation", "wyckoff_site", "wyckoff_bond", "representation_matrix"]
-    + [f"multipolar_harmonics_s{s}_{x}" for s in (1, 2, 3) for x in ("q", "g")],
+    + [f"multipolar_harmonics_s{s}_{x}" for s in (1, 2, 3) for x in ("q", "g")]
+    + [f"atomic_multipole_{b}" for b in ("lg", "lgs", "jml")],
     "SG": ["symmetry_operation", "wyckoff_site", "wyckoff_bond"],
     "MPG": [
         "symmetry_operation",
@@ -84,6 +90,13 @@ def _multipolar_harmonics():
     if "multipolar_harmonics" not in _shared:
         _shared["multipolar_harmonics"] = load_multipolar_harmonics()
     return _shared["multipolar_harmonics"]
+
+
+def _atomic_multipole_group():
+    """atomic multipole SAMB of point groups (loaded once per process)."""
+    if "atomic_multipole_group" not in _shared:
+        _shared["atomic_multipole_group"] = load_atomic_multipole_group()
+    return _shared["atomic_multipole_group"]
 
 
 # ==================================================
@@ -386,6 +399,46 @@ def create_multipolar_harmonics(gid, tag, s, x):
     pdf.build()
 
 
+def _atomic_basis_latex(b_type, rank, ket):
+    """LaTeX of the atomic basis of rank (data_basis.atomic_orbital_basis, atomic_lgs_basis, atomic_jm_basis)."""
+    if b_type == "jml":
+        return ", ".join(TagBasis.latex(b, rank, ket) for b in atomic_jm_basis[rank])
+    if b_type == "lg":
+        lst = [atomic_latex_name[b] for b in atomic_orbital_basis[rank]]
+    else:
+        lst = [",".join(atomic_latex_name[i] for i in b.strip("()").split(",")) for b in atomic_lgs_basis[rank]]
+    return ", ".join((r"\ket{" if ket else r"\bra{") + b + "}" for b in lst)
+
+
+def create_atomic_multipole(gid, tag, b_type):
+    """Atomic multipole SAMB in b_type basis (atomic_multipole_group.pkl), as MultiPie."""
+    rank = {0: "s", 1: "p", 2: "d", 3: "f"}
+    pdf = _pdf(f"atomic_multipole_{b_type}", gid, tag, landscape=True, suffix=f" ({b_type} basis)")
+
+    cnt = 1
+    for (bra, ket), samb in _atomic_multipole_group()[gid][b_type].items():
+        tbl, row = [], []
+        for key, (mat, ex) in samb.items():
+            dim = len(mat)
+            for i, (e, m) in enumerate(zip(ex, mat)):
+                tbl.append([r"\text{symmetry}", to_latex(e, "scalar")])
+                tbl.append(
+                    [
+                        TagMultipole.latex(key, "point_group", -1 if dim == 1 else i + 1, tag="a", vector=False),
+                        to_latex(m, "matrix"),
+                    ]
+                )
+                row += [cnt, ""]
+                cnt += 1
+        hl = list(range(1, len(row), 2))
+        pdf.text("bra: $" + "=" + _atomic_basis_latex(b_type, bra, False) + "$\n\n\\noindent")
+        pdf.text("ket: $" + "=" + _atomic_basis_latex(b_type, ket, True) + "$")
+        cap = f"({rank[bra]},{rank[ket]}) block."
+        pdf.table(tbl, row, ["multipole", "matrix"], "No.", rmath=True, tmath=True, long=True, stretch=1.6, hl=hl, caption=cap)
+
+    pdf.build()
+
+
 _creator = {
     "character_table": create_character_table,
     "symmetry_operation": create_symmetry_operation,
@@ -402,6 +455,9 @@ _creator = {
     "multipolar_harmonics_s2_g": lambda gid, tag: create_multipolar_harmonics(gid, tag, 2, "g"),
     "multipolar_harmonics_s3_q": lambda gid, tag: create_multipolar_harmonics(gid, tag, 3, "q"),
     "multipolar_harmonics_s3_g": lambda gid, tag: create_multipolar_harmonics(gid, tag, 3, "g"),
+    "atomic_multipole_lg": lambda gid, tag: create_atomic_multipole(gid, tag, "lg"),
+    "atomic_multipole_lgs": lambda gid, tag: create_atomic_multipole(gid, tag, "lgs"),
+    "atomic_multipole_jml": lambda gid, tag: create_atomic_multipole(gid, tag, "jml"),
 }
 
 

@@ -37,10 +37,12 @@ The binary data (`multipiegen/binary`) and the PDFs (`multipiegen/pdf`) are kept
 | `binary/cluster_vector_basis.pkl` | orthonormal vector cluster basis (internal rank s=1, polar q / axial g internal basis) of the Oh (144) and D6h (72) clusters, keyed by PGMultipoleType as MultiPie's vector SAMB; intermediate basis for cluster_bond_basis.pkl | `python -m multipiegen.create_binary.create_cluster_vector_basis` | `multipiegen.util.util_cluster_vector_basis.load_cluster_vector_basis()` |
 | `binary/cluster_bond_basis.pkl` | orthonormal bond cluster basis of the Oh (48) and D6h (24) clusters, from the vector cluster basis and the bond vectors (vector0), keyed by PGMultipoleType as MultiPie's bond_a | `python -m multipiegen.create_binary.create_cluster_bond_basis` | `multipiegen.util.util_bond_cluster_basis.load_bond_cluster_basis()` |
 | `binary/response_tensor.pkl` | response tensors (rank 0-4, Q/G/T/M) of all MPG in terms of active multipoles | `python -m multipiegen.create_binary.create_response_tensor` | `multipiegen.util.util_response_tensor.load_response_tensor()` |
+| `binary/atomic_multipole.pkl` | matrices of atomic multipoles (rank l <= 7, s = 0, 1) in the LMs/JML/LM basis of s, p, d, f orbitals | `python -m multipiegen.create_binary.create_atomic_multipole` | `multipiegen.util.util_atomic_multipole.load_atomic_multipole()` |
+| `binary/atomic_multipole_group.pkl` | atomic multipole SAMB of all 47 point groups in the JML/Lgs/Lg basis | `python -m multipiegen.create_binary.create_atomic_multipole_group` | `multipiegen.util.util_atomic_multipole.load_atomic_multipole_group()` |
 | `binary/multipolar_harmonics.pkl` | multipolar harmonics (s = 1, 2, 3, rank l <= 3) of all 47 point groups with polar (q) and axial (g) internal basis (data_basis orbitals) | `python -m multipiegen.create_binary.create_multipolar_harmonics` | `multipiegen.util.util_harmonics_multipole.load_multipolar_harmonics()` |
 | `binary/group.pkl` | data of all PG (47), SG, MPG and MSG: symmetry operations, product table, mapping to the Oh/D6h cluster, character, Wyckoff site and bond, active multipoles | `python -m multipiegen.create_binary.create_group` | `multipiegen.util.util_group.load_group()` |
 | `pdf/PG/{no}-{tag}/harmonics.{tex,pdf}` | harmonics of all 47 point groups, with polar and axial symbols side by side | `python -m multipiegen.create_pdf.create_pdf_harmonics` | |
-| `pdf/{PG,SG,MPG,MSG}/*/{character_table,symmetry_operation,wyckoff_site,wyckoff_bond,representation_matrix,multipolar_harmonics_s{1,2,3}_{q,g},response_tensor_X}.{tex,pdf}` | each group: character table, representation matrices and multipolar harmonics (PG), symmetry operations, Wyckoff site and bond (PG, SG), response tensors (MPG) | `python -m multipiegen.create_pdf.create_pdf_group` | |
+| `pdf/{PG,SG,MPG,MSG}/*/{character_table,symmetry_operation,wyckoff_site,wyckoff_bond,representation_matrix,multipolar_harmonics_s{1,2,3}_{q,g},atomic_multipole_{lg,lgs,jml},response_tensor_X}.{tex,pdf}` | each group: character table, representation matrices, multipolar harmonics and atomic multipoles (PG), symmetry operations, Wyckoff site and bond (PG, SG), response tensors (MPG) | `python -m multipiegen.create_pdf.create_pdf_group` | |
 | `pdf/info/*.{tex,pdf}` | overall information: lists of PG, SG, MPG and MSG, compatibility relation with orbitals, active multipoles | `python -m multipiegen.create_pdf.create_pdf_info` | |
 
 The binaries use the format of MultiPie's `BinaryManager` (gzip-compressed pickle with a header). `str(load_info())`
@@ -62,10 +64,10 @@ See [examples](examples/README.md) for runnable sample code for each feature.
 ```
 multipiegen/        package
   data/             data tables (see data/readme.md)
-  util/             utilities (multipolar harmonics, cluster basis, vector cluster basis, bond cluster basis, harmonics symbols, multipolar harmonics, info, group, symmetry operation, representation matrix, response tensor)
+  util/             utilities (multipolar harmonics, cluster basis, vector cluster basis, bond cluster basis, harmonics symbols, multipolar harmonics, atomic multipole, info, group, symmetry operation, representation matrix, response tensor)
   create_binary/    code that generates the binary data
   create_pdf/       code that generates the PDFs
-  binary/           generated binary data (info.pkl, cluster_scalar_basis.pkl, cluster_vector_basis.pkl, cluster_bond_basis.pkl, multipolar_harmonics.pkl, group.pkl, response_tensor.pkl) [not packaged]
+  binary/           generated binary data (info.pkl, cluster_scalar_basis.pkl, cluster_vector_basis.pkl, cluster_bond_basis.pkl, multipolar_harmonics.pkl, atomic_multipole.pkl, atomic_multipole_group.pkl, group.pkl, response_tensor.pkl) [not packaged]
   pdf/              generated LaTeX and PDF (PG/032-Oh/harmonics.pdf, info/PG.pdf, ...) [not packaged]
 docs/
   examples/         sample code for each feature
