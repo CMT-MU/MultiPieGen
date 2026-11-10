@@ -8,19 +8,19 @@
 """
 Example: multipolar harmonics (internal rank s = 1, 2, 3, up to rank 3) with polar (q) and axial (g) internal basis.
 
-    python docs/examples/harmonics_multipole.py
+    python docs/examples/multipolar_harmonics.py
 
-The binary data (multipiegen/binary/harmonics_multipole.pkl) is created by
-multipiegen/create_binary/create_harmonics_multipole.py (python -m multipiegen.create_binary.create_harmonics_multipole).
+The binary data (multipiegen/binary/multipolar_harmonics.pkl) is created by
+multipiegen/create_binary/create_multipolar_harmonics.py (python -m multipiegen.create_binary.create_multipolar_harmonics).
 """
 
 import collections
 
-from multipiegen.util.util_harmonics_multipole import load_harmonics_multipole
+from multipiegen.util.util_harmonics_multipole import load_multipolar_harmonics
 from multipiegen.util.util_info import load_info
 
 info = load_info()
-hm = load_harmonics_multipole()
+hm = load_multipolar_harmonics()
 
 # ==================================================
 # 1. keys: PGMultipoleType(X, l, Gamma, n, p, s, k, x); value: (cartesian ex., coefficient of internal basis, multipole ex.)

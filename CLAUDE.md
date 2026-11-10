@@ -25,7 +25,7 @@ python -m multipiegen.create_binary.create_info            # -> binary/info.pkl
 python -m multipiegen.create_binary.create_cluster_scalar_basis   # -> binary/cluster_scalar_basis.pkl
 python -m multipiegen.create_binary.create_cluster_vector_basis  # -> binary/cluster_vector_basis.pkl (s=1, intermediate for cluster_bond_basis, ~1 min)
 python -m multipiegen.create_binary.create_cluster_bond_basis    # -> binary/cluster_bond_basis.pkl (needs cluster_vector_basis.pkl)
-python -m multipiegen.create_binary.create_harmonics_multipole  # -> binary/harmonics_multipole.pkl (s=1..3, l<=3, 47 PGs, parallel ~2.5 min)
+python -m multipiegen.create_binary.create_multipolar_harmonics  # -> binary/multipolar_harmonics.pkl (s=1..3, l<=3, 47 PGs, parallel ~2.5 min)
 python -m multipiegen.create_binary.create_group           # -> binary/group.pkl (parallel ~35 s; --serial ~2 min)
 python -m multipiegen.create_binary.create_response_tensor # -> binary/response_tensor.pkl (needs group.pkl; ~20 s)
 python -m multipiegen.create_pdf.create_pdf_harmonics      # -> pdf/PG/{no}-{tag}/harmonics.{tex,pdf} (needs ptex2pdf, ~1.5 min)

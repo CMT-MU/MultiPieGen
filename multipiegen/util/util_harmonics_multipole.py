@@ -8,7 +8,7 @@
 """
 Multipolar harmonics (internal rank s = 1, 2, 3) of point groups with polar (q) and axial (g) internal basis.
 
-Based on MultiPie (others/tools/create_binary/create_data_harmonics_multipole.py).
+Based on MultiPie (others/tools/create_binary/create_data_multipolar_harmonics.py).
 
 - Harmonics of a point group. For each harmonics (X, l, Gamma, n) of the point group (data_harmonics_mapping,
   X(key) = c T with the top harmonics T), its cartesian expression is c T and its u-matrix is U = c U_T (m, dim).
@@ -20,11 +20,12 @@ Based on MultiPie (others/tools/create_binary/create_data_harmonics_multipole.py
 - Internal type. x = "q" (polar internal basis) if (X = Q and s+k even) or (X = G and s+k odd), otherwise "g".
 - Multipole expression. m_ex = mharm @ (internal symbols), where the internal symbols are those of
   info["harmonics"]["internal_basis"] ((s, x) -> [Q or G + orbital_latex_name of each orbital]).
-- Key. PGMultipoleType(X, l, Gamma, n, p, s, k, x): the multiplicity n is renumbered (1, 2, ...) among those
-  with the same (x, l, X, Gamma, k) (-1 if unique), p = -1. Vanishing ones (w3j = 0) are excluded.
-- Order. x (q, g), s, Gamma (character table), l, X (Q, G), k, n.
+- Key. PGMultipoleType(X, l, Gamma, n, p, s, k, x): n is the multiplicity of the harmonics (X, l, Gamma, n), which
+  fixes its xyz polynomial (not renumbered, unlike MultiPie); p numbers those with the same
+  (x, l, X, Gamma, n, k) as 1, 2, ... (-1 if unique). Vanishing ones (w3j = 0) are excluded.
+- Order. x (q, g), s, Gamma (character table), l, X (Q, G), k, n, p.
 
-- harmonics_multipole (dict)::
+- multipolar_harmonics (dict)::
 
     { PG_id: { PGMultipoleType: (ex, mharm, m_ex) } }
         ex: ndarray (dim) (sympy), cartesian expression of the harmonics.
@@ -49,7 +50,7 @@ from multipiegen.util.util_info import load_info
 from multipiegen.util.util_multipolar_harmonics import InternalBasis, create_harmonics_set, get_internal_basis
 
 # ==================================================
-harmonics_multipole_file = "harmonics_multipole"
+multipolar_harmonics_file = "multipolar_harmonics"
 max_rank = 3
 max_s_rank = 3
 _x, _y, _z = sp.symbols("x y z", real=True)
@@ -128,7 +129,7 @@ def internal_type(X, s, k):
 
 
 # ==================================================
-def create_harmonics_multipole(pg, rank=max_rank, s_rank=max_s_rank):
+def create_multipolar_harmonics(pg, rank=max_rank, s_rank=max_s_rank):
     """
     Multipolar harmonics of a point group.
 
@@ -157,27 +158,35 @@ def create_harmonics_multipole(pg, rank=max_rank, s_rank=max_s_rank):
                     continue
                 x = internal_type(X, s, k)
                 m_ex = np.array([sum(c * sym for c, sym in zip(row, symbols[(s, x)])) for row in mharm], dtype=object)
-                raw.setdefault((x, s, l, X, irrep, k), []).append((n, (ex, mharm, m_ex)))
+                raw.setdefault((x, s, l, X, irrep, n, k), []).append((ex, mharm, m_ex))
 
-    # renumber multiplicity.
+    # keep the multiplicity n of the harmonics (its xyz polynomial); number duplicates by p.
     res = {}
-    for (x, s, l, X, irrep, k), lst in raw.items():
-        lst.sort(key=lambda t: t[0])
-        for no, (_, val) in enumerate(lst):
-            n = -1 if len(lst) == 1 else no + 1
-            res[PGMultipoleType(X, l, irrep, n, -1, s, k, x)] = val
+    for (x, s, l, X, irrep, n, k), lst in raw.items():
+        for no, val in enumerate(lst):
+            p = -1 if len(lst) == 1 else no + 1
+            res[PGMultipoleType(X, l, irrep, n, p, s, k, x)] = val
 
     irreps = list(character[pg][1].keys())
-    order = lambda key: (["q", "g"].index(key.x), key.s, irreps.index(key.Gamma), key.l, ["Q", "G"].index(key.X), key.k, key.n)
+    order = lambda key: (
+        ["q", "g"].index(key.x),
+        key.s,
+        irreps.index(key.Gamma),
+        key.l,
+        ["Q", "G"].index(key.X),
+        key.k,
+        key.n,
+        key.p,
+    )
     return {key: res[key] for key in sorted(res, key=order)}
 
 
 # ==================================================
-def load_harmonics_multipole():
+def load_multipolar_harmonics():
     """
-    Load multipolar harmonics (multipiegen/binary/harmonics_multipole.pkl).
+    Load multipolar harmonics (multipiegen/binary/multipolar_harmonics.pkl).
 
     Returns:
         - (BinaryManager) -- {PG_id: {PGMultipoleType: (ex, mharm, m_ex)}}. str() gives the description.
     """
-    return BinaryManager(harmonics_multipole_file, topdir=__bin_dir__)
+    return BinaryManager(multipolar_harmonics_file, topdir=__bin_dir__)

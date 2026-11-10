@@ -8,7 +8,7 @@ Run each as `python -m <module>`.
     multipiegen.create_binary.create_info
     multipiegen.create_binary.create_group
     multipiegen.create_binary.create_response_tensor
-    multipiegen.create_binary.create_harmonics_multipole
+    multipiegen.create_binary.create_multipolar_harmonics
     multipiegen.create_binary.create_cluster_scalar_basis
     multipiegen.create_binary.create_cluster_vector_basis
     multipiegen.create_binary.create_cluster_bond_basis

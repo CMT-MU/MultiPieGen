@@ -8,7 +8,7 @@ MultiPieGen. `str(data)` shows the description below.
 |---|---|---|
 | `info.pkl` | `python -m multipiegen.create_binary.create_info` | `multipiegen.util.util_info.load_info()` |
 | `group.pkl` | `python -m multipiegen.create_binary.create_group` | `multipiegen.util.util_group.load_group()` |
-| `harmonics_multipole.pkl` | `python -m multipiegen.create_binary.create_harmonics_multipole` | `multipiegen.util.util_harmonics_multipole.load_harmonics_multipole()` |
+| `multipolar_harmonics.pkl` | `python -m multipiegen.create_binary.create_multipolar_harmonics` | `multipiegen.util.util_harmonics_multipole.load_multipolar_harmonics()` |
 | `response_tensor.pkl` | `python -m multipiegen.create_binary.create_response_tensor` | `multipiegen.util.util_response_tensor.load_response_tensor()` |
 | `cluster_scalar_basis.pkl` | `python -m multipiegen.create_binary.create_cluster_scalar_basis` | `multipiegen.util.util_cluster_basis.load_cluster_basis()` |
 | `cluster_vector_basis.pkl` | `python -m multipiegen.create_binary.create_cluster_vector_basis` | `multipiegen.util.util_cluster_vector_basis.load_cluster_vector_basis()` |
@@ -78,7 +78,7 @@ bond vectors (vector0) and re-orthonormalized.
 :end-before: '"""'
 ```
 
-## harmonics_multipole.pkl
+## multipolar_harmonics.pkl
 
 Multipolar harmonics (internal rank s = 1, 2, 3, rank l <= 3) of all 47 point groups with polar (q) and axial (g)
 internal basis.

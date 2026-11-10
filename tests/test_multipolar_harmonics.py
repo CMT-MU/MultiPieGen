@@ -15,10 +15,10 @@ from multipiegen.data.data_harmonics_mapping import data_harmonics_mapping
 from multipiegen.util.util_harmonics_multipole import (
     _crystal,
     _orbital_basis,
-    create_harmonics_multipole,
+    create_multipolar_harmonics,
     internal_symbols,
     internal_type,
-    load_harmonics_multipole,
+    load_multipolar_harmonics,
     max_rank,
     max_s_rank,
 )
@@ -26,7 +26,7 @@ from multipiegen.util.util_info import load_info
 from multipiegen.util.util_representation_matrix import _group, representation_matrix
 
 info = load_info()
-data = load_harmonics_multipole()
+data = load_multipolar_harmonics()
 SAMPLE = ["Oh", "D6h", "D3d", "C3h-c", "T-c", "D2d-1"]
 _x, _y, _z = sp.symbols("x y z", real=True)
 _x2, _y2, _z2 = sp.symbols("X2 Y2 Z2", real=True)
@@ -42,7 +42,7 @@ def test_all_groups():
 @pytest.mark.parametrize("pg", SAMPLE)
 def test_binary_is_up_to_date(pg):
     # compare after a pickle round trip, as sympy re-evaluates some products (e.g. (a+b)/2 -> a/2+b/2) on loading.
-    new = pickle.loads(pickle.dumps(create_harmonics_multipole(pg)))
+    new = pickle.loads(pickle.dumps(create_multipolar_harmonics(pg)))
     assert repr(new) == repr(data[info["id"][pg]])
 
 
