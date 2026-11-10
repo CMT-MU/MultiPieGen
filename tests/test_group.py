@@ -85,12 +85,11 @@ def test_product_and_mapping():
             assert set(so["product"].values()) == set(so["tag"])
             assert len(so["product"]) == len(so["tag"]) ** 2
         mp = so["mapping"]
-        t_so = top[mp["top"]] if gid.startswith("PG") else group[f"SG:{mp['top']}"]["symmetry_operation"]
-        t_tag = [t.split(":")[0] for t in t_so["tag"]]
+        t_tag = top[mp["top"]]["tag"]
         assert sorted(sum(mp["mapping"], [])) == list(range(1, len(t_tag) + 1))  # cosets cover the top group once
-        if gid.startswith("PG"):  # first coset is the group itself (SG may be embedded with a change of axes)
-            assert [t_tag[i - 1] for i in mp["mapping"][0]] == tags
-        key = int(gid.split(":")[1]) if gid.startswith("SG") else info["tag"][gid].replace("-c", "")
+        assert [t_tag[i - 1] for i in mp["mapping"][0]] == [t.split(":")[0] for t in tags]  # first coset is the group
+        pg_id = gid if gid.startswith("PG") else group[gid]["info"].PG
+        key = info["tag"][pg_id].replace("-c", "")
         assert mp == {"top": op_mapping_d6h_oh_cluster[key][0], "mapping": op_mapping_d6h_oh_cluster[key][1]}
 
 
@@ -132,3 +131,18 @@ def test_values_are_simplest(gid):
                     assert simplify_value(v) == v, (gid, v)
 
     walk(group[gid])
+
+
+# ==================================================
+def test_op_mapping_parent_sg():
+    # SG -> top parent SG (221-230 or 191-194): cosets cover the parent SG once, and the top SG maps to itself.
+    from multipiegen.data.data_op_mapping import op_mapping_parent_sg
+
+    assert sorted(op_mapping_parent_sg) == list(range(1, 231))
+    for no, (top, mapping) in op_mapping_parent_sg.items():
+        assert top in list(range(221, 231)) + list(range(191, 195))
+        n_top = len(group[f"SG:{top}"]["symmetry_operation"]["tag"])
+        assert sorted(sum(mapping, [])) == list(range(1, n_top + 1))
+        assert len(mapping[0]) == len(group[f"SG:{no}"]["symmetry_operation"]["tag"])
+        if no == top:
+            assert mapping == [list(range(1, n_top + 1))]

@@ -8,15 +8,22 @@
 """
 Mapping of symmetry operations to top parent group.
 
-- op_mapping_d6h_oh (dict): mapping to top Oh/D6h cluster (operation no. 1-based).
-    - PG_tag/SG_no : (top group, mapping), mapping[coset][parent op no. of child op. from 1 to g].
+- op_mapping_d6h_oh_cluster (dict): mapping of point groups to top Oh/D6h cluster (operation no. 1-based).
+    - PG_tag : (top group, mapping), mapping[coset][parent op no. of child op. from 1 to g].
     - top group is child when child belongs to Oh/D6h.
+    - the mapping of a space group to the Oh/D6h cluster is that of its point group (same point parts of operations).
+- op_mapping_parent_sg (dict): mapping of space groups to top parent space group (operation no. 1-based).
+    - SG_no : (top SG_no, mapping), mapping[coset][parent op no. of child op. from 1 to g].
+    - top SG is 221-230 (Oh) or 191-194 (D6h), through the chain of maximal subgroups (data_parent_sg).
+    - the axes may be changed along the chain, so the point part of a child operation may differ from that of the
+      parent operation (e.g. 2[010] -> 2[100]); not a mapping to the Oh/D6h cluster.
+    - top SG is child when child is the top SG.
 - op_mapping_root_cluster (dict): mapping to root cluster (operation no. 1-based). [future extension]
     - PG_tag/SG_no : ("RC", mapping), mapping[coset][parent op no. of child op. from 1 to g].
 """
 
 # ==================================================
-# operation mapping of general points of point and space groups to D6h and Oh cluster (1-based).
+# operation mapping of general points of point groups to D6h and Oh cluster (1-based).
 op_mapping_d6h_oh_cluster = {
     "C1": (
         "Oh",
@@ -418,6 +425,12 @@ op_mapping_d6h_oh_cluster = {
         ],
     ),
     "D6h": ("D6h", [[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24]]),
+}
+
+# ==================================================
+# operation mapping of space groups to the top parent space group (221-230 or 191-194) through the chain of
+# maximal subgroups (data_parent_sg), with the change of axes (1-based).
+op_mapping_parent_sg = {
     1: (
         221,
         [
