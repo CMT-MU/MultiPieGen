@@ -1,7 +1,6 @@
 # Space groups
 
-PDFs of all 230 space groups, in `multipiegen/pdf/SG/{no}-{tag}/`, created by
-`python -m multipiegen.create_pdf.create_pdf_group`.
+All 230 space groups: symmetry operations, Wyckoff sites, and Wyckoff bonds.
 
 
 ## Triclinic

@@ -1,7 +1,6 @@
 # Magnetic space groups
 
-PDFs of all 1651 magnetic space groups, in `multipiegen/pdf/MSG/{id}/`, created by
-`python -m multipiegen.create_pdf.create_pdf_group`.
+All 1651 magnetic space groups: symmetry operations and Wyckoff sites.
 
 
 ## Triclinic

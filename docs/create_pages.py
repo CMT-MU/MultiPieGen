@@ -7,7 +7,9 @@
 
 """
 Create generated pages of the documentation.
-    - docs/src/{pg,sg,mpg,msg}_pdf.md: lists of the PDFs of each group (multipiegen/pdf/{PG,SG,MPG,MSG}).
+    - docs/src/{pg,sg,mpg,msg}_pdf.md: lists of the PDFs of each group (multipiegen/pdf/{PG,SG,MPG,MSG}), sub-pages of
+      "Group Information" (docs/src/group_info.md). These pages are meant to be linked from outside (e.g. MultiPie),
+      so they describe the content only, not how it is generated.
     - docs/src/examples.md: code of the examples listed in docs/examples/README.md.
 
     python docs/create_pages.py    (run by "make build" in docs)
@@ -48,32 +50,28 @@ label = {
 head = {
     "PG": """# Point groups
 
-PDFs of all 47 point groups (32 crystallographic point groups, 5 other settings "-1", and 10 complex groups "-c"),
-in `multipiegen/pdf/PG/{no}-{tag}/`.
+All 47 point groups: 32 crystallographic point groups, 5 other settings ("-1"), and 10 complex groups ("-c").
 
 - harmonics: harmonics up to rank 11, with the polar (Q) and axial (G) symbols side by side (the expression is that
-  of the polar harmonics), created by `python -m multipiegen.create_pdf.create_pdf_harmonics`.
-- s=1..3 q/g: multipolar harmonics (internal rank s, polar q or axial g internal basis, rank <= 3) of
-  multipolar_harmonics.pkl.
+  of the polar harmonics).
+- character: character table, polar-axial conversion, and symmetric and anti-symmetric products.
+- symmetry operation, Wyckoff site and bond, representation matrix: as the names say.
+- s=1..3 q/g: multipolar harmonics (rank <= 3) with internal rank s and polar (q) or axial (g) internal basis.
 - atomic lg/lgs/jml: atomic multipole SAMB (matrices in the bra-ket blocks of s, p, d, f orbitals) in the
-  (L,gamma), (L,gamma,s), and (J,M;L) basis, of atomic_multipole_group.pkl.
-- character, symmetry operation, Wyckoff site and bond, representation matrix, multipolar harmonics, atomic multipole: created by `python -m multipiegen.create_pdf.create_pdf_group`.
+  (L,gamma), (L,gamma,s), and (J,M;L) basis.
 """,
     "SG": """# Space groups
 
-PDFs of all 230 space groups, in `multipiegen/pdf/SG/{no}-{tag}/`, created by
-`python -m multipiegen.create_pdf.create_pdf_group`.
+All 230 space groups: symmetry operations, Wyckoff sites, and Wyckoff bonds.
 """,
     "MPG": """# Magnetic point groups
 
-PDFs of all 157 magnetic point groups, in `multipiegen/pdf/MPG/{id}/`, created by
-`python -m multipiegen.create_pdf.create_pdf_group`. The response tensors (Q, G, T, M) are those of `response_tensor.pkl`;
-the magnetic tensors (T, M) are not given for type II (gray) groups.
+All 157 magnetic point groups: symmetry operations, Wyckoff sites, and response tensors (Q, G, T, M up to rank 4).
+The magnetic tensors (T, M) are not given for type II (gray) groups.
 """,
     "MSG": """# Magnetic space groups
 
-PDFs of all 1651 magnetic space groups, in `multipiegen/pdf/MSG/{id}/`, created by
-`python -m multipiegen.create_pdf.create_pdf_group`.
+All 1651 magnetic space groups: symmetry operations and Wyckoff sites.
 """,
 }
 

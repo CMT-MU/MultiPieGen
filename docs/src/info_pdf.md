@@ -1,7 +1,6 @@
 # Overall information
 
-PDFs of overall information, created by `python -m multipiegen.create_pdf.create_pdf_info` in `multipiegen/pdf/info/`
-from `info.pkl` and `group.pkl`.
+Lists of all groups, compatibility relations, and active multipoles.
 
 | PDF | content |
 |---|---|

@@ -8,11 +8,13 @@ parts:
   chapters:
     - file: src/data
     - file: src/binary
-    - file: src/pg_pdf
-    - file: src/sg_pdf
-    - file: src/mpg_pdf
-    - file: src/msg_pdf
-    - file: src/info_pdf
+    - file: src/group_info
+      sections:
+      - file: src/pg_pdf
+      - file: src/sg_pdf
+      - file: src/mpg_pdf
+      - file: src/msg_pdf
+      - file: src/info_pdf
     - file: src/examples
 - caption: API reference
   chapters:
