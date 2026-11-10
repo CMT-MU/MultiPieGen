@@ -25,6 +25,7 @@ python -m multipiegen.create_binary.create_info            # -> binary/info.pkl
 python -m multipiegen.create_binary.create_cluster_scalar_basis   # -> binary/cluster_scalar_basis.pkl
 python -m multipiegen.create_binary.create_cluster_vector_basis  # -> binary/cluster_vector_basis.pkl (s=1, intermediate for cluster_bond_basis, ~1 min)
 python -m multipiegen.create_binary.create_cluster_bond_basis    # -> binary/cluster_bond_basis.pkl (needs cluster_vector_basis.pkl)
+python -m multipiegen.create_binary.create_cluster_samb          # -> binary/cluster_samb.pkl (site/bond_s/bond_a of real PG + SG; needs group, cluster_scalar_basis, cluster_bond_basis)
 python -m multipiegen.create_binary.create_multipolar_harmonics  # -> binary/multipolar_harmonics.pkl (s=1..3, l<=3, 47 PGs, parallel ~2.5 min)
 python -m multipiegen.create_binary.create_atomic_multipole        # -> binary/atomic_multipole.pkl (l<=7, s=0,1, LMs/JML/LM; ~10 s)
 python -m multipiegen.create_binary.create_atomic_multipole_group  # -> binary/atomic_multipole_group.pkl (47 PGs, needs atomic_multipole.pkl; ~30 s)
