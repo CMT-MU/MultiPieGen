@@ -24,6 +24,7 @@ parts:
       - file: src/api_util/util_cluster_vector_basis
       - file: src/api_util/util_bond_cluster_basis
       - file: src/api_util/util_harmonics_symbol
+      - file: src/api_util/util_harmonics_multipole
       - file: src/api_util/util_multipolar_harmonics
       - file: src/api_util/util_symmetry_operation
       - file: src/api_util/util_representation_matrix
@@ -33,6 +34,7 @@ parts:
       - file: src/api_create/create_info
       - file: src/api_create/create_group
       - file: src/api_create/create_response_tensor
+      - file: src/api_create/create_harmonics_multipole
       - file: src/api_create/create_cluster_scalar_basis
       - file: src/api_create/create_cluster_vector_basis
       - file: src/api_create/create_cluster_bond_basis
