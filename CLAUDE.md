@@ -62,6 +62,10 @@ mapping depends on the parity of the top harmonic.
   meaning unique.
 - Tesseral key: `(l, m)` with `m < 0` meaning `S`.
 - Symmetry-operation mappings in `data_parent_pg/sg` and `data_op_mapping` are 1-based.
+- `data_op_mapping.op_mapping_d6h_oh_cluster` (PG only) maps to the Oh/D6h cluster. An SG reaches the cluster
+  through its PG: its operations have the PG's point parts in the same order. `op_mapping_parent_sg` maps an SG to a
+  top parent SG (221-230, 191-194) with changes of axes, so its point parts can differ. Do not use it to index the
+  cluster.
 - The irrep order in `data_character_table` is authoritative for sorting. g before u, and `'` block before `''` block
   (C3h, D3h, D3h-1, C3h-c were reordered this way). This order differs from MultiPie, which sorts irreps by name string.
 
