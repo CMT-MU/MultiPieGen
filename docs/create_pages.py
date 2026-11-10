@@ -63,6 +63,14 @@ All 47 point groups: 32 crystallographic point groups, 5 other settings ("-1"), 
     "SG": """# Space groups
 
 All 230 space groups: symmetry operations, Wyckoff sites, and Wyckoff bonds.
+
+The numbers, Hermann-Mauguin symbols, symmetry operations, and Wyckoff positions are consistent with the
+International Tables for Crystallography, Vol. A (ITA) and the Bilbao Crystallographic Server. Only the standard
+setting of each space group is given (the default setting of the Bilbao Crystallographic Server):
+
+- monoclinic groups: unique axis b, cell choice 1.
+- groups with two origin choices: origin choice 2 (inversion center at the origin).
+- rhombohedral groups: hexagonal axes.
 """,
     "MPG": """# Magnetic point groups
 
@@ -81,7 +89,8 @@ Type: I (ordinary), II (gray), III (black-white, some operations combined with t
 """,
     "MSG": """# Magnetic space groups
 
-All 1651 magnetic space groups: symmetry operations and Wyckoff sites.
+All 1651 magnetic space groups: symmetry operations and Wyckoff sites. Only the standard setting of the BNS
+description is given for each magnetic space group.
 
 ID "a.b" is the BNS number:
 
