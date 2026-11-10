@@ -10,5 +10,6 @@ Sample code for the features of MultiPieGen. Run each file from anywhere after `
 | [group.py](group.py) | data of each group (group.pkl): symmetry operations, product, mapping to Oh/D6h, character, Wyckoff site and bond, active multipoles |
 | [representation_matrix.py](representation_matrix.py) | representation matrices of a point group from the harmonics up to rank 11, and the check that all harmonics of an irrep give the same matrices |
 | [response_tensor.py](response_tensor.py) | response tensors (rank 0-4) of a magnetic point group in terms of active multipoles (response_tensor.pkl) |
+| [multipolar_harmonics.py](multipolar_harmonics.py) | multipolar harmonics (internal rank s=1,2,3, rank l<=3) with polar/axial internal basis of the data_basis orbitals (multipolar_harmonics.pkl) |
 | [harmonics_symbol.py](harmonics_symbol.py) | polar and axial symbols of harmonics side by side for all 47 point groups (as in the harmonics PDF) |
 | [info.py](info.py) | overall information of groups (info.pkl): group id/tag/name, orbital basis and basis functions, root cluster |
