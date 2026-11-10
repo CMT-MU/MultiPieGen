@@ -6,16 +6,16 @@ root: README
 parts:
 - caption: Documentation
   chapters:
-    - file: src/data
-    - file: src/binary
     - file: src/group_info
       sections:
+      - file: src/info_pdf
       - file: src/pg_pdf
       - file: src/sg_pdf
       - file: src/mpg_pdf
       - file: src/msg_pdf
-      - file: src/info_pdf
     - file: src/examples
+    - file: src/binary
+    - file: src/data
 - caption: API reference
   chapters:
     - file: src/api_util
