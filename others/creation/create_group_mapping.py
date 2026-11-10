@@ -7,7 +7,8 @@
 
 """
 Create operation mapping to D6h and Oh, and root cluster.
-    - op_mapping_d6h_oh_cluster: operation mapping to D6h and Oh cluster.
+    - op_mapping_d6h_oh_cluster: operation mapping of point groups to D6h and Oh cluster.
+    - op_mapping_parent_sg: operation mapping of space groups to the top parent space group (221-230, 191-194).
     - op_mapping_root_cluster: operation mapping to root cluster.
 """
 
@@ -196,12 +197,11 @@ def create_mapping_all():
     rc_s_mapping = create_mapping(s_rep, s_data, s_oh, s_d6h, mapping_rc_oh, mapping_rc_d6h, rc=True)
     root_mapping = rc_p_mapping | rc_s_mapping
 
-    # mapping to D6h and Oh.
+    # mapping to D6h and Oh (PG), and to the top parent SG (SG).
     p_mapping = create_mapping(p_rep, p_data, p_oh, p_d6h, mapping_oh, mapping_d6h, rc=False)
     s_mapping = create_mapping(s_rep, s_data, s_oh, s_d6h, mapping_oh, mapping_d6h, rc=False)
-    d6h_oh_mapping = p_mapping | s_mapping
 
-    return root_mapping, d6h_oh_mapping
+    return root_mapping, p_mapping, s_mapping
 
 
 # ==================================================
@@ -209,10 +209,12 @@ def create_file():
     cur_dir = os.path.dirname(os.path.abspath(__file__))
     out_file = os.path.join(cur_dir, "data_op_mapping.py")
 
-    root_mapping, d6h_oh_mapping = create_mapping_all()
+    root_mapping, p_mapping, s_mapping = create_mapping_all()
 
     with open(out_file, "w", encoding="utf-8") as f:
-        print("op_mapping_d6h_oh_cluster =", d6h_oh_mapping, file=f)
+        print("op_mapping_d6h_oh_cluster =", p_mapping, file=f)
+        print("", file=f)
+        print("op_mapping_parent_sg =", s_mapping, file=f)
         print("", file=f)
         print("op_mapping_root_cluster =", root_mapping, file=f)
 

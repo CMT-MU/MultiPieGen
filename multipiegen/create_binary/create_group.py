@@ -167,9 +167,9 @@ h_group = """
     - "plus_set" (str): (ndarray(n,3,sympy)) list of plus set vector (fractional, conventional).
     - "so_matrix" (str): (Dict) dict of SO matrix (X="Q/G", s=0,1, cartesian).
       - (X,s) (str,int): ([ndarray(2s+1,2s+1,sympy)]) list of SO matrix.
-    - "mapping" (str): (dict) mapping of SO to the Oh/D6h cluster (data_op_mapping).
-      - "top" (str): (int) top SG number (SG whose PG is Oh or D6h), the SG itself if its PG is Oh or D6h.
-      - "mapping" (str): ([[int]]) mapping[coset][i] = SO number (from 1) of top SG for i-th SO of group.
+    - "mapping" (str): (dict) mapping of SO to the Oh/D6h cluster (that of the PG, data_op_mapping).
+      - "top" (str): (str) top group, "Oh" or "D6h".
+      - "mapping" (str): ([[int]]) mapping[coset][i] = SO number (from 1) of top group for i-th SO of group.
     NOTE:
       - SOs are in the same order of ITA (BCS).
       - SOs of SG and PG (without translational part) are in the same order.
@@ -313,18 +313,21 @@ def _real_tag(tag):
 
 
 # ==================================================
-def _so_mapping(key):
+def _so_mapping(pg_tag, so):
     """
-    Mapping of SO to the Oh/D6h cluster.
+    Mapping of SO to the Oh/D6h cluster, through the point group (op_mapping_d6h_oh_cluster).
 
     Args:
-        key (str or int): PG tag (real) or SG number.
+        pg_tag (str): real PG tag (of the SG for SG).
+        so (list): SO tags of the group (SG has the translational part, ignored).
 
     Returns:
-        - (dict) -- {"top": "Oh"/"D6h" (PG) or top SG number (SG), "mapping": [[int]]}.
+        - (dict) -- {"top": "Oh"/"D6h", "mapping": [[int]]}.
     """
-    top, mapping = op_mapping_d6h_oh_cluster[key]
-    return {"top": top, "mapping": [list(i) for i in mapping]}
+    top, mapping = op_mapping_d6h_oh_cluster[pg_tag]
+    pg_so = pg_info[[k for k, v in pg_info.items() if v.tag == pg_tag][0]].SO
+    idx = [pg_so.index(t.split(":")[0]) for t in so]
+    return {"top": top, "mapping": [[c[i] for i in idx] for c in mapping]}
 
 
 # ==================================================
@@ -365,14 +368,14 @@ def _matrices(so, hexagonal):
 
 
 # ==================================================
-def create_symmetry_operation(g_info, tag, mapping_key):
+def create_symmetry_operation(g_info, tag, pg_tag):
     """
     Symmetry operation of PG or SG.
 
     Args:
         g_info (namedtuple): PGInfoType or SGInfoType.
         tag (str): group tag (SG has "^").
-        mapping_key (str or int): key of data_op_mapping (real PG tag or SG number).
+        pg_tag (str): real PG tag (of the SG for SG), key of op_mapping_d6h_oh_cluster.
 
     Returns:
         - (dict) -- symmetry operation.
@@ -395,7 +398,7 @@ def create_symmetry_operation(g_info, tag, mapping_key):
         so_mat[("Q", s)] = [symmetry_operation_matrix_multipole(s, i, hexagonal, axial=False, tesseral=True) for i in so]
         so_mat[("G", s)] = [symmetry_operation_matrix_multipole(s, i, hexagonal, axial=True, tesseral=True) for i in so]
     dic["so_matrix"] = so_mat
-    dic["mapping"] = _so_mapping(mapping_key)
+    dic["mapping"] = _so_mapping(pg_tag, so)
 
     return dic
 
@@ -644,7 +647,7 @@ def create_sg(sg_id, tag):
         - (dict) -- data of SG.
     """
     g_info = sg_info[sg_id]
-    so = create_symmetry_operation(g_info, tag, int(sg_id.split(":")[1]))
+    so = create_symmetry_operation(g_info, tag, pg_info[g_info.PG].tag)
     site = create_wyckoff_site(g_info, wyckoff_site_data[tag], so, True)
     bond = create_wyckoff_bond(g_info, wyckoff_bond_data[tag], site, so, True)
     return {"info": g_info, "symmetry_operation": so, "wyckoff": {"site": site, "bond": bond}}
