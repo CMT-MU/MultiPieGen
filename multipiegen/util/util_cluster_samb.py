@@ -29,8 +29,8 @@ The same data as MultiPie's cluster_samb ("site", "bond_s", "bond_a"), created i
   the harmonics (X, l, Gamma) of H (its xyz polynomial) and p is that of the top key.
 - Space group. The operations (without the plus set) of a space group have the same point parts as those of its
   point group (in the same setting), so each operation is mapped to the top group through the point group,
-  op_mapping_d6h_oh_cluster[PG tag]. (op_mapping_d6h_oh_cluster[SG number] maps to a parent space group with a
-  change of axes, and is not used.) The harmonics are those of the point group.
+  op_mapping_d6h_oh_cluster[PG tag] (as "mapping" of the SG in group.pkl). (data_op_mapping.op_mapping_parent_sg
+  maps to a parent space group with a change of axes, and is not used.) The harmonics are those of the point group.
 - Order. Gamma (character table), l, (k, Q/G for bond_a), n, p.
 
 - cluster_samb (dict)::
