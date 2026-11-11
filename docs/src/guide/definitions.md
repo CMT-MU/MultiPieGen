@@ -81,9 +81,16 @@ between `Q` and `G`). So, for the same `(l, Gamma, n)`, the functions of `Q` and
 
 ## 2. Multipolar harmonics
 
-A multipolar harmonics combines a crystal harmonics with an internal degree of freedom of rank `s` (`s = 1`: a
-vector such as a displacement or a spin; `s = 2, 3`: higher-rank tensors). The multipolar spherical harmonics of
-total rank `l` couple the orbital part of rank `l + k` with the internal basis $e_\nu$ of rank `s`:
+A multipolar harmonics combines a crystal harmonics with an internal degree of freedom.
+
+**Internal degree of freedom.** First, the internal degree of freedom is fixed by its rank `s` (`s = 1`: a vector;
+`s = 2, 3`: higher-rank tensors) and its type `x`: polar (`x = q`, e.g. a displacement or an electric polarization)
+or axial (`x = g`, e.g. a spin or a rotation). Its basis $e_\nu$ is the set of rank-`s` orbitals of that type, of the
+cubic family (Oh) or of the hexagonal family (D6h), written with the symbols $Q_\nu$ (`x = q`) or $G_\nu$ (`x = g`),
+e.g. $(Q_x, Q_y, Q_z)$ or $(G_x, G_y, G_z)$ for `s = 1`.
+
+**Multipolar spherical harmonics.** The multipolar spherical harmonics of total rank `l` couple the orbital part of
+rank `l + k` with the internal basis:
 
 $$
 O_{lm}^{(s)}(k) = i^{k+s} (-1)^{l+m} \sqrt{2l+1} \sum_{\nu}
@@ -91,20 +98,25 @@ O_{lm}^{(s)}(k) = i^{k+s} (-1)^{l+m} \sqrt{2l+1} \sum_{\nu}
 \qquad k = -s, \dots, s,
 $$
 
-and the multipolar harmonics of a point group is $\sum_m U_{m\gamma} O_{lm}^{(s)}(k)$ with $U$ of the
+**Type of the multipole.** For a fixed internal type `x`, the type `X` of the multipole is determined by the parity
+of `s + k`:
+
+| internal type | `s + k` even | `s + k` odd |
+|---|---|---|
+| `x = q` (polar) | `Q` | `G` |
+| `x = g` (axial) | `G` | `Q` |
+
+That is, `X` has the same polar or axial character as the internal basis if `s + k` is even, and the opposite one if
+`s + k` is odd. The multipolar harmonics of a point group is $\sum_m U_{m\gamma} O_{lm}^{(s)}(k)$ with $U$ of the
 crystal harmonics `(X, l, Gamma, n)`.
 
-- The internal basis $e_\nu$ is a set of rank-`s` orbitals (e.g. `px, py, pz` for `s = 1`), of the cubic family
-  (Oh) or of the hexagonal family (D6h).
-- Internal type: `x = q` if the internal basis is polar, `x = g` if axial. A multipole has `x = q` if
-  (`X = Q` and `s + k` even) or (`X = G` and `s + k` odd), and `x = g` otherwise.
 - Range: `s = 1, 2, 3`, `l <= 3`, all 47 point groups. Key: `PGMultipoleType(X, l, Gamma, n, p, s, k, x)` (see
   [Multipole key](multipole_key.md)).
 - The value is the coefficient of each internal basis function (polynomials in x, y, z) and the resulting expression
   in terms of the internal basis symbols.
 
-*Examples (Oh, `s = 1`).* With a polar vector $\boldsymbol{Q} = (Q_x, Q_y, Q_z)$ or an axial vector
-$\boldsymbol{G} = (G_x, G_y, G_z)$ as the internal basis:
+*Examples (Oh, `s = 1`).* With the polar vector $\boldsymbol{Q} = (Q_x, Q_y, Q_z)$ (`x = q`) or the axial vector
+$\boldsymbol{G} = (G_x, G_y, G_z)$ (`x = g`) as the internal basis:
 
 | symbol | expression | meaning |
 |---|---|---|
