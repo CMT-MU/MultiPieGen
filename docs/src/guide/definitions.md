@@ -6,7 +6,8 @@ orphan: true
 
 This page defines the quantities provided by MultiPieGen. How to get the actual function forms, $U$, and
 matrices from the data is described in a later section. The harmonics and the SAMB are labeled by the multipole key
-`PGMultipoleType`, explained in [Multipole key](multipole_key.md). A Japanese version is [here](definitions_ja.md).
+`PGMultipoleType` and written with its LaTeX symbol, e.g. $\mathbb{Q}_{1}(T_{1u})$; both are explained in
+[Multipole key](multipole_key.md). A Japanese version is [here](definitions_ja.md).
 
 ## 1. Crystal harmonics
 
@@ -35,14 +36,14 @@ $$
 
 with $U$ (`(2l+1) x dim`, rows `m = l, ..., -l`), whose columns are orthonormal.
 
-*Example (Oh).* The dipole $Q_1(T_{1u}) = (x, y, z)$ has
+*Example (Oh).* The dipole $\mathbb{Q}_{1}(T_{1u}) = (x, y, z)$ has
 
 $$
 U = \begin{pmatrix} -\frac{1}{\sqrt{2}} & \frac{i}{\sqrt{2}} & 0 \\ 0 & 0 & 1 \\ \frac{1}{\sqrt{2}} & \frac{i}{\sqrt{2}} & 0 \end{pmatrix}
 \quad (m = 1, 0, -1),
 $$
 
-e.g. $x = (-O_{11} + O_{1,-1})/\sqrt{2}$, and the quadrupole $Q_2(E_g) = \left(z^2 - \frac{x^2+y^2}{2},
+e.g. $x = (-O_{11} + O_{1,-1})/\sqrt{2}$, and the quadrupole $\mathbb{Q}_{2}(E_{g}) = \left(z^2 - \frac{x^2+y^2}{2},
 \frac{\sqrt{3}}{2}(x^2 - y^2)\right)$.
 
 - **Top groups.** The harmonics are defined once for the two top groups, Oh (cubic) and D6h (trigonal and
@@ -53,8 +54,8 @@ e.g. $x = (-O_{11} + O_{1,-1})/\sqrt{2}$, and the quadrupole $Q_2(E_g) = \left(z
 - The irreps follow the order of the character table. Complex irreps (in the `-c` groups) end in `a`/`b` and have a
   single component.
 - *Multiplicity.* When an irrep appears more than once at the same rank, `n = 1, 2, ...` distinguishes the
-  harmonics, e.g. C4h: $Q_2(B_g)$ with `n = 1`: $\frac{\sqrt{3}}{2}(x^2 - y^2)$ and `n = 2`: $\sqrt{3}xy$.
-- *Complex group.* E.g. C4-c: $Q_1(E_a) = (x + iy)/\sqrt{2}$ and $Q_1(E_b) = (x - iy)/\sqrt{2}$.
+  harmonics, e.g. C4h: $\mathbb{Q}_{2}(B_{g},1) = \frac{\sqrt{3}}{2}(x^2 - y^2)$ and $\mathbb{Q}_{2}(B_{g},2) = \sqrt{3}xy$.
+- *Complex group.* E.g. C4-c: $\mathbb{Q}_{1}(E^{(a)}) = (x + iy)/\sqrt{2}$ and $\mathbb{Q}_{1}(E^{(b)}) = (x - iy)/\sqrt{2}$.
 - Key: `PGMultipoleType(X, l, Gamma, n, -1, 0, 0, "q")` (see [Multipole key](multipole_key.md)).
 
 **Polar (`Q`) and axial (`G`) harmonics.** An axial harmonics transforms with an extra factor `det R` under an
@@ -64,19 +65,19 @@ their components can be in another order or have other signs (the coefficient `c
 between `Q` and `G`). So, for the same `(l, Gamma, n)`, the functions of `Q` and `G` differ in general:
 
 - In the top groups Oh and D6h, the axial harmonics is the polar one with `g` and `u` interchanged in the irrep: the
-  same function, components, and order ($c = 1$). E.g. Oh: $Q_1(T_{1u}) = G_1(T_{1g}) = (x, y, z)$.
+  same function, components, and order ($c = 1$). E.g. Oh: $\mathbb{Q}_{1}(T_{1u}) = \mathbb{G}_{1}(T_{1g}) = (x, y, z)$.
 - In a group of proper rotations only (C1, C2, D2, C4, D4, C3, D3, D3-1, C6, D6, T, O), there is no improper
-  operation, and `Q` and `G` are identical. E.g. C4: $Q_1(E) = G_1(E) = (x, y)$.
+  operation, and `Q` and `G` are identical. E.g. C4: $\mathbb{Q}_{1}(E) = \mathbb{G}_{1}(E) = (x, y)$.
 - In the other groups, they differ. Examples:
 
 | group | polar | axial | difference |
 |---|---|---|---|
-| C4v | $Q_1(A_1) = z$ | $G_1(A_2) = z$ | same function, another irrep |
-| C4v | $Q_1(E) = (x, y)$ | $G_1(E) = (-y, x)$ | components interchanged, with a sign |
-| C4h | $Q_1(E_u) = (x, y)$ | $G_1(E_g) = (y, x)$ | components interchanged |
-| D2d | $Q_1(E) = (x, y)$ | $G_1(E) = (x, -y)$ | sign of a component |
-| C4v | $Q_2(B_1) = \frac{\sqrt{3}}{2}(x^2 - y^2)$ | $G_2(B_1) = \sqrt{3}xy$ | another function for the same irrep |
-| D2d | $Q_2(A_1) = z^2 - \frac{x^2+y^2}{2}$ | $G_2(A_1) = \frac{\sqrt{3}}{2}(x^2 - y^2)$ | another function for the same irrep |
+| C4v | $\mathbb{Q}_{1}(A_{1}) = z$ | $\mathbb{G}_{1}(A_{2}) = z$ | same function, another irrep |
+| C4v | $\mathbb{Q}_{1}(E) = (x, y)$ | $\mathbb{G}_{1}(E) = (-y, x)$ | components interchanged, with a sign |
+| C4h | $\mathbb{Q}_{1}(E_{u}) = (x, y)$ | $\mathbb{G}_{1}(E_{g}) = (y, x)$ | components interchanged |
+| D2d | $\mathbb{Q}_{1}(E) = (x, y)$ | $\mathbb{G}_{1}(E) = (x, -y)$ | sign of a component |
+| C4v | $\mathbb{Q}_{2}(B_{1}) = \frac{\sqrt{3}}{2}(x^2 - y^2)$ | $\mathbb{G}_{2}(B_{1}) = \sqrt{3}xy$ | another function for the same irrep |
+| D2d | $\mathbb{Q}_{2}(A_{1}) = z^2 - \frac{x^2+y^2}{2}$ | $\mathbb{G}_{2}(A_{1}) = \frac{\sqrt{3}}{2}(x^2 - y^2)$ | another function for the same irrep |
 
 ## 2. Multipolar harmonics
 
@@ -105,12 +106,12 @@ crystal harmonics `(X, l, Gamma, n)`.
 *Examples (Oh, `s = 1`).* With a polar vector $\boldsymbol{Q} = (Q_x, Q_y, Q_z)$ or an axial vector
 $\boldsymbol{G} = (G_x, G_y, G_z)$ as the internal basis:
 
-| key `(X, l, Gamma, n, p, s, k, x)` | expression | meaning |
+| symbol | expression | meaning |
 |---|---|---|
-| `(Q, 0, A1g, -1, -1, 1, 1, q)` | $(xQ_x + yQ_y + zQ_z)/\sqrt{3}$ | $\boldsymbol{r} \cdot \boldsymbol{Q}$, electric monopole |
-| `(Q, 1, T1u, -1, -1, 1, -1, q)` | $(Q_x, Q_y, Q_z)$ | the polar vector itself |
-| `(G, 1, T1g, -1, -1, 1, 0, q)` | $(zQ_y - yQ_z, xQ_z - zQ_x, yQ_x - xQ_y)/\sqrt{2}$ | $\boldsymbol{Q} \times \boldsymbol{r}$, electric toroidal dipole |
-| `(G, 0, A1u, -1, -1, 1, 1, g)` | $(xG_x + yG_y + zG_z)/\sqrt{3}$ | $\boldsymbol{r} \cdot \boldsymbol{G}$, electric toroidal monopole |
+| $\vec{\mathbb{Q}}_{0}^{(1,1)}[q](A_{1g})$ | $(xQ_x + yQ_y + zQ_z)/\sqrt{3}$ | $\boldsymbol{r} \cdot \boldsymbol{Q}$, electric monopole |
+| $\vec{\mathbb{Q}}_{1}^{(1,-1)}[q](T_{1u})$ | $(Q_x, Q_y, Q_z)$ | the polar vector itself |
+| $\vec{\mathbb{G}}_{1}^{(1,0)}[q](T_{1g})$ | $(zQ_y - yQ_z, xQ_z - zQ_x, yQ_x - xQ_y)/\sqrt{2}$ | $\boldsymbol{Q} \times \boldsymbol{r}$, electric toroidal dipole |
+| $\vec{\mathbb{G}}_{0}^{(1,1)}[g](A_{1u})$ | $(xG_x + yG_y + zG_z)/\sqrt{3}$ | $\boldsymbol{r} \cdot \boldsymbol{G}$, electric toroidal monopole |
 
 ## 3. Atomic orbitals
 
@@ -160,14 +161,14 @@ basis, adapted to the point group.
 
 *Examples (Oh).* For the p orbitals (`lg`, block `(1, 1)`, basis `px, py, pz`):
 
-- $Q_0(A_{1g}) = \frac{1}{\sqrt{3}}\,\mathrm{diag}(1, 1, 1)$, the charge;
-- $Q_2(E_g) = \left(\frac{1}{\sqrt{6}}\,\mathrm{diag}(-1, -1, 2),\ \frac{1}{\sqrt{2}}\,\mathrm{diag}(1, -1, 0)\right)$, the
+- $\mathbb{Q}_{0}^{(a)}(A_{1g}) = \frac{1}{\sqrt{3}}\,\mathrm{diag}(1, 1, 1)$, the charge;
+- $\mathbb{Q}_{2}^{(a)}(E_{g}) = \left(\frac{1}{\sqrt{6}}\,\mathrm{diag}(-1, -1, 2),\ \frac{1}{\sqrt{2}}\,\mathrm{diag}(1, -1, 0)\right)$, the
   orbital quadrupole;
-- $M_1(T_{1g})$, `s = 0`: $(l_x, l_y, l_z)/\sqrt{2}$, the orbital angular momentum, e.g. the `x` component has
+- $\mathbb{M}_{1}^{(a)}(T_{1g})$: $(l_x, l_y, l_z)/\sqrt{2}$, the orbital angular momentum, e.g. the `x` component has
   $\langle p_y | \cdot | p_z \rangle = -i/\sqrt{2}$.
 
-For the s orbital with spin (`lgs`, block `(0, 0)`, basis `(s, u), (s, d)`): $Q_0(A_{1g})$, `s = 0`, is
-$\frac{1}{\sqrt{2}}\,\mathbb{1}$, and $M_1(T_{1g})$, `s = 1`, `k = -1`, is $(\sigma_x, \sigma_y, \sigma_z)/\sqrt{2}$, the
+For the s orbital with spin (`lgs`, block `(0, 0)`, basis `(s, u), (s, d)`): $\mathbb{Q}_{0}^{(a)}(A_{1g})$ is
+$\frac{1}{\sqrt{2}}\,\mathbb{1}$, and $\mathbb{M}_{1}^{(1,-1;a)}(T_{1g})$ is $(\sigma_x, \sigma_y, \sigma_z)/\sqrt{2}$, the
 spin.
 
 ## 5. Cluster SAMB
@@ -193,11 +194,11 @@ irreps of the group. They are given for the 37 real point groups and the 230 spa
 
 *Examples (D4h).*
 
-- Site `2a`: two sites at $(0, 0, \pm z)$. $Q_0(A_{1g}) = (1, 1)/\sqrt{2}$ (uniform) and $Q_1(A_{2u}) = (1, -1)/\sqrt{2}$
+- Site `2a`: two sites at $(0, 0, \pm z)$. $\mathbb{Q}_{0}^{(s)}(A_{1g}) = (1, 1)/\sqrt{2}$ (uniform) and $\mathbb{Q}_{1}^{(s)}(A_{2u}) = (1, -1)/\sqrt{2}$
   (a dipole along `z`).
 - Bond `2b@1o`: two bonds through the origin, along `x` and along `y`.
-  $Q_0(A_{1g}) = (1, 1)/\sqrt{2}$, $Q_2(B_{1g}) = (-1, 1)/\sqrt{2}$ (real hoppings), and
-  $T_1(E_u) = \left((i, 0), (0, i)\right)$ (imaginary hoppings): the `x` component lives on the bond along `x`, the `y`
+  $\mathbb{Q}_{0}^{(b)}(A_{1g}) = (1, 1)/\sqrt{2}$, $\mathbb{Q}_{2}^{(b)}(B_{1g}) = (-1, 1)/\sqrt{2}$ (real hoppings), and
+  $\mathbb{T}_{1}^{(b)}(E_{u},a) = \left((i, 0), (0, i)\right)$ (imaginary hoppings): the `x` component lives on the bond along `x`, the `y`
   component on the bond along `y`.
 
 ## 6. Response tensors
