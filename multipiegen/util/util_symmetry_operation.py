@@ -10,6 +10,8 @@ Symmetry operation matrices (sympy).
 
 Ported from MultiPie Ver.2 (others/tools/utils/util_symmetry_operation.py and util_symmetry_operation_spherical.py).
 The matrices of the point-group part are cached, because the same operations appear in many groups.
+group_symmetry_operation gives the symmetry operations of a PG or SG from the group information tables
+(data_group_pg/sg) alone, so that the table generators in others/creation do not depend on other data.
 """
 
 from functools import lru_cache
@@ -18,8 +20,12 @@ import numpy as np
 import sympy as sp
 from sympy.physics.quantum.spin import Rotation
 from multipie.util.util import str_to_sympy
+from multipie.util.util_crystal import convert_to_fractional_hexagonal_matrix
 from multipie.util.util_tag import TagSymmetryOperation
 
+from multipiegen.data.data_group_pg import pg_info
+from multipiegen.data.data_group_sg import sg_info
+from multipiegen.util.util_group_data import pg_id, sg_id
 from multipiegen.util.util_multipolar_harmonics import _create_unitary_matrix_tesseral
 
 
@@ -253,3 +259,40 @@ def symmetry_operation_matrix_multipole(s, tag, hexagonal=False, axial=False, te
         - translation and time reversal are ignored.
     """
     return _multipole_matrix(s, point_tag(tag), hexagonal, axial, tesseral).copy()
+
+
+# ==================================================
+def symmetry_operation_matrices(so, hexagonal):
+    """
+    Cartesian and fractional symmetry operation matrices of a list of operations.
+
+    Args:
+        so (list): symmetry operation tags.
+        hexagonal (bool): hexagonal systems ?
+
+    Returns:
+        - (ndarray) -- cartesian SO matrices (3x3, or 4x4 with translation).
+        - (ndarray) -- fractional SO matrices (3x3, or 4x4 with translation).
+        - (ndarray) -- determinants.
+    """
+    cart = np.asarray([symmetry_operation_matrix(i, hexagonal) for i in so])
+    frac = simplify_array(convert_to_fractional_hexagonal_matrix(cart)) if hexagonal else cart.copy()
+    det = simplify_array([sp.Matrix(i[0:3, 0:3]).det() for i in cart])
+    return cart, frac, det
+
+
+# ==================================================
+def group_symmetry_operation(tag):
+    """
+    Symmetry operations of a PG or SG from the group information tables (data_group_pg/sg).
+
+    Args:
+        tag (str): PG tag (e.g. "Oh", "D3-1", "C3-c") or SG tag (e.g. "Oh^1").
+
+    Returns:
+        - (dict) -- "tag" (list of SO tags), "cartesian" and "fractional" (ndarray of SO matrices, 4x4 for SG),
+          "lattice" ("0" for PG, centering such as "P", "F" for SG).
+    """
+    info = sg_info[sg_id[tag]] if "^" in tag else pg_info[pg_id[tag]]
+    cart, frac, _ = symmetry_operation_matrices(info.SO, info.hexagonal_g)
+    return {"tag": info.SO, "cartesian": cart, "fractional": frac, "lattice": info.lattice}

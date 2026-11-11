@@ -5,13 +5,17 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## What this is
 
 MultiPieGen (`multipiegen`, repo `hiro-k-phys/MultiPieGen`) is the generator for the new multipole basis of
-[MultiPie Ver.2](https://github.com/CMT-MU/MultiPie). It holds data tables (`multipiegen/data`) and code that turns them into
+[MultiPie](https://github.com/CMT-MU/MultiPie) Ver.3 and later. It holds data tables (`multipiegen/data`) and code that turns them into
 binaries (`multipiegen/binary/*.pkl`) and PDFs (`multipiegen/pdf/`). Those outputs are delivered elsewhere (part of
-the binaries to MultiPie Ver.2, the rest plus the PDFs to a separate repo), so keep binaries in MultiPie Ver.2's `BinaryManager`
-format and readable without code from this repo. The installed `multipie` package (`Group`, `str_to_sympy`,
-`BinaryManager`, `PDFviaLaTeX`) is a runtime dependency; a sibling checkout `../MultiPie` (tools in
-`../MultiPie/others/tools/`) is the reference implementation that many generators here were ported from. MultiPie here always
-means Ver.2 (`multipie>=2.4`); write "MultiPie Ver.2" when citing it in code, docs, or PRs.
+the binaries to MultiPie Ver.3 and later, the rest plus the PDFs to a separate repo), so keep binaries in MultiPie Ver.2's `BinaryManager`
+format and readable without code from this repo. The installed `multipie` package is a runtime dependency for its general
+functions and utilities only (`str_to_sympy`, `BinaryManager`, `PDFviaLaTeX`, tags, info/multipole types). **The input data
+must be independent of MultiPie Ver.2:** never read its data (`Group`, its binaries or data modules) in `multipiegen/` or in
+the table generators in `others/creation/`; take groups and symmetry operations from our own tables
+(`util_group_data`, `util_symmetry_operation.group_symmetry_operation`). Tests may use `Group` to compare with
+MultiPie Ver.2. A sibling checkout `../MultiPie` (tools in
+`../MultiPie/others/tools/`) is the reference implementation that many generators here were ported from. MultiPie here means
+Ver.2 (`multipie>=2.4`) unless another version is named; write "MultiPie Ver.2" when citing it in code, docs, or PRs.
 
 ## Commands
 

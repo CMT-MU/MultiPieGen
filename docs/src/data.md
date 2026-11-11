@@ -1,6 +1,6 @@
 # Data tables
 
-The data tables in `multipiegen/data` are the source of all generated data. They are curated by hand; some of them are first created by a script in `others/creation` (it writes next to itself, and the result is copied into `multipiegen/data`). "origin" is "MultiPie Ver.2.4.0" for the tables taken from MultiPie Ver.2.4.0 (some of them modified), and "new" otherwise.
+The data tables in `multipiegen/data` are the source of all generated data. They are curated by hand; some of them are first created by a script in `others/creation` (it writes next to itself, and the result is copied into `multipiegen/data`). "origin" is "MultiPie Ver.2.4.0" for the tables taken from MultiPie Ver.2.4.0 (some of them modified), and "new" otherwise. The tables taken from MultiPie Ver.2.4.0 were copied once and have been maintained here since then. The generation never reads the data of MultiPie Ver.2; it uses only its general functions and utilities.
 
 Data that can be derived from these tables are computed in `multipiegen` instead of being stored:
 
@@ -19,8 +19,8 @@ Data that can be derived from these tables are computed in `multipiegen` instead
 | [`data_compatibility_relation.py`](#data-compatibility-relation-py) | compatibility relations of the Oh and D6h subgroups | MultiPie Ver.2.4.0 | - | `util/util_harmonics_mapping`, `create_binary/create_info` |
 | [`data_group_mpg.py`](#data-group-mpg-py) | group information of the magnetic point groups | MultiPie Ver.2.4.0 | - | `util/util_group_data`, `create_binary/create_group` |
 | [`data_group_msg.py`](#data-group-msg-py) | group information of the magnetic space groups | MultiPie Ver.2.4.0 | - | `util/util_group_data`, `create_binary/create_group` |
-| [`data_group_pg.py`](#data-group-pg-py) | group information of the point groups | MultiPie Ver.2.4.0 | - | `util/util_group_data`, `create_binary/create_group` |
-| [`data_group_sg.py`](#data-group-sg-py) | group information of the space groups | MultiPie Ver.2.4.0 | - | `util/util_group_data`, `create_binary/create_group` |
+| [`data_group_pg.py`](#data-group-pg-py) | group information of the point groups | MultiPie Ver.2.4.0 | - | `util/util_group_data`, `util/util_symmetry_operation`, `create_binary/create_group`, `create_pdf/create_pdf_harmonics` |
+| [`data_group_sg.py`](#data-group-sg-py) | group information of the space groups | MultiPie Ver.2.4.0 | - | `util/util_group_data`, `util/util_symmetry_operation`, `create_binary/create_group` |
 | [`data_parent_pg.py`](#data-parent-pg-py) | parent point groups of each point group | new | `others/creation/create_parent_pg_mapping.py` | `util/util_op_mapping` |
 | [`data_parent_sg.py`](#data-parent-sg-py) | parent space groups of each space group | new | - | `util/util_op_mapping` |
 | [`data_response_tensor.py`](#data-response-tensor-py) | multipoles in the response tensors and their cartesian components | MultiPie Ver.2.4.0 | - | `create_binary/create_info` |

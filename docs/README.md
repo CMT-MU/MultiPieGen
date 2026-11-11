@@ -2,8 +2,9 @@
 
 [![test](https://github.com/hiro-k-phys/MultiPieGen/actions/workflows/test.yml/badge.svg)](https://github.com/hiro-k-phys/MultiPieGen/actions/workflows/test.yml)
 
-Generation code and data for the new multipole basis of [MultiPie Ver.2](https://github.com/CMT-MU/MultiPie).
-MultiPie in this package and its documentation always means MultiPie Ver.2.
+Generation code and data for the new multipole basis of [MultiPie](https://github.com/CMT-MU/MultiPie) Ver.3 and later.
+MultiPie in this package and its documentation means MultiPie Ver.2 (whose general utilities are used here) unless
+another version is named.
 
 The new basis is built on a common root cluster (Oh and D6h clusters). Each point group and space group is related to it
 through its parent group. This repository holds:
@@ -11,8 +12,12 @@ through its parent group. This repository holds:
 - the data tables (`multipiegen/data`): groups, Wyckoff positions, parent groups, operation and harmonics mappings, ...
 - the code that generates the binary data and the PDFs from these tables
 
-The generated binaries and PDFs are delivered to other repositories: part of the binaries to MultiPie Ver.2, and the rest of
-the binaries and the PDFs to a separate repository.
+The input data are independent of MultiPie Ver.2: the binaries and PDFs are made from these tables alone. MultiPie Ver.2 is
+used only for its general functions and utilities (expression parsing, `BinaryManager`, LaTeX/PDF output, tags and types),
+and in the tests to compare with it.
+
+The generated binaries and PDFs are delivered to other repositories: part of the binaries to MultiPie Ver.3 and later, and the rest
+of the binaries and the PDFs to a separate repository.
 
 ## Requirements
 

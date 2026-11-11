@@ -14,8 +14,9 @@ Create parent point group mapping.
 import os
 import sympy as sp
 import numpy as np
-from multipie import Group
 from multipie.util.util import str_to_sympy
+
+from multipiegen.util.util_symmetry_operation import group_symmetry_operation
 
 # ==================================================
 header = """
@@ -100,10 +101,8 @@ lst = [
 
 # ==================================================
 def create_parent_group_part(c_group, p_group, add_lst=[], R=None):
-    g_p = Group(p_group)
-    so_p = g_p.symmetry_operation["fractional"]
-    g = Group(c_group)
-    so = g.symmetry_operation["fractional"]
+    so_p = group_symmetry_operation(p_group)["fractional"]
+    so = group_symmetry_operation(c_group)["fractional"]
     if R is not None:
         so = np.array([sp.simplify(R * sp.Matrix(o) * R.inv()).tolist() for o in so])
 
@@ -129,11 +128,11 @@ def create_parent_group(c_group, p_group, R):
         num = sorted(sum(result, []))
         top = next((i + 1 for i in range(len(num) - 1) if num[i + 1] != num[i] + 1), -1)
         n = len(set(sum(result, [])))
-        if n < len(Group(p_group).symmetry_operation["tag"]) and top == -1:
+        if n < len(group_symmetry_operation(p_group)["tag"]) and top == -1:
             top = n
         add_lst.append(top)
 
-    assert len(set(sum(result, []))) == len(Group(p_group).symmetry_operation["tag"])
+    assert len(set(sum(result, []))) == len(group_symmetry_operation(p_group)["tag"])
     return result
 
 
