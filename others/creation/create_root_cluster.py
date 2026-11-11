@@ -15,8 +15,9 @@ Create root cluster.
 import os
 import numpy as np
 import sympy as sp
-from multipie import Group
 from multipie.util.util import str_to_sympy
+
+from multipiegen.util.util_symmetry_operation import group_symmetry_operation
 
 # ==================================================
 Rc = "[[-1/sqrt(2), -1/sqrt(6), 1/sqrt(3)], [1/sqrt(2), -1/sqrt(6), 1/sqrt(3)], [0, 2/sqrt(6), 1/sqrt(3)]]"
@@ -36,8 +37,7 @@ Ti = np.array(sp.Matrix(T).inv())
 
 # ==================================================
 def create_root_cluster():
-    d6h = Group("D6h")
-    so = d6h.symmetry_operation["cartesian"]
+    so = group_symmetry_operation("D6h")["cartesian"]
     so111 = np.array([sp.simplify(Rc * i * Rci) for i in so])
 
     x, y, z = sp.symbols("x y z", real=True)
@@ -56,8 +56,7 @@ def create_d6h_001_cluster():
     x, y, z = sp.symbols("x y z", real=True)
     # x0 = np.array(Rci) @ np.array([x, y, z])
     x0 = np.array([x, y, z])
-    gr = Group("D6h")
-    xi = gr.symmetry_operation["cartesian"] @ x0
+    xi = group_symmetry_operation("D6h")["cartesian"] @ x0
     xi = np.array([sp.simplify(i) for i in xi])
     xi = str(xi.tolist()).replace(" ", "").replace("*", "")
     return xi
@@ -67,8 +66,7 @@ def create_d6h_001_cluster():
 def create_oh_cluster():
     x, y, z = sp.symbols("x y z", real=True)
     x0 = np.array([x, y, z])
-    gr = Group("Oh")
-    xi = gr.symmetry_operation["cartesian"] @ x0
+    xi = group_symmetry_operation("Oh")["cartesian"] @ x0
     xi = np.array([sp.simplify(i) for i in xi])
     xi = str(xi.tolist()).replace(" ", "").replace("*", "")
     return xi
@@ -79,8 +77,7 @@ def check_oh(cluster):
     M = "[[2/3, -1/3, 2/3], [-1/3, 2/3, 2/3], [2/3, 2/3, -1/3]]"
     M = str_to_sympy(M)
 
-    oh = Group("Oh")
-    so = oh.symmetry_operation["cartesian"]
+    so = group_symmetry_operation("Oh")["cartesian"]
 
     x, y, z = sp.symbols("x y z", real=True)
     oh0 = so @ [x, y, z]

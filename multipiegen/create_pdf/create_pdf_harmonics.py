@@ -16,24 +16,13 @@ Run:  python -m multipiegen.create_pdf.create_pdf_harmonics
 """
 
 import os
-from multipie import Group
 from multipie.util.util_pdf_latex import PDFviaLaTeX
-from multipiegen import __top_dir__
-from multipiegen.util.util_group_data import pg_id_set, pg_tag
+from multipiegen.create_pdf.create_pdf_group import group_dir, group_latex
+from multipiegen.data.data_group_pg import pg_info
+from multipiegen.util.util_group_data import pg_id, pg_id_set, pg_tag
 from multipiegen.util.util_harmonics_symbol import harmonics_symbol_table
 
-pdfdir = os.path.join(__top_dir__, "multipiegen", "pdf")
 max_rank = 11
-
-
-# ==================================================
-def group_dir(tag):
-    """
-    Output directory of a point group, e.g., multipiegen/pdf/PG/032-Oh.
-    """
-    group = Group(tag)
-    no = int(group.info.PG.split(":")[1])
-    return os.path.join(pdfdir, "PG", f"{no:03d}-{tag}")
 
 
 # ==================================================
@@ -44,12 +33,12 @@ def create_pdf_harmonics(tag):
     Args:
         tag (str): point group tag.
     """
-    group = Group(tag)
-    h_dir = group_dir(tag)
+    gid = pg_id[tag]
+    h_dir = group_dir(gid, tag)
     os.makedirs(h_dir, exist_ok=True)
 
     pdf = PDFviaLaTeX("harmonics", dir=h_dir, pt=8, style="narrowest", landscape=True, english=True)
-    pdf.title(group.latex(True))
+    pdf.title(group_latex(gid, pg_info[gid]))
 
     rows = harmonics_symbol_table(tag)
     col = ["polar", "axial", "expression"]

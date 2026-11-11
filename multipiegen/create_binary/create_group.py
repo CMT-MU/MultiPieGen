@@ -34,7 +34,6 @@ from multipie.util.util_binary import BinaryManager
 from multipie.util.util_crystal import (
     convert_to_cartesian_hexagonal,
     convert_to_fractional_hexagonal,
-    convert_to_fractional_hexagonal_matrix,
     convert_to_primitive,
     convert_to_primitive_matrix,
     t_dict,
@@ -59,6 +58,7 @@ from multipiegen.util.util_symmetry_operation import (
     point_tag,
     simplify_array,
     simplify_value,
+    symmetry_operation_matrices,
     symmetry_operation_matrix,
     symmetry_operation_matrix_multipole,
 )
@@ -348,26 +348,6 @@ def _product_table(tag, frac):
 
 
 # ==================================================
-def _matrices(so, hexagonal):
-    """
-    Cartesian and fractional SO matrices.
-
-    Args:
-        so (list): SO tags.
-        hexagonal (bool): hexagonal ?
-
-    Returns:
-        - (ndarray) -- cartesian SO matrices.
-        - (ndarray) -- fractional SO matrices.
-        - (ndarray) -- determinants.
-    """
-    cart = np.asarray([symmetry_operation_matrix(i, hexagonal) for i in so])
-    frac = simplify_array(convert_to_fractional_hexagonal_matrix(cart)) if hexagonal else cart.copy()
-    det = simplify_array([sp.Matrix(i[0:3, 0:3]).det() for i in cart])
-    return cart, frac, det
-
-
-# ==================================================
 def create_symmetry_operation(g_info, tag, pg_tag):
     """
     Symmetry operation of PG or SG.
@@ -382,7 +362,7 @@ def create_symmetry_operation(g_info, tag, pg_tag):
     """
     hexagonal = g_info.hexagonal_g
     so = g_info.SO
-    cart, frac, det = _matrices(so, hexagonal)
+    cart, frac, det = symmetry_operation_matrices(so, hexagonal)
 
     dic = {"tag": so, "generator": g_info.SO_gen, "cartesian": cart, "fractional": frac, "det": det}
     if tag.count("^") > 0:
@@ -415,7 +395,7 @@ def create_m_symmetry_operation(g_info):
         - (dict) -- symmetry operation.
     """
     so = g_info.SO
-    cart, frac, det = _matrices(so, g_info.hexagonal_g)
+    cart, frac, det = symmetry_operation_matrices(so, g_info.hexagonal_g)
     tr = np.asarray([-sp.S(1) if i.count("'") > 0 else sp.S(1) for i in so], dtype=object)
     return {"tag": so, "tr_sign": tr, "cartesian": cart, "fractional": frac, "det": det}
 
