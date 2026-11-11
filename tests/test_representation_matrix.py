@@ -8,9 +8,8 @@
 import numpy as np
 import pytest
 from multipiegen.util.util_group_data import pg_id_set, pg_tag
-from multipiegen.util.util_group import load_group
 from multipiegen.util.util_info import load_info
-from multipiegen.util.util_representation_matrix import check_representation_matrix, representation_matrix
+from multipiegen.util.util_representation_matrix import _group_data, check_representation_matrix, representation_matrix
 
 PG = [pg_tag[i] for i in pg_id_set["all"] + pg_id_set["complex"]]
 TOL = 1e-9
@@ -30,7 +29,7 @@ def test_same_matrix_in_each_irrep(pg):
 def test_exact_matrix(pg):
     # trace = character, and D(a) D(b) = D(ab).
     gid = load_info()["id"][pg]
-    g = load_group()[gid]
+    g = _group_data()[gid]  # load_group(), cached
     rm = representation_matrix(pg)
     idx = {t: i for i, t in enumerate(rm["tag"])}
     prod = g["symmetry_operation"]["product"]

@@ -21,7 +21,7 @@ Ver.2 (`multipie>=2.4`) unless another version is named; write "MultiPie Ver.2" 
 
 ```bash
 pip install -e ".[dev]"                              # editable install is required (see below)
-pytest                                               # all tests (~20 s with -n auto; parent-group tests dominate)
+pytest                                               # all tests (~11 min with -n auto; the "binary is up to date" rebuilds dominate)
 pytest -n auto -p no:cacheprovider tests             # what CI runs
 pytest tests/test_info.py::test_tesseral_tag         # single test
 black -l 130 <files>                                 # formatter (line length 130, from pyproject)
