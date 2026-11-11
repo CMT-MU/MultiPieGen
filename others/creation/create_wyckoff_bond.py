@@ -869,17 +869,14 @@ def diagnose(ops, entry, *, only_differing=False, **kw):
 # ==================================================
 def create_bond_symmetry():
     from data_wyckoff_bond import wyckoff_bond_data  # same directory (run as a script)
-    from multipie import Group
+    from multipiegen.util.util_symmetry_operation import group_symmetry_operation
 
     so = {}
     center = {}
     for key in wyckoff_bond_data.keys():
-        g = Group(key)
-        so[key] = g.symmetry_operation["fractional"]
-        if g.info.lattice == "0":
-            center[key] = None
-        else:
-            center[key] = g.info.lattice
+        g = group_symmetry_operation(key)
+        so[key] = g["fractional"]
+        center[key] = None if g["lattice"] == "0" else g["lattice"]
 
     result = analyze_table(so, wyckoff_bond_data, bond=True, centering=center)
 

@@ -195,7 +195,8 @@ LaTeX の名前：原子の基底には `atomic_latex_name`（`p_{x}`、`f_{z}^{
 ## 5. 各 Wyckoff のサイトとボンドの cluster SAMB（`cluster_samb.pkl`）
 
 コード：`util_cluster_samb`、`create_binary/create_cluster_samb.py`。範囲：実の点群 37 と空間群 230。`"site"`、
-`"bond_s"`（対称ボンド）、`"bond_a"`（反対称ボンド）。複素の点群は含みません。
+`"bond"`。ボンドの SAMB は、対称ボンドの SAMB（以下 `"bond_s"`）と反対称ボンドの SAMB（以下 `"bond_a"`）から
+作ります（7. を参照）。複素の点群は含みません。
 
 1. **一般点。** 群 `H` の一般点のクラスターは、トップのクラスターの一部です。`H` の点 `i` は、
    `util_op_mapping.op_mapping_d6h_oh_cluster[PG]` の coset 0 の `i` 番目にあるトップの点です。
@@ -216,6 +217,12 @@ LaTeX の名前：原子の基底には `atomic_latex_name`（`p_{x}`、`f_{z}^{
 5. **キー。** `"site"` と `"bond_s"`：`PGMultipoleType("Q", l, Gamma, n, p, 0, 0, "q")`。`"bond_a"`：
    `cluster_bond_basis` のキー（`X = Q/G`、`x = q`）。`n` は `H` の調和関数の多重度、`p` はトップのキーのもの。
 6. **値。** `samb (dim, N)`。点群の調和関数の式は `harmonics.pkl` にあります。
+7. **ボンドの SAMB。** `"bond" = "bond_s" + i "bond_a"` です。反対称ボンドの SAMB に `i` を掛け（虚数の飛び移り）、
+   タイプを `Q` から `T` に、`G` から `M` に付け替えます（時間反転に奇）。`"bond_s"`（`Q`）と `"bond_a"`（`T/M`）
+   のキーは決して重ならないので、1 つにまとめます。時間反転の偶奇が異なる SAMB は（エルミートなボンド行列として、
+   実対称と虚反対称で）直交するので、`Q` と `T/M` は別々に正規直交化します（4.）。順番は `Gamma` の順で、各
+   `Gamma` の中では `Q`（`[l, n, p]`）を `T/M`（`[l, k, T/M, n, p]`）より先に並べます。値は `Q` で実数、`T, M` で
+   純虚数です。`T`（`M`）の調和関数は `Q`（`G`）のものを使います（`util_harmonics.harmonics_type`）。
 
 ---
 

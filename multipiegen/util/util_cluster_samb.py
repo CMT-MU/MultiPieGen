@@ -8,7 +8,8 @@
 """
 Cluster SAMB of each Wyckoff site and bond of the real point groups and the space groups.
 
-The same data as MultiPie Ver.2's cluster_samb ("site", "bond_s", "bond_a"), created in a different way:
+The data of MultiPie Ver.2's cluster_samb ("site", "bond_s", "bond_a"), created in a different way, with the
+symmetric ("bond_s") and anti-symmetric ("bond_a") bond SAMB put together as the bond SAMB ("bond"):
 
 - General point. The cluster of the general point of a group H (as many points as the order of H, point i =
   (operation i of H) site0) is a subset of the Oh or D6h cluster: the operations of H are those of the top group
@@ -28,16 +29,22 @@ The same data as MultiPie Ver.2's cluster_samb ("site", "bond_s", "bond_a"), cre
 - Key. PGMultipoleType(X, l, Gamma, n, p, s=0, k=0, x): "site" and "bond_s" have X = "Q" and x = "q" (as
   cluster_scalar_basis); "bond_a" has the keys of cluster_bond_basis (X = Q/G, x = q); n is the multiplicity of
   the harmonics (X, l, Gamma) of H (its xyz polynomial) and p is that of the top key.
+- Bond SAMB. "bond" = "bond_s" + i "bond_a": the anti-symmetric bond SAMB is multiplied by i (imaginary hopping) and
+  its type is changed from Q to T and from G to M (time-reversal odd), so that the keys of "bond_s" (Q) and "bond_a"
+  (T/M) never coincide. The SAMB of different time-reversal parity are orthogonal (as hermitian bond matrices), so Q
+  and T/M are orthonormalized separately. The harmonics of T (M) are those of Q (G) (util_harmonics.harmonics_type).
 - Space group. The operations (without the plus set) of a space group have the same point parts as those of its
   point group (in the same setting), so each operation is mapped to the top group through the point group,
   op_mapping_d6h_oh_cluster[PG tag] (as "mapping" of the SG in group.pkl). (util_op_mapping.op_mapping_parent_sg
   maps to a parent space group with a change of axes, and is not used.) The harmonics are those of the point group.
-- Order. Gamma (character table), l, (k, Q/G for bond_a), n, p.
+- Order. Gamma (character table), then for "site" and Q of "bond": l, n, p, and for T/M of "bond": l, k, T/M, n, p.
+  In "bond", Q comes before T/M in each Gamma.
 
 - cluster_samb (dict)::
 
-    { PG_id/SG_id: { "site"/"bond_s"/"bond_a": { wyckoff: { PGMultipoleType: samb } } } }
-        samb: ndarray (dim, N) (sympy), value on the N sites (bonds) of the Wyckoff position for each component.
+    { PG_id/SG_id: { "site"/"bond": { wyckoff: { PGMultipoleType: samb } } } }
+        samb: ndarray (dim, N) (sympy), value on the N sites (bonds) of the Wyckoff position for each component
+        (real for X = Q, pure imaginary for X = T, M).
         The expression of the harmonics (X, l, Gamma, n) is in harmonics.pkl (util_harmonics.harmonics_expression).
 """
 
@@ -227,6 +234,30 @@ def _to_samb(d):
 
 
 # ==================================================
+_to_tr_odd = {"Q": "T", "G": "M"}
+
+
+# ==================================================
+def bond_samb(sym, anti, irreps):
+    """
+    Bond SAMB from the symmetric and anti-symmetric bond SAMB.
+
+    Args:
+        sym (dict): symmetric bond SAMB, {PGMultipoleType (X = Q): samb}.
+        anti (dict): anti-symmetric bond SAMB, {PGMultipoleType (X = Q/G): samb}.
+        irreps (list): irreps of the point group in the order of the character table.
+
+    Returns:
+        - (dict) -- {PGMultipoleType: samb}, sym as it is and i anti with X = Q -> T, G -> M, in the order of Gamma
+          (Q before T/M in each Gamma).
+    """
+    odd = {k._replace(X=_to_tr_odd[k.X]): np.array([[sp.I * v for v in row] for row in s], dtype=object) for k, s in anti.items()}
+    assert not set(sym) & set(odd), "keys of the symmetric and anti-symmetric bond SAMB coincide."
+    items = list(sym.items()) + list(odd.items())  # stable sort: Q before T/M in each Gamma.
+    return dict(sorted(items, key=lambda t: irreps.index(t[0].Gamma)))
+
+
+# ==================================================
 def create_cluster_samb(pg, pg_ops, ops, wyckoff):
     """
     Cluster SAMB of a group.
@@ -238,18 +269,20 @@ def create_cluster_samb(pg, pg_ops, ops, wyckoff):
         wyckoff (dict): group["wyckoff"] of group.pkl.
 
     Returns:
-        - (dict) -- {"site"/"bond_s"/"bond_a": {wyckoff: {PGMultipoleType: samb}}}.
+        - (dict) -- {"site"/"bond": {wyckoff: {PGMultipoleType: samb}}}.
     """
     top, idx = top_index(pg, pg_ops, ops)
     site = general_point_basis(pg, top, idx, "site")
     bond = general_point_basis(pg, top, idx, "bond")
+    irreps = list(character[pg][1].keys())
 
-    res = {"site": {}, "bond_s": {}, "bond_a": {}}
+    res = {"site": {}, "bond": {}}
     for w, val in wyckoff["site"].items():
         res["site"][w] = _to_samb(wyckoff_samb(site, val["mapping"]))
     for w, val in wyckoff["bond"].items():
-        res["bond_s"][w] = _to_samb(wyckoff_samb(site, val["mapping"]))
-        res["bond_a"][w] = _to_samb(wyckoff_samb(bond, val["mapping"], sign=True))
+        sym = _to_samb(wyckoff_samb(site, val["mapping"]))
+        anti = _to_samb(wyckoff_samb(bond, val["mapping"], sign=True))
+        res["bond"][w] = bond_samb(sym, anti, irreps)
     return res
 
 
@@ -259,6 +292,6 @@ def load_cluster_samb():
     Load cluster SAMB (multipiegen/binary/cluster_samb.pkl).
 
     Returns:
-        - (BinaryManager) -- {PG_id/SG_id: {"site"/"bond_s"/"bond_a": {wyckoff: {PGMultipoleType: samb}}}}.
+        - (BinaryManager) -- {PG_id/SG_id: {"site"/"bond": {wyckoff: {PGMultipoleType: samb}}}}.
     """
     return BinaryManager(cluster_samb_file, topdir=__bin_dir__)

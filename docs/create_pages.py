@@ -8,7 +8,7 @@
 """
 Create generated pages of the documentation.
     - docs/src/{pg,sg,mpg,msg}_pdf.md: lists of the PDFs of each group (multipiegen/pdf/{PG,SG,MPG,MSG}), sub-pages of
-      "Group Information" (docs/src/group_info.md). These pages are meant to be linked from outside (e.g. MultiPie Ver.2),
+      "Group Information" (docs/src/group_info.md). These pages are meant to be linked from outside (e.g. MultiPie),
       so they describe the content only, not how it is generated.
     - docs/src/examples.md: code of the examples listed in docs/examples/README.md.
     - docs/src/data.md: list of the data tables (multipiegen/data) with their variables, the scripts in others/creation
@@ -363,7 +363,9 @@ def create_data_page():
         "The data tables in `multipiegen/data` are the source of all generated data. They are curated by hand; some of "
         "them are first created by a script in `others/creation` (it writes next to itself, and the result is copied "
         'into `multipiegen/data`). "origin" is "MultiPie Ver.2.4.0" for the tables taken from MultiPie Ver.2.4.0 '
-        '(some of them modified), and "new" otherwise.',
+        '(some of them modified), and "new" otherwise. The tables taken from MultiPie Ver.2.4.0 were copied once and '
+        "have been maintained here since then. The generation never reads the data of MultiPie Ver.2; it uses only its "
+        "general functions and utilities.",
         "",
         "Data that can be derived from these tables are computed in `multipiegen` instead of being stored:",
         "",

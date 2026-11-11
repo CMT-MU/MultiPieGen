@@ -2,8 +2,9 @@
 
 [![test](https://github.com/hiro-k-phys/MultiPieGen/actions/workflows/test.yml/badge.svg)](https://github.com/hiro-k-phys/MultiPieGen/actions/workflows/test.yml)
 
-Generation code and data for the new multipole basis of [MultiPie Ver.2](https://github.com/CMT-MU/MultiPie).
-MultiPie in this package and its documentation always means MultiPie Ver.2.
+Generation code and data for the new multipole basis of [MultiPie](https://github.com/CMT-MU/MultiPie) Ver.3 and later.
+MultiPie in this package and its documentation means MultiPie Ver.2 (whose general utilities are used here) unless
+another version is named.
 
 The new basis is built on a common root cluster (Oh and D6h clusters). Each point group and space group is related to it
 through its parent group. This repository holds:
@@ -11,8 +12,12 @@ through its parent group. This repository holds:
 - the data tables (`multipiegen/data`): groups, Wyckoff positions, parent groups, operation and harmonics mappings, ...
 - the code that generates the binary data and the PDFs from these tables
 
-The generated binaries and PDFs are delivered to other repositories: part of the binaries to MultiPie Ver.2, and the rest of
-the binaries and the PDFs to a separate repository.
+The input data are independent of MultiPie Ver.2: the binaries and PDFs are made from these tables alone. MultiPie Ver.2 is
+used only for its general functions and utilities (expression parsing, `BinaryManager`, LaTeX/PDF output, tags and types),
+and in the tests to compare with it.
+
+The generated binaries and PDFs are delivered to other repositories: part of the binaries to MultiPie Ver.3 and later, and the rest
+of the binaries and the PDFs to a separate repository.
 
 ## Requirements
 
@@ -40,7 +45,7 @@ The binary data (`multipiegen/binary`) and the PDFs (`multipiegen/pdf`) are kept
 | `binary/response_tensor.pkl` | response tensors (rank 0-4, Q/G/T/M) of all MPG in terms of active multipoles | `python -m multipiegen.create_binary.create_response_tensor` | `multipiegen.util.util_response_tensor.load_response_tensor()` |
 | `binary/atomic_multipole.pkl` | matrices of atomic multipoles (rank l <= 7, s = 0, 1) in the LMs/JML/LM basis of s, p, d, f orbitals | `python -m multipiegen.create_binary.create_atomic_multipole` | `multipiegen.util.util_atomic_multipole.load_atomic_multipole()` |
 | `binary/atomic_multipole_group.pkl` | atomic multipole SAMB of all 47 point groups in the JML/Lgs/Lg basis | `python -m multipiegen.create_binary.create_atomic_multipole_group` | `multipiegen.util.util_atomic_multipole.load_atomic_multipole_group()` |
-| `binary/cluster_samb.pkl` | cluster SAMB of each Wyckoff site and bond (site, bond_s, bond_a) of the real point groups and the space groups | `python -m multipiegen.create_binary.create_cluster_samb` | `multipiegen.util.util_cluster_samb.load_cluster_samb()` |
+| `binary/cluster_samb.pkl` | cluster SAMB of each Wyckoff site and bond (site; bond = symmetric Q and anti-symmetric T/M) of the real point groups and the space groups | `python -m multipiegen.create_binary.create_cluster_samb` | `multipiegen.util.util_cluster_samb.load_cluster_samb()` |
 | `binary/harmonics.pkl` | expression and u-matrix of the harmonics of all 47 point groups (rank l <= 11); the other multipole-keyed binaries look them up by the key | `python -m multipiegen.create_binary.create_harmonics` | `multipiegen.util.util_harmonics.load_harmonics()` |
 | `binary/multipolar_harmonics.pkl` | multipolar harmonics (s = 1, 2, 3, rank l <= 3) of all 47 point groups with polar (q) and axial (g) internal basis (data_basis orbitals) | `python -m multipiegen.create_binary.create_multipolar_harmonics` | `multipiegen.util.util_harmonics_multipole.load_multipolar_harmonics()` |
 | `binary/group.pkl` | data of all PG (47), SG, MPG and MSG: symmetry operations, product table, mapping to the Oh/D6h cluster, character, Wyckoff site and bond, active multipoles | `python -m multipiegen.create_binary.create_group` | `multipiegen.util.util_group.load_group()` |

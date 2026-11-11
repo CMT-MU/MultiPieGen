@@ -6,6 +6,7 @@
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 import collections
+import functools
 
 import numpy as np
 import pytest
@@ -20,6 +21,11 @@ from multipiegen.util.util_representation_matrix import _group, representation_m
 
 data = load_bond_cluster_basis()
 CASES = [(g, x) for g in ["Oh", "D6h"] for x in ["q", "g"]]
+
+
+@functools.cache
+def _vector_basis():
+    return load_cluster_vector_basis()
 
 
 # ==================================================
@@ -53,7 +59,7 @@ def test_irrep_count(group, x):
 def test_keys(group, x):
     # keys as MultiPie Ver.2 bond_a: PGMultipoleType(X, l, Gamma, n, p, s=0, k=0, x);
     # source + dropped = all multiplets of the vector cluster basis.
-    vkeys = [k for k in load_cluster_vector_basis()[group]["basis"] if k.x == x]
+    vkeys = [k for k in _vector_basis()[group]["basis"] if k.x == x]
     src = []
     for key in _multiplets(group, x):
         assert key.s == 0 and key.k == 0

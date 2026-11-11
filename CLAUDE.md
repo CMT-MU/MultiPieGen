@@ -5,19 +5,23 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## What this is
 
 MultiPieGen (`multipiegen`, repo `hiro-k-phys/MultiPieGen`) is the generator for the new multipole basis of
-[MultiPie Ver.2](https://github.com/CMT-MU/MultiPie). It holds data tables (`multipiegen/data`) and code that turns them into
+[MultiPie](https://github.com/CMT-MU/MultiPie) Ver.3 and later. It holds data tables (`multipiegen/data`) and code that turns them into
 binaries (`multipiegen/binary/*.pkl`) and PDFs (`multipiegen/pdf/`). Those outputs are delivered elsewhere (part of
-the binaries to MultiPie Ver.2, the rest plus the PDFs to a separate repo), so keep binaries in MultiPie Ver.2's `BinaryManager`
-format and readable without code from this repo. The installed `multipie` package (`Group`, `str_to_sympy`,
-`BinaryManager`, `PDFviaLaTeX`) is a runtime dependency; a sibling checkout `../MultiPie` (tools in
-`../MultiPie/others/tools/`) is the reference implementation that many generators here were ported from. MultiPie here always
-means Ver.2 (`multipie>=2.4`); write "MultiPie Ver.2" when citing it in code, docs, or PRs.
+the binaries to MultiPie Ver.3 and later, the rest plus the PDFs to a separate repo), so keep binaries in MultiPie Ver.2's `BinaryManager`
+format and readable without code from this repo. The installed `multipie` package is a runtime dependency for its general
+functions and utilities only (`str_to_sympy`, `BinaryManager`, `PDFviaLaTeX`, tags, info/multipole types). **The input data
+must be independent of MultiPie Ver.2:** never read its data (`Group`, its binaries or data modules) in `multipiegen/` or in
+the table generators in `others/creation/`; take groups and symmetry operations from our own tables
+(`util_group_data`, `util_symmetry_operation.group_symmetry_operation`). Tests may use `Group` to compare with
+MultiPie Ver.2. A sibling checkout `../MultiPie` (tools in
+`../MultiPie/others/tools/`) is the reference implementation that many generators here were ported from. MultiPie here means
+Ver.2 (`multipie>=2.4`) unless another version is named; write "MultiPie Ver.2" when citing it in code, docs, or PRs.
 
 ## Commands
 
 ```bash
 pip install -e ".[dev]"                              # editable install is required (see below)
-pytest                                               # all tests (~20 s with -n auto; parent-group tests dominate)
+pytest                                               # all tests (~11 min with -n auto; the "binary is up to date" rebuilds dominate)
 pytest -n auto -p no:cacheprovider tests             # what CI runs
 pytest tests/test_info.py::test_tesseral_tag         # single test
 black -l 130 <files>                                 # formatter (line length 130, from pyproject)
@@ -26,7 +30,7 @@ python -m multipiegen.create_binary.create_info            # -> binary/info.pkl
 python -m multipiegen.create_binary.create_cluster_scalar_basis   # -> binary/cluster_scalar_basis.pkl
 python -m multipiegen.create_binary.create_cluster_vector_basis  # -> binary/cluster_vector_basis.pkl (s=1, intermediate for cluster_bond_basis, ~1 min)
 python -m multipiegen.create_binary.create_cluster_bond_basis    # -> binary/cluster_bond_basis.pkl (needs cluster_vector_basis.pkl)
-python -m multipiegen.create_binary.create_cluster_samb          # -> binary/cluster_samb.pkl (site/bond_s/bond_a of real PG + SG; needs group, cluster_scalar_basis, cluster_bond_basis)
+python -m multipiegen.create_binary.create_cluster_samb          # -> binary/cluster_samb.pkl (site/bond of real PG + SG, bond = Q + i×(T/M); needs group, cluster_scalar_basis, cluster_bond_basis)
 python -m multipiegen.create_binary.create_harmonics            # -> binary/harmonics.pkl (expression and u-matrix of the PG harmonics, l<=11; ~10 s)
 python -m multipiegen.create_binary.create_multipolar_harmonics  # -> binary/multipolar_harmonics.pkl (s=1..3, l<=3, 47 PGs, parallel ~2.5 min)
 python -m multipiegen.create_binary.create_atomic_multipole        # -> binary/atomic_multipole.pkl (l<=7, s=0,1, LMs/JML/LM; ~10 s)
