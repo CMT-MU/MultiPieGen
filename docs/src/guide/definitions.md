@@ -144,13 +144,24 @@ E.g. the block `(1, 2)` (p-d) is `3 x 5` in `lg`, and `6 x 10` in `lgs` and `jml
 The atomic SAMB (symmetry-adapted multipole basis) are the matrices of the atomic multipole operators in the orbital
 basis, adapted to the point group.
 
-1. **Atomic multipoles.** The spherical multipole operators $X_{lm}^{(s)}(k)$ of `X = Q, G, T, M`: `s = 0`
-   (orbital) and `s = 1` (spin-dependent), with `k = -s, ..., s`. Their matrix elements between orbitals of ranks
-   `L1` and `L2` follow from the Wigner-Eckart theorem. `Q` and `G` are even and `T` and `M` are odd under time
-   reversal.
-2. **Symmetry adaptation.** For a crystal harmonics with $U$,
-   $X_{l\Gamma n}^{(s)}(k)[\gamma] = \sum_m U_{m\gamma} X_{lm}^{(s)}(k)$, using polar harmonics for `Q, T` and
-   axial harmonics for `G, M`.
+1. **Atomic multipoles.** The spherical multipole operators $X_{lm}^{(s)}(k)$ of `X = Q, G, T, M` (`Q` and `G`
+   even, `T` and `M` odd under time reversal), with `s = 0` (orbital) and `s = 1` (spin-dependent), `k = -s, ..., s`.
+   Their matrix elements between orbitals of ranks `L1` and `L2` follow from the Wigner-Eckart theorem.
+   - For `s = 1`, the internal degree of freedom is fixed to the spin, an axial vector odd under time reversal (the
+     case `x = g` of the multipolar harmonics). As in the multipolar harmonics, $X_{lm}^{(1)}(k)$ couples an orbital
+     multipole of rank `l + k` with the spin. The type `Y` of this orbital multipole is determined by `X` together with
+     `x = g` and the parity of `s + k`:
+
+     | `X` | `Q` | `G` | `T` | `M` |
+     |---|---|---|---|---|
+     | `Y` for `k = 0` (`s + k` odd) | `T` | `M` | `Q` | `G` |
+     | `Y` for `k = ±1` (`s + k` even) | `M` | `T` | `G` | `Q` |
+
+     That is, `Y` has the opposite time-reversal parity to `X` (the spin is odd), and the same polar or axial
+     character as `X` if `s + k` is odd, the opposite one if `s + k` is even. E.g. the spin magnetic dipole
+     $\mathbb{M}_{1}^{(1,-1;a)}(T_{1g})$ is the spin coupled with the orbital monopole `Q` of rank 0.
+2. **Symmetry adaptation.** With $U$ of the crystal harmonics of the type of the whole multipole (polar for
+   `Q, T`, axial for `G, M`), $X_{l\Gamma n}^{(s)}(k)[\gamma] = \sum_m U_{m\gamma} X_{lm}^{(s)}(k)$.
 3. **Normalization.** Each component has the Frobenius norm 1 in a diagonal block (`L1 = L2`), and `1/sqrt(2)` in
    an off-diagonal block (norm 1 together with its hermitian conjugate block `(L2, L1)`).
 
