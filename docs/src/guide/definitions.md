@@ -159,19 +159,16 @@ basis, adapted to the point group.
 1. **Atomic multipoles.** The spherical multipole operators $X_{lm}^{(s)}(k)$ of `X = Q, G, T, M` (`Q` and `G`
    even, `T` and `M` odd under time reversal), with `s = 0` (orbital) and `s = 1` (spin-dependent), `k = -s, ..., s`.
    Their matrix elements between orbitals of ranks `L1` and `L2` follow from the Wigner-Eckart theorem.
-   - For `s = 1`, the internal degree of freedom is fixed to the spin, an axial vector odd under time reversal (the
-     case `x = g` of the multipolar harmonics). As in the multipolar harmonics, $X_{lm}^{(1)}(k)$ couples an orbital
-     multipole of rank `l + k` with the spin. The type `Y` of this orbital multipole is determined by `X` together with
-     `x = g` and the parity of `s + k`:
-
-     | `X` | `Q` | `G` | `T` | `M` |
-     |---|---|---|---|---|
-     | `Y` for `k = 0` (`s + k` odd) | `T` | `M` | `Q` | `G` |
-     | `Y` for `k = ±1` (`s + k` even) | `M` | `T` | `G` | `Q` |
-
-     That is, `Y` has the opposite time-reversal parity to `X` (the spin is odd), and the same polar or axial
-     character as `X` if `s + k` is odd, the opposite one if `s + k` is even. E.g. the spin magnetic dipole
-     $\mathbb{M}_{1}^{(1,-1;a)}(T_{1g})$ is the spin coupled with the orbital monopole `Q` of rank 0.
+   - For `s = 1`, the internal degree of freedom is fixed to the spin, an axial vector: the case `x = g` of the
+     [multipolar harmonics](#multipolar-harmonics). $X_{lm}^{(1)}(k)$ couples an orbital multipole of rank `l + k`
+     with the spin, and its polar or axial character follows the rule there for `x = g`, taken relative to the
+     orbital multipole: the opposite one if `s + k` is even, the same one if `s + k` is odd. In addition, the spin is
+     odd under time reversal, so `X` has the opposite time-reversal parity to the orbital multipole.
+   - E.g. the spin magnetic dipole $\mathbb{M}_{1}^{(1,-1;a)}(T_{1g})$ is the orbital monopole `Q` (rank 0, polar,
+     even) with the spin: `s + k = 0` even gives axial and the spin gives odd, i.e. `M`. The spin-orbit coupling
+     $\boldsymbol{l} \cdot \boldsymbol{s}$ is $\sqrt{3}\, \mathbb{Q}_{0}^{(1,1;a)}(A_{1g})$ for the p orbitals: the orbital
+     angular momentum `M` (rank 1, axial, odd) with the spin, `s + k = 2` even gives polar and the spin gives even,
+     i.e. `Q`.
 2. **Symmetry adaptation.** With $U$ of the crystal harmonics of the type of the whole multipole (polar for
    `Q, T`, axial for `G, M`), $X_{l\Gamma n}^{(s)}(k)[\gamma] = \sum_m U_{m\gamma} X_{lm}^{(s)}(k)$.
 3. **Normalization.** Each component has the Frobenius norm 1 in a diagonal block (`L1 = L2`), and `1/sqrt(2)` in
