@@ -27,6 +27,7 @@ python -m multipiegen.create_binary.create_cluster_scalar_basis   # -> binary/cl
 python -m multipiegen.create_binary.create_cluster_vector_basis  # -> binary/cluster_vector_basis.pkl (s=1, intermediate for cluster_bond_basis, ~1 min)
 python -m multipiegen.create_binary.create_cluster_bond_basis    # -> binary/cluster_bond_basis.pkl (needs cluster_vector_basis.pkl)
 python -m multipiegen.create_binary.create_cluster_samb          # -> binary/cluster_samb.pkl (site/bond_s/bond_a of real PG + SG; needs group, cluster_scalar_basis, cluster_bond_basis)
+python -m multipiegen.create_binary.create_harmonics            # -> binary/harmonics.pkl (expression and u-matrix of the PG harmonics, l<=11; ~10 s)
 python -m multipiegen.create_binary.create_multipolar_harmonics  # -> binary/multipolar_harmonics.pkl (s=1..3, l<=3, 47 PGs, parallel ~2.5 min)
 python -m multipiegen.create_binary.create_atomic_multipole        # -> binary/atomic_multipole.pkl (l<=7, s=0,1, LMs/JML/LM; ~10 s)
 python -m multipiegen.create_binary.create_atomic_multipole_group  # -> binary/atomic_multipole_group.pkl (47 PGs, needs atomic_multipole.pkl; ~30 s)
@@ -63,6 +64,9 @@ mapping depends on the parity of the top harmonic.
 - Harmonics key: `(rank, irrep, multiplicity, component)`; multiplicity is 1-based and component is 0-based, with `-1`
   meaning unique.
 - Tesseral key: `(l, m)` with `m < 0` meaning `S`.
+- Binaries keyed by `PGMultipoleType` do not hold the xyz expression or u-matrix of the harmonics. Look them up by
+  `(X, l, Gamma, n)` of the key in `harmonics.pkl` (`util_harmonics.harmonics_expression` / `harmonics_u_matrix`),
+  with T -> Q and M -> G.
 - Symmetry-operation mappings in `data_parent_pg/sg` and `data_op_mapping` are 1-based.
 - `data_op_mapping.op_mapping_d6h_oh_cluster` (PG only) maps to the Oh/D6h cluster. An SG reaches the cluster
   through its PG: its operations have the PG's point parts in the same order. `op_mapping_parent_sg` maps an SG to a

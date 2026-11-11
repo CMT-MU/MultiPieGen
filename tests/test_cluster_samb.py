@@ -13,6 +13,7 @@ from multipiegen.data.data_character_table import character
 from multipiegen.data.data_op_mapping import op_mapping_d6h_oh_cluster
 from multipiegen.util.util_cluster_samb import create_cluster_samb, load_cluster_samb
 from multipiegen.util.util_group import load_group
+from multipiegen.util.util_harmonics import harmonics_expression
 from multipiegen.util.util_info import load_info
 
 info = load_info()
@@ -60,12 +61,12 @@ def test_orthonormal_and_complete(gid):
         assert list(data[gid][kind].keys()) == list(wyckoff["site" if kind == "site" else "bond"].keys())
         for w, samb in data[gid][kind].items():
             n = len(wyckoff["site" if kind == "site" else "bond"][w]["mapping"])
-            v = np.vstack([np.array(s, dtype=float) for s, _ in samb.values()])
+            v = np.vstack([np.array(s, dtype=float) for s in samb.values()])
             assert v.shape[1] == n
             assert np.allclose(v @ v.T, np.eye(len(v)), atol=1e-10)
             if kind != "bond_a":  # symmetric functions on the sites (bonds) are complete.
                 assert len(v) == n
             assert all(k.Gamma in irreps and k.s == 0 and k.k == 0 for k in samb)
-            assert all(len(s) == len(e) for s, e in samb.values())
+            assert all(len(s) == len(harmonics_expression(pg, k)) for k, s in samb.items())
             if kind != "bond_a":
                 assert all(k.X == "Q" and k.x == "q" for k in samb)

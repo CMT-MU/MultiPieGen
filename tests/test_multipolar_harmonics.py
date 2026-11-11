@@ -22,6 +22,7 @@ from multipiegen.util.util_harmonics_multipole import (
     max_rank,
     max_s_rank,
 )
+from multipiegen.util.util_harmonics import harmonics_expression
 from multipiegen.util.util_info import load_info
 from multipiegen.util.util_representation_matrix import _group, representation_matrix
 
@@ -55,18 +56,19 @@ def test_keys_and_values(pg):
     order = [(["q", "g"].index(k.x), k.s, irreps.index(k.Gamma), k.l, ["Q", "G"].index(k.X), k.k, k.n) for k in keys]
     assert order == sorted(order)
     for k in keys:
-        ex, mharm, m_ex = data[info["id"][pg]][k]
+        coeff, expr = data[info["id"][pg]][k]
+        ex = harmonics_expression(pg, k)
         assert 1 <= k.s <= max_s_rank and k.l <= max_rank and abs(k.k) <= k.s and k.p == -1
         assert k.x == internal_type(k.X, k.s, k.k)
-        assert mharm.shape == (len(ex), 2 * k.s + 1) and m_ex.shape == ex.shape
+        assert coeff.shape == (len(ex), 2 * k.s + 1) and expr.shape == ex.shape
         sym = internal_symbols(crystal)[(k.s, k.x)]
-        assert all(sp.expand(e - sum(c * s for c, s in zip(row, sym))) == 0 for e, row in zip(m_ex, mharm))
+        assert all(sp.expand(e - sum(c * s for c, s in zip(row, sym))) == 0 for e, row in zip(expr, coeff))
 
 
 # ==================================================
 @pytest.mark.parametrize("pg", SAMPLE)
 def test_representation_matrix(pg):
-    # F_c(r, r') = sum_a mharm[c,a](r) phi_a(r') (phi: internal orbitals) transforms with the representation
+    # F_c(r, r') = sum_a coeff[c,a](r) phi_a(r') (phi: internal orbitals) transforms with the representation
     # matrices of its irrep: s F_c(R^T r, R^T r') = sum_c' D_c'c F_c'(r, r'), s = det R for axial internal basis.
     crystal = _crystal[data_harmonics_mapping[pg]["top"]]
     bf = info["harmonics"]["basis_function"]
@@ -77,8 +79,8 @@ def test_representation_matrix(pg):
     D = {ir: m.astype(complex) for ir, m in representation_matrix(pg)["matrix"].items()}
     rng = np.random.default_rng(0)
     P1, P2 = rng.normal(size=(4, 3)), rng.normal(size=(4, 3))
-    for k, (ex, mharm, m_ex) in data[info["id"][pg]].items():
-        f = sp.lambdify((_x, _y, _z, _x2, _y2, _z2), [sum(m * p for m, p in zip(row, phi[k.s])) for row in mharm], "numpy")
+    for k, (coeff, expr) in data[info["id"][pg]].items():
+        f = sp.lambdify((_x, _y, _z, _x2, _y2, _z2), [sum(m * p for m, p in zip(row, phi[k.s])) for row in coeff], "numpy")
 
         def F(A, B):
             return np.array([np.broadcast_to(np.asarray(v, dtype=complex), (len(A),)) for v in f(*A.T, *B.T)])

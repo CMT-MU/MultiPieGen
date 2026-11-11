@@ -66,6 +66,15 @@ Response tensors (rank 0-4) of a magnetic point group in terms of active multipo
 :start-at: from multipiegen.util.util_group import load_group
 ```
 
+## harmonics.py
+
+Expression and u-matrix of the harmonics of a point group (harmonics.pkl), looked up by a multipole key of any binary.
+
+```{literalinclude} ../examples/harmonics.py
+:language: python
+:start-at: from multipiegen.util.util_cluster_samb import load_cluster_samb
+```
+
 ## multipolar_harmonics.py
 
 Multipolar harmonics (internal rank s=1,2,3, rank l<=3) with polar/axial internal basis of the data_basis orbitals (multipolar_harmonics.pkl).

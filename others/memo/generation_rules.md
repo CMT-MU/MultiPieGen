@@ -106,6 +106,12 @@ Code: `util_harmonics_multipole.pg_harmonics`, and the table generators `others/
      relation alone is not enough for subgroups, because the mapping depends on the parity of the top harmonics.
 3. **Representation matrices** follow from the u-matrices (`util_representation_matrix`); all harmonics of an irrep
    give the same matrices (tested up to rank 11).
+4. **Binary (`harmonics.pkl`).** `{PG_id: {PGMultipoleType(X, l, Gamma, n, -1, 0, 0, "q"): (expression (dim),
+   u_matrix (2l+1, dim))}}` for the 47 point groups, rank <= 11, in the order Gamma, l, Q/G, n (`util_harmonics`,
+   `create_binary/create_harmonics.py`). The other binaries keyed by `PGMultipoleType` do not hold the expression or
+   the u-matrix of the harmonics; `util_harmonics.harmonics_expression(pg, key)` and `harmonics_u_matrix(pg, key)`
+   look them up by `(X, l, Gamma, n)` of any key, with T → Q and M → G (for a space group, use its point
+   group).
 
 ---
 
@@ -122,16 +128,16 @@ Code: `util_harmonics_multipole.create_multipolar_harmonics`, `util_multipolar_h
 2. **Internal basis.** The orbitals of `data_basis.cubic_orbital_basis[s]` (top Oh) or `hexagonal_orbital_basis[s]`
    (top D6h), with their u-matrices from `info["harmonics"]["basis_function"]`.
 3. **Projection.** For every harmonics `(X, l, Gamma, n)` of the group with u-matrix `U` (section 2) and every k,
-   `mharm = U^T O_l^{(s)}(k)`, a `(dim, 2s+1)` array of polynomials (each element factorized). Vanishing ones are
-   dropped (`w3j = 0`).
+   the internal coefficient `U^T O_l^{(s)}(k)`, a `(dim, 2s+1)` array of polynomials in x, y, z (each element
+   factorized): the coefficient of each internal basis function. Vanishing ones are dropped (`w3j = 0`).
 4. **Internal type.** `x = q` if (`X = Q` and `s+k` even) or (`X = G` and `s+k` odd), otherwise `x = g`.
-5. **Expression.** `m_ex = mharm @ symbols`, with the internal symbols `Q/G + orbital_latex_name`
+5. **Expression.** multipole expression `= internal coefficient @ symbols`, with the internal symbols `Q/G + orbital_latex_name`
    (`info["harmonics"]["internal_basis"][crystal][(s, x)]`).
 6. **Key.** `PGMultipoleType(X, l, Gamma, n, p, s, k, x)`: `n` is the harmonics multiplicity (not renumbered); `p`
    numbers the entries with the same `(x, l, X, Gamma, n, k)` (`-1` if unique).
 7. **Order.** `x` (q, g), `s`, `Gamma`, `l`, `X` (Q, G), `k`, `n`, `p`.
-8. **Value.** `(ex, mharm, m_ex)`: cartesian expression of the harmonics, coefficients of the internal basis, and the
-   multipole expression.
+8. **Value.** `(internal_coefficient (dim, 2s+1), multipole_expression (dim))`. The expression of the harmonics
+   `(X, l, Gamma, n)` itself is in `harmonics.pkl`.
 
 ---
 
@@ -212,7 +218,7 @@ Code: `util_cluster_samb`, `create_binary/create_cluster_samb.py`. Range: 37 rea
    has norm 1 on the `N` sites (bonds).
 5. **Key.** `"site"`, `"bond_s"`: `PGMultipoleType("Q", l, Gamma, n, p, 0, 0, "q")`. `"bond_a"`: keys of
    `cluster_bond_basis` (`X = Q/G`, `x = q`). `n` is the harmonics multiplicity of `H`; `p` that of the top key.
-6. **Value.** `(samb (dim, N), ex (dim))`, with `ex` the cartesian expression of the harmonics of the point group.
+6. **Value.** `samb (dim, N)`. The expression of the harmonics of the point group is in `harmonics.pkl`.
 
 ---
 
@@ -248,7 +254,8 @@ Code: `util_atomic_multipole`, `create_binary/create_atomic_multipole.py`,
    `"lg"` is the `s = 0`, up-spin part of `"lgs"` times `sqrt(2)`.
 5. **Key.** `PGMultipoleType(X, l, Gamma, n, -1, s, k, "q")`; `n` is the harmonics multiplicity (not renumbered).
    Order `Q, G, T, M`, `s`, `k`, `l`, `Gamma`, `n`.
-6. **Value.** `(matrix (dim, n1, n2), ex (dim))` for each block. All 47 point groups.
+6. **Value.** `matrix (dim, n1, n2)` for each block (the expression of the harmonics is in `harmonics.pkl`). All 47
+   point groups.
 
 ---
 

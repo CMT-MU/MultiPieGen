@@ -21,7 +21,6 @@ from multipiegen.util.util_atomic_multipole import (
     load_atomic_multipole_group,
     max_rank,
 )
-from multipiegen.util.util_harmonics_multipole import pg_harmonics
 from multipiegen.util.util_info import load_info
 
 info = load_info()
@@ -67,13 +66,12 @@ def test_atomic_multipole_shape():
 @pytest.mark.parametrize("pg", SAMPLE)
 def test_atomic_multipole_group_is_up_to_date(pg):
     top = data_harmonics_mapping[pg]["top"]
-    ex = {key: e for key, (e, _) in pg_harmonics(pg, max_rank).items()}
     blocks = [(0, 1), (1, 1)]
     top_data = {bt: {b: create_top_samb(am, top, b, bt) for b in blocks} for bt in ["jml", "lgs"]}
     for bt in top_data:
         for b in atomic_rank_block:
             top_data[bt].setdefault(b, {})
-    new = pickle.loads(pickle.dumps(create_atomic_multipole_pg(pg, top_data, ex)))
+    new = pickle.loads(pickle.dumps(create_atomic_multipole_pg(pg, top_data)))
     old = amg[info["id"][pg]]
     for bt in ["jml", "lgs", "lg"]:
         for b in blocks:
@@ -94,7 +92,7 @@ def test_atomic_multipole_group_keys_and_orthonormality(pg):
             assert all(k.p == -1 and k.x == "q" and k.l <= max_rank for k in keys)
             if not samb:
                 continue
-            v = np.array([c.ravel() for m, ex in samb.values() for c in _num(m)])
+            v = np.array([c.ravel() for m in samb.values() for c in _num(m)])
             g = v.conj() @ v.T
             # Q-T and G-M of the same irrep overlap only in the imaginary part in an off-diagonal block.
             assert np.allclose(g.real, np.eye(len(v)) * (1 if L1 == L2 else 0.5), atol=1e-10)
