@@ -13,6 +13,7 @@ parts:
       - file: src/sg_pdf
       - file: src/mpg_pdf
       - file: src/msg_pdf
+    - file: src/notes
     - file: src/examples
     - file: src/binary
     - file: src/data

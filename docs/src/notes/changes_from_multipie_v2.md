@@ -1,11 +1,13 @@
+---
+orphan: true
+---
+
 # Changes from MultiPie Ver.2 (multipole data)
 
 This note lists what MultiPieGen does differently from MultiPie Ver.2 for the multipole-keyed data: conventions,
 algorithms, and the resulting differences. The algorithms of MultiPieGen themselves are described in
-`generation_rules.md`. The numbers below come from a comparison script run on 2026-11-11 (develop 369c8bf); the
-script and its results are kept locally only, in `others/archive/claude/multipie_v2_comparison/`. It is a
-verification note, not part of the package docs. A Japanese version is
-`changes_from_multipie_v2_ja.md`.
+[Generation of the multipole data](generation_rules.md). The numbers below come from a comparison with MultiPie Ver.2
+made on 2026-11-11 (develop 369c8bf). A Japanese version is [here](changes_from_multipie_v2_ja.md).
 
 Contents:
 
@@ -128,4 +130,4 @@ Ver.2. The closest one is `harmonics_root_cluster.pkl`.
 - Active multipoles of MPG (`group.pkl`): identical after renaming the orbitals (51 of 157 groups have renamed
   orbitals, e.g. `Qf1` → `Qfs`).
 - Response tensors (`response_tensor.pkl`): identical to MultiPie Ver.2's `Group.response_tensor_all` except for the
-  multipole names (checked when the binary was made, not by the comparison script).
+  multipole names (checked when the binary was made, not in the comparison of 2026-11-11).
