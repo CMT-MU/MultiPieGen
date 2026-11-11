@@ -3,7 +3,7 @@
 This note collects, in one place, how MultiPieGen builds its multipole-keyed data, and the rules for keys and orbital
 bases. It is a verification note, not part of the package docs (yet). Each section names the code that does the work.
 "MultiPie" means MultiPie Ver.2 throughout. The differences from MultiPie Ver.2, with numbers, are in
-`multipie_v2_comparison/README.md` (in Japanese).
+`multipie_v2_comparison/README.md` (in Japanese). A Japanese version of this note is `generation_rules_ja.md`.
 
 Contents:
 
@@ -95,8 +95,11 @@ Code: `util_harmonics_multipole.pg_harmonics`, and the table generators `others/
    - Real and complex combinations are mixed: complex irreps end in `a`/`b` and have a single component.
    - The basis of each 2D irrep is chosen so that the simplest `(x, y)` basis gives representation matrices of `C_n`
      equal to rotation matrices.
-   - Intentional sign changes from MultiPie: `gv`, and D6h rank-4 `E2g` multiplicity 2 (both components), are
-     multiplied by -1.
+   - Intentional sign change from MultiPie: D6h rank-4 `E2g` multiplicity 2 (both components) is multiplied by -1.
+     It carries into the D6h-family subgroups (rank-4 E multiplets) and the data built on the harmonics.
+   - The orbital `gv` (Oh rank-4 `Eg`, component 1) is also multiplied by -1 relative to MultiPie's `gv`
+     (`data_response_tensor`). This changes the orbital (and the response-tensor multipole), not the top harmonics:
+     the harmonics of the Oh family agree with MultiPie.
 2. **Mapping.** `data_harmonics_mapping[pg] = {"top": top, "Q": {pg_key: (c, top_key)}, "G": {...}}` with `c = ±1`.
    A harmonics of the point group is `c` times a top harmonics, `X(pg_key) = c T(top_key)`, and its u-matrix is
    `c U_T`.
