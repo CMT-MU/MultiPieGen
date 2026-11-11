@@ -4,7 +4,7 @@ orphan: true
 
 # Definitions
 
-This page defines the quantities provided by MultiPieGen. How to get the actual function forms, $U$, and
+This page defines the quantities provided by MultiPieGen. How to get the actual function forms and $U$
 matrices from the data is described in a later section. The harmonics and the SAMB are labeled by the multipole key
 `PGMultipoleType` and written with its LaTeX symbol, e.g. $\mathbb{Q}_{1}(T_{1u})$; both are explained in
 [Multipole key](multipole_key.md). A Japanese version is [here](definitions_ja.md).

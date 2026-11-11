@@ -4,7 +4,7 @@ orphan: true
 
 # 定義
 
-このページでは、MultiPieGen が提供する量を定義します。実際の関数形、$U$、行列をデータから取り出す方法は、後の節で説明します。調和関数と SAMB には多極子のキー `PGMultipoleType` が付いていて、例ではその LaTeX 記号（例：$\mathbb{Q}_{1}(T_{1u})$）で書きます。どちらの説明も[多極子のキー](multipole_key_ja.md)にあります。英語版は[こちら](definitions.md)です。
+このページでは、MultiPieGen が提供する量を定義します。実際の関数形、$U$ 行列をデータから取り出す方法は、後の節で説明します。調和関数と SAMB には多極子のキー `PGMultipoleType` が付いていて、例ではその LaTeX 記号（例：$\mathbb{Q}_{1}(T_{1u})$）で書きます。どちらの説明も[多極子のキー](multipole_key_ja.md)にあります。英語版は[こちら](definitions.md)です。
 
 ## 1. 結晶調和関数
 
