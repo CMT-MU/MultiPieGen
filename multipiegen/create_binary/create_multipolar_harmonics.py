@@ -32,9 +32,11 @@ from multipiegen.util.util_info import load_info
 h_multipolar_harmonics = f"""
 * Multipolar harmonics of all PG (s = 1..{max_s_rank}, rank l <= {max_rank}) with polar (q) and axial (g) internal basis.
 - PG_id (str): (dict) multipolar harmonics.
-  - (X,l,Gamma,n,p,s,k,x) (PGMultipoleType): (ndarray(dim,sympy), ndarray(dim,2s+1,sympy), ndarray(dim,sympy))
-    [cartesian ex.] of the harmonics (X,l,Gamma), [coefficient of each internal basis], and [multipole ex.].
+  - (X,l,Gamma,n,p,s,k,x) (PGMultipoleType): (ndarray(dim,2s+1,sympy), ndarray(dim,sympy))
+    [internal coefficient] (polynomial in x,y,z multiplying each internal basis function) and [multipole expression]
+    (with the internal symbols), for each component.
 NOTE:
+  - the expression of the harmonics (X,l,Gamma,n) of a key is in harmonics.pkl.
   - internal basis: orbitals of data_basis.cubic_orbital_basis[s] (cubic) or hexagonal_orbital_basis[s] (trigonal,
     hexagonal), with the symbols Q/G + orbital_latex_name (info["harmonics"]["internal_basis"]).
   - x = q if (X = Q and s+k even) or (X = G and s+k odd), otherwise g.
@@ -60,7 +62,7 @@ def create_multipolar_harmonics_all(serial=False, verbose=True):
         verbose (bool, optional): verbose ?
 
     Returns:
-        - (BinaryManager) -- {PG_id: {PGMultipoleType: (ex, mharm, m_ex)}}.
+        - (BinaryManager) -- {PG_id: {PGMultipoleType: (internal_coefficient, multipole_expression)}}.
     """
     info = load_info()
     ids = info["id_set"]["PG"]["all"] + info["id_set"]["PG"]["complex"]

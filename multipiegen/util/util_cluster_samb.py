@@ -36,9 +36,9 @@ The same data as MultiPie Ver.2's cluster_samb ("site", "bond_s", "bond_a"), cre
 
 - cluster_samb (dict)::
 
-    { PG_id/SG_id: { "site"/"bond_s"/"bond_a": { wyckoff: { PGMultipoleType: (samb, ex) } } } }
+    { PG_id/SG_id: { "site"/"bond_s"/"bond_a": { wyckoff: { PGMultipoleType: samb } } } }
         samb: ndarray (dim, N) (sympy), value on the N sites (bonds) of the Wyckoff position for each component.
-        ex: ndarray (dim) (sympy), cartesian expression of the harmonics (X, l, Gamma, n) of the point group.
+        The expression of the harmonics (X, l, Gamma, n) is in harmonics.pkl (util_harmonics.harmonics_expression).
 """
 
 import numpy as np
@@ -52,7 +52,6 @@ from multipiegen.data.data_harmonics_mapping import data_harmonics_mapping
 from multipiegen.data.data_op_mapping import op_mapping_d6h_oh_cluster
 from multipiegen.util.util_bond_cluster_basis import load_bond_cluster_basis
 from multipiegen.util.util_cluster_basis import load_cluster_basis
-from multipiegen.util.util_harmonics_multipole import pg_harmonics
 
 # ==================================================
 cluster_samb_file = "cluster_samb"
@@ -220,12 +219,11 @@ def wyckoff_samb(general, mapping, sign=False):
 
 
 # ==================================================
-def _to_samb(d, ex):
-    res = {}
-    for (X, l, irrep, n, p, x), comps in d.items():
-        samb = np.array([v for _, v in comps], dtype=object)
-        res[PGMultipoleType(X, l, irrep, n, p, 0, 0, x)] = (samb, ex[(X, l, irrep, n)])
-    return res
+def _to_samb(d):
+    return {
+        PGMultipoleType(X, l, irrep, n, p, 0, 0, x): np.array([v for _, v in comps], dtype=object)
+        for (X, l, irrep, n, p, x), comps in d.items()
+    }
 
 
 # ==================================================
@@ -240,20 +238,18 @@ def create_cluster_samb(pg, pg_ops, ops, wyckoff):
         wyckoff (dict): group["wyckoff"] of group.pkl.
 
     Returns:
-        - (dict) -- {"site"/"bond_s"/"bond_a": {wyckoff: {PGMultipoleType: (samb, ex)}}}.
+        - (dict) -- {"site"/"bond_s"/"bond_a": {wyckoff: {PGMultipoleType: samb}}}.
     """
     top, idx = top_index(pg, pg_ops, ops)
     site = general_point_basis(pg, top, idx, "site")
     bond = general_point_basis(pg, top, idx, "bond")
-    rank = max(t[1][1] for t in site + bond)
-    ex = {key: e for key, (e, _) in pg_harmonics(pg, rank).items()}
 
     res = {"site": {}, "bond_s": {}, "bond_a": {}}
     for w, val in wyckoff["site"].items():
-        res["site"][w] = _to_samb(wyckoff_samb(site, val["mapping"]), ex)
+        res["site"][w] = _to_samb(wyckoff_samb(site, val["mapping"]))
     for w, val in wyckoff["bond"].items():
-        res["bond_s"][w] = _to_samb(wyckoff_samb(site, val["mapping"]), ex)
-        res["bond_a"][w] = _to_samb(wyckoff_samb(bond, val["mapping"], sign=True), ex)
+        res["bond_s"][w] = _to_samb(wyckoff_samb(site, val["mapping"]))
+        res["bond_a"][w] = _to_samb(wyckoff_samb(bond, val["mapping"], sign=True))
     return res
 
 
@@ -263,6 +259,6 @@ def load_cluster_samb():
     Load cluster SAMB (multipiegen/binary/cluster_samb.pkl).
 
     Returns:
-        - (BinaryManager) -- {PG_id/SG_id: {"site"/"bond_s"/"bond_a": {wyckoff: {PGMultipoleType: (samb, ex)}}}}.
+        - (BinaryManager) -- {PG_id/SG_id: {"site"/"bond_s"/"bond_a": {wyckoff: {PGMultipoleType: samb}}}}.
     """
     return BinaryManager(cluster_samb_file, topdir=__bin_dir__)

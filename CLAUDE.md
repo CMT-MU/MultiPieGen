@@ -27,6 +27,7 @@ python -m multipiegen.create_binary.create_cluster_scalar_basis   # -> binary/cl
 python -m multipiegen.create_binary.create_cluster_vector_basis  # -> binary/cluster_vector_basis.pkl (s=1, intermediate for cluster_bond_basis, ~1 min)
 python -m multipiegen.create_binary.create_cluster_bond_basis    # -> binary/cluster_bond_basis.pkl (needs cluster_vector_basis.pkl)
 python -m multipiegen.create_binary.create_cluster_samb          # -> binary/cluster_samb.pkl (site/bond_s/bond_a of real PG + SG; needs group, cluster_scalar_basis, cluster_bond_basis)
+python -m multipiegen.create_binary.create_harmonics            # -> binary/harmonics.pkl (expression and u-matrix of the PG harmonics, l<=11; ~10 s)
 python -m multipiegen.create_binary.create_multipolar_harmonics  # -> binary/multipolar_harmonics.pkl (s=1..3, l<=3, 47 PGs, parallel ~2.5 min)
 python -m multipiegen.create_binary.create_atomic_multipole        # -> binary/atomic_multipole.pkl (l<=7, s=0,1, LMs/JML/LM; ~10 s)
 python -m multipiegen.create_binary.create_atomic_multipole_group  # -> binary/atomic_multipole_group.pkl (47 PGs, needs atomic_multipole.pkl; ~30 s)
@@ -63,6 +64,9 @@ mapping depends on the parity of the top harmonic.
 - Harmonics key: `(rank, irrep, multiplicity, component)`; multiplicity is 1-based and component is 0-based, with `-1`
   meaning unique.
 - Tesseral key: `(l, m)` with `m < 0` meaning `S`.
+- Binaries keyed by `PGMultipoleType` do not hold the xyz expression or u-matrix of the harmonics. Look them up by
+  `(X, l, Gamma, n)` of the key in `harmonics.pkl` (`util_harmonics.harmonics_expression` / `harmonics_u_matrix`),
+  with T -> Q and M -> G.
 - Symmetry-operation mappings in `data_parent_pg/sg` and `data_op_mapping` are 1-based.
 - `data_op_mapping.op_mapping_d6h_oh_cluster` (PG only) maps to the Oh/D6h cluster. An SG reaches the cluster
   through its PG: its operations have the PG's point parts in the same order. `op_mapping_parent_sg` maps an SG to a
@@ -92,12 +96,13 @@ Gram–Schmidt basis per (irrep, component), from lower rank, and must yield 48 
   first.** This includes running an `others/creation/create_*.py` script, copying a result into `multipiegen/data/`,
   and editing or reformatting a data table, even when only the order or formatting changes. These tables are
   curated by hand; regenerating them can silently undo manual fixes.
-- `others/` holds non-package material: memo, notebooks, drafts, and `claude/` (an earlier verification pipeline that
-  contains stale absolute paths).
+- `others/` holds non-package material: `creation/` (table generators). `others/archive/` keeps old material locally
+  only (old memo, etc, notebooks, earlier verification pipelines, the MultiPie Ver.2 comparison script, old scripts);
+  it is in `.gitignore` and will be deleted. Do not add files there to git, and do not depend on them.
+- `docs/src/notes/` holds the notes on the multipole data (generation rules and changes from MultiPie Ver.2, in
+  English and Japanese), the "Notes" chapter of the docs. Update them when the algorithms or keys change.
 - Every new feature also gets a runnable sample `docs/examples/<feature>.py` and a row in `docs/examples/README.md`
   (the docs page `docs/src/examples.md` is generated from that table by `docs/create_pages.py`).
-
-`others/group_theory.py` is known-broken: it imports names that no longer exist in `data_root_cluster`.
 
 ## Branch flow
 

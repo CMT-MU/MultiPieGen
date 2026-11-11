@@ -34,8 +34,9 @@ create_data_atomic_multipole_group.py).
 
 - atomic_multipole_group (dict)::
 
-    { PG_id: { "jml"/"lgs"/"lg": { (L1, L2): { PGMultipoleType: (ndarray(dim, n1, n2), ndarray(dim)) } } } }
-        matrix of each component, cartesian expression of the harmonics.
+    { PG_id: { "jml"/"lgs"/"lg": { (L1, L2): { PGMultipoleType: ndarray(dim, n1, n2) } } } }
+        matrix of each component. The expression of the harmonics (X, l, Gamma, n) is in harmonics.pkl
+        (util_harmonics.harmonics_expression).
 """
 
 from functools import lru_cache
@@ -216,7 +217,7 @@ def load_atomic_multipole_group():
     Load atomic multipole of point groups (multipiegen/binary/atomic_multipole_group.pkl).
 
     Returns:
-        - (BinaryManager) -- {PG_id: {"jml"/"lgs"/"lg": {(L1, L2): {PGMultipoleType: (matrix, ex)}}}}.
+        - (BinaryManager) -- {PG_id: {"jml"/"lgs"/"lg": {(L1, L2): {PGMultipoleType: matrix}}}}.
     """
     return BinaryManager(atomic_multipole_group_file, topdir=__bin_dir__)
 
@@ -320,17 +321,16 @@ def create_top_samb(atomic_multipole, top, block, b_type):
 
 
 # ==================================================
-def create_atomic_multipole_pg(pg, top_data, ex):
+def create_atomic_multipole_pg(pg, top_data):
     """
     Atomic multipole SAMB of a point group.
 
     Args:
         pg (str): point group tag.
         top_data (dict): {b_type: {block: {(top_key, head, s, k): matrix}}} of the top group of pg.
-        ex (dict): {(X, l, Gamma, n): ex ndarray(dim)} cartesian expressions of the harmonics (pg_harmonics).
 
     Returns:
-        - (dict) -- {"jml"/"lgs"/"lg": {(L1, L2): {PGMultipoleType: (matrix ndarray(dim, n1, n2), ex ndarray(dim))}}}.
+        - (dict) -- {"jml"/"lgs"/"lg": {(L1, L2): {PGMultipoleType: matrix ndarray(dim, n1, n2)}}}.
     """
     mapping = data_harmonics_mapping[pg]
     irreps = list(character[pg][1].keys())
@@ -356,10 +356,9 @@ def create_atomic_multipole_pg(pg, top_data, ex):
                             if (comps[0][2], head, s, k) not in top:
                                 continue
                             mat = np.array([c * top[(tk, head, s, k)] for _, c, tk in comps], dtype=object)
-                            d[PGMultipoleType(head, l, irrep, n, -1, s, k, "q")] = (mat, ex[(X, l, irrep, n)])
+                            d[PGMultipoleType(head, l, irrep, n, -1, s, k, "q")] = mat
             res[bt][block] = {key: d[key] for key in sorted(d, key=order)}
     res["lg"] = {
-        block: {key: (mat[:, ::2, ::2] * sp.sqrt(2), e) for key, (mat, e) in d.items() if key.s == 0}
-        for block, d in res["lgs"].items()
+        block: {key: mat[:, ::2, ::2] * sp.sqrt(2) for key, mat in d.items() if key.s == 0} for block, d in res["lgs"].items()
     }
     return res
