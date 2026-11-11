@@ -65,7 +65,7 @@ See [examples](examples/README.md) for runnable sample code for each feature.
 
 ```
 multipiegen/        package
-  data/             data tables (see data/readme.md)
+  data/             data tables (see the "Data tables" page)
   util/             utilities (multipolar harmonics, cluster basis, vector cluster basis, bond cluster basis, cluster SAMB, harmonics symbols, multipolar harmonics, atomic multipole, info, group, symmetry operation, representation matrix, response tensor)
   create_binary/    code that generates the binary data
   create_pdf/       code that generates the PDFs
