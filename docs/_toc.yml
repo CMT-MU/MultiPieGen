@@ -14,9 +14,11 @@ parts:
       - file: src/mpg_pdf
       - file: src/msg_pdf
     - file: src/notes
-    - file: src/examples
-    - file: src/binary
-    - file: src/data
+    - file: src/details
+      sections:
+      - file: src/examples
+      - file: src/binary
+      - file: src/data
 - caption: API reference
   chapters:
     - file: src/api_util
