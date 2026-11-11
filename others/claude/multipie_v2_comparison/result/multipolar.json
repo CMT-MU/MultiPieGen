@@ -1,0 +1,338 @@
+{
+ "total": {
+  "n,p same": 14302,
+  "same": 14302
+ },
+ "internal mismatch (crystal, s)": {},
+ "groups": {
+  "C1": {
+   "count": {
+    "n,p same": 400,
+    "same": 400
+   },
+   "diff": []
+  },
+  "Ci": {
+   "count": {
+    "n,p same": 400,
+    "same": 400
+   },
+   "diff": []
+  },
+  "C2": {
+   "count": {
+    "n,p same": 400,
+    "same": 400
+   },
+   "diff": []
+  },
+  "Cs": {
+   "count": {
+    "n,p same": 400,
+    "same": 400
+   },
+   "diff": []
+  },
+  "C2h": {
+   "count": {
+    "n,p same": 400,
+    "same": 400
+   },
+   "diff": []
+  },
+  "D2": {
+   "count": {
+    "n,p same": 400,
+    "same": 400
+   },
+   "diff": []
+  },
+  "C2v": {
+   "count": {
+    "n,p same": 400,
+    "same": 400
+   },
+   "diff": []
+  },
+  "D2h": {
+   "count": {
+    "n,p same": 400,
+    "same": 400
+   },
+   "diff": []
+  },
+  "C4": {
+   "count": {
+    "n,p same": 296,
+    "same": 296
+   },
+   "diff": []
+  },
+  "S4": {
+   "count": {
+    "n,p same": 296,
+    "same": 296
+   },
+   "diff": []
+  },
+  "C4h": {
+   "count": {
+    "n,p same": 296,
+    "same": 296
+   },
+   "diff": []
+  },
+  "D4": {
+   "count": {
+    "n,p same": 296,
+    "same": 296
+   },
+   "diff": []
+  },
+  "C4v": {
+   "count": {
+    "n,p same": 296,
+    "same": 296
+   },
+   "diff": []
+  },
+  "D2d": {
+   "count": {
+    "n,p same": 296,
+    "same": 296
+   },
+   "diff": []
+  },
+  "D4h": {
+   "count": {
+    "n,p same": 296,
+    "same": 296
+   },
+   "diff": []
+  },
+  "C3": {
+   "count": {
+    "n,p same": 270,
+    "same": 270
+   },
+   "diff": []
+  },
+  "C3i": {
+   "count": {
+    "n,p same": 270,
+    "same": 270
+   },
+   "diff": []
+  },
+  "D3": {
+   "count": {
+    "n,p same": 270,
+    "same": 270
+   },
+   "diff": []
+  },
+  "C3v": {
+   "count": {
+    "n,p same": 270,
+    "same": 270
+   },
+   "diff": []
+  },
+  "D3d": {
+   "count": {
+    "n,p same": 270,
+    "same": 270
+   },
+   "diff": []
+  },
+  "C6": {
+   "count": {
+    "n,p same": 270,
+    "same": 270
+   },
+   "diff": []
+  },
+  "C3h": {
+   "count": {
+    "n,p same": 270,
+    "same": 270
+   },
+   "diff": []
+  },
+  "C6h": {
+   "count": {
+    "n,p same": 270,
+    "same": 270
+   },
+   "diff": []
+  },
+  "D6": {
+   "count": {
+    "n,p same": 270,
+    "same": 270
+   },
+   "diff": []
+  },
+  "C6v": {
+   "count": {
+    "n,p same": 270,
+    "same": 270
+   },
+   "diff": []
+  },
+  "D3h": {
+   "count": {
+    "n,p same": 270,
+    "same": 270
+   },
+   "diff": []
+  },
+  "D6h": {
+   "count": {
+    "n,p same": 270,
+    "same": 270
+   },
+   "diff": []
+  },
+  "T": {
+   "count": {
+    "n,p same": 166,
+    "same": 166
+   },
+   "diff": []
+  },
+  "Th": {
+   "count": {
+    "n,p same": 166,
+    "same": 166
+   },
+   "diff": []
+  },
+  "O": {
+   "count": {
+    "n,p same": 166,
+    "same": 166
+   },
+   "diff": []
+  },
+  "Td": {
+   "count": {
+    "n,p same": 166,
+    "same": 166
+   },
+   "diff": []
+  },
+  "Oh": {
+   "count": {
+    "n,p same": 166,
+    "same": 166
+   },
+   "diff": []
+  },
+  "D2d-1": {
+   "count": {
+    "n,p same": 296,
+    "same": 296
+   },
+   "diff": []
+  },
+  "D3-1": {
+   "count": {
+    "n,p same": 270,
+    "same": 270
+   },
+   "diff": []
+  },
+  "C3v-1": {
+   "count": {
+    "n,p same": 270,
+    "same": 270
+   },
+   "diff": []
+  },
+  "D3d-1": {
+   "count": {
+    "n,p same": 270,
+    "same": 270
+   },
+   "diff": []
+  },
+  "D3h-1": {
+   "count": {
+    "n,p same": 270,
+    "same": 270
+   },
+   "diff": []
+  },
+  "C4-c": {
+   "count": {
+    "n,p same": 400,
+    "same": 400
+   },
+   "diff": []
+  },
+  "S4-c": {
+   "count": {
+    "n,p same": 400,
+    "same": 400
+   },
+   "diff": []
+  },
+  "C4h-c": {
+   "count": {
+    "n,p same": 400,
+    "same": 400
+   },
+   "diff": []
+  },
+  "C3-c": {
+   "count": {
+    "n,p same": 400,
+    "same": 400
+   },
+   "diff": []
+  },
+  "C3i-c": {
+   "count": {
+    "n,p same": 400,
+    "same": 400
+   },
+   "diff": []
+  },
+  "C6-c": {
+   "count": {
+    "n,p same": 400,
+    "same": 400
+   },
+   "diff": []
+  },
+  "C3h-c": {
+   "count": {
+    "n,p same": 400,
+    "same": 400
+   },
+   "diff": []
+  },
+  "C6h-c": {
+   "count": {
+    "n,p same": 400,
+    "same": 400
+   },
+   "diff": []
+  },
+  "T-c": {
+   "count": {
+    "n,p same": 192,
+    "same": 192
+   },
+   "diff": []
+  },
+  "Th-c": {
+   "count": {
+    "n,p same": 192,
+    "same": 192
+   },
+   "diff": []
+  }
+ }
+}
