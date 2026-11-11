@@ -85,11 +85,12 @@ orphan: true
 | site、bond_s | [Gamma, l, Q/G, n, p] の順に Gram–Schmidt | 既約表現ごとに [Gamma, l, n, p] の順に Gram–Schmidt。キーは同じ |
 | bond_a | monopole の順に直交化し、最初に重なる vector SAMB のキーを付ける。`p` は Wyckoff ごとに振り直す | `cluster_bond_basis`（x = q）を制限し、[Gamma, l, k, Q/G, n, p] の順に Gram–Schmidt。トップの群のキー（`p` も）を引き継ぐ |
 | vector SAMB | 作る | 作らない |
+| ボンドの種類 | `"bond_s"` と `"bond_a"` を別々に持つ | `"bond"` = `bond_s`（Q）+ i `bond_a`（Q → T、G → M に付け替え） |
 | 群 | 実の点群と空間群 | 実の点群と空間群（複素の点群は含まない） |
 
 - 結果：すべての Wyckoff のサイトとボンドで、既約表現ごとに張る空間は MultiPie Ver.2 と同じです（サイト 1889、
   ボンド 6663）。site と bond_s はキーも同じです。
-- bond_a は、6663 個のボンド Wyckoff のうち 5990 個でキーが違います。
+- bond_a は、6663 個のボンド Wyckoff のうち 5990 個でキーが違います（T/M に付け替える前のキー、つまり X = Q/G で比べたもの）。
   - p だけ違う（4866）：トップのキーの `p` を引き継ぐため（例：Oh の `3a@1o` は、こちらが Q₁(T1u) p = 1、MultiPie
     Ver.2 は p = −1）。
   - n が違う（93）：同じ (X, l, Gamma) の別の多重度を使う（例：C4 の `4c@1a` は、こちらが Q₂(B) n = 1、MultiPie Ver.2

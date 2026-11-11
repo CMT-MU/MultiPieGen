@@ -576,7 +576,7 @@ Cluster SAMB of each Wyckoff site and bond of the real PG and SG.
 - create: `python -m multipiegen.create_binary.create_cluster_samb`
 - load: `multipiegen.util.util_cluster_samb.load_cluster_samb()`
 - top-level keys: 267 keys: `PG:1`, `PG:2`, ..., `SG:230`
-- size: 377 KB
+- size: 455 KB
 
 Description of the dictionary keys (header of the binary):
 
@@ -586,17 +586,18 @@ Description of the dictionary keys (header of the binary):
   - "site" (str): (dict) site-cluster SAMB data.
     - sw_tag (str): (dict) SAMB data at site Wyckoff.
       - (X,l,Gamma,n,p,s,k,x) (PGMultipoleType): (ndarray(dim,ns,sympy)) SAMB for each component.
-  - "bond_s" (str): (dict) symmetric-bond-cluster SAMB data.
-    - bw_tag (str): (dict) SAMB data at bond Wyckoff, as "site".
-  - "bond_a" (str): (dict) anti-symmetric-bond-cluster SAMB data.
+  - "bond" (str): (dict) bond-cluster SAMB data.
     - bw_tag (str): (dict) SAMB data at bond Wyckoff, as "site".
 NOTE:
-  - the expression of the harmonics (X,l,Gamma,n) of a key is in harmonics.pkl.
-  - created from the general-point SAMB of each group, i.e., cluster_scalar_basis ("site", "bond_s") and
-    cluster_bond_basis (x = "q", "bond_a") of Oh or D6h restricted by the operation mapping (coset 0), and averaged
-    by the mapping of each Wyckoff site and bond (with the sign of the bond reversal for "bond_a").
+  - the expression of the harmonics (X,l,Gamma,n) of a key is in harmonics.pkl (T and M use those of Q and G).
+  - created from the general-point SAMB of each group, i.e., cluster_scalar_basis ("site", symmetric bond) and
+    cluster_bond_basis (x = "q", anti-symmetric bond) of Oh or D6h restricted by the operation mapping (coset 0), and
+    averaged by the mapping of each Wyckoff site and bond (with the sign of the bond reversal for anti-symmetric bond).
+  - "bond" = symmetric bond SAMB (X = Q, real) + i anti-symmetric bond SAMB (X = Q -> T, G -> M, pure imaginary).
+    Q and T/M are orthonormalized separately (different time-reversal parity).
   - keys of the top group with the irrep and component of the group; n is the multiplicity of the harmonics (X,l,Gamma).
   - "-1" in multiplicity represents no multiplicity.
   - each component is normalized on the ns sites (bonds).
-  - multipoles are sorted in order of [Gamma, l, n, p] ("site", "bond_s") or [Gamma, l, k, Q/G, n, p] ("bond_a").
+  - multipoles are sorted in order of [Gamma, l, n, p] ("site"), and of Gamma, then [l, n, p] for Q and
+    [l, k, T/M, n, p] for T/M ("bond", Q before T/M in each Gamma).
 ```

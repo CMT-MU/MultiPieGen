@@ -88,11 +88,12 @@ Ver.2. The closest one is `harmonics_root_cluster.pkl`.
 | site, bond_s | Gram-Schmidt in [Gamma, l, Q/G, n, p] | Gram-Schmidt in [Gamma, l, n, p] per irrep; the same keys |
 | bond_a | orthogonalized in the monopole order, then keyed by the first overlapping vector SAMB, `p` renumbered per Wyckoff | `cluster_bond_basis` (x = q) restricted, Gram-Schmidt in [Gamma, l, k, Q/G, n, p], keys of the top group kept (including `p`) |
 | vector SAMB | made | not made |
+| bond kinds | `"bond_s"` and `"bond_a"` separately | `"bond"` = `bond_s` (Q) + i `bond_a` with Q -> T, G -> M |
 | groups | real PG and SG | real PG and SG (complex PG not included) |
 
 - Result: for every Wyckoff site and bond, each irrep spans the same space as MultiPie Ver.2 (1889 sites, 6663 bonds).
   The site and bond_s keys are identical.
-- bond_a keys differ in 5990 of 6663 bond Wyckoff positions:
+- bond_a keys differ in 5990 of 6663 bond Wyckoff positions (keys before the change of type to T/M, i.e. X = Q/G):
   - p only (4866): the top key's `p` is kept (e.g. Oh `3a@1o`: Q₁(T1u) p = 1 here, p = -1 in MultiPie Ver.2).
   - n (93): another harmonics multiplicity of the same (X, l, Gamma) is used (e.g. C4 `4c@1a`: Q₂(B) n = 1 here,
     n = 2 in MultiPie Ver.2).

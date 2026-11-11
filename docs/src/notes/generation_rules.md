@@ -199,7 +199,8 @@ An intermediate basis for the bond cluster basis.
 ## 5. Cluster SAMB of each Wyckoff site and bond (`cluster_samb.pkl`)
 
 Code: `util_cluster_samb`, `create_binary/create_cluster_samb.py`. Range: 37 real point groups and 230 space groups;
-`"site"`, `"bond_s"` (symmetric bond), `"bond_a"` (anti-symmetric bond). Complex point groups are not included.
+`"site"` and `"bond"`. The bond SAMB is made from the symmetric bond SAMB (`"bond_s"` below) and the
+anti-symmetric bond SAMB (`"bond_a"` below), see 7. Complex point groups are not included.
 
 1. **General point.** The general-point cluster of a group `H` is a subset of the top cluster: point `i` of `H` is
    the top point listed at position `i` of coset 0 of `util_op_mapping.op_mapping_d6h_oh_cluster[PG]`.
@@ -222,6 +223,13 @@ Code: `util_cluster_samb`, `create_binary/create_cluster_samb.py`. Range: 37 rea
 5. **Key.** `"site"`, `"bond_s"`: `PGMultipoleType("Q", l, Gamma, n, p, 0, 0, "q")`. `"bond_a"`: keys of
    `cluster_bond_basis` (`X = Q/G`, `x = q`). `n` is the harmonics multiplicity of `H`; `p` that of the top key.
 6. **Value.** `samb (dim, N)`. The expression of the harmonics of the point group is in `harmonics.pkl`.
+7. **Bond SAMB.** `"bond" = "bond_s" + i "bond_a"`: the anti-symmetric bond SAMB is multiplied by `i` (imaginary
+   hopping) and its type is changed from `Q` to `T` and from `G` to `M` (time-reversal odd). The keys of `"bond_s"`
+   (`Q`) and of `"bond_a"` (`T/M`) never coincide, so they are put together. SAMB of different time-reversal parity
+   are orthogonal (as hermitian bond matrices: real symmetric and imaginary anti-symmetric), so `Q` and `T/M` are
+   orthonormalized separately (4.). Order: `Gamma`, and in each `Gamma`, `Q` (`[l, n, p]`) before `T/M`
+   (`[l, k, T/M, n, p]`). Values are real for `Q` and pure imaginary for `T, M`; the harmonics of `T` (`M`) are those
+   of `Q` (`G`) (`util_harmonics.harmonics_type`).
 
 ---
 
