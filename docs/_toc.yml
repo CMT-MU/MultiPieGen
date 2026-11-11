@@ -6,6 +6,7 @@ root: README
 parts:
 - caption: Documentation
   chapters:
+    - file: src/guide
     - file: src/group_info
       sections:
       - file: src/info_pdf
