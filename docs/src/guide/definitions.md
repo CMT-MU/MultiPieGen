@@ -35,6 +35,16 @@ $$
 
 with $U$ (`(2l+1) x dim`, rows `m = l, ..., -l`), whose columns are orthonormal.
 
+*Example (Oh).* The dipole $Q_1(T_{1u}) = (x, y, z)$ has
+
+$$
+U = \begin{pmatrix} -\frac{1}{\sqrt{2}} & \frac{i}{\sqrt{2}} & 0 \\ 0 & 0 & 1 \\ \frac{1}{\sqrt{2}} & \frac{i}{\sqrt{2}} & 0 \end{pmatrix}
+\quad (m = 1, 0, -1),
+$$
+
+e.g. $x = (-O_{11} + O_{1,-1})/\sqrt{2}$, and the quadrupole $Q_2(E_g) = \left(z^2 - \frac{x^2+y^2}{2},
+\frac{\sqrt{3}}{2}(x^2 - y^2)\right)$.
+
 - **Top groups.** The harmonics are defined once for the two top groups, Oh (cubic) and D6h (trigonal and
   hexagonal), up to rank 11. Every one of the 47 point groups (32 crystallographic, 5 other settings `-1`, 10
   complex `-c`) takes its harmonics from them: each component is a component of a top harmonics times a sign,
@@ -42,6 +52,9 @@ with $U$ (`(2l+1) x dim`, rows `m = l, ..., -l`), whose columns are orthonormal.
 - The representation matrices of the irreps follow from $U$, and all harmonics of an irrep give the same matrices.
 - The irreps follow the order of the character table. Complex irreps (in the `-c` groups) end in `a`/`b` and have a
   single component.
+- *Multiplicity.* When an irrep appears more than once at the same rank, `n = 1, 2, ...` distinguishes the
+  harmonics, e.g. C4h: $Q_2(B_g)$ with `n = 1`: $\frac{\sqrt{3}}{2}(x^2 - y^2)$ and `n = 2`: $\sqrt{3}xy$.
+- *Complex group.* E.g. C4-c: $Q_1(E_a) = (x + iy)/\sqrt{2}$ and $Q_1(E_b) = (x - iy)/\sqrt{2}$.
 - Key: `PGMultipoleType(X, l, Gamma, n, -1, 0, 0, "q")` (see [Multipole key](multipole_key.md)).
 
 **Polar (`Q`) and axial (`G`) harmonics.** An axial harmonics transforms with an extra factor `det R` under an
@@ -89,6 +102,16 @@ crystal harmonics `(X, l, Gamma, n)`.
 - The value is the coefficient of each internal basis function (polynomials in x, y, z) and the resulting expression
   in terms of the internal basis symbols.
 
+*Examples (Oh, `s = 1`).* With a polar vector $\boldsymbol{Q} = (Q_x, Q_y, Q_z)$ or an axial vector
+$\boldsymbol{G} = (G_x, G_y, G_z)$ as the internal basis:
+
+| key `(X, l, Gamma, n, p, s, k, x)` | expression | meaning |
+|---|---|---|
+| `(Q, 0, A1g, -1, -1, 1, 1, q)` | $(xQ_x + yQ_y + zQ_z)/\sqrt{3}$ | $\boldsymbol{r} \cdot \boldsymbol{Q}$, electric monopole |
+| `(Q, 1, T1u, -1, -1, 1, -1, q)` | $(Q_x, Q_y, Q_z)$ | the polar vector itself |
+| `(G, 1, T1g, -1, -1, 1, 0, q)` | $(zQ_y - yQ_z, xQ_z - zQ_x, yQ_x - xQ_y)/\sqrt{2}$ | $\boldsymbol{Q} \times \boldsymbol{r}$, electric toroidal dipole |
+| `(G, 0, A1u, -1, -1, 1, 1, g)` | $(xG_x + yG_y + zG_z)/\sqrt{3}$ | $\boldsymbol{r} \cdot \boldsymbol{G}$, electric toroidal monopole |
+
 ## 3. Atomic orbitals
 
 The atomic orbitals of rank `L = 0, 1, 2, 3` (s, p, d, f) are the basis of the atomic SAMB. Three bases are used.
@@ -112,6 +135,8 @@ descending, e.g. for `L = 1`: $|1/2, 1/2\rangle, |1/2, -1/2\rangle, |3/2, 3/2\ra
 
 **Blocks.** A matrix in these bases is given for each block of bra rank `L1` and ket rank `L2`, for
 `(L1, L2) = (0, 0), (0, 1), (0, 2), (0, 3), (1, 1), (1, 2), (1, 3), (2, 2), (2, 3), (3, 3)` (`L1 <= L2`).
+E.g. the block `(1, 2)` (p-d) is `3 x 5` in `lg`, and `6 x 10` in `lgs` and `jml`. In `lgs`, the p orbitals are
+`(px, u), (px, d), (py, u), (py, d), (pz, u), (pz, d)`.
 
 ## 4. Atomic SAMB
 
@@ -132,6 +157,18 @@ basis, adapted to the point group.
 - Key: `PGMultipoleType(X, l, Gamma, n, -1, s, k, "q")` (see [Multipole key](multipole_key.md)). Value: `(dim, n1, n2)`, the matrix of each component for
   the `n1` orbitals of rank `L1` and the `n2` orbitals of rank `L2`.
 - Order: `Q, G, T, M`, then `s`, `k`, `l`, `Gamma`, `n`. All 47 point groups.
+
+*Examples (Oh).* For the p orbitals (`lg`, block `(1, 1)`, basis `px, py, pz`):
+
+- $Q_0(A_{1g}) = \frac{1}{\sqrt{3}}\,\mathrm{diag}(1, 1, 1)$, the charge;
+- $Q_2(E_g) = \left(\frac{1}{\sqrt{6}}\,\mathrm{diag}(-1, -1, 2),\ \frac{1}{\sqrt{2}}\,\mathrm{diag}(1, -1, 0)\right)$, the
+  orbital quadrupole;
+- $M_1(T_{1g})$, `s = 0`: $(l_x, l_y, l_z)/\sqrt{2}$, the orbital angular momentum, e.g. the `x` component has
+  $\langle p_y | \cdot | p_z \rangle = -i/\sqrt{2}$.
+
+For the s orbital with spin (`lgs`, block `(0, 0)`, basis `(s, u), (s, d)`): $Q_0(A_{1g})$, `s = 0`, is
+$\frac{1}{\sqrt{2}}\,\mathbb{1}$, and $M_1(T_{1g})$, `s = 1`, `k = -1`, is $(\sigma_x, \sigma_y, \sigma_z)/\sqrt{2}$, the
+spin.
 
 ## 5. Cluster SAMB
 
@@ -154,6 +191,15 @@ irreps of the group. They are given for the 37 real point groups and the 230 spa
 - Value: `(dim, N)`, the values on the `N` sites (bonds) for each component; each component has norm 1.
 - Order: `Gamma` (character table), and in `bond`, `Q` before `T/M` in each `Gamma`.
 
+*Examples (D4h).*
+
+- Site `2a`: two sites at $(0, 0, \pm z)$. $Q_0(A_{1g}) = (1, 1)/\sqrt{2}$ (uniform) and $Q_1(A_{2u}) = (1, -1)/\sqrt{2}$
+  (a dipole along `z`).
+- Bond `2b@1o`: two bonds through the origin, along `x` and along `y`.
+  $Q_0(A_{1g}) = (1, 1)/\sqrt{2}$, $Q_2(B_{1g}) = (-1, 1)/\sqrt{2}$ (real hoppings), and
+  $T_1(E_u) = \left((i, 0), (0, i)\right)$ (imaginary hoppings): the `x` component lives on the bond along `x`, the `y`
+  component on the bond along `y`.
+
 ## 6. Response tensors
 
 A response tensor of rank 0 to 4 relates two physical quantities, e.g. a current and an electric field. For each of
@@ -170,3 +216,10 @@ the 157 magnetic point groups, MultiPieGen gives the tensors allowed by symmetry
 - Value for `(X, rank, opt)`: the matrix of the components (symbols such as $Q_{xyz}$, `0` for vanishing ones;
   rows and columns are index pairs or triples, e.g. `[xx, yy, zz, yz, zx, xy]`), and the expression of each component
   in terms of the active multipoles.
+
+*Examples.*
+
+- 4/mmm (`MPG:15.1.53`), `(Q, 2, s)` (e.g. the electric conductivity): $\mathrm{diag}(Q_{xx}, Q_{xx}, Q_{zz})$, with
+  $Q_{xx} = \mathbb{Q}_0^{(1)} - \mathbb{Q}_u^{(1)}$ and $Q_{zz} = \mathbb{Q}_0^{(1)} + 2\mathbb{Q}_u^{(1)}$.
+- 4/mm'm' (`MPG:15.6.58`, a ferromagnet along `z`), `(T, 2, a)` (e.g. the anomalous Hall effect): the only nonzero
+  components are $T_{xy} = -T_{yx} = \mathbb{M}_z^{(1)}$, given by the active magnetic dipole $M_z$.
