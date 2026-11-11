@@ -6,10 +6,10 @@ orphan: true
 
 This page defines the quantities provided by MultiPieGen. How to get the actual function forms and $U$
 matrices from the data is described in a later section. The harmonics and the SAMB are labeled by the multipole key
-`PGMultipoleType` and written with its LaTeX symbol, e.g. $\mathbb{Q}_{1}(T_{1u})$; both are explained in
-[Multipole key](multipole_key.md). A Japanese version is [here](definitions_ja.md).
+`PGMultipoleType` and written with its LaTeX symbol, e.g. $\mathbb{Q}_{1}(T_{1u})$; both are explained in the
+last section, [Multipole key](#multipole-key). A Japanese version is [here](definitions_ja.md).
 
-## 1. Crystal harmonics
+## 1. Point-group harmonics
 
 **Spherical harmonics.** The harmonics of rank `l` are built from
 
@@ -27,7 +27,7 @@ $$
 
 e.g. $C_{11} = x$, $S_{11} = y$, $C_{22} = \sqrt{3}(x^2 - y^2)/2$, $S_{22} = \sqrt{3}xy$.
 
-**Crystal harmonics.** A crystal harmonics `(X, l, Gamma, n)` of a point group is a set of rank-`l` functions that
+**Point-group harmonics.** A point-group harmonics `(X, l, Gamma, n)` of a point group is a set of rank-`l` functions that
 forms a basis of the irrep `Gamma`. Its component `gamma` is
 
 $$
@@ -56,7 +56,7 @@ e.g. $x = (-O_{11} + O_{1,-1})/\sqrt{2}$, and the quadrupole $\mathbb{Q}_{2}(E_{
 - *Multiplicity.* When an irrep appears more than once at the same rank, `n = 1, 2, ...` distinguishes the
   harmonics, e.g. C4h: $\mathbb{Q}_{2}(B_{g},1) = \frac{\sqrt{3}}{2}(x^2 - y^2)$ and $\mathbb{Q}_{2}(B_{g},2) = \sqrt{3}xy$.
 - *Complex group.* E.g. C4-c: $\mathbb{Q}_{1}(E^{(a)}) = (x + iy)/\sqrt{2}$ and $\mathbb{Q}_{1}(E^{(b)}) = (x - iy)/\sqrt{2}$.
-- Key: `PGMultipoleType(X, l, Gamma, n, -1, 0, 0, "q")` (see [Multipole key](multipole_key.md)).
+- Key: `PGMultipoleType(X, l, Gamma, n, -1, 0, 0, "q")` (see [Multipole key](#multipole-key)).
 
 **Polar (`Q`) and axial (`G`) harmonics.** An axial harmonics transforms with an extra factor `det R` under an
 improper operation `R` (a mirror, the inversion, or a rotoinversion). Both come from the same top harmonics, but in a
@@ -79,9 +79,9 @@ between `Q` and `G`). So, for the same `(l, Gamma, n)`, the functions of `Q` and
 | C4v | $\mathbb{Q}_{2}(B_{1}) = \frac{\sqrt{3}}{2}(x^2 - y^2)$ | $\mathbb{G}_{2}(B_{1}) = \sqrt{3}xy$ | another function for the same irrep |
 | D2d | $\mathbb{Q}_{2}(A_{1}) = z^2 - \frac{x^2+y^2}{2}$ | $\mathbb{G}_{2}(A_{1}) = \frac{\sqrt{3}}{2}(x^2 - y^2)$ | another function for the same irrep |
 
-## 2. Multipolar harmonics
+## 2. PG multipolar harmonics
 
-A multipolar harmonics combines a crystal harmonics with an internal degree of freedom.
+A PG multipolar harmonics combines a point-group harmonics with an internal degree of freedom.
 
 **Internal degree of freedom.** First, the internal degree of freedom is fixed by its rank `s` (`s = 1`: a vector;
 `s = 2, 3`: higher-rank tensors) and its type `x`: polar (`x = q`, e.g. a displacement or an electric polarization)
@@ -107,11 +107,11 @@ of `s + k`:
 | `x = g` (axial) | `G` | `Q` |
 
 That is, `X` has the same polar or axial character as the internal basis if `s + k` is even, and the opposite one if
-`s + k` is odd. The multipolar harmonics of a point group is $\sum_m U_{m\gamma} O_{lm}^{(s)}(k)$ with $U$ of the
-crystal harmonics `(X, l, Gamma, n)`.
+`s + k` is odd. The PG multipolar harmonics of a point group is $\sum_m U_{m\gamma} O_{lm}^{(s)}(k)$ with $U$ of the
+point-group harmonics `(X, l, Gamma, n)`.
 
 - Range: `s = 1, 2, 3`, `l <= 3`, all 47 point groups. Key: `PGMultipoleType(X, l, Gamma, n, p, s, k, x)` (see
-  [Multipole key](multipole_key.md)).
+  [Multipole key](#multipole-key)).
 - The value is the coefficient of each internal basis function (polynomials in x, y, z) and the resulting expression
   in terms of the internal basis symbols.
 
@@ -160,8 +160,8 @@ basis, adapted to the point group.
    even, `T` and `M` odd under time reversal), with `s = 0` (orbital) and `s = 1` (spin-dependent), `k = -s, ..., s`.
    Their matrix elements between orbitals of ranks `L1` and `L2` follow from the Wigner-Eckart theorem.
    - For `s = 1`, the internal degree of freedom is fixed to the spin, an axial vector: the case `x = g` of the
-     [multipolar harmonics](#multipolar-harmonics). $X_{lm}^{(1)}(k)$ couples an orbital multipole of rank `l + k`
-     with the spin. In the multipolar harmonics the orbital part $O_{l+k,m}$ is always a polar function, while here
+     [PG multipolar harmonics](#pg-multipolar-harmonics). $X_{lm}^{(1)}(k)$ couples an orbital multipole of rank `l + k`
+     with the spin. In the PG multipolar harmonics the orbital part $O_{l+k,m}$ is always a polar function, while here
      the orbital multipole can be polar (`Q`, `T`) or axial (`G`, `M`, e.g. the orbital angular momentum). So the rule
      there for `x = g` is taken relative to the orbital multipole: `X` has the polar or axial character opposite to
      that of the orbital multipole if `s + k` is even, and the same one if `s + k` is odd. In addition, the spin is
@@ -171,13 +171,13 @@ basis, adapted to the point group.
      $\boldsymbol{l} \cdot \boldsymbol{s}$ is $\sqrt{3}\, \mathbb{Q}_{0}^{(1,1;a)}(A_{1g})$ for the p orbitals: the orbital
      angular momentum `M` (rank 1, axial, odd) with the spin, `s + k = 2` even gives polar and the spin gives even,
      i.e. `Q`.
-2. **Symmetry adaptation.** With $U$ of the crystal harmonics of the type of the whole multipole (polar for
+2. **Symmetry adaptation.** With $U$ of the point-group harmonics of the type of the whole multipole (polar for
    `Q, T`, axial for `G, M`), $X_{l\Gamma n}^{(s)}(k)[\gamma] = \sum_m U_{m\gamma} X_{lm}^{(s)}(k)$.
 3. **Normalization.** Each component has the Frobenius norm 1 in a diagonal block (`L1 = L2`), and `1/sqrt(2)` in
    an off-diagonal block (norm 1 together with its hermitian conjugate block `(L2, L1)`).
 
 - Bases: `lg` (`s = 0` only), `lgs`, and `jml`.
-- Key: `PGMultipoleType(X, l, Gamma, n, -1, s, k, "q")` (see [Multipole key](multipole_key.md)). Value: `(dim, n1, n2)`, the matrix of each component for
+- Key: `PGMultipoleType(X, l, Gamma, n, -1, s, k, "q")` (see [Multipole key](#multipole-key)). Value: `(dim, n1, n2)`, the matrix of each component for
   the `n1` orbitals of rank `L1` and the `n2` orbitals of rank `L2`.
 - Order: `Q, G, T, M`, then `s`, `k`, `l`, `Gamma`, `n`. All 47 point groups.
 
@@ -209,7 +209,7 @@ irreps of the group. They are given for the 37 real point groups and the 230 spa
 
   Q and T/M are orthonormal separately; they are orthogonal to each other as hermitian bond matrices (different
   time-reversal parity).
-- Key: `PGMultipoleType(X, l, Gamma, n, p, 0, 0, "q")` (see [Multipole key](multipole_key.md)). `(X, l, Gamma, n)` names the crystal harmonics that the
+- Key: `PGMultipoleType(X, l, Gamma, n, p, 0, 0, "q")` (see [Multipole key](#multipole-key)). `(X, l, Gamma, n)` names the point-group harmonics that the
   function corresponds to (`T` and `M` with those of `Q` and `G`), and `p` distinguishes functions sharing it.
 - Value: `(dim, N)`, the values on the `N` sites (bonds) for each component; each component has norm 1.
 - Order: `Gamma` (character table), and in `bond`, `Q` before `T/M` in each `Gamma`.
@@ -270,3 +270,66 @@ the 157 magnetic point groups, MultiPieGen gives the tensors allowed by symmetry
   $Q_{xx} = \mathbb{Q}_0^{(1)} - \mathbb{Q}_u^{(1)}$ and $Q_{zz} = \mathbb{Q}_0^{(1)} + 2\mathbb{Q}_u^{(1)}$.
 - 4/mm'm' (`MPG:15.6.58`, a ferromagnet along `z`), `(T, 2, a)` (e.g. the anomalous Hall effect): the only nonzero
   components are $T_{xy} = -T_{yx} = \mathbb{M}_z^{(1)}$, given by the active magnetic dipole $M_z$.
+
+(multipole-key)=
+## 7. Multipole key (`PGMultipoleType`)
+
+This section explains the key of the multipoles, which is needed to use the harmonics and the SAMB.
+
+Every multipole of a point group (point-group harmonics, PG multipolar harmonics, atomic SAMB, cluster SAMB) is labeled by
+the named tuple `PGMultipoleType(X, l, Gamma, n, p, s, k, x)` of the `multipie` package:
+
+| field | meaning | values |
+|---|---|---|
+| `X` | type, by the parity under the spatial inversion ($\mathcal{P}$) and the time reversal ($\mathcal{T}$) | `Q` electric ($\mathcal{P} = (-1)^l$, $\mathcal{T}$ even), `G` electric toroidal ($(-1)^{l+1}$, even), `T` magnetic toroidal ($(-1)^l$, odd), `M` magnetic ($(-1)^{l+1}$, odd) |
+| `l` | rank | 0, 1, 2, ... |
+| `Gamma` | irrep of the point group | name in the character table, e.g. `A1g`, `Eu`, `T2g` |
+| `n` | multiplicity of the point-group harmonics `(X, l, Gamma)`: which of the harmonics with the same `(X, l, Gamma)` | 1, 2, ...; `-1` if unique |
+| `p` | extra multiplicity, numbering entries that share all the other fields | 1, 2, ...; `-1` if unique |
+| `s` | internal rank (rank of the internal degree of freedom) | 0 (scalar), 1, 2, 3 |
+| `k` | internal component: the orbital part has rank `l + k` | `-s, ..., s` |
+| `x` | internal type: parity of the internal basis | `q` (polar), `g` (axial) |
+
+- `(X, l, Gamma, n)` always identifies a point-group harmonics (its xyz polynomial and $U$); `T` and `M` use the
+  harmonics of `Q` and `G`. `n` is never renumbered, so different data with the same `(X, l, Gamma, n)` refer to the
+  same harmonics.
+- `p` appears only where several entries share `(X, l, Gamma, n, s, k, x)`, e.g. two cluster SAMB of the same
+  harmonics on a Wyckoff position.
+- Scalar quantities (point-group harmonics, cluster SAMB) have `s = 0, k = 0, x = "q"`.
+- A key names a whole multiplet. Its value holds all components together, in the order of the components of the
+  irrep (rows of the array).
+
+### LaTeX symbol
+
+In the documentation and the PDFs, a multipole is written with the LaTeX symbol made from its key
+(`multipie.util.util_tag.TagMultipole.latex`, with the tag below):
+
+$$
+\mathbb{X}_{l,\gamma}^{(s,k;\,\mathrm{tag})}[x](\Gamma, n\,p)
+$$
+
+| part | from the key | written |
+|---|---|---|
+| $\mathbb{X}$ | `X` | $\mathbb{Q}, \mathbb{G}, \mathbb{T}, \mathbb{M}$ |
+| $l$ | `l` | always |
+| $\gamma$ | the component (1, 2, ...) | only for one component of a multiplet; omitted for the whole multiplet and for 1D irreps |
+| $(s, k)$ | `s`, `k` | only if `s > 0` |
+| tag | the kind of data | none for the harmonics; `a` for the atomic SAMB; for the cluster SAMB, `s` for `site` and `b` for `bond` |
+| $[x]$, $\vec{\ }$ | `x`, `s` | for the PG multipolar harmonics (`s > 0`): an arrow on $\mathbb{X}$ and the internal type $[q]$ or $[g]$ |
+| $\Gamma$ | `Gamma` | always, e.g. $T_{1u}$; a complex irrep `Ea` is written $E^{(a)}$ |
+| $n$ | `n` | only if `n != -1` |
+| $p$ | `p` | only if `p != -1`, as a letter `1 -> a, 2 -> b, ...` after $n$ |
+
+So the superscript and the last parentheses tell the values of `s, k` and `n, p`; the fields not shown have their
+default values (`n = p = -1`, `s = k = 0`, `x = q`).
+
+Examples:
+
+| key | symbol | meaning |
+|---|---|---|
+| `("Q", 1, "T1u", -1, -1, 0, 0, "q")` | $\mathbb{Q}_{1}(T_{1u})$ | electric dipole of Oh, components $(x, y, z)$; its `x` component is $\mathbb{Q}_{1,1}(T_{1u})$ |
+| `("Q", 2, "Bg", 2, -1, 0, 0, "q")` | $\mathbb{Q}_{2}(B_{g},2)$ | the second ($n = 2$) quadrupole of $B_g$ in C4h, $\sqrt{3}xy$ |
+| `("G", 0, "A1u", -1, -1, 1, 1, "g")` | $\vec{\mathbb{G}}_{0}^{(1,1)}[g](A_{1u})$ | PG multipolar harmonics: electric toroidal monopole from the rank-1 orbital part and an axial vector |
+| `("M", 1, "T1g", -1, -1, 1, -1, "q")` | $\mathbb{M}_{1}^{(1,-1;a)}(T_{1g})$ | atomic SAMB: spin magnetic dipole |
+| `("T", 1, "Eu", -1, 1, 0, 0, "q")` | $\mathbb{T}_{1}^{(b)}(E_{u},a)$ | bond cluster SAMB: an anti-symmetric bond function of D4h with the symmetry of $(x, y)$ ($p = 1$) |
+| `("Q", 2, "E", 1, 2, 0, 0, "q")` | $\mathbb{Q}_{2}(E,1b)$ | $n = 1$ and $p = 2$ |
