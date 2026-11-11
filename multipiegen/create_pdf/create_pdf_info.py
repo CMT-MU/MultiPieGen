@@ -6,7 +6,7 @@
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 """
-Create LaTeX and PDF of overall information (based on MultiPie others/tools/create_PDF/create_pdf_group_info.py,
+Create LaTeX and PDF of overall information (based on MultiPie Ver.2 others/tools/create_PDF/create_pdf_group_info.py,
 create_pdf_compatibility_relation.py, create_pdf_active_multipole.py).
 
     - multipiegen/pdf/info/{PG,SG,MPG,MSG}.{tex,pdf}: group information.

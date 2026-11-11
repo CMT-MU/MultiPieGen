@@ -31,7 +31,7 @@ for group in ["Oh", "D6h"]:
         print(f"  x={x}: {len(keys)} vectors in {n_mult} multiplets, orthonormal: {ok}, dropped multiplets: {n_drop}")
 
 # ==================================================
-# keys: PGMultipoleType(X, l, Gamma, n, p=-1, s=1, k, x) as MultiPie vector SAMB; value: (dim, N, 3) at the cluster points.
+# keys: PGMultipoleType(X, l, Gamma, n, p=-1, s=1, k, x) as MultiPie Ver.2 vector SAMB; value: (dim, N, 3) at the cluster points.
 d = data["Oh"]
 for key in list(d["basis"])[:4]:
     print(key, "at the first point:", d["basis"][key][:, 0].tolist())

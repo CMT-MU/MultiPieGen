@@ -44,7 +44,7 @@ h_response_tensor = """
 NOTE:
   - multipole symbol: \\mathbb{X}_{sub}^{sup(n)} with the LaTeX names of info["harmonics"]["latex"]["orbital"],
     (n) labels the independent cartesian decomposition.
-  - same as MultiPie Group.response_tensor_all except for the multipole names.
+  - same as MultiPie Ver.2 Group.response_tensor_all except for the multipole names.
 """
 
 

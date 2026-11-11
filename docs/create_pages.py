@@ -8,7 +8,7 @@
 """
 Create generated pages of the documentation.
     - docs/src/{pg,sg,mpg,msg}_pdf.md: lists of the PDFs of each group (multipiegen/pdf/{PG,SG,MPG,MSG}), sub-pages of
-      "Group Information" (docs/src/group_info.md). These pages are meant to be linked from outside (e.g. MultiPie),
+      "Group Information" (docs/src/group_info.md). These pages are meant to be linked from outside (e.g. MultiPie Ver.2),
       so they describe the content only, not how it is generated.
     - docs/src/examples.md: code of the examples listed in docs/examples/README.md.
 

@@ -1,7 +1,7 @@
 # Group Information
 
 Tables of the point groups, space groups, magnetic point groups, and magnetic space groups in the multipole basis
-of MultiPie, as PDF files.
+of MultiPie Ver.2, as PDF files.
 
 - [Overall information](info_pdf.md): lists of all groups, compatibility relations, and active multipoles.
 - [Point groups](pg_pdf.md): harmonics, character tables, symmetry operations, Wyckoff sites and bonds,

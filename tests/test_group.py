@@ -59,7 +59,7 @@ def test_binary_is_up_to_date(gid):
 # ==================================================
 @pytest.mark.parametrize("gid", ["PG:32", "PG:27", "PG:44", "PG:16", "SG:225", "SG:194", "SG:167"])
 def test_agree_with_multipie(gid):
-    # items that do not depend on the new root cluster agree with MultiPie.
+    # items that do not depend on the new root cluster agree with MultiPie Ver.2.
     g, mp = group[gid], Group(info["tag"][gid])
     so, mso = g["symmetry_operation"], mp.symmetry_operation
     assert so["tag"] == mso["tag"]

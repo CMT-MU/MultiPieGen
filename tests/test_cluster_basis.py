@@ -25,7 +25,7 @@ def test_regular_representation(group):
     # every irrep appears, as many times as its dimension (character of identity).
     count = {}
     for key, v in data[group]["basis"].items():
-        assert (key.X, key.p, key.s, key.k, key.x) == ("Q", -1, 0, 0, "q")  # PGMultipoleType as MultiPie site SAMB.
+        assert (key.X, key.p, key.s, key.k, key.x) == ("Q", -1, 0, 0, "q")  # PGMultipoleType as MultiPie Ver.2 site SAMB.
         count[key.Gamma] = count.get(key.Gamma, 0) + len(v)
     table = character[group][1]
     assert set(count) == set(table)

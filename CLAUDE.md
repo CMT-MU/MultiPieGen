@@ -5,12 +5,13 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## What this is
 
 MultiPieGen (`multipiegen`, repo `hiro-k-phys/mp-newbasis`) is the generator for the new multipole basis of
-[MultiPie](https://github.com/CMT-MU/MultiPie). It holds data tables (`multipiegen/data`) and code that turns them into
+[MultiPie Ver.2](https://github.com/CMT-MU/MultiPie). It holds data tables (`multipiegen/data`) and code that turns them into
 binaries (`multipiegen/binary/*.pkl`) and PDFs (`multipiegen/pdf/`). Those outputs are delivered elsewhere (part of
-the binaries to MultiPie, the rest plus the PDFs to a separate repo), so keep binaries in MultiPie's `BinaryManager`
+the binaries to MultiPie Ver.2, the rest plus the PDFs to a separate repo), so keep binaries in MultiPie Ver.2's `BinaryManager`
 format and readable without code from this repo. The installed `multipie` package (`Group`, `str_to_sympy`,
 `BinaryManager`, `PDFviaLaTeX`) is a runtime dependency; a sibling checkout `../MultiPie` (tools in
-`../MultiPie/others/tools/`) is the reference implementation that many generators here were ported from.
+`../MultiPie/others/tools/`) is the reference implementation that many generators here were ported from. MultiPie here always
+means Ver.2 (`multipie>=2.4`); write "MultiPie Ver.2" when citing it in code, docs, or PRs.
 
 ## Commands
 
@@ -68,12 +69,12 @@ mapping depends on the parity of the top harmonic.
   top parent SG (221-230, 191-194) with changes of axes, so its point parts can differ. Do not use it to index the
   cluster.
 - The irrep order in `data_character_table` is authoritative for sorting. g before u, and `'` block before `''` block
-  (C3h, D3h, D3h-1, C3h-c were reordered this way). This order differs from MultiPie, which sorts irreps by name string.
+  (C3h, D3h, D3h-1, C3h-c were reordered this way). This order differs from MultiPie Ver.2, which sorts irreps by name string.
 
-**Orbitals.** `data_basis.py` replaces MultiPie's `data_definition.py`. Orbital tags were renamed relative to MultiPie:
+**Orbitals.** `data_basis.py` replaces MultiPie Ver.2's `data_definition.py`. Orbital tags were renamed relative to MultiPie Ver.2:
 f2→fc, f1→fs, f3x→fx, f3y→fy, ga→gc, gb→gs, gc→gc4, i→i3, l→l3, i0→ixy, j→j3. Note that `gc` now means old `ga`.
 Orbitals carry no expressions; `harmonics_key[name]` points into the top harmonics. `data_harmonics.py` still holds
-old-named `orbital_set`/`wannier90_orbital`; use `data_basis` for names. Intentional sign changes versus MultiPie:
+old-named `orbital_set`/`wannier90_orbital`; use `data_basis` for names. Intentional sign changes versus MultiPie Ver.2:
 `gv` and D6h rank-4 `E2g` multiplicity 2 are multiplied by −1. Both carry into D6h-family subgroups and the response
 tensor.
 

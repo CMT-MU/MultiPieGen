@@ -8,7 +8,7 @@
 """
 Response tensors of magnetic point groups in terms of active multipoles (up to rank 4).
 
-Ported from MultiPie (Group.response_tensor_all and Group.response_tensor), without Group: the active multipoles
+Ported from MultiPie Ver.2 (Group.response_tensor_all and Group.response_tensor), without Group: the active multipoles
 are taken from group.pkl and the cartesian-multipole relation and the LaTeX names from info.pkl. The cartesian
 decomposition of tensor components (P0-P4), mp_string and simplify_tensor are those of multipie.util.util_response_tensor.
 
@@ -37,7 +37,7 @@ _u = [(1, 1), (2, 2), (3, 3), (2, 3), (3, 1), (1, 2), (3, 2), (1, 3), (2, 1)]
 _a = [(2, 3), (3, 1), (1, 2)]
 _t = [(1, 1, 1), (2, 2, 2), (3, 3, 3), (2, 2, 3), (3, 3, 1), (1, 1, 2), (2, 3, 3), (3, 1, 1), (1, 2, 2), (1, 2, 3)]
 
-# (rank, opt): (row indices, column indices), as MultiPie Group.response_tensor_all.
+# (rank, opt): (row indices, column indices), as MultiPie Ver.2 Group.response_tensor_all.
 tensor_shape = {
     (0, ""): ([()], [()]),
     (1, ""): ([()], [(i,) for i in _c]),

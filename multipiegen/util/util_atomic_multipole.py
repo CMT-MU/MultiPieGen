@@ -8,7 +8,7 @@
 """
 Atomic multipoles (matrices in the atomic orbital basis) and their point-group SAMB.
 
-Based on MultiPie (others/tools/create_binary/create_data_atomic_multipole.py and
+Based on MultiPie Ver.2 (others/tools/create_binary/create_data_atomic_multipole.py and
 create_data_atomic_multipole_group.py).
 
 - Atomic multipole X_{lm}^{(s)}(k) (X = Q, G, T, M; s = 0, 1; l <= 7) in the spinful LMs or JML basis of
@@ -19,13 +19,13 @@ create_data_atomic_multipole_group.py).
 - Point-group SAMB. Every harmonics (X, l, Gamma, n) of a point group is c T with a top harmonics T of Oh or D6h
   (data_harmonics_mapping) whose u-matrix U_T (spherical m = l..-l) gives the top SAMB sum_m U_T[m] X_{lm}^{(s)}(k)
   for X = Q, T (polar harmonics) or G, M (axial harmonics). Each component is normalized to the Frobenius norm 1
-  (diagonal block) or 1/sqrt(2) (off-diagonal block), which is the Gram-Schmidt of MultiPie, since the components are
+  (diagonal block) or 1/sqrt(2) (off-diagonal block), which is the Gram-Schmidt of MultiPie Ver.2, since the components are
   orthogonal. The SAMB of the point group is c times the top SAMB (key replaced), computed once per top harmonics.
   "jml" is computed from the JML matrices; "lgs" is U_bra^dagger M U_ket from the LMs matrices M, with U the orbitals
   of data_basis.atomic_lgs_basis (atomic_orbital_basis, basis_function u-matrices, spin expanded); "lg" is the
   spinless (s = 0, up-spin) part of "lgs" multiplied by sqrt(2).
 - Key. PGMultipoleType(X, l, Gamma, n, p, s, k, x="q"): n is the multiplicity of the harmonics (X, l, Gamma) (its xyz
-  polynomial, not renumbered unlike MultiPie); p = -1 (no duplicates).
+  polynomial, not renumbered unlike MultiPie Ver.2); p = -1 (no duplicates).
 - Order. X (Q, G, T, M), s, k, l, Gamma (character table), n.
 
 - atomic_multipole (dict)::

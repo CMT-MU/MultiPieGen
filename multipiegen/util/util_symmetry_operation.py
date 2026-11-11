@@ -8,7 +8,7 @@
 """
 Symmetry operation matrices (sympy).
 
-Ported from MultiPie (others/tools/utils/util_symmetry_operation.py and util_symmetry_operation_spherical.py).
+Ported from MultiPie Ver.2 (others/tools/utils/util_symmetry_operation.py and util_symmetry_operation_spherical.py).
 The matrices of the point-group part are cached, because the same operations appear in many groups.
 """
 
