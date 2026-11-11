@@ -92,12 +92,12 @@ Gram–Schmidt basis per (irrep, component), from lower rank, and must yield 48 
   first.** This includes running an `others/creation/create_*.py` script, copying a result into `multipiegen/data/`,
   and editing or reformatting a data table, even when only the order or formatting changes. These tables are
   curated by hand; regenerating them can silently undo manual fixes.
-- `others/` holds non-package material: memo, notebooks, drafts, and `claude/` (an earlier verification pipeline that
-  contains stale absolute paths).
+- `others/` holds non-package material: `creation/` (table generators), `notebooks/`, and `claude/` (verification
+  notes: generation rules, changes from MultiPie Ver.2, the comparison script). `others/archive/` keeps old material
+  (memo, etc, an earlier verification pipeline, old scripts) locally only; it is in `.gitignore` and will be deleted.
+  Do not add files there to git, and do not depend on them.
 - Every new feature also gets a runnable sample `docs/examples/<feature>.py` and a row in `docs/examples/README.md`
   (the docs page `docs/src/examples.md` is generated from that table by `docs/create_pages.py`).
-
-`others/group_theory.py` is known-broken: it imports names that no longer exist in `data_root_cluster`.
 
 ## Branch flow
 
