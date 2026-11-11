@@ -1,9 +1,9 @@
 # 多極子データの生成：アルゴリズム、キー、軌道基底
 
 MultiPieGen が多極子のキーを使うデータをどう作っているか、そしてキーと軌道基底の規則を、1 か所にまとめた確認用の
-メモです（今のところパッケージのドキュメントではありません）。英語版 `generation_rules.md` と同じ内容です。各節に、
-処理を実装しているコードの場所を書いています。「MultiPie」はすべて MultiPie Ver.2 を指します。MultiPie Ver.2 との
-違いを数字つきでまとめたものは `multipie_v2_comparison/README.md` にあります。
+メモです（今のところパッケージのドキュメントではありません）。このパッケージのアルゴリズムだけを説明します。英語版
+`generation_rules.md` と同じ内容です。各節に、処理を実装しているコードの場所を書いています。MultiPie Ver.2 からの
+変更点は、別の文書 `changes_from_multipie_v2_ja.md` にまとめています。
 
 目次：
 
@@ -21,7 +21,7 @@ MultiPieGen が多極子のキーを使うデータをどう作っているか�
 
 ### 1.1 多極子のキー
 
-多極子のキーは、すべて MultiPie の `PGMultipoleType(X, l, Gamma, n, p, s, k, x)` です。対称性に合わせる前の原子多極子
+多極子のキーは、すべて `multipie` パッケージの `PGMultipoleType(X, l, Gamma, n, p, s, k, x)` です。対称性に合わせる前の原子多極子
 には `SphericalMultipoleType(X, l, s, k, x)` を使います。
 
 | 項目 | 意味 |
@@ -29,7 +29,7 @@ MultiPieGen が多極子のキーを使うデータをどう作っているか�
 | `X` | 種類：`Q`（電気）、`G`（電気トロイダル）、`T`（磁気トロイダル）、`M`（磁気）。調和関数と cluster のデータは `Q` と `G` だけ。 |
 | `l` | ランク |
 | `Gamma` | 点群の既約表現（`data_character_table` の名前） |
-| `n` | その点群の調和関数 `(X, l, Gamma)` の多重度。**1 から数え**、ただ 1 つなら `-1`。常に調和関数の xyz の多項式を特定する（MultiPie と違い、振り直さない）。 |
+| `n` | その点群の調和関数 `(X, l, Gamma)` の多重度。**1 から数え**、ただ 1 つなら `-1`。常に調和関数の xyz の多項式を特定する（振り直さない）。 |
 | `p` | 追加の多重度。`(X, l, Gamma, n)` とほかの項目が同じものを番号付けするときだけ使う。ただ 1 つなら `-1` |
 | `s` | 内部ランク（スカラー関数は 0） |
 | `k` | 内部成分、`-s <= k <= s` |
@@ -46,8 +46,7 @@ MultiPieGen が多極子のキーを使うデータをどう作っているか�
 ### 1.2 既約表現
 
 - 並べ替えでは、`data_character_table` の既約表現の並びを正とします。`g` が `u` より先、`'` のまとまりが `''` の
-  まとまりより先です（C3h、D3h、D3h-1、C3h-c をこの順に並べ替えました）。MultiPie は既約表現を名前の文字列で
-  並べています。
+  まとまりより先です（C3h、D3h、D3h-1、C3h-c もこの順です）。
 - 複素の既約表現（`-c` の点群）は名前が `a`/`b` で終わります（`Ega`、`T1ua` など）。実の点群では、複素型の実 2 次元
   既約表現（C3、C4、C6、S4、C3i、C4h、C6h、T、Th の `E` など）を使います。
 
@@ -60,9 +59,7 @@ MultiPieGen が多極子のキーを使うデータをどう作っているか�
 
 ### 1.4 軌道名
 
-軌道名は MultiPie から変えています：f2→fc、f1→fs、f3x→fx、f3y→fy、ga→gc、gb→gs、gc→gc4、i→i3、l→l3、i0→ixy、
-j→j3（`gc` は旧 `ga` を指すようになった点に注意）。名前は `data_basis` が正です。`data_harmonics` には古い名前の表が
-残っています。
+軌道名は `data_basis` が正です（`data_harmonics` には古い名前の表があるので、名前には使いません）。
 
 軌道名は、それぞれ調和関数のキーを指します（`data_basis.harmonics_key`）。tesseral のキーか、Oh/D6h のトップの
 キーです。式と u-matrix は `info["harmonics"]["basis_function"][name] = (式, u-matrix)` で、u-matrix は
@@ -95,11 +92,6 @@ LaTeX の名前：原子の基底には `atomic_latex_name`（`p_{x}`、`f_{z}^{
    を入れ替えたものになります。
    - 実と複素の組み合わせが混在しています。複素の既約表現は名前が `a`/`b` で終わり、1 成分です。
    - 2 次元既約表現の基底は、いちばん単純な `(x, y)` の基底で `C_n` の表現行列が回転行列になるように選んでいます。
-   - MultiPie からの意図的な符号の変更：D6h の rank 4 `E2g` 多重度 2（2 成分とも）を −1 倍しています。これは D6h 系の
-     部分群（rank 4 の E の多重項）と、調和関数から作るデータにそのまま引き継がれます。
-   - 軌道 `gv`（Oh の rank 4 `Eg` の成分 1）も、MultiPie の `gv` に対して −1 倍しています（`data_response_tensor`）。
-     これは軌道（と応答テンソルの多極子）の定義の変更で、トップの調和関数は変わりません。Oh 系の調和関数は
-     MultiPie と一致します。
 2. **対応。** `data_harmonics_mapping[pg] = {"top": top, "Q": {pg_key: (c, top_key)}, "G": {...}}`、`c = ±1`。
    点群の調和関数はトップの調和関数の `c` 倍、`X(pg_key) = c T(top_key)` で、u-matrix は `c U_T` です。
    - 適合関係（`data_compatibility_relation`）から作ります。トップの調和関数の各成分 `(irrep, comp)` は、部分群の
@@ -125,8 +117,7 @@ LaTeX の名前：原子の基底には `atomic_latex_name`（`p_{x}`、`f_{z}^{
    ここで `O_{lm} = sqrt(4 pi/(2l+1)) r^l Y_lm`、`e_n` は内部基底のベクトルで、選んだ内部基底（`InternalBasis`）で
    表します。
 2. **内部基底。** `data_basis.cubic_orbital_basis[s]`（トップが Oh）または `hexagonal_orbital_basis[s]`（トップが D6h）
-   の軌道で、u-matrix は `info["harmonics"]["basis_function"]` から取ります（MultiPie はどの群でも tesseral の基底を
-   使います）。
+   の軌道で、u-matrix は `info["harmonics"]["basis_function"]` から取ります。
 3. **射影。** 群の各調和関数 `(X, l, Gamma, n)`（u-matrix `U`、2 節）と各 k について、`mharm = U^T O_l^{(s)}(k)`。
    多項式の `(dim, 2s+1)` 配列で、各要素は因数分解します。0 になるもの（`w3j = 0`）は除きます。
 4. **内部の種類。** (`X = Q` かつ `s+k` が偶数) または (`X = G` かつ `s+k` が奇数) なら `x = q`、それ以外は `x = g`。
@@ -184,18 +175,16 @@ LaTeX の名前：原子の基底には `atomic_latex_name`（`p_{x}`、`f_{z}^{
 3. (既約表現, 成分) ごとに、ランク、`k = -1, 0, 1`、多重度の順に Gram–Schmidt します。一次従属なものと 0 になる
    ものは除きます。結果：各 `x` について `N` 本。
 4. `f_key` はクラスター上のスカラー関数として変換します（`x = g` では符号 `det R` が付く）。
-5. キー（MultiPie の `bond_a` と同じ形）：`PGMultipoleType(X, l, Gamma, n, p, 0, 0, x)`。`(X, l, Gamma, n)` は元の
+5. キー：`PGMultipoleType(X, l, Gamma, n, p, 0, 0, x)`。`(X, l, Gamma, n)` は元の
    ベクトル基底のキーのもの。`(X, l, Gamma, n)` が同じ多重項には `p = 1, 2, ...`（`k` の順）、ただ 1 つなら `-1`。
    `x` は元のもの。`"source"` に、各キーの元のベクトルのキー（`k` を含む）を入れています。
-6. この作り方（内積を取ってから、この順で Gram–Schmidt）は MultiPieGen 独自のものです。MultiPie は、各ボンド関数に
-   最初に重なる vector SAMB のキーを付けますが、その規則は使いません。
 
 ---
 
 ## 5. 各 Wyckoff のサイトとボンドの cluster SAMB（`cluster_samb.pkl`）
 
 コード：`util_cluster_samb`、`create_binary/create_cluster_samb.py`。範囲：実の点群 37 と空間群 230。`"site"`、
-`"bond_s"`（対称ボンド）、`"bond_a"`（反対称ボンド）。複素の点群と、MultiPie の vector SAMB は作りません。
+`"bond_s"`（対称ボンド）、`"bond_a"`（反対称ボンド）。複素の点群は含みません。
 
 1. **一般点。** 群 `H` の一般点のクラスターは、トップのクラスターの一部です。`H` の点 `i` は、
    `data_op_mapping.op_mapping_d6h_oh_cluster[PG]` の coset 0 の `i` 番目にあるトップの点です。
@@ -210,7 +199,7 @@ LaTeX の名前：原子の基底には `atomic_latex_name`（`p_{x}`、`f_{z}^{
    にある）を使い、`f_j = sum_{i in M_j} f_i` とします。`"bond_a"` では、ボンドの向きを反転させる操作（mapping で
    負の番号）は `-f_i` として足します。
 4. **正規直交化。** `H` の既約表現ごとに Gram–Schmidt します（成分ごとに順に。複素型の実 2 次元既約表現では、
-   別の多重項の成分どうしが直交しないため）。順番は、`"site"` と `"bond_s"` が `[Gamma, l, n, p]`（MultiPie と同じ）、
+   別の多重項の成分どうしが直交しないため）。順番は、`"site"` と `"bond_s"` が `[Gamma, l, n, p]`、
    `"bond_a"` が `[Gamma, l, k, Q/G, n, p]`（`k` は元のベクトル基底のもの）です。一次従属なものと 0 になるものは除き
    ます（数値で選び、残したものを厳密に正規直交化）。各成分は `N` 個のサイト（ボンド）上でノルム 1 です。
 5. **キー。** `"site"` と `"bond_s"`：`PGMultipoleType("Q", l, Gamma, n, p, 0, 0, "q")`。`"bond_a"`：
@@ -240,17 +229,17 @@ LaTeX の名前：原子の基底には `atomic_latex_name`（`p_{x}`、`f_{z}^{
 1. **トップの SAMB。** トップの調和関数 `T`（u-matrix `U_T`、`m = l..-l`）の各成分と、パリティが合う各原子多極子
    （極性の調和関数には `Q, T`、軸性には `G, M`）について、`sum_m U_T[m] X_{lm}^{(s)}(k)` を作り、Frobenius ノルムが
    1（対角ブロック）または `1/sqrt(2)`（非対角ブロック）になるよう正規化します。トップの群ごとに一度だけ計算します。
-2. 成分どうしは直交しています（球テンソルが直交し、`U_T` の列が正規直交なため）。そのため、この正規化は MultiPie の
-   Gram–Schmidt と同じ結果になります。非対角ブロックでは、同じ既約表現の Q と T（G と M）は内積の虚部だけが重なり
-   ます（エルミート共役のブロックと合わせると直交します）。MultiPie も `X` ごとに直交化しています。
+2. 成分どうしは直交しています（球テンソルが直交し、`U_T` の列が正規直交なため）。そのため、この正規化は (`X`, 既約
+   表現) ごとの Gram–Schmidt による正規直交化と同じです。非対角ブロックでは、同じ既約表現の Q と T（G と M）は内積の
+   虚部だけが重なります（エルミート共役のブロックと合わせると直交します）。
 3. **点群。** 群の調和関数 `(X, l, Gamma, n)` の SAMB は、そのトップのキーのトップの SAMB の `c` 倍で
    （`data_harmonics_mapping`）、成分を重ねたものです。
 4. **基底。** `"jml"` は JML の行列から作ります。`"lgs"` は LMs の行列 `M` から `U_bra^dagger M U_ket` で作ります。`U`
    は `data_basis.atomic_lgs_basis` の軌道（`atomic_orbital_basis`、基底関数の u-matrix をスピンに広げたもの）です。
    `"lg"` は `"lgs"` の `s = 0`、上向きスピンの部分に `sqrt(2)` を掛けたものです。
-5. **キー。** `PGMultipoleType(X, l, Gamma, n, -1, s, k, "q")`。`n` は調和関数の多重度（MultiPie と違い振り直さない）。
+5. **キー。** `PGMultipoleType(X, l, Gamma, n, -1, s, k, "q")`。`n` は調和関数の多重度（振り直さない）。
    並びは `Q, G, T, M`、`s`、`k`、`l`、`Gamma`、`n`。
-6. **値。** ブロックごとに `(行列 (dim, n1, n2), ex (dim))`。47 点群すべて（MultiPie は実の 37 群）。
+6. **値。** ブロックごとに `(行列 (dim, n1, n2), ex (dim))`。47 点群すべて。
 
 ---
 
