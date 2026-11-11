@@ -11,7 +11,7 @@ Create binary data of overall information of groups (info.pkl).
 
 Based on MultiPie Ver.2's others/tools/create_binary/create_data_info.py, with
     - data_definition replaced by data_basis (orbital tags renamed), data_harmonics, data_root_cluster,
-    - basis functions taken from the top harmonics (data_top_harmonics_info) through data_basis.harmonics_key,
+    - basis functions taken from the top harmonics (data_top_harmonics, util_top_harmonics) through data_basis.harmonics_key,
     - orbital decomposition (orbital_decomposition) removed,
     - group name list (data_group_name_list) added.
 
@@ -41,12 +41,12 @@ from multipiegen.data.data_basis import (
     harmonics_key,
 )
 from multipiegen.data.data_compatibility_relation import compatibility_relation
-from multipiegen.data.data_group_mpg import mpg_id_set, mpg_tag, mpg_id
-from multipiegen.data.data_group_msg import msg_id_set, msg_tag, msg_id
-from multipiegen.data.data_group_name_list import group_name_list
-from multipiegen.data.data_group_pg import pg_id_set, pg_tag, pg_id
-from multipiegen.data.data_group_sg import sg_id_set, sg_tag, sg_id
-from multipiegen.data.data_harmonics import max_rank, max_s_rank, rank_name
+from multipiegen.util.util_group_data import mpg_id_set, mpg_tag, mpg_id
+from multipiegen.util.util_group_data import msg_id_set, msg_tag, msg_id
+from multipiegen.util.util_group_data import group_name_list
+from multipiegen.util.util_group_data import pg_id_set, pg_tag, pg_id
+from multipiegen.util.util_group_data import sg_id_set, sg_tag, sg_id
+from multipiegen.data.data_basis import max_rank, max_s_rank, rank_name
 from multipiegen.data.data_response_tensor import rt_cartesian_multipole, rt_multipole_list
 from multipiegen.data.data_root_cluster import (
     cluster_scale,
@@ -55,7 +55,7 @@ from multipiegen.data.data_root_cluster import (
     oh_cluster_cart_vector0,
     d6h_cluster_cart_vector0,
 )
-from multipiegen.data.data_top_harmonics_info import top_harmonics_symmetry, top_harmonics_u_matrix
+from multipiegen.util.util_top_harmonics import top_harmonics_symmetry, top_harmonics_u_matrix
 
 info_file = "info"
 

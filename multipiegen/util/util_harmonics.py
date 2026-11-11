@@ -12,7 +12,7 @@ The binary data keyed by PGMultipoleType (multipolar_harmonics.pkl, atomic_multi
 cluster bases) do not hold the expression of the harmonics; look it up here by the key.
 
 - Harmonics. Every harmonics (X, l, Gamma, n) of a point group is c times a top harmonics T of Oh or D6h
-  (data_harmonics_mapping); its expression is c T (data_top_harmonics_info.top_harmonics_symmetry) and its u-matrix is
+  (data_harmonics_mapping); its expression is c T (util_top_harmonics.top_harmonics_symmetry) and its u-matrix is
   c U_T (top_harmonics_u_matrix, rows m = l, l-1, ..., -l, columns the components).
 - Key. PGMultipoleType(X, l, Gamma, n, -1, 0, 0, "q") with X = Q or G. Lookups (harmonics_expression,
   harmonics_u_matrix) accept any PGMultipoleType (or tuple) and use its (X, l, Gamma, n) only, so the keys of the

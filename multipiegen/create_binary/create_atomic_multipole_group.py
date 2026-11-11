@@ -22,7 +22,7 @@ from multipie.util.util_binary import BinaryManager
 
 from multipiegen import __bin_dir__
 from multipiegen.data.data_basis import atomic_rank_block
-from multipiegen.data.data_harmonics_mapping import data_harmonics_mapping
+from multipiegen.util.util_harmonics_mapping import data_harmonics_mapping
 from multipiegen.util.util_atomic_multipole import (
     atomic_multipole_group_file,
     create_atomic_multipole_pg,

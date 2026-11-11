@@ -9,7 +9,7 @@ import sympy as sp
 from multipie.util.util import str_to_sympy
 from multipiegen.create_binary.create_info import create_info
 from multipiegen.data.data_basis import atomic_orbital_basis, cubic_orbital_basis, hexagonal_orbital_basis
-from multipiegen.data.data_top_harmonics_info import top_harmonics_symmetry
+from multipiegen.util.util_top_harmonics import top_harmonics_symmetry
 from multipiegen.util.util_info import load_info
 
 info = load_info()

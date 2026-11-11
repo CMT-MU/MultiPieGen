@@ -86,9 +86,9 @@ Spinful bases (`data_basis`): spin `["u", "d"]`; LM `M = L..-L`; JM `J` ascendin
 
 ## 2. Harmonics of the point groups
 
-Data: `data_top_harmonics_info` (top harmonics), `data_harmonics_mapping` (mapping to each point group).
-Code: `util_harmonics_multipole.pg_harmonics`, and the table generators `others/creation/create_top_harm.py`,
-`create_harmonics_mapping.py`.
+Data: `data_top_harmonics` (top harmonics), `data_compatibility_relation`.
+Code: `util_top_harmonics` (expressions and u-matrices of the top harmonics), `util_harmonics_mapping`
+(`data_harmonics_mapping`, the mapping to each point group), `util_harmonics_multipole.pg_harmonics`.
 
 1. **Top harmonics.** For Oh and D6h, every harmonics up to rank 11 is given as a cartesian polynomial
    (`top_harmonics_symmetry[top][top_key]`) and as its u-matrix to the spherical harmonics
@@ -202,7 +202,7 @@ Code: `util_cluster_samb`, `create_binary/create_cluster_samb.py`. Range: 37 rea
 `"site"`, `"bond_s"` (symmetric bond), `"bond_a"` (anti-symmetric bond). Complex point groups are not included.
 
 1. **General point.** The general-point cluster of a group `H` is a subset of the top cluster: point `i` of `H` is
-   the top point listed at position `i` of coset 0 of `data_op_mapping.op_mapping_d6h_oh_cluster[PG]`.
+   the top point listed at position `i` of coset 0 of `util_op_mapping.op_mapping_d6h_oh_cluster[PG]`.
    - The top basis restricted to these points gives the general-point basis of `H`: `cluster_scalar_basis` for
      `"site"` and `"bond_s"`, and `cluster_bond_basis` (`x = q` only, a complete basis by itself) for `"bond_a"`.
      On the general bond, symmetric and anti-symmetric bonds span the same space.

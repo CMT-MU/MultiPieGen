@@ -6,14 +6,15 @@
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 """
-Wyckoff positions for all point groups (fractional coordinate).
-    point_group: { Wyckoff: (position, site-symmetry) }
+Wyckoff positions for all point groups (fractional coordinate) and space groups (fractional coordinate, conventional
+cell).
+    wyckoff_site_data = { point_group/space_group: { Wyckoff: (position, site-symmetry) } } (point groups first)
 
-- only for standard setting, (unique b axes).
+- only for standard setting, (unique b axes; for space groups origin choice 2, hexagonal axes, abc).
 - positions are in the same order of ITA (BCS).
 """
 
-wyckoff_site_pg = {
+wyckoff_site_data = {
     "C1": {"1a": ("[[x,y,z]]", "1")},
     "Ci": {"1o": ("[[0,0,0]]", "-1"), "2a": ("[[x,y,z],[-x,-y,-z]]", "1")},
     "C2": {"1a": ("[[0,y,0]]", "2"), "2b": ("[[x,y,z],[-x,y,-z]]", "1")},
@@ -295,16 +296,6 @@ wyckoff_site_pg = {
             "1",
         ),
     },
-}
-"""
-Wyckoff positions for all space groups (fractional coordinate, conventional cell).
-    space_group: { Wyckoff: (position, site-symmetry) }
-
-- only for standard setting, (unique b axes, origin choice 2, hexagonal axes, abc).
-- positions are in the same order of ITA (BCS).
-"""
-
-wyckoff_site_sg = {
     "C1^1": {"1a": ("[[x,y,z]]", "1")},
     "Ci^1": {
         "1a": ("[[0,0,0]]", "-1"),
@@ -3318,4 +3309,3 @@ wyckoff_site_sg = {
         ),
     },
 }
-wyckoff_site_data = wyckoff_site_pg | wyckoff_site_sg

@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this is
 
-MultiPieGen (`multipiegen`, repo `hiro-k-phys/mp-newbasis`) is the generator for the new multipole basis of
+MultiPieGen (`multipiegen`, repo `hiro-k-phys/MultiPieGen`) is the generator for the new multipole basis of
 [MultiPie Ver.2](https://github.com/CMT-MU/MultiPie). It holds data tables (`multipiegen/data`) and code that turns them into
 binaries (`multipiegen/binary/*.pkl`) and PDFs (`multipiegen/pdf/`). Those outputs are delivered elsewhere (part of
 the binaries to MultiPie Ver.2, the rest plus the PDFs to a separate repo), so keep binaries in MultiPie Ver.2's `BinaryManager`
@@ -52,7 +52,7 @@ checks that rebuild in memory and compare with the saved `.pkl`, so after changi
 ## Architecture
 
 **Top groups and mapping.** All harmonics are defined once for the two top groups, Oh and D6h
-(`data_top_harmonics_info.top_harmonics_symmetry` / `top_harmonics_u_matrix`). Real and complex combinations are
+(`data_top_harmonics`; `util/util_top_harmonics.top_harmonics_symmetry` / `top_harmonics_u_matrix`). Real and complex combinations are
 mixed there: complex irreps end in `a`/`b`, e.g. `Ega`, `T1ua`. Every one of the 47 point groups
 (32 + 5 settings `-1` + 10 complex `-c`) gets its harmonics through `data_harmonics_mapping[pg] = {"top", "Q": {key:
 (coeff, top_key)}, "G": {...}}`. Polar `Q` and axial `G` of a group come from the same top harmonic, so the axial
@@ -67,8 +67,8 @@ mapping depends on the parity of the top harmonic.
 - Binaries keyed by `PGMultipoleType` do not hold the xyz expression or u-matrix of the harmonics. Look them up by
   `(X, l, Gamma, n)` of the key in `harmonics.pkl` (`util_harmonics.harmonics_expression` / `harmonics_u_matrix`),
   with T -> Q and M -> G.
-- Symmetry-operation mappings in `data_parent_pg/sg` and `data_op_mapping` are 1-based.
-- `data_op_mapping.op_mapping_d6h_oh_cluster` (PG only) maps to the Oh/D6h cluster. An SG reaches the cluster
+- Symmetry-operation mappings in `data_parent_pg/sg` and `util/util_op_mapping` are 1-based.
+- `util_op_mapping.op_mapping_d6h_oh_cluster` (PG only) maps to the Oh/D6h cluster. An SG reaches the cluster
   through its PG: its operations have the PG's point parts in the same order. `op_mapping_parent_sg` maps an SG to a
   top parent SG (221-230, 191-194) with changes of axes, so its point parts can differ. Do not use it to index the
   cluster.
@@ -77,8 +77,7 @@ mapping depends on the parity of the top harmonic.
 
 **Orbitals.** `data_basis.py` replaces MultiPie Ver.2's `data_definition.py`. Orbital tags were renamed relative to MultiPie Ver.2:
 f2→fc, f1→fs, f3x→fx, f3y→fy, ga→gc, gb→gs, gc→gc4, i→i3, l→l3, i0→ixy, j→j3. Note that `gc` now means old `ga`.
-Orbitals carry no expressions; `harmonics_key[name]` points into the top harmonics. `data_harmonics.py` still holds
-old-named `orbital_set`/`wannier90_orbital`; use `data_basis` for names. Intentional sign changes versus MultiPie Ver.2:
+Orbitals carry no expressions; `harmonics_key[name]` points into the top harmonics. Intentional sign changes versus MultiPie Ver.2:
 `gv` and D6h rank-4 `E2g` multiplicity 2 are multiplied by −1. Both carry into D6h-family subgroups and the response
 tensor.
 
@@ -90,7 +89,11 @@ Gram–Schmidt basis per (irrep, component), from lower rank, and must yield 48 
 **Where code goes.**
 - Binary generators go in `multipiegen/create_binary/`, PDF generators in `multipiegen/create_pdf/`. Run them as
   `python -m`, with an `if __name__ == "__main__"` guard. Loaders and reusable logic go in `multipiegen/util/`.
-- The `data_*.py` table generators live in `others/creation/`. They write next to themselves; copy the result into
+- `multipiegen/data` holds only source tables. Data derivable from them are computed in `multipiegen/util`, not stored:
+  `util_group_data` (tags, ids, id sets, group names), `util_top_harmonics`, `util_harmonics_mapping`
+  (`data_harmonics_mapping`), `util_op_mapping`, and `create_group.character_plus`. Keep it that way: do not add a
+  table that can be computed from the others.
+- The remaining `data_*.py` table generators live in `others/creation/`. They write next to themselves; copy the result into
   `multipiegen/data/` when final.
 - **Never overwrite `others/creation/data_*.py` or anything in `multipiegen/data/` without asking the maintainer
   first.** This includes running an `others/creation/create_*.py` script, copying a result into `multipiegen/data/`,

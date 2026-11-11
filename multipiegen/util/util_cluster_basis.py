@@ -41,7 +41,7 @@ from multipiegen.data.data_root_cluster import (
     oh_cluster_cart_site0,
     d6h_cluster_cart_site0,
 )
-from multipiegen.data.data_top_harmonics_info import top_harmonics_symmetry
+from multipiegen.util.util_top_harmonics import top_harmonics_symmetry
 from multipiegen.util.util_harmonics_symbol import is_real_irrep
 
 # ==================================================

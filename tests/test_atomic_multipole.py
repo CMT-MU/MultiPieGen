@@ -11,7 +11,7 @@ import numpy as np
 import pytest
 from multipiegen.data.data_basis import atomic_jm_basis, atomic_lms_basis, atomic_rank_block
 from multipiegen.data.data_character_table import character
-from multipiegen.data.data_harmonics_mapping import data_harmonics_mapping
+from multipiegen.util.util_harmonics_mapping import data_harmonics_mapping
 from multipiegen.util.util_atomic_multipole import (
     atomic_multipole_matrix,
     create_atomic_multipole_pg,

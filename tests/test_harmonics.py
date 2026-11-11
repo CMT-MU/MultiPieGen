@@ -10,7 +10,7 @@ import pickle
 import numpy as np
 import pytest
 import sympy as sp
-from multipiegen.data.data_harmonics_mapping import data_harmonics_mapping
+from multipiegen.util.util_harmonics_mapping import data_harmonics_mapping
 from multipiegen.util.util_atomic_multipole import load_atomic_multipole_group
 from multipiegen.util.util_bond_cluster_basis import load_bond_cluster_basis
 from multipiegen.util.util_cluster_basis import load_cluster_basis

@@ -86,9 +86,9 @@ LaTeX の名前：原子の基底には `atomic_latex_name`（`p_{x}`、`f_{z}^{
 
 ## 2. 点群の調和関数
 
-データ：`data_top_harmonics_info`（トップの調和関数）、`data_harmonics_mapping`（各点群への対応）。
-コード：`util_harmonics_multipole.pg_harmonics`。表の生成スクリプトは `others/creation/create_top_harm.py`、
-`create_harmonics_mapping.py`。
+データ：`data_top_harmonics`（トップの調和関数）、`data_compatibility_relation`。
+コード：`util_top_harmonics`（トップの調和関数の式と u-matrix）、`util_harmonics_mapping`（各点群への対応
+`data_harmonics_mapping`）、`util_harmonics_multipole.pg_harmonics`。
 
 1. **トップの調和関数。** Oh と D6h について、ランク 11 までのすべての調和関数を、デカルト座標の多項式
    （`top_harmonics_symmetry[top][top_key]`）と、球面調和関数への u-matrix（`top_harmonics_u_matrix[top][top_key]`、
@@ -198,7 +198,7 @@ LaTeX の名前：原子の基底には `atomic_latex_name`（`p_{x}`、`f_{z}^{
 `"bond_s"`（対称ボンド）、`"bond_a"`（反対称ボンド）。複素の点群は含みません。
 
 1. **一般点。** 群 `H` の一般点のクラスターは、トップのクラスターの一部です。`H` の点 `i` は、
-   `data_op_mapping.op_mapping_d6h_oh_cluster[PG]` の coset 0 の `i` 番目にあるトップの点です。
+   `util_op_mapping.op_mapping_d6h_oh_cluster[PG]` の coset 0 の `i` 番目にあるトップの点です。
    - トップの基底をこれらの点に制限したものが、`H` の一般点の基底です。`"site"` と `"bond_s"` には
      `cluster_scalar_basis` を、`"bond_a"` には `cluster_bond_basis`（`x = q` だけ。それだけで完全な基底）を使います。
      一般のボンドでは、対称ボンドと反対称ボンドは同じ空間を張ります。
