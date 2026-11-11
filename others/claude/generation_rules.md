@@ -1,9 +1,9 @@
 # Generation of the multipole data: algorithms, keys, and orbital basis
 
 This note collects, in one place, how MultiPieGen builds its multipole-keyed data, and the rules for keys and orbital
-bases. It is a verification note, not part of the package docs (yet). Each section names the code that does the work.
-"MultiPie" means MultiPie Ver.2 throughout. The differences from MultiPie Ver.2, with numbers, are in
-`multipie_v2_comparison/README.md` (in Japanese). A Japanese version of this note is `generation_rules_ja.md`.
+bases. It describes the algorithms of this package only. It is a verification note, not part of the package docs
+(yet). Each section names the code that does the work. A Japanese version is `generation_rules_ja.md`. The changes
+from MultiPie Ver.2 are collected separately in `changes_from_multipie_v2.md`.
 
 Contents:
 
@@ -21,7 +21,7 @@ Contents:
 
 ### 1.1 Multipole key
 
-All multipoles are keyed by MultiPie's `PGMultipoleType(X, l, Gamma, n, p, s, k, x)`. `SphericalMultipoleType(X, l, s, k,
+All multipoles are keyed by `PGMultipoleType(X, l, Gamma, n, p, s, k, x)` of the `multipie` package. `SphericalMultipoleType(X, l, s, k,
 x)` is used for the atomic multipoles before symmetry adaptation.
 
 | field | meaning |
@@ -29,7 +29,7 @@ x)` is used for the atomic multipoles before symmetry adaptation.
 | `X` | type: `Q` (electric), `G` (electric toroidal), `T` (magnetic toroidal), `M` (magnetic). The harmonics and the cluster data use `Q`/`G` only. |
 | `l` | rank |
 | `Gamma` | irrep of the point group (name of `data_character_table`) |
-| `n` | multiplicity of the harmonics `(X, l, Gamma)` of the point group, **1-based**, `-1` if unique. It always identifies the xyz polynomial of the harmonics (never renumbered, unlike MultiPie). |
+| `n` | multiplicity of the harmonics `(X, l, Gamma)` of the point group, **1-based**, `-1` if unique. It always identifies the xyz polynomial of the harmonics (never renumbered). |
 | `p` | additional multiplicity, used only to number entries that share `(X, l, Gamma, n)` and the other fields; `-1` if unique |
 | `s` | internal rank (0 for scalar functions) |
 | `k` | internal component, `-s <= k <= s` |
@@ -46,7 +46,7 @@ Other keys:
 ### 1.2 Irreps
 
 - The order of irreps in `data_character_table` is authoritative for sorting: `g` before `u`, and the `'` block
-  before the `''` block (C3h, D3h, D3h-1, C3h-c were reordered). MultiPie sorts irreps by their names instead.
+  before the `''` block (C3h, D3h, D3h-1, C3h-c are in this order).
 - Complex irreps (the `-c` point groups) end in `a`/`b`, e.g. `Ega`, `T1ua`. Real 2D irreps of complex type (e.g. `E`
   of C3, C4, C6, S4, C3i, C4h, C6h, T, Th) are used in the real point groups.
 
@@ -59,9 +59,8 @@ Other keys:
 
 ### 1.4 Orbital names
 
-Orbital tags were renamed from MultiPie: f2→fc, f1→fs, f3x→fx, f3y→fy, ga→gc, gb→gs, gc→gc4, i→i3, l→l3, i0→ixy,
-j→j3 (note: `gc` now means the old `ga`). `data_basis` is the source of the names; `data_harmonics` still holds
-old-named tables.
+`data_basis` is the source of the orbital names (`data_harmonics` holds tables with older names; do not use them for
+names).
 
 Each orbital name points to a harmonics key (`data_basis.harmonics_key`): a tesseral key, or an Oh/D6h top key.
 Its expression and u-matrix are `info["harmonics"]["basis_function"][name] = (expression, u-matrix)`, where the
@@ -95,11 +94,6 @@ Code: `util_harmonics_multipole.pg_harmonics`, and the table generators `others/
    - Real and complex combinations are mixed: complex irreps end in `a`/`b` and have a single component.
    - The basis of each 2D irrep is chosen so that the simplest `(x, y)` basis gives representation matrices of `C_n`
      equal to rotation matrices.
-   - Intentional sign change from MultiPie: D6h rank-4 `E2g` multiplicity 2 (both components) is multiplied by -1.
-     It carries into the D6h-family subgroups (rank-4 E multiplets) and the data built on the harmonics.
-   - The orbital `gv` (Oh rank-4 `Eg`, component 1) is also multiplied by -1 relative to MultiPie's `gv`
-     (`data_response_tensor`). This changes the orbital (and the response-tensor multipole), not the top harmonics:
-     the harmonics of the Oh family agree with MultiPie.
 2. **Mapping.** `data_harmonics_mapping[pg] = {"top": top, "Q": {pg_key: (c, top_key)}, "G": {...}}` with `c = ±1`.
    A harmonics of the point group is `c` times a top harmonics, `X(pg_key) = c T(top_key)`, and its u-matrix is
    `c U_T`.
@@ -126,8 +120,7 @@ Code: `util_harmonics_multipole.create_multipolar_harmonics`, `util_multipolar_h
    `O_{lm} = sqrt(4 pi/(2l+1)) r^l Y_lm` and `e_n` are the internal basis vectors, expressed in the chosen internal
    basis (`InternalBasis`).
 2. **Internal basis.** The orbitals of `data_basis.cubic_orbital_basis[s]` (top Oh) or `hexagonal_orbital_basis[s]`
-   (top D6h), with their u-matrices from `info["harmonics"]["basis_function"]`. (MultiPie uses the tesseral basis
-   for all groups.)
+   (top D6h), with their u-matrices from `info["harmonics"]["basis_function"]`.
 3. **Projection.** For every harmonics `(X, l, Gamma, n)` of the group with u-matrix `U` (section 2) and every k,
    `mharm = U^T O_l^{(s)}(k)`, a `(dim, 2s+1)` array of polynomials (each element factorized). Vanishing ones are
    dropped (`w3j = 0`).
@@ -188,19 +181,16 @@ An intermediate basis for the bond cluster basis.
 3. Gram-Schmidt within each (irrep, component) in the order rank, `k = -1, 0, 1`, multiplicity; dependent and
    vanishing ones are dropped. Result: `N` vectors for each `x`.
 4. `f_key` transforms as a scalar function on the cluster, with the sign `det R` for `x = g`.
-5. Key (as MultiPie's `bond_a`): `PGMultipoleType(X, l, Gamma, n, p, 0, 0, x)`; `(X, l, Gamma, n)` from the
+5. Key: `PGMultipoleType(X, l, Gamma, n, p, 0, 0, x)`; `(X, l, Gamma, n)` from the
    source vector key; `p = 1, 2, ...` for multiplets sharing `(X, l, Gamma, n)` (in `k` order), `-1` if unique; `x`
    of the source. `"source"` maps each key to its vector key (with `k`).
-6. The construction is MultiPieGen's own (contract, then Gram-Schmidt in this order). MultiPie instead keys each
-   bond function by the first overlapping vector SAMB; that rule is not used.
 
 ---
 
 ## 5. Cluster SAMB of each Wyckoff site and bond (`cluster_samb.pkl`)
 
 Code: `util_cluster_samb`, `create_binary/create_cluster_samb.py`. Range: 37 real point groups and 230 space groups;
-`"site"`, `"bond_s"` (symmetric bond), `"bond_a"` (anti-symmetric bond). Complex point groups and the vector SAMB of
-MultiPie are not made.
+`"site"`, `"bond_s"` (symmetric bond), `"bond_a"` (anti-symmetric bond). Complex point groups are not included.
 
 1. **General point.** The general-point cluster of a group `H` is a subset of the top cluster: point `i` of `H` is
    the top point listed at position `i` of coset 0 of `data_op_mapping.op_mapping_d6h_oh_cluster[PG]`.
@@ -217,7 +207,7 @@ MultiPie are not made.
    (negative number in the mapping) contributes `-f_i`.
 4. **Orthonormalization.** Gram-Schmidt within each irrep of `H` (component by component; components of different
    multiplets of a real 2D irrep of complex type are not orthogonal), in the order `[Gamma, l, n, p]` for `"site"`
-   and `"bond_s"` (as MultiPie), and `[Gamma, l, k, Q/G, n, p]` for `"bond_a"` (`k` of the source vector basis).
+   and `"bond_s"`, and `[Gamma, l, k, Q/G, n, p]` for `"bond_a"` (`k` of the source vector basis).
    Dependent and vanishing ones are dropped (selected numerically, then orthonormalized exactly). Each component
    has norm 1 on the `N` sites (bonds).
 5. **Key.** `"site"`, `"bond_s"`: `PGMultipoleType("Q", l, Gamma, n, p, 0, 0, "q")`. `"bond_a"`: keys of
@@ -248,17 +238,17 @@ Code: `util_atomic_multipole`, `create_binary/create_atomic_multipole.py`,
    with matching parity (`Q, T` for polar harmonics, `G, M` for axial), `sum_m U_T[m] X_{lm}^{(s)}(k)`, normalized
    to the Frobenius norm 1 (diagonal block) or `1/sqrt(2)` (off-diagonal block). Computed once per top group.
 2. The components are orthogonal (the spherical tensors are orthogonal and the `U_T` columns orthonormal), so this
-   normalization equals MultiPie's Gram-Schmidt. In an off-diagonal block, Q-T (and G-M) of the same irrep overlap
-   only in the imaginary part (they become orthogonal with the hermitian conjugate block); MultiPie orthogonalizes
-   per `X`, too.
+   normalization is the Gram-Schmidt orthonormalization within each (`X`, irrep). In an off-diagonal block, Q-T (and
+   G-M) of the same irrep overlap only in the imaginary part (they become orthogonal with the hermitian conjugate
+   block).
 3. **Point group.** The SAMB of a harmonics `(X, l, Gamma, n)` of the group is `c` times the top SAMB of its top key
    (`data_harmonics_mapping`), with the components stacked.
 4. **Bases.** `"jml"` from the JML matrices. `"lgs"` is `U_bra^dagger M U_ket` from the LMs matrices, with `U` the
    orbitals of `data_basis.atomic_lgs_basis` (`atomic_orbital_basis`, basis-function u-matrices, spin expanded).
    `"lg"` is the `s = 0`, up-spin part of `"lgs"` times `sqrt(2)`.
-5. **Key.** `PGMultipoleType(X, l, Gamma, n, -1, s, k, "q")`; `n` is the harmonics multiplicity (not renumbered,
-   unlike MultiPie). Order `Q, G, T, M`, `s`, `k`, `l`, `Gamma`, `n`.
-6. **Value.** `(matrix (dim, n1, n2), ex (dim))` for each block. All 47 point groups (MultiPie: 37 real ones).
+5. **Key.** `PGMultipoleType(X, l, Gamma, n, -1, s, k, "q")`; `n` is the harmonics multiplicity (not renumbered).
+   Order `Q, G, T, M`, `s`, `k`, `l`, `Gamma`, `n`.
+6. **Value.** `(matrix (dim, n1, n2), ex (dim))` for each block. All 47 point groups.
 
 ---
 
