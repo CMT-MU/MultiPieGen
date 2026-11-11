@@ -124,7 +124,7 @@ $$
 
 - $\mathbb{Q}_{0}^{(a)}(A_{1g}) = \frac{1}{\sqrt{3}}\,\mathrm{diag}(1, 1, 1)$：電荷。
 - $\mathbb{Q}_{2}^{(a)}(E_{g}) = \left(\frac{1}{\sqrt{6}}\,\mathrm{diag}(-1, -1, 2),\ \frac{1}{\sqrt{2}}\,\mathrm{diag}(1, -1, 0)\right)$：軌道の四極子。
-- $\mathbb{M}_{1}^{(a)}(T_{1g})$：$(l_x, l_y, l_z)/\sqrt{2}$、軌道角運動量。例えば `x` 成分は $\langle p_y | \cdot | p_z \rangle = -i/\sqrt{2}$。
+- $\mathbb{M}_{1}^{(a)}(T_{1g})$：$(l_x, l_y, l_z)/\sqrt{2}$、軌道角運動量。例えば `x` 成分は $l_x/\sqrt{2}$ で、その行列要素は $\langle p_y | l_x | p_z \rangle / \sqrt{2} = -i/\sqrt{2}$ です。
 
 スピンを含む s 軌道（`lgs`、ブロック `(0, 0)`、基底 `(s, u), (s, d)`）では、$\mathbb{Q}_{0}^{(a)}(A_{1g})$ は $\frac{1}{\sqrt{2}}\,\mathbb{1}$、$\mathbb{M}_{1}^{(1,-1;a)}(T_{1g})$ は $(\sigma_x, \sigma_y, \sigma_z)/\sqrt{2}$、つまりスピンです。
 

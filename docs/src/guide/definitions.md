@@ -164,8 +164,8 @@ basis, adapted to the point group.
 - $\mathbb{Q}_{0}^{(a)}(A_{1g}) = \frac{1}{\sqrt{3}}\,\mathrm{diag}(1, 1, 1)$, the charge;
 - $\mathbb{Q}_{2}^{(a)}(E_{g}) = \left(\frac{1}{\sqrt{6}}\,\mathrm{diag}(-1, -1, 2),\ \frac{1}{\sqrt{2}}\,\mathrm{diag}(1, -1, 0)\right)$, the
   orbital quadrupole;
-- $\mathbb{M}_{1}^{(a)}(T_{1g})$: $(l_x, l_y, l_z)/\sqrt{2}$, the orbital angular momentum, e.g. the `x` component has
-  $\langle p_y | \cdot | p_z \rangle = -i/\sqrt{2}$.
+- $\mathbb{M}_{1}^{(a)}(T_{1g})$: $(l_x, l_y, l_z)/\sqrt{2}$, the orbital angular momentum, e.g. the `x` component is
+  $l_x/\sqrt{2}$, with the matrix element $\langle p_y | l_x | p_z \rangle / \sqrt{2} = -i/\sqrt{2}$.
 
 For the s orbital with spin (`lgs`, block `(0, 0)`, basis `(s, u), (s, d)`): $\mathbb{Q}_{0}^{(a)}(A_{1g})$ is
 $\frac{1}{\sqrt{2}}\,\mathbb{1}$, and $\mathbb{M}_{1}^{(1,-1;a)}(T_{1g})$ is $(\sigma_x, \sigma_y, \sigma_z)/\sqrt{2}$, the
