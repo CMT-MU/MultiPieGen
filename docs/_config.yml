@@ -37,7 +37,7 @@ html:
 # ==================================================
 # Information about where the book exists on the web
 repository:
-  url: https://github.com/hiro-k-phys/mp-newbasis.git
+  url: https://github.com/hiro-k-phys/MultiPieGen.git
   branch: main
 
 # ==================================================

@@ -1,6 +1,6 @@
 # MultiPieGen
 
-[![test](https://github.com/hiro-k-phys/mp-newbasis/actions/workflows/test.yml/badge.svg)](https://github.com/hiro-k-phys/mp-newbasis/actions/workflows/test.yml)
+[![test](https://github.com/hiro-k-phys/MultiPieGen/actions/workflows/test.yml/badge.svg)](https://github.com/hiro-k-phys/MultiPieGen/actions/workflows/test.yml)
 
 Generation code and data for the new multipole basis of [MultiPie Ver.2](https://github.com/CMT-MU/MultiPie).
 MultiPie in this package and its documentation always means MultiPie Ver.2.
