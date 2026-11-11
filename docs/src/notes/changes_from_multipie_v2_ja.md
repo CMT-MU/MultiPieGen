@@ -43,7 +43,7 @@ orphan: true
 
 ## 2. 点群の調和関数
 
-- Oh と D6h について一度だけ定義し（`data_top_harmonics_info`）、`data_harmonics_mapping` で 47 点群に対応させます
+- Oh と D6h について一度だけ定義し（`data_top_harmonics`、`util_top_harmonics`）、`data_harmonics_mapping` で 47 点群に対応させます
   （トップの調和関数の `c = ±1` 倍）。MultiPie Ver.2 は各点群の調和関数を `harmonics.pkl` に持っています。
 - 結果：キー `(X, l, Gamma, n)` は 47 群すべてで同じです（rank ≤ 11）。32 多重項で符号が逆で、すべて `E2g` の符号の
   変更（1 節）によるものです。
@@ -117,13 +117,19 @@ orphan: true
 
 | 項目 | MultiPie Ver.2 | MultiPieGen |
 |---|---|---|
-| 点群の `symmetry_operation["mapping"]` | 積表から作る右剰余類 `H g` | 親の群をたどる左剰余類 `g H`（`data_op_mapping.op_mapping_d6h_oh_cluster`） |
+| 点群の `symmetry_operation["mapping"]` | 積表から作る右剰余類 `H g` | 親の群をたどる左剰余類 `g H`（`util_op_mapping.op_mapping_d6h_oh_cluster`） |
 | 空間群 | なし | その点群の対応（空間群の操作は、点群と同じ点操作を同じ順で持つ） |
 | 空間群から親の空間群へ | なし | `op_mapping_parent_sg`（軸の変換を含む。クラスターには使わない） |
 
 ## 8. そのほかのデータ
 
 - 表現行列：47 点群の 241 既約表現すべてで同じです。
+- `group.pkl` の指標のデータにある既約表現の積（polar–axial の対応、対称積、反対称積）：データ表に持たず、指標から
+  計算します（`create_group.character_plus`）。MultiPie Ver.2 との違いは 2 つです。
+  - 誤りの修正：C4 と S4 の E、C4h の Eg と Eu（複素型の実 2 次元既約表現）で、MultiPie Ver.2 は対称積を 2A + B、
+    反対称積を B としています。正しくは A + 2B と A です。基底 (x, y) で、x² + y² が A、x² − y² と xy が B で、
+    x₁y₂ − y₁x₂ は C4 で不変です（E = Ea + Eb で、Ea⊗Ea = Eb⊗Eb = B、Ea⊗Eb = A）。
+  - polar–axial の対応の並びを、指標表の順にしました（10 群で並びが違っていました）。
 - MPG の active multipole（`group.pkl`）：軌道名を対応させれば同じです（157 群のうち 51 群で軌道名が変わっている。
   例：`Qf1` → `Qfs`）。
 - 応答テンソル（`response_tensor.pkl`）：MultiPie Ver.2 の `Group.response_tensor_all` と、多極子の名前以外は同じです

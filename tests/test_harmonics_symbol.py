@@ -6,7 +6,7 @@
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 import pytest
-from multipiegen.data.data_group_pg import pg_id_set, pg_tag
+from multipiegen.util.util_group_data import pg_id_set, pg_tag
 from multipiegen.util.util_harmonics_symbol import harmonics_symbol_table, polar_to_axial, multipole_symbol, irrep_latex
 
 all_pg = [pg_tag[i] for i in pg_id_set["all"] + pg_id_set["complex"]]

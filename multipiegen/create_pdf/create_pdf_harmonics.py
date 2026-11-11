@@ -19,7 +19,7 @@ import os
 from multipie import Group
 from multipie.util.util_pdf_latex import PDFviaLaTeX
 from multipiegen import __top_dir__
-from multipiegen.data.data_group_pg import pg_id_set, pg_tag
+from multipiegen.util.util_group_data import pg_id_set, pg_tag
 from multipiegen.util.util_harmonics_symbol import harmonics_symbol_table
 
 pdfdir = os.path.join(__top_dir__, "multipiegen", "pdf")

@@ -181,25 +181,19 @@ def create_examples():
 # ==================================================
 data_content = {
     "data_basis.py": "orbital and basis definitions: atomic orbitals, spin, LM/JM/LMs/Lgs basis, bra-ket blocks, "
-    "LaTeX names, Wannier90 aliases, cubic/hexagonal orbitals (internal basis of multipolar harmonics), harmonics keys",
+    "LaTeX names, Wannier90 aliases, cubic/hexagonal orbitals (internal basis of multipolar harmonics), harmonics keys, "
+    "max ranks and rank names",
     "data_character_table.py": "character tables of all 47 point groups",
     "data_compatibility_relation.py": "compatibility relations of the Oh and D6h subgroups",
-    "data_coset_so.py": "symmetry operations of the cosets to the parent group",
     "data_group_pg.py": "group information of the point groups",
     "data_group_sg.py": "group information of the space groups",
     "data_group_mpg.py": "group information of the magnetic point groups",
     "data_group_msg.py": "group information of the magnetic space groups",
-    "data_group_name_list.py": "names of all groups (directory, markdown, LaTeX names)",
-    "data_harmonics.py": "definition of harmonics (old orbital names, use data_basis for names)",
-    "data_harmonics_mapping.py": "mapping of the harmonics of each point group to the top harmonics (Oh, D6h)",
-    "data_op_mapping.py": "mapping of symmetry operations to the Oh/D6h cluster (PG), the parent SG (SG), "
-    "and the root cluster",
     "data_parent_pg.py": "parent point groups of each point group",
     "data_parent_sg.py": "parent space groups of each space group",
     "data_response_tensor.py": "multipoles in the response tensors and their cartesian components",
-    "data_root_cluster.py": "root cluster, Oh and D6h clusters with the representative site and vector",
+    "data_root_cluster.py": "Oh and D6h clusters with the representative site and vector",
     "data_top_harmonics.py": "harmonics of the top groups (Oh, D6h)",
-    "data_top_harmonics_info.py": "symmetry (cartesian expression) and u-matrix of the top harmonics",
     "data_wyckoff_site.py": "Wyckoff sites of the point and space groups",
     "data_wyckoff_bond_sym.py": "Wyckoff bonds of the point and space groups with the bond symmetry",
     "data_wyckoff_mpg.py": "Wyckoff sites of the magnetic point groups",
@@ -212,7 +206,6 @@ data_from_multipie = [
     "data_group_msg.py",
     "data_group_pg.py",
     "data_group_sg.py",
-    "data_group_name_list.py",
     "data_top_harmonics.py",
     "data_wyckoff_site.py",
     "data_wyckoff_bond_sym.py",
@@ -225,26 +218,14 @@ data_var_note = {
     ("data_basis.py", "cubic_basis"): "spinful basis order of cubic_orbital_basis",
     ("data_basis.py", "hexagonal_basis"): "spinful basis order of hexagonal_orbital_basis",
     ("data_character_table.py", "character"): "{ PG: ( [[SO in conjugacy class]], { irrep: [character] } ) }",
-    ("data_character_table.py", "character_plus"): '{ PG: { "polar_axial": { irrep: irrep }, '
-    '"symmetric_product": { (irrep1, irrep2): [(n, irrep)] }, "anti_symmetric_product": { irrep: [(n, irrep)] } } }',
     ("data_compatibility_relation.py", "compatibility_relation"): "{ PG: (top PG, { (top irrep, comp): ((polar irrep, "
     "comp, coeff), (axial irrep, comp, coeff)) }) }",
-    ("data_group_name_list.py", "group_name_list"): "{ PG/SG/MPG/MSG: { id: (dir_name, md_name, no, tag, name, PG_id, "
-    "SG_id, MPG_id, MSG_id) } }",
-    ("data_harmonics_mapping.py", "data_harmonics_mapping"): '{ PG: { "top": "Oh/D6h", "Q/G": { pg_harm_key: '
-    "(coeff, top_harm_key) } } }",
     ("data_top_harmonics.py", "top_harmonics_tag"): "tags of the top harmonics",
     ("data_top_harmonics.py", "top_harmonics"): "top harmonics (cartesian expression) of Oh and D6h",
-    ("data_top_harmonics_info.py", "top_harmonics_symmetry"): '{ "tesseral/Oh/D6h": { tess_key/top_key: symmetry '
-    "(cartesian expression) } }",
-    ("data_top_harmonics_info.py", "top_harmonics_u_matrix"): '{ "tesseral/Oh/D6h": { tess_key/top_key: u-matrix '
-    "<m|gamma> } }",
     ("data_wyckoff_bond_sym.py", "wyckoff_bond_data"): "{ group: { Wyckoff: (vector, center, mapping, bond_symmetry) } }",
     ("data_wyckoff_mpg.py", "wyckoff_mpg_data"): "{ MPG_id: { Wyckoff: (position, site-symmetry) } }",
     ("data_wyckoff_msg.py", "wyckoff_msg_data"): "{ MSG_id: { Wyckoff: (position, site-symmetry) } }",
-    ("data_wyckoff_site.py", "wyckoff_site_pg"): "{ PG: { Wyckoff: (position, site-symmetry) } }",
-    ("data_wyckoff_site.py", "wyckoff_site_sg"): "{ SG: { Wyckoff: (position, site-symmetry) } }",
-    ("data_wyckoff_site.py", "wyckoff_site_data"): "wyckoff_site_pg and wyckoff_site_sg together",
+    ("data_wyckoff_site.py", "wyckoff_site_data"): "{ PG/SG: { Wyckoff: (position, site-symmetry) } } (point groups first)",
 }
 
 binary_content = [
@@ -383,6 +364,19 @@ def create_data_page():
         "them are first created by a script in `others/creation` (it writes next to itself, and the result is copied "
         'into `multipiegen/data`). "origin" is "MultiPie Ver.2.4.0" for the tables taken from MultiPie Ver.2.4.0 '
         '(some of them modified), and "new" otherwise.',
+        "",
+        "Data that can be derived from these tables are computed in `multipiegen` instead of being stored:",
+        "",
+        "| data | computed in | from |",
+        "|---|---|---|",
+        "| `*_tag`, `*_id`, `*_id_set`, `group_name_list` | `util/util_group_data` | `*_info` of `data_group_pg/sg/mpg/msg` |",
+        "| `top_harmonics_symmetry`, `top_harmonics_u_matrix` | `util/util_top_harmonics` | `data_top_harmonics` "
+        "(tesseral part from the multipolar harmonics) |",
+        "| `data_harmonics_mapping` | `util/util_harmonics_mapping` | `data_compatibility_relation`, "
+        "`data_top_harmonics.top_harmonics_tag` |",
+        "| `op_mapping_d6h_oh_cluster`, `op_mapping_parent_sg` | `util/util_op_mapping` | `data_parent_pg`, `data_parent_sg` |",
+        "| polar-axial conversion, symmetric and anti-symmetric products | `create_binary/create_group.character_plus` | "
+        "`data_character_table` and the symmetry operations |",
         "",
         "| file | content | origin | created by | used by |",
         "|---|---|---|---|---|",

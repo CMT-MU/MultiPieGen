@@ -10,7 +10,7 @@ import pickle
 import numpy as np
 import pytest
 from multipiegen.data.data_character_table import character
-from multipiegen.data.data_op_mapping import op_mapping_d6h_oh_cluster
+from multipiegen.util.util_op_mapping import op_mapping_d6h_oh_cluster
 from multipiegen.util.util_cluster_samb import create_cluster_samb, load_cluster_samb
 from multipiegen.util.util_group import load_group
 from multipiegen.util.util_harmonics import harmonics_expression

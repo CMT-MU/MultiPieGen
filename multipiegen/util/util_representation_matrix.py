@@ -28,8 +28,8 @@ import sympy as sp
 from multipie.util.util import str_to_sympy
 
 from multipiegen.data.data_character_table import character
-from multipiegen.data.data_harmonics_mapping import data_harmonics_mapping
-from multipiegen.data.data_top_harmonics_info import top_harmonics_symmetry
+from multipiegen.util.util_harmonics_mapping import data_harmonics_mapping
+from multipiegen.util.util_top_harmonics import top_harmonics_symmetry
 from multipiegen.util.util_group import load_group
 from multipiegen.util.util_info import load_info
 

@@ -14,7 +14,7 @@ Based on MultiPie Ver.2 (others/tools/create_binary/create_data_group.py, create
 create_data_group_bond.py), which are merged here. Differences from MultiPie Ver.2:
 
     - the representative site/vector are those of the new root cluster (info.pkl).
-    - "mapping" of symmetry operation is the mapping to the Oh/D6h cluster (data_op_mapping), for PG and SG.
+    - "mapping" of symmetry operation is the mapping to the Oh/D6h cluster (util_op_mapping), for PG and SG.
     - Wyckoff bond has "symmetry" (bond symmetry).
     - complex PG ("-c") has all data, copied from the real PG except for the character.
     - all sympy values are stored in a simple form (simplify_value).
@@ -43,12 +43,12 @@ from multipie.util.util_dict import Dict
 from multipie.util.util_tag import TagIrrep
 
 from multipiegen import __bin_dir__
-from multipiegen.data.data_character_table import character, character_plus
+from multipiegen.data.data_character_table import character
 from multipiegen.data.data_group_mpg import mpg_info
 from multipiegen.data.data_group_msg import msg_info
 from multipiegen.data.data_group_pg import pg_info
 from multipiegen.data.data_group_sg import sg_info
-from multipiegen.data.data_op_mapping import op_mapping_d6h_oh_cluster
+from multipiegen.util.util_op_mapping import op_mapping_d6h_oh_cluster
 from multipiegen.data.data_wyckoff_bond_sym import wyckoff_bond_data
 from multipiegen.data.data_wyckoff_mpg import wyckoff_mpg_data
 from multipiegen.data.data_wyckoff_msg import wyckoff_msg_data
@@ -93,7 +93,7 @@ h_group = """
       - (X,s) (str,int): ([ndarray(2s+1,2s+1,sympy)]) list of SO matrix.
     - "product" (str): (dict) product table.
       - (SO_tag1,SO_tag2) (str,str): (str) SO_tag of product, SO1 SO2.
-    - "mapping" (str): (dict) mapping of SO to the Oh/D6h cluster (data_op_mapping).
+    - "mapping" (str): (dict) mapping of SO to the Oh/D6h cluster (util_op_mapping).
       - "top" (str): (str) top group, "Oh" or "D6h".
       - "mapping" (str): ([[int]]) mapping[coset][i] = SO number (from 1) of top group for i-th SO of group.
     NOTE:
@@ -167,7 +167,7 @@ h_group = """
     - "plus_set" (str): (ndarray(n,3,sympy)) list of plus set vector (fractional, conventional).
     - "so_matrix" (str): (Dict) dict of SO matrix (X="Q/G", s=0,1, cartesian).
       - (X,s) (str,int): ([ndarray(2s+1,2s+1,sympy)]) list of SO matrix.
-    - "mapping" (str): (dict) mapping of SO to the Oh/D6h cluster (that of the PG, data_op_mapping).
+    - "mapping" (str): (dict) mapping of SO to the Oh/D6h cluster (that of the PG, util_op_mapping).
       - "top" (str): (str) top group, "Oh" or "D6h".
       - "mapping" (str): ([[int]]) mapping[coset][i] = SO number (from 1) of top group for i-th SO of group.
     NOTE:
@@ -421,22 +421,77 @@ def create_m_symmetry_operation(g_info):
 
 
 # ==================================================
-def create_character(tag, so_tag):
+def character_plus(table, conjugacy, so):
+    """
+    Polar-axial conversion and symmetric and anti-symmetric products of irreps, from the characters.
+
+    Args:
+        table (dict): {irrep: [character of each conjugacy class]} (sympy).
+        conjugacy (list): [[SO tags of each conjugacy class]].
+        so (dict): symmetry operation ("tag", "det", "product").
+
+    Returns:
+        - (dict) -- {"polar_axial": {irrep: irrep}, "symmetric_product": {(irrep1, irrep2): [(n, irrep)]},
+          "anti_symmetric_product": {irrep: [(n, irrep)]}}.
+
+    Notes:
+        - polar_axial: the irrep whose characters are det(g) times those of the irrep.
+        - symmetric_product: decomposition of irrep1 x irrep2 (for irrep1 = irrep2, the symmetric part with characters
+          (chi(g)^2 + chi(g^2))/2); anti_symmetric_product: the anti-symmetric part, (chi(g)^2 - chi(g^2))/2.
+        - n = <chi_irrep, chi> / <chi_irrep, chi_irrep>, so that a real irrep of complex type (e.g. E of C4, a pair of
+          complex 1D irreps) is counted once.
+    """
+    irreps = list(table)
+    chi = {ir: [sp.expand(sp.S(c).subs(_wp_wm)) for c in v] for ir, v in table.items()}
+    size = [len(c) for c in conjugacy]
+    order = sum(size)
+    cls = {t: i for i, c in enumerate(conjugacy) for t in c}
+    det = dict(zip(so["tag"], so["det"]))
+    sq = [cls[so["product"][(c[0], c[0])]] for c in conjugacy]
+    inner = lambda a, b: sp.nsimplify(sp.expand(sum(n * sp.conjugate(x) * y for n, x, y in zip(size, a, b)) / order))
+
+    def decompose(v):
+        res = []
+        for ir in irreps:
+            n = sp.nsimplify(inner(chi[ir], v) / inner(chi[ir], chi[ir]))
+            if n != 0:
+                res.append((int(n), ir))
+        return res
+
+    def find(v):
+        return next(ir for ir in irreps if all(sp.expand(a - b) == 0 for a, b in zip(chi[ir], v)))
+
+    polar_axial = {ir: find([det[c[0]] * x for c, x in zip(conjugacy, chi[ir])]) for ir in irreps}
+    sym = {}
+    for a in irreps:
+        for b in irreps:
+            if a == b:
+                v = [(x * x + chi[a][sq[i]]) / 2 for i, x in enumerate(chi[a])]
+            else:
+                v = [x * y for x, y in zip(chi[a], chi[b])]
+            sym[(a, b)] = decompose(v)
+    anti = {a: decompose([(x * x - chi[a][sq[i]]) / 2 for i, x in enumerate(chi[a])]) for a in irreps}
+    return {"polar_axial": polar_axial, "symmetric_product": sym, "anti_symmetric_product": anti}
+
+
+# ==================================================
+def create_character(tag, so):
     """
     Character of PG.
 
     Args:
         tag (str): PG tag (with "-c" for complex PG).
-        so_tag (list): SO tags.
+        so (dict): symmetry operation ("tag", "det", "product").
 
     Returns:
         - (dict) -- character.
     """
+    so_tag = so["tag"]
     conjugacy, table = character[tag]
-    plus = character_plus[tag]
 
     cls = {s: i for i, c in enumerate(conjugacy) for s in c}
     table = {irrep: str_to_sympy(v) for irrep, v in table.items()}
+    plus = character_plus(table, conjugacy, so)
     table_full = {}
     for irrep, ch in table.items():
         v = np.asarray([ch[cls[s]] for s in so_tag], dtype=object)
@@ -630,7 +685,7 @@ def create_pg(pg_id, tag):
         "info": g_info,
         "symmetry_operation": so,
         "wyckoff": {"site": site, "bond": bond},
-        "character": create_character(tag, so["tag"]),
+        "character": create_character(tag, so),
     }
 
 

@@ -162,7 +162,7 @@ Description of the dictionary keys (header of the binary):
       - (X,s) (str,int): ([ndarray(2s+1,2s+1,sympy)]) list of SO matrix.
     - "product" (str): (dict) product table.
       - (SO_tag1,SO_tag2) (str,str): (str) SO_tag of product, SO1 SO2.
-    - "mapping" (str): (dict) mapping of SO to the Oh/D6h cluster (data_op_mapping).
+    - "mapping" (str): (dict) mapping of SO to the Oh/D6h cluster (util_op_mapping).
       - "top" (str): (str) top group, "Oh" or "D6h".
       - "mapping" (str): ([[int]]) mapping[coset][i] = SO number (from 1) of top group for i-th SO of group.
     NOTE:
@@ -236,7 +236,7 @@ Description of the dictionary keys (header of the binary):
     - "plus_set" (str): (ndarray(n,3,sympy)) list of plus set vector (fractional, conventional).
     - "so_matrix" (str): (Dict) dict of SO matrix (X="Q/G", s=0,1, cartesian).
       - (X,s) (str,int): ([ndarray(2s+1,2s+1,sympy)]) list of SO matrix.
-    - "mapping" (str): (dict) mapping of SO to the Oh/D6h cluster (that of the PG, data_op_mapping).
+    - "mapping" (str): (dict) mapping of SO to the Oh/D6h cluster (that of the PG, util_op_mapping).
       - "top" (str): (str) top group, "Oh" or "D6h".
       - "mapping" (str): ([[int]]) mapping[coset][i] = SO number (from 1) of top group for i-th SO of group.
     NOTE:

@@ -7,7 +7,7 @@
 
 import numpy as np
 import pytest
-from multipiegen.data.data_group_pg import pg_id_set, pg_tag
+from multipiegen.util.util_group_data import pg_id_set, pg_tag
 from multipiegen.util.util_group import load_group
 from multipiegen.util.util_info import load_info
 from multipiegen.util.util_representation_matrix import check_representation_matrix, representation_matrix
