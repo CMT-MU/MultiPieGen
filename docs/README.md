@@ -76,10 +76,7 @@ docs/
 tests/              pytest tests
 others/             non-package material
   creation/         scripts that generate the data tables in multipiegen/data
-  etc/              harmonics data generation (draft)
-  notebooks/        notebooks for plotting and trials
-  memo/             notes (TeX/PDF)
-  claude/           verification and parent-SG pipeline
+  claude/           verification notes (generation rules, changes from MultiPie Ver.2, comparison script)
 ```
 
 ## Workflow
