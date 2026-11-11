@@ -28,8 +28,8 @@ from multipie.util.util_pdf_latex import PDFviaLaTeX
 from multipie.util.util_tag import TagIrrep
 
 from multipiegen import __top_dir__
-from multipiegen.data.data_harmonics_mapping import data_harmonics_mapping
-from multipiegen.data.data_top_harmonics_info import top_harmonics_symmetry
+from multipiegen.util.util_harmonics_mapping import data_harmonics_mapping
+from multipiegen.util.util_top_harmonics import top_harmonics_symmetry
 from multipiegen.util.util_group import load_group
 from multipiegen.util.util_info import load_info
 

@@ -11,7 +11,7 @@ import numpy as np
 import pytest
 import sympy as sp
 from multipiegen.data.data_character_table import character
-from multipiegen.data.data_harmonics_mapping import data_harmonics_mapping
+from multipiegen.util.util_harmonics_mapping import data_harmonics_mapping
 from multipiegen.util.util_harmonics_multipole import (
     _crystal,
     _orbital_basis,

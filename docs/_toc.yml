@@ -23,6 +23,10 @@ parts:
       sections:
       - file: src/api_util/util_info
       - file: src/api_util/util_group
+      - file: src/api_util/util_group_data
+      - file: src/api_util/util_top_harmonics
+      - file: src/api_util/util_harmonics_mapping
+      - file: src/api_util/util_op_mapping
       - file: src/api_util/util_cluster_basis
       - file: src/api_util/util_cluster_vector_basis
       - file: src/api_util/util_bond_cluster_basis

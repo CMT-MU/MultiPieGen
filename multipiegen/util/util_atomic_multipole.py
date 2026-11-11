@@ -64,8 +64,8 @@ from multipiegen.data.data_basis import (
     atomic_rank_block,
 )
 from multipiegen.data.data_character_table import character
-from multipiegen.data.data_harmonics_mapping import data_harmonics_mapping
-from multipiegen.data.data_top_harmonics_info import top_harmonics_u_matrix
+from multipiegen.util.util_harmonics_mapping import data_harmonics_mapping
+from multipiegen.util.util_top_harmonics import top_harmonics_u_matrix
 from multipiegen.util.util_info import load_info
 from multipiegen.util.util_symmetry_operation import simplify_array, simplify_value
 

@@ -43,7 +43,7 @@ Contents:
 
 ## 2. Harmonics of the point groups
 
-- Defined once for Oh and D6h (`data_top_harmonics_info`) and mapped to the 47 point groups by
+- Defined once for Oh and D6h (`data_top_harmonics`, `util_top_harmonics`) and mapped to the 47 point groups by
   `data_harmonics_mapping` (`c = ±1` times a top harmonics). MultiPie Ver.2 stores the harmonics of each point group
   in `harmonics.pkl`.
 - Result: the keys `(X, l, Gamma, n)` are identical for all 47 groups (rank <= 11). 32 multiplets have the opposite
@@ -120,13 +120,21 @@ Ver.2. The closest one is `harmonics_root_cluster.pkl`.
 
 | item | MultiPie Ver.2 | MultiPieGen |
 |---|---|---|
-| `symmetry_operation["mapping"]` of PG | right cosets `H g` from the product table | left cosets `g H` along the parent chain (`data_op_mapping.op_mapping_d6h_oh_cluster`) |
+| `symmetry_operation["mapping"]` of PG | right cosets `H g` from the product table | left cosets `g H` along the parent chain (`util_op_mapping.op_mapping_d6h_oh_cluster`) |
 | of SG | none | the mapping of its point group (the operations of an SG have the point parts of its PG in the same order) |
 | SG to parent SG | none | `op_mapping_parent_sg` (with changes of axes; not used for the cluster) |
 
 ## 8. Other data
 
 - Representation matrices: identical for all 241 irreps of the 47 point groups.
+- Products of irreps in the character data of `group.pkl` (polar-axial conversion, symmetric and anti-symmetric
+  products): computed from the characters (`create_group.character_plus`) instead of being stored. Two differences
+  from MultiPie Ver.2:
+  - Corrected: for E of C4 and S4 and Eg, Eu of C4h (real 2D irreps of complex type), MultiPie Ver.2 has the symmetric
+    product 2A + B and the anti-symmetric product B. The correct values are A + 2B and A: for the basis (x, y),
+    x² + y² is A, x² − y² and xy are B, and x₁y₂ − y₁x₂ is invariant under C4. (E = Ea + Eb with Ea⊗Ea = Eb⊗Eb = B and
+    Ea⊗Eb = A.)
+  - The order of the polar-axial conversion follows the character table (10 groups had another order).
 - Active multipoles of MPG (`group.pkl`): identical after renaming the orbitals (51 of 157 groups have renamed
   orbitals, e.g. `Qf1` → `Qfs`).
 - Response tensors (`response_tensor.pkl`): identical to MultiPie Ver.2's `Group.response_tensor_all` except for the

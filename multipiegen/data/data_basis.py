@@ -231,3 +231,30 @@ harmonics_key = {
     "ixy": ("D6h", (6, "A2g", -1, -1)),
     "j3": ("D6h", (7, "A1u", -1, -1)),
 }
+
+# ==================================================
+# max. rank of spherical harmonics.
+max_rank = 11
+
+# ==================================================
+# max. internal rank of spherical harmonics.
+max_s_rank = 3
+
+# ==================================================
+# rank name.
+rank_name = {
+    0: "monopole",
+    1: "dipole",
+    2: "quadrupole",
+    3: "octupole",
+    4: "hexadecapole",
+    5: "dotriacontapole",
+    6: "tetrahexacontapole",
+    "monopole": 0,
+    "dipole": 1,
+    "quadrupole": 2,
+    "octupole": 3,
+    "hexadecapole": 4,
+    "dotriacontapole": 5,
+    "tetrahexacontapole": 6,
+}

@@ -13,7 +13,7 @@ The same data as MultiPie Ver.2's cluster_samb ("site", "bond_s", "bond_a"), cre
 - General point. The cluster of the general point of a group H (as many points as the order of H, point i =
   (operation i of H) site0) is a subset of the Oh or D6h cluster: the operations of H are those of the top group
   listed in coset 0 of
-  data_op_mapping.op_mapping_d6h_oh_cluster[PG tag]. The basis of the top cluster restricted to these points gives
+  util_op_mapping.op_mapping_d6h_oh_cluster[PG tag]. The basis of the top cluster restricted to these points gives
   the basis of H: cluster_scalar_basis.pkl for "site" and "bond_s", and cluster_bond_basis.pkl (x = "q") for "bond_a"
   (on the general bond, symmetric and anti-symmetric bonds span the same space). The key of the top group is kept,
   but the irrep and the component are replaced by those of H through the top harmonics T, and the value is multiplied by the
@@ -30,7 +30,7 @@ The same data as MultiPie Ver.2's cluster_samb ("site", "bond_s", "bond_a"), cre
   the harmonics (X, l, Gamma) of H (its xyz polynomial) and p is that of the top key.
 - Space group. The operations (without the plus set) of a space group have the same point parts as those of its
   point group (in the same setting), so each operation is mapped to the top group through the point group,
-  op_mapping_d6h_oh_cluster[PG tag] (as "mapping" of the SG in group.pkl). (data_op_mapping.op_mapping_parent_sg
+  op_mapping_d6h_oh_cluster[PG tag] (as "mapping" of the SG in group.pkl). (util_op_mapping.op_mapping_parent_sg
   maps to a parent space group with a change of axes, and is not used.) The harmonics are those of the point group.
 - Order. Gamma (character table), l, (k, Q/G for bond_a), n, p.
 
@@ -48,8 +48,8 @@ from multipie.util.util_binary import BinaryManager
 
 from multipiegen import __bin_dir__
 from multipiegen.data.data_character_table import character
-from multipiegen.data.data_harmonics_mapping import data_harmonics_mapping
-from multipiegen.data.data_op_mapping import op_mapping_d6h_oh_cluster
+from multipiegen.util.util_harmonics_mapping import data_harmonics_mapping
+from multipiegen.util.util_op_mapping import op_mapping_d6h_oh_cluster
 from multipiegen.util.util_bond_cluster_basis import load_bond_cluster_basis
 from multipiegen.util.util_cluster_basis import load_cluster_basis
 

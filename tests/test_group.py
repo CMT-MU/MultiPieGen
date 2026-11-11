@@ -10,7 +10,7 @@ import pytest
 import sympy as sp
 from multipie import Group
 from multipiegen.create_binary.create_group import create_group_data, group_ids
-from multipiegen.data.data_op_mapping import op_mapping_d6h_oh_cluster
+from multipiegen.util.util_op_mapping import op_mapping_d6h_oh_cluster
 from multipiegen.data.data_wyckoff_bond_sym import wyckoff_bond_data
 from multipiegen.util.util_group import load_group
 from multipiegen.util.util_info import load_info
@@ -136,7 +136,7 @@ def test_values_are_simplest(gid):
 # ==================================================
 def test_op_mapping_parent_sg():
     # SG -> top parent SG (221-230 or 191-194): cosets cover the parent SG once, and the top SG maps to itself.
-    from multipiegen.data.data_op_mapping import op_mapping_parent_sg
+    from multipiegen.util.util_op_mapping import op_mapping_parent_sg
 
     assert sorted(op_mapping_parent_sg) == list(range(1, 231))
     for no, (top, mapping) in op_mapping_parent_sg.items():
