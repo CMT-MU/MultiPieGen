@@ -3,9 +3,8 @@
 This note lists what MultiPieGen does differently from MultiPie Ver.2 for the multipole-keyed data: conventions,
 algorithms, and the resulting differences. The algorithms of MultiPieGen themselves are described in
 `generation_rules.md`. The numbers below come from a comparison script run on 2026-11-11 (develop 369c8bf); the
-script and its results are kept locally only, in `others/archive/claude/multipie_v2_comparison/`. It is a
-verification note, not part of the package docs. A Japanese version is
-`changes_from_multipie_v2_ja.md`.
+script and its results are kept locally only, in `others/archive/claude/multipie_v2_comparison/`. A Japanese
+version is `changes_from_multipie_v2_ja.md`.
 
 Contents:
 

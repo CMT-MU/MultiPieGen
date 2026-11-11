@@ -1,7 +1,7 @@
 # MultiPie Ver.2 からの変更点（多極子のデータ）
 
 多極子のキーを使うデータについて、MultiPieGen が MultiPie Ver.2 と違うことをしている点（規則、アルゴリズム、
-その結果の違い）をまとめた確認用のメモです（パッケージのドキュメントではありません）。MultiPieGen のアルゴリズム
+その結果の違い）をまとめたものです。MultiPieGen のアルゴリズム
 そのものは `generation_rules_ja.md` にあります。下の数字は 2026-11-11 に比較スクリプトで
 比べた結果です（develop 369c8bf の時点）。スクリプトと結果は、手元の `others/archive/claude/multipie_v2_comparison/`
 にだけ置いています。英語版は `changes_from_multipie_v2.md` です。

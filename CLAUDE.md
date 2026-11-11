@@ -97,7 +97,7 @@ Gram–Schmidt basis per (irrep, component), from lower rank, and must yield 48 
   and editing or reformatting a data table, even when only the order or formatting changes. These tables are
   curated by hand; regenerating them can silently undo manual fixes.
 - `others/` holds non-package material: `creation/` (table generators) and `memo/` (notes: generation rules and
-  changes from MultiPie Ver.2, in English and Japanese). `others/archive/` keeps old material locally only (old
+  changes from MultiPie Ver.2, in English and Japanese; included in the docs as "Notes" through `docs/src/notes/`). `others/archive/` keeps old material locally only (old
   memo, etc, notebooks, earlier verification pipelines, the MultiPie Ver.2 comparison script, old scripts); it is
   in `.gitignore` and will be deleted. Do not add files there to git, and do not depend on them.
 - Every new feature also gets a runnable sample `docs/examples/<feature>.py` and a row in `docs/examples/README.md`

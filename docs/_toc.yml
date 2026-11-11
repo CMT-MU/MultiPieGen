@@ -13,6 +13,12 @@ parts:
       - file: src/sg_pdf
       - file: src/mpg_pdf
       - file: src/msg_pdf
+    - file: src/notes
+      sections:
+      - file: src/notes/generation_rules
+      - file: src/notes/generation_rules_ja
+      - file: src/notes/changes_from_multipie_v2
+      - file: src/notes/changes_from_multipie_v2_ja
     - file: src/examples
     - file: src/binary
     - file: src/data

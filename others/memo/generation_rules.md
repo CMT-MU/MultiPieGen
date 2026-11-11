@@ -1,8 +1,7 @@
 # Generation of the multipole data: algorithms, keys, and orbital basis
 
 This note collects, in one place, how MultiPieGen builds its multipole-keyed data, and the rules for keys and orbital
-bases. It describes the algorithms of this package only. It is a verification note, not part of the package docs
-(yet). Each section names the code that does the work. A Japanese version is `generation_rules_ja.md`. The changes
+bases. It describes the algorithms of this package only. Each section names the code that does the work. A Japanese version is `generation_rules_ja.md`. The changes
 from MultiPie Ver.2 are collected separately in `changes_from_multipie_v2.md`.
 
 Contents:
