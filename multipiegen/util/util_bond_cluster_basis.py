@@ -18,11 +18,11 @@ Orthonormal bond cluster basis of Oh and D6h clusters (binary: cluster_bond_basi
   then the kept vectors are orthonormalized exactly.
 - Symmetry. f_key transforms as a scalar function on the cluster, (g f)(i) = s f(j) with R_g^{-1} p_i = p_j,
   s = 1 (x = q) or det R_g (x = g), with the representation matrices of its irrep.
-- Key. As the anti-symmetric bond cluster SAMB (bond_a) of MultiPie, a kept multiplet is a scalar function on the
+- Key. As the anti-symmetric bond cluster SAMB (bond_a) of MultiPie Ver.2, a kept multiplet is a scalar function on the
   bonds keyed by PGMultipoleType(X, l, Gamma, n, p, s=0, k=0, x), with all components in the value. (X, l, Gamma, n)
   are those of the vector cluster basis. p (add_multiplicity) numbers the multiplets with the same
   (X, l, Gamma, n) [components] in the Gram-Schmidt order (k = -1, 0, 1) as 1, 2, ..., and is -1 if there is only
-  one. x is the internal type of the vector cluster basis (MultiPie has x = q only).
+  one. x is the internal type of the vector cluster basis (MultiPie Ver.2 has x = q only).
 
 - cluster_bond_basis (dict)::
 
@@ -125,7 +125,7 @@ def _numerical_selection(vectors_num):
 # ==================================================
 def _multipole_keys(basis, x):
     """
-    Re-key orthonormal vectors by PGMultipoleType (s=0, k=0) with add_multiplicity, as MultiPie bond_a.
+    Re-key orthonormal vectors by PGMultipoleType (s=0, k=0) with add_multiplicity, as MultiPie Ver.2 bond_a.
 
     Args:
         basis (dict): { (X, rank, irrep, mul, comp, k): ndarray (N,) } in the order of the vector cluster basis.

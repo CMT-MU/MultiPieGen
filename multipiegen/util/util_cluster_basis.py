@@ -24,7 +24,7 @@ are dropped. The result is an orthonormal basis of 48 (Oh) or 24 (D6h) vectors.
         "dropped": [ PGMultipoleType ],  # harmonics linearly dependent on lower ones (whole multiplets).
     } }
 
-    PGMultipoleType = (X, l, Gamma, n, p, s, k, x) as the site SAMB of MultiPie: X = "Q", rank l, irrep,
+    PGMultipoleType = (X, l, Gamma, n, p, s, k, x) as the site SAMB of MultiPie Ver.2: X = "Q", rank l, irrep,
         multiplicity n (1-based, -1: unique) of the top harmonics, p = -1, s = 0, k = 0, x = "q".
         All components of a multiplet are in the value (rows, in the order of components).
 """

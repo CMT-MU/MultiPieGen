@@ -9,7 +9,7 @@
 Create binary data of overall information of groups (info.pkl).
     - multipiegen/binary/info.pkl (load by multipiegen.util.util_info.load_info).
 
-Based on MultiPie's others/tools/create_binary/create_data_info.py, with
+Based on MultiPie Ver.2's others/tools/create_binary/create_data_info.py, with
     - data_definition replaced by data_basis (orbital tags renamed), data_harmonics, data_root_cluster,
     - basis functions taken from the top harmonics (data_top_harmonics_info) through data_basis.harmonics_key,
     - orbital decomposition (orbital_decomposition) removed,

@@ -8,7 +8,7 @@
 """
 Multipolar harmonics (internal rank s = 1, 2, 3) of point groups with polar (q) and axial (g) internal basis.
 
-Based on MultiPie (others/tools/create_binary/create_data_multipolar_harmonics.py).
+Based on MultiPie Ver.2 (others/tools/create_binary/create_data_multipolar_harmonics.py).
 
 - Harmonics of a point group. For each harmonics (X, l, Gamma, n) of the point group (data_harmonics_mapping,
   X(key) = c T with the top harmonics T), its cartesian expression is c T and its u-matrix is U = c U_T (m, dim).
@@ -21,7 +21,7 @@ Based on MultiPie (others/tools/create_binary/create_data_multipolar_harmonics.p
 - Multipole expression. m_ex = mharm @ (internal symbols), where the internal symbols are those of
   info["harmonics"]["internal_basis"] ((s, x) -> [Q or G + orbital_latex_name of each orbital]).
 - Key. PGMultipoleType(X, l, Gamma, n, p, s, k, x): n is the multiplicity of the harmonics (X, l, Gamma, n), which
-  fixes its xyz polynomial (not renumbered, unlike MultiPie); p numbers those with the same
+  fixes its xyz polynomial (not renumbered, unlike MultiPie Ver.2); p numbers those with the same
   (x, l, X, Gamma, n, k) as 1, 2, ... (-1 if unique). Vanishing ones (w3j = 0) are excluded.
 - Order. x (q, g), s, Gamma (character table), l, X (Q, G), k, n, p.
 

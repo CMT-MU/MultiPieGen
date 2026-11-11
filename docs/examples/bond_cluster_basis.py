@@ -32,7 +32,7 @@ for group in ["Oh", "D6h"]:
         print(f"  x={x}: {len(keys)} vectors in {n_mult} multiplets, orthonormal: {ok}, dropped vector multiplets: {n_drop}")
 
 # ==================================================
-# keys: PGMultipoleType(X, l, Gamma, n, p, s=0, k=0, x) as MultiPie bond_a; value: (dim, N) values on the bonds.
+# keys: PGMultipoleType(X, l, Gamma, n, p, s=0, k=0, x) as MultiPie Ver.2 bond_a; value: (dim, N) values on the bonds.
 # source: the multiplet of the vector cluster basis (PGMultipoleType with s=1).
 d = data["Oh"]
 for key in list(d["basis"])[:4]:

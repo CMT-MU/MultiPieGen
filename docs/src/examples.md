@@ -23,7 +23,7 @@ Load the orthonormal vector cluster basis (internal rank s=1, polar/axial intern
 
 ## bond_cluster_basis.py
 
-Load the orthonormal bond cluster basis of the Oh/D6h clusters (vector cluster basis contracted with the bond vectors and re-orthonormalized), keyed by PGMultipoleType as MultiPie's bond_a.
+Load the orthonormal bond cluster basis of the Oh/D6h clusters (vector cluster basis contracted with the bond vectors and re-orthonormalized), keyed by PGMultipoleType as MultiPie Ver.2's bond_a.
 
 ```{literalinclude} ../examples/bond_cluster_basis.py
 :language: python

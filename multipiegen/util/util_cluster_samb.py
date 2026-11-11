@@ -8,10 +8,11 @@
 """
 Cluster SAMB of each Wyckoff site and bond of the real point groups and the space groups.
 
-The same data as MultiPie's cluster_samb ("site", "bond_s", "bond_a"), created in a different way:
+The same data as MultiPie Ver.2's cluster_samb ("site", "bond_s", "bond_a"), created in a different way:
 
-- General point. The cluster of the general point of a group H (as many points as the order of H, point i = (operation i of H) site0) is a
-  subset of the Oh or D6h cluster: the operations of H are those of the top group listed in coset 0 of
+- General point. The cluster of the general point of a group H (as many points as the order of H, point i =
+  (operation i of H) site0) is a subset of the Oh or D6h cluster: the operations of H are those of the top group
+  listed in coset 0 of
   data_op_mapping.op_mapping_d6h_oh_cluster[PG tag]. The basis of the top cluster restricted to these points gives
   the basis of H: cluster_scalar_basis.pkl for "site" and "bond_s", and cluster_bond_basis.pkl (x = "q") for "bond_a"
   (on the general bond, symmetric and anti-symmetric bonds span the same space). The key of the top group is kept,
@@ -21,7 +22,7 @@ The same data as MultiPie's cluster_samb ("site", "bond_s", "bond_a"), created i
   f_i, with the mapping M_j of the Wyckoff site (bond) in group.pkl (operations i mapping the representative to
   the site or bond j). For "bond_a", an operation reversing the bond (negative in the mapping) gives -f_i.
 - Orthonormalization. Gram-Schmidt within each irrep of H (component by component) in the order of [Gamma, l, n, p] for
-  "site" and "bond_s" (as MultiPie), and [Gamma, l, k, Q/G, n, p] for "bond_a" (k of the source vector cluster
+  "site" and "bond_s" (as MultiPie Ver.2), and [Gamma, l, k, Q/G, n, p] for "bond_a" (k of the source vector cluster
   basis); vanishing and linearly dependent ones are removed (selected numerically, then orthonormalized exactly).
   Each component is normalized to 1 on the N sites (bonds) of the Wyckoff position.
 - Key. PGMultipoleType(X, l, Gamma, n, p, s=0, k=0, x): "site" and "bond_s" have X = "Q" and x = "q" (as

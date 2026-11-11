@@ -2,7 +2,8 @@
 
 [![test](https://github.com/hiro-k-phys/mp-newbasis/actions/workflows/test.yml/badge.svg)](https://github.com/hiro-k-phys/mp-newbasis/actions/workflows/test.yml)
 
-Generation code and data for the new multipole basis of [MultiPie](https://github.com/CMT-MU/MultiPie).
+Generation code and data for the new multipole basis of [MultiPie Ver.2](https://github.com/CMT-MU/MultiPie).
+MultiPie in this package and its documentation always means MultiPie Ver.2.
 
 The new basis is built on a common root cluster (Oh and D6h clusters). Each point group and space group is related to it
 through its parent group. This repository holds:
@@ -10,13 +11,13 @@ through its parent group. This repository holds:
 - the data tables (`multipiegen/data`): groups, Wyckoff positions, parent groups, operation and harmonics mappings, ...
 - the code that generates the binary data and the PDFs from these tables
 
-The generated binaries and PDFs are delivered to other repositories: part of the binaries to MultiPie, and the rest of
+The generated binaries and PDFs are delivered to other repositories: part of the binaries to MultiPie Ver.2, and the rest of
 the binaries and the PDFs to a separate repository.
 
 ## Requirements
 
 - Python 3.12 or later
-- [MultiPie](https://github.com/CMT-MU/MultiPie) 2.4 or later, NumPy 2, SymPy
+- [MultiPie](https://github.com/CMT-MU/MultiPie) Ver.2.4 or later, NumPy 2, SymPy
 - for the PDFs only: a TeX distribution with `ptex2pdf` (e.g., TeX Live)
 
 ## Install (development)
@@ -33,9 +34,9 @@ The binary data (`multipiegen/binary`) and the PDFs (`multipiegen/pdf`) are kept
 | output | content | generate | load |
 |---|---|---|---|
 | `binary/info.pkl` | overall information: group id/tag/name, character alias and compatibility relation, root cluster, orbital basis and basis functions, response tensor | `python -m multipiegen.create_binary.create_info` | `multipiegen.util.util_info.load_info()` |
-| `binary/cluster_scalar_basis.pkl` | orthonormal (scalar) cluster basis of the Oh (48) and D6h (24) clusters, keyed by PGMultipoleType as MultiPie's site SAMB | `python -m multipiegen.create_binary.create_cluster_scalar_basis` | `multipiegen.util.util_cluster_basis.load_cluster_basis()` |
-| `binary/cluster_vector_basis.pkl` | orthonormal vector cluster basis (internal rank s=1, polar q / axial g internal basis) of the Oh (144) and D6h (72) clusters, keyed by PGMultipoleType as MultiPie's vector SAMB; intermediate basis for cluster_bond_basis.pkl | `python -m multipiegen.create_binary.create_cluster_vector_basis` | `multipiegen.util.util_cluster_vector_basis.load_cluster_vector_basis()` |
-| `binary/cluster_bond_basis.pkl` | orthonormal bond cluster basis of the Oh (48) and D6h (24) clusters, from the vector cluster basis and the bond vectors (vector0), keyed by PGMultipoleType as MultiPie's bond_a | `python -m multipiegen.create_binary.create_cluster_bond_basis` | `multipiegen.util.util_bond_cluster_basis.load_bond_cluster_basis()` |
+| `binary/cluster_scalar_basis.pkl` | orthonormal (scalar) cluster basis of the Oh (48) and D6h (24) clusters, keyed by PGMultipoleType as MultiPie Ver.2's site SAMB | `python -m multipiegen.create_binary.create_cluster_scalar_basis` | `multipiegen.util.util_cluster_basis.load_cluster_basis()` |
+| `binary/cluster_vector_basis.pkl` | orthonormal vector cluster basis (internal rank s=1, polar q / axial g internal basis) of the Oh (144) and D6h (72) clusters, keyed by PGMultipoleType as MultiPie Ver.2's vector SAMB; intermediate basis for cluster_bond_basis.pkl | `python -m multipiegen.create_binary.create_cluster_vector_basis` | `multipiegen.util.util_cluster_vector_basis.load_cluster_vector_basis()` |
+| `binary/cluster_bond_basis.pkl` | orthonormal bond cluster basis of the Oh (48) and D6h (24) clusters, from the vector cluster basis and the bond vectors (vector0), keyed by PGMultipoleType as MultiPie Ver.2's bond_a | `python -m multipiegen.create_binary.create_cluster_bond_basis` | `multipiegen.util.util_bond_cluster_basis.load_bond_cluster_basis()` |
 | `binary/response_tensor.pkl` | response tensors (rank 0-4, Q/G/T/M) of all MPG in terms of active multipoles | `python -m multipiegen.create_binary.create_response_tensor` | `multipiegen.util.util_response_tensor.load_response_tensor()` |
 | `binary/atomic_multipole.pkl` | matrices of atomic multipoles (rank l <= 7, s = 0, 1) in the LMs/JML/LM basis of s, p, d, f orbitals | `python -m multipiegen.create_binary.create_atomic_multipole` | `multipiegen.util.util_atomic_multipole.load_atomic_multipole()` |
 | `binary/atomic_multipole_group.pkl` | atomic multipole SAMB of all 47 point groups in the JML/Lgs/Lg basis | `python -m multipiegen.create_binary.create_atomic_multipole_group` | `multipiegen.util.util_atomic_multipole.load_atomic_multipole_group()` |
@@ -46,7 +47,7 @@ The binary data (`multipiegen/binary`) and the PDFs (`multipiegen/pdf`) are kept
 | `pdf/{PG,SG,MPG,MSG}/*/{character_table,symmetry_operation,wyckoff_site,wyckoff_bond,representation_matrix,multipolar_harmonics_s{1,2,3}_{q,g},atomic_multipole_{lg,lgs,jml},response_tensor_X}.{tex,pdf}` | each group: character table, representation matrices, multipolar harmonics and atomic multipoles (PG), symmetry operations, Wyckoff site and bond (PG, SG), response tensors (MPG) | `python -m multipiegen.create_pdf.create_pdf_group` | |
 | `pdf/info/*.{tex,pdf}` | overall information: lists of PG, SG, MPG and MSG, compatibility relation with orbitals, active multipoles | `python -m multipiegen.create_pdf.create_pdf_info` | |
 
-The binaries use the format of MultiPie's `BinaryManager` (gzip-compressed pickle with a header). `str(load_info())`
+The binaries use the format of MultiPie Ver.2's `BinaryManager` (gzip-compressed pickle with a header). `str(load_info())`
 shows the description of the contents.
 
 ```python

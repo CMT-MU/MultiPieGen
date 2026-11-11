@@ -1,7 +1,7 @@
 # Binary data
 
 The binary data in `multipiegen/binary` are created from the data tables by the modules in `multipiegen/create_binary`.
-They use the format of MultiPie's `BinaryManager` (gzip-compressed pickle with a header), so they can be read without
+They use the format of MultiPie Ver.2's `BinaryManager` (gzip-compressed pickle with a header), so they can be read without
 MultiPieGen. `str(data)` shows the description below.
 
 | file | create | load |

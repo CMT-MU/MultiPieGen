@@ -51,7 +51,7 @@ def test_irrep_count(group, x):
 # ==================================================
 @pytest.mark.parametrize("group, x", CASES)
 def test_keys(group, x):
-    # keys as MultiPie bond_a: PGMultipoleType(X, l, Gamma, n, p, s=0, k=0, x);
+    # keys as MultiPie Ver.2 bond_a: PGMultipoleType(X, l, Gamma, n, p, s=0, k=0, x);
     # source + dropped = all multiplets of the vector cluster basis.
     vkeys = [k for k in load_cluster_vector_basis()[group]["basis"] if k.x == x]
     src = []

@@ -6,7 +6,7 @@
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 """
-Create LaTeX and PDF of each group (based on MultiPie others/tools/create_PDF/create_pdf_character.py,
+Create LaTeX and PDF of each group (based on MultiPie Ver.2 others/tools/create_PDF/create_pdf_character.py,
 create_pdf_symmetry_operation.py, create_pdf_wyckoff.py), from group.pkl.
 
     - multipiegen/pdf/PG/{no}-{tag}/{character_table,symmetry_operation,wyckoff_site,wyckoff_bond,
@@ -18,7 +18,7 @@ create_pdf_symmetry_operation.py, create_pdf_wyckoff.py), from group.pkl.
       (X = Q, G, and T, M except for type II, from response_tensor.pkl)
     - multipiegen/pdf/MSG/{id}/{symmetry_operation,wyckoff_site}.{tex,pdf}
 
-Differences from MultiPie:
+Differences from MultiPie Ver.2:
 
     - complex PG ("-c") also has wyckoff_site and wyckoff_bond (same as the real PG).
     - the caption of a Wyckoff bond shows the bond symmetry.
@@ -101,7 +101,7 @@ def _atomic_multipole_group():
 
 # ==================================================
 def has_pdf(kind, gid):
-    """Is the PDF of kind created for the group ? (magnetic tensors T, M are not for type II MPG, as MultiPie)."""
+    """Is the PDF of kind created for the group ? (magnetic tensors T, M are not for type II MPG, as MultiPie Ver.2)."""
     if kind in ["response_tensor_T", "response_tensor_M"]:
         return _data()[1][gid]["info"].type != "II"
     return True
@@ -127,7 +127,7 @@ def group_dir(gid, tag):
 
 # ==================================================
 def group_latex(gid, g_info):
-    """Title of a group in LaTeX (as MultiPie Group.latex(True))."""
+    """Title of a group in LaTeX (as MultiPie Ver.2 Group.latex(True))."""
     tp, ID = gid.split(":")
     sp_ = r"\quad"
     if tp in ["PG", "SG"]:
@@ -256,7 +256,7 @@ def create_symmetry_operation(gid, tag):
 
 # ==================================================
 def create_representation_matrix(gid, tag):
-    """Representation matrices from the harmonics (util_representation_matrix), as MultiPie."""
+    """Representation matrices from the harmonics (util_representation_matrix), as MultiPie Ver.2."""
     rm = representation_matrix(tag)
     pdf = _pdf("representation_matrix", gid, tag, landscape=True)
 
@@ -337,7 +337,7 @@ def create_wyckoff_bond(gid, tag):
     pdf.text("\n")
 
     for s_wp, val in wp["site"].items():
-        if s_wp == "1o":  # bonds at the origin of point group (as MultiPie).
+        if s_wp == "1o":  # bonds at the origin of point group (as MultiPie Ver.2).
             continue
         pdf.text(r"* Wyckoff site: {\tt " + str(s_wp) + "}" + r", site symmetry: {\tt " + val["symmetry"] + "}")
         for b_wp in val["bond"]:
@@ -356,7 +356,7 @@ def create_wyckoff_bond(gid, tag):
 
 
 def create_response_tensor(gid, tag, X):
-    """Response tensors of type X up to rank 4 (response_tensor.pkl), as MultiPie."""
+    """Response tensors of type X up to rank 4 (response_tensor.pkl), as MultiPie Ver.2."""
     d = _response_tensor()[gid]
     pdf = _pdf(f"response_tensor_{X}", gid, tag, landscape=True, suffix=f" [{X} tensor]")
 
@@ -375,7 +375,7 @@ def create_response_tensor(gid, tag, X):
 
 
 def create_multipolar_harmonics(gid, tag, s, x):
-    """Multipolar harmonics of internal rank s and internal type x (multipolar_harmonics.pkl), as MultiPie."""
+    """Multipolar harmonics of internal rank s and internal type x (multipolar_harmonics.pkl), as MultiPie Ver.2."""
     mrank = {1: "dipole", 2: "quadrupole", 3: "octupole"}
     itype = {"q": "polar", "g": "axial"}
     d = _multipolar_harmonics()[gid]
@@ -411,7 +411,7 @@ def _atomic_basis_latex(b_type, rank, ket):
 
 
 def create_atomic_multipole(gid, tag, b_type):
-    """Atomic multipole SAMB in b_type basis (atomic_multipole_group.pkl), as MultiPie."""
+    """Atomic multipole SAMB in b_type basis (atomic_multipole_group.pkl), as MultiPie Ver.2."""
     rank = {0: "s", 1: "p", 2: "d", 3: "f"}
     pdf = _pdf(f"atomic_multipole_{b_type}", gid, tag, landscape=True, suffix=f" ({b_type} basis)")
 

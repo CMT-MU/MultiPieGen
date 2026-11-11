@@ -10,8 +10,8 @@ Create group.pkl (symmetry operation, character, Wyckoff site/bond for all PG, S
 
     python -m multipiegen.create_binary.create_group [--serial]
 
-Based on MultiPie (others/tools/create_binary/create_data_group.py, create_data_group_mapping.py,
-create_data_group_bond.py), which are merged here. Differences from MultiPie:
+Based on MultiPie Ver.2 (others/tools/create_binary/create_data_group.py, create_data_group_mapping.py,
+create_data_group_bond.py), which are merged here. Differences from MultiPie Ver.2:
 
     - the representative site/vector are those of the new root cluster (info.pkl).
     - "mapping" of symmetry operation is the mapping to the Oh/D6h cluster (data_op_mapping), for PG and SG.

@@ -41,7 +41,7 @@ def is_real_irrep(irrep):
 # ==================================================
 def irrep_latex(irrep):
     """
-    Irrep in LaTeX (same format as MultiPie).
+    Irrep in LaTeX (same format as MultiPie Ver.2).
         e.g., "T1u" -> "T_{1u}", "A2''" -> "A_{2}^{\\prime\\prime}", "E1ua" -> "E_{1u}^{(a)}", "Ea'" -> "E^{\\prime(a)}".
 
     Args:
@@ -65,7 +65,7 @@ def irrep_latex(irrep):
 # ==================================================
 def multipole_symbol(X, key, sign=1):
     """
-    Multipole symbol in LaTeX (same format as MultiPie), e.g., "\\mathbb{Q}_{1,1}(T_{1u})".
+    Multipole symbol in LaTeX (same format as MultiPie Ver.2), e.g., "\\mathbb{Q}_{1,1}(T_{1u})".
 
     Args:
         X (str): "Q" (polar) or "G" (axial).
@@ -119,7 +119,7 @@ def harmonics_symbol_table(group):
 
     Returns:
         - (list) -- [(key, polar symbol, axial symbol, expression in LaTeX)],
-          sorted by (rank, irrep in character table, multiplicity, component) as in MultiPie.
+          sorted by (rank, irrep in character table, multiplicity, component) as in MultiPie Ver.2.
     """
     mapping = data_harmonics_mapping[group]
     top = mapping["top"]
