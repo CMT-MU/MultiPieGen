@@ -109,7 +109,7 @@ Gram–Schmidt basis per (irrep, component), from lower rank, and must yield 48 
 - `docs/src/notes/` holds the notes on the multipole data (generation rules and changes from MultiPie Ver.2, in
   English and Japanese), the "Notes" chapter of the docs. Update them when the algorithms or keys change.
 - `docs/src/guide/` holds the user guide, the "User Guide" chapter (`docs/src/guide.md`): `definitions(_ja).md`
-  (the quantities provided) and `multipole_key(_ja).md` (`PGMultipoleType`, linked from where a key appears). Keep the English and Japanese versions in step, and
+  (the quantities provided; the last section is the multipole key `PGMultipoleType`, linked from where a key appears). Keep the English and Japanese versions in step, and
   update them when a definition, key, basis order, or binary structure changes.
 - Every new feature also gets a runnable sample `docs/examples/<feature>.py` and a row in `docs/examples/README.md`
   (the docs page `docs/src/examples.md` is generated from that table by `docs/create_pages.py`).
