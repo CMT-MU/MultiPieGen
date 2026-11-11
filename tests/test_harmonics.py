@@ -83,9 +83,8 @@ def test_keys_of_other_binaries_are_found():
         for kind in samb[gid].values():
             for w in kind.values():
                 for k, s in w.items():
-                    assert (k.X, k.l, k.Gamma, k.n, -1, 0, 0, "q") in d and len(
-                        d[(k.X, k.l, k.Gamma, k.n, -1, 0, 0, "q")][0]
-                    ) == len(s)
+                    key = (harmonics_type[k.X], k.l, k.Gamma, k.n, -1, 0, 0, "q")
+                    assert key in d and len(d[key][0]) == len(s)
     for top, gid in [("Oh", "PG:32"), ("D6h", "PG:27")]:
         d = data[gid]
         for basis in [load_cluster_basis(), load_cluster_vector_basis(), load_bond_cluster_basis()]:

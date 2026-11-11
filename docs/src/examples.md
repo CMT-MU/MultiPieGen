@@ -32,7 +32,7 @@ Load the orthonormal bond cluster basis of the Oh/D6h clusters (vector cluster b
 
 ## cluster_samb.py
 
-Cluster SAMB of each Wyckoff site and bond (site, symmetric and anti-symmetric bond) of the real point groups and the space groups (cluster_samb.pkl).
+Cluster SAMB of each Wyckoff site and bond (site; bond = symmetric Q and anti-symmetric T/M) of the real point groups and the space groups (cluster_samb.pkl).
 
 ```{literalinclude} ../examples/cluster_samb.py
 :language: python

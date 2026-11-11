@@ -57,16 +57,27 @@ def test_orthonormal_and_complete(gid):
     pg = _args(gid)[0]
     irreps = list(character[pg][1])
     wyckoff = group[gid]["wyckoff"]
-    for kind in ["site", "bond_s", "bond_a"]:
-        assert list(data[gid][kind].keys()) == list(wyckoff["site" if kind == "site" else "bond"].keys())
+    assert list(data[gid].keys()) == ["site", "bond"]
+    for kind in ["site", "bond"]:
+        assert list(data[gid][kind].keys()) == list(wyckoff[kind].keys())
         for w, samb in data[gid][kind].items():
-            n = len(wyckoff["site" if kind == "site" else "bond"][w]["mapping"])
-            v = np.vstack([np.array(s, dtype=float) for s in samb.values()])
-            assert v.shape[1] == n
-            assert np.allclose(v @ v.T, np.eye(len(v)), atol=1e-10)
-            if kind != "bond_a":  # symmetric functions on the sites (bonds) are complete.
-                assert len(v) == n
-            assert all(k.Gamma in irreps and k.s == 0 and k.k == 0 for k in samb)
+            n = len(wyckoff[kind][w]["mapping"])
+            assert all(k.Gamma in irreps and k.s == 0 and k.k == 0 and k.x == "q" for k in samb)
             assert all(len(s) == len(harmonics_expression(pg, k)) for k, s in samb.items())
-            if kind != "bond_a":
-                assert all(k.X == "Q" and k.x == "q" for k in samb)
+            # order: Gamma (character table), and Q before T/M in each Gamma.
+            order = [(irreps.index(k.Gamma), k.X != "Q") for k in samb]
+            assert order == sorted(order)
+            # Q: real; T/M: pure imaginary (i times the anti-symmetric bond SAMB). Q (symmetric functions on the sites
+            # or bonds) is complete. Q and T/M are orthonormal separately (different time-reversal parity).
+            assert all(k.X in (["Q"] if kind == "site" else ["Q", "T", "M"]) for k in samb)
+            for X, f in [("Q", 1), ("TM", -1j)]:
+                part = [np.array(s, dtype=complex) * f for k, s in samb.items() if k.X in X]
+                if not part:
+                    continue
+                v = np.vstack(part)
+                assert np.allclose(v.imag, 0, atol=1e-12)
+                v = v.real
+                assert v.shape[1] == n
+                assert np.allclose(v @ v.T, np.eye(len(v)), atol=1e-10)
+                if X == "Q":
+                    assert len(v) == n
