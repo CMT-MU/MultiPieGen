@@ -1,7 +1,6 @@
 # Notes
 
-Notes on how the multipole data are generated and how they differ from MultiPie Ver.2, in English and Japanese. The
-source files are in `others/memo/`.
+Notes on how the multipole data are generated and how they differ from MultiPie Ver.2, in English and Japanese.
 
 - [Generation of the multipole data](notes/generation_rules.md): algorithms, keys, and orbital bases of the
   harmonics, multipolar harmonics, cluster bases, cluster SAMB, and atomic multipoles
