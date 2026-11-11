@@ -31,7 +31,7 @@ for p in oh["cluster"][:3]:
     print("   ", p)
 
 # ==================================================
-# 2. basis multiplets are keyed by PGMultipoleType(X="Q", l, Gamma, n, p=-1, s=0, k=0, x="q") (MultiPie site SAMB);
+# 2. basis multiplets are keyed by PGMultipoleType(X="Q", l, Gamma, n, p=-1, s=0, k=0, x="q") (MultiPie Ver.2 site SAMB);
 #    the value has all components, (dim, N).
 print("\nbasis keys of Oh:")
 for key in oh["basis"].keys():

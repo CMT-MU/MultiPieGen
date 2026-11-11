@@ -35,7 +35,7 @@ Same procedure as the cluster basis (util_cluster_basis), for the vector harmoni
         "dropped": [ PGMultipoleType ],  # vector harmonics linearly dependent on lower ones (whole multiplets).
     } }
 
-    PGMultipoleType = (X, l, Gamma, n, p, s, k, x) as the vector SAMB of MultiPie: type Q/G, rank, irrep,
+    PGMultipoleType = (X, l, Gamma, n, p, s, k, x) as the vector SAMB of MultiPie Ver.2: type Q/G, rank, irrep,
         multiplicity (-1: unique), add_multiplicity p = -1 (multiplets are distinguished by k), s = 1, k = -1, 0, 1,
         internal type x = q/g. All components of a multiplet are in the value (rows, in the order of components).
 """

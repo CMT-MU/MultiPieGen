@@ -1,0 +1,37 @@
+{
+ "atomic_multipole: keys and order same": true,
+ "atomic_multipole: values same": true,
+ "atomic_multipole_group (37 real PG): matrices": {
+  "same": 60757,
+  "sign": 896
+ },
+ "atomic_multipole_group: n": {
+  "n same": 61653
+ },
+ "atomic_multipole_group: sign differences (PG, l, irrep)": [
+  "C3 l=4 E",
+  "C3h l=4 E'",
+  "C3h l=4 E''",
+  "C3i l=4 Eg",
+  "C3i l=4 Eu",
+  "C3v l=4 E",
+  "C3v-1 l=4 E",
+  "C6 l=4 E2",
+  "C6h l=4 E2g",
+  "C6h l=4 E2u",
+  "C6v l=4 E2",
+  "D3 l=4 E",
+  "D3-1 l=4 E",
+  "D3d l=4 Eg",
+  "D3d l=4 Eu",
+  "D3d-1 l=4 Eg",
+  "D3d-1 l=4 Eu",
+  "D3h l=4 E'",
+  "D3h l=4 E''",
+  "D3h-1 l=4 E'",
+  "D3h-1 l=4 E''",
+  "D6 l=4 E2",
+  "D6h l=4 E2g",
+  "D6h l=4 E2u"
+ ]
+}

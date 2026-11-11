@@ -8,17 +8,25 @@
 """
 Create generated pages of the documentation.
     - docs/src/{pg,sg,mpg,msg}_pdf.md: lists of the PDFs of each group (multipiegen/pdf/{PG,SG,MPG,MSG}), sub-pages of
-      "Group Information" (docs/src/group_info.md). These pages are meant to be linked from outside (e.g. MultiPie),
+      "Group Information" (docs/src/group_info.md). These pages are meant to be linked from outside (e.g. MultiPie Ver.2),
       so they describe the content only, not how it is generated.
     - docs/src/examples.md: code of the examples listed in docs/examples/README.md.
+    - docs/src/data.md: list of the data tables (multipiegen/data) with their variables, the scripts in others/creation
+      that create them, and the modules that use them.
+    - docs/src/binary.md: list of the binary data (multipiegen/binary) with their top-level keys, and the description
+      of the dictionary keys (the header of each binary).
 
     python docs/create_pages.py    (run by "make build" in docs)
 """
 
+import ast
+import importlib
 import os
 import re
 
-from multipiegen import __top_dir__
+from multipie.util.util_binary import BinaryManager
+
+from multipiegen import __bin_dir__, __top_dir__
 from multipiegen.create_pdf.create_pdf_group import group_dir, has_pdf, kinds
 from multipiegen.util.util_group import load_group
 from multipiegen.util.util_info import load_info
@@ -171,6 +179,294 @@ def create_examples():
 
 
 # ==================================================
+data_content = {
+    "data_basis.py": "orbital and basis definitions: atomic orbitals, spin, LM/JM/LMs/Lgs basis, bra-ket blocks, "
+    "LaTeX names, Wannier90 aliases, cubic/hexagonal orbitals (internal basis of multipolar harmonics), harmonics keys",
+    "data_character_table.py": "character tables of all 47 point groups",
+    "data_compatibility_relation.py": "compatibility relations of the Oh and D6h subgroups",
+    "data_coset_so.py": "symmetry operations of the cosets to the parent group",
+    "data_group_pg.py": "group information of the point groups",
+    "data_group_sg.py": "group information of the space groups",
+    "data_group_mpg.py": "group information of the magnetic point groups",
+    "data_group_msg.py": "group information of the magnetic space groups",
+    "data_group_name_list.py": "names of all groups (directory, markdown, LaTeX names)",
+    "data_harmonics.py": "definition of harmonics (old orbital names, use data_basis for names)",
+    "data_harmonics_mapping.py": "mapping of the harmonics of each point group to the top harmonics (Oh, D6h)",
+    "data_op_mapping.py": "mapping of symmetry operations to the Oh/D6h cluster (PG), the parent SG (SG), "
+    "and the root cluster",
+    "data_parent_pg.py": "parent point groups of each point group",
+    "data_parent_sg.py": "parent space groups of each space group",
+    "data_response_tensor.py": "multipoles in the response tensors and their cartesian components",
+    "data_root_cluster.py": "root cluster, Oh and D6h clusters with the representative site and vector",
+    "data_top_harmonics.py": "harmonics of the top groups (Oh, D6h)",
+    "data_top_harmonics_info.py": "symmetry (cartesian expression) and u-matrix of the top harmonics",
+    "data_wyckoff_site.py": "Wyckoff sites of the point and space groups",
+    "data_wyckoff_bond_sym.py": "Wyckoff bonds of the point and space groups with the bond symmetry",
+    "data_wyckoff_mpg.py": "Wyckoff sites of the magnetic point groups",
+    "data_wyckoff_msg.py": "Wyckoff sites of the magnetic space groups",
+}
+data_from_multipie = [
+    "data_character_table.py",
+    "data_compatibility_relation.py",
+    "data_group_mpg.py",
+    "data_group_msg.py",
+    "data_group_pg.py",
+    "data_group_sg.py",
+    "data_group_name_list.py",
+    "data_top_harmonics.py",
+    "data_wyckoff_site.py",
+    "data_wyckoff_bond_sym.py",
+    "data_wyckoff_mpg.py",
+    "data_wyckoff_msg.py",
+    "data_response_tensor.py",
+]
+data_var_note = {
+    ("data_basis.py", "atomic_lgs_basis"): "regular atomic spinful basis order of the orbitals (Lgs)",
+    ("data_basis.py", "cubic_basis"): "spinful basis order of cubic_orbital_basis",
+    ("data_basis.py", "hexagonal_basis"): "spinful basis order of hexagonal_orbital_basis",
+    ("data_character_table.py", "character"): "{ PG: ( [[SO in conjugacy class]], { irrep: [character] } ) }",
+    ("data_character_table.py", "character_plus"): '{ PG: { "polar_axial": { irrep: irrep }, '
+    '"symmetric_product": { (irrep1, irrep2): [(n, irrep)] }, "anti_symmetric_product": { irrep: [(n, irrep)] } } }',
+    ("data_compatibility_relation.py", "compatibility_relation"): "{ PG: (top PG, { (top irrep, comp): ((polar irrep, "
+    "comp, coeff), (axial irrep, comp, coeff)) }) }",
+    ("data_group_name_list.py", "group_name_list"): "{ PG/SG/MPG/MSG: { id: (dir_name, md_name, no, tag, name, PG_id, "
+    "SG_id, MPG_id, MSG_id) } }",
+    ("data_harmonics_mapping.py", "data_harmonics_mapping"): '{ PG: { "top": "Oh/D6h", "Q/G": { pg_harm_key: '
+    "(coeff, top_harm_key) } } }",
+    ("data_top_harmonics.py", "top_harmonics_tag"): "tags of the top harmonics",
+    ("data_top_harmonics.py", "top_harmonics"): "top harmonics (cartesian expression) of Oh and D6h",
+    ("data_top_harmonics_info.py", "top_harmonics_symmetry"): '{ "tesseral/Oh/D6h": { tess_key/top_key: symmetry '
+    "(cartesian expression) } }",
+    ("data_top_harmonics_info.py", "top_harmonics_u_matrix"): '{ "tesseral/Oh/D6h": { tess_key/top_key: u-matrix '
+    "<m|gamma> } }",
+    ("data_wyckoff_bond_sym.py", "wyckoff_bond_data"): "{ group: { Wyckoff: (vector, center, mapping, bond_symmetry) } }",
+    ("data_wyckoff_mpg.py", "wyckoff_mpg_data"): "{ MPG_id: { Wyckoff: (position, site-symmetry) } }",
+    ("data_wyckoff_msg.py", "wyckoff_msg_data"): "{ MSG_id: { Wyckoff: (position, site-symmetry) } }",
+    ("data_wyckoff_site.py", "wyckoff_site_pg"): "{ PG: { Wyckoff: (position, site-symmetry) } }",
+    ("data_wyckoff_site.py", "wyckoff_site_sg"): "{ SG: { Wyckoff: (position, site-symmetry) } }",
+    ("data_wyckoff_site.py", "wyckoff_site_data"): "wyckoff_site_pg and wyckoff_site_sg together",
+}
+
+binary_content = [
+    (
+        "info.pkl",
+        "overall information of all groups, harmonics, basis, root cluster, response tensor",
+        "create_info",
+        "util_info.load_info",
+    ),
+    (
+        "group.pkl",
+        "data of each PG, SG, MPG, MSG: symmetry operations, character, Wyckoff sites and bonds",
+        "create_group",
+        "util_group.load_group",
+    ),
+    (
+        "response_tensor.pkl",
+        "response tensors (rank 0-4) of all MPG",
+        "create_response_tensor",
+        "util_response_tensor.load_response_tensor",
+    ),
+    (
+        "multipolar_harmonics.pkl",
+        "multipolar harmonics (s=1-3, l<=3) of all PG",
+        "create_multipolar_harmonics",
+        "util_harmonics_multipole.load_multipolar_harmonics",
+    ),
+    (
+        "atomic_multipole.pkl",
+        "matrices of atomic multipoles in the LMs/JML/LM basis",
+        "create_atomic_multipole",
+        "util_atomic_multipole.load_atomic_multipole",
+    ),
+    (
+        "atomic_multipole_group.pkl",
+        "atomic multipole SAMB of all PG in the JML/Lgs/Lg basis",
+        "create_atomic_multipole_group",
+        "util_atomic_multipole.load_atomic_multipole_group",
+    ),
+    (
+        "cluster_scalar_basis.pkl",
+        "orthonormal (scalar) cluster basis of the Oh and D6h clusters",
+        "create_cluster_scalar_basis",
+        "util_cluster_basis.load_cluster_basis",
+    ),
+    (
+        "cluster_vector_basis.pkl",
+        "orthonormal vector cluster basis (s=1) of the Oh and D6h clusters",
+        "create_cluster_vector_basis",
+        "util_cluster_vector_basis.load_cluster_vector_basis",
+    ),
+    (
+        "cluster_bond_basis.pkl",
+        "orthonormal bond cluster basis of the Oh and D6h clusters",
+        "create_cluster_bond_basis",
+        "util_bond_cluster_basis.load_bond_cluster_basis",
+    ),
+    (
+        "cluster_samb.pkl",
+        "cluster SAMB of each Wyckoff site and bond of the real PG and SG",
+        "create_cluster_samb",
+        "util_cluster_samb.load_cluster_samb",
+    ),
+]
+
+
+# ==================================================
+def _var_comment(src_lines, lineno):
+    """Comment lines just above a top-level assignment (without separators)."""
+    lst = []
+    i = lineno - 2
+    while i >= 0 and src_lines[i].startswith("#"):
+        line = src_lines[i].lstrip("#").strip()
+        if line and not set(line) <= set("="):
+            lst.insert(0, line)
+        i -= 1
+    return " ".join(lst)
+
+
+def _doc_note(doc, name):
+    """Description of a variable in the module docstring ("- name ...: description")."""
+    lines = (doc or "").splitlines()
+    for i, line in enumerate(lines):
+        m = re.match(r"^\s*-\s*" + re.escape(name) + r"\b[^:]*:?\s*(.*)$", line)
+        if m:
+            note = m.group(1).strip().rstrip(".")
+            if not note and i + 1 < len(lines):  # "- name." followed by the structure.
+                note = lines[i + 1].strip().rstrip(".")
+            return note
+    return ""
+
+
+def _size(v):
+    t = type(v).__name__
+    return f"{t} ({len(v)})" if hasattr(v, "__len__") and not isinstance(v, str) else t
+
+
+def _creators():
+    """{data file: [scripts in others/creation that write it]}."""
+    d = {}
+    cdir = os.path.join(__top_dir__, "others", "creation")
+    for f in sorted(os.listdir(cdir)):
+        if f.startswith("create_") and f.endswith(".py"):
+            for name in set(re.findall(r"os\.path\.join\(cur_dir, \"(data_[a-z_]+\.py)\"\)", open(os.path.join(cdir, f)).read())):
+                d.setdefault(name, []).append(f"others/creation/{f}")
+    return d
+
+
+def _users():
+    """{data module name: [modules of multipiegen that import it]}."""
+    d = {}
+    pdir = os.path.join(__top_dir__, "multipiegen")
+    for sub in ["util", "create_binary", "create_pdf"]:
+        for f in sorted(os.listdir(os.path.join(pdir, sub))):
+            if f.endswith(".py"):
+                for name in set(re.findall(r"multipiegen\.data\.(data_[a-z_]+)", open(os.path.join(pdir, sub, f)).read())):
+                    d.setdefault(name, []).append(f"{sub}/{f[:-3]}")
+    return d
+
+
+# ==================================================
+def create_data_page():
+    creators, users = _creators(), _users()
+    ddir = os.path.join(__top_dir__, "multipiegen", "data")
+    files = sorted(f for f in os.listdir(ddir) if f.startswith("data_") and f.endswith(".py"))
+    lines = [
+        "# Data tables",
+        "",
+        "The data tables in `multipiegen/data` are the source of all generated data. They are curated by hand; some of "
+        "them are first created by a script in `others/creation` (it writes next to itself, and the result is copied "
+        'into `multipiegen/data`). "origin" is "MultiPie Ver.2.4.0" for the tables taken from MultiPie Ver.2.4.0 '
+        '(some of them modified), and "new" otherwise.',
+        "",
+        "| file | content | origin | created by | used by |",
+        "|---|---|---|---|---|",
+    ]
+    for f in files:
+        name = f[:-3]
+        assert f in data_content, f"no description of {f} in docs/create_pages.py"
+        created = ", ".join(f"`{c}`" for c in creators.get(f, [])) or "-"
+        used = ", ".join(f"`{u}`" for u in users.get(name, [])) or "-"
+        origin = "MultiPie Ver.2.4.0" if f in data_from_multipie else "new"
+        lines.append(f"| [`{f}`](#{name.replace('_', '-')}-py) | {data_content[f]} | {origin} | {created} | {used} |")
+
+    for f in files:
+        name = f[:-3]
+        src = open(os.path.join(ddir, f)).read()
+        tree = ast.parse(src)
+        doc = ast.get_docstring(tree)
+        mod = importlib.import_module(f"multipiegen.data.{name}")
+        lines += ["", f"## {f}", "", data_content[f][0].upper() + data_content[f][1:] + "."]
+        created = creators.get(f, [])
+        if created:
+            lines += ["", "Created by " + ", ".join(f"`{c}`" for c in created) + "."]
+        lines += ["", "| variable | type (size) | description |", "|---|---|---|"]
+        seen = set()
+        for node in tree.body:
+            if isinstance(node, ast.Assign) and isinstance(node.targets[0], ast.Name):
+                v = node.targets[0].id
+                if v in seen:
+                    continue
+                seen.add(v)
+                note = (
+                    data_var_note.get((f, v))
+                    or _var_comment(src.splitlines(), node.lineno)
+                    or _doc_note(doc, v)
+                    or "see the description below"
+                )
+                lines.append(f"| `{v}` | {_size(getattr(mod, v))} | {note} |")
+        if doc:
+            lines += ["", "```text", doc, "```"]
+    write("data.md", lines)
+
+
+# ==================================================
+def create_binary_page():
+    lines = [
+        "# Binary data",
+        "",
+        "The binary data in `multipiegen/binary` are created from the data tables by the modules in "
+        "`multipiegen/create_binary`. They use the format of MultiPie Ver.2's `BinaryManager` (gzip-compressed pickle "
+        'with a header), so they can be read without MultiPieGen, e.g. `BinaryManager("info", topdir=...)`. '
+        "`str(data)` shows the header, the description of the dictionary keys given in each section below.",
+        "",
+        "| file | content | top-level keys | create | load |",
+        "|---|---|---|---|---|",
+    ]
+    sections = []
+    for f, content, create, load in binary_content:
+        name = f[:-4]
+        bm = BinaryManager(name, topdir=__bin_dir__)
+        keys = list(bm.keys())
+        if len(keys) <= 10:
+            top = ", ".join(f"`{k}`" for k in keys)
+        else:
+            top = f"{len(keys)} keys: " + ", ".join(f"`{k}`" for k in keys[:2]) + f", ..., `{keys[-1]}`"
+        anchor = name.replace("_", "-") + "-pkl"
+        cmd = f"`python -m multipiegen.create_binary.{create}`"
+        ld = f"`multipiegen.util.{load}()`"
+        lines.append(f"| [`{f}`](#{anchor}) | {content} | {top} | {cmd} | {ld} |")
+        size = os.path.getsize(os.path.join(__bin_dir__, f))
+        sections += [
+            "",
+            f"## {f}",
+            "",
+            f"{content[0].upper() + content[1:]}.",
+            "",
+            f"- create: {cmd}",
+            f"- load: {ld}",
+            f"- top-level keys: {top}",
+            f"- size: {size / 1024:,.0f} KB",
+            "",
+            "Description of the dictionary keys (header of the binary):",
+            "",
+            "```text",
+            str(bm).strip().strip('"').strip(),
+            "```",
+        ]
+    write("binary.md", lines + sections)
+
+
+# ==================================================
 def write(name, lines):
     out = os.path.join(doc_dir, "src", name)
     with open(out, "w") as f:
@@ -182,3 +478,5 @@ def write(name, lines):
 if __name__ == "__main__":
     create_group_pages()
     create_examples()
+    create_data_page()
+    create_binary_page()

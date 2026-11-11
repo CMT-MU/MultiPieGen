@@ -50,7 +50,7 @@ def test_irrep_count(group, x):
 # ==================================================
 @pytest.mark.parametrize("group, x", CASES)
 def test_keys(group, x):
-    # PGMultipoleType as MultiPie vector SAMB: p = -1, s = 1; Q for even s+k (q), interchanged for g.
+    # PGMultipoleType as MultiPie Ver.2 vector SAMB: p = -1, s = 1; Q for even s+k (q), interchanged for g.
     for key in _multiplets(group, x):
         assert key.p == -1 and key.s == 1
         even = (1 + key.k) % 2 == 0
