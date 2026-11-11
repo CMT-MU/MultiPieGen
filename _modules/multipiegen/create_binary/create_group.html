@@ -33,7 +33,7 @@
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
     <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=9c3e77be" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=34ddd5e8" />
@@ -204,30 +204,57 @@
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Documentation</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../../src/data.html">Data tables</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../src/binary.html">Binary data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../src/pg_pdf.html">Point groups</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../src/sg_pdf.html">Space groups</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../src/mpg_pdf.html">Magnetic point groups</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../src/msg_pdf.html">Magnetic space groups</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../src/info_pdf.html">Overall information</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../src/examples.html">Examples</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../src/group_info.html">Group Information</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/info_pdf.html">Overall information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/pg_pdf.html">Point groups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/sg_pdf.html">Space groups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/mpg_pdf.html">Magnetic point groups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/msg_pdf.html">Magnetic space groups</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../src/notes.html">Notes</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../src/details.html">Details</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/examples.html">Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/binary.html">Binary data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/data.html">Data tables</a></li>
+</ul>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">API reference</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../src/api_util.html">Utilities</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../src/api_util/util_info.html">Info</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../src/api_util/util_group.html">Group</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_util/util_group_data.html">Group data (ids, tags, names)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_util/util_top_harmonics.html">Top harmonics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_util/util_harmonics_mapping.html">Harmonics mapping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_util/util_op_mapping.html">Operation mapping</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../src/api_util/util_cluster_basis.html">Cluster basis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_util/util_cluster_vector_basis.html">Vector cluster basis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_util/util_bond_cluster_basis.html">Bond cluster basis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_util/util_cluster_samb.html">Cluster SAMB</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../src/api_util/util_harmonics_symbol.html">Harmonics symbol</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_util/util_harmonics.html">Harmonics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_util/util_harmonics_multipole.html">Multipolar harmonics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../src/api_util/util_multipolar_harmonics.html">Multipolar harmonics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_util/util_atomic_multipole.html">Atomic multipole</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../src/api_util/util_symmetry_operation.html">Symmetry operation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_util/util_representation_matrix.html">Representation matrix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_util/util_response_tensor.html">Response tensor</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../src/api_create.html">Generators</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../src/api_create/create_info.html">Info binary</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../src/api_create/create_group.html">Group binary</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../src/api_create/create_cluster_basis.html">Cluster basis binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_create/create_response_tensor.html">Response tensor binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_create/create_harmonics.html">Harmonics binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_create/create_multipolar_harmonics.html">Multipolar harmonics binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_create/create_atomic_multipole.html">Atomic multipole binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_create/create_atomic_multipole_group.html">Atomic multipole group binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_create/create_cluster_scalar_basis.html">Cluster scalar basis binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_create/create_cluster_vector_basis.html">Vector cluster basis binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_create/create_cluster_bond_basis.html">Cluster bond basis binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_create/create_cluster_samb.html">Cluster SAMB binary</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../src/api_create/create_pdf_harmonics.html">Harmonics PDF</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../src/api_create/create_pdf_info.html">Information PDF</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../src/api_create/create_pdf_group.html">Group PDF</a></li>
@@ -281,7 +308,7 @@
 <div class="article-header-buttons">
 
 
-<a href="https://github.com/hiro-k-phys/mp-newbasis.git" target="_blank"
+<a href="https://github.com/hiro-k-phys/MultiPieGen.git" target="_blank"
    class="btn btn-sm btn-source-repository-button"
    title="Source repository"
    data-bs-placement="bottom" data-bs-toggle="tooltip"
@@ -360,11 +387,11 @@
 
 <span class="sd">    python -m multipiegen.create_binary.create_group [--serial]</span>
 
-<span class="sd">Based on MultiPie (others/tools/create_binary/create_data_group.py, create_data_group_mapping.py,</span>
-<span class="sd">create_data_group_bond.py), which are merged here. Differences from MultiPie:</span>
+<span class="sd">Based on MultiPie Ver.2 (others/tools/create_binary/create_data_group.py, create_data_group_mapping.py,</span>
+<span class="sd">create_data_group_bond.py), which are merged here. Differences from MultiPie Ver.2:</span>
 
 <span class="sd">    - the representative site/vector are those of the new root cluster (info.pkl).</span>
-<span class="sd">    - "mapping" of symmetry operation is the mapping to the Oh/D6h cluster (data_op_mapping), for PG and SG.</span>
+<span class="sd">    - "mapping" of symmetry operation is the mapping to the Oh/D6h cluster (util_op_mapping), for PG and SG.</span>
 <span class="sd">    - Wyckoff bond has "symmetry" (bond symmetry).</span>
 <span class="sd">    - complex PG ("-c") has all data, copied from the real PG except for the character.</span>
 <span class="sd">    - all sympy values are stored in a simple form (simplify_value).</span>
@@ -384,7 +411,6 @@
 <span class="kn">from</span><span class="w"> </span><span class="nn">multipie.util.util_crystal</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
     <span class="n">convert_to_cartesian_hexagonal</span><span class="p">,</span>
     <span class="n">convert_to_fractional_hexagonal</span><span class="p">,</span>
-    <span class="n">convert_to_fractional_hexagonal_matrix</span><span class="p">,</span>
     <span class="n">convert_to_primitive</span><span class="p">,</span>
     <span class="n">convert_to_primitive_matrix</span><span class="p">,</span>
     <span class="n">t_dict</span><span class="p">,</span>
@@ -393,12 +419,12 @@
 <span class="kn">from</span><span class="w"> </span><span class="nn">multipie.util.util_tag</span><span class="w"> </span><span class="kn">import</span> <span class="n">TagIrrep</span>
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">multipiegen</span><span class="w"> </span><span class="kn">import</span> <span class="n">__bin_dir__</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">multipiegen.data.data_character_table</span><span class="w"> </span><span class="kn">import</span> <span class="n">character</span><span class="p">,</span> <span class="n">character_plus</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">multipiegen.data.data_character_table</span><span class="w"> </span><span class="kn">import</span> <span class="n">character</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">multipiegen.data.data_group_mpg</span><span class="w"> </span><span class="kn">import</span> <span class="n">mpg_info</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">multipiegen.data.data_group_msg</span><span class="w"> </span><span class="kn">import</span> <span class="n">msg_info</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">multipiegen.data.data_group_pg</span><span class="w"> </span><span class="kn">import</span> <span class="n">pg_info</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">multipiegen.data.data_group_sg</span><span class="w"> </span><span class="kn">import</span> <span class="n">sg_info</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">multipiegen.data.data_op_mapping</span><span class="w"> </span><span class="kn">import</span> <span class="n">op_mapping_d6h_oh_cluster</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">multipiegen.util.util_op_mapping</span><span class="w"> </span><span class="kn">import</span> <span class="n">op_mapping_d6h_oh_cluster</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">multipiegen.data.data_wyckoff_bond_sym</span><span class="w"> </span><span class="kn">import</span> <span class="n">wyckoff_bond_data</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">multipiegen.data.data_wyckoff_mpg</span><span class="w"> </span><span class="kn">import</span> <span class="n">wyckoff_mpg_data</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">multipiegen.data.data_wyckoff_msg</span><span class="w"> </span><span class="kn">import</span> <span class="n">wyckoff_msg_data</span>
@@ -409,6 +435,7 @@
     <span class="n">point_tag</span><span class="p">,</span>
     <span class="n">simplify_array</span><span class="p">,</span>
     <span class="n">simplify_value</span><span class="p">,</span>
+    <span class="n">symmetry_operation_matrices</span><span class="p">,</span>
     <span class="n">symmetry_operation_matrix</span><span class="p">,</span>
     <span class="n">symmetry_operation_matrix_multipole</span><span class="p">,</span>
 <span class="p">)</span>
@@ -443,7 +470,7 @@
 <span class="s2">      - (X,s) (str,int): ([ndarray(2s+1,2s+1,sympy)]) list of SO matrix.</span>
 <span class="s2">    - "product" (str): (dict) product table.</span>
 <span class="s2">      - (SO_tag1,SO_tag2) (str,str): (str) SO_tag of product, SO1 SO2.</span>
-<span class="s2">    - "mapping" (str): (dict) mapping of SO to the Oh/D6h cluster (data_op_mapping).</span>
+<span class="s2">    - "mapping" (str): (dict) mapping of SO to the Oh/D6h cluster (util_op_mapping).</span>
 <span class="s2">      - "top" (str): (str) top group, "Oh" or "D6h".</span>
 <span class="s2">      - "mapping" (str): ([[int]]) mapping[coset][i] = SO number (from 1) of top group for i-th SO of group.</span>
 <span class="s2">    NOTE:</span>
@@ -517,9 +544,9 @@
 <span class="s2">    - "plus_set" (str): (ndarray(n,3,sympy)) list of plus set vector (fractional, conventional).</span>
 <span class="s2">    - "so_matrix" (str): (Dict) dict of SO matrix (X="Q/G", s=0,1, cartesian).</span>
 <span class="s2">      - (X,s) (str,int): ([ndarray(2s+1,2s+1,sympy)]) list of SO matrix.</span>
-<span class="s2">    - "mapping" (str): (dict) mapping of SO to the Oh/D6h cluster (data_op_mapping).</span>
-<span class="s2">      - "top" (str): (int) top SG number (SG whose PG is Oh or D6h), the SG itself if its PG is Oh or D6h.</span>
-<span class="s2">      - "mapping" (str): ([[int]]) mapping[coset][i] = SO number (from 1) of top SG for i-th SO of group.</span>
+<span class="s2">    - "mapping" (str): (dict) mapping of SO to the Oh/D6h cluster (that of the PG, util_op_mapping).</span>
+<span class="s2">      - "top" (str): (str) top group, "Oh" or "D6h".</span>
+<span class="s2">      - "mapping" (str): ([[int]]) mapping[coset][i] = SO number (from 1) of top group for i-th SO of group.</span>
 <span class="s2">    NOTE:</span>
 <span class="s2">      - SOs are in the same order of ITA (BCS).</span>
 <span class="s2">      - SOs of SG and PG (without translational part) are in the same order.</span>
@@ -663,18 +690,21 @@
 
 
 <span class="c1"># ==================================================</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">_so_mapping</span><span class="p">(</span><span class="n">key</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_so_mapping</span><span class="p">(</span><span class="n">pg_tag</span><span class="p">,</span> <span class="n">so</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""</span>
-<span class="sd">    Mapping of SO to the Oh/D6h cluster.</span>
+<span class="sd">    Mapping of SO to the Oh/D6h cluster, through the point group (op_mapping_d6h_oh_cluster).</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        key (str or int): PG tag (real) or SG number.</span>
+<span class="sd">        pg_tag (str): real PG tag (of the SG for SG).</span>
+<span class="sd">        so (list): SO tags of the group (SG has the translational part, ignored).</span>
 
 <span class="sd">    Returns:</span>
-<span class="sd">        - (dict) -- {"top": "Oh"/"D6h" (PG) or top SG number (SG), "mapping": [[int]]}.</span>
+<span class="sd">        - (dict) -- {"top": "Oh"/"D6h", "mapping": [[int]]}.</span>
 <span class="sd">    """</span>
-    <span class="n">top</span><span class="p">,</span> <span class="n">mapping</span> <span class="o">=</span> <span class="n">op_mapping_d6h_oh_cluster</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
-    <span class="k">return</span> <span class="p">{</span><span class="s2">"top"</span><span class="p">:</span> <span class="n">top</span><span class="p">,</span> <span class="s2">"mapping"</span><span class="p">:</span> <span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">mapping</span><span class="p">]}</span>
+    <span class="n">top</span><span class="p">,</span> <span class="n">mapping</span> <span class="o">=</span> <span class="n">op_mapping_d6h_oh_cluster</span><span class="p">[</span><span class="n">pg_tag</span><span class="p">]</span>
+    <span class="n">pg_so</span> <span class="o">=</span> <span class="n">pg_info</span><span class="p">[[</span><span class="n">k</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">pg_info</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">v</span><span class="o">.</span><span class="n">tag</span> <span class="o">==</span> <span class="n">pg_tag</span><span class="p">][</span><span class="mi">0</span><span class="p">]]</span><span class="o">.</span><span class="n">SO</span>
+    <span class="n">idx</span> <span class="o">=</span> <span class="p">[</span><span class="n">pg_so</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">":"</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">so</span><span class="p">]</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">"top"</span><span class="p">:</span> <span class="n">top</span><span class="p">,</span> <span class="s2">"mapping"</span><span class="p">:</span> <span class="p">[[</span><span class="n">c</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">idx</span><span class="p">]</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">mapping</span><span class="p">]}</span>
 
 
 <span class="c1"># ==================================================</span>
@@ -695,43 +725,23 @@
 
 
 <span class="c1"># ==================================================</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">_matrices</span><span class="p">(</span><span class="n">so</span><span class="p">,</span> <span class="n">hexagonal</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">"""</span>
-<span class="sd">    Cartesian and fractional SO matrices.</span>
-
-<span class="sd">    Args:</span>
-<span class="sd">        so (list): SO tags.</span>
-<span class="sd">        hexagonal (bool): hexagonal ?</span>
-
-<span class="sd">    Returns:</span>
-<span class="sd">        - (ndarray) -- cartesian SO matrices.</span>
-<span class="sd">        - (ndarray) -- fractional SO matrices.</span>
-<span class="sd">        - (ndarray) -- determinants.</span>
-<span class="sd">    """</span>
-    <span class="n">cart</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">([</span><span class="n">symmetry_operation_matrix</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">hexagonal</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">so</span><span class="p">])</span>
-    <span class="n">frac</span> <span class="o">=</span> <span class="n">simplify_array</span><span class="p">(</span><span class="n">convert_to_fractional_hexagonal_matrix</span><span class="p">(</span><span class="n">cart</span><span class="p">))</span> <span class="k">if</span> <span class="n">hexagonal</span> <span class="k">else</span> <span class="n">cart</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-    <span class="n">det</span> <span class="o">=</span> <span class="n">simplify_array</span><span class="p">([</span><span class="n">sp</span><span class="o">.</span><span class="n">Matrix</span><span class="p">(</span><span class="n">i</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">])</span><span class="o">.</span><span class="n">det</span><span class="p">()</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">cart</span><span class="p">])</span>
-    <span class="k">return</span> <span class="n">cart</span><span class="p">,</span> <span class="n">frac</span><span class="p">,</span> <span class="n">det</span>
-
-
-<span class="c1"># ==================================================</span>
 <div class="viewcode-block" id="create_symmetry_operation">
 <a class="viewcode-back" href="../../../src/api_create/create_group.html#multipiegen.create_binary.create_group.create_symmetry_operation">[docs]</a>
-<span class="k">def</span><span class="w"> </span><span class="nf">create_symmetry_operation</span><span class="p">(</span><span class="n">g_info</span><span class="p">,</span> <span class="n">tag</span><span class="p">,</span> <span class="n">mapping_key</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">create_symmetry_operation</span><span class="p">(</span><span class="n">g_info</span><span class="p">,</span> <span class="n">tag</span><span class="p">,</span> <span class="n">pg_tag</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Symmetry operation of PG or SG.</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">        g_info (namedtuple): PGInfoType or SGInfoType.</span>
 <span class="sd">        tag (str): group tag (SG has "^").</span>
-<span class="sd">        mapping_key (str or int): key of data_op_mapping (real PG tag or SG number).</span>
+<span class="sd">        pg_tag (str): real PG tag (of the SG for SG), key of op_mapping_d6h_oh_cluster.</span>
 
 <span class="sd">    Returns:</span>
 <span class="sd">        - (dict) -- symmetry operation.</span>
 <span class="sd">    """</span>
     <span class="n">hexagonal</span> <span class="o">=</span> <span class="n">g_info</span><span class="o">.</span><span class="n">hexagonal_g</span>
     <span class="n">so</span> <span class="o">=</span> <span class="n">g_info</span><span class="o">.</span><span class="n">SO</span>
-    <span class="n">cart</span><span class="p">,</span> <span class="n">frac</span><span class="p">,</span> <span class="n">det</span> <span class="o">=</span> <span class="n">_matrices</span><span class="p">(</span><span class="n">so</span><span class="p">,</span> <span class="n">hexagonal</span><span class="p">)</span>
+    <span class="n">cart</span><span class="p">,</span> <span class="n">frac</span><span class="p">,</span> <span class="n">det</span> <span class="o">=</span> <span class="n">symmetry_operation_matrices</span><span class="p">(</span><span class="n">so</span><span class="p">,</span> <span class="n">hexagonal</span><span class="p">)</span>
 
     <span class="n">dic</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"tag"</span><span class="p">:</span> <span class="n">so</span><span class="p">,</span> <span class="s2">"generator"</span><span class="p">:</span> <span class="n">g_info</span><span class="o">.</span><span class="n">SO_gen</span><span class="p">,</span> <span class="s2">"cartesian"</span><span class="p">:</span> <span class="n">cart</span><span class="p">,</span> <span class="s2">"fractional"</span><span class="p">:</span> <span class="n">frac</span><span class="p">,</span> <span class="s2">"det"</span><span class="p">:</span> <span class="n">det</span><span class="p">}</span>
     <span class="k">if</span> <span class="n">tag</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">"^"</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
@@ -747,7 +757,7 @@
         <span class="n">so_mat</span><span class="p">[(</span><span class="s2">"Q"</span><span class="p">,</span> <span class="n">s</span><span class="p">)]</span> <span class="o">=</span> <span class="p">[</span><span class="n">symmetry_operation_matrix_multipole</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">hexagonal</span><span class="p">,</span> <span class="n">axial</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">tesseral</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">so</span><span class="p">]</span>
         <span class="n">so_mat</span><span class="p">[(</span><span class="s2">"G"</span><span class="p">,</span> <span class="n">s</span><span class="p">)]</span> <span class="o">=</span> <span class="p">[</span><span class="n">symmetry_operation_matrix_multipole</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">hexagonal</span><span class="p">,</span> <span class="n">axial</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">tesseral</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">so</span><span class="p">]</span>
     <span class="n">dic</span><span class="p">[</span><span class="s2">"so_matrix"</span><span class="p">]</span> <span class="o">=</span> <span class="n">so_mat</span>
-    <span class="n">dic</span><span class="p">[</span><span class="s2">"mapping"</span><span class="p">]</span> <span class="o">=</span> <span class="n">_so_mapping</span><span class="p">(</span><span class="n">mapping_key</span><span class="p">)</span>
+    <span class="n">dic</span><span class="p">[</span><span class="s2">"mapping"</span><span class="p">]</span> <span class="o">=</span> <span class="n">_so_mapping</span><span class="p">(</span><span class="n">pg_tag</span><span class="p">,</span> <span class="n">so</span><span class="p">)</span>
 
     <span class="k">return</span> <span class="n">dic</span></div>
 
@@ -767,31 +777,89 @@
 <span class="sd">        - (dict) -- symmetry operation.</span>
 <span class="sd">    """</span>
     <span class="n">so</span> <span class="o">=</span> <span class="n">g_info</span><span class="o">.</span><span class="n">SO</span>
-    <span class="n">cart</span><span class="p">,</span> <span class="n">frac</span><span class="p">,</span> <span class="n">det</span> <span class="o">=</span> <span class="n">_matrices</span><span class="p">(</span><span class="n">so</span><span class="p">,</span> <span class="n">g_info</span><span class="o">.</span><span class="n">hexagonal_g</span><span class="p">)</span>
+    <span class="n">cart</span><span class="p">,</span> <span class="n">frac</span><span class="p">,</span> <span class="n">det</span> <span class="o">=</span> <span class="n">symmetry_operation_matrices</span><span class="p">(</span><span class="n">so</span><span class="p">,</span> <span class="n">g_info</span><span class="o">.</span><span class="n">hexagonal_g</span><span class="p">)</span>
     <span class="n">tr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">([</span><span class="o">-</span><span class="n">sp</span><span class="o">.</span><span class="n">S</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="k">if</span> <span class="n">i</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">"'"</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="n">sp</span><span class="o">.</span><span class="n">S</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">so</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">object</span><span class="p">)</span>
     <span class="k">return</span> <span class="p">{</span><span class="s2">"tag"</span><span class="p">:</span> <span class="n">so</span><span class="p">,</span> <span class="s2">"tr_sign"</span><span class="p">:</span> <span class="n">tr</span><span class="p">,</span> <span class="s2">"cartesian"</span><span class="p">:</span> <span class="n">cart</span><span class="p">,</span> <span class="s2">"fractional"</span><span class="p">:</span> <span class="n">frac</span><span class="p">,</span> <span class="s2">"det"</span><span class="p">:</span> <span class="n">det</span><span class="p">}</span></div>
 
 
 
 <span class="c1"># ==================================================</span>
+<div class="viewcode-block" id="character_plus">
+<a class="viewcode-back" href="../../../src/api_create/create_group.html#multipiegen.create_binary.create_group.character_plus">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">character_plus</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="n">conjugacy</span><span class="p">,</span> <span class="n">so</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Polar-axial conversion and symmetric and anti-symmetric products of irreps, from the characters.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        table (dict): {irrep: [character of each conjugacy class]} (sympy).</span>
+<span class="sd">        conjugacy (list): [[SO tags of each conjugacy class]].</span>
+<span class="sd">        so (dict): symmetry operation ("tag", "det", "product").</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        - (dict) -- {"polar_axial": {irrep: irrep}, "symmetric_product": {(irrep1, irrep2): [(n, irrep)]},</span>
+<span class="sd">          "anti_symmetric_product": {irrep: [(n, irrep)]}}.</span>
+
+<span class="sd">    Notes:</span>
+<span class="sd">        - polar_axial: the irrep whose characters are det(g) times those of the irrep.</span>
+<span class="sd">        - symmetric_product: decomposition of irrep1 x irrep2 (for irrep1 = irrep2, the symmetric part with characters</span>
+<span class="sd">          (chi(g)^2 + chi(g^2))/2); anti_symmetric_product: the anti-symmetric part, (chi(g)^2 - chi(g^2))/2.</span>
+<span class="sd">        - n = &lt;chi_irrep, chi&gt; / &lt;chi_irrep, chi_irrep&gt;, so that a real irrep of complex type (e.g. E of C4, a pair of</span>
+<span class="sd">          complex 1D irreps) is counted once.</span>
+<span class="sd">    """</span>
+    <span class="n">irreps</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">table</span><span class="p">)</span>
+    <span class="n">chi</span> <span class="o">=</span> <span class="p">{</span><span class="n">ir</span><span class="p">:</span> <span class="p">[</span><span class="n">sp</span><span class="o">.</span><span class="n">expand</span><span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">S</span><span class="p">(</span><span class="n">c</span><span class="p">)</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">_wp_wm</span><span class="p">))</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">v</span><span class="p">]</span> <span class="k">for</span> <span class="n">ir</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">table</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+    <span class="n">size</span> <span class="o">=</span> <span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">conjugacy</span><span class="p">]</span>
+    <span class="n">order</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">size</span><span class="p">)</span>
+    <span class="bp">cls</span> <span class="o">=</span> <span class="p">{</span><span class="n">t</span><span class="p">:</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">conjugacy</span><span class="p">)</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">c</span><span class="p">}</span>
+    <span class="n">det</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">so</span><span class="p">[</span><span class="s2">"tag"</span><span class="p">],</span> <span class="n">so</span><span class="p">[</span><span class="s2">"det"</span><span class="p">]))</span>
+    <span class="n">sq</span> <span class="o">=</span> <span class="p">[</span><span class="bp">cls</span><span class="p">[</span><span class="n">so</span><span class="p">[</span><span class="s2">"product"</span><span class="p">][(</span><span class="n">c</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">c</span><span class="p">[</span><span class="mi">0</span><span class="p">])]]</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">conjugacy</span><span class="p">]</span>
+    <span class="n">inner</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="n">sp</span><span class="o">.</span><span class="n">nsimplify</span><span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">expand</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">n</span> <span class="o">*</span> <span class="n">sp</span><span class="o">.</span><span class="n">conjugate</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">*</span> <span class="n">y</span> <span class="k">for</span> <span class="n">n</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">size</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">))</span> <span class="o">/</span> <span class="n">order</span><span class="p">))</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">decompose</span><span class="p">(</span><span class="n">v</span><span class="p">):</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">ir</span> <span class="ow">in</span> <span class="n">irreps</span><span class="p">:</span>
+            <span class="n">n</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">nsimplify</span><span class="p">(</span><span class="n">inner</span><span class="p">(</span><span class="n">chi</span><span class="p">[</span><span class="n">ir</span><span class="p">],</span> <span class="n">v</span><span class="p">)</span> <span class="o">/</span> <span class="n">inner</span><span class="p">(</span><span class="n">chi</span><span class="p">[</span><span class="n">ir</span><span class="p">],</span> <span class="n">chi</span><span class="p">[</span><span class="n">ir</span><span class="p">]))</span>
+            <span class="k">if</span> <span class="n">n</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">res</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="nb">int</span><span class="p">(</span><span class="n">n</span><span class="p">),</span> <span class="n">ir</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">res</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">find</span><span class="p">(</span><span class="n">v</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">next</span><span class="p">(</span><span class="n">ir</span> <span class="k">for</span> <span class="n">ir</span> <span class="ow">in</span> <span class="n">irreps</span> <span class="k">if</span> <span class="nb">all</span><span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">expand</span><span class="p">(</span><span class="n">a</span> <span class="o">-</span> <span class="n">b</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">chi</span><span class="p">[</span><span class="n">ir</span><span class="p">],</span> <span class="n">v</span><span class="p">)))</span>
+
+    <span class="n">polar_axial</span> <span class="o">=</span> <span class="p">{</span><span class="n">ir</span><span class="p">:</span> <span class="n">find</span><span class="p">([</span><span class="n">det</span><span class="p">[</span><span class="n">c</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">*</span> <span class="n">x</span> <span class="k">for</span> <span class="n">c</span><span class="p">,</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">conjugacy</span><span class="p">,</span> <span class="n">chi</span><span class="p">[</span><span class="n">ir</span><span class="p">])])</span> <span class="k">for</span> <span class="n">ir</span> <span class="ow">in</span> <span class="n">irreps</span><span class="p">}</span>
+    <span class="n">sym</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">irreps</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">irreps</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">a</span> <span class="o">==</span> <span class="n">b</span><span class="p">:</span>
+                <span class="n">v</span> <span class="o">=</span> <span class="p">[(</span><span class="n">x</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="n">chi</span><span class="p">[</span><span class="n">a</span><span class="p">][</span><span class="n">sq</span><span class="p">[</span><span class="n">i</span><span class="p">]])</span> <span class="o">/</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">chi</span><span class="p">[</span><span class="n">a</span><span class="p">])]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">v</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="o">*</span> <span class="n">y</span> <span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">chi</span><span class="p">[</span><span class="n">a</span><span class="p">],</span> <span class="n">chi</span><span class="p">[</span><span class="n">b</span><span class="p">])]</span>
+            <span class="n">sym</span><span class="p">[(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)]</span> <span class="o">=</span> <span class="n">decompose</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+    <span class="n">anti</span> <span class="o">=</span> <span class="p">{</span><span class="n">a</span><span class="p">:</span> <span class="n">decompose</span><span class="p">([(</span><span class="n">x</span> <span class="o">*</span> <span class="n">x</span> <span class="o">-</span> <span class="n">chi</span><span class="p">[</span><span class="n">a</span><span class="p">][</span><span class="n">sq</span><span class="p">[</span><span class="n">i</span><span class="p">]])</span> <span class="o">/</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">chi</span><span class="p">[</span><span class="n">a</span><span class="p">])])</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">irreps</span><span class="p">}</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">"polar_axial"</span><span class="p">:</span> <span class="n">polar_axial</span><span class="p">,</span> <span class="s2">"symmetric_product"</span><span class="p">:</span> <span class="n">sym</span><span class="p">,</span> <span class="s2">"anti_symmetric_product"</span><span class="p">:</span> <span class="n">anti</span><span class="p">}</span></div>
+
+
+
+<span class="c1"># ==================================================</span>
 <div class="viewcode-block" id="create_character">
 <a class="viewcode-back" href="../../../src/api_create/create_group.html#multipiegen.create_binary.create_group.create_character">[docs]</a>
-<span class="k">def</span><span class="w"> </span><span class="nf">create_character</span><span class="p">(</span><span class="n">tag</span><span class="p">,</span> <span class="n">so_tag</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">create_character</span><span class="p">(</span><span class="n">tag</span><span class="p">,</span> <span class="n">so</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Character of PG.</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">        tag (str): PG tag (with "-c" for complex PG).</span>
-<span class="sd">        so_tag (list): SO tags.</span>
+<span class="sd">        so (dict): symmetry operation ("tag", "det", "product").</span>
 
 <span class="sd">    Returns:</span>
 <span class="sd">        - (dict) -- character.</span>
 <span class="sd">    """</span>
+    <span class="n">so_tag</span> <span class="o">=</span> <span class="n">so</span><span class="p">[</span><span class="s2">"tag"</span><span class="p">]</span>
     <span class="n">conjugacy</span><span class="p">,</span> <span class="n">table</span> <span class="o">=</span> <span class="n">character</span><span class="p">[</span><span class="n">tag</span><span class="p">]</span>
-    <span class="n">plus</span> <span class="o">=</span> <span class="n">character_plus</span><span class="p">[</span><span class="n">tag</span><span class="p">]</span>
 
     <span class="bp">cls</span> <span class="o">=</span> <span class="p">{</span><span class="n">s</span><span class="p">:</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">conjugacy</span><span class="p">)</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">c</span><span class="p">}</span>
     <span class="n">table</span> <span class="o">=</span> <span class="p">{</span><span class="n">irrep</span><span class="p">:</span> <span class="n">str_to_sympy</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">irrep</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">table</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+    <span class="n">plus</span> <span class="o">=</span> <span class="n">character_plus</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="n">conjugacy</span><span class="p">,</span> <span class="n">so</span><span class="p">)</span>
     <span class="n">table_full</span> <span class="o">=</span> <span class="p">{}</span>
     <span class="k">for</span> <span class="n">irrep</span><span class="p">,</span> <span class="n">ch</span> <span class="ow">in</span> <span class="n">table</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
         <span class="n">v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">([</span><span class="n">ch</span><span class="p">[</span><span class="bp">cls</span><span class="p">[</span><span class="n">s</span><span class="p">]]</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">so_tag</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">object</span><span class="p">)</span>
@@ -997,7 +1065,7 @@
         <span class="s2">"info"</span><span class="p">:</span> <span class="n">g_info</span><span class="p">,</span>
         <span class="s2">"symmetry_operation"</span><span class="p">:</span> <span class="n">so</span><span class="p">,</span>
         <span class="s2">"wyckoff"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"site"</span><span class="p">:</span> <span class="n">site</span><span class="p">,</span> <span class="s2">"bond"</span><span class="p">:</span> <span class="n">bond</span><span class="p">},</span>
-        <span class="s2">"character"</span><span class="p">:</span> <span class="n">create_character</span><span class="p">(</span><span class="n">tag</span><span class="p">,</span> <span class="n">so</span><span class="p">[</span><span class="s2">"tag"</span><span class="p">]),</span>
+        <span class="s2">"character"</span><span class="p">:</span> <span class="n">create_character</span><span class="p">(</span><span class="n">tag</span><span class="p">,</span> <span class="n">so</span><span class="p">),</span>
     <span class="p">}</span></div>
 
 
@@ -1017,7 +1085,7 @@
 <span class="sd">        - (dict) -- data of SG.</span>
 <span class="sd">    """</span>
     <span class="n">g_info</span> <span class="o">=</span> <span class="n">sg_info</span><span class="p">[</span><span class="n">sg_id</span><span class="p">]</span>
-    <span class="n">so</span> <span class="o">=</span> <span class="n">create_symmetry_operation</span><span class="p">(</span><span class="n">g_info</span><span class="p">,</span> <span class="n">tag</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">sg_id</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">":"</span><span class="p">)[</span><span class="mi">1</span><span class="p">]))</span>
+    <span class="n">so</span> <span class="o">=</span> <span class="n">create_symmetry_operation</span><span class="p">(</span><span class="n">g_info</span><span class="p">,</span> <span class="n">tag</span><span class="p">,</span> <span class="n">pg_info</span><span class="p">[</span><span class="n">g_info</span><span class="o">.</span><span class="n">PG</span><span class="p">]</span><span class="o">.</span><span class="n">tag</span><span class="p">)</span>
     <span class="n">site</span> <span class="o">=</span> <span class="n">create_wyckoff_site</span><span class="p">(</span><span class="n">g_info</span><span class="p">,</span> <span class="n">wyckoff_site_data</span><span class="p">[</span><span class="n">tag</span><span class="p">],</span> <span class="n">so</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
     <span class="n">bond</span> <span class="o">=</span> <span class="n">create_wyckoff_bond</span><span class="p">(</span><span class="n">g_info</span><span class="p">,</span> <span class="n">wyckoff_bond_data</span><span class="p">[</span><span class="n">tag</span><span class="p">],</span> <span class="n">site</span><span class="p">,</span> <span class="n">so</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
     <span class="k">return</span> <span class="p">{</span><span class="s2">"info"</span><span class="p">:</span> <span class="n">g_info</span><span class="p">,</span> <span class="s2">"symmetry_operation"</span><span class="p">:</span> <span class="n">so</span><span class="p">,</span> <span class="s2">"wyckoff"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"site"</span><span class="p">:</span> <span class="n">site</span><span class="p">,</span> <span class="s2">"bond"</span><span class="p">:</span> <span class="n">bond</span><span class="p">}}</span></div>

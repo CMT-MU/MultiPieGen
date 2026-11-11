@@ -33,7 +33,7 @@
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
     <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=9c3e77be" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=34ddd5e8" />
@@ -204,30 +204,57 @@
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Documentation</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../../src/data.html">Data tables</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../src/binary.html">Binary data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../src/pg_pdf.html">Point groups</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../src/sg_pdf.html">Space groups</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../src/mpg_pdf.html">Magnetic point groups</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../src/msg_pdf.html">Magnetic space groups</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../src/info_pdf.html">Overall information</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../src/examples.html">Examples</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../src/group_info.html">Group Information</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/info_pdf.html">Overall information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/pg_pdf.html">Point groups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/sg_pdf.html">Space groups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/mpg_pdf.html">Magnetic point groups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/msg_pdf.html">Magnetic space groups</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../src/notes.html">Notes</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../src/details.html">Details</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/examples.html">Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/binary.html">Binary data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/data.html">Data tables</a></li>
+</ul>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">API reference</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../src/api_util.html">Utilities</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../src/api_util/util_info.html">Info</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../src/api_util/util_group.html">Group</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_util/util_group_data.html">Group data (ids, tags, names)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_util/util_top_harmonics.html">Top harmonics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_util/util_harmonics_mapping.html">Harmonics mapping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_util/util_op_mapping.html">Operation mapping</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../src/api_util/util_cluster_basis.html">Cluster basis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_util/util_cluster_vector_basis.html">Vector cluster basis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_util/util_bond_cluster_basis.html">Bond cluster basis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_util/util_cluster_samb.html">Cluster SAMB</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../src/api_util/util_harmonics_symbol.html">Harmonics symbol</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_util/util_harmonics.html">Harmonics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_util/util_harmonics_multipole.html">Multipolar harmonics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../src/api_util/util_multipolar_harmonics.html">Multipolar harmonics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_util/util_atomic_multipole.html">Atomic multipole</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../src/api_util/util_symmetry_operation.html">Symmetry operation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_util/util_representation_matrix.html">Representation matrix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_util/util_response_tensor.html">Response tensor</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../src/api_create.html">Generators</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../src/api_create/create_info.html">Info binary</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../src/api_create/create_group.html">Group binary</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../src/api_create/create_cluster_basis.html">Cluster basis binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_create/create_response_tensor.html">Response tensor binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_create/create_harmonics.html">Harmonics binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_create/create_multipolar_harmonics.html">Multipolar harmonics binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_create/create_atomic_multipole.html">Atomic multipole binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_create/create_atomic_multipole_group.html">Atomic multipole group binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_create/create_cluster_scalar_basis.html">Cluster scalar basis binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_create/create_cluster_vector_basis.html">Vector cluster basis binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_create/create_cluster_bond_basis.html">Cluster bond basis binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_create/create_cluster_samb.html">Cluster SAMB binary</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../src/api_create/create_pdf_harmonics.html">Harmonics PDF</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../src/api_create/create_pdf_info.html">Information PDF</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../src/api_create/create_pdf_group.html">Group PDF</a></li>
@@ -281,7 +308,7 @@
 <div class="article-header-buttons">
 
 
-<a href="https://github.com/hiro-k-phys/mp-newbasis.git" target="_blank"
+<a href="https://github.com/hiro-k-phys/MultiPieGen.git" target="_blank"
    class="btn btn-sm btn-source-repository-button"
    title="Source repository"
    data-bs-placement="bottom" data-bs-toggle="tooltip"
@@ -359,9 +386,9 @@
 <span class="sd">Create binary data of overall information of groups (info.pkl).</span>
 <span class="sd">    - multipiegen/binary/info.pkl (load by multipiegen.util.util_info.load_info).</span>
 
-<span class="sd">Based on MultiPie's others/tools/create_binary/create_data_info.py, with</span>
+<span class="sd">Based on MultiPie Ver.2's others/tools/create_binary/create_data_info.py, with</span>
 <span class="sd">    - data_definition replaced by data_basis (orbital tags renamed), data_harmonics, data_root_cluster,</span>
-<span class="sd">    - basis functions taken from the top harmonics (data_top_harmonics_info) through data_basis.harmonics_key,</span>
+<span class="sd">    - basis functions taken from the top harmonics (data_top_harmonics, util_top_harmonics) through data_basis.harmonics_key,</span>
 <span class="sd">    - orbital decomposition (orbital_decomposition) removed,</span>
 <span class="sd">    - group name list (data_group_name_list) added.</span>
 
@@ -391,12 +418,12 @@
     <span class="n">harmonics_key</span><span class="p">,</span>
 <span class="p">)</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">multipiegen.data.data_compatibility_relation</span><span class="w"> </span><span class="kn">import</span> <span class="n">compatibility_relation</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">multipiegen.data.data_group_mpg</span><span class="w"> </span><span class="kn">import</span> <span class="n">mpg_id_set</span><span class="p">,</span> <span class="n">mpg_tag</span><span class="p">,</span> <span class="n">mpg_id</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">multipiegen.data.data_group_msg</span><span class="w"> </span><span class="kn">import</span> <span class="n">msg_id_set</span><span class="p">,</span> <span class="n">msg_tag</span><span class="p">,</span> <span class="n">msg_id</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">multipiegen.data.data_group_name_list</span><span class="w"> </span><span class="kn">import</span> <span class="n">group_name_list</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">multipiegen.data.data_group_pg</span><span class="w"> </span><span class="kn">import</span> <span class="n">pg_id_set</span><span class="p">,</span> <span class="n">pg_tag</span><span class="p">,</span> <span class="n">pg_id</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">multipiegen.data.data_group_sg</span><span class="w"> </span><span class="kn">import</span> <span class="n">sg_id_set</span><span class="p">,</span> <span class="n">sg_tag</span><span class="p">,</span> <span class="n">sg_id</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">multipiegen.data.data_harmonics</span><span class="w"> </span><span class="kn">import</span> <span class="n">max_rank</span><span class="p">,</span> <span class="n">max_s_rank</span><span class="p">,</span> <span class="n">rank_name</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">multipiegen.util.util_group_data</span><span class="w"> </span><span class="kn">import</span> <span class="n">mpg_id_set</span><span class="p">,</span> <span class="n">mpg_tag</span><span class="p">,</span> <span class="n">mpg_id</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">multipiegen.util.util_group_data</span><span class="w"> </span><span class="kn">import</span> <span class="n">msg_id_set</span><span class="p">,</span> <span class="n">msg_tag</span><span class="p">,</span> <span class="n">msg_id</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">multipiegen.util.util_group_data</span><span class="w"> </span><span class="kn">import</span> <span class="n">group_name_list</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">multipiegen.util.util_group_data</span><span class="w"> </span><span class="kn">import</span> <span class="n">pg_id_set</span><span class="p">,</span> <span class="n">pg_tag</span><span class="p">,</span> <span class="n">pg_id</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">multipiegen.util.util_group_data</span><span class="w"> </span><span class="kn">import</span> <span class="n">sg_id_set</span><span class="p">,</span> <span class="n">sg_tag</span><span class="p">,</span> <span class="n">sg_id</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">multipiegen.data.data_basis</span><span class="w"> </span><span class="kn">import</span> <span class="n">max_rank</span><span class="p">,</span> <span class="n">max_s_rank</span><span class="p">,</span> <span class="n">rank_name</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">multipiegen.data.data_response_tensor</span><span class="w"> </span><span class="kn">import</span> <span class="n">rt_cartesian_multipole</span><span class="p">,</span> <span class="n">rt_multipole_list</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">multipiegen.data.data_root_cluster</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
     <span class="n">cluster_scale</span><span class="p">,</span>
@@ -405,7 +432,7 @@
     <span class="n">oh_cluster_cart_vector0</span><span class="p">,</span>
     <span class="n">d6h_cluster_cart_vector0</span><span class="p">,</span>
 <span class="p">)</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">multipiegen.data.data_top_harmonics_info</span><span class="w"> </span><span class="kn">import</span> <span class="n">top_harmonics_symmetry</span><span class="p">,</span> <span class="n">top_harmonics_u_matrix</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">multipiegen.util.util_top_harmonics</span><span class="w"> </span><span class="kn">import</span> <span class="n">top_harmonics_symmetry</span><span class="p">,</span> <span class="n">top_harmonics_u_matrix</span>
 
 <span class="n">info_file</span> <span class="o">=</span> <span class="s2">"info"</span>
 

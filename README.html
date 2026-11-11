@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="_static/custom.css?v=34ddd5e8" />
@@ -68,7 +68,7 @@
     <script src="_static/custom.js?v=9c3a2667"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Data tables" href="src/data.html" />
+    <link rel="next" title="Group Information" href="src/group_info.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -212,30 +212,57 @@
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Documentation</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="src/data.html">Data tables</a></li>
-<li class="toctree-l1"><a class="reference internal" href="src/binary.html">Binary data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="src/pg_pdf.html">Point groups</a></li>
-<li class="toctree-l1"><a class="reference internal" href="src/sg_pdf.html">Space groups</a></li>
-<li class="toctree-l1"><a class="reference internal" href="src/mpg_pdf.html">Magnetic point groups</a></li>
-<li class="toctree-l1"><a class="reference internal" href="src/msg_pdf.html">Magnetic space groups</a></li>
-<li class="toctree-l1"><a class="reference internal" href="src/info_pdf.html">Overall information</a></li>
-<li class="toctree-l1"><a class="reference internal" href="src/examples.html">Examples</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="src/group_info.html">Group Information</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="src/info_pdf.html">Overall information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/pg_pdf.html">Point groups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/sg_pdf.html">Space groups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/mpg_pdf.html">Magnetic point groups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/msg_pdf.html">Magnetic space groups</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="src/notes.html">Notes</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="src/details.html">Details</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="src/examples.html">Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/binary.html">Binary data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/data.html">Data tables</a></li>
+</ul>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">API reference</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="src/api_util.html">Utilities</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="src/api_util/util_info.html">Info</a></li>
 <li class="toctree-l2"><a class="reference internal" href="src/api_util/util_group.html">Group</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/api_util/util_group_data.html">Group data (ids, tags, names)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/api_util/util_top_harmonics.html">Top harmonics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/api_util/util_harmonics_mapping.html">Harmonics mapping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/api_util/util_op_mapping.html">Operation mapping</a></li>
 <li class="toctree-l2"><a class="reference internal" href="src/api_util/util_cluster_basis.html">Cluster basis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/api_util/util_cluster_vector_basis.html">Vector cluster basis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/api_util/util_bond_cluster_basis.html">Bond cluster basis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/api_util/util_cluster_samb.html">Cluster SAMB</a></li>
 <li class="toctree-l2"><a class="reference internal" href="src/api_util/util_harmonics_symbol.html">Harmonics symbol</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/api_util/util_harmonics.html">Harmonics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/api_util/util_harmonics_multipole.html">Multipolar harmonics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="src/api_util/util_multipolar_harmonics.html">Multipolar harmonics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/api_util/util_atomic_multipole.html">Atomic multipole</a></li>
 <li class="toctree-l2"><a class="reference internal" href="src/api_util/util_symmetry_operation.html">Symmetry operation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/api_util/util_representation_matrix.html">Representation matrix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/api_util/util_response_tensor.html">Response tensor</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="src/api_create.html">Generators</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="src/api_create/create_info.html">Info binary</a></li>
 <li class="toctree-l2"><a class="reference internal" href="src/api_create/create_group.html">Group binary</a></li>
-<li class="toctree-l2"><a class="reference internal" href="src/api_create/create_cluster_basis.html">Cluster basis binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/api_create/create_response_tensor.html">Response tensor binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/api_create/create_harmonics.html">Harmonics binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/api_create/create_multipolar_harmonics.html">Multipolar harmonics binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/api_create/create_atomic_multipole.html">Atomic multipole binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/api_create/create_atomic_multipole_group.html">Atomic multipole group binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/api_create/create_cluster_scalar_basis.html">Cluster scalar basis binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/api_create/create_cluster_vector_basis.html">Vector cluster basis binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/api_create/create_cluster_bond_basis.html">Cluster bond basis binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/api_create/create_cluster_samb.html">Cluster SAMB binary</a></li>
 <li class="toctree-l2"><a class="reference internal" href="src/api_create/create_pdf_harmonics.html">Harmonics PDF</a></li>
 <li class="toctree-l2"><a class="reference internal" href="src/api_create/create_pdf_info.html">Information PDF</a></li>
 <li class="toctree-l2"><a class="reference internal" href="src/api_create/create_pdf_group.html">Group PDF</a></li>
@@ -289,7 +316,7 @@
 <div class="article-header-buttons">
 
 
-<a href="https://github.com/hiro-k-phys/mp-newbasis.git" target="_blank"
+<a href="https://github.com/hiro-k-phys/MultiPieGen.git" target="_blank"
    class="btn btn-sm btn-source-repository-button"
    title="Source repository"
    data-bs-placement="bottom" data-bs-toggle="tooltip"
@@ -423,21 +450,26 @@
                   
   <section class="tex2jax_ignore mathjax_ignore" id="multipiegen">
 <h1>MultiPieGen<a class="headerlink" href="#multipiegen" title="Link to this heading">#</a></h1>
-<p><a class="reference external" href="https://github.com/hiro-k-phys/mp-newbasis/actions/workflows/test.yml"><img alt="test" src="https://github.com/hiro-k-phys/mp-newbasis/actions/workflows/test.yml/badge.svg" /></a></p>
-<p>Generation code and data for the new multipole basis of <a class="reference external" href="https://github.com/CMT-MU/MultiPie">MultiPie</a>.</p>
+<p><a class="reference external" href="https://github.com/hiro-k-phys/MultiPieGen/actions/workflows/test.yml"><img alt="test" src="https://github.com/hiro-k-phys/MultiPieGen/actions/workflows/test.yml/badge.svg" /></a></p>
+<p>Generation code and data for the new multipole basis of <a class="reference external" href="https://github.com/CMT-MU/MultiPie">MultiPie</a> Ver.3 and later.
+MultiPie in this package and its documentation means MultiPie Ver.2 (whose general utilities are used here) unless
+another version is named.</p>
 <p>The new basis is built on a common root cluster (Oh and D6h clusters). Each point group and space group is related to it
 through its parent group. This repository holds:</p>
 <ul class="simple">
 <li><p>the data tables (<code class="docutils literal notranslate"><span class="pre">multipiegen/data</span></code>): groups, Wyckoff positions, parent groups, operation and harmonics mappings, …</p></li>
 <li><p>the code that generates the binary data and the PDFs from these tables</p></li>
 </ul>
-<p>The generated binaries and PDFs are delivered to other repositories: part of the binaries to MultiPie, and the rest of
-the binaries and the PDFs to a separate repository.</p>
+<p>The input data are independent of MultiPie Ver.2: the binaries and PDFs are made from these tables alone. MultiPie Ver.2 is
+used only for its general functions and utilities (expression parsing, <code class="docutils literal notranslate"><span class="pre">BinaryManager</span></code>, LaTeX/PDF output, tags and types),
+and in the tests to compare with it.</p>
+<p>The generated binaries and PDFs are delivered to other repositories: part of the binaries to MultiPie Ver.3 and later, and the rest
+of the binaries and the PDFs to a separate repository.</p>
 <section id="requirements">
 <h2>Requirements<a class="headerlink" href="#requirements" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Python 3.12 or later</p></li>
-<li><p><a class="reference external" href="https://github.com/CMT-MU/MultiPie">MultiPie</a> 2.4 or later, NumPy 2, SymPy</p></li>
+<li><p><a class="reference external" href="https://github.com/CMT-MU/MultiPie">MultiPie</a> Ver.2.4 or later, NumPy 2, SymPy</p></li>
 <li><p>for the PDFs only: a TeX distribution with <code class="docutils literal notranslate"><span class="pre">ptex2pdf</span></code> (e.g., TeX Live)</p></li>
 </ul>
 </section>
@@ -465,10 +497,50 @@ the binaries and the PDFs to a separate repository.</p>
 <td><p><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">multipiegen.create_binary.create_info</span></code></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">multipiegen.util.util_info.load_info()</span></code></p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">binary/cluster_basis.pkl</span></code></p></td>
-<td><p>orthonormal cluster basis of the Oh (48) and D6h (24) clusters</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">multipiegen.create_binary.create_cluster_basis</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">binary/cluster_scalar_basis.pkl</span></code></p></td>
+<td><p>orthonormal (scalar) cluster basis of the Oh (48) and D6h (24) clusters, keyed by PGMultipoleType as MultiPie Ver.2’s site SAMB</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">multipiegen.create_binary.create_cluster_scalar_basis</span></code></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">multipiegen.util.util_cluster_basis.load_cluster_basis()</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">binary/cluster_vector_basis.pkl</span></code></p></td>
+<td><p>orthonormal vector cluster basis (internal rank s=1, polar q / axial g internal basis) of the Oh (144) and D6h (72) clusters, keyed by PGMultipoleType as MultiPie Ver.2’s vector SAMB; intermediate basis for cluster_bond_basis.pkl</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">multipiegen.create_binary.create_cluster_vector_basis</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">multipiegen.util.util_cluster_vector_basis.load_cluster_vector_basis()</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">binary/cluster_bond_basis.pkl</span></code></p></td>
+<td><p>orthonormal bond cluster basis of the Oh (48) and D6h (24) clusters, from the vector cluster basis and the bond vectors (vector0), keyed by PGMultipoleType as MultiPie Ver.2’s bond_a</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">multipiegen.create_binary.create_cluster_bond_basis</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">multipiegen.util.util_bond_cluster_basis.load_bond_cluster_basis()</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">binary/response_tensor.pkl</span></code></p></td>
+<td><p>response tensors (rank 0-4, Q/G/T/M) of all MPG in terms of active multipoles</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">multipiegen.create_binary.create_response_tensor</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">multipiegen.util.util_response_tensor.load_response_tensor()</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">binary/atomic_multipole.pkl</span></code></p></td>
+<td><p>matrices of atomic multipoles (rank l &lt;= 7, s = 0, 1) in the LMs/JML/LM basis of s, p, d, f orbitals</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">multipiegen.create_binary.create_atomic_multipole</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">multipiegen.util.util_atomic_multipole.load_atomic_multipole()</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">binary/atomic_multipole_group.pkl</span></code></p></td>
+<td><p>atomic multipole SAMB of all 47 point groups in the JML/Lgs/Lg basis</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">multipiegen.create_binary.create_atomic_multipole_group</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">multipiegen.util.util_atomic_multipole.load_atomic_multipole_group()</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">binary/cluster_samb.pkl</span></code></p></td>
+<td><p>cluster SAMB of each Wyckoff site and bond (site; bond = symmetric Q and anti-symmetric T/M) of the real point groups and the space groups</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">multipiegen.create_binary.create_cluster_samb</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">multipiegen.util.util_cluster_samb.load_cluster_samb()</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">binary/harmonics.pkl</span></code></p></td>
+<td><p>expression and u-matrix of the harmonics of all 47 point groups (rank l &lt;= 11); the other multipole-keyed binaries look them up by the key</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">multipiegen.create_binary.create_harmonics</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">multipiegen.util.util_harmonics.load_harmonics()</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">binary/multipolar_harmonics.pkl</span></code></p></td>
+<td><p>multipolar harmonics (s = 1, 2, 3, rank l &lt;= 3) of all 47 point groups with polar (q) and axial (g) internal basis (data_basis orbitals)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">multipiegen.create_binary.create_multipolar_harmonics</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">multipiegen.util.util_harmonics_multipole.load_multipolar_harmonics()</span></code></p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">binary/group.pkl</span></code></p></td>
 <td><p>data of all PG (47), SG, MPG and MSG: symmetry operations, product table, mapping to the Oh/D6h cluster, character, Wyckoff site and bond, active multipoles</p></td>
@@ -480,8 +552,8 @@ the binaries and the PDFs to a separate repository.</p>
 <td><p><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">multipiegen.create_pdf.create_pdf_harmonics</span></code></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">pdf/{PG,SG,MPG,MSG}/*/{character_table,symmetry_operation,wyckoff_site,wyckoff_bond}.{tex,pdf}</span></code></p></td>
-<td><p>each group: character table (PG), symmetry operations, Wyckoff site and bond (PG, SG)</p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">pdf/{PG,SG,MPG,MSG}/*/{character_table,symmetry_operation,wyckoff_site,wyckoff_bond,representation_matrix,multipolar_harmonics_s{1,2,3}_{q,g},atomic_multipole_{lg,lgs,jml},response_tensor_X}.{tex,pdf}</span></code></p></td>
+<td><p>each group: character table, representation matrices, multipolar harmonics and atomic multipoles (PG), symmetry operations, Wyckoff site and bond (PG, SG), response tensors (MPG)</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">multipiegen.create_pdf.create_pdf_group</span></code></p></td>
 <td><p></p></td>
 </tr>
@@ -493,14 +565,14 @@ the binaries and the PDFs to a separate repository.</p>
 </tbody>
 </table>
 </div>
-<p>The binaries use the format of MultiPie’s <code class="docutils literal notranslate"><span class="pre">BinaryManager</span></code> (gzip-compressed pickle with a header). <code class="docutils literal notranslate"><span class="pre">str(load_info())</span></code>
+<p>The binaries use the format of MultiPie Ver.2’s <code class="docutils literal notranslate"><span class="pre">BinaryManager</span></code> (gzip-compressed pickle with a header). <code class="docutils literal notranslate"><span class="pre">str(load_info())</span></code>
 shows the description of the contents.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">multipiegen.util.util_info</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_info</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">multipiegen.util.util_cluster_basis</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_cluster_basis</span>
 
 <span class="n">info</span> <span class="o">=</span> <span class="n">load_info</span><span class="p">()</span>
 <span class="n">info</span><span class="p">[</span><span class="s2">"harmonics"</span><span class="p">][</span><span class="s2">"basis_function"</span><span class="p">][</span><span class="s2">"fc"</span><span class="p">]</span>  <span class="c1"># (expression, &lt;m|gamma&gt;.T)</span>
-<span class="n">basis</span> <span class="o">=</span> <span class="n">load_cluster_basis</span><span class="p">()[</span><span class="s2">"Oh"</span><span class="p">][</span><span class="s2">"basis"</span><span class="p">]</span>  <span class="c1"># {(rank, irrep, mul, comp): values on the 48 cluster points}</span>
+<span class="n">basis</span> <span class="o">=</span> <span class="n">load_cluster_basis</span><span class="p">()[</span><span class="s2">"Oh"</span><span class="p">][</span><span class="s2">"basis"</span><span class="p">]</span>  <span class="c1"># {PGMultipoleType: values (dim, 48) on the cluster points}</span>
 </pre></div>
 </div>
 <p>See <span class="xref myst">examples</span> for runnable sample code for each feature.</p>
@@ -508,21 +580,18 @@ shows the description of the contents.</p>
 <section id="layout">
 <h2>Layout<a class="headerlink" href="#layout" title="Link to this heading">#</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">multipiegen</span><span class="o">/</span>        <span class="n">package</span>
-  <span class="n">data</span><span class="o">/</span>             <span class="n">data</span> <span class="n">tables</span> <span class="p">(</span><span class="n">see</span> <span class="n">data</span><span class="o">/</span><span class="n">readme</span><span class="o">.</span><span class="n">md</span><span class="p">)</span>
-  <span class="n">util</span><span class="o">/</span>             <span class="n">utilities</span> <span class="p">(</span><span class="n">multipolar</span> <span class="n">harmonics</span><span class="p">,</span> <span class="n">cluster</span> <span class="n">basis</span><span class="p">,</span> <span class="n">harmonics</span> <span class="n">symbols</span><span class="p">,</span> <span class="n">info</span><span class="p">,</span> <span class="n">group</span><span class="p">,</span> <span class="n">symmetry</span> <span class="n">operation</span><span class="p">)</span>
+  <span class="n">data</span><span class="o">/</span>             <span class="n">data</span> <span class="n">tables</span> <span class="p">(</span><span class="n">see</span> <span class="n">the</span> <span class="s2">"Data tables"</span> <span class="n">page</span><span class="p">)</span>
+  <span class="n">util</span><span class="o">/</span>             <span class="n">utilities</span> <span class="p">(</span><span class="n">multipolar</span> <span class="n">harmonics</span><span class="p">,</span> <span class="n">cluster</span> <span class="n">basis</span><span class="p">,</span> <span class="n">vector</span> <span class="n">cluster</span> <span class="n">basis</span><span class="p">,</span> <span class="n">bond</span> <span class="n">cluster</span> <span class="n">basis</span><span class="p">,</span> <span class="n">cluster</span> <span class="n">SAMB</span><span class="p">,</span> <span class="n">harmonics</span><span class="p">,</span> <span class="n">harmonics</span> <span class="n">symbols</span><span class="p">,</span> <span class="n">multipolar</span> <span class="n">harmonics</span><span class="p">,</span> <span class="n">atomic</span> <span class="n">multipole</span><span class="p">,</span> <span class="n">info</span><span class="p">,</span> <span class="n">group</span><span class="p">,</span> <span class="n">symmetry</span> <span class="n">operation</span><span class="p">,</span> <span class="n">representation</span> <span class="n">matrix</span><span class="p">,</span> <span class="n">response</span> <span class="n">tensor</span><span class="p">)</span>
   <span class="n">create_binary</span><span class="o">/</span>    <span class="n">code</span> <span class="n">that</span> <span class="n">generates</span> <span class="n">the</span> <span class="n">binary</span> <span class="n">data</span>
   <span class="n">create_pdf</span><span class="o">/</span>       <span class="n">code</span> <span class="n">that</span> <span class="n">generates</span> <span class="n">the</span> <span class="n">PDFs</span>
-  <span class="n">binary</span><span class="o">/</span>           <span class="n">generated</span> <span class="n">binary</span> <span class="n">data</span> <span class="p">(</span><span class="n">info</span><span class="o">.</span><span class="n">pkl</span><span class="p">,</span> <span class="n">cluster_basis</span><span class="o">.</span><span class="n">pkl</span><span class="p">,</span> <span class="n">group</span><span class="o">.</span><span class="n">pkl</span><span class="p">)</span> <span class="p">[</span><span class="ow">not</span> <span class="n">packaged</span><span class="p">]</span>
+  <span class="n">binary</span><span class="o">/</span>           <span class="n">generated</span> <span class="n">binary</span> <span class="n">data</span> <span class="p">(</span><span class="n">info</span><span class="o">.</span><span class="n">pkl</span><span class="p">,</span> <span class="n">cluster_scalar_basis</span><span class="o">.</span><span class="n">pkl</span><span class="p">,</span> <span class="n">cluster_vector_basis</span><span class="o">.</span><span class="n">pkl</span><span class="p">,</span> <span class="n">cluster_bond_basis</span><span class="o">.</span><span class="n">pkl</span><span class="p">,</span> <span class="n">cluster_samb</span><span class="o">.</span><span class="n">pkl</span><span class="p">,</span> <span class="n">harmonics</span><span class="o">.</span><span class="n">pkl</span><span class="p">,</span> <span class="n">multipolar_harmonics</span><span class="o">.</span><span class="n">pkl</span><span class="p">,</span> <span class="n">atomic_multipole</span><span class="o">.</span><span class="n">pkl</span><span class="p">,</span> <span class="n">atomic_multipole_group</span><span class="o">.</span><span class="n">pkl</span><span class="p">,</span> <span class="n">group</span><span class="o">.</span><span class="n">pkl</span><span class="p">,</span> <span class="n">response_tensor</span><span class="o">.</span><span class="n">pkl</span><span class="p">)</span> <span class="p">[</span><span class="ow">not</span> <span class="n">packaged</span><span class="p">]</span>
   <span class="n">pdf</span><span class="o">/</span>              <span class="n">generated</span> <span class="n">LaTeX</span> <span class="ow">and</span> <span class="n">PDF</span> <span class="p">(</span><span class="n">PG</span><span class="o">/</span><span class="mi">032</span><span class="o">-</span><span class="n">Oh</span><span class="o">/</span><span class="n">harmonics</span><span class="o">.</span><span class="n">pdf</span><span class="p">,</span> <span class="n">info</span><span class="o">/</span><span class="n">PG</span><span class="o">.</span><span class="n">pdf</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span> <span class="p">[</span><span class="ow">not</span> <span class="n">packaged</span><span class="p">]</span>
 <span class="n">docs</span><span class="o">/</span>
   <span class="n">examples</span><span class="o">/</span>         <span class="n">sample</span> <span class="n">code</span> <span class="k">for</span> <span class="n">each</span> <span class="n">feature</span>
+  <span class="n">src</span><span class="o">/</span><span class="n">notes</span><span class="o">/</span>        <span class="n">notes</span> <span class="n">on</span> <span class="n">the</span> <span class="n">multipole</span> <span class="n">data</span> <span class="p">(</span><span class="n">generation</span> <span class="n">rules</span><span class="p">,</span> <span class="n">changes</span> <span class="kn">from</span><span class="w"> </span><span class="nn">MultiPie</span> <span class="n">Ver</span><span class="mf">.2</span><span class="p">;</span> <span class="n">English</span> <span class="ow">and</span> <span class="n">Japanese</span><span class="p">)</span>
 <span class="n">tests</span><span class="o">/</span>              <span class="n">pytest</span> <span class="n">tests</span>
 <span class="n">others</span><span class="o">/</span>             <span class="n">non</span><span class="o">-</span><span class="n">package</span> <span class="n">material</span>
   <span class="n">creation</span><span class="o">/</span>         <span class="n">scripts</span> <span class="n">that</span> <span class="n">generate</span> <span class="n">the</span> <span class="n">data</span> <span class="n">tables</span> <span class="ow">in</span> <span class="n">multipiegen</span><span class="o">/</span><span class="n">data</span>
-  <span class="n">etc</span><span class="o">/</span>              <span class="n">harmonics</span> <span class="n">data</span> <span class="n">generation</span> <span class="p">(</span><span class="n">draft</span><span class="p">)</span>
-  <span class="n">notebooks</span><span class="o">/</span>        <span class="n">notebooks</span> <span class="k">for</span> <span class="n">plotting</span> <span class="ow">and</span> <span class="n">trials</span>
-  <span class="n">memo</span><span class="o">/</span>             <span class="n">notes</span> <span class="p">(</span><span class="n">TeX</span><span class="o">/</span><span class="n">PDF</span><span class="p">)</span>
-  <span class="n">claude</span><span class="o">/</span>           <span class="n">verification</span> <span class="ow">and</span> <span class="n">parent</span><span class="o">-</span><span class="n">SG</span> <span class="n">pipeline</span>
 </pre></div>
 </div>
 </section>

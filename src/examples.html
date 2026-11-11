@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=34ddd5e8" />
@@ -66,8 +66,8 @@
     <script src="../_static/custom.js?v=9c3a2667"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Utilities" href="api_util.html" />
-    <link rel="prev" title="Overall information" href="info_pdf.html" />
+    <link rel="next" title="Binary data" href="binary.html" />
+    <link rel="prev" title="Details" href="details.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -209,30 +209,57 @@
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Documentation</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="data.html">Data tables</a></li>
-<li class="toctree-l1"><a class="reference internal" href="binary.html">Binary data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="pg_pdf.html">Point groups</a></li>
-<li class="toctree-l1"><a class="reference internal" href="sg_pdf.html">Space groups</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mpg_pdf.html">Magnetic point groups</a></li>
-<li class="toctree-l1"><a class="reference internal" href="msg_pdf.html">Magnetic space groups</a></li>
-<li class="toctree-l1"><a class="reference internal" href="info_pdf.html">Overall information</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Examples</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="group_info.html">Group Information</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="info_pdf.html">Overall information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pg_pdf.html">Point groups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sg_pdf.html">Space groups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mpg_pdf.html">Magnetic point groups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="msg_pdf.html">Magnetic space groups</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="notes.html">Notes</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="details.html">Details</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="binary.html">Binary data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data.html">Data tables</a></li>
+</ul>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">API reference</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="api_util.html">Utilities</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="api_util/util_info.html">Info</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api_util/util_group.html">Group</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_util/util_group_data.html">Group data (ids, tags, names)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_util/util_top_harmonics.html">Top harmonics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_util/util_harmonics_mapping.html">Harmonics mapping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_util/util_op_mapping.html">Operation mapping</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api_util/util_cluster_basis.html">Cluster basis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_util/util_cluster_vector_basis.html">Vector cluster basis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_util/util_bond_cluster_basis.html">Bond cluster basis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_util/util_cluster_samb.html">Cluster SAMB</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api_util/util_harmonics_symbol.html">Harmonics symbol</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_util/util_harmonics.html">Harmonics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_util/util_harmonics_multipole.html">Multipolar harmonics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api_util/util_multipolar_harmonics.html">Multipolar harmonics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_util/util_atomic_multipole.html">Atomic multipole</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api_util/util_symmetry_operation.html">Symmetry operation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_util/util_representation_matrix.html">Representation matrix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_util/util_response_tensor.html">Response tensor</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="api_create.html">Generators</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="api_create/create_info.html">Info binary</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api_create/create_group.html">Group binary</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api_create/create_cluster_basis.html">Cluster basis binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_create/create_response_tensor.html">Response tensor binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_create/create_harmonics.html">Harmonics binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_create/create_multipolar_harmonics.html">Multipolar harmonics binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_create/create_atomic_multipole.html">Atomic multipole binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_create/create_atomic_multipole_group.html">Atomic multipole group binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_create/create_cluster_scalar_basis.html">Cluster scalar basis binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_create/create_cluster_vector_basis.html">Vector cluster basis binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_create/create_cluster_bond_basis.html">Cluster bond basis binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_create/create_cluster_samb.html">Cluster SAMB binary</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api_create/create_pdf_harmonics.html">Harmonics PDF</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api_create/create_pdf_info.html">Information PDF</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api_create/create_pdf_group.html">Group PDF</a></li>
@@ -286,7 +313,7 @@
 <div class="article-header-buttons">
 
 
-<a href="https://github.com/hiro-k-phys/mp-newbasis.git" target="_blank"
+<a href="https://github.com/hiro-k-phys/MultiPieGen.git" target="_blank"
    class="btn btn-sm btn-source-repository-button"
    title="Source repository"
    data-bs-placement="bottom" data-bs-toggle="tooltip"
@@ -399,7 +426,15 @@
             <nav aria-label="Page">
                 <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cluster-basis-py">cluster_basis.py</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cluster-vector-basis-py">cluster_vector_basis.py</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bond-cluster-basis-py">bond_cluster_basis.py</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cluster-samb-py">cluster_samb.py</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#group-py">group.py</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#representation-matrix-py">representation_matrix.py</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#response-tensor-py">response_tensor.py</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#harmonics-py">harmonics.py</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multipolar-harmonics-py">multipolar_harmonics.py</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#atomic-multipole-py">atomic_multipole.py</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#harmonics-symbol-py">harmonics_symbol.py</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#info-py">info.py</a></li>
 </ul>
@@ -419,7 +454,7 @@
 <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">docs/examples/group.py</span></code>.</p>
 <section id="cluster-basis-py">
 <h2>cluster_basis.py<a class="headerlink" href="#cluster-basis-py" title="Link to this heading">#</a></h2>
-<p>Load the orthonormal Oh/D6h cluster basis, inspect keys and values, expand a function on the cluster.</p>
+<p>Load the orthonormal (scalar) Oh/D6h cluster basis (cluster_scalar_basis.pkl), keyed by PGMultipoleType, expand a function on the cluster.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">multipiegen.util.util_cluster_basis</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_cluster_basis</span><span class="p">,</span> <span class="n">cluster_basis_matrix</span>
 
@@ -436,19 +471,20 @@
     <span class="nb">print</span><span class="p">(</span><span class="s2">"   "</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
 
 <span class="c1"># ==================================================</span>
-<span class="c1"># 2. basis vectors are keyed by top_key = (rank, irrep, multiplicity, component).</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">basis keys of Oh (rank, irrep, multiplicity, component):"</span><span class="p">)</span>
+<span class="c1"># 2. basis multiplets are keyed by PGMultipoleType(X="Q", l, Gamma, n, p=-1, s=0, k=0, x="q") (MultiPie Ver.2 site SAMB);</span>
+<span class="c1">#    the value has all components, (dim, N).</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">basis keys of Oh:"</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">oh</span><span class="p">[</span><span class="s2">"basis"</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"   "</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"   "</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">oh</span><span class="p">[</span><span class="s2">"basis"</span><span class="p">][</span><span class="n">key</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 
-<span class="n">key</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s2">"T1u"</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>  <span class="c1"># x-like basis.</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="se">\n</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">, first 4 values (exact):"</span><span class="p">,</span> <span class="n">oh</span><span class="p">[</span><span class="s2">"basis"</span><span class="p">][</span><span class="n">key</span><span class="p">][:</span><span class="mi">4</span><span class="p">])</span>
+<span class="n">key</span> <span class="o">=</span> <span class="p">[</span><span class="n">k</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">oh</span><span class="p">[</span><span class="s2">"basis"</span><span class="p">]</span> <span class="k">if</span> <span class="n">k</span><span class="o">.</span><span class="n">l</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">k</span><span class="o">.</span><span class="n">Gamma</span> <span class="o">==</span> <span class="s2">"T1u"</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="se">\n</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">, x component, first 4 values (exact):"</span><span class="p">,</span> <span class="n">oh</span><span class="p">[</span><span class="s2">"basis"</span><span class="p">][</span><span class="n">key</span><span class="p">][</span><span class="mi">0</span><span class="p">][:</span><span class="mi">4</span><span class="p">])</span>
 
 <span class="c1"># harmonics dropped by Gram-Schmidt (linearly dependent on lower ranks).</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">"number of dropped harmonics:"</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">oh</span><span class="p">[</span><span class="s2">"dropped"</span><span class="p">]),</span> <span class="s2">", e.g."</span><span class="p">,</span> <span class="n">oh</span><span class="p">[</span><span class="s2">"dropped"</span><span class="p">][:</span><span class="mi">3</span><span class="p">])</span>
 
 <span class="c1"># ==================================================</span>
-<span class="c1"># 3. basis as a float matrix (each row is a basis vector, columns follow oh["cluster"]).</span>
+<span class="c1"># 3. basis as a float matrix (each row is a component, columns follow oh["cluster"]); keys are (PGMultipoleType, comp).</span>
 <span class="n">m</span><span class="p">,</span> <span class="n">keys</span> <span class="o">=</span> <span class="n">cluster_basis_matrix</span><span class="p">(</span><span class="n">oh</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">basis matrix shape:"</span><span class="p">,</span> <span class="n">m</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">"orthonormal ?"</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">m</span> <span class="o">@</span> <span class="n">m</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">keys</span><span class="p">))))</span>
@@ -469,7 +505,7 @@
 <span class="c1"># weight of each irrep (sum of |c_k|^2 over the irrep), total equals |f|^2.</span>
 <span class="n">weight</span> <span class="o">=</span> <span class="p">{}</span>
 <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">ck</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">keys</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
-    <span class="n">weight</span><span class="p">[</span><span class="n">k</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span> <span class="o">=</span> <span class="n">weight</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">k</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="mf">0.0</span><span class="p">)</span> <span class="o">+</span> <span class="n">ck</span><span class="o">**</span><span class="mi">2</span>
+    <span class="n">weight</span><span class="p">[</span><span class="n">k</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">Gamma</span><span class="p">]</span> <span class="o">=</span> <span class="n">weight</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">k</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">Gamma</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="o">+</span> <span class="n">ck</span><span class="o">**</span><span class="mi">2</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">"irrep weights:"</span><span class="p">,</span> <span class="p">{</span><span class="n">ir</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">w</span><span class="p">),</span> <span class="mi">6</span><span class="p">)</span> <span class="k">for</span> <span class="n">ir</span><span class="p">,</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">weight</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">w</span> <span class="o">&gt;</span> <span class="mf">1e-8</span><span class="p">})</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">"|f|^2 ="</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">f</span> <span class="o">@</span> <span class="n">f</span><span class="p">),</span> <span class="mi">6</span><span class="p">))</span>
 
@@ -478,7 +514,112 @@
 <span class="n">d6h</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">"D6h"</span><span class="p">]</span>
 <span class="n">m6</span><span class="p">,</span> <span class="n">keys6</span> <span class="o">=</span> <span class="n">cluster_basis_matrix</span><span class="p">(</span><span class="n">d6h</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">D6h basis matrix shape:"</span><span class="p">,</span> <span class="n">m6</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="s2">", orthonormal ?"</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">m6</span> <span class="o">@</span> <span class="n">m6</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">keys6</span><span class="p">))))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"D6h irreps:"</span><span class="p">,</span> <span class="nb">sorted</span><span class="p">({</span><span class="n">k</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">keys6</span><span class="p">}))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"D6h irreps:"</span><span class="p">,</span> <span class="nb">sorted</span><span class="p">({</span><span class="n">k</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">Gamma</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">keys6</span><span class="p">}))</span>
+</pre></div>
+</div>
+</section>
+<section id="cluster-vector-basis-py">
+<h2>cluster_vector_basis.py<a class="headerlink" href="#cluster-vector-basis-py" title="Link to this heading">#</a></h2>
+<p>Load the orthonormal vector cluster basis (internal rank s=1, polar/axial internal basis) of the Oh/D6h clusters, keyed by PGMultipoleType, expand a vector field.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">multipiegen.util.util_cluster_vector_basis</span><span class="w"> </span><span class="kn">import</span> <span class="n">cluster_vector_basis_matrix</span><span class="p">,</span> <span class="n">load_cluster_vector_basis</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">load_cluster_vector_basis</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">group</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">"Oh"</span><span class="p">,</span> <span class="s2">"D6h"</span><span class="p">]:</span>
+    <span class="n">d</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">group</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">group</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="s1">'cluster'</span><span class="p">])</span><span class="si">}</span><span class="s2"> points, internal basis </span><span class="si">{</span><span class="n">d</span><span class="p">[</span><span class="s1">'internal_basis'</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">"q"</span><span class="p">,</span> <span class="s2">"g"</span><span class="p">]:</span>
+        <span class="n">m</span><span class="p">,</span> <span class="n">keys</span> <span class="o">=</span> <span class="n">cluster_vector_basis_matrix</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+        <span class="n">n_mult</span> <span class="o">=</span> <span class="nb">len</span><span class="p">([</span><span class="n">k</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">d</span><span class="p">[</span><span class="s2">"basis"</span><span class="p">]</span> <span class="k">if</span> <span class="n">k</span><span class="o">.</span><span class="n">x</span> <span class="o">==</span> <span class="n">x</span><span class="p">])</span>
+        <span class="n">n_drop</span> <span class="o">=</span> <span class="nb">len</span><span class="p">([</span><span class="n">k</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">d</span><span class="p">[</span><span class="s2">"dropped"</span><span class="p">]</span> <span class="k">if</span> <span class="n">k</span><span class="o">.</span><span class="n">x</span> <span class="o">==</span> <span class="n">x</span><span class="p">])</span>
+        <span class="n">ok</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">m</span> <span class="o">@</span> <span class="n">m</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">m</span><span class="p">)))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"  x=</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">keys</span><span class="p">)</span><span class="si">}</span><span class="s2"> vectors in </span><span class="si">{</span><span class="n">n_mult</span><span class="si">}</span><span class="s2"> multiplets, orthonormal: </span><span class="si">{</span><span class="n">ok</span><span class="si">}</span><span class="s2">, dropped multiplets: </span><span class="si">{</span><span class="n">n_drop</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+
+<span class="c1"># ==================================================</span>
+<span class="c1"># keys: PGMultipoleType(X, l, Gamma, n, p=-1, s=1, k, x) as MultiPie Ver.2 vector SAMB; value: (dim, N, 3) at the cluster points.</span>
+<span class="n">d</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">"Oh"</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="s2">"basis"</span><span class="p">])[:</span><span class="mi">4</span><span class="p">]:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="s2">"at the first point:"</span><span class="p">,</span> <span class="n">d</span><span class="p">[</span><span class="s2">"basis"</span><span class="p">][</span><span class="n">key</span><span class="p">][:,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
+
+<span class="c1"># a vector field on the cluster expanded in the basis: coefficients = &lt;basis|field&gt;.</span>
+<span class="n">P</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="s2">"cluster"</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+<span class="n">field</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cross</span><span class="p">(</span><span class="n">P</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>  <span class="c1"># rotation around z (axial dipole like).</span>
+<span class="n">m</span><span class="p">,</span> <span class="n">keys</span> <span class="o">=</span> <span class="n">cluster_vector_basis_matrix</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="s2">"q"</span><span class="p">)</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">m</span> <span class="o">@</span> <span class="n">field</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"nonzero components of r x e_z:"</span><span class="p">,</span> <span class="p">[(</span><span class="n">keys</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="nb">round</span><span class="p">(</span><span class="n">c</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="mi">6</span><span class="p">))</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">c</span><span class="p">))</span> <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">c</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">&gt;</span> <span class="mf">1e-9</span><span class="p">])</span>
+</pre></div>
+</div>
+</section>
+<section id="bond-cluster-basis-py">
+<h2>bond_cluster_basis.py<a class="headerlink" href="#bond-cluster-basis-py" title="Link to this heading">#</a></h2>
+<p>Load the orthonormal bond cluster basis of the Oh/D6h clusters (vector cluster basis contracted with the bond vectors and re-orthonormalized), keyed by PGMultipoleType as MultiPie Ver.2’s bond_a.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">the</span> <span class="n">vector</span> <span class="n">cluster</span> <span class="n">basis</span> <span class="p">(</span><span class="n">cluster_vector_basis</span><span class="o">.</span><span class="n">pkl</span><span class="p">)</span><span class="o">.</span>
+<span class="s2">"""</span>
+
+<span class="s2">import numpy as np</span>
+
+<span class="s2">from multipiegen.util.util_bond_cluster_basis import bond_cluster_basis_matrix, load_bond_cluster_basis</span>
+
+<span class="s2">data = load_bond_cluster_basis()</span>
+
+<span class="s2">for group in ["Oh", "D6h"]:</span>
+<span class="s2">    d = data[group]</span>
+<span class="s2">    print(f"</span><span class="si">{group}</span><span class="s2">: {len(d['cluster'])} points, vector0 = </span><span class="si">{d['vector0']}</span><span class="s2">, bond b_0 = </span><span class="si">{d['bond'][0]}</span><span class="s2">")</span>
+<span class="s2">    for x in ["q", "g"]:</span>
+<span class="s2">        m, keys = bond_cluster_basis_matrix(d, x)</span>
+<span class="s2">        ok = np.allclose(m @ m.T, np.eye(len(m)))</span>
+<span class="s2">        n_mult = len([k for k in d["basis"] if k.x == x])</span>
+<span class="s2">        n_drop = len([k for k in d["dropped"] if k.x == x])</span>
+<span class="s2">        print(f"  x=</span><span class="si">{x}</span><span class="s2">: {len(keys)} vectors in </span><span class="si">{n_mult}</span><span class="s2"> multiplets, orthonormal: </span><span class="si">{ok}</span><span class="s2">, dropped vector multiplets: </span><span class="si">{n_drop}</span><span class="s2">")</span>
+
+<span class="s2"># ==================================================</span>
+<span class="s2"># keys: PGMultipoleType(X, l, Gamma, n, p, s=0, k=0, x) as MultiPie Ver.2 bond_a; value: (dim, N) values on the bonds.</span>
+<span class="s2"># source: the multiplet of the vector cluster basis (PGMultipoleType with s=1).</span>
+<span class="s2">d = data["Oh"]</span>
+<span class="s2">for key in list(d["basis"])[:4]:</span>
+<span class="s2">    print(key, d["basis"][key].shape, "&lt;-", d["source"][key])</span>
+<span class="s2">print("with add_multiplicity:", [k for k in d["basis"] if k.p != -1][:2])</span>
+<span class="s2">print("dropped vector cluster basis multiplets (first 2):", d["dropped"][:2])</span>
+</pre></div>
+</div>
+</section>
+<section id="cluster-samb-py">
+<h2>cluster_samb.py<a class="headerlink" href="#cluster-samb-py" title="Link to this heading">#</a></h2>
+<p>Cluster SAMB of each Wyckoff site and bond (site; bond = symmetric Q and anti-symmetric T/M) of the real point groups and the space groups (cluster_samb.pkl).</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">multipiegen.util.util_cluster_samb</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_cluster_samb</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">multipiegen.util.util_harmonics</span><span class="w"> </span><span class="kn">import</span> <span class="n">harmonics_expression</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">multipiegen.util.util_info</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_info</span>
+
+<span class="n">info</span> <span class="o">=</span> <span class="n">load_info</span><span class="p">()</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">load_cluster_samb</span><span class="p">()</span>
+
+<span class="c1"># ==================================================</span>
+<span class="c1"># {PG_id/SG_id: {"site"/"bond": {wyckoff: {PGMultipoleType: samb (dim, N)}}}}.</span>
+<span class="c1"># "bond": symmetric bond (X = Q, real) and i times anti-symmetric bond (X = T/M, pure imaginary).</span>
+<span class="c1"># the expression of the harmonics (X, l, Gamma, n) is looked up by the key in harmonics.pkl (T, M as Q, G).</span>
+<span class="n">d</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">info</span><span class="p">[</span><span class="s2">"id"</span><span class="p">][</span><span class="s2">"D4h"</span><span class="p">]]</span>
+<span class="k">for</span> <span class="n">kind</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">"site"</span><span class="p">,</span> <span class="s2">"bond"</span><span class="p">]:</span>
+    <span class="n">w</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="n">kind</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">())[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"* </span><span class="si">{</span><span class="n">kind</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">w</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">samb</span> <span class="ow">in</span> <span class="n">d</span><span class="p">[</span><span class="n">kind</span><span class="p">][</span><span class="n">w</span><span class="p">]</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"  "</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="s2">"ex ="</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="n">harmonics_expression</span><span class="p">(</span><span class="s2">"D4h"</span><span class="p">,</span> <span class="n">key</span><span class="p">)))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"  "</span><span class="p">,</span> <span class="n">samb</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
+
+<span class="c1"># orthonormality on the N sites (bonds) of each Wyckoff position, for Q and T/M separately (different time-reversal</span>
+<span class="c1"># parity).</span>
+<span class="n">d</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">"SG:225"</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">kind</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">"site"</span><span class="p">,</span> <span class="s2">"bond"</span><span class="p">]:</span>
+    <span class="k">for</span> <span class="n">X</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">"Q"</span><span class="p">,</span> <span class="s2">"TM"</span><span class="p">]:</span>
+        <span class="n">parts</span> <span class="o">=</span> <span class="p">[[</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">complex</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">samb</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">k</span><span class="o">.</span><span class="n">X</span> <span class="ow">in</span> <span class="n">X</span><span class="p">]</span> <span class="k">for</span> <span class="n">samb</span> <span class="ow">in</span> <span class="n">d</span><span class="p">[</span><span class="n">kind</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">()]</span>
+        <span class="n">parts</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">parts</span> <span class="k">if</span> <span class="n">p</span><span class="p">]</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">parts</span><span class="p">:</span>
+            <span class="k">continue</span>
+        <span class="n">ok</span> <span class="o">=</span> <span class="nb">all</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">v</span><span class="o">.</span><span class="n">conj</span><span class="p">()</span> <span class="o">@</span> <span class="n">v</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">v</span><span class="p">)))</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">parts</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"SG:225 </span><span class="si">{</span><span class="n">kind</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">X</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">parts</span><span class="p">)</span><span class="si">}</span><span class="s2"> Wyckoff positions, orthonormal: </span><span class="si">{</span><span class="n">ok</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -531,6 +672,165 @@
 <span class="n">mpg</span> <span class="o">=</span> <span class="n">group</span><span class="p">[</span><span class="s2">"MPG:24.5.149"</span><span class="p">]</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">MPG"</span><span class="p">,</span> <span class="n">mpg</span><span class="p">[</span><span class="s2">"info"</span><span class="p">]</span><span class="o">.</span><span class="n">international</span><span class="p">,</span> <span class="s2">"time-reversal sign:"</span><span class="p">,</span> <span class="n">mpg</span><span class="p">[</span><span class="s2">"symmetry_operation"</span><span class="p">][</span><span class="s2">"tr_sign"</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">"  active multipoles:"</span><span class="p">,</span> <span class="n">mpg</span><span class="p">[</span><span class="s2">"active_multipole"</span><span class="p">])</span>
+</pre></div>
+</div>
+</section>
+<section id="representation-matrix-py">
+<h2>representation_matrix.py<a class="headerlink" href="#representation-matrix-py" title="Link to this heading">#</a></h2>
+<p>Representation matrices of a point group from the harmonics up to rank 11, and the check that all harmonics of an irrep give the same matrices.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">multipiegen.util.util_representation_matrix</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">check_representation_matrix</span><span class="p">,</span>
+    <span class="n">harmonics_blocks</span><span class="p">,</span>
+    <span class="n">representation_matrix</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">pg</span> <span class="o">=</span> <span class="s2">"D3h"</span>
+
+<span class="c1"># ==================================================</span>
+<span class="c1"># 1. harmonics blocks (X, rank, irrep, multiplicity) -&gt; [(coeff, top key)] of each component.</span>
+<span class="n">blocks</span> <span class="o">=</span> <span class="n">harmonics_blocks</span><span class="p">(</span><span class="n">pg</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">pg</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">blocks</span><span class="p">)</span><span class="si">}</span><span class="s2"> harmonics blocks up to rank 11, e.g."</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">blocks</span><span class="p">)[:</span><span class="mi">4</span><span class="p">]:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"  "</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">blocks</span><span class="p">[</span><span class="n">b</span><span class="p">])</span>
+
+<span class="c1"># ==================================================</span>
+<span class="c1"># 2. all harmonics of the same irrep have the same representation matrices.</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">irrep: number of harmonics blocks, max deviation from the first one, max closure residual"</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">irrep</span><span class="p">,</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">check_representation_matrix</span><span class="p">(</span><span class="n">pg</span><span class="p">)</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"  </span><span class="si">{</span><span class="n">irrep</span><span class="si">:</span><span class="s2">4s</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="s1">'blocks'</span><span class="p">])</span><span class="si">:</span><span class="s2">3d</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">d</span><span class="p">[</span><span class="s1">'deviation'</span><span class="p">]</span><span class="si">:</span><span class="s2">.1e</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">d</span><span class="p">[</span><span class="s1">'closure'</span><span class="p">]</span><span class="si">:</span><span class="s2">.1e</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+
+<span class="c1"># ==================================================</span>
+<span class="c1"># 3. exact representation matrices (in the order of symmetry operations).</span>
+<span class="n">rm</span> <span class="o">=</span> <span class="n">representation_matrix</span><span class="p">(</span><span class="n">pg</span><span class="p">)</span>
+<span class="n">D</span> <span class="o">=</span> <span class="n">rm</span><span class="p">[</span><span class="s2">"matrix"</span><span class="p">][</span><span class="s2">"E'"</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">tag</span><span class="p">,</span> <span class="n">d</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">rm</span><span class="p">[</span><span class="s2">"tag"</span><span class="p">],</span> <span class="n">D</span><span class="p">))[:</span><span class="mi">3</span><span class="p">]:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="se">\n</span><span class="s2">E' </span><span class="si">{</span><span class="n">tag</span><span class="si">}</span><span class="s2">:</span><span class="se">\n</span><span class="si">{</span><span class="n">d</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="response-tensor-py">
+<h2>response_tensor.py<a class="headerlink" href="#response-tensor-py" title="Link to this heading">#</a></h2>
+<p>Response tensors (rank 0-4) of a magnetic point group in terms of active multipoles (response_tensor.pkl).</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">multipiegen.util.util_group</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_group</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">multipiegen.util.util_response_tensor</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_response_tensor</span>
+
+<span class="n">rt</span> <span class="o">=</span> <span class="n">load_response_tensor</span><span class="p">()</span>
+<span class="n">group</span> <span class="o">=</span> <span class="n">load_group</span><span class="p">()</span>
+
+<span class="n">mpg</span> <span class="o">=</span> <span class="s2">"MPG:24.5.149"</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mpg</span><span class="p">,</span> <span class="n">group</span><span class="p">[</span><span class="n">mpg</span><span class="p">][</span><span class="s2">"info"</span><span class="p">]</span><span class="o">.</span><span class="n">international</span><span class="p">,</span> <span class="s2">", active multipoles:"</span><span class="p">,</span> <span class="n">group</span><span class="p">[</span><span class="n">mpg</span><span class="p">][</span><span class="s2">"active_multipole"</span><span class="p">])</span>
+
+<span class="c1"># ==================================================</span>
+<span class="c1"># 1. keys: (X, rank, opt), X = Q (polar), G (axial), T (magnetic polar), M (magnetic axial).</span>
+<span class="n">d</span> <span class="o">=</span> <span class="n">rt</span><span class="p">[</span><span class="n">mpg</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"number of tensors:"</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">d</span><span class="p">),</span> <span class="s2">", e.g."</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="n">d</span><span class="p">)[:</span><span class="mi">4</span><span class="p">])</span>
+
+<span class="c1"># ==================================================</span>
+<span class="c1"># 2. non-vanishing tensors and their expressions in terms of active multipoles.</span>
+<span class="k">for</span> <span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">rank</span><span class="p">,</span> <span class="n">opt</span><span class="p">),</span> <span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">ex</span><span class="p">)</span> <span class="ow">in</span> <span class="n">d</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="k">if</span> <span class="n">ex</span> <span class="ow">and</span> <span class="n">rank</span> <span class="o">&lt;=</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="se">\n</span><span class="si">{</span><span class="n">X</span><span class="si">}</span><span class="s2"> rank </span><span class="si">{</span><span class="n">rank</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">opt</span><span class="si">}</span><span class="s2">:</span><span class="se">\n</span><span class="si">{</span><span class="n">m</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">c</span><span class="p">,</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">ex</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"  </span><span class="si">{</span><span class="n">c</span><span class="si">}</span><span class="s2"> = </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="harmonics-py">
+<h2><a class="reference external" href="http://harmonics.py">harmonics.py</a><a class="headerlink" href="#harmonics-py" title="Link to this heading">#</a></h2>
+<p>Expression and u-matrix of the harmonics of a point group (harmonics.pkl), looked up by a multipole key of any binary.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">multipiegen.util.util_cluster_samb</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_cluster_samb</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">multipiegen.util.util_harmonics</span><span class="w"> </span><span class="kn">import</span> <span class="n">harmonics_expression</span><span class="p">,</span> <span class="n">harmonics_u_matrix</span><span class="p">,</span> <span class="n">load_harmonics</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">multipiegen.util.util_info</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_info</span>
+
+<span class="n">info</span> <span class="o">=</span> <span class="n">load_info</span><span class="p">()</span>
+
+<span class="c1"># ==================================================</span>
+<span class="c1"># 1. {PG_id: {PGMultipoleType(X, l, Gamma, n, -1, 0, 0, "q"): (expression (dim), u_matrix (2l+1, dim))}}.</span>
+<span class="n">d</span> <span class="o">=</span> <span class="n">load_harmonics</span><span class="p">()[</span><span class="n">info</span><span class="p">[</span><span class="s2">"id"</span><span class="p">][</span><span class="s2">"D4h"</span><span class="p">]]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"D4h:"</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">d</span><span class="p">),</span> <span class="s2">"harmonics (rank &lt;= 11)"</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="p">(</span><span class="n">ex</span><span class="p">,</span> <span class="n">U</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">items</span><span class="p">())[:</span><span class="mi">4</span><span class="p">]:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">" "</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="n">ex</span><span class="p">),</span> <span class="n">U</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+
+<span class="c1"># ==================================================</span>
+<span class="c1"># 2. look up the harmonics of a key of another binary (only (X, l, Gamma, n) of the key is used).</span>
+<span class="n">samb</span> <span class="o">=</span> <span class="n">load_cluster_samb</span><span class="p">()[</span><span class="n">info</span><span class="p">[</span><span class="s2">"id"</span><span class="p">][</span><span class="s2">"D4h"</span><span class="p">]][</span><span class="s2">"site"</span><span class="p">][</span><span class="s2">"4b"</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">samb</span><span class="p">)[:</span><span class="mi">3</span><span class="p">]:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="s2">"-&gt;"</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="n">harmonics_expression</span><span class="p">(</span><span class="s2">"D4h"</span><span class="p">,</span> <span class="n">key</span><span class="p">)))</span>
+<span class="n">key</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">samb</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"u-matrix of"</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="s2">":</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span> <span class="n">harmonics_u_matrix</span><span class="p">(</span><span class="s2">"PG:15"</span><span class="p">,</span> <span class="n">key</span><span class="p">))</span>
+</pre></div>
+</div>
+</section>
+<section id="multipolar-harmonics-py">
+<h2>multipolar_harmonics.py<a class="headerlink" href="#multipolar-harmonics-py" title="Link to this heading">#</a></h2>
+<p>Multipolar harmonics (internal rank s=1,2,3, rank l&lt;=3) with polar/axial internal basis of the data_basis orbitals (multipolar_harmonics.pkl).</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">collections</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">multipiegen.util.util_harmonics</span><span class="w"> </span><span class="kn">import</span> <span class="n">harmonics_expression</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">multipiegen.util.util_harmonics_multipole</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_multipolar_harmonics</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">multipiegen.util.util_info</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_info</span>
+
+<span class="n">info</span> <span class="o">=</span> <span class="n">load_info</span><span class="p">()</span>
+<span class="n">hm</span> <span class="o">=</span> <span class="n">load_multipolar_harmonics</span><span class="p">()</span>
+
+<span class="c1"># ==================================================</span>
+<span class="c1"># 1. keys: PGMultipoleType(X, l, Gamma, n, p, s, k, x); value: (internal_coefficient, multipole_expression).</span>
+<span class="c1">#    the expression of the harmonics (X, l, Gamma, n) is looked up by the key in harmonics.pkl.</span>
+<span class="k">for</span> <span class="n">pg</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">"Oh"</span><span class="p">,</span> <span class="s2">"D6h"</span><span class="p">]:</span>
+    <span class="n">d</span> <span class="o">=</span> <span class="n">hm</span><span class="p">[</span><span class="n">info</span><span class="p">[</span><span class="s2">"id"</span><span class="p">][</span><span class="n">pg</span><span class="p">]]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">pg</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">d</span><span class="p">),</span> <span class="s2">"multipolar harmonics:"</span><span class="p">,</span> <span class="nb">dict</span><span class="p">(</span><span class="n">collections</span><span class="o">.</span><span class="n">Counter</span><span class="p">((</span><span class="n">k</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">k</span><span class="o">.</span><span class="n">s</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">d</span><span class="p">)))</span>
+    <span class="n">crystal</span> <span class="o">=</span> <span class="s2">"cubic"</span> <span class="k">if</span> <span class="n">pg</span> <span class="o">==</span> <span class="s2">"Oh"</span> <span class="k">else</span> <span class="s2">"hexagonal"</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"  internal basis (s=3, q):"</span><span class="p">,</span> <span class="n">info</span><span class="p">[</span><span class="s2">"harmonics"</span><span class="p">][</span><span class="s2">"internal_basis"</span><span class="p">][</span><span class="n">crystal</span><span class="p">][(</span><span class="mi">3</span><span class="p">,</span> <span class="s2">"q"</span><span class="p">)])</span>
+
+<span class="c1"># ==================================================</span>
+<span class="c1"># 2. an example: a dipole-type (s=1) multipole of rank 2 in Oh.</span>
+<span class="n">d</span> <span class="o">=</span> <span class="n">hm</span><span class="p">[</span><span class="n">info</span><span class="p">[</span><span class="s2">"id"</span><span class="p">][</span><span class="s2">"Oh"</span><span class="p">]]</span>
+<span class="n">key</span> <span class="o">=</span> <span class="p">[</span><span class="n">k</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">d</span> <span class="k">if</span> <span class="n">k</span><span class="o">.</span><span class="n">s</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">k</span><span class="o">.</span><span class="n">l</span> <span class="o">==</span> <span class="mi">2</span> <span class="ow">and</span> <span class="n">k</span><span class="o">.</span><span class="n">Gamma</span> <span class="o">==</span> <span class="s2">"Eg"</span> <span class="ow">and</span> <span class="n">k</span><span class="o">.</span><span class="n">k</span> <span class="o">==</span> <span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">coeff</span><span class="p">,</span> <span class="n">expr</span> <span class="o">=</span> <span class="n">d</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"  harmonics:"</span><span class="p">,</span> <span class="n">harmonics_expression</span><span class="p">(</span><span class="s2">"Oh"</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"  internal coefficient of [Q_x, Q_y, Q_z] (first component):"</span><span class="p">,</span> <span class="n">coeff</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"  multipole expression (first component):"</span><span class="p">,</span> <span class="n">expr</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="c1"># ==================================================</span>
+<span class="c1"># 3. axial internal basis (g) of rank s=2 in D6h.</span>
+<span class="n">d</span> <span class="o">=</span> <span class="n">hm</span><span class="p">[</span><span class="n">info</span><span class="p">[</span><span class="s2">"id"</span><span class="p">][</span><span class="s2">"D6h"</span><span class="p">]]</span>
+<span class="n">key</span> <span class="o">=</span> <span class="p">[</span><span class="n">k</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">d</span> <span class="k">if</span> <span class="n">k</span><span class="o">.</span><span class="n">x</span> <span class="o">==</span> <span class="s2">"g"</span> <span class="ow">and</span> <span class="n">k</span><span class="o">.</span><span class="n">s</span> <span class="o">==</span> <span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">  "</span><span class="p">,</span> <span class="n">d</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
+</pre></div>
+</div>
+</section>
+<section id="atomic-multipole-py">
+<h2>atomic_multipole.py<a class="headerlink" href="#atomic-multipole-py" title="Link to this heading">#</a></h2>
+<p>Atomic multipole matrices (atomic_multipole.pkl) and atomic multipole SAMB of a point group in the jml/lgs/lg basis, keyed by PGMultipoleType (atomic_multipole_group.pkl).</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">multipiegen.data.data_basis</span><span class="w"> </span><span class="kn">import</span> <span class="n">atomic_lgs_basis</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">multipiegen.util.util_atomic_multipole</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_atomic_multipole</span><span class="p">,</span> <span class="n">load_atomic_multipole_group</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">multipiegen.util.util_harmonics</span><span class="w"> </span><span class="kn">import</span> <span class="n">harmonics_expression</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">multipiegen.util.util_info</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_info</span>
+
+<span class="c1"># ==================================================</span>
+<span class="c1"># atomic multipole: {"lms"/"jml"/"lm": {(L1, L2): {SphericalMultipoleType(X, l, s, k, "q"): ndarray(2l+1, n1, n2)}}}.</span>
+<span class="n">am</span> <span class="o">=</span> <span class="n">load_atomic_multipole</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">mat</span> <span class="ow">in</span> <span class="n">am</span><span class="p">[</span><span class="s2">"lms"</span><span class="p">][(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)]</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">mat</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+
+<span class="c1"># ==================================================</span>
+<span class="c1"># atomic multipole SAMB of Oh: {"jml"/"lgs"/"lg": {(L1, L2): {PGMultipoleType: matrix (dim, n1, n2)}}}.</span>
+<span class="c1"># the expression of the harmonics (X, l, Gamma, n) is looked up by the key in harmonics.pkl.</span>
+<span class="n">info</span> <span class="o">=</span> <span class="n">load_info</span><span class="p">()</span>
+<span class="n">pg</span> <span class="o">=</span> <span class="n">load_atomic_multipole_group</span><span class="p">()[</span><span class="n">info</span><span class="p">[</span><span class="s2">"id"</span><span class="p">][</span><span class="s2">"Oh"</span><span class="p">]]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"lgs basis of p:"</span><span class="p">,</span> <span class="n">atomic_lgs_basis</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">mat</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">pg</span><span class="p">[</span><span class="s2">"lgs"</span><span class="p">][(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)]</span><span class="o">.</span><span class="n">items</span><span class="p">())[:</span><span class="mi">3</span><span class="p">]:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="s2">"symmetry:"</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="n">harmonics_expression</span><span class="p">(</span><span class="s2">"Oh"</span><span class="p">,</span> <span class="n">key</span><span class="p">)))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">mat</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="c1"># orthonormality: Re tr(A^dagger B) = delta (diagonal block) or delta/2 (off-diagonal block).</span>
+<span class="k">for</span> <span class="n">block</span> <span class="ow">in</span> <span class="p">[(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)]:</span>
+    <span class="n">v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">complex</span><span class="p">)</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">pg</span><span class="p">[</span><span class="s2">"lgs"</span><span class="p">][</span><span class="n">block</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">()</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">m</span><span class="p">])</span>
+    <span class="n">g</span> <span class="o">=</span> <span class="p">(</span><span class="n">v</span><span class="o">.</span><span class="n">conj</span><span class="p">()</span> <span class="o">@</span> <span class="n">v</span><span class="o">.</span><span class="n">T</span><span class="p">)</span><span class="o">.</span><span class="n">real</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">block</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">v</span><span class="p">),</span> <span class="s2">"matrices, orthonormal:"</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">v</span><span class="p">))</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="k">if</span> <span class="n">block</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">block</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">else</span> <span class="mf">0.5</span><span class="p">)))</span>
 </pre></div>
 </div>
 </section>
@@ -656,7 +956,15 @@
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cluster-basis-py">cluster_basis.py</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cluster-vector-basis-py">cluster_vector_basis.py</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bond-cluster-basis-py">bond_cluster_basis.py</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cluster-samb-py">cluster_samb.py</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#group-py">group.py</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#representation-matrix-py">representation_matrix.py</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#response-tensor-py">response_tensor.py</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#harmonics-py">harmonics.py</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multipolar-harmonics-py">multipolar_harmonics.py</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#atomic-multipole-py">atomic_multipole.py</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#harmonics-symbol-py">harmonics_symbol.py</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#info-py">info.py</a></li>
 </ul>

@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=34ddd5e8" />
@@ -66,8 +66,8 @@
     <script src="../_static/custom.js?v=9c3a2667"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Point groups" href="pg_pdf.html" />
-    <link rel="prev" title="Data tables" href="data.html" />
+    <link rel="next" title="Data tables" href="data.html" />
+    <link rel="prev" title="Examples" href="examples.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -209,30 +209,57 @@
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Documentation</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="data.html">Data tables</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Binary data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="pg_pdf.html">Point groups</a></li>
-<li class="toctree-l1"><a class="reference internal" href="sg_pdf.html">Space groups</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mpg_pdf.html">Magnetic point groups</a></li>
-<li class="toctree-l1"><a class="reference internal" href="msg_pdf.html">Magnetic space groups</a></li>
-<li class="toctree-l1"><a class="reference internal" href="info_pdf.html">Overall information</a></li>
-<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="group_info.html">Group Information</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="info_pdf.html">Overall information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pg_pdf.html">Point groups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sg_pdf.html">Space groups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mpg_pdf.html">Magnetic point groups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="msg_pdf.html">Magnetic space groups</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="notes.html">Notes</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="details.html">Details</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Binary data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data.html">Data tables</a></li>
+</ul>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">API reference</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="api_util.html">Utilities</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="api_util/util_info.html">Info</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api_util/util_group.html">Group</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_util/util_group_data.html">Group data (ids, tags, names)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_util/util_top_harmonics.html">Top harmonics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_util/util_harmonics_mapping.html">Harmonics mapping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_util/util_op_mapping.html">Operation mapping</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api_util/util_cluster_basis.html">Cluster basis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_util/util_cluster_vector_basis.html">Vector cluster basis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_util/util_bond_cluster_basis.html">Bond cluster basis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_util/util_cluster_samb.html">Cluster SAMB</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api_util/util_harmonics_symbol.html">Harmonics symbol</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_util/util_harmonics.html">Harmonics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_util/util_harmonics_multipole.html">Multipolar harmonics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api_util/util_multipolar_harmonics.html">Multipolar harmonics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_util/util_atomic_multipole.html">Atomic multipole</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api_util/util_symmetry_operation.html">Symmetry operation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_util/util_representation_matrix.html">Representation matrix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_util/util_response_tensor.html">Response tensor</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="api_create.html">Generators</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="api_create/create_info.html">Info binary</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api_create/create_group.html">Group binary</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api_create/create_cluster_basis.html">Cluster basis binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_create/create_response_tensor.html">Response tensor binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_create/create_harmonics.html">Harmonics binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_create/create_multipolar_harmonics.html">Multipolar harmonics binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_create/create_atomic_multipole.html">Atomic multipole binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_create/create_atomic_multipole_group.html">Atomic multipole group binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_create/create_cluster_scalar_basis.html">Cluster scalar basis binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_create/create_cluster_vector_basis.html">Vector cluster basis binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_create/create_cluster_bond_basis.html">Cluster bond basis binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_create/create_cluster_samb.html">Cluster SAMB binary</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api_create/create_pdf_harmonics.html">Harmonics PDF</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api_create/create_pdf_info.html">Information PDF</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api_create/create_pdf_group.html">Group PDF</a></li>
@@ -286,7 +313,7 @@
 <div class="article-header-buttons">
 
 
-<a href="https://github.com/hiro-k-phys/mp-newbasis.git" target="_blank"
+<a href="https://github.com/hiro-k-phys/MultiPieGen.git" target="_blank"
    class="btn btn-sm btn-source-repository-button"
    title="Source repository"
    data-bs-placement="bottom" data-bs-toggle="tooltip"
@@ -398,9 +425,17 @@
             </div>
             <nav aria-label="Page">
                 <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#harmonics-pkl">harmonics.pkl</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#info-pkl">info.pkl</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#group-pkl">group.pkl</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cluster-basis-pkl">cluster_basis.pkl</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#response-tensor-pkl">response_tensor.pkl</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multipolar-harmonics-pkl">multipolar_harmonics.pkl</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#atomic-multipole-pkl">atomic_multipole.pkl</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#atomic-multipole-group-pkl">atomic_multipole_group.pkl</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cluster-scalar-basis-pkl">cluster_scalar_basis.pkl</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cluster-vector-basis-pkl">cluster_vector_basis.pkl</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cluster-bond-basis-pkl">cluster_bond_basis.pkl</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cluster-samb-pkl">cluster_samb.pkl</a></li>
 </ul>
             </nav>
         </div>
@@ -414,36 +449,119 @@
                   
   <section class="tex2jax_ignore mathjax_ignore" id="binary-data">
 <h1>Binary data<a class="headerlink" href="#binary-data" title="Link to this heading">#</a></h1>
-<p>The binary data in <code class="docutils literal notranslate"><span class="pre">multipiegen/binary</span></code> are created from the data tables by the modules in <code class="docutils literal notranslate"><span class="pre">multipiegen/create_binary</span></code>.
-They use the format of MultiPie’s <code class="docutils literal notranslate"><span class="pre">BinaryManager</span></code> (gzip-compressed pickle with a header), so they can be read without
-MultiPieGen. <code class="docutils literal notranslate"><span class="pre">str(data)</span></code> shows the description below.</p>
+<p>The binary data in <code class="docutils literal notranslate"><span class="pre">multipiegen/binary</span></code> are created from the data tables by the modules in <code class="docutils literal notranslate"><span class="pre">multipiegen/create_binary</span></code>. They use the format of MultiPie Ver.2’s <code class="docutils literal notranslate"><span class="pre">BinaryManager</span></code> (gzip-compressed pickle with a header), so they can be read without MultiPieGen, e.g. <code class="docutils literal notranslate"><span class="pre">BinaryManager(&quot;info&quot;,</span> <span class="pre">topdir=...)</span></code>. <code class="docutils literal notranslate"><span class="pre">str(data)</span></code> shows the header, the description of the dictionary keys given in each section below.</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>file</p></th>
+<th class="head"><p>content</p></th>
+<th class="head"><p>top-level keys</p></th>
 <th class="head"><p>create</p></th>
 <th class="head"><p>load</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">info.pkl</span></code></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#harmonics-pkl"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">harmonics.pkl</span></code></span></a></p></td>
+<td><p>expression and u-matrix of the harmonics of all PG (rank &lt;= 11), looked up by a multipole key</p></td>
+<td><p>47 keys: <code class="docutils literal notranslate"><span class="pre">PG:1</span></code>, <code class="docutils literal notranslate"><span class="pre">PG:2</span></code>, …, <code class="docutils literal notranslate"><span class="pre">PG:47</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">multipiegen.create_binary.create_harmonics</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">multipiegen.util.util_harmonics.load_harmonics()</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#info-pkl"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">info.pkl</span></code></span></a></p></td>
+<td><p>overall information of all groups, harmonics, basis, root cluster, response tensor</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">id_set</span></code>, <code class="docutils literal notranslate"><span class="pre">tag</span></code>, <code class="docutils literal notranslate"><span class="pre">id</span></code>, <code class="docutils literal notranslate"><span class="pre">group_name</span></code>, <code class="docutils literal notranslate"><span class="pre">character</span></code>, <code class="docutils literal notranslate"><span class="pre">root_cluster</span></code>, <code class="docutils literal notranslate"><span class="pre">harmonics</span></code>, <code class="docutils literal notranslate"><span class="pre">response_tensor</span></code></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">multipiegen.create_binary.create_info</span></code></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">multipiegen.util.util_info.load_info()</span></code></p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">group.pkl</span></code></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#group-pkl"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">group.pkl</span></code></span></a></p></td>
+<td><p>data of each PG, SG, MPG, MSG: symmetry operations, character, Wyckoff sites and bonds</p></td>
+<td><p>2085 keys: <code class="docutils literal notranslate"><span class="pre">PG:1</span></code>, <code class="docutils literal notranslate"><span class="pre">PG:2</span></code>, …, <code class="docutils literal notranslate"><span class="pre">MSG:230.149</span></code></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">multipiegen.create_binary.create_group</span></code></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">multipiegen.util.util_group.load_group()</span></code></p></td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">cluster_basis.pkl</span></code></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">multipiegen.create_binary.create_cluster_basis</span></code></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#response-tensor-pkl"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">response_tensor.pkl</span></code></span></a></p></td>
+<td><p>response tensors (rank 0-4) of all MPG</p></td>
+<td><p>157 keys: <code class="docutils literal notranslate"><span class="pre">MPG:1.1.1</span></code>, <code class="docutils literal notranslate"><span class="pre">MPG:1.2.2</span></code>, …, <code class="docutils literal notranslate"><span class="pre">MPG:37.5.155</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">multipiegen.create_binary.create_response_tensor</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">multipiegen.util.util_response_tensor.load_response_tensor()</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#multipolar-harmonics-pkl"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">multipolar_harmonics.pkl</span></code></span></a></p></td>
+<td><p>multipolar harmonics (s=1-3, l&lt;=3) of all PG</p></td>
+<td><p>47 keys: <code class="docutils literal notranslate"><span class="pre">PG:1</span></code>, <code class="docutils literal notranslate"><span class="pre">PG:2</span></code>, …, <code class="docutils literal notranslate"><span class="pre">PG:47</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">multipiegen.create_binary.create_multipolar_harmonics</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">multipiegen.util.util_harmonics_multipole.load_multipolar_harmonics()</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#atomic-multipole-pkl"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">atomic_multipole.pkl</span></code></span></a></p></td>
+<td><p>matrices of atomic multipoles in the LMs/JML/LM basis</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">lms</span></code>, <code class="docutils literal notranslate"><span class="pre">jml</span></code>, <code class="docutils literal notranslate"><span class="pre">lm</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">multipiegen.create_binary.create_atomic_multipole</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">multipiegen.util.util_atomic_multipole.load_atomic_multipole()</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#atomic-multipole-group-pkl"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">atomic_multipole_group.pkl</span></code></span></a></p></td>
+<td><p>atomic multipole SAMB of all PG in the JML/Lgs/Lg basis</p></td>
+<td><p>47 keys: <code class="docutils literal notranslate"><span class="pre">PG:1</span></code>, <code class="docutils literal notranslate"><span class="pre">PG:2</span></code>, …, <code class="docutils literal notranslate"><span class="pre">PG:47</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">multipiegen.create_binary.create_atomic_multipole_group</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">multipiegen.util.util_atomic_multipole.load_atomic_multipole_group()</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#cluster-scalar-basis-pkl"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">cluster_scalar_basis.pkl</span></code></span></a></p></td>
+<td><p>orthonormal (scalar) cluster basis of the Oh and D6h clusters</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Oh</span></code>, <code class="docutils literal notranslate"><span class="pre">D6h</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">multipiegen.create_binary.create_cluster_scalar_basis</span></code></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">multipiegen.util.util_cluster_basis.load_cluster_basis()</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#cluster-vector-basis-pkl"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">cluster_vector_basis.pkl</span></code></span></a></p></td>
+<td><p>orthonormal vector cluster basis (s=1) of the Oh and D6h clusters</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Oh</span></code>, <code class="docutils literal notranslate"><span class="pre">D6h</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">multipiegen.create_binary.create_cluster_vector_basis</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">multipiegen.util.util_cluster_vector_basis.load_cluster_vector_basis()</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#cluster-bond-basis-pkl"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">cluster_bond_basis.pkl</span></code></span></a></p></td>
+<td><p>orthonormal bond cluster basis of the Oh and D6h clusters</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Oh</span></code>, <code class="docutils literal notranslate"><span class="pre">D6h</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">multipiegen.create_binary.create_cluster_bond_basis</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">multipiegen.util.util_bond_cluster_basis.load_bond_cluster_basis()</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#cluster-samb-pkl"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">cluster_samb.pkl</span></code></span></a></p></td>
+<td><p>cluster SAMB of each Wyckoff site and bond of the real PG and SG</p></td>
+<td><p>267 keys: <code class="docutils literal notranslate"><span class="pre">PG:1</span></code>, <code class="docutils literal notranslate"><span class="pre">PG:2</span></code>, …, <code class="docutils literal notranslate"><span class="pre">SG:230</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">multipiegen.create_binary.create_cluster_samb</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">multipiegen.util.util_cluster_samb.load_cluster_samb()</span></code></p></td>
 </tr>
 </tbody>
 </table>
 </div>
+<section id="harmonics-pkl">
+<h2>harmonics.pkl<a class="headerlink" href="#harmonics-pkl" title="Link to this heading">#</a></h2>
+<p>Expression and u-matrix of the harmonics of all PG (rank &lt;= 11), looked up by a multipole key.</p>
+<ul class="simple">
+<li><p>create: <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">multipiegen.create_binary.create_harmonics</span></code></p></li>
+<li><p>load: <code class="docutils literal notranslate"><span class="pre">multipiegen.util.util_harmonics.load_harmonics()</span></code></p></li>
+<li><p>top-level keys: 47 keys: <code class="docutils literal notranslate"><span class="pre">PG:1</span></code>, <code class="docutils literal notranslate"><span class="pre">PG:2</span></code>, …, <code class="docutils literal notranslate"><span class="pre">PG:47</span></code></p></li>
+<li><p>size: 604 KB</p></li>
+</ul>
+<p>Description of the dictionary keys (header of the binary):</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>* Harmonics of all PG (rank l &lt;= 11): cartesian expression and u-matrix for each multipole key.
+- PG_id (str): (dict) harmonics.
+  - (X,l,Gamma,n,p,s,k,x) (PGMultipoleType): (ndarray(dim,sympy), ndarray(2l+1,dim,sympy)) [expression] and [u-matrix].
+NOTE:
+  - X = Q/G, p = -1, s = k = 0, x = "q" in the key. Look up the harmonics of a key of the other binaries by its
+    (X,l,Gamma,n), with T -&gt; Q and M -&gt; G (multipiegen.util.util_harmonics.harmonics_expression, harmonics_u_matrix).
+  - n is the multiplicity of the harmonics (X,l,Gamma), 1-based; "-1" represents no multiplicity.
+  - expression: polynomial in x, y, z of each component; u-matrix: &lt;m|component&gt; for m = l, l-1, ..., -l.
+  - the harmonics is c times a top harmonics of Oh or D6h (data_harmonics_mapping).
+  - sorted in order of [Gamma, l, Q/G, n].
+</pre></div>
+</div>
+</section>
 <section id="info-pkl">
 <h2>info.pkl<a class="headerlink" href="#info-pkl" title="Link to this heading">#</a></h2>
-<p>Overall information: group id/tag/name, character alias and compatibility relation, root cluster, orbital basis and
-basis functions, response tensor.</p>
+<p>Overall information of all groups, harmonics, basis, root cluster, response tensor.</p>
+<ul class="simple">
+<li><p>create: <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">multipiegen.create_binary.create_info</span></code></p></li>
+<li><p>load: <code class="docutils literal notranslate"><span class="pre">multipiegen.util.util_info.load_info()</span></code></p></li>
+<li><p>top-level keys: <code class="docutils literal notranslate"><span class="pre">id_set</span></code>, <code class="docutils literal notranslate"><span class="pre">tag</span></code>, <code class="docutils literal notranslate"><span class="pre">id</span></code>, <code class="docutils literal notranslate"><span class="pre">group_name</span></code>, <code class="docutils literal notranslate"><span class="pre">character</span></code>, <code class="docutils literal notranslate"><span class="pre">root_cluster</span></code>, <code class="docutils literal notranslate"><span class="pre">harmonics</span></code>, <code class="docutils literal notranslate"><span class="pre">response_tensor</span></code></p></li>
+<li><p>size: 137 KB</p></li>
+</ul>
+<p>Description of the dictionary keys (header of the binary):</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>* Information of all groups.
 - "id_set" (str): (dict) info. of group's IDs.
   - "PG/SG/MPG/MSG" (str):  (dict) ID set.
@@ -519,8 +637,14 @@ basis functions, response tensor.</p>
 </section>
 <section id="group-pkl">
 <h2>group.pkl<a class="headerlink" href="#group-pkl" title="Link to this heading">#</a></h2>
-<p>Data of all point groups (PG, 47), space groups (SG, 230), magnetic point groups (MPG, 157) and magnetic space groups
-(MSG, 1651), keyed by group id.</p>
+<p>Data of each PG, SG, MPG, MSG: symmetry operations, character, Wyckoff sites and bonds.</p>
+<ul class="simple">
+<li><p>create: <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">multipiegen.create_binary.create_group</span></code></p></li>
+<li><p>load: <code class="docutils literal notranslate"><span class="pre">multipiegen.util.util_group.load_group()</span></code></p></li>
+<li><p>top-level keys: 2085 keys: <code class="docutils literal notranslate"><span class="pre">PG:1</span></code>, <code class="docutils literal notranslate"><span class="pre">PG:2</span></code>, …, <code class="docutils literal notranslate"><span class="pre">MSG:230.149</span></code></p></li>
+<li><p>size: 2,114 KB</p></li>
+</ul>
+<p>Description of the dictionary keys (header of the binary):</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>* Information for all PG ("PG").
 - PG_id (str): (dict) id, "PG:{ID}".
   - "info" (str): (namedtuple) info.
@@ -547,7 +671,7 @@ basis functions, response tensor.</p>
       - (X,s) (str,int): ([ndarray(2s+1,2s+1,sympy)]) list of SO matrix.
     - "product" (str): (dict) product table.
       - (SO_tag1,SO_tag2) (str,str): (str) SO_tag of product, SO1 SO2.
-    - "mapping" (str): (dict) mapping of SO to the Oh/D6h cluster (data_op_mapping).
+    - "mapping" (str): (dict) mapping of SO to the Oh/D6h cluster (util_op_mapping).
       - "top" (str): (str) top group, "Oh" or "D6h".
       - "mapping" (str): ([[int]]) mapping[coset][i] = SO number (from 1) of top group for i-th SO of group.
     NOTE:
@@ -621,9 +745,9 @@ basis functions, response tensor.</p>
     - "plus_set" (str): (ndarray(n,3,sympy)) list of plus set vector (fractional, conventional).
     - "so_matrix" (str): (Dict) dict of SO matrix (X="Q/G", s=0,1, cartesian).
       - (X,s) (str,int): ([ndarray(2s+1,2s+1,sympy)]) list of SO matrix.
-    - "mapping" (str): (dict) mapping of SO to the Oh/D6h cluster (data_op_mapping).
-      - "top" (str): (int) top SG number (SG whose PG is Oh or D6h), the SG itself if its PG is Oh or D6h.
-      - "mapping" (str): ([[int]]) mapping[coset][i] = SO number (from 1) of top SG for i-th SO of group.
+    - "mapping" (str): (dict) mapping of SO to the Oh/D6h cluster (that of the PG, util_op_mapping).
+      - "top" (str): (str) top group, "Oh" or "D6h".
+      - "mapping" (str): ([[int]]) mapping[coset][i] = SO number (from 1) of top group for i-th SO of group.
     NOTE:
       - SOs are in the same order of ITA (BCS).
       - SOs of SG and PG (without translational part) are in the same order.
@@ -720,10 +844,120 @@ basis functions, response tensor.</p>
 </pre></div>
 </div>
 </section>
-<section id="cluster-basis-pkl">
-<h2>cluster_basis.pkl<a class="headerlink" href="#cluster-basis-pkl" title="Link to this heading">#</a></h2>
-<p>Orthonormal cluster basis of the Oh (48 points) and D6h (24 points) root clusters.</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Orthonormal cluster basis of Oh and D6h clusters.
+<section id="response-tensor-pkl">
+<h2>response_tensor.pkl<a class="headerlink" href="#response-tensor-pkl" title="Link to this heading">#</a></h2>
+<p>Response tensors (rank 0-4) of all MPG.</p>
+<ul class="simple">
+<li><p>create: <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">multipiegen.create_binary.create_response_tensor</span></code></p></li>
+<li><p>load: <code class="docutils literal notranslate"><span class="pre">multipiegen.util.util_response_tensor.load_response_tensor()</span></code></p></li>
+<li><p>top-level keys: 157 keys: <code class="docutils literal notranslate"><span class="pre">MPG:1.1.1</span></code>, <code class="docutils literal notranslate"><span class="pre">MPG:1.2.2</span></code>, …, <code class="docutils literal notranslate"><span class="pre">MPG:37.5.155</span></code></p></li>
+<li><p>size: 159 KB</p></li>
+</ul>
+<p>Description of the dictionary keys (header of the binary):</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>* Response tensors of all MPG (up to rank 4).
+- MPG_id (str): (dict) response tensors, "MPG:{PG}.{no}.{ID}".
+  - (X, rank, opt) (str,int,str): ((ndarray(sympy), dict)) tensor matrix and expression.
+    - X: tensor type, "Q" (polar), "G" (axial), "T" (magnetic polar), "M" (magnetic axial).
+    - rank: tensor rank, 0-4.
+    - opt: "" (rank 0,1), "s/a" (rank 2), "ss/sa/a" (rank 3), "sss/ssa/aas/aaa/sa/as/s/a/t" (rank 4).
+    - matrix: tensor components, e.g. Q_{xyz} (sympy symbol), 0 for vanishing components.
+      - rank 0: (1,1), rank 1: (1,3) [x,y,z].
+      - rank 2 (s/a): (3,3) [x,y,z] x [x,y,z].
+      - rank 3: (6,3) [xx,yy,zz,yz,zx,xy] x [x,y,z] (ss/sa), (3,3) [yz,zx,xy] x [x,y,z] (a).
+      - rank 4: (6,6) (sss/ssa), (3,3) (aas/aaa), (6,3) (sa), (3,6) (as), (6,9) (s), (3,9) (a), (10,3) (t),
+                with pairs v=[xx,yy,zz,yz,zx,xy], a=[yz,zx,xy], u=[xx,yy,zz,yz,zx,xy,zy,xz,yx],
+                and triples t=[xxx,yyy,zzz,yyz,zzx,xxy,yzz,zxx,xyy,xyz].
+    - expression: {component symbol: expression in terms of active multipoles (LaTeX symbols)}.
+NOTE:
+  - multipole symbol: \mathbb{X}_{sub}^{sup(n)} with the LaTeX names of info["harmonics"]["latex"]["orbital"],
+    (n) labels the independent cartesian decomposition.
+  - same as MultiPie Ver.2 Group.response_tensor_all except for the multipole names.
+</pre></div>
+</div>
+</section>
+<section id="multipolar-harmonics-pkl">
+<h2>multipolar_harmonics.pkl<a class="headerlink" href="#multipolar-harmonics-pkl" title="Link to this heading">#</a></h2>
+<p>Multipolar harmonics (s=1-3, l&lt;=3) of all PG.</p>
+<ul class="simple">
+<li><p>create: <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">multipiegen.create_binary.create_multipolar_harmonics</span></code></p></li>
+<li><p>load: <code class="docutils literal notranslate"><span class="pre">multipiegen.util.util_harmonics_multipole.load_multipolar_harmonics()</span></code></p></li>
+<li><p>top-level keys: 47 keys: <code class="docutils literal notranslate"><span class="pre">PG:1</span></code>, <code class="docutils literal notranslate"><span class="pre">PG:2</span></code>, …, <code class="docutils literal notranslate"><span class="pre">PG:47</span></code></p></li>
+<li><p>size: 1,187 KB</p></li>
+</ul>
+<p>Description of the dictionary keys (header of the binary):</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>* Multipolar harmonics of all PG (s = 1..3, rank l &lt;= 3) with polar (q) and axial (g) internal basis.
+- PG_id (str): (dict) multipolar harmonics.
+  - (X,l,Gamma,n,p,s,k,x) (PGMultipoleType): (ndarray(dim,2s+1,sympy), ndarray(dim,sympy))
+    [internal coefficient] (polynomial in x,y,z multiplying each internal basis function) and [multipole expression]
+    (with the internal symbols), for each component.
+NOTE:
+  - the expression of the harmonics (X,l,Gamma,n) of a key is in harmonics.pkl.
+  - internal basis: orbitals of data_basis.cubic_orbital_basis[s] (cubic) or hexagonal_orbital_basis[s] (trigonal,
+    hexagonal), with the symbols Q/G + orbital_latex_name (info["harmonics"]["internal_basis"]).
+  - x = q if (X = Q and s+k even) or (X = G and s+k odd), otherwise g.
+  - n is the multiplicity of the harmonics (X,l,Gamma) (its xyz polynomial, not renumbered); p numbers the same
+    (x, l, X, Gamma, n, k) as 1, 2, ...; "-1" represents no multiplicity / no additional multiplicity.
+  - sorted in order of [q/g, s, Gamma, l, Q/G, k, n, p].
+</pre></div>
+</div>
+</section>
+<section id="atomic-multipole-pkl">
+<h2>atomic_multipole.pkl<a class="headerlink" href="#atomic-multipole-pkl" title="Link to this heading">#</a></h2>
+<p>Matrices of atomic multipoles in the LMs/JML/LM basis.</p>
+<ul class="simple">
+<li><p>create: <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">multipiegen.create_binary.create_atomic_multipole</span></code></p></li>
+<li><p>load: <code class="docutils literal notranslate"><span class="pre">multipiegen.util.util_atomic_multipole.load_atomic_multipole()</span></code></p></li>
+<li><p>top-level keys: <code class="docutils literal notranslate"><span class="pre">lms</span></code>, <code class="docutils literal notranslate"><span class="pre">jml</span></code>, <code class="docutils literal notranslate"><span class="pre">lm</span></code></p></li>
+<li><p>size: 79 KB</p></li>
+</ul>
+<p>Description of the dictionary keys (header of the binary):</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>* Matrix of atomic multipole (rank l &lt;= 7, s = 0, 1) in the orbitals of L = 0..3.
+- "lms/jml/lm" (str): (dict) matrix in LMs/JML/LM basis (info["harmonics"]["atomic_basis"]).
+  - (L1,L2) (int,int): (dict) atomic multipole data for each bra-ket block.
+    - (X,l,s,k,x) (SphericalMultipoleType): (ndarray(2l+1,2(2L1+1),2(2L2+1),sympy)) matrix for m = l, l-1, ..., -l.
+NOTE:
+  - half size of matrix for spinless "lm" (s = 0, up-spin part of "lms").
+  - x = "q" for all.
+  - multipoles are sorted in order of [Q/G/T/M, s, k, l].
+</pre></div>
+</div>
+</section>
+<section id="atomic-multipole-group-pkl">
+<h2>atomic_multipole_group.pkl<a class="headerlink" href="#atomic-multipole-group-pkl" title="Link to this heading">#</a></h2>
+<p>Atomic multipole SAMB of all PG in the JML/Lgs/Lg basis.</p>
+<ul class="simple">
+<li><p>create: <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">multipiegen.create_binary.create_atomic_multipole_group</span></code></p></li>
+<li><p>load: <code class="docutils literal notranslate"><span class="pre">multipiegen.util.util_atomic_multipole.load_atomic_multipole_group()</span></code></p></li>
+<li><p>top-level keys: 47 keys: <code class="docutils literal notranslate"><span class="pre">PG:1</span></code>, <code class="docutils literal notranslate"><span class="pre">PG:2</span></code>, …, <code class="docutils literal notranslate"><span class="pre">PG:47</span></code></p></li>
+<li><p>size: 6,161 KB</p></li>
+</ul>
+<p>Description of the dictionary keys (header of the binary):</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>* Matrix of atomic multipole SAMB for all PG (rank l &lt;= 7, s = 0, 1, orbitals of L = 0..3).
+- PG_id (str): (dict) matrix data.
+  - "jml/lgs/lg" (str): (dict) matrix of atomic multipole in (J,M;L)/(L,gamma,s)/(L,gamma) basis.
+    - (L1,L2) (int,int): (dict) atomic multipole data for each bra-ket block.
+      - (X,l,Gamma,n,p,s,k,x) (PGMultipoleType): (ndarray(dim,2(2L1+1),2(2L2+1),sympy)) matrix for each component.
+NOTE:
+  - the expression of the harmonics (X,l,Gamma,n) of a key is in harmonics.pkl.
+  - (L,gamma) basis: orbitals of info["harmonics"]["atomic_basis"]["spinless"]["lg"].
+  - half size of matrix for spinless "lg" (s = 0, up-spin part of "lgs" times sqrt(2)).
+  - each component is normalized to the Frobenius norm 1 (diagonal block) or 1/sqrt(2) (off-diagonal block).
+  - n is the multiplicity of the harmonics (X,l,Gamma) (its xyz polynomial, not renumbered); p = -1; x = "q".
+  - multipoles are sorted in order of [Q/G/T/M, s, k, l, Gamma, n, p].
+</pre></div>
+</div>
+</section>
+<section id="cluster-scalar-basis-pkl">
+<h2>cluster_scalar_basis.pkl<a class="headerlink" href="#cluster-scalar-basis-pkl" title="Link to this heading">#</a></h2>
+<p>Orthonormal (scalar) cluster basis of the Oh and D6h clusters.</p>
+<ul class="simple">
+<li><p>create: <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">multipiegen.create_binary.create_cluster_scalar_basis</span></code></p></li>
+<li><p>load: <code class="docutils literal notranslate"><span class="pre">multipiegen.util.util_cluster_basis.load_cluster_basis()</span></code></p></li>
+<li><p>top-level keys: <code class="docutils literal notranslate"><span class="pre">Oh</span></code>, <code class="docutils literal notranslate"><span class="pre">D6h</span></code></p></li>
+<li><p>size: 5 KB</p></li>
+</ul>
+<p>Description of the dictionary keys (header of the binary):</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Orthonormal (scalar) cluster basis of Oh and D6h clusters (binary: cluster_scalar_basis.pkl).
 
 The cluster is made by substituting the representative site (site0) into the general points
 of the Oh (48 points) or D6h (24 points) cluster. The value of each real top harmonics at
@@ -732,14 +966,141 @@ by symmetry. Within each (irrep, component), the vectors are orthogonalized by t
 Gram-Schmidt process from lower rank (then lower multiplicity), and linearly dependent ones
 are dropped. The result is an orthonormal basis of 48 (Oh) or 24 (D6h) vectors.
 
-- cluster_basis (dict).
+- cluster_scalar_basis (dict)::
+
     { "Oh/D6h": {
         "site0": [x0,y0,z0] (sympy),
         "cluster": cluster points, ndarray (N,3) (sympy),
-        "basis": { top_key: ndarray (N,) (sympy) },  # orthonormal, sum_i |v_i|^2 = 1.
-        "dropped": [top_key],  # harmonics linearly dependent on lower ones.
+        "basis": { PGMultipoleType: ndarray (dim,N) (sympy) },  # orthonormal, sum_i v_i^2 = 1 per component.
+        "dropped": [ PGMultipoleType ],  # harmonics linearly dependent on lower ones (whole multiplets).
     } }
-    top_key = (rank, irrep, multiplicity [1-based], component [0-based]), -1: unique.
+
+    PGMultipoleType = (X, l, Gamma, n, p, s, k, x) as the site SAMB of MultiPie Ver.2: X = "Q", rank l, irrep,
+        multiplicity n (1-based, -1: unique) of the top harmonics, p = -1, s = 0, k = 0, x = "q".
+        All components of a multiplet are in the value (rows, in the order of components).
+</pre></div>
+</div>
+</section>
+<section id="cluster-vector-basis-pkl">
+<h2>cluster_vector_basis.pkl<a class="headerlink" href="#cluster-vector-basis-pkl" title="Link to this heading">#</a></h2>
+<p>Orthonormal vector cluster basis (s=1) of the Oh and D6h clusters.</p>
+<ul class="simple">
+<li><p>create: <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">multipiegen.create_binary.create_cluster_vector_basis</span></code></p></li>
+<li><p>load: <code class="docutils literal notranslate"><span class="pre">multipiegen.util.util_cluster_vector_basis.load_cluster_vector_basis()</span></code></p></li>
+<li><p>top-level keys: <code class="docutils literal notranslate"><span class="pre">Oh</span></code>, <code class="docutils literal notranslate"><span class="pre">D6h</span></code></p></li>
+<li><p>size: 59 KB</p></li>
+</ul>
+<p>Description of the dictionary keys (header of the binary):</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Orthonormal vector cluster basis (internal rank s=1) of Oh and D6h clusters (binary: cluster_vector_basis.pkl).
+
+This is an intermediate basis to create the bond cluster basis (util_bond_cluster_basis, cluster_bond_basis.pkl); whether it is used
+by itself is not decided yet.
+
+Same procedure as the cluster basis (util_cluster_basis), for the vector harmonics. s=0 is the cluster basis itself.
+
+- Vector harmonics. For a real top harmonics T (top key (l, irrep, mul, comp), u-matrix U) and k = -1, 0, 1,
+  the vector harmonics is sum_m U[m] O_{lm}^{(s=1)}(k) (util_multipolar_harmonics, orbital rank l+k), a 3-vector
+  whose components are in the order of the internal basis [px, py, pz] (data_basis.cubic_orbital_basis[1] and
+  hexagonal_orbital_basis[1]).
+- Type. For a polar internal basis (x="q"), it is polar (X="Q") if s+k is even and axial (X="G") if s+k is odd;
+  for an axial internal basis (x="g"), Q and G are interchanged. A polar one has the irrep and component of T
+  (coefficient 1); an axial one has the irrep, component and coefficient c of data_harmonics_mapping, G(key) = c T.
+- Cluster vector. The values at the cluster points (N,3) (see util_cluster_basis.create_cluster).
+- Orthonormalization. Within each (irrep, component), Gram-Schmidt in the order of rank l, then k = -1, 0, 1,
+  then multiplicity; linearly dependent ones are dropped. The result is 3N = 144 (Oh) or 72 (D6h) vectors for each x.
+  The linear dependence is first found numerically, then the kept vectors are orthonormalized exactly.
+
+- cluster_vector_basis (dict)::
+
+    { "Oh/D6h": {
+        "site0": [x0,y0,z0] (sympy),
+        "cluster": cluster points, ndarray (N,3) (sympy),
+        "internal_basis": ["px","py","pz"],
+        "basis": { PGMultipoleType: ndarray (dim,N,3) (sympy) },  # orthonormal, sum_{i,a} v_{ia}^2 = 1 per component.
+        "dropped": [ PGMultipoleType ],  # vector harmonics linearly dependent on lower ones (whole multiplets).
+    } }
+
+    PGMultipoleType = (X, l, Gamma, n, p, s, k, x) as the vector SAMB of MultiPie Ver.2: type Q/G, rank, irrep,
+        multiplicity (-1: unique), add_multiplicity p = -1 (multiplets are distinguished by k), s = 1, k = -1, 0, 1,
+        internal type x = q/g. All components of a multiplet are in the value (rows, in the order of components).
+</pre></div>
+</div>
+</section>
+<section id="cluster-bond-basis-pkl">
+<h2>cluster_bond_basis.pkl<a class="headerlink" href="#cluster-bond-basis-pkl" title="Link to this heading">#</a></h2>
+<p>Orthonormal bond cluster basis of the Oh and D6h clusters.</p>
+<ul class="simple">
+<li><p>create: <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">multipiegen.create_binary.create_cluster_bond_basis</span></code></p></li>
+<li><p>load: <code class="docutils literal notranslate"><span class="pre">multipiegen.util.util_bond_cluster_basis.load_bond_cluster_basis()</span></code></p></li>
+<li><p>top-level keys: <code class="docutils literal notranslate"><span class="pre">Oh</span></code>, <code class="docutils literal notranslate"><span class="pre">D6h</span></code></p></li>
+<li><p>size: 7 KB</p></li>
+</ul>
+<p>Description of the dictionary keys (header of the binary):</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Orthonormal bond cluster basis of Oh and D6h clusters (binary: cluster_bond_basis.pkl).
+
+- Bond vectors. b_i is the general point i of the Oh or D6h cluster with x,y,z replaced by vector0 (unit vector,
+  info["root_cluster"]["oh/d6h_vector0_cart"]).
+- Bond cluster vectors. For each vector cluster basis v_key (util_cluster_vector_basis, (N,3)), the N-component
+  vector f_key(i) = v_key(i) . b_i, with the same key. They are 3N vectors in the N-dimensional space.
+- Orthonormalization. Within each (irrep, component), Gram-Schmidt in the order of rank, then k = -1, 0, 1, then
+  multiplicity; linearly dependent ones (including vanishing ones) are dropped. The result is N = 48 (Oh) or
+  24 (D6h) vectors for each internal basis type x = q, g. The linear dependence is first found numerically,
+  then the kept vectors are orthonormalized exactly.
+- Symmetry. f_key transforms as a scalar function on the cluster, (g f)(i) = s f(j) with R_g^{-1} p_i = p_j,
+  s = 1 (x = q) or det R_g (x = g), with the representation matrices of its irrep.
+- Key. As the anti-symmetric bond cluster SAMB (bond_a) of MultiPie Ver.2, a kept multiplet is a scalar function on the
+  bonds keyed by PGMultipoleType(X, l, Gamma, n, p, s=0, k=0, x), with all components in the value. (X, l, Gamma, n)
+  are those of the vector cluster basis. p (add_multiplicity) numbers the multiplets with the same
+  (X, l, Gamma, n) [components] in the Gram-Schmidt order (k = -1, 0, 1) as 1, 2, ..., and is -1 if there is only
+  one. x is the internal type of the vector cluster basis (MultiPie Ver.2 has x = q only).
+
+- cluster_bond_basis (dict)::
+
+    { "Oh/D6h": {
+        "site0": [x0,y0,z0] (sympy),
+        "vector0": [X0,Y0,Z0] (sympy),
+        "cluster": cluster points, ndarray (N,3) (sympy),
+        "bond": bond vectors b_i, ndarray (N,3) (sympy),
+        "basis": { PGMultipoleType: ndarray (dim, N) (sympy) },  # orthonormal, rows = components.
+        "source": { PGMultipoleType: PGMultipoleType },  # multiplet of the vector cluster basis (s=1).
+        "dropped": [ PGMultipoleType ],  # multiplets of the vector cluster basis dropped.
+    } }
+
+    PGMultipoleType = (X, l, Gamma, n, p, s, k, x): type Q/G, rank, irrep, multiplicity (-1: unique),
+        add_multiplicity (-1: unique), s = 0, k = 0, internal type of the vector cluster basis q/g.
+    The vector cluster basis (cluster_vector_basis.pkl) is an intermediate basis to create this one.
+</pre></div>
+</div>
+</section>
+<section id="cluster-samb-pkl">
+<h2>cluster_samb.pkl<a class="headerlink" href="#cluster-samb-pkl" title="Link to this heading">#</a></h2>
+<p>Cluster SAMB of each Wyckoff site and bond of the real PG and SG.</p>
+<ul class="simple">
+<li><p>create: <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">multipiegen.create_binary.create_cluster_samb</span></code></p></li>
+<li><p>load: <code class="docutils literal notranslate"><span class="pre">multipiegen.util.util_cluster_samb.load_cluster_samb()</span></code></p></li>
+<li><p>top-level keys: 267 keys: <code class="docutils literal notranslate"><span class="pre">PG:1</span></code>, <code class="docutils literal notranslate"><span class="pre">PG:2</span></code>, …, <code class="docutils literal notranslate"><span class="pre">SG:230</span></code></p></li>
+<li><p>size: 455 KB</p></li>
+</ul>
+<p>Description of the dictionary keys (header of the binary):</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>* Cluster SAMB for all real PG and SG.
+- PG_id/SG_id (str): (dict) SAMB data.
+  - "site" (str): (dict) site-cluster SAMB data.
+    - sw_tag (str): (dict) SAMB data at site Wyckoff.
+      - (X,l,Gamma,n,p,s,k,x) (PGMultipoleType): (ndarray(dim,ns,sympy)) SAMB for each component.
+  - "bond" (str): (dict) bond-cluster SAMB data.
+    - bw_tag (str): (dict) SAMB data at bond Wyckoff, as "site".
+NOTE:
+  - the expression of the harmonics (X,l,Gamma,n) of a key is in harmonics.pkl (T and M use those of Q and G).
+  - created from the general-point SAMB of each group, i.e., cluster_scalar_basis ("site", symmetric bond) and
+    cluster_bond_basis (x = "q", anti-symmetric bond) of Oh or D6h restricted by the operation mapping (coset 0), and
+    averaged by the mapping of each Wyckoff site and bond (with the sign of the bond reversal for anti-symmetric bond).
+  - "bond" = symmetric bond SAMB (X = Q, real) + i anti-symmetric bond SAMB (X = Q -&gt; T, G -&gt; M, pure imaginary).
+    Q and T/M are orthonormalized separately (different time-reversal parity).
+  - keys of the top group with the irrep and component of the group; n is the multiplicity of the harmonics (X,l,Gamma).
+  - "-1" in multiplicity represents no multiplicity.
+  - each component is normalized on the ns sites (bonds).
+  - multipoles are sorted in order of [Gamma, l, n, p] ("site"), and of Gamma, then [l, n, p] for Q and
+    [l, k, T/M, n, p] for T/M ("bond", Q before T/M in each Gamma).
 </pre></div>
 </div>
 </section>
@@ -787,9 +1148,17 @@ are dropped. The result is an orthonormal basis of 48 (Oh) or 24 (D6h) vectors.
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#harmonics-pkl">harmonics.pkl</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#info-pkl">info.pkl</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#group-pkl">group.pkl</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cluster-basis-pkl">cluster_basis.pkl</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#response-tensor-pkl">response_tensor.pkl</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multipolar-harmonics-pkl">multipolar_harmonics.pkl</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#atomic-multipole-pkl">atomic_multipole.pkl</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#atomic-multipole-group-pkl">atomic_multipole_group.pkl</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cluster-scalar-basis-pkl">cluster_scalar_basis.pkl</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cluster-vector-basis-pkl">cluster_vector_basis.pkl</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cluster-bond-basis-pkl">cluster_bond_basis.pkl</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cluster-samb-pkl">cluster_samb.pkl</a></li>
 </ul>
   </nav></div>
 

@@ -33,7 +33,7 @@
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
     <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=9c3e77be" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=34ddd5e8" />
@@ -204,30 +204,57 @@
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Documentation</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../../src/data.html">Data tables</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../src/binary.html">Binary data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../src/pg_pdf.html">Point groups</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../src/sg_pdf.html">Space groups</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../src/mpg_pdf.html">Magnetic point groups</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../src/msg_pdf.html">Magnetic space groups</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../src/info_pdf.html">Overall information</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../src/examples.html">Examples</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../src/group_info.html">Group Information</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/info_pdf.html">Overall information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/pg_pdf.html">Point groups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/sg_pdf.html">Space groups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/mpg_pdf.html">Magnetic point groups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/msg_pdf.html">Magnetic space groups</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../src/notes.html">Notes</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../src/details.html">Details</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/examples.html">Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/binary.html">Binary data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/data.html">Data tables</a></li>
+</ul>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">API reference</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../src/api_util.html">Utilities</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../src/api_util/util_info.html">Info</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../src/api_util/util_group.html">Group</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_util/util_group_data.html">Group data (ids, tags, names)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_util/util_top_harmonics.html">Top harmonics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_util/util_harmonics_mapping.html">Harmonics mapping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_util/util_op_mapping.html">Operation mapping</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../src/api_util/util_cluster_basis.html">Cluster basis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_util/util_cluster_vector_basis.html">Vector cluster basis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_util/util_bond_cluster_basis.html">Bond cluster basis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_util/util_cluster_samb.html">Cluster SAMB</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../src/api_util/util_harmonics_symbol.html">Harmonics symbol</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_util/util_harmonics.html">Harmonics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_util/util_harmonics_multipole.html">Multipolar harmonics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../src/api_util/util_multipolar_harmonics.html">Multipolar harmonics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_util/util_atomic_multipole.html">Atomic multipole</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../src/api_util/util_symmetry_operation.html">Symmetry operation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_util/util_representation_matrix.html">Representation matrix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_util/util_response_tensor.html">Response tensor</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../src/api_create.html">Generators</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../src/api_create/create_info.html">Info binary</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../src/api_create/create_group.html">Group binary</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../src/api_create/create_cluster_basis.html">Cluster basis binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_create/create_response_tensor.html">Response tensor binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_create/create_harmonics.html">Harmonics binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_create/create_multipolar_harmonics.html">Multipolar harmonics binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_create/create_atomic_multipole.html">Atomic multipole binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_create/create_atomic_multipole_group.html">Atomic multipole group binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_create/create_cluster_scalar_basis.html">Cluster scalar basis binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_create/create_cluster_vector_basis.html">Vector cluster basis binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_create/create_cluster_bond_basis.html">Cluster bond basis binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_create/create_cluster_samb.html">Cluster SAMB binary</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../src/api_create/create_pdf_harmonics.html">Harmonics PDF</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../src/api_create/create_pdf_info.html">Information PDF</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../src/api_create/create_pdf_group.html">Group PDF</a></li>
@@ -281,7 +308,7 @@
 <div class="article-header-buttons">
 
 
-<a href="https://github.com/hiro-k-phys/mp-newbasis.git" target="_blank"
+<a href="https://github.com/hiro-k-phys/MultiPieGen.git" target="_blank"
    class="btn btn-sm btn-source-repository-button"
    title="Source repository"
    data-bs-placement="bottom" data-bs-toggle="tooltip"
@@ -358,8 +385,10 @@
 <span class="sd">"""</span>
 <span class="sd">Symmetry operation matrices (sympy).</span>
 
-<span class="sd">Ported from MultiPie (others/tools/utils/util_symmetry_operation.py and util_symmetry_operation_spherical.py).</span>
+<span class="sd">Ported from MultiPie Ver.2 (others/tools/utils/util_symmetry_operation.py and util_symmetry_operation_spherical.py).</span>
 <span class="sd">The matrices of the point-group part are cached, because the same operations appear in many groups.</span>
+<span class="sd">group_symmetry_operation gives the symmetry operations of a PG or SG from the group information tables</span>
+<span class="sd">(data_group_pg/sg) alone, so that the table generators in others/creation do not depend on other data.</span>
 <span class="sd">"""</span>
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">functools</span><span class="w"> </span><span class="kn">import</span> <span class="n">lru_cache</span>
@@ -368,8 +397,12 @@
 <span class="kn">import</span><span class="w"> </span><span class="nn">sympy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sp</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">sympy.physics.quantum.spin</span><span class="w"> </span><span class="kn">import</span> <span class="n">Rotation</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">multipie.util.util</span><span class="w"> </span><span class="kn">import</span> <span class="n">str_to_sympy</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">multipie.util.util_crystal</span><span class="w"> </span><span class="kn">import</span> <span class="n">convert_to_fractional_hexagonal_matrix</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">multipie.util.util_tag</span><span class="w"> </span><span class="kn">import</span> <span class="n">TagSymmetryOperation</span>
 
+<span class="kn">from</span><span class="w"> </span><span class="nn">multipiegen.data.data_group_pg</span><span class="w"> </span><span class="kn">import</span> <span class="n">pg_info</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">multipiegen.data.data_group_sg</span><span class="w"> </span><span class="kn">import</span> <span class="n">sg_info</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">multipiegen.util.util_group_data</span><span class="w"> </span><span class="kn">import</span> <span class="n">pg_id</span><span class="p">,</span> <span class="n">sg_id</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">multipiegen.util.util_multipolar_harmonics</span><span class="w"> </span><span class="kn">import</span> <span class="n">_create_unitary_matrix_tesseral</span>
 
 
@@ -620,6 +653,49 @@
 <span class="sd">        - translation and time reversal are ignored.</span>
 <span class="sd">    """</span>
     <span class="k">return</span> <span class="n">_multipole_matrix</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">point_tag</span><span class="p">(</span><span class="n">tag</span><span class="p">),</span> <span class="n">hexagonal</span><span class="p">,</span> <span class="n">axial</span><span class="p">,</span> <span class="n">tesseral</span><span class="p">)</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span></div>
+
+
+
+<span class="c1"># ==================================================</span>
+<div class="viewcode-block" id="symmetry_operation_matrices">
+<a class="viewcode-back" href="../../../src/api_util/util_symmetry_operation.html#multipiegen.util.util_symmetry_operation.symmetry_operation_matrices">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">symmetry_operation_matrices</span><span class="p">(</span><span class="n">so</span><span class="p">,</span> <span class="n">hexagonal</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Cartesian and fractional symmetry operation matrices of a list of operations.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        so (list): symmetry operation tags.</span>
+<span class="sd">        hexagonal (bool): hexagonal systems ?</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        - (ndarray) -- cartesian SO matrices (3x3, or 4x4 with translation).</span>
+<span class="sd">        - (ndarray) -- fractional SO matrices (3x3, or 4x4 with translation).</span>
+<span class="sd">        - (ndarray) -- determinants.</span>
+<span class="sd">    """</span>
+    <span class="n">cart</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">([</span><span class="n">symmetry_operation_matrix</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">hexagonal</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">so</span><span class="p">])</span>
+    <span class="n">frac</span> <span class="o">=</span> <span class="n">simplify_array</span><span class="p">(</span><span class="n">convert_to_fractional_hexagonal_matrix</span><span class="p">(</span><span class="n">cart</span><span class="p">))</span> <span class="k">if</span> <span class="n">hexagonal</span> <span class="k">else</span> <span class="n">cart</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">det</span> <span class="o">=</span> <span class="n">simplify_array</span><span class="p">([</span><span class="n">sp</span><span class="o">.</span><span class="n">Matrix</span><span class="p">(</span><span class="n">i</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">])</span><span class="o">.</span><span class="n">det</span><span class="p">()</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">cart</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">cart</span><span class="p">,</span> <span class="n">frac</span><span class="p">,</span> <span class="n">det</span></div>
+
+
+
+<span class="c1"># ==================================================</span>
+<div class="viewcode-block" id="group_symmetry_operation">
+<a class="viewcode-back" href="../../../src/api_util/util_symmetry_operation.html#multipiegen.util.util_symmetry_operation.group_symmetry_operation">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">group_symmetry_operation</span><span class="p">(</span><span class="n">tag</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Symmetry operations of a PG or SG from the group information tables (data_group_pg/sg).</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        tag (str): PG tag (e.g. "Oh", "D3-1", "C3-c") or SG tag (e.g. "Oh^1").</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        - (dict) -- "tag" (list of SO tags), "cartesian" and "fractional" (ndarray of SO matrices, 4x4 for SG),</span>
+<span class="sd">          "lattice" ("0" for PG, centering such as "P", "F" for SG).</span>
+<span class="sd">    """</span>
+    <span class="n">info</span> <span class="o">=</span> <span class="n">sg_info</span><span class="p">[</span><span class="n">sg_id</span><span class="p">[</span><span class="n">tag</span><span class="p">]]</span> <span class="k">if</span> <span class="s2">"^"</span> <span class="ow">in</span> <span class="n">tag</span> <span class="k">else</span> <span class="n">pg_info</span><span class="p">[</span><span class="n">pg_id</span><span class="p">[</span><span class="n">tag</span><span class="p">]]</span>
+    <span class="n">cart</span><span class="p">,</span> <span class="n">frac</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">symmetry_operation_matrices</span><span class="p">(</span><span class="n">info</span><span class="o">.</span><span class="n">SO</span><span class="p">,</span> <span class="n">info</span><span class="o">.</span><span class="n">hexagonal_g</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">"tag"</span><span class="p">:</span> <span class="n">info</span><span class="o">.</span><span class="n">SO</span><span class="p">,</span> <span class="s2">"cartesian"</span><span class="p">:</span> <span class="n">cart</span><span class="p">,</span> <span class="s2">"fractional"</span><span class="p">:</span> <span class="n">frac</span><span class="p">,</span> <span class="s2">"lattice"</span><span class="p">:</span> <span class="n">info</span><span class="o">.</span><span class="n">lattice</span><span class="p">}</span></div>
 
 </pre></div>
 

@@ -1,0 +1,917 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Generation of the multipole data: algorithms, keys, and orbital basis &#8212; MultiPieGen</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=34ddd5e8" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+
+    <script src="../../_static/documentation_options.js?v=a8e58a58"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'src/notes/generation_rules';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <script src="../../_static/custom.js?v=9c3a2667"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../_static/searchtools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../README.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">MultiPieGen</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Documentation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../group_info.html">Group Information</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../info_pdf.html">Overall information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pg_pdf.html">Point groups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sg_pdf.html">Space groups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mpg_pdf.html">Magnetic point groups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../msg_pdf.html">Magnetic space groups</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes.html">Notes</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../details.html">Details</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../examples.html">Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../binary.html">Binary data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../data.html">Data tables</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">API reference</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../api_util.html">Utilities</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../api_util/util_info.html">Info</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_util/util_group.html">Group</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_util/util_group_data.html">Group data (ids, tags, names)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_util/util_top_harmonics.html">Top harmonics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_util/util_harmonics_mapping.html">Harmonics mapping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_util/util_op_mapping.html">Operation mapping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_util/util_cluster_basis.html">Cluster basis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_util/util_cluster_vector_basis.html">Vector cluster basis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_util/util_bond_cluster_basis.html">Bond cluster basis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_util/util_cluster_samb.html">Cluster SAMB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_util/util_harmonics_symbol.html">Harmonics symbol</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_util/util_harmonics.html">Harmonics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_util/util_harmonics_multipole.html">Multipolar harmonics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_util/util_multipolar_harmonics.html">Multipolar harmonics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_util/util_atomic_multipole.html">Atomic multipole</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_util/util_symmetry_operation.html">Symmetry operation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_util/util_representation_matrix.html">Representation matrix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_util/util_response_tensor.html">Response tensor</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../api_create.html">Generators</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../api_create/create_info.html">Info binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_create/create_group.html">Group binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_create/create_response_tensor.html">Response tensor binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_create/create_harmonics.html">Harmonics binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_create/create_multipolar_harmonics.html">Multipolar harmonics binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_create/create_atomic_multipole.html">Atomic multipole binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_create/create_atomic_multipole_group.html">Atomic multipole group binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_create/create_cluster_scalar_basis.html">Cluster scalar basis binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_create/create_cluster_vector_basis.html">Vector cluster basis binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_create/create_cluster_bond_basis.html">Cluster bond basis binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_create/create_cluster_samb.html">Cluster SAMB binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_create/create_pdf_harmonics.html">Harmonics PDF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_create/create_pdf_info.html">Information PDF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_create/create_pdf_group.html">Group PDF</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/hiro-k-phys/MultiPieGen.git" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Generation of the multipole data: algorithms, keys, and orbital basis</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-conventions">1. Common conventions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multipole-key">1.1 Multipole key</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#irreps">1.2 Irreps</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#top-groups">1.3 Top groups</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#orbital-names">1.4 Orbital names</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#harmonics-of-the-point-groups">2. Harmonics of the point groups</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multipolar-harmonics-multipolar-harmonics-pkl">3. Multipolar harmonics (<code class="docutils literal notranslate"><span class="pre">multipolar_harmonics.pkl</span></code>)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cluster-bases-of-the-top-groups">4. Cluster bases of the top groups</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#clusters">4.1 Clusters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scalar-cluster-basis-cluster-scalar-basis-pkl">4.2 Scalar cluster basis (<code class="docutils literal notranslate"><span class="pre">cluster_scalar_basis.pkl</span></code>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vector-cluster-basis-cluster-vector-basis-pkl-s-1">4.3 Vector cluster basis (<code class="docutils literal notranslate"><span class="pre">cluster_vector_basis.pkl</span></code>, s = 1)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bond-cluster-basis-cluster-bond-basis-pkl">4.4 Bond cluster basis (<code class="docutils literal notranslate"><span class="pre">cluster_bond_basis.pkl</span></code>)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cluster-samb-of-each-wyckoff-site-and-bond-cluster-samb-pkl">5. Cluster SAMB of each Wyckoff site and bond (<code class="docutils literal notranslate"><span class="pre">cluster_samb.pkl</span></code>)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#atomic-multipoles">6. Atomic multipoles</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#atomic-multipole-matrices-atomic-multipole-pkl">6.1 Atomic multipole matrices (<code class="docutils literal notranslate"><span class="pre">atomic_multipole.pkl</span></code>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#point-group-samb-atomic-multipole-group-pkl">6.2 Point-group SAMB (<code class="docutils literal notranslate"><span class="pre">atomic_multipole_group.pkl</span></code>)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exact-arithmetic-and-simplification">7. Exact arithmetic and simplification</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="generation-of-the-multipole-data-algorithms-keys-and-orbital-basis">
+<h1>Generation of the multipole data: algorithms, keys, and orbital basis<a class="headerlink" href="#generation-of-the-multipole-data-algorithms-keys-and-orbital-basis" title="Link to this heading">#</a></h1>
+<p>This note collects, in one place, how MultiPieGen builds its multipole-keyed data, and the rules for keys and orbital
+bases. It describes the algorithms of this package only. Each section names the code that does the work. A Japanese version is <a class="reference internal" href="generation_rules_ja.html"><span class="std std-doc">here</span></a>.
+The changes from MultiPie Ver.2 are collected separately in <a class="reference internal" href="changes_from_multipie_v2.html"><span class="std std-doc">Changes from MultiPie Ver.2</span></a>.</p>
+<p>Contents:</p>
+<ol class="arabic simple">
+<li><p>Common conventions (keys, irreps, top groups, orbital names)</p></li>
+<li><p>Harmonics of the point groups</p></li>
+<li><p>Multipolar harmonics (<code class="docutils literal notranslate"><span class="pre">multipolar_harmonics.pkl</span></code>)</p></li>
+<li><p>Cluster bases of the top groups (<code class="docutils literal notranslate"><span class="pre">cluster_scalar_basis.pkl</span></code>, <code class="docutils literal notranslate"><span class="pre">cluster_vector_basis.pkl</span></code>, <code class="docutils literal notranslate"><span class="pre">cluster_bond_basis.pkl</span></code>)</p></li>
+<li><p>Cluster SAMB of each Wyckoff site and bond (<code class="docutils literal notranslate"><span class="pre">cluster_samb.pkl</span></code>)</p></li>
+<li><p>Atomic multipoles (<code class="docutils literal notranslate"><span class="pre">atomic_multipole.pkl</span></code>) and their point-group SAMB (<code class="docutils literal notranslate"><span class="pre">atomic_multipole_group.pkl</span></code>)</p></li>
+<li><p>Exact arithmetic and simplification</p></li>
+</ol>
+<hr class="docutils" />
+<section id="common-conventions">
+<h2>1. Common conventions<a class="headerlink" href="#common-conventions" title="Link to this heading">#</a></h2>
+<section id="multipole-key">
+<h3>1.1 Multipole key<a class="headerlink" href="#multipole-key" title="Link to this heading">#</a></h3>
+<p>All multipoles are keyed by <code class="docutils literal notranslate"><span class="pre">PGMultipoleType(X,</span> <span class="pre">l,</span> <span class="pre">Gamma,</span> <span class="pre">n,</span> <span class="pre">p,</span> <span class="pre">s,</span> <span class="pre">k,</span> <span class="pre">x)</span></code> of the <code class="docutils literal notranslate"><span class="pre">multipie</span></code> package. <code class="docutils literal notranslate"><span class="pre">SphericalMultipoleType(X,</span> <span class="pre">l,</span> <span class="pre">s,</span> <span class="pre">k,</span> <span class="pre">x)</span></code> is used for the atomic multipoles before symmetry adaptation.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>field</p></th>
+<th class="head"><p>meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">X</span></code></p></td>
+<td><p>type: <code class="docutils literal notranslate"><span class="pre">Q</span></code> (electric), <code class="docutils literal notranslate"><span class="pre">G</span></code> (electric toroidal), <code class="docutils literal notranslate"><span class="pre">T</span></code> (magnetic toroidal), <code class="docutils literal notranslate"><span class="pre">M</span></code> (magnetic). The harmonics and the cluster data use <code class="docutils literal notranslate"><span class="pre">Q</span></code>/<code class="docutils literal notranslate"><span class="pre">G</span></code> only.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">l</span></code></p></td>
+<td><p>rank</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Gamma</span></code></p></td>
+<td><p>irrep of the point group (name of <code class="docutils literal notranslate"><span class="pre">data_character_table</span></code>)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">n</span></code></p></td>
+<td><p>multiplicity of the harmonics <code class="docutils literal notranslate"><span class="pre">(X,</span> <span class="pre">l,</span> <span class="pre">Gamma)</span></code> of the point group, <strong>1-based</strong>, <code class="docutils literal notranslate"><span class="pre">-1</span></code> if unique. It always identifies the xyz polynomial of the harmonics (never renumbered).</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">p</span></code></p></td>
+<td><p>additional multiplicity, used only to number entries that share <code class="docutils literal notranslate"><span class="pre">(X,</span> <span class="pre">l,</span> <span class="pre">Gamma,</span> <span class="pre">n)</span></code> and the other fields; <code class="docutils literal notranslate"><span class="pre">-1</span></code> if unique</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">s</span></code></p></td>
+<td><p>internal rank (0 for scalar functions)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">k</span></code></p></td>
+<td><p>internal component, <code class="docutils literal notranslate"><span class="pre">-s</span> <span class="pre">&lt;=</span> <span class="pre">k</span> <span class="pre">&lt;=</span> <span class="pre">s</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">x</span></code></p></td>
+<td><p>internal type, <code class="docutils literal notranslate"><span class="pre">q</span></code> (polar internal basis) or <code class="docutils literal notranslate"><span class="pre">g</span></code> (axial internal basis)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>All components of a multiplet are stored together in the value, as rows in the order of the components.</p>
+<p>Other keys:</p>
+<ul class="simple">
+<li><p>Harmonics key <code class="docutils literal notranslate"><span class="pre">(l,</span> <span class="pre">irrep,</span> <span class="pre">n,</span> <span class="pre">comp)</span></code>: <code class="docutils literal notranslate"><span class="pre">n</span></code> 1-based (<code class="docutils literal notranslate"><span class="pre">-1</span></code> unique), <code class="docutils literal notranslate"><span class="pre">comp</span></code> 0-based (<code class="docutils literal notranslate"><span class="pre">-1</span></code> for a single component).</p></li>
+<li><p>Tesseral key <code class="docutils literal notranslate"><span class="pre">(l,</span> <span class="pre">m)</span></code>: <code class="docutils literal notranslate"><span class="pre">m</span> <span class="pre">&gt;=</span> <span class="pre">0</span></code> is the cosine-type <code class="docutils literal notranslate"><span class="pre">C_{l,m}</span></code>, <code class="docutils literal notranslate"><span class="pre">m</span> <span class="pre">&lt;</span> <span class="pre">0</span></code> the sine-type <code class="docutils literal notranslate"><span class="pre">S_{l,|m|}</span></code>.</p></li>
+<li><p>Symmetry-operation numbers in mappings are 1-based.</p></li>
+</ul>
+</section>
+<section id="irreps">
+<h3>1.2 Irreps<a class="headerlink" href="#irreps" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>The order of irreps in <code class="docutils literal notranslate"><span class="pre">data_character_table</span></code> is authoritative for sorting: <code class="docutils literal notranslate"><span class="pre">g</span></code> before <code class="docutils literal notranslate"><span class="pre">u</span></code>, and the <code class="docutils literal notranslate"><span class="pre">'</span></code> block
+before the <code class="docutils literal notranslate"><span class="pre">''</span></code> block (C3h, D3h, D3h-1, C3h-c are in this order).</p></li>
+<li><p>Complex irreps (the <code class="docutils literal notranslate"><span class="pre">-c</span></code> point groups) end in <code class="docutils literal notranslate"><span class="pre">a</span></code>/<code class="docutils literal notranslate"><span class="pre">b</span></code>, e.g. <code class="docutils literal notranslate"><span class="pre">Ega</span></code>, <code class="docutils literal notranslate"><span class="pre">T1ua</span></code>. Real 2D irreps of complex type (e.g. <code class="docutils literal notranslate"><span class="pre">E</span></code>
+of C3, C4, C6, S4, C3i, C4h, C6h, T, Th) are used in the real point groups.</p></li>
+</ul>
+</section>
+<section id="top-groups">
+<h3>1.3 Top groups<a class="headerlink" href="#top-groups" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>All harmonics are defined once for the two top groups, Oh and D6h, and mapped to every one of the 47 point groups
+(32 crystallographic, 5 other settings <code class="docutils literal notranslate"><span class="pre">-1</span></code>, 10 complex <code class="docutils literal notranslate"><span class="pre">-c</span></code>).</p></li>
+<li><p>Cubic point groups use Oh. Trigonal and hexagonal point groups use D6h. Lower-symmetry groups use the top group
+that their parent chain reaches (<code class="docutils literal notranslate"><span class="pre">data_harmonics_mapping[pg][&quot;top&quot;]</span></code>).</p></li>
+</ul>
+</section>
+<section id="orbital-names">
+<h3>1.4 Orbital names<a class="headerlink" href="#orbital-names" title="Link to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">data_basis</span></code> is the source of the orbital names (<code class="docutils literal notranslate"><span class="pre">data_harmonics</span></code> holds tables with older names; do not use them for
+names).</p>
+<p>Each orbital name points to a harmonics key (<code class="docutils literal notranslate"><span class="pre">data_basis.harmonics_key</span></code>): a tesseral key, or an Oh/D6h top key.
+Its expression and u-matrix are <code class="docutils literal notranslate"><span class="pre">info[&quot;harmonics&quot;][&quot;basis_function&quot;][name]</span> <span class="pre">=</span> <span class="pre">(expression,</span> <span class="pre">u-matrix)</span></code>, where the
+u-matrix is the column <code class="docutils literal notranslate"><span class="pre">&lt;m|orbital&gt;</span></code> for <code class="docutils literal notranslate"><span class="pre">m</span> <span class="pre">=</span> <span class="pre">l,</span> <span class="pre">l-1,</span> <span class="pre">...,</span> <span class="pre">-l</span></code>.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>list in <code class="docutils literal notranslate"><span class="pre">data_basis</span></code></p></th>
+<th class="head"><p>orbitals (rank 0…3)</p></th>
+<th class="head"><p>used for</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">atomic_orbital_basis</span></code> (tesseral order)</p></td>
+<td><p>s; px, py, pz; dv, dxy, dxz, dyz, du; fc, fs, fbz, f3, fx, fy, faz</p></td>
+<td><p>atomic (Lg/Lgs) basis</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">cubic_orbital_basis</span></code></p></td>
+<td><p>s; px, py, pz; du, dv, dyz, dxz, dxy; f3, fax, fay, faz, fbx, fby, fbz</p></td>
+<td><p>internal basis of cubic groups (Oh family)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">hexagonal_orbital_basis</span></code></p></td>
+<td><p>s; px, py, pz; du, dxz, dyz, dxy, dv; faz, fs, fc, fx, fy, f3, fbz</p></td>
+<td><p>internal basis of trigonal/hexagonal groups (D6h family)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>LaTeX names: <code class="docutils literal notranslate"><span class="pre">atomic_latex_name</span></code> (e.g. <code class="docutils literal notranslate"><span class="pre">p_{x}</span></code>, <code class="docutils literal notranslate"><span class="pre">f_{z}^{\alpha}</span></code>) for the atomic basis, and <code class="docutils literal notranslate"><span class="pre">orbital_latex_name</span></code>
+(e.g. <code class="docutils literal notranslate"><span class="pre">_{x}</span></code>, <code class="docutils literal notranslate"><span class="pre">_{3c}</span></code>) with the prefix Q/G for the internal basis symbols of the multipolar harmonics
+(<code class="docutils literal notranslate"><span class="pre">info[&quot;harmonics&quot;][&quot;internal_basis&quot;]</span></code>).</p>
+<p>Spinful bases (<code class="docutils literal notranslate"><span class="pre">data_basis</span></code>): spin <code class="docutils literal notranslate"><span class="pre">[&quot;u&quot;,</span> <span class="pre">&quot;d&quot;]</span></code>; LM <code class="docutils literal notranslate"><span class="pre">M</span> <span class="pre">=</span> <span class="pre">L..-L</span></code>; JM <code class="docutils literal notranslate"><span class="pre">J</span></code> ascending, <code class="docutils literal notranslate"><span class="pre">M</span></code> descending; LMs and Lgs are
+<code class="docutils literal notranslate"><span class="pre">(m</span> <span class="pre">or</span> <span class="pre">orbital,</span> <span class="pre">spin)</span></code> with spin fastest.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="harmonics-of-the-point-groups">
+<h2>2. Harmonics of the point groups<a class="headerlink" href="#harmonics-of-the-point-groups" title="Link to this heading">#</a></h2>
+<p>Data: <code class="docutils literal notranslate"><span class="pre">data_top_harmonics</span></code> (top harmonics), <code class="docutils literal notranslate"><span class="pre">data_compatibility_relation</span></code>.
+Code: <code class="docutils literal notranslate"><span class="pre">util_top_harmonics</span></code> (expressions and u-matrices of the top harmonics), <code class="docutils literal notranslate"><span class="pre">util_harmonics_mapping</span></code>
+(<code class="docutils literal notranslate"><span class="pre">data_harmonics_mapping</span></code>, the mapping to each point group), <code class="docutils literal notranslate"><span class="pre">util_harmonics_multipole.pg_harmonics</span></code>.</p>
+<ol class="arabic simple">
+<li><p><strong>Top harmonics.</strong> For Oh and D6h, every harmonics up to rank 11 is given as a cartesian polynomial
+(<code class="docutils literal notranslate"><span class="pre">top_harmonics_symmetry[top][top_key]</span></code>) and as its u-matrix to the spherical harmonics
+(<code class="docutils literal notranslate"><span class="pre">top_harmonics_u_matrix[top][top_key]</span></code>, <code class="docutils literal notranslate"><span class="pre">m</span> <span class="pre">=</span> <span class="pre">l..-l</span></code>). Only polar harmonics are stored; the axial one of the same
+function has the irrep with <code class="docutils literal notranslate"><span class="pre">g</span></code> and <code class="docutils literal notranslate"><span class="pre">u</span></code> interchanged.</p>
+<ul class="simple">
+<li><p>Real and complex combinations are mixed: complex irreps end in <code class="docutils literal notranslate"><span class="pre">a</span></code>/<code class="docutils literal notranslate"><span class="pre">b</span></code> and have a single component.</p></li>
+<li><p>The basis of each 2D irrep is chosen so that the simplest <code class="docutils literal notranslate"><span class="pre">(x,</span> <span class="pre">y)</span></code> basis gives representation matrices of <code class="docutils literal notranslate"><span class="pre">C_n</span></code>
+equal to rotation matrices.</p></li>
+</ul>
+</li>
+<li><p><strong>Mapping.</strong> <code class="docutils literal notranslate"><span class="pre">data_harmonics_mapping[pg]</span> <span class="pre">=</span> <span class="pre">{&quot;top&quot;:</span> <span class="pre">top,</span> <span class="pre">&quot;Q&quot;:</span> <span class="pre">{pg_key:</span> <span class="pre">(c,</span> <span class="pre">top_key)},</span> <span class="pre">&quot;G&quot;:</span> <span class="pre">{...}}</span></code> with <code class="docutils literal notranslate"><span class="pre">c</span> <span class="pre">=</span> <span class="pre">±1</span></code>.
+A harmonics of the point group is <code class="docutils literal notranslate"><span class="pre">c</span></code> times a top harmonics, <code class="docutils literal notranslate"><span class="pre">X(pg_key)</span> <span class="pre">=</span> <span class="pre">c</span> <span class="pre">T(top_key)</span></code>, and its u-matrix is
+<code class="docutils literal notranslate"><span class="pre">c</span> <span class="pre">U_T</span></code>.</p>
+<ul class="simple">
+<li><p>It is created from the compatibility relation (<code class="docutils literal notranslate"><span class="pre">data_compatibility_relation</span></code>): each top harmonics component
+<code class="docutils literal notranslate"><span class="pre">(irrep,</span> <span class="pre">comp)</span></code> goes to a polar irrep/component and an axial irrep/component of the subgroup with a coefficient.
+For a complex subgroup irrep, the complex top harmonics (<code class="docutils literal notranslate"><span class="pre">irrep</span> <span class="pre">+</span> <span class="pre">&quot;a&quot;/&quot;b&quot;</span></code>) is referred to instead.</p></li>
+<li><p>The multiplicity <code class="docutils literal notranslate"><span class="pre">n</span></code> of the subgroup is assigned in the order of <code class="docutils literal notranslate"><span class="pre">top_harmonics_tag</span></code> (<code class="docutils literal notranslate"><span class="pre">-1</span></code> if unique).</p></li>
+<li><p>Polar <code class="docutils literal notranslate"><span class="pre">Q</span></code> and axial <code class="docutils literal notranslate"><span class="pre">G</span></code> of a group come from the same top harmonics; the axial partner of a polar harmonics is
+found by matching <code class="docutils literal notranslate"><span class="pre">top_key</span></code>, with the sign <code class="docutils literal notranslate"><span class="pre">cQ</span> <span class="pre">cG</span></code> (<code class="docutils literal notranslate"><span class="pre">util_harmonics_symbol.polar_to_axial</span></code>). The compatibility
+relation alone is not enough for subgroups, because the mapping depends on the parity of the top harmonics.</p></li>
+</ul>
+</li>
+<li><p><strong>Representation matrices</strong> follow from the u-matrices (<code class="docutils literal notranslate"><span class="pre">util_representation_matrix</span></code>); all harmonics of an irrep
+give the same matrices (tested up to rank 11).</p></li>
+<li><p><strong>Binary (<code class="docutils literal notranslate"><span class="pre">harmonics.pkl</span></code>).</strong> <code class="docutils literal notranslate"><span class="pre">{PG_id:</span> <span class="pre">{PGMultipoleType(X,</span> <span class="pre">l,</span> <span class="pre">Gamma,</span> <span class="pre">n,</span> <span class="pre">-1,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">&quot;q&quot;):</span> <span class="pre">(expression</span> <span class="pre">(dim),</span> <span class="pre">u_matrix</span> <span class="pre">(2l+1,</span> <span class="pre">dim))}}</span></code> for the 47 point groups, rank &lt;= 11, in the order Gamma, l, Q/G, n (<code class="docutils literal notranslate"><span class="pre">util_harmonics</span></code>,
+<code class="docutils literal notranslate"><span class="pre">create_binary/create_harmonics.py</span></code>). The other binaries keyed by <code class="docutils literal notranslate"><span class="pre">PGMultipoleType</span></code> do not hold the expression or
+the u-matrix of the harmonics; <code class="docutils literal notranslate"><span class="pre">util_harmonics.harmonics_expression(pg,</span> <span class="pre">key)</span></code> and <code class="docutils literal notranslate"><span class="pre">harmonics_u_matrix(pg,</span> <span class="pre">key)</span></code>
+look them up by <code class="docutils literal notranslate"><span class="pre">(X,</span> <span class="pre">l,</span> <span class="pre">Gamma,</span> <span class="pre">n)</span></code> of any key, with T → Q and M → G (for a space group, use its point
+group).</p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="multipolar-harmonics-multipolar-harmonics-pkl">
+<h2>3. Multipolar harmonics (<code class="docutils literal notranslate"><span class="pre">multipolar_harmonics.pkl</span></code>)<a class="headerlink" href="#multipolar-harmonics-multipolar-harmonics-pkl" title="Link to this heading">#</a></h2>
+<p>Code: <code class="docutils literal notranslate"><span class="pre">util_harmonics_multipole.create_multipolar_harmonics</span></code>, <code class="docutils literal notranslate"><span class="pre">util_multipolar_harmonics</span></code> (Olm),
+<code class="docutils literal notranslate"><span class="pre">create_binary/create_multipolar_harmonics.py</span></code>. Range: s = 1, 2, 3; l &lt;= 3; 47 point groups.</p>
+<ol class="arabic simple">
+<li><p><strong>Multipolar spherical harmonics.</strong> <code class="docutils literal notranslate"><span class="pre">O_{lm}^{(s)}(k)</span></code> (<code class="docutils literal notranslate"><span class="pre">util_multipolar_harmonics.Olm</span></code>) couples the spherical
+harmonics of orbital rank <code class="docutils literal notranslate"><span class="pre">l+k</span></code> with an internal basis of rank <code class="docutils literal notranslate"><span class="pre">s</span></code>:
+<code class="docutils literal notranslate"><span class="pre">O_{lm}^{(s)}(k)</span> <span class="pre">=</span> <span class="pre">i^{k+s}</span> <span class="pre">(-1)^{l+m}</span> <span class="pre">sqrt(2l+1)</span> <span class="pre">sum_n</span> <span class="pre">(l+k,</span> <span class="pre">l,</span> <span class="pre">s;</span> <span class="pre">m-n,</span> <span class="pre">-m,</span> <span class="pre">n)</span> <span class="pre">O_{l+k,</span> <span class="pre">m-n}</span> <span class="pre">e_n</span></code>, where
+<code class="docutils literal notranslate"><span class="pre">O_{lm}</span> <span class="pre">=</span> <span class="pre">sqrt(4</span> <span class="pre">pi/(2l+1))</span> <span class="pre">r^l</span> <span class="pre">Y_lm</span></code> and <code class="docutils literal notranslate"><span class="pre">e_n</span></code> are the internal basis vectors, expressed in the chosen internal
+basis (<code class="docutils literal notranslate"><span class="pre">InternalBasis</span></code>).</p></li>
+<li><p><strong>Internal basis.</strong> The orbitals of <code class="docutils literal notranslate"><span class="pre">data_basis.cubic_orbital_basis[s]</span></code> (top Oh) or <code class="docutils literal notranslate"><span class="pre">hexagonal_orbital_basis[s]</span></code>
+(top D6h), with their u-matrices from <code class="docutils literal notranslate"><span class="pre">info[&quot;harmonics&quot;][&quot;basis_function&quot;]</span></code>.</p></li>
+<li><p><strong>Projection.</strong> For every harmonics <code class="docutils literal notranslate"><span class="pre">(X,</span> <span class="pre">l,</span> <span class="pre">Gamma,</span> <span class="pre">n)</span></code> of the group with u-matrix <code class="docutils literal notranslate"><span class="pre">U</span></code> (section 2) and every k,
+the internal coefficient <code class="docutils literal notranslate"><span class="pre">U^T</span> <span class="pre">O_l^{(s)}(k)</span></code>, a <code class="docutils literal notranslate"><span class="pre">(dim,</span> <span class="pre">2s+1)</span></code> array of polynomials in x, y, z (each element
+factorized): the coefficient of each internal basis function. Vanishing ones are dropped (<code class="docutils literal notranslate"><span class="pre">w3j</span> <span class="pre">=</span> <span class="pre">0</span></code>).</p></li>
+<li><p><strong>Internal type.</strong> <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">q</span></code> if (<code class="docutils literal notranslate"><span class="pre">X</span> <span class="pre">=</span> <span class="pre">Q</span></code> and <code class="docutils literal notranslate"><span class="pre">s+k</span></code> even) or (<code class="docutils literal notranslate"><span class="pre">X</span> <span class="pre">=</span> <span class="pre">G</span></code> and <code class="docutils literal notranslate"><span class="pre">s+k</span></code> odd), otherwise <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">g</span></code>.</p></li>
+<li><p><strong>Expression.</strong> multipole expression <code class="docutils literal notranslate"><span class="pre">=</span> <span class="pre">internal</span> <span class="pre">coefficient</span> <span class="pre">&#64;</span> <span class="pre">symbols</span></code>, with the internal symbols <code class="docutils literal notranslate"><span class="pre">Q/G</span> <span class="pre">+</span> <span class="pre">orbital_latex_name</span></code>
+(<code class="docutils literal notranslate"><span class="pre">info[&quot;harmonics&quot;][&quot;internal_basis&quot;][crystal][(s,</span> <span class="pre">x)]</span></code>).</p></li>
+<li><p><strong>Key.</strong> <code class="docutils literal notranslate"><span class="pre">PGMultipoleType(X,</span> <span class="pre">l,</span> <span class="pre">Gamma,</span> <span class="pre">n,</span> <span class="pre">p,</span> <span class="pre">s,</span> <span class="pre">k,</span> <span class="pre">x)</span></code>: <code class="docutils literal notranslate"><span class="pre">n</span></code> is the harmonics multiplicity (not renumbered); <code class="docutils literal notranslate"><span class="pre">p</span></code>
+numbers the entries with the same <code class="docutils literal notranslate"><span class="pre">(x,</span> <span class="pre">l,</span> <span class="pre">X,</span> <span class="pre">Gamma,</span> <span class="pre">n,</span> <span class="pre">k)</span></code> (<code class="docutils literal notranslate"><span class="pre">-1</span></code> if unique).</p></li>
+<li><p><strong>Order.</strong> <code class="docutils literal notranslate"><span class="pre">x</span></code> (q, g), <code class="docutils literal notranslate"><span class="pre">s</span></code>, <code class="docutils literal notranslate"><span class="pre">Gamma</span></code>, <code class="docutils literal notranslate"><span class="pre">l</span></code>, <code class="docutils literal notranslate"><span class="pre">X</span></code> (Q, G), <code class="docutils literal notranslate"><span class="pre">k</span></code>, <code class="docutils literal notranslate"><span class="pre">n</span></code>, <code class="docutils literal notranslate"><span class="pre">p</span></code>.</p></li>
+<li><p><strong>Value.</strong> <code class="docutils literal notranslate"><span class="pre">(internal_coefficient</span> <span class="pre">(dim,</span> <span class="pre">2s+1),</span> <span class="pre">multipole_expression</span> <span class="pre">(dim))</span></code>. The expression of the harmonics
+<code class="docutils literal notranslate"><span class="pre">(X,</span> <span class="pre">l,</span> <span class="pre">Gamma,</span> <span class="pre">n)</span></code> itself is in <code class="docutils literal notranslate"><span class="pre">harmonics.pkl</span></code>.</p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="cluster-bases-of-the-top-groups">
+<h2>4. Cluster bases of the top groups<a class="headerlink" href="#cluster-bases-of-the-top-groups" title="Link to this heading">#</a></h2>
+<p>Code: <code class="docutils literal notranslate"><span class="pre">util_cluster_basis</span></code>, <code class="docutils literal notranslate"><span class="pre">util_cluster_vector_basis</span></code>, <code class="docutils literal notranslate"><span class="pre">util_bond_cluster_basis</span></code> and the matching
+<code class="docutils literal notranslate"><span class="pre">create_binary</span></code> modules. Data: <code class="docutils literal notranslate"><span class="pre">data_root_cluster</span></code>, <code class="docutils literal notranslate"><span class="pre">info[&quot;root_cluster&quot;]</span></code>.</p>
+<section id="clusters">
+<h3>4.1 Clusters<a class="headerlink" href="#clusters" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>The Oh cluster has 48 points and the D6h cluster 24 points, written with <code class="docutils literal notranslate"><span class="pre">x,</span> <span class="pre">y,</span> <span class="pre">z</span></code> placeholders in cartesian
+coordinates (<code class="docutils literal notranslate"><span class="pre">data_root_cluster</span></code>). Point <code class="docutils literal notranslate"><span class="pre">i</span></code> is <code class="docutils literal notranslate"><span class="pre">g_i</span> <span class="pre">site0</span></code>, with <code class="docutils literal notranslate"><span class="pre">g_i</span></code> the <code class="docutils literal notranslate"><span class="pre">i</span></code>-th symmetry operation of Oh or D6h
+(in the order of <code class="docutils literal notranslate"><span class="pre">group.pkl</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">site0</span></code> (Oh) is <code class="docutils literal notranslate"><span class="pre">(1,</span> <span class="pre">5,</span> <span class="pre">6)</span></code> (not normalized, length <code class="docutils literal notranslate"><span class="pre">sqrt(62)</span></code>); the D6h one, <code class="docutils literal notranslate"><span class="pre">(2</span> <span class="pre">sqrt(2),</span> <span class="pre">sqrt(6),</span> <span class="pre">4</span> <span class="pre">sqrt(3))</span></code>, is
+the Oh one with the principal axis rotated to <code class="docutils literal notranslate"><span class="pre">[111]</span></code>. <code class="docutils literal notranslate"><span class="pre">vector0</span></code> (bond direction) is the unit vector of
+<code class="docutils literal notranslate"><span class="pre">(6,</span> <span class="pre">1,</span> <span class="pre">5)</span></code> (rotated in the same way for D6h); <code class="docutils literal notranslate"><span class="pre">(5,</span> <span class="pre">1,</span> <span class="pre">6)</span></code> is not used, because it is the mirror image of <code class="docutils literal notranslate"><span class="pre">site0</span></code> on
+the plane <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">+</span> <span class="pre">y</span> <span class="pre">=</span> <span class="pre">z</span></code> and made some bond functions vanish.</p></li>
+<li><p>The general point is a general position of both Oh and D6h, so the cluster has as many points as the order of the
+group, and the cluster functions form the regular representation.</p></li>
+</ul>
+</section>
+<section id="scalar-cluster-basis-cluster-scalar-basis-pkl">
+<h3>4.2 Scalar cluster basis (<code class="docutils literal notranslate"><span class="pre">cluster_scalar_basis.pkl</span></code>)<a class="headerlink" href="#scalar-cluster-basis-cluster-scalar-basis-pkl" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>For every real top harmonics <code class="docutils literal notranslate"><span class="pre">T</span></code> (rank 0…11), the vector of its values at the cluster points.</p></li>
+<li><p>Gram-Schmidt within each (irrep, component) of the top group, from lower rank, then lower multiplicity; linearly
+dependent ones are dropped (whole multiplets; recorded in <code class="docutils literal notranslate"><span class="pre">&quot;dropped&quot;</span></code>).</p></li>
+<li><p>Result: an orthonormal basis of 48 (Oh) or 24 (D6h) vectors, the regular representation.</p></li>
+<li><p>Key: <code class="docutils literal notranslate"><span class="pre">PGMultipoleType(&quot;Q&quot;,</span> <span class="pre">l,</span> <span class="pre">Gamma,</span> <span class="pre">n,</span> <span class="pre">-1,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">&quot;q&quot;)</span></code> with <code class="docutils literal notranslate"><span class="pre">(l,</span> <span class="pre">Gamma,</span> <span class="pre">n)</span></code> of the top harmonics.</p></li>
+</ol>
+</section>
+<section id="vector-cluster-basis-cluster-vector-basis-pkl-s-1">
+<h3>4.3 Vector cluster basis (<code class="docutils literal notranslate"><span class="pre">cluster_vector_basis.pkl</span></code>, s = 1)<a class="headerlink" href="#vector-cluster-basis-cluster-vector-basis-pkl-s-1" title="Link to this heading">#</a></h3>
+<p>An intermediate basis for the bond cluster basis.</p>
+<ol class="arabic simple">
+<li><p>For every real top harmonics <code class="docutils literal notranslate"><span class="pre">T</span></code> and <code class="docutils literal notranslate"><span class="pre">k</span> <span class="pre">=</span> <span class="pre">-1,</span> <span class="pre">0,</span> <span class="pre">1</span></code>, the vector harmonics <code class="docutils literal notranslate"><span class="pre">sum_m</span> <span class="pre">U_T[m]</span> <span class="pre">O_{lm}^{(1)}(k)</span></code> with
+the internal basis <code class="docutils literal notranslate"><span class="pre">[px,</span> <span class="pre">py,</span> <span class="pre">pz]</span></code>, evaluated at the cluster points (<code class="docutils literal notranslate"><span class="pre">(N,</span> <span class="pre">3)</span></code>).</p></li>
+<li><p>Type: for <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">q</span></code>, <code class="docutils literal notranslate"><span class="pre">X</span> <span class="pre">=</span> <span class="pre">Q</span></code> if <code class="docutils literal notranslate"><span class="pre">s</span> <span class="pre">+</span> <span class="pre">k</span></code> is even, <code class="docutils literal notranslate"><span class="pre">G</span></code> otherwise; for <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">g</span></code>, interchanged. A polar one keeps the
+irrep/component of <code class="docutils literal notranslate"><span class="pre">T</span></code>; an axial one takes those of <code class="docutils literal notranslate"><span class="pre">data_harmonics_mapping[top][&quot;G&quot;]</span></code> with the coefficient <code class="docutils literal notranslate"><span class="pre">c</span></code>.</p></li>
+<li><p>Gram-Schmidt within each (irrep, component) in the order rank <code class="docutils literal notranslate"><span class="pre">l</span></code>, then <code class="docutils literal notranslate"><span class="pre">k</span> <span class="pre">=</span> <span class="pre">-1,</span> <span class="pre">0,</span> <span class="pre">1</span></code>, then multiplicity;
+dependent ones are dropped (found numerically, the kept ones orthonormalized exactly).</p></li>
+<li><p>Result: <code class="docutils literal notranslate"><span class="pre">3N</span></code> = 144 (Oh) or 72 (D6h) vectors for each <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p></li>
+<li><p>Key: <code class="docutils literal notranslate"><span class="pre">PGMultipoleType(X,</span> <span class="pre">l,</span> <span class="pre">Gamma,</span> <span class="pre">n,</span> <span class="pre">-1,</span> <span class="pre">1,</span> <span class="pre">k,</span> <span class="pre">x)</span></code> (<code class="docutils literal notranslate"><span class="pre">p</span> <span class="pre">=</span> <span class="pre">-1</span></code>; multiplets are distinguished by <code class="docutils literal notranslate"><span class="pre">k</span></code>).</p></li>
+</ol>
+</section>
+<section id="bond-cluster-basis-cluster-bond-basis-pkl">
+<h3>4.4 Bond cluster basis (<code class="docutils literal notranslate"><span class="pre">cluster_bond_basis.pkl</span></code>)<a class="headerlink" href="#bond-cluster-basis-cluster-bond-basis-pkl" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Bond vectors: <code class="docutils literal notranslate"><span class="pre">b_i</span></code> is point <code class="docutils literal notranslate"><span class="pre">i</span></code> of the cluster with <code class="docutils literal notranslate"><span class="pre">x,</span> <span class="pre">y,</span> <span class="pre">z</span></code> replaced by <code class="docutils literal notranslate"><span class="pre">vector0</span></code>, i.e. <code class="docutils literal notranslate"><span class="pre">g_i</span> <span class="pre">vector0</span></code>.</p></li>
+<li><p>For each vector cluster basis <code class="docutils literal notranslate"><span class="pre">v_key</span></code> (<code class="docutils literal notranslate"><span class="pre">(N,</span> <span class="pre">3)</span></code>), the bond function <code class="docutils literal notranslate"><span class="pre">f_key(i)</span> <span class="pre">=</span> <span class="pre">v_key(i)</span> <span class="pre">.</span> <span class="pre">b_i</span></code> (same key);
+<code class="docutils literal notranslate"><span class="pre">3N</span></code> vectors in the <code class="docutils literal notranslate"><span class="pre">N</span></code>-dimensional space.</p></li>
+<li><p>Gram-Schmidt within each (irrep, component) in the order rank, <code class="docutils literal notranslate"><span class="pre">k</span> <span class="pre">=</span> <span class="pre">-1,</span> <span class="pre">0,</span> <span class="pre">1</span></code>, multiplicity; dependent and
+vanishing ones are dropped. Result: <code class="docutils literal notranslate"><span class="pre">N</span></code> vectors for each <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">f_key</span></code> transforms as a scalar function on the cluster, with the sign <code class="docutils literal notranslate"><span class="pre">det</span> <span class="pre">R</span></code> for <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">g</span></code>.</p></li>
+<li><p>Key: <code class="docutils literal notranslate"><span class="pre">PGMultipoleType(X,</span> <span class="pre">l,</span> <span class="pre">Gamma,</span> <span class="pre">n,</span> <span class="pre">p,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">x)</span></code>; <code class="docutils literal notranslate"><span class="pre">(X,</span> <span class="pre">l,</span> <span class="pre">Gamma,</span> <span class="pre">n)</span></code> from the
+source vector key; <code class="docutils literal notranslate"><span class="pre">p</span> <span class="pre">=</span> <span class="pre">1,</span> <span class="pre">2,</span> <span class="pre">...</span></code> for multiplets sharing <code class="docutils literal notranslate"><span class="pre">(X,</span> <span class="pre">l,</span> <span class="pre">Gamma,</span> <span class="pre">n)</span></code> (in <code class="docutils literal notranslate"><span class="pre">k</span></code> order), <code class="docutils literal notranslate"><span class="pre">-1</span></code> if unique; <code class="docutils literal notranslate"><span class="pre">x</span></code>
+of the source. <code class="docutils literal notranslate"><span class="pre">&quot;source&quot;</span></code> maps each key to its vector key (with <code class="docutils literal notranslate"><span class="pre">k</span></code>).</p></li>
+</ol>
+</section>
+</section>
+<hr class="docutils" />
+<section id="cluster-samb-of-each-wyckoff-site-and-bond-cluster-samb-pkl">
+<h2>5. Cluster SAMB of each Wyckoff site and bond (<code class="docutils literal notranslate"><span class="pre">cluster_samb.pkl</span></code>)<a class="headerlink" href="#cluster-samb-of-each-wyckoff-site-and-bond-cluster-samb-pkl" title="Link to this heading">#</a></h2>
+<p>Code: <code class="docutils literal notranslate"><span class="pre">util_cluster_samb</span></code>, <code class="docutils literal notranslate"><span class="pre">create_binary/create_cluster_samb.py</span></code>. Range: 37 real point groups and 230 space groups;
+<code class="docutils literal notranslate"><span class="pre">&quot;site&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;bond&quot;</span></code>. The bond SAMB is made from the symmetric bond SAMB (<code class="docutils literal notranslate"><span class="pre">&quot;bond_s&quot;</span></code> below) and the
+anti-symmetric bond SAMB (<code class="docutils literal notranslate"><span class="pre">&quot;bond_a&quot;</span></code> below), see 7. Complex point groups are not included.</p>
+<ol class="arabic simple">
+<li><p><strong>General point.</strong> The general-point cluster of a group <code class="docutils literal notranslate"><span class="pre">H</span></code> is a subset of the top cluster: point <code class="docutils literal notranslate"><span class="pre">i</span></code> of <code class="docutils literal notranslate"><span class="pre">H</span></code> is
+the top point listed at position <code class="docutils literal notranslate"><span class="pre">i</span></code> of coset 0 of <code class="docutils literal notranslate"><span class="pre">util_op_mapping.op_mapping_d6h_oh_cluster[PG]</span></code>.</p>
+<ul class="simple">
+<li><p>The top basis restricted to these points gives the general-point basis of <code class="docutils literal notranslate"><span class="pre">H</span></code>: <code class="docutils literal notranslate"><span class="pre">cluster_scalar_basis</span></code> for
+<code class="docutils literal notranslate"><span class="pre">&quot;site&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;bond_s&quot;</span></code>, and <code class="docutils literal notranslate"><span class="pre">cluster_bond_basis</span></code> (<code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">q</span></code> only, a complete basis by itself) for <code class="docutils literal notranslate"><span class="pre">&quot;bond_a&quot;</span></code>.
+On the general bond, symmetric and anti-symmetric bonds span the same space.</p></li>
+<li><p>The key of the top group is kept; the irrep and component are replaced by those of <code class="docutils literal notranslate"><span class="pre">H</span></code> through the top
+harmonics: key of the top group <code class="docutils literal notranslate"><span class="pre">=</span> <span class="pre">c_top</span> <span class="pre">T</span></code>, key of <code class="docutils literal notranslate"><span class="pre">H</span></code> <code class="docutils literal notranslate"><span class="pre">=</span> <span class="pre">c</span> <span class="pre">T</span></code>, factor <code class="docutils literal notranslate"><span class="pre">c</span> <span class="pre">c_top</span></code>.</p></li>
+</ul>
+</li>
+<li><p><strong>Space groups.</strong> The operations of a space group (without the plus set) have the point parts of its point group
+in the same order. Each operation is mapped through the point group. (<code class="docutils literal notranslate"><span class="pre">op_mapping_parent_sg</span></code> maps to a parent
+space group with changes of axes and is not used.)</p></li>
+<li><p><strong>Special points.</strong> For a Wyckoff site (bond) with the mapping <code class="docutils literal notranslate"><span class="pre">M_j</span></code> (operations moving the representative to site
+or bond <code class="docutils literal notranslate"><span class="pre">j</span></code>, from <code class="docutils literal notranslate"><span class="pre">group.pkl</span></code>), <code class="docutils literal notranslate"><span class="pre">f_j</span> <span class="pre">=</span> <span class="pre">sum_{i</span> <span class="pre">in</span> <span class="pre">M_j}</span> <span class="pre">f_i</span></code>. For <code class="docutils literal notranslate"><span class="pre">&quot;bond_a&quot;</span></code>, an operation that reverses the bond
+(negative number in the mapping) contributes <code class="docutils literal notranslate"><span class="pre">-f_i</span></code>.</p></li>
+<li><p><strong>Orthonormalization.</strong> Gram-Schmidt within each irrep of <code class="docutils literal notranslate"><span class="pre">H</span></code> (component by component; components of different
+multiplets of a real 2D irrep of complex type are not orthogonal), in the order <code class="docutils literal notranslate"><span class="pre">[Gamma,</span> <span class="pre">l,</span> <span class="pre">n,</span> <span class="pre">p]</span></code> for <code class="docutils literal notranslate"><span class="pre">&quot;site&quot;</span></code>
+and <code class="docutils literal notranslate"><span class="pre">&quot;bond_s&quot;</span></code>, and <code class="docutils literal notranslate"><span class="pre">[Gamma,</span> <span class="pre">l,</span> <span class="pre">k,</span> <span class="pre">Q/G,</span> <span class="pre">n,</span> <span class="pre">p]</span></code> for <code class="docutils literal notranslate"><span class="pre">&quot;bond_a&quot;</span></code> (<code class="docutils literal notranslate"><span class="pre">k</span></code> of the source vector basis).
+Dependent and vanishing ones are dropped (selected numerically, then orthonormalized exactly). Each component
+has norm 1 on the <code class="docutils literal notranslate"><span class="pre">N</span></code> sites (bonds).</p></li>
+<li><p><strong>Key.</strong> <code class="docutils literal notranslate"><span class="pre">&quot;site&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;bond_s&quot;</span></code>: <code class="docutils literal notranslate"><span class="pre">PGMultipoleType(&quot;Q&quot;,</span> <span class="pre">l,</span> <span class="pre">Gamma,</span> <span class="pre">n,</span> <span class="pre">p,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">&quot;q&quot;)</span></code>. <code class="docutils literal notranslate"><span class="pre">&quot;bond_a&quot;</span></code>: keys of
+<code class="docutils literal notranslate"><span class="pre">cluster_bond_basis</span></code> (<code class="docutils literal notranslate"><span class="pre">X</span> <span class="pre">=</span> <span class="pre">Q/G</span></code>, <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">q</span></code>). <code class="docutils literal notranslate"><span class="pre">n</span></code> is the harmonics multiplicity of <code class="docutils literal notranslate"><span class="pre">H</span></code>; <code class="docutils literal notranslate"><span class="pre">p</span></code> that of the top key.</p></li>
+<li><p><strong>Value.</strong> <code class="docutils literal notranslate"><span class="pre">samb</span> <span class="pre">(dim,</span> <span class="pre">N)</span></code>. The expression of the harmonics of the point group is in <code class="docutils literal notranslate"><span class="pre">harmonics.pkl</span></code>.</p></li>
+<li><p><strong>Bond SAMB.</strong> <code class="docutils literal notranslate"><span class="pre">&quot;bond&quot;</span> <span class="pre">=</span> <span class="pre">&quot;bond_s&quot;</span> <span class="pre">+</span> <span class="pre">i</span> <span class="pre">&quot;bond_a&quot;</span></code>: the anti-symmetric bond SAMB is multiplied by <code class="docutils literal notranslate"><span class="pre">i</span></code> (imaginary
+hopping) and its type is changed from <code class="docutils literal notranslate"><span class="pre">Q</span></code> to <code class="docutils literal notranslate"><span class="pre">T</span></code> and from <code class="docutils literal notranslate"><span class="pre">G</span></code> to <code class="docutils literal notranslate"><span class="pre">M</span></code> (time-reversal odd). The keys of <code class="docutils literal notranslate"><span class="pre">&quot;bond_s&quot;</span></code>
+(<code class="docutils literal notranslate"><span class="pre">Q</span></code>) and of <code class="docutils literal notranslate"><span class="pre">&quot;bond_a&quot;</span></code> (<code class="docutils literal notranslate"><span class="pre">T/M</span></code>) never coincide, so they are put together. SAMB of different time-reversal parity
+are orthogonal (as hermitian bond matrices: real symmetric and imaginary anti-symmetric), so <code class="docutils literal notranslate"><span class="pre">Q</span></code> and <code class="docutils literal notranslate"><span class="pre">T/M</span></code> are
+orthonormalized separately (4.). Order: <code class="docutils literal notranslate"><span class="pre">Gamma</span></code>, and in each <code class="docutils literal notranslate"><span class="pre">Gamma</span></code>, <code class="docutils literal notranslate"><span class="pre">Q</span></code> (<code class="docutils literal notranslate"><span class="pre">[l,</span> <span class="pre">n,</span> <span class="pre">p]</span></code>) before <code class="docutils literal notranslate"><span class="pre">T/M</span></code>
+(<code class="docutils literal notranslate"><span class="pre">[l,</span> <span class="pre">k,</span> <span class="pre">T/M,</span> <span class="pre">n,</span> <span class="pre">p]</span></code>). Values are real for <code class="docutils literal notranslate"><span class="pre">Q</span></code> and pure imaginary for <code class="docutils literal notranslate"><span class="pre">T,</span> <span class="pre">M</span></code>; the harmonics of <code class="docutils literal notranslate"><span class="pre">T</span></code> (<code class="docutils literal notranslate"><span class="pre">M</span></code>) are those
+of <code class="docutils literal notranslate"><span class="pre">Q</span></code> (<code class="docutils literal notranslate"><span class="pre">G</span></code>) (<code class="docutils literal notranslate"><span class="pre">util_harmonics.harmonics_type</span></code>).</p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="atomic-multipoles">
+<h2>6. Atomic multipoles<a class="headerlink" href="#atomic-multipoles" title="Link to this heading">#</a></h2>
+<p>Code: <code class="docutils literal notranslate"><span class="pre">util_atomic_multipole</span></code>, <code class="docutils literal notranslate"><span class="pre">create_binary/create_atomic_multipole.py</span></code>,
+<code class="docutils literal notranslate"><span class="pre">create_binary/create_atomic_multipole_group.py</span></code>.</p>
+<section id="atomic-multipole-matrices-atomic-multipole-pkl">
+<h3>6.1 Atomic multipole matrices (<code class="docutils literal notranslate"><span class="pre">atomic_multipole.pkl</span></code>)<a class="headerlink" href="#atomic-multipole-matrices-atomic-multipole-pkl" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Bases (<code class="docutils literal notranslate"><span class="pre">data_basis</span></code>): spinful LMs (<code class="docutils literal notranslate"><span class="pre">atomic_lms_basis</span></code>, <code class="docutils literal notranslate"><span class="pre">(m,</span> <span class="pre">spin)</span></code>) and JML (<code class="docutils literal notranslate"><span class="pre">atomic_jm_basis</span></code>, <code class="docutils literal notranslate"><span class="pre">(J,</span> <span class="pre">M)</span></code>) of
+<code class="docutils literal notranslate"><span class="pre">L</span> <span class="pre">=</span> <span class="pre">0..3</span></code>; spinless LM is the up-spin part.</p></li>
+<li><p>Matrix elements <code class="docutils literal notranslate"><span class="pre">&lt;b1|X_{lm}^{(s)}(k)|b2&gt;</span></code> for <code class="docutils literal notranslate"><span class="pre">X</span> <span class="pre">=</span> <span class="pre">Q,</span> <span class="pre">G,</span> <span class="pre">T,</span> <span class="pre">M</span></code>, <code class="docutils literal notranslate"><span class="pre">s</span> <span class="pre">=</span> <span class="pre">0,</span> <span class="pre">1</span></code>, <code class="docutils literal notranslate"><span class="pre">l</span> <span class="pre">&lt;=</span> <span class="pre">7</span></code>, by the Wigner-Eckart
+theorem (<code class="docutils literal notranslate"><span class="pre">multipie.util.util_atomic_multipole</span></code>). Only elements allowed by Jz conservation are evaluated
+(<code class="docutils literal notranslate"><span class="pre">m1</span> <span class="pre">+</span> <span class="pre">s1</span> <span class="pre">=</span> <span class="pre">m2</span> <span class="pre">+</span> <span class="pre">s2</span> <span class="pre">+</span> <span class="pre">m</span></code>, <code class="docutils literal notranslate"><span class="pre">M1</span> <span class="pre">=</span> <span class="pre">M2</span> <span class="pre">+</span> <span class="pre">m</span></code>), and blocks forbidden by parity or the triangle rule are skipped.</p></li>
+<li><p>Each bra-ket block <code class="docutils literal notranslate"><span class="pre">(L1,</span> <span class="pre">L2)</span></code> of <code class="docutils literal notranslate"><span class="pre">data_basis.atomic_rank_block</span></code> (upper triangle) is kept if nonzero.</p></li>
+<li><p>Key: <code class="docutils literal notranslate"><span class="pre">SphericalMultipoleType(X,</span> <span class="pre">l,</span> <span class="pre">s,</span> <span class="pre">k,</span> <span class="pre">&quot;q&quot;)</span></code>; order <code class="docutils literal notranslate"><span class="pre">Q,</span> <span class="pre">G,</span> <span class="pre">T,</span> <span class="pre">M</span></code>, <code class="docutils literal notranslate"><span class="pre">s</span></code>, <code class="docutils literal notranslate"><span class="pre">k</span></code>, <code class="docutils literal notranslate"><span class="pre">l</span></code>. Value: <code class="docutils literal notranslate"><span class="pre">(2l+1,</span> <span class="pre">n1,</span> <span class="pre">n2)</span></code> for
+<code class="docutils literal notranslate"><span class="pre">m</span> <span class="pre">=</span> <span class="pre">l..-l</span></code>. <code class="docutils literal notranslate"><span class="pre">&quot;lm&quot;</span></code> is the <code class="docutils literal notranslate"><span class="pre">s</span> <span class="pre">=</span> <span class="pre">0</span></code>, up-spin part of <code class="docutils literal notranslate"><span class="pre">&quot;lms&quot;</span></code>.</p></li>
+</ol>
+</section>
+<section id="point-group-samb-atomic-multipole-group-pkl">
+<h3>6.2 Point-group SAMB (<code class="docutils literal notranslate"><span class="pre">atomic_multipole_group.pkl</span></code>)<a class="headerlink" href="#point-group-samb-atomic-multipole-group-pkl" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p><strong>Top SAMB.</strong> For each component of a top harmonics <code class="docutils literal notranslate"><span class="pre">T</span></code> (u-matrix <code class="docutils literal notranslate"><span class="pre">U_T</span></code>, <code class="docutils literal notranslate"><span class="pre">m</span> <span class="pre">=</span> <span class="pre">l..-l</span></code>) and each atomic multipole
+with matching parity (<code class="docutils literal notranslate"><span class="pre">Q,</span> <span class="pre">T</span></code> for polar harmonics, <code class="docutils literal notranslate"><span class="pre">G,</span> <span class="pre">M</span></code> for axial), <code class="docutils literal notranslate"><span class="pre">sum_m</span> <span class="pre">U_T[m]</span> <span class="pre">X_{lm}^{(s)}(k)</span></code>, normalized
+to the Frobenius norm 1 (diagonal block) or <code class="docutils literal notranslate"><span class="pre">1/sqrt(2)</span></code> (off-diagonal block). Computed once per top group.</p></li>
+<li><p>The components are orthogonal (the spherical tensors are orthogonal and the <code class="docutils literal notranslate"><span class="pre">U_T</span></code> columns orthonormal), so this
+normalization is the Gram-Schmidt orthonormalization within each (<code class="docutils literal notranslate"><span class="pre">X</span></code>, irrep). In an off-diagonal block, Q-T (and
+G-M) of the same irrep overlap only in the imaginary part (they become orthogonal with the hermitian conjugate
+block).</p></li>
+<li><p><strong>Point group.</strong> The SAMB of a harmonics <code class="docutils literal notranslate"><span class="pre">(X,</span> <span class="pre">l,</span> <span class="pre">Gamma,</span> <span class="pre">n)</span></code> of the group is <code class="docutils literal notranslate"><span class="pre">c</span></code> times the top SAMB of its top key
+(<code class="docutils literal notranslate"><span class="pre">data_harmonics_mapping</span></code>), with the components stacked.</p></li>
+<li><p><strong>Bases.</strong> <code class="docutils literal notranslate"><span class="pre">&quot;jml&quot;</span></code> from the JML matrices. <code class="docutils literal notranslate"><span class="pre">&quot;lgs&quot;</span></code> is <code class="docutils literal notranslate"><span class="pre">U_bra^dagger</span> <span class="pre">M</span> <span class="pre">U_ket</span></code> from the LMs matrices, with <code class="docutils literal notranslate"><span class="pre">U</span></code> the
+orbitals of <code class="docutils literal notranslate"><span class="pre">data_basis.atomic_lgs_basis</span></code> (<code class="docutils literal notranslate"><span class="pre">atomic_orbital_basis</span></code>, basis-function u-matrices, spin expanded).
+<code class="docutils literal notranslate"><span class="pre">&quot;lg&quot;</span></code> is the <code class="docutils literal notranslate"><span class="pre">s</span> <span class="pre">=</span> <span class="pre">0</span></code>, up-spin part of <code class="docutils literal notranslate"><span class="pre">&quot;lgs&quot;</span></code> times <code class="docutils literal notranslate"><span class="pre">sqrt(2)</span></code>.</p></li>
+<li><p><strong>Key.</strong> <code class="docutils literal notranslate"><span class="pre">PGMultipoleType(X,</span> <span class="pre">l,</span> <span class="pre">Gamma,</span> <span class="pre">n,</span> <span class="pre">-1,</span> <span class="pre">s,</span> <span class="pre">k,</span> <span class="pre">&quot;q&quot;)</span></code>; <code class="docutils literal notranslate"><span class="pre">n</span></code> is the harmonics multiplicity (not renumbered).
+Order <code class="docutils literal notranslate"><span class="pre">Q,</span> <span class="pre">G,</span> <span class="pre">T,</span> <span class="pre">M</span></code>, <code class="docutils literal notranslate"><span class="pre">s</span></code>, <code class="docutils literal notranslate"><span class="pre">k</span></code>, <code class="docutils literal notranslate"><span class="pre">l</span></code>, <code class="docutils literal notranslate"><span class="pre">Gamma</span></code>, <code class="docutils literal notranslate"><span class="pre">n</span></code>.</p></li>
+<li><p><strong>Value.</strong> <code class="docutils literal notranslate"><span class="pre">matrix</span> <span class="pre">(dim,</span> <span class="pre">n1,</span> <span class="pre">n2)</span></code> for each block (the expression of the harmonics is in <code class="docutils literal notranslate"><span class="pre">harmonics.pkl</span></code>). All 47
+point groups.</p></li>
+</ol>
+</section>
+</section>
+<hr class="docutils" />
+<section id="exact-arithmetic-and-simplification">
+<h2>7. Exact arithmetic and simplification<a class="headerlink" href="#exact-arithmetic-and-simplification" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>All stored values are sympy. Saved values go through <code class="docutils literal notranslate"><span class="pre">util_symmetry_operation.simplify_value</span></code>
+(<code class="docutils literal notranslate"><span class="pre">expand(radsimp(expand(x)))</span></code>; rationals unchanged), which rationalizes denominators (<code class="docutils literal notranslate"><span class="pre">sqrt(3)/3</span></code> instead of
+<code class="docutils literal notranslate"><span class="pre">1/sqrt(3)</span></code>).</p></li>
+<li><p>Linear dependence is decided numerically (relative tolerance <code class="docutils literal notranslate"><span class="pre">1e-8</span></code>); the kept vectors are then orthonormalized
+exactly.</p></li>
+<li><p>sympy re-evaluates some products when a pickle is loaded (<code class="docutils literal notranslate"><span class="pre">(a+b)/2</span></code> → <code class="docutils literal notranslate"><span class="pre">a/2</span> <span class="pre">+</span> <span class="pre">b/2</span></code>), so “binary is up to date”
+tests compare after a pickle round trip.</p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./src/notes"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-conventions">1. Common conventions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multipole-key">1.1 Multipole key</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#irreps">1.2 Irreps</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#top-groups">1.3 Top groups</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#orbital-names">1.4 Orbital names</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#harmonics-of-the-point-groups">2. Harmonics of the point groups</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multipolar-harmonics-multipolar-harmonics-pkl">3. Multipolar harmonics (<code class="docutils literal notranslate"><span class="pre">multipolar_harmonics.pkl</span></code>)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cluster-bases-of-the-top-groups">4. Cluster bases of the top groups</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#clusters">4.1 Clusters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scalar-cluster-basis-cluster-scalar-basis-pkl">4.2 Scalar cluster basis (<code class="docutils literal notranslate"><span class="pre">cluster_scalar_basis.pkl</span></code>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vector-cluster-basis-cluster-vector-basis-pkl-s-1">4.3 Vector cluster basis (<code class="docutils literal notranslate"><span class="pre">cluster_vector_basis.pkl</span></code>, s = 1)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bond-cluster-basis-cluster-bond-basis-pkl">4.4 Bond cluster basis (<code class="docutils literal notranslate"><span class="pre">cluster_bond_basis.pkl</span></code>)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cluster-samb-of-each-wyckoff-site-and-bond-cluster-samb-pkl">5. Cluster SAMB of each Wyckoff site and bond (<code class="docutils literal notranslate"><span class="pre">cluster_samb.pkl</span></code>)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#atomic-multipoles">6. Atomic multipoles</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#atomic-multipole-matrices-atomic-multipole-pkl">6.1 Atomic multipole matrices (<code class="docutils literal notranslate"><span class="pre">atomic_multipole.pkl</span></code>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#point-group-samb-atomic-multipole-group-pkl">6.2 Point-group SAMB (<code class="docutils literal notranslate"><span class="pre">atomic_multipole_group.pkl</span></code>)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exact-arithmetic-and-simplification">7. Exact arithmetic and simplification</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Hiroaki Kusunose
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2021-.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

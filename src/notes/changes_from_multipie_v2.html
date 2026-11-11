@@ -1,0 +1,846 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Changes from MultiPie Ver.2 (multipole data) &#8212; MultiPieGen</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=34ddd5e8" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+
+    <script src="../../_static/documentation_options.js?v=a8e58a58"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'src/notes/changes_from_multipie_v2';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <script src="../../_static/custom.js?v=9c3a2667"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../_static/searchtools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../README.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">MultiPieGen</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Documentation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../group_info.html">Group Information</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../info_pdf.html">Overall information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pg_pdf.html">Point groups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sg_pdf.html">Space groups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mpg_pdf.html">Magnetic point groups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../msg_pdf.html">Magnetic space groups</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes.html">Notes</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../details.html">Details</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../examples.html">Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../binary.html">Binary data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../data.html">Data tables</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">API reference</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../api_util.html">Utilities</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../api_util/util_info.html">Info</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_util/util_group.html">Group</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_util/util_group_data.html">Group data (ids, tags, names)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_util/util_top_harmonics.html">Top harmonics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_util/util_harmonics_mapping.html">Harmonics mapping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_util/util_op_mapping.html">Operation mapping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_util/util_cluster_basis.html">Cluster basis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_util/util_cluster_vector_basis.html">Vector cluster basis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_util/util_bond_cluster_basis.html">Bond cluster basis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_util/util_cluster_samb.html">Cluster SAMB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_util/util_harmonics_symbol.html">Harmonics symbol</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_util/util_harmonics.html">Harmonics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_util/util_harmonics_multipole.html">Multipolar harmonics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_util/util_multipolar_harmonics.html">Multipolar harmonics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_util/util_atomic_multipole.html">Atomic multipole</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_util/util_symmetry_operation.html">Symmetry operation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_util/util_representation_matrix.html">Representation matrix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_util/util_response_tensor.html">Response tensor</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../api_create.html">Generators</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../api_create/create_info.html">Info binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_create/create_group.html">Group binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_create/create_response_tensor.html">Response tensor binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_create/create_harmonics.html">Harmonics binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_create/create_multipolar_harmonics.html">Multipolar harmonics binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_create/create_atomic_multipole.html">Atomic multipole binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_create/create_atomic_multipole_group.html">Atomic multipole group binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_create/create_cluster_scalar_basis.html">Cluster scalar basis binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_create/create_cluster_vector_basis.html">Vector cluster basis binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_create/create_cluster_bond_basis.html">Cluster bond basis binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_create/create_cluster_samb.html">Cluster SAMB binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_create/create_pdf_harmonics.html">Harmonics PDF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_create/create_pdf_info.html">Information PDF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_create/create_pdf_group.html">Group PDF</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/hiro-k-phys/MultiPieGen.git" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Changes from MultiPie Ver.2 (multipole data)</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conventions">1. Conventions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#harmonics-of-the-point-groups">2. Harmonics of the point groups</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multipolar-harmonics">3. Multipolar harmonics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cluster-bases-new">4. Cluster bases (new)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cluster-samb">5. Cluster SAMB</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#atomic-multipoles">6. Atomic multipoles</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#symmetry-operation-mapping-used-by-the-cluster-samb">7. Symmetry-operation mapping used by the cluster SAMB</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other-data">8. Other data</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="changes-from-multipie-ver-2-multipole-data">
+<h1>Changes from MultiPie Ver.2 (multipole data)<a class="headerlink" href="#changes-from-multipie-ver-2-multipole-data" title="Link to this heading">#</a></h1>
+<p>This note lists what MultiPieGen does differently from MultiPie Ver.2 for the multipole-keyed data: conventions,
+algorithms, and the resulting differences. The algorithms of MultiPieGen themselves are described in
+<a class="reference internal" href="generation_rules.html"><span class="std std-doc">Generation of the multipole data</span></a>. The numbers below come from a comparison with MultiPie Ver.2
+made on 2026-11-11 (develop 369c8bf). A Japanese version is <a class="reference internal" href="changes_from_multipie_v2_ja.html"><span class="std std-doc">here</span></a>.</p>
+<p>Contents:</p>
+<ol class="arabic simple">
+<li><p>Conventions (keys, irreps, orbital names, signs)</p></li>
+<li><p>Harmonics of the point groups</p></li>
+<li><p>Multipolar harmonics</p></li>
+<li><p>Cluster bases (new)</p></li>
+<li><p>Cluster SAMB</p></li>
+<li><p>Atomic multipoles</p></li>
+<li><p>Symmetry-operation mapping used by the cluster SAMB</p></li>
+<li><p>Other data (representation matrices, active multipoles, response tensors)</p></li>
+</ol>
+<hr class="docutils" />
+<section id="conventions">
+<h2>1. Conventions<a class="headerlink" href="#conventions" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>item</p></th>
+<th class="head"><p>MultiPie Ver.2</p></th>
+<th class="head"><p>MultiPieGen</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>multiplicity <code class="docutils literal notranslate"><span class="pre">n</span></code></p></td>
+<td><p>renumbered in each data set (multipolar harmonics, atomic multipole group, cluster SAMB)</p></td>
+<td><p>always the multiplicity of the harmonics <code class="docutils literal notranslate"><span class="pre">(X,</span> <span class="pre">l,</span> <span class="pre">Gamma)</span></code> of the point group, which fixes its xyz polynomial; duplicates are numbered by <code class="docutils literal notranslate"><span class="pre">p</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>irrep order</p></td>
+<td><p>sorted by the irrep name</p></td>
+<td><p>the order of <code class="docutils literal notranslate"><span class="pre">data_character_table</span></code> (<code class="docutils literal notranslate"><span class="pre">g</span></code> before <code class="docutils literal notranslate"><span class="pre">u</span></code>, <code class="docutils literal notranslate"><span class="pre">'</span></code> block before <code class="docutils literal notranslate"><span class="pre">''</span></code> block)</p></td>
+</tr>
+<tr class="row-even"><td><p>orbital names</p></td>
+<td><p>f2, f1, f3x, f3y, ga, gb, gc, i, l, i0, j</p></td>
+<td><p>fc, fs, fx, fy, gc, gs, gc4, i3, l3, ixy, j3 (<code class="docutils literal notranslate"><span class="pre">gc</span></code> now means the old <code class="docutils literal notranslate"><span class="pre">ga</span></code>)</p></td>
+</tr>
+<tr class="row-odd"><td><p>orbital definitions</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">data_definition.py</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">data_basis.py</span></code>; each orbital points to a harmonics key, expressions come from the top harmonics</p></td>
+</tr>
+<tr class="row-even"><td><p>sign of D6h rank-4 <code class="docutils literal notranslate"><span class="pre">E2g</span></code> multiplicity 2</p></td>
+<td><p>as in MultiPie</p></td>
+<td><p>multiplied by -1 (both components)</p></td>
+</tr>
+<tr class="row-odd"><td><p>sign of the orbital <code class="docutils literal notranslate"><span class="pre">gv</span></code></p></td>
+<td><p>as in MultiPie</p></td>
+<td><p>multiplied by -1 (<code class="docutils literal notranslate"><span class="pre">data_response_tensor</span></code>)</p></td>
+</tr>
+<tr class="row-even"><td><p>expression of the harmonics in the values</p></td>
+<td><p>the multipole-keyed binaries hold the cartesian expression <code class="docutils literal notranslate"><span class="pre">ex</span></code> of the harmonics</p></td>
+<td><p>not held; looked up by <code class="docutils literal notranslate"><span class="pre">(X,</span> <span class="pre">l,</span> <span class="pre">Gamma,</span> <span class="pre">n)</span></code> of the key in <code class="docutils literal notranslate"><span class="pre">harmonics.pkl</span></code> (values: multipolar harmonics <code class="docutils literal notranslate"><span class="pre">(internal_coefficient,</span> <span class="pre">multipole_expression)</span></code>, atomic multipole group <code class="docutils literal notranslate"><span class="pre">matrix</span></code>, cluster SAMB <code class="docutils literal notranslate"><span class="pre">samb</span></code>)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">E2g</span></code> sign change is a change of the top harmonics. It carries into the D6h-family subgroups (rank-4 E
+multiplets of 16 hexagonal/trigonal groups) and into everything built on the harmonics.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">gv</span></code> sign change is a change of the orbital (and of the response-tensor multipole); the top harmonics of Oh are
+unchanged, and the harmonics of the Oh family agree with MultiPie Ver.2.</p></li>
+<li><p>In the data compared so far, the harmonics multiplicity <code class="docutils literal notranslate"><span class="pre">n</span></code> happened to coincide with MultiPie Ver.2’s renumbered
+<code class="docutils literal notranslate"><span class="pre">n</span></code> (multipolar harmonics, atomic multipole group). The difference of rule matters for the bond_a cluster SAMB.</p></li>
+</ul>
+</section>
+<section id="harmonics-of-the-point-groups">
+<h2>2. Harmonics of the point groups<a class="headerlink" href="#harmonics-of-the-point-groups" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Defined once for Oh and D6h (<code class="docutils literal notranslate"><span class="pre">data_top_harmonics</span></code>, <code class="docutils literal notranslate"><span class="pre">util_top_harmonics</span></code>) and mapped to the 47 point groups by
+<code class="docutils literal notranslate"><span class="pre">data_harmonics_mapping</span></code> (<code class="docutils literal notranslate"><span class="pre">c</span> <span class="pre">=</span> <span class="pre">±1</span></code> times a top harmonics). MultiPie Ver.2 stores the harmonics of each point group
+in <code class="docutils literal notranslate"><span class="pre">harmonics.pkl</span></code>.</p></li>
+<li><p>Result: the keys <code class="docutils literal notranslate"><span class="pre">(X,</span> <span class="pre">l,</span> <span class="pre">Gamma,</span> <span class="pre">n)</span></code> are identical for all 47 groups (rank &lt;= 11). 32 multiplets have the opposite
+sign, all from the <code class="docutils literal notranslate"><span class="pre">E2g</span></code> sign change (section 1).</p></li>
+</ul>
+</section>
+<section id="multipolar-harmonics">
+<h2>3. Multipolar harmonics<a class="headerlink" href="#multipolar-harmonics" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>item</p></th>
+<th class="head"><p>MultiPie Ver.2 (<code class="docutils literal notranslate"><span class="pre">harmonics_multipole.pkl</span></code>)</p></th>
+<th class="head"><p>MultiPieGen (<code class="docutils literal notranslate"><span class="pre">multipolar_harmonics.pkl</span></code>)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>internal basis</p></td>
+<td><p>tesseral basis for all groups (<code class="docutils literal notranslate"><span class="pre">Q_v</span></code>, <code class="docutils literal notranslate"><span class="pre">Q_xy</span></code>, …, old f names)</p></td>
+<td><p>cubic orbitals (<code class="docutils literal notranslate"><span class="pre">cubic_orbital_basis[s]</span></code>) for the Oh family, hexagonal orbitals (<code class="docutils literal notranslate"><span class="pre">hexagonal_orbital_basis[s]</span></code>) for the D6h family</p></td>
+</tr>
+<tr class="row-odd"><td><p>internal symbols</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Q_v</span></code>, <code class="docutils literal notranslate"><span class="pre">Q_2</span></code>, …</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Q</span> <span class="pre">+</span> <span class="pre">orbital_latex_name</span></code>, e.g. <code class="docutils literal notranslate"><span class="pre">Q_{u}</span></code>, <code class="docutils literal notranslate"><span class="pre">Q_{x}^{\alpha}</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">n</span></code></p></td>
+<td><p>renumbered per <code class="docutils literal notranslate"><span class="pre">(x,</span> <span class="pre">l,</span> <span class="pre">X,</span> <span class="pre">Gamma,</span> <span class="pre">k)</span></code></p></td>
+<td><p>harmonics multiplicity; <code class="docutils literal notranslate"><span class="pre">p</span></code> for duplicates</p></td>
+</tr>
+<tr class="row-odd"><td><p>rank</p></td>
+<td><p>l &lt;= 11</p></td>
+<td><p>l &lt;= 3</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul class="simple">
+<li><p>Result: the keys are identical (14,302 entries, l &lt;= 3). After converting the internal-basis coefficients to the
+tesseral basis, all entries are identical, so only the choice of the internal basis (orbitals, order, symbols)
+differs.</p></li>
+</ul>
+</section>
+<section id="cluster-bases-new">
+<h2>4. Cluster bases (new)<a class="headerlink" href="#cluster-bases-new" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">cluster_scalar_basis.pkl</span></code>, <code class="docutils literal notranslate"><span class="pre">cluster_vector_basis.pkl</span></code>, and <code class="docutils literal notranslate"><span class="pre">cluster_bond_basis.pkl</span></code> have no counterpart in MultiPie
+Ver.2. The closest one is <code class="docutils literal notranslate"><span class="pre">harmonics_root_cluster.pkl</span></code>.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>item</p></th>
+<th class="head"><p>MultiPie Ver.2 <code class="docutils literal notranslate"><span class="pre">harmonics_root_cluster</span></code></p></th>
+<th class="head"><p>MultiPieGen cluster bases</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>cluster</p></td>
+<td><p>one root cluster of 64 points for Oh and D6h</p></td>
+<td><p>separate Oh (48 points) and D6h (24 points) clusters</p></td>
+</tr>
+<tr class="row-odd"><td><p>representative point</p></td>
+<td><p>MultiPie Ver.2’s point</p></td>
+<td><p>site0 = (1, 5, 6), vector0 = unit vector of (6, 1, 5)</p></td>
+</tr>
+<tr class="row-even"><td><p>content</p></td>
+<td><p>values of the harmonics of each point group up to rank 11 (not orthonormalized, dependent ones included)</p></td>
+<td><p>Gram-Schmidt per (irrep, component) of the top group from lower rank, dependent ones dropped: an orthonormal basis (regular representation)</p></td>
+</tr>
+<tr class="row-odd"><td><p>internal type</p></td>
+<td><p>x = q</p></td>
+<td><p>x = q and x = g (vector and bond bases)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul class="simple">
+<li><p>The key format follows MultiPie Ver.2’s site SAMB (scalar), vector SAMB (vector), and bond_a (bond).</p></li>
+<li><p>The bond basis is built by contracting the vector basis with the bond vectors, then Gram-Schmidt in the order rank,
+k, multiplicity. MultiPie Ver.2 keys each anti-symmetric bond function by the first overlapping vector SAMB; that
+rule is not used.</p></li>
+</ul>
+</section>
+<section id="cluster-samb">
+<h2>5. Cluster SAMB<a class="headerlink" href="#cluster-samb" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>item</p></th>
+<th class="head"><p>MultiPie Ver.2 (<code class="docutils literal notranslate"><span class="pre">cluster_samb.pkl</span></code>)</p></th>
+<th class="head"><p>MultiPieGen (<code class="docutils literal notranslate"><span class="pre">cluster_samb.pkl</span></code>)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>source</p></td>
+<td><p>harmonics of each point group evaluated on the 64-point root cluster</p></td>
+<td><p>the cluster bases of Oh/D6h restricted to the operations of the group (coset 0 of <code class="docutils literal notranslate"><span class="pre">op_mapping_d6h_oh_cluster</span></code>)</p></td>
+</tr>
+<tr class="row-odd"><td><p>special points</p></td>
+<td><p>sum over the Wyckoff mapping, then orthogonalization</p></td>
+<td><p>the same (average of the general-point SAMB by the Wyckoff mapping, sign for bond_a)</p></td>
+</tr>
+<tr class="row-even"><td><p>site, bond_s</p></td>
+<td><p>Gram-Schmidt in [Gamma, l, Q/G, n, p]</p></td>
+<td><p>Gram-Schmidt in [Gamma, l, n, p] per irrep; the same keys</p></td>
+</tr>
+<tr class="row-odd"><td><p>bond_a</p></td>
+<td><p>orthogonalized in the monopole order, then keyed by the first overlapping vector SAMB, <code class="docutils literal notranslate"><span class="pre">p</span></code> renumbered per Wyckoff</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">cluster_bond_basis</span></code> (x = q) restricted, Gram-Schmidt in [Gamma, l, k, Q/G, n, p], keys of the top group kept (including <code class="docutils literal notranslate"><span class="pre">p</span></code>)</p></td>
+</tr>
+<tr class="row-even"><td><p>vector SAMB</p></td>
+<td><p>made</p></td>
+<td><p>not made</p></td>
+</tr>
+<tr class="row-odd"><td><p>bond kinds</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;bond_s&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;bond_a&quot;</span></code> separately</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;bond&quot;</span></code> = <code class="docutils literal notranslate"><span class="pre">bond_s</span></code> (Q) + i <code class="docutils literal notranslate"><span class="pre">bond_a</span></code> with Q -&gt; T, G -&gt; M</p></td>
+</tr>
+<tr class="row-even"><td><p>groups</p></td>
+<td><p>real PG and SG</p></td>
+<td><p>real PG and SG (complex PG not included)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul class="simple">
+<li><p>Result: for every Wyckoff site and bond, each irrep spans the same space as MultiPie Ver.2 (1889 sites, 6663 bonds).
+The site and bond_s keys are identical.</p></li>
+<li><p>bond_a keys differ in 5990 of 6663 bond Wyckoff positions (keys before the change of type to T/M, i.e. X = Q/G):</p>
+<ul>
+<li><p>p only (4866): the top key’s <code class="docutils literal notranslate"><span class="pre">p</span></code> is kept (e.g. Oh <code class="docutils literal notranslate"><span class="pre">3a&#64;1o</span></code>: Q₁(T1u) p = 1 here, p = -1 in MultiPie Ver.2).</p></li>
+<li><p>n (93): another harmonics multiplicity of the same (X, l, Gamma) is used (e.g. C4 <code class="docutils literal notranslate"><span class="pre">4c&#64;1a</span></code>: Q₂(B) n = 1 here,
+n = 2 in MultiPie Ver.2).</p></li>
+<li><p>(X, l, Gamma) (1031, 168 groups including 15 point groups): another key for the same space, often of lower rank
+here (e.g. C4v <code class="docutils literal notranslate"><span class="pre">4f&#64;1a</span></code>: G₁(E) here, Q₁(E) in MultiPie Ver.2).</p></li>
+</ul>
+</li>
+<li><p>The values differ because the representative general point (site0) differs.</p></li>
+</ul>
+</section>
+<section id="atomic-multipoles">
+<h2>6. Atomic multipoles<a class="headerlink" href="#atomic-multipoles" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">atomic_multipole.pkl</span></code>: identical to MultiPie Ver.2 (keys, order, values). Only the computation differs: only the
+matrix elements allowed by Jz conservation are evaluated (about 10 s).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">atomic_multipole_group.pkl</span></code>:</p></li>
+</ul>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>item</p></th>
+<th class="head"><p>MultiPie Ver.2</p></th>
+<th class="head"><p>MultiPieGen</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>construction</p></td>
+<td><p>for each point group, project the atomic multipoles with its harmonics, Gram-Schmidt per (X, irrep), times sqrt(dim) and 1/sqrt(2) for off-diagonal blocks</p></td>
+<td><p>the normalized SAMB of each top harmonics component, computed once per top group; each point group takes <code class="docutils literal notranslate"><span class="pre">c</span></code> times it (equivalent normalization)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">n</span></code></p></td>
+<td><p>renumbered</p></td>
+<td><p>harmonics multiplicity</p></td>
+</tr>
+<tr class="row-even"><td><p>groups</p></td>
+<td><p>37 real PG</p></td>
+<td><p>47 PG (including complex <code class="docutils literal notranslate"><span class="pre">-c</span></code>)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Lg basis</p></td>
+<td><p>MultiPie Ver.2’s lg orbitals (old names)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">data_basis.atomic_lgs_basis</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul class="simple">
+<li><p>Result (37 real PG): the keys are identical; 896 matrices have the opposite sign (the <code class="docutils literal notranslate"><span class="pre">E2g</span></code> sign change); the other
+60,757 matrices are identical.</p></li>
+</ul>
+</section>
+<section id="symmetry-operation-mapping-used-by-the-cluster-samb">
+<h2>7. Symmetry-operation mapping used by the cluster SAMB<a class="headerlink" href="#symmetry-operation-mapping-used-by-the-cluster-samb" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>item</p></th>
+<th class="head"><p>MultiPie Ver.2</p></th>
+<th class="head"><p>MultiPieGen</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">symmetry_operation[&quot;mapping&quot;]</span></code> of PG</p></td>
+<td><p>right cosets <code class="docutils literal notranslate"><span class="pre">H</span> <span class="pre">g</span></code> from the product table</p></td>
+<td><p>left cosets <code class="docutils literal notranslate"><span class="pre">g</span> <span class="pre">H</span></code> along the parent chain (<code class="docutils literal notranslate"><span class="pre">util_op_mapping.op_mapping_d6h_oh_cluster</span></code>)</p></td>
+</tr>
+<tr class="row-odd"><td><p>of SG</p></td>
+<td><p>none</p></td>
+<td><p>the mapping of its point group (the operations of an SG have the point parts of its PG in the same order)</p></td>
+</tr>
+<tr class="row-even"><td><p>SG to parent SG</p></td>
+<td><p>none</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">op_mapping_parent_sg</span></code> (with changes of axes; not used for the cluster)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="other-data">
+<h2>8. Other data<a class="headerlink" href="#other-data" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Representation matrices: identical for all 241 irreps of the 47 point groups.</p></li>
+<li><p>Products of irreps in the character data of <code class="docutils literal notranslate"><span class="pre">group.pkl</span></code> (polar-axial conversion, symmetric and anti-symmetric
+products): computed from the characters (<code class="docutils literal notranslate"><span class="pre">create_group.character_plus</span></code>) instead of being stored. Two differences
+from MultiPie Ver.2:</p>
+<ul>
+<li><p>Corrected: for E of C4 and S4 and Eg, Eu of C4h (real 2D irreps of complex type), MultiPie Ver.2 has the symmetric
+product 2A + B and the anti-symmetric product B. The correct values are A + 2B and A: for the basis (x, y),
+x² + y² is A, x² − y² and xy are B, and x₁y₂ − y₁x₂ is invariant under C4. (E = Ea + Eb with Ea⊗Ea = Eb⊗Eb = B and
+Ea⊗Eb = A.)</p></li>
+<li><p>The order of the polar-axial conversion follows the character table (10 groups had another order).</p></li>
+</ul>
+</li>
+<li><p>Active multipoles of MPG (<code class="docutils literal notranslate"><span class="pre">group.pkl</span></code>): identical after renaming the orbitals (51 of 157 groups have renamed
+orbitals, e.g. <code class="docutils literal notranslate"><span class="pre">Qf1</span></code> → <code class="docutils literal notranslate"><span class="pre">Qfs</span></code>).</p></li>
+<li><p>Response tensors (<code class="docutils literal notranslate"><span class="pre">response_tensor.pkl</span></code>): identical to MultiPie Ver.2’s <code class="docutils literal notranslate"><span class="pre">Group.response_tensor_all</span></code> except for the
+multipole names (checked when the binary was made, not in the comparison of 2026-11-11).</p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./src/notes"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conventions">1. Conventions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#harmonics-of-the-point-groups">2. Harmonics of the point groups</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multipolar-harmonics">3. Multipolar harmonics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cluster-bases-new">4. Cluster bases (new)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cluster-samb">5. Cluster SAMB</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#atomic-multipoles">6. Atomic multipoles</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#symmetry-operation-mapping-used-by-the-cluster-samb">7. Symmetry-operation mapping used by the cluster SAMB</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other-data">8. Other data</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Hiroaki Kusunose
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2021-.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=34ddd5e8" />
@@ -66,8 +66,8 @@
     <script src="../_static/custom.js?v=9c3a2667"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Binary data" href="binary.html" />
-    <link rel="prev" title="MultiPieGen" href="../README.html" />
+    <link rel="next" title="Utilities" href="api_util.html" />
+    <link rel="prev" title="Binary data" href="binary.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -209,30 +209,57 @@
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Documentation</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Data tables</a></li>
-<li class="toctree-l1"><a class="reference internal" href="binary.html">Binary data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="pg_pdf.html">Point groups</a></li>
-<li class="toctree-l1"><a class="reference internal" href="sg_pdf.html">Space groups</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mpg_pdf.html">Magnetic point groups</a></li>
-<li class="toctree-l1"><a class="reference internal" href="msg_pdf.html">Magnetic space groups</a></li>
-<li class="toctree-l1"><a class="reference internal" href="info_pdf.html">Overall information</a></li>
-<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="group_info.html">Group Information</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="info_pdf.html">Overall information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pg_pdf.html">Point groups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sg_pdf.html">Space groups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mpg_pdf.html">Magnetic point groups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="msg_pdf.html">Magnetic space groups</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="notes.html">Notes</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="details.html">Details</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="binary.html">Binary data</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Data tables</a></li>
+</ul>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">API reference</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="api_util.html">Utilities</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="api_util/util_info.html">Info</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api_util/util_group.html">Group</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_util/util_group_data.html">Group data (ids, tags, names)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_util/util_top_harmonics.html">Top harmonics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_util/util_harmonics_mapping.html">Harmonics mapping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_util/util_op_mapping.html">Operation mapping</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api_util/util_cluster_basis.html">Cluster basis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_util/util_cluster_vector_basis.html">Vector cluster basis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_util/util_bond_cluster_basis.html">Bond cluster basis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_util/util_cluster_samb.html">Cluster SAMB</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api_util/util_harmonics_symbol.html">Harmonics symbol</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_util/util_harmonics.html">Harmonics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_util/util_harmonics_multipole.html">Multipolar harmonics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api_util/util_multipolar_harmonics.html">Multipolar harmonics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_util/util_atomic_multipole.html">Atomic multipole</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api_util/util_symmetry_operation.html">Symmetry operation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_util/util_representation_matrix.html">Representation matrix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_util/util_response_tensor.html">Response tensor</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="api_create.html">Generators</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="api_create/create_info.html">Info binary</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api_create/create_group.html">Group binary</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api_create/create_cluster_basis.html">Cluster basis binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_create/create_response_tensor.html">Response tensor binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_create/create_harmonics.html">Harmonics binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_create/create_multipolar_harmonics.html">Multipolar harmonics binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_create/create_atomic_multipole.html">Atomic multipole binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_create/create_atomic_multipole_group.html">Atomic multipole group binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_create/create_cluster_scalar_basis.html">Cluster scalar basis binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_create/create_cluster_vector_basis.html">Vector cluster basis binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_create/create_cluster_bond_basis.html">Cluster bond basis binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_create/create_cluster_samb.html">Cluster SAMB binary</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api_create/create_pdf_harmonics.html">Harmonics PDF</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api_create/create_pdf_info.html">Information PDF</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api_create/create_pdf_group.html">Group PDF</a></li>
@@ -286,7 +313,7 @@
 <div class="article-header-buttons">
 
 
-<a href="https://github.com/hiro-k-phys/mp-newbasis.git" target="_blank"
+<a href="https://github.com/hiro-k-phys/MultiPieGen.git" target="_blank"
    class="btn btn-sm btn-source-repository-button"
    title="Source repository"
    data-bs-placement="bottom" data-bs-toggle="tooltip"
@@ -398,12 +425,22 @@
             </div>
             <nav aria-label="Page">
                 <ul class="pst-show_toc_level nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#text-data">text data</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#new">new</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#from-multipie-ver-2-4-0">from MultiPie Ver.2.4.0</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#under-consideration-exist-in-multipie-ver-2-4-0">under consideration (exist in MultiPie Ver.2.4.0)</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-basis-py">data_basis.py</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-character-table-py">data_character_table.py</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-compatibility-relation-py">data_compatibility_relation.py</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-group-mpg-py">data_group_mpg.py</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-group-msg-py">data_group_msg.py</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-group-pg-py">data_group_pg.py</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-group-sg-py">data_group_sg.py</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-parent-pg-py">data_parent_pg.py</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-parent-sg-py">data_parent_sg.py</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-response-tensor-py">data_response_tensor.py</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-root-cluster-py">data_root_cluster.py</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-top-harmonics-py">data_top_harmonics.py</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-wyckoff-bond-sym-py">data_wyckoff_bond_sym.py</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-wyckoff-mpg-py">data_wyckoff_mpg.py</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-wyckoff-msg-py">data_wyckoff_msg.py</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-wyckoff-site-py">data_wyckoff_site.py</a></li>
 </ul>
             </nav>
         </div>
@@ -417,50 +454,742 @@
                   
   <section class="tex2jax_ignore mathjax_ignore" id="data-tables">
 <h1>Data tables<a class="headerlink" href="#data-tables" title="Link to this heading">#</a></h1>
-<p>The data tables in <code class="docutils literal notranslate"><span class="pre">multipiegen/data</span></code> are the source of all generated data.
-They are created by the scripts in <code class="docutils literal notranslate"><span class="pre">others/creation/</span></code> and curated by hand.</p>
-<section id="text-data">
-<h2>text data<a class="headerlink" href="#text-data" title="Link to this heading">#</a></h2>
-<section id="new">
-<h3>new<a class="headerlink" href="#new" title="Link to this heading">#</a></h3>
-<ul class="simple">
-<li><p>data_basis.py: atomic and multipolar PG harmonics basis (original)</p></li>
-<li><p>data_op_mapping.py: operation mapping (original)</p></li>
-<li><p>data_parent_pg.py: parent PG from child PG (original)</p></li>
-<li><p>data_parent_sg.py: parent SG from child SG (original)</p></li>
-<li><p>data_root_cluster.py: root cluster (original)</p></li>
-<li><p>data_coset_so.py: symmetry operations of coset to parent group (original)</p></li>
-<li><p>data_harmonics_mapping.py: mapping of harmonics keys (original)</p></li>
-<li><p>data_top_harmonics_info.py: harmonics information (original)</p></li>
-<li><p>data_harmonics.py: harmonics (original)</p></li>
-</ul>
+<p>The data tables in <code class="docutils literal notranslate"><span class="pre">multipiegen/data</span></code> are the source of all generated data. They are curated by hand; some of them are first created by a script in <code class="docutils literal notranslate"><span class="pre">others/creation</span></code> (it writes next to itself, and the result is copied into <code class="docutils literal notranslate"><span class="pre">multipiegen/data</span></code>). “origin” is “MultiPie Ver.2.4.0” for the tables taken from MultiPie Ver.2.4.0 (some of them modified), and “new” otherwise. The tables taken from MultiPie Ver.2.4.0 were copied once and have been maintained here since then. The generation never reads the data of MultiPie Ver.2; it uses only its general functions and utilities.</p>
+<p>Data that can be derived from these tables are computed in <code class="docutils literal notranslate"><span class="pre">multipiegen</span></code> instead of being stored:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>data</p></th>
+<th class="head"><p>computed in</p></th>
+<th class="head"><p>from</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">*_tag</span></code>, <code class="docutils literal notranslate"><span class="pre">*_id</span></code>, <code class="docutils literal notranslate"><span class="pre">*_id_set</span></code>, <code class="docutils literal notranslate"><span class="pre">group_name_list</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">util/util_group_data</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">*_info</span></code> of <code class="docutils literal notranslate"><span class="pre">data_group_pg/sg/mpg/msg</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">top_harmonics_symmetry</span></code>, <code class="docutils literal notranslate"><span class="pre">top_harmonics_u_matrix</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">util/util_top_harmonics</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">data_top_harmonics</span></code> (tesseral part from the multipolar harmonics)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">data_harmonics_mapping</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">util/util_harmonics_mapping</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">data_compatibility_relation</span></code>, <code class="docutils literal notranslate"><span class="pre">data_top_harmonics.top_harmonics_tag</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">op_mapping_d6h_oh_cluster</span></code>, <code class="docutils literal notranslate"><span class="pre">op_mapping_parent_sg</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">util/util_op_mapping</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">data_parent_pg</span></code>, <code class="docutils literal notranslate"><span class="pre">data_parent_sg</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>polar-axial conversion, symmetric and anti-symmetric products</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">create_binary/create_group.character_plus</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">data_character_table</span></code> and the symmetry operations</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>file</p></th>
+<th class="head"><p>content</p></th>
+<th class="head"><p>origin</p></th>
+<th class="head"><p>created by</p></th>
+<th class="head"><p>used by</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="#data-basis-py"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">data_basis.py</span></code></span></a></p></td>
+<td><p>orbital and basis definitions: atomic orbitals, spin, LM/JM/LMs/Lgs basis, bra-ket blocks, LaTeX names, Wannier90 aliases, cubic/hexagonal orbitals (internal basis of multipolar harmonics), harmonics keys, max ranks and rank names</p></td>
+<td><p>new</p></td>
+<td><p>-</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">util/util_atomic_multipole</span></code>, <code class="docutils literal notranslate"><span class="pre">util/util_cluster_vector_basis</span></code>, <code class="docutils literal notranslate"><span class="pre">util/util_harmonics_multipole</span></code>, <code class="docutils literal notranslate"><span class="pre">create_binary/create_atomic_multipole_group</span></code>, <code class="docutils literal notranslate"><span class="pre">create_binary/create_info</span></code>, <code class="docutils literal notranslate"><span class="pre">create_pdf/create_pdf_group</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#data-character-table-py"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">data_character_table.py</span></code></span></a></p></td>
+<td><p>character tables of all 47 point groups</p></td>
+<td><p>MultiPie Ver.2.4.0</p></td>
+<td><p>-</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">util/util_atomic_multipole</span></code>, <code class="docutils literal notranslate"><span class="pre">util/util_cluster_samb</span></code>, <code class="docutils literal notranslate"><span class="pre">util/util_group_data</span></code>, <code class="docutils literal notranslate"><span class="pre">util/util_harmonics</span></code>, <code class="docutils literal notranslate"><span class="pre">util/util_harmonics_multipole</span></code>, <code class="docutils literal notranslate"><span class="pre">util/util_harmonics_symbol</span></code>, <code class="docutils literal notranslate"><span class="pre">util/util_representation_matrix</span></code>, <code class="docutils literal notranslate"><span class="pre">create_binary/create_group</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#data-compatibility-relation-py"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">data_compatibility_relation.py</span></code></span></a></p></td>
+<td><p>compatibility relations of the Oh and D6h subgroups</p></td>
+<td><p>MultiPie Ver.2.4.0</p></td>
+<td><p>-</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">util/util_harmonics_mapping</span></code>, <code class="docutils literal notranslate"><span class="pre">create_binary/create_info</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#data-group-mpg-py"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">data_group_mpg.py</span></code></span></a></p></td>
+<td><p>group information of the magnetic point groups</p></td>
+<td><p>MultiPie Ver.2.4.0</p></td>
+<td><p>-</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">util/util_group_data</span></code>, <code class="docutils literal notranslate"><span class="pre">create_binary/create_group</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#data-group-msg-py"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">data_group_msg.py</span></code></span></a></p></td>
+<td><p>group information of the magnetic space groups</p></td>
+<td><p>MultiPie Ver.2.4.0</p></td>
+<td><p>-</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">util/util_group_data</span></code>, <code class="docutils literal notranslate"><span class="pre">create_binary/create_group</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#data-group-pg-py"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">data_group_pg.py</span></code></span></a></p></td>
+<td><p>group information of the point groups</p></td>
+<td><p>MultiPie Ver.2.4.0</p></td>
+<td><p>-</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">util/util_group_data</span></code>, <code class="docutils literal notranslate"><span class="pre">util/util_symmetry_operation</span></code>, <code class="docutils literal notranslate"><span class="pre">create_binary/create_group</span></code>, <code class="docutils literal notranslate"><span class="pre">create_pdf/create_pdf_harmonics</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#data-group-sg-py"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">data_group_sg.py</span></code></span></a></p></td>
+<td><p>group information of the space groups</p></td>
+<td><p>MultiPie Ver.2.4.0</p></td>
+<td><p>-</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">util/util_group_data</span></code>, <code class="docutils literal notranslate"><span class="pre">util/util_symmetry_operation</span></code>, <code class="docutils literal notranslate"><span class="pre">create_binary/create_group</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#data-parent-pg-py"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">data_parent_pg.py</span></code></span></a></p></td>
+<td><p>parent point groups of each point group</p></td>
+<td><p>new</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">others/creation/create_parent_pg_mapping.py</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">util/util_op_mapping</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#data-parent-sg-py"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">data_parent_sg.py</span></code></span></a></p></td>
+<td><p>parent space groups of each space group</p></td>
+<td><p>new</p></td>
+<td><p>-</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">util/util_op_mapping</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#data-response-tensor-py"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">data_response_tensor.py</span></code></span></a></p></td>
+<td><p>multipoles in the response tensors and their cartesian components</p></td>
+<td><p>MultiPie Ver.2.4.0</p></td>
+<td><p>-</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">create_binary/create_info</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#data-root-cluster-py"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">data_root_cluster.py</span></code></span></a></p></td>
+<td><p>Oh and D6h clusters with the representative site and vector</p></td>
+<td><p>new</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">others/creation/create_root_cluster.py</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">util/util_bond_cluster_basis</span></code>, <code class="docutils literal notranslate"><span class="pre">util/util_cluster_basis</span></code>, <code class="docutils literal notranslate"><span class="pre">create_binary/create_info</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#data-top-harmonics-py"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">data_top_harmonics.py</span></code></span></a></p></td>
+<td><p>harmonics of the top groups (Oh, D6h)</p></td>
+<td><p>MultiPie Ver.2.4.0</p></td>
+<td><p>-</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">util/util_harmonics_mapping</span></code>, <code class="docutils literal notranslate"><span class="pre">util/util_top_harmonics</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#data-wyckoff-bond-sym-py"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">data_wyckoff_bond_sym.py</span></code></span></a></p></td>
+<td><p>Wyckoff bonds of the point and space groups with the bond symmetry</p></td>
+<td><p>MultiPie Ver.2.4.0</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">others/creation/create_wyckoff_bond.py</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">create_binary/create_group</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#data-wyckoff-mpg-py"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">data_wyckoff_mpg.py</span></code></span></a></p></td>
+<td><p>Wyckoff sites of the magnetic point groups</p></td>
+<td><p>MultiPie Ver.2.4.0</p></td>
+<td><p>-</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">create_binary/create_group</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#data-wyckoff-msg-py"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">data_wyckoff_msg.py</span></code></span></a></p></td>
+<td><p>Wyckoff sites of the magnetic space groups</p></td>
+<td><p>MultiPie Ver.2.4.0</p></td>
+<td><p>-</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">create_binary/create_group</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#data-wyckoff-site-py"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">data_wyckoff_site.py</span></code></span></a></p></td>
+<td><p>Wyckoff sites of the point and space groups</p></td>
+<td><p>MultiPie Ver.2.4.0</p></td>
+<td><p>-</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">create_binary/create_group</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<section id="data-basis-py">
+<h2>data_basis.py<a class="headerlink" href="#data-basis-py" title="Link to this heading">#</a></h2>
+<p>Orbital and basis definitions: atomic orbitals, spin, LM/JM/LMs/Lgs basis, bra-ket blocks, LaTeX names, Wannier90 aliases, cubic/hexagonal orbitals (internal basis of multipolar harmonics), harmonics keys, max ranks and rank names.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>variable</p></th>
+<th class="head"><p>type (size)</p></th>
+<th class="head"><p>description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">atomic_orbital_basis</span></code></p></td>
+<td><p>list (4)</p></td>
+<td><p>regular atomic orbital basis order (same as tesseral functions up to rank 3).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">atomic_spin_basis</span></code></p></td>
+<td><p>list (2)</p></td>
+<td><p>regular atomic spin basis order.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">atomic_lm_basis</span></code></p></td>
+<td><p>list (4)</p></td>
+<td><p>regular atomic LM basis order (M: descending).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">atomic_jm_basis</span></code></p></td>
+<td><p>list (4)</p></td>
+<td><p>regular atomic JM basis order (J: ascending, M: descending).</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">atomic_lms_basis</span></code></p></td>
+<td><p>list (4)</p></td>
+<td><p>regular atomic spinful basis order.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">atomic_lgs_basis</span></code></p></td>
+<td><p>list (4)</p></td>
+<td><p>regular atomic spinful basis order of the orbitals (Lgs)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">atomic_rank_block</span></code></p></td>
+<td><p>list (10)</p></td>
+<td><p>bra-ket rank block, (L1,L2) for matrix element of atomic SAMB (uppper triangular block only).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">atomic_latex_name</span></code></p></td>
+<td><p>dict (18)</p></td>
+<td><p>convert to regular atomic latex name.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">wannier90_orbital</span></code></p></td>
+<td><p>dict (9)</p></td>
+<td><p>alias for Wannier90: wannier90 -&gt; regular atomic orbital.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">cubic_orbital_basis</span></code></p></td>
+<td><p>list (4)</p></td>
+<td><p>cubic basis order (multipolar PG harmonics internal basis).</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">hexagonal_orbital_basis</span></code></p></td>
+<td><p>list (4)</p></td>
+<td><p>hexagonal basis order (multipolar PG harmonics internal basis).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">cubic_basis</span></code></p></td>
+<td><p>list (4)</p></td>
+<td><p>spinful basis order of cubic_orbital_basis</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">hexagonal_basis</span></code></p></td>
+<td><p>list (4)</p></td>
+<td><p>spinful basis order of hexagonal_orbital_basis</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">orbital_latex_name</span></code></p></td>
+<td><p>dict (41)</p></td>
+<td><p>convert to latex name up to for internal basis of multipolar PG harmonics and response tensor (add prefix Q/G/T/M).</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">harmonics_key</span></code></p></td>
+<td><p>dict (41)</p></td>
+<td><p>convert from name to key, (“tesseral”, (l,m)), (“Oh”, (rank, irrep, mul, comp)), (“D6h”, (rank, irrep, mul, comp)). negative m represents S, otherwise C.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">max_rank</span></code></p></td>
+<td><p>int</p></td>
+<td><p>max. rank of spherical harmonics.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">max_s_rank</span></code></p></td>
+<td><p>int</p></td>
+<td><p>max. internal rank of spherical harmonics.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">rank_name</span></code></p></td>
+<td><p>dict (14)</p></td>
+<td><p>rank name.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
 </section>
-<section id="from-multipie-ver-2-4-0">
-<h3>from MultiPie Ver.2.4.0<a class="headerlink" href="#from-multipie-ver-2-4-0" title="Link to this heading">#</a></h3>
-<ul class="simple">
-<li><p>data_character_table.py: character table (original)</p></li>
-<li><p>data_compatibility_relation.py: compatibility relation of PG (original)</p></li>
-<li><p>data_group_mpg.py: magnetic point group (original)</p></li>
-<li><p>data_group_msg.py: magnetic space group (original)</p></li>
-<li><p>data_group_pg.py: point group (original)</p></li>
-<li><p>data_group_sg.py: space group (original)</p></li>
-<li><p>data_group_name_list.py: group name (original)</p></li>
-<li><p>data_top_harmonics.py: harmonics of D6h and Oh (orignal)</p></li>
-<li><p>data_top_harmonics_info.py: information of harmonics (orignal)</p></li>
-<li><p>data_wyckoff_site.py: wyckoff site for PG and SG (original)</p></li>
-<li><p>data_wyckoff_bond_sym.py: wyckoff bond for PG and SG with bond symmetry (original)</p></li>
-<li><p>data_wyckoff_mpg.py: wyckoff site for MPG (original)</p></li>
-<li><p>data_wyckoff_msg.py: wyckoff site for MSG (original)</p></li>
-</ul>
+<section id="data-character-table-py">
+<h2>data_character_table.py<a class="headerlink" href="#data-character-table-py" title="Link to this heading">#</a></h2>
+<p>Character tables of all 47 point groups.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>variable</p></th>
+<th class="head"><p>type (size)</p></th>
+<th class="head"><p>description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">character</span></code></p></td>
+<td><p>dict (47)</p></td>
+<td><p>{ PG: ( [[SO in conjugacy class]], { irrep: [character] } ) }</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Character table for all point groups.
+    { point_group: ( [[symmetry operations in conjugacy class]], { irrep: [character] } ) }
+
+- wp = exp(+2pi i/3), wm = exp(-2pi i/3).
+- polar-axial conversion and symmetric/anti-symmetric products are computed from the characters
+  (create_binary.create_group.character_plus).
+</pre></div>
+</div>
 </section>
-<section id="under-consideration-exist-in-multipie-ver-2-4-0">
-<h3>under consideration (exist in MultiPie Ver.2.4.0)<a class="headerlink" href="#under-consideration-exist-in-multipie-ver-2-4-0" title="Link to this heading">#</a></h3>
-<ul class="simple">
-<li><p>data_definition.py: separate to basis, harmonics, etc.</p></li>
-<li><p>data_product_so_pg.py: can be created.</p></li>
-<li><p>data_response_tensor.py: move to harmonics ?</p></li>
-</ul>
+<section id="data-compatibility-relation-py">
+<h2>data_compatibility_relation.py<a class="headerlink" href="#data-compatibility-relation-py" title="Link to this heading">#</a></h2>
+<p>Compatibility relations of the Oh and D6h subgroups.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>variable</p></th>
+<th class="head"><p>type (size)</p></th>
+<th class="head"><p>description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">compatibility_relation</span></code></p></td>
+<td><p>dict (47)</p></td>
+<td><p>{ PG: (top PG, { (top irrep, comp): ((polar irrep, comp, coeff), (axial irrep, comp, coeff)) }) }</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Compatibility relation for Oh and D6h subgroups.
+    { point group: (top_pg, compatibility_relation }.
+    compatibility_relation = { (top_pg_irrep, top_pg_comp): ((irrep_polar, comp, coeff.), (irrep_axial, comp, coeff.)) }.
+
+- real expressions are used for complex group, and corresponding complex version is the point group with "-c".
+</pre></div>
+</div>
 </section>
+<section id="data-group-mpg-py">
+<h2>data_group_mpg.py<a class="headerlink" href="#data-group-mpg-py" title="Link to this heading">#</a></h2>
+<p>Group information of the magnetic point groups.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>variable</p></th>
+<th class="head"><p>type (size)</p></th>
+<th class="head"><p>description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">mpg_info</span></code></p></td>
+<td><p>dict (157)</p></td>
+<td><p>{ MPG_id: field }</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Group information for all magnetic point groups.
+
+- mpg_info.
+    { MPG_id: field }
+    MPG_id: MPG:{PG}.{no}.{ID} (PG:1-37, ID:1-155).
+- mpg_tag, mpg_id, mpg_id_set: derived from mpg_info in multipiegen.util.util_group_data.
+
+- field.
+    - tag: MPG_id (PG.no.ID).
+    - international: international short symbol in LaTeX.
+    - schoenflies: Schoenflies symbol in LaTeX.
+    - crystal: triclinic, monoclinic, orthorhombic, tetragonal, trigonal, hexagonal, cubic.
+    - setting: setting.
+    - PG: associated PG, unique.
+    - SG: associated SG, MPG -&gt; MSG -&gt; SG.
+    - MPG: = id.
+    - MSG: associated MSG, 1st MSG in the same MPGs.
+    - lattice: "0".
+    - hexagonal_g: trigonal or hexagonal ?
+    - type: type I, II, III.
+    - SO: symmetry operations.
+</pre></div>
+</div>
+</section>
+<section id="data-group-msg-py">
+<h2>data_group_msg.py<a class="headerlink" href="#data-group-msg-py" title="Link to this heading">#</a></h2>
+<p>Group information of the magnetic space groups.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>variable</p></th>
+<th class="head"><p>type (size)</p></th>
+<th class="head"><p>description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">msg_info</span></code></p></td>
+<td><p>dict (1651)</p></td>
+<td><p>{ MSG_id: field }</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Group information for all magnetic space groups.
+
+- msg_info.
+    { MSG_id: field }
+    MSG_id: MSG:{SG}.{no} (SG:1-230).
+- msg_tag, msg_id, msg_id_set: derived from msg_info in multipiegen.util.util_group_data.
+
+- field.
+    - tag: BNS_id (SG.no).
+    - BNS: Belov-Neronova-Smirnova (international) notation in LaTeX.
+    - OG: Opechowski-Guccione notation in LaTeX.
+    - schoenflies: Schoenflies symbol in LaTeX.
+    - crystal: triclinic, monoclinic, orthorhombic, tetragonal, trigonal, hexagonal, cubic.
+    - setting: setting.
+    - PG: associated PG, unique.
+    - SG: associated SG, unique.
+    - MPG: associated MPG, unique.
+    - MSG: = id.
+    - lattice: A, B, C, P, I, F, R.
+    - hexagonal_g: trigonal or hexagonal ?
+    - type: type I, II, III, IV.
+    - SO: symmetry operations.
+</pre></div>
+</div>
+</section>
+<section id="data-group-pg-py">
+<h2>data_group_pg.py<a class="headerlink" href="#data-group-pg-py" title="Link to this heading">#</a></h2>
+<p>Group information of the point groups.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>variable</p></th>
+<th class="head"><p>type (size)</p></th>
+<th class="head"><p>description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">pg_info</span></code></p></td>
+<td><p>dict (47)</p></td>
+<td><p>{ PG_id: field }</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Group information for all point groups.
+
+- pg_info.
+    { PG_id: field }
+    PG_id: PG:{ID} (ID:1-37; complex:38-47).
+- pg_tag, pg_id, pg_id_set: derived from pg_info in multipiegen.util.util_group_data.
+
+- field.
+    - tag: Schoenflies in text.
+    - international: international short symbol in LaTeX.
+    - schoenflies: Schoenflies symbol in LaTeX.
+    - crystal: triclinic, monoclinic, orthorhombic, tetragonal, trigonal, hexagonal, cubic.
+    - setting: setting.
+    - PG: = id.
+    - SG: associated SG, 1st SG in the same PGs.
+    - MPG: associated MPG, 1st MPG with type II in the same PGs.
+    - MSG: associated MSG, PG -&gt; MPG -&gt; MSG.
+    - lattice: "0".
+    - hexagonal_g: trigonal or hexagonal ?
+    - SO: symmetry operations.
+    - SO_gen: generator of SOs.
+</pre></div>
+</div>
+</section>
+<section id="data-group-sg-py">
+<h2>data_group_sg.py<a class="headerlink" href="#data-group-sg-py" title="Link to this heading">#</a></h2>
+<p>Group information of the space groups.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>variable</p></th>
+<th class="head"><p>type (size)</p></th>
+<th class="head"><p>description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">sg_info</span></code></p></td>
+<td><p>dict (230)</p></td>
+<td><p>{ SG_id: field }</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Group information for all space groups.
+
+- sg_info.
+    { SG_id: field }
+    SG_id: SG:{ID} (ID:1-230).
+- sg_tag, sg_id, sg_id_set: derived from sg_info in multipiegen.util.util_group_data.
+
+- field.
+    - tag: Schoenflies symbol in text.
+    - international: international short symbol in LaTeX.
+    - schoenflies: Schoenflies symbol in LaTeX.
+    - crystal: triclinic, monoclinic, orthorhombic, tetragonal, trigonal, hexagonal, cubic.
+    - setting: setting comment.
+    - PG: associated PG, unique.
+    - SG: = id.
+    - MPG: associated MPG, SG -&gt; MSG -&gt; MPG.
+    - MSG: associated MSG, 1st MSG with type II in the same SGs.
+    - lattice: A, B, C, P, I, F, R.
+    - hexagonal_g: trigonal or hexagonal ?
+    - SO: symmetry operations.
+    - SO_gen: generator of SOs.
+</pre></div>
+</div>
+</section>
+<section id="data-parent-pg-py">
+<h2>data_parent_pg.py<a class="headerlink" href="#data-parent-pg-py" title="Link to this heading">#</a></h2>
+<p>Parent point groups of each point group.</p>
+<p>Created by <code class="docutils literal notranslate"><span class="pre">others/creation/create_parent_pg_mapping.py</span></code>.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>variable</p></th>
+<th class="head"><p>type (size)</p></th>
+<th class="head"><p>description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">data_parent_pg</span></code></p></td>
+<td><p>dict (35)</p></td>
+<td><p>{ child PG_id: { parent PG_id: ([[parent SO]], R) } }</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">data_representative_parent_pg</span></code></p></td>
+<td><p>dict (35)</p></td>
+<td><p>{ child PG_id: parent_PG_id }</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Parent group information for all point groups.
+
+- data_parent_pg.
+    { child PG_id: { parent PG_id: ([[parent SO]], R) } }.
+    SO: 1-based, [parent SO] in order of child-PG SO.
+    R: rotation matrix for converting principal axis (fractional).
+
+- data_representative_parent_pg (first parent PG in data_parent_pg).
+    { child PG_id: parent_PG_id }.
+</pre></div>
+</div>
+</section>
+<section id="data-parent-sg-py">
+<h2>data_parent_sg.py<a class="headerlink" href="#data-parent-sg-py" title="Link to this heading">#</a></h2>
+<p>Parent space groups of each space group.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>variable</p></th>
+<th class="head"><p>type (size)</p></th>
+<th class="head"><p>description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">data_parent_sg</span></code></p></td>
+<td><p>dict (216)</p></td>
+<td><p>{ child SG_id: { parent SG_id: ([[parent SO]], R) } }. [only one parent group compatible with representative parent PG]</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">data_representative_parent_sg</span></code></p></td>
+<td><p>dict (216)</p></td>
+<td><p>{ child SG_id: parent_SG_id }</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Parent group information for all space groups.
+
+- data_parent_sg.
+    { child SG_id: { parent SG_id: ([[parent SO]], R) } }. [only one parent group compatible with representative parent PG]
+    SO: 1-based, [parent SO] in order of child-SG SO.
+    R: rotation + translation matrix for converting principal axis (fractional).
+
+- data_representative_parent_sg.
+    { child SG_id: parent_SG_id }.
+</pre></div>
+</div>
+</section>
+<section id="data-response-tensor-py">
+<h2>data_response_tensor.py<a class="headerlink" href="#data-response-tensor-py" title="Link to this heading">#</a></h2>
+<p>Multipoles in the response tensors and their cartesian components.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>variable</p></th>
+<th class="head"><p>type (size)</p></th>
+<th class="head"><p>description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">rt_multipole_list</span></code></p></td>
+<td><p>dict (2)</p></td>
+<td><p>list of multipoles in response tensor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">rt_cartesian_multipole</span></code></p></td>
+<td><p>dict (2)</p></td>
+<td><p>cartesian component in terms of multipoles.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Note:
+definition of gv is changed. (it is multiplied by (-1)).
+change name.
+</pre></div>
+</div>
+</section>
+<section id="data-root-cluster-py">
+<h2>data_root_cluster.py<a class="headerlink" href="#data-root-cluster-py" title="Link to this heading">#</a></h2>
+<p>Oh and D6h clusters with the representative site and vector.</p>
+<p>Created by <code class="docutils literal notranslate"><span class="pre">others/creation/create_root_cluster.py</span></code>.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>variable</p></th>
+<th class="head"><p>type (size)</p></th>
+<th class="head"><p>description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">oh_cluster_cart_site0</span></code></p></td>
+<td><p>str</p></td>
+<td><p>representative site in cartesian coordinate (normalized when necessary), radius of scaled one is given by 1/scale. d6h with principal axis [111] is equivanlent to oh.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">d6h_cluster_cart_site0</span></code></p></td>
+<td><p>str</p></td>
+<td><p>representative site of D6h cluster. (same as oh for principal axis [111])</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">oh_cluster_cart_vector0</span></code></p></td>
+<td><p>str</p></td>
+<td><p>representative vector in cartesian coordinate (normalized when necessary). it should not be parallel nor perpendicular to site0 vector. d6h with principal axis [111] is equivanlent to oh.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">d6h_cluster_cart_vector0</span></code></p></td>
+<td><p>str</p></td>
+<td><p>representative vector of D6h cluster. (same as oh for principal axis [111])</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">cluster_scale</span></code></p></td>
+<td><p>int</p></td>
+<td><p>scale factor for space group purpose. site0 is scaled as site0/scale.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">oh_cluster_cart</span></code></p></td>
+<td><p>str</p></td>
+<td><p>positions of oh0 cluster in cartesian coordinate (48 points). principal axis [001]. (same as general Wyckoff points)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">d6h_cluster_cart</span></code></p></td>
+<td><p>str</p></td>
+<td><p>positions of D6h cluster in cartesian coordinate (24 points). principal axis [001]. (same as general Wyckoff points)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Definition of root cluseter.
+
+- oh_cluster_cart_site0 (str): representative site of Oh cluster.
+- d6h_cluster_cart_site0 (str): representative site of D6h cluster. (same as oh for principal axis [111])
+- oh_cluster_cart_vector0 (str): representative vector of Oh cluster.
+- d6h_cluster_cart_vector0 (str): representative vector of D6h cluster. (same as oh for principal axis [111])
+- cluster_scale (int): scale factor (site -&gt; site/scale).
+- oh_cluster_cart (str): sites of Oh cluster (first=[x,y,z]).
+- d6h_cluster_cart (str): sites of D6h cluster (first=[x,y,z]).
+
+note:
+- general points of Oh (oh0).
+    - oh0 : gs @ [x,y,z]
+
+- general points of D6h (d6h0).
+    - d6h0 : g0s @ [x,y,z], where g0s in principal axis [111] ([-110],[-1-12])
+</pre></div>
+</div>
+</section>
+<section id="data-top-harmonics-py">
+<h2>data_top_harmonics.py<a class="headerlink" href="#data-top-harmonics-py" title="Link to this heading">#</a></h2>
+<p>Harmonics of the top groups (Oh, D6h).</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>variable</p></th>
+<th class="head"><p>type (size)</p></th>
+<th class="head"><p>description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">top_harmonics_tag</span></code></p></td>
+<td><p>dict (2)</p></td>
+<td><p>tags of the top harmonics</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">top_harmonics</span></code></p></td>
+<td><p>dict (480)</p></td>
+<td><p>top harmonics (cartesian expression) of Oh and D6h</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Note:
+definitions of ("D6h", 4, "E2g", 2, 0) and ("D6h", 4, "E2g", 2, 1) are changed. (both is multiplied by (-1))
+</pre></div>
+</div>
+</section>
+<section id="data-wyckoff-bond-sym-py">
+<h2>data_wyckoff_bond_sym.py<a class="headerlink" href="#data-wyckoff-bond-sym-py" title="Link to this heading">#</a></h2>
+<p>Wyckoff bonds of the point and space groups with the bond symmetry.</p>
+<p>Created by <code class="docutils literal notranslate"><span class="pre">others/creation/create_wyckoff_bond.py</span></code>.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>variable</p></th>
+<th class="head"><p>type (size)</p></th>
+<th class="head"><p>description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">wyckoff_bond_data</span></code></p></td>
+<td><p>dict (277)</p></td>
+<td><p>{ group: { Wyckoff: (vector, center, mapping, bond_symmetry) } }</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Wyckoff bond for all space and point groups (fractional coordinate, conventional cell, no plus set).
+- wyckoff_bond_data.
+    { group: { Wyckoff: (vector, center, mapping, bond_symmetry) } }
+</pre></div>
+</div>
+</section>
+<section id="data-wyckoff-mpg-py">
+<h2>data_wyckoff_mpg.py<a class="headerlink" href="#data-wyckoff-mpg-py" title="Link to this heading">#</a></h2>
+<p>Wyckoff sites of the magnetic point groups.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>variable</p></th>
+<th class="head"><p>type (size)</p></th>
+<th class="head"><p>description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">wyckoff_mpg_data</span></code></p></td>
+<td><p>dict (157)</p></td>
+<td><p>{ MPG_id: { Wyckoff: (position, site-symmetry) } }</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Wyckoff positions for all magnetic point groups (fractional coordinate).
+    MPG_id: { Wyckoff: (position, site-symmetry) }
+</pre></div>
+</div>
+</section>
+<section id="data-wyckoff-msg-py">
+<h2>data_wyckoff_msg.py<a class="headerlink" href="#data-wyckoff-msg-py" title="Link to this heading">#</a></h2>
+<p>Wyckoff sites of the magnetic space groups.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>variable</p></th>
+<th class="head"><p>type (size)</p></th>
+<th class="head"><p>description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">wyckoff_msg_data</span></code></p></td>
+<td><p>dict (1651)</p></td>
+<td><p>{ MSG_id: { Wyckoff: (position, site-symmetry) } }</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Wyckoff positions for all magnetic space groups (fractional coordinate).
+    MSG_id: { Wyckoff: (position, site-symmetry) }
+
+- alpha in wyckoff letter is replaced by A.
+</pre></div>
+</div>
+</section>
+<section id="data-wyckoff-site-py">
+<h2>data_wyckoff_site.py<a class="headerlink" href="#data-wyckoff-site-py" title="Link to this heading">#</a></h2>
+<p>Wyckoff sites of the point and space groups.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>variable</p></th>
+<th class="head"><p>type (size)</p></th>
+<th class="head"><p>description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">wyckoff_site_data</span></code></p></td>
+<td><p>dict (267)</p></td>
+<td><p>{ PG/SG: { Wyckoff: (position, site-symmetry) } } (point groups first)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Wyckoff positions for all point groups (fractional coordinate) and space groups (fractional coordinate, conventional
+cell).
+    wyckoff_site_data = { point_group/space_group: { Wyckoff: (position, site-symmetry) } } (point groups first)
+
+- only for standard setting, (unique b axes; for space groups origin choice 2, hexagonal axes, abc).
+- positions are in the same order of ITA (BCS).
+</pre></div>
+</div>
 </section>
 </section>
 
@@ -506,12 +1235,22 @@ They are created by the scripts in <code class="docutils literal notranslate"><s
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="pst-show_toc_level nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#text-data">text data</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#new">new</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#from-multipie-ver-2-4-0">from MultiPie Ver.2.4.0</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#under-consideration-exist-in-multipie-ver-2-4-0">under consideration (exist in MultiPie Ver.2.4.0)</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-basis-py">data_basis.py</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-character-table-py">data_character_table.py</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-compatibility-relation-py">data_compatibility_relation.py</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-group-mpg-py">data_group_mpg.py</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-group-msg-py">data_group_msg.py</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-group-pg-py">data_group_pg.py</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-group-sg-py">data_group_sg.py</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-parent-pg-py">data_parent_pg.py</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-parent-sg-py">data_parent_sg.py</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-response-tensor-py">data_response_tensor.py</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-root-cluster-py">data_root_cluster.py</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-top-harmonics-py">data_top_harmonics.py</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-wyckoff-bond-sym-py">data_wyckoff_bond_sym.py</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-wyckoff-mpg-py">data_wyckoff_mpg.py</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-wyckoff-msg-py">data_wyckoff_msg.py</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-wyckoff-site-py">data_wyckoff_site.py</a></li>
 </ul>
   </nav></div>
 

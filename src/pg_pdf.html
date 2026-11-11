@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=34ddd5e8" />
@@ -69,7 +69,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Space groups" href="sg_pdf.html" />
-    <link rel="prev" title="Binary data" href="binary.html" />
+    <link rel="prev" title="Overall information" href="info_pdf.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -211,30 +211,57 @@
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Documentation</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="data.html">Data tables</a></li>
-<li class="toctree-l1"><a class="reference internal" href="binary.html">Binary data</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Point groups</a></li>
-<li class="toctree-l1"><a class="reference internal" href="sg_pdf.html">Space groups</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mpg_pdf.html">Magnetic point groups</a></li>
-<li class="toctree-l1"><a class="reference internal" href="msg_pdf.html">Magnetic space groups</a></li>
-<li class="toctree-l1"><a class="reference internal" href="info_pdf.html">Overall information</a></li>
-<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="group_info.html">Group Information</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="info_pdf.html">Overall information</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Point groups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sg_pdf.html">Space groups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mpg_pdf.html">Magnetic point groups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="msg_pdf.html">Magnetic space groups</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="notes.html">Notes</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="details.html">Details</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="binary.html">Binary data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data.html">Data tables</a></li>
+</ul>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">API reference</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="api_util.html">Utilities</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="api_util/util_info.html">Info</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api_util/util_group.html">Group</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_util/util_group_data.html">Group data (ids, tags, names)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_util/util_top_harmonics.html">Top harmonics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_util/util_harmonics_mapping.html">Harmonics mapping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_util/util_op_mapping.html">Operation mapping</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api_util/util_cluster_basis.html">Cluster basis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_util/util_cluster_vector_basis.html">Vector cluster basis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_util/util_bond_cluster_basis.html">Bond cluster basis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_util/util_cluster_samb.html">Cluster SAMB</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api_util/util_harmonics_symbol.html">Harmonics symbol</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_util/util_harmonics.html">Harmonics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_util/util_harmonics_multipole.html">Multipolar harmonics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api_util/util_multipolar_harmonics.html">Multipolar harmonics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_util/util_atomic_multipole.html">Atomic multipole</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api_util/util_symmetry_operation.html">Symmetry operation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_util/util_representation_matrix.html">Representation matrix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_util/util_response_tensor.html">Response tensor</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="api_create.html">Generators</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="api_create/create_info.html">Info binary</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api_create/create_group.html">Group binary</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api_create/create_cluster_basis.html">Cluster basis binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_create/create_response_tensor.html">Response tensor binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_create/create_harmonics.html">Harmonics binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_create/create_multipolar_harmonics.html">Multipolar harmonics binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_create/create_atomic_multipole.html">Atomic multipole binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_create/create_atomic_multipole_group.html">Atomic multipole group binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_create/create_cluster_scalar_basis.html">Cluster scalar basis binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_create/create_cluster_vector_basis.html">Vector cluster basis binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_create/create_cluster_bond_basis.html">Cluster bond basis binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_create/create_cluster_samb.html">Cluster SAMB binary</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api_create/create_pdf_harmonics.html">Harmonics PDF</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api_create/create_pdf_info.html">Information PDF</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api_create/create_pdf_group.html">Group PDF</a></li>
@@ -288,7 +315,7 @@
 <div class="article-header-buttons">
 
 
-<a href="https://github.com/hiro-k-phys/mp-newbasis.git" target="_blank"
+<a href="https://github.com/hiro-k-phys/MultiPieGen.git" target="_blank"
    class="btn btn-sm btn-source-repository-button"
    title="Source repository"
    data-bs-placement="bottom" data-bs-toggle="tooltip"
@@ -420,12 +447,15 @@
                   
   <section class="tex2jax_ignore mathjax_ignore" id="point-groups">
 <h1>Point groups<a class="headerlink" href="#point-groups" title="Link to this heading">#</a></h1>
-<p>PDFs of all 47 point groups (32 crystallographic point groups, 5 other settings “-1”, and 10 complex groups “-c”),
-in <code class="docutils literal notranslate"><span class="pre">multipiegen/pdf/PG/{no}-{tag}/</span></code>.</p>
+<p>All 47 point groups: 32 crystallographic point groups, 5 other settings (“-1”), and 10 complex groups (“-c”).</p>
 <ul class="simple">
 <li><p>harmonics: harmonics up to rank 11, with the polar (Q) and axial (G) symbols side by side (the expression is that
-of the polar harmonics), created by <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">multipiegen.create_pdf.create_pdf_harmonics</span></code>.</p></li>
-<li><p>character, symmetry operation, Wyckoff site and bond: created by <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">multipiegen.create_pdf.create_pdf_group</span></code>.</p></li>
+of the polar harmonics).</p></li>
+<li><p>character: character table, polar-axial conversion, and symmetric and anti-symmetric products.</p></li>
+<li><p>symmetry operation, Wyckoff site and bond, representation matrix: as the names say.</p></li>
+<li><p>s=1…3 q/g: multipolar harmonics (rank &lt;= 3) with internal rank s and polar (q) or axial (g) internal basis.</p></li>
+<li><p>atomic lg/lgs/jml: atomic multipole SAMB (matrices in the bra-ket blocks of s, p, d, f orbitals) in the
+(L,gamma), (L,gamma,s), and (J,M;L) basis.</p></li>
 </ul>
 <section id="triclinic">
 <h2>Triclinic<a class="headerlink" href="#triclinic" title="Link to this heading">#</a></h2>
@@ -440,6 +470,16 @@ of the polar harmonics), created by <code class="docutils literal notranslate"><
 <th class="head text-left"><p>symmetry operation</p></th>
 <th class="head text-left"><p>Wyckoff site</p></th>
 <th class="head text-left"><p>Wyckoff bond</p></th>
+<th class="head text-left"><p>representation matrix</p></th>
+<th class="head text-left"><p>s=1 q</p></th>
+<th class="head text-left"><p>s=1 g</p></th>
+<th class="head text-left"><p>s=2 q</p></th>
+<th class="head text-left"><p>s=2 g</p></th>
+<th class="head text-left"><p>s=3 q</p></th>
+<th class="head text-left"><p>s=3 g</p></th>
+<th class="head text-left"><p>atomic lg</p></th>
+<th class="head text-left"><p>atomic lgs</p></th>
+<th class="head text-left"><p>atomic jml</p></th>
 </tr>
 </thead>
 <tbody>
@@ -452,6 +492,16 @@ of the polar harmonics), created by <code class="docutils literal notranslate"><
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/18e537fe93b702bd4c6ad4d04f194a43/symmetry_operation.pdf"><span class="xref download myst">PDF</span></a></p></td>
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/4375dc1ea04a7b8de8b97ded87780b22/wyckoff_site.pdf"><span class="xref download myst">PDF</span></a></p></td>
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/3464263d43cd35353bdcaab1c0ccd157/wyckoff_bond.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/d493f8b87a69f0ec5c7c50e7f4cf6bbd/representation_matrix.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/f31803fb40eae8dc3ccb0ca5edcb34be/multipolar_harmonics_s1_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/fd0ffac94b8ad9af996acd0f4954231b/multipolar_harmonics_s1_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/331781ad18415ec7238a6486a4d92d69/multipolar_harmonics_s2_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/0a9b096c84f351a54a3d268a6f9f2353/multipolar_harmonics_s2_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/c6fc7b4d894aacc79763a2dcf30d88cd/multipolar_harmonics_s3_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/a6b6cdd18e9f513a8ecc98b1c6f84f52/multipolar_harmonics_s3_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/3c717831405b8e8f383c7dd7b63fbee0/atomic_multipole_lg.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/0bf39f8a303c325b436ebf5626e43899/atomic_multipole_lgs.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/4e305d559a7e8fb77adf8393aa9772cf/atomic_multipole_jml.pdf"><span class="xref download myst">PDF</span></a></p></td>
 </tr>
 <tr class="row-odd"><td class="text-left"><p>2</p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\(C_{\rm i}\)</span></p></td>
@@ -462,6 +512,16 @@ of the polar harmonics), created by <code class="docutils literal notranslate"><
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/5f5d7ba82e82492b9995bb7a62d42ed2/symmetry_operation.pdf"><span class="xref download myst">PDF</span></a></p></td>
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/98a817c6d11dad7234a872af0bc3a6d6/wyckoff_site.pdf"><span class="xref download myst">PDF</span></a></p></td>
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/d6be7023b4d79cd183cb578484703f0d/wyckoff_bond.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/36002a3df996edf8250edc73bb879411/representation_matrix.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/97bf4eabac7b2b296b9937186fff62b3/multipolar_harmonics_s1_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/5ea1d70e180db792ef86eb5bdefdae55/multipolar_harmonics_s1_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/e5d865565544c9add10668941d47a097/multipolar_harmonics_s2_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/b753adf70b3682380393e2d52adcb652/multipolar_harmonics_s2_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/06c9e41dd9d8d03ae69b3daa972ab9e3/multipolar_harmonics_s3_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/7a2d9c03cbde61a75bd653e822f6a496/multipolar_harmonics_s3_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/617e447f3de3a951cf51c570fcd6528d/atomic_multipole_lg.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/f03eac689177751f7e8d48cd61874ba3/atomic_multipole_lgs.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/2f93a0c81cc2a68a6a10cb105ed76c09/atomic_multipole_jml.pdf"><span class="xref download myst">PDF</span></a></p></td>
 </tr>
 </tbody>
 </table>
@@ -480,6 +540,16 @@ of the polar harmonics), created by <code class="docutils literal notranslate"><
 <th class="head text-left"><p>symmetry operation</p></th>
 <th class="head text-left"><p>Wyckoff site</p></th>
 <th class="head text-left"><p>Wyckoff bond</p></th>
+<th class="head text-left"><p>representation matrix</p></th>
+<th class="head text-left"><p>s=1 q</p></th>
+<th class="head text-left"><p>s=1 g</p></th>
+<th class="head text-left"><p>s=2 q</p></th>
+<th class="head text-left"><p>s=2 g</p></th>
+<th class="head text-left"><p>s=3 q</p></th>
+<th class="head text-left"><p>s=3 g</p></th>
+<th class="head text-left"><p>atomic lg</p></th>
+<th class="head text-left"><p>atomic lgs</p></th>
+<th class="head text-left"><p>atomic jml</p></th>
 </tr>
 </thead>
 <tbody>
@@ -492,6 +562,16 @@ of the polar harmonics), created by <code class="docutils literal notranslate"><
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/f21fb532f067defe80c8736972ca27da/symmetry_operation.pdf"><span class="xref download myst">PDF</span></a></p></td>
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/ad67db428fdc29d7bd4e3e36ea62a7f2/wyckoff_site.pdf"><span class="xref download myst">PDF</span></a></p></td>
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/990b62edffc34ac7ae38fa5735dff68a/wyckoff_bond.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/ae2d7adbb1ced42687d10e60a4035523/representation_matrix.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/3403fefb81b53c70b53df850053c982f/multipolar_harmonics_s1_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/56199b15e722471a9ddd53f485020dc8/multipolar_harmonics_s1_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/e0499222ef6e26409229345028b5f731/multipolar_harmonics_s2_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/c824b2369aabb00cc1edc0b11d7609b7/multipolar_harmonics_s2_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/3b10209fe720ed35b485f0d2bae74713/multipolar_harmonics_s3_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/b470ce506ab912aa626eb446570f9293/multipolar_harmonics_s3_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/06f47b02fe5bea6c5ecea90d193928dc/atomic_multipole_lg.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/3ed8ccba4674c860c4773b11a251f82d/atomic_multipole_lgs.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/37c3ce44b1906be6a1825f87c834a400/atomic_multipole_jml.pdf"><span class="xref download myst">PDF</span></a></p></td>
 </tr>
 <tr class="row-odd"><td class="text-left"><p>4</p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\(C_{\rm s}\)</span></p></td>
@@ -502,6 +582,16 @@ of the polar harmonics), created by <code class="docutils literal notranslate"><
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/6519409bde73e4ef6f0261e8258709a8/symmetry_operation.pdf"><span class="xref download myst">PDF</span></a></p></td>
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/69e844d62baf3dadec9a1f54f8ef342b/wyckoff_site.pdf"><span class="xref download myst">PDF</span></a></p></td>
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/88829d3216f1a87698a8d5d9fc80595b/wyckoff_bond.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/3495ff2abd49830799fbe80e68117fd1/representation_matrix.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/17efaf1d98d229f721cb365a8ebe9e2e/multipolar_harmonics_s1_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/c6785cd8be9ded6a78112fa1a16ceea5/multipolar_harmonics_s1_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/e292a7115c56e7ae8858f793fa425afe/multipolar_harmonics_s2_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/a566b767fa989b6a49bf25ea8b65103b/multipolar_harmonics_s2_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/cd01785b4c53cbc44eb8301b9bfa2796/multipolar_harmonics_s3_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/9351d376843dc72bbd28a3888fda463a/multipolar_harmonics_s3_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/383a8dd6a8e8254ed53efe401d9df9c9/atomic_multipole_lg.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/5c3f1669883ff96e682f0c7179311e91/atomic_multipole_lgs.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/9a06e0f8e66cd43adda9e8b0dcad2367/atomic_multipole_jml.pdf"><span class="xref download myst">PDF</span></a></p></td>
 </tr>
 <tr class="row-even"><td class="text-left"><p>5</p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\(C_{\rm 2h}\)</span></p></td>
@@ -512,6 +602,16 @@ of the polar harmonics), created by <code class="docutils literal notranslate"><
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/7db0fd65b60cdb5de4da65e1207c36ff/symmetry_operation.pdf"><span class="xref download myst">PDF</span></a></p></td>
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/e7ad17222b39060c999f1035ec329f4f/wyckoff_site.pdf"><span class="xref download myst">PDF</span></a></p></td>
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/4c9e9cbcfcb9f9e61362c28fd5372971/wyckoff_bond.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/29b051e8a361f26a2f3bcd3edd5852fd/representation_matrix.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/d39f36b584bbe7fe852052720f2a6faf/multipolar_harmonics_s1_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/552267e0c5021b8fc6a411aa1d066662/multipolar_harmonics_s1_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/51157f9584b342dcd65a244ba7259e67/multipolar_harmonics_s2_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/5a6818fc55980b4319b22154d9f1e104/multipolar_harmonics_s2_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/8ed97bb7eea21d22dc6f932e6d27d00c/multipolar_harmonics_s3_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/91b8c578440136ba41db42f45565e73e/multipolar_harmonics_s3_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/2ce1d307758a33a8bc0df75408964c91/atomic_multipole_lg.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/fac3c0a770f13814331530d7c7df9956/atomic_multipole_lgs.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/9ba1216eff0979518eed49d8f7bdd3a2/atomic_multipole_jml.pdf"><span class="xref download myst">PDF</span></a></p></td>
 </tr>
 </tbody>
 </table>
@@ -530,6 +630,16 @@ of the polar harmonics), created by <code class="docutils literal notranslate"><
 <th class="head text-left"><p>symmetry operation</p></th>
 <th class="head text-left"><p>Wyckoff site</p></th>
 <th class="head text-left"><p>Wyckoff bond</p></th>
+<th class="head text-left"><p>representation matrix</p></th>
+<th class="head text-left"><p>s=1 q</p></th>
+<th class="head text-left"><p>s=1 g</p></th>
+<th class="head text-left"><p>s=2 q</p></th>
+<th class="head text-left"><p>s=2 g</p></th>
+<th class="head text-left"><p>s=3 q</p></th>
+<th class="head text-left"><p>s=3 g</p></th>
+<th class="head text-left"><p>atomic lg</p></th>
+<th class="head text-left"><p>atomic lgs</p></th>
+<th class="head text-left"><p>atomic jml</p></th>
 </tr>
 </thead>
 <tbody>
@@ -542,6 +652,16 @@ of the polar harmonics), created by <code class="docutils literal notranslate"><
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/967b048efd9e6b0a05556cd32965121d/symmetry_operation.pdf"><span class="xref download myst">PDF</span></a></p></td>
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/a6c1019f7a33a7809de594251dee34d1/wyckoff_site.pdf"><span class="xref download myst">PDF</span></a></p></td>
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/86cd5df5d5cc2624bb887cf6115096e4/wyckoff_bond.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/a52ac58c08f26328eed613331b61a864/representation_matrix.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/bd72d28aeecac69e4c45d176a8769f34/multipolar_harmonics_s1_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/7534d9c2301f23768a1c56a5b7e870c9/multipolar_harmonics_s1_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/ea423e6ad12083b705ca60b1ea7a1670/multipolar_harmonics_s2_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/1d5fe88bd963ae32f86c06f96e5a249c/multipolar_harmonics_s2_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/45860284209b47f3fd90b40264840705/multipolar_harmonics_s3_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/cc78d5155a6d13372c75fadfd7f343c1/multipolar_harmonics_s3_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/1704b8871b173a9ad08a3a081721616a/atomic_multipole_lg.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/8973999194d95f115651c6fac99681ed/atomic_multipole_lgs.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/12cff402e812a1923ddb4d62c4c4067f/atomic_multipole_jml.pdf"><span class="xref download myst">PDF</span></a></p></td>
 </tr>
 <tr class="row-odd"><td class="text-left"><p>7</p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\(C_{\rm 2v}\)</span></p></td>
@@ -552,6 +672,16 @@ of the polar harmonics), created by <code class="docutils literal notranslate"><
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/8bfdfe59c3801cf6e19b4a486685de8c/symmetry_operation.pdf"><span class="xref download myst">PDF</span></a></p></td>
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/df3d3c25c9fcff6cce2cd4591416e00d/wyckoff_site.pdf"><span class="xref download myst">PDF</span></a></p></td>
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/2b53d72e68f6c412907c834f4a1dba85/wyckoff_bond.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/90b71b3e5a8b32ce9a5ebeefacefecfe/representation_matrix.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/3ebd33cf020bf3c32397e64d39e3d2d2/multipolar_harmonics_s1_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/936c146f4ddac8db138d03ebbfa5e52a/multipolar_harmonics_s1_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/39fad5dabb5ceb60a4530fbd8c586ead/multipolar_harmonics_s2_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/2128504b2a5a1ceb2a853a9a474f1b4d/multipolar_harmonics_s2_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/20a8b05c00a225e289f8f8885cf1126f/multipolar_harmonics_s3_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/47e849b52d7471f48d02a69f8c8830d9/multipolar_harmonics_s3_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/2d3c652a02d61704c83b4ca07cb5a112/atomic_multipole_lg.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/b856faf2a0621ee638546b5c51b33cf7/atomic_multipole_lgs.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/e355d39a5b0a7ffe563ce0ddc9142988/atomic_multipole_jml.pdf"><span class="xref download myst">PDF</span></a></p></td>
 </tr>
 <tr class="row-even"><td class="text-left"><p>8</p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\(D_{\rm 2h}\)</span></p></td>
@@ -562,6 +692,16 @@ of the polar harmonics), created by <code class="docutils literal notranslate"><
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/11fca2778953ec3f216b37e26eb07b33/symmetry_operation.pdf"><span class="xref download myst">PDF</span></a></p></td>
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/943ba2eef6fa5c792832c9fe55ae4254/wyckoff_site.pdf"><span class="xref download myst">PDF</span></a></p></td>
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/ba87c30aed508dd7a11d3a93c0767848/wyckoff_bond.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/4f3fededc72850433527a833adb37493/representation_matrix.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/4210faac941ba2d6f1563eb61214585a/multipolar_harmonics_s1_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/3b8826ca9c248b3ee3b51d8c2039b4e4/multipolar_harmonics_s1_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/39d68c1f1be6f81a5868defa027763b9/multipolar_harmonics_s2_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/809756580532ab2040c384a769314acc/multipolar_harmonics_s2_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/ec8043a6d5d9d7b7a6efc407344507d4/multipolar_harmonics_s3_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/1d2778290eb023e4edad273b29e9f8be/multipolar_harmonics_s3_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/acde3e274bff79382ea0f815c42f5cc6/atomic_multipole_lg.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/61d85c515f27d63fc0b16e43f806a71c/atomic_multipole_lgs.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/636ad8cf20ec3ddd279aaff2f68b5c05/atomic_multipole_jml.pdf"><span class="xref download myst">PDF</span></a></p></td>
 </tr>
 </tbody>
 </table>
@@ -580,6 +720,16 @@ of the polar harmonics), created by <code class="docutils literal notranslate"><
 <th class="head text-left"><p>symmetry operation</p></th>
 <th class="head text-left"><p>Wyckoff site</p></th>
 <th class="head text-left"><p>Wyckoff bond</p></th>
+<th class="head text-left"><p>representation matrix</p></th>
+<th class="head text-left"><p>s=1 q</p></th>
+<th class="head text-left"><p>s=1 g</p></th>
+<th class="head text-left"><p>s=2 q</p></th>
+<th class="head text-left"><p>s=2 g</p></th>
+<th class="head text-left"><p>s=3 q</p></th>
+<th class="head text-left"><p>s=3 g</p></th>
+<th class="head text-left"><p>atomic lg</p></th>
+<th class="head text-left"><p>atomic lgs</p></th>
+<th class="head text-left"><p>atomic jml</p></th>
 </tr>
 </thead>
 <tbody>
@@ -592,6 +742,16 @@ of the polar harmonics), created by <code class="docutils literal notranslate"><
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/dbd2aa0d8425fd945b1d4cc546da52fd/symmetry_operation.pdf"><span class="xref download myst">PDF</span></a></p></td>
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/b66c0835bb67cc9e0968db28f93074ed/wyckoff_site.pdf"><span class="xref download myst">PDF</span></a></p></td>
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/a8f71536f0af39cb10ea3ad8b5d571e1/wyckoff_bond.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/d0ff61fe1f2df5ab210e9d253d29ab12/representation_matrix.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/e994d0238be64d4db8c593e68f6c842b/multipolar_harmonics_s1_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/ccf620b4674f84c08e2d8f0231101214/multipolar_harmonics_s1_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/c31430818821167fa68f48144557a979/multipolar_harmonics_s2_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/bc3c1aeadf61b585ab950fae26863916/multipolar_harmonics_s2_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/47bb4862ee65cace35676a8a22983235/multipolar_harmonics_s3_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/0ce40c6d71d3004686c09380c027f9d1/multipolar_harmonics_s3_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/2aa1b49e88e89ba34e2432a11bd6aef8/atomic_multipole_lg.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/6026c9d001b0f92ede31da1a742a82c6/atomic_multipole_lgs.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/c12b4c214cc2cafae6c9661032185aac/atomic_multipole_jml.pdf"><span class="xref download myst">PDF</span></a></p></td>
 </tr>
 <tr class="row-odd"><td class="text-left"><p>10</p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\(S_{\rm 4}\)</span></p></td>
@@ -602,6 +762,16 @@ of the polar harmonics), created by <code class="docutils literal notranslate"><
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/75ed5cc7ca5264af427da1c8da5d802c/symmetry_operation.pdf"><span class="xref download myst">PDF</span></a></p></td>
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/fcd0798bfcf68c852f50225cdccba2cd/wyckoff_site.pdf"><span class="xref download myst">PDF</span></a></p></td>
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/133b58e8cbf9ed0dff87e677bff9fb48/wyckoff_bond.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/03a94ed8a8ddde09db0814542fbcf263/representation_matrix.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/abbd731397806f51abf8d99cc0b43932/multipolar_harmonics_s1_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/5191d5863c3c434c41a5eda213f95589/multipolar_harmonics_s1_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/534d2d4b6dbe0078fb349f7005c5c574/multipolar_harmonics_s2_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/8e3a6ae2f6f885202197a433132c2d33/multipolar_harmonics_s2_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/b771865fb5f53516471eb9253c74479b/multipolar_harmonics_s3_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/0ee2373481e48f1df4c2925e867da2c3/multipolar_harmonics_s3_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/0e71f7782e8b4866aeb9a85d720529b5/atomic_multipole_lg.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/29a8e551fc20e57e00e6c8d382df9233/atomic_multipole_lgs.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/d6d89726b7d63b7d8c827f0cb2d54f10/atomic_multipole_jml.pdf"><span class="xref download myst">PDF</span></a></p></td>
 </tr>
 <tr class="row-even"><td class="text-left"><p>11</p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\(C_{\rm 4h}\)</span></p></td>
@@ -612,6 +782,16 @@ of the polar harmonics), created by <code class="docutils literal notranslate"><
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/9754b661ff4b42491c22bbc2a872ec47/symmetry_operation.pdf"><span class="xref download myst">PDF</span></a></p></td>
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/67b2cd646173394a6071d2bfa9438d06/wyckoff_site.pdf"><span class="xref download myst">PDF</span></a></p></td>
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/44ef2d4c810ff0c54d879d573c8d92c7/wyckoff_bond.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/b0a8c67cac7135e97f4d49ac540a982e/representation_matrix.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/b7c982dd13eaac01ea1c09a16aa5f323/multipolar_harmonics_s1_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/54dc408b41a3201672be1dde7a25304c/multipolar_harmonics_s1_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/8e4748743332e006ad0b34f541ed62c8/multipolar_harmonics_s2_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/d9849e8f8d013013efa2f73c2c46c451/multipolar_harmonics_s2_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/f452ff40636e30551170899e6bdbd550/multipolar_harmonics_s3_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/fa7f683c24fce7b7f68c0bc496de6536/multipolar_harmonics_s3_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/a244cae848a90177caae76361beacb75/atomic_multipole_lg.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/312523f2fede476e38e73d36afb36904/atomic_multipole_lgs.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/d4f6942502aa12df505e566c1406b4c4/atomic_multipole_jml.pdf"><span class="xref download myst">PDF</span></a></p></td>
 </tr>
 <tr class="row-odd"><td class="text-left"><p>12</p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\(D_{\rm 4}\)</span></p></td>
@@ -622,6 +802,16 @@ of the polar harmonics), created by <code class="docutils literal notranslate"><
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/ef0d2ebc01f23a2746fbae02b76c0dfd/symmetry_operation.pdf"><span class="xref download myst">PDF</span></a></p></td>
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/ccdd834ee46a3f9ea50e0fa51a650925/wyckoff_site.pdf"><span class="xref download myst">PDF</span></a></p></td>
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/61bbe7286688e0b0d3344e0ea030b159/wyckoff_bond.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/9c134e72f76c67343eaf5469a6798bb9/representation_matrix.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/5df1c06c4dceb1e5c909c52387e65edf/multipolar_harmonics_s1_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/ef32170e70179a1a6ecbc8a40544fe41/multipolar_harmonics_s1_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/139a0e28df28c58f609927372293b66e/multipolar_harmonics_s2_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/c3710872a9194348069fdfd4cd4f4e96/multipolar_harmonics_s2_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/56d2553e1e7af88352893e292d42f751/multipolar_harmonics_s3_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/92f5fbdc0102204923bb9eb5edf87c9e/multipolar_harmonics_s3_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/87c460cf9bcbb8429e3480fad9ab62dc/atomic_multipole_lg.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/db9e96ad15b4cdf3dc92fb1fe646d396/atomic_multipole_lgs.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/89972015e6cb51b86039dd17e6a3fdda/atomic_multipole_jml.pdf"><span class="xref download myst">PDF</span></a></p></td>
 </tr>
 <tr class="row-even"><td class="text-left"><p>13</p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\(C_{\rm 4v}\)</span></p></td>
@@ -632,6 +822,16 @@ of the polar harmonics), created by <code class="docutils literal notranslate"><
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/29c66df3f6d9531eb2a53c509d15b0ff/symmetry_operation.pdf"><span class="xref download myst">PDF</span></a></p></td>
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/fa40e405e298c62f5968aac6f36cf64d/wyckoff_site.pdf"><span class="xref download myst">PDF</span></a></p></td>
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/fc66f496ce8213636dce1aa49ae36897/wyckoff_bond.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/4a39e0b6742928925e1e4758fe24cc01/representation_matrix.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/cad2f800b79ebff80d854034f7c1e982/multipolar_harmonics_s1_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/05d48d09e61b7bf279eb399ad40df2b2/multipolar_harmonics_s1_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/03c462f8e46c9914902d0189ee73ca32/multipolar_harmonics_s2_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/6d479a85cf3ae818ff496f458a677ec6/multipolar_harmonics_s2_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/9679ca781f5b5d74ce2aec618e084a90/multipolar_harmonics_s3_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/56a2bfd4d4b320728dcc301ae93b9c7c/multipolar_harmonics_s3_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/fb4e44471852c80890399615f0683a41/atomic_multipole_lg.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/2748df2be4d4568922ca3fea7db859f5/atomic_multipole_lgs.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/5b8d8caab3b6288727088b4e72368edd/atomic_multipole_jml.pdf"><span class="xref download myst">PDF</span></a></p></td>
 </tr>
 <tr class="row-odd"><td class="text-left"><p>14</p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\(D_{\rm 2d}\)</span></p></td>
@@ -642,6 +842,16 @@ of the polar harmonics), created by <code class="docutils literal notranslate"><
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/5549c10ad644d2ab0b7a9548db6b52e9/symmetry_operation.pdf"><span class="xref download myst">PDF</span></a></p></td>
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/de7c16f17da0370ebb6935b55b2b6c7e/wyckoff_site.pdf"><span class="xref download myst">PDF</span></a></p></td>
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/641c3c9df652c3daf000e694e7a733c4/wyckoff_bond.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/21f24d999a2e3e04fbcc4db50bc83a09/representation_matrix.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/c98ce47a9b1a290a9c9cffb70a246681/multipolar_harmonics_s1_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/d46f610a383c0bf8005c26bf9d4655b9/multipolar_harmonics_s1_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/623bfcccecfec30b017ec86b5fc2d213/multipolar_harmonics_s2_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/c1cf16978840b8166c621aa9323b335b/multipolar_harmonics_s2_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/5a41a50ec7aa1533139ca4d845438801/multipolar_harmonics_s3_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/37689b4b484e1876eb7900426d8ed83b/multipolar_harmonics_s3_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/e1efb08542d5dbe8165393ea429725e5/atomic_multipole_lg.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/95533df8a72dee5c18f47f3cadbd1d6f/atomic_multipole_lgs.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/1d102461f22fcb94aff9a288219ce8e3/atomic_multipole_jml.pdf"><span class="xref download myst">PDF</span></a></p></td>
 </tr>
 <tr class="row-even"><td class="text-left"><p>15</p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\(D_{\rm 4h}\)</span></p></td>
@@ -652,6 +862,16 @@ of the polar harmonics), created by <code class="docutils literal notranslate"><
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/a7ff19bc74f0060371bedf59061a978e/symmetry_operation.pdf"><span class="xref download myst">PDF</span></a></p></td>
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/7584d9693f02b1870c67f89981613753/wyckoff_site.pdf"><span class="xref download myst">PDF</span></a></p></td>
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/33ce0de275288a42d5a35e8bac1bea88/wyckoff_bond.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/ddafb6966f71c3c1f1c96a0260cd16a7/representation_matrix.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/3d9b61277a59c787c2eeb7017c1a39a2/multipolar_harmonics_s1_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/972bb94fa45c3293e1cb7e0e91a65b31/multipolar_harmonics_s1_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/cdf67bfc6ca89ed26168d500eda4bd76/multipolar_harmonics_s2_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/695b4c0b42676531fca7696677f9b291/multipolar_harmonics_s2_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/a92c0bb96d9372d2fce6147611cd7051/multipolar_harmonics_s3_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/75c9e12869bb04265eb1b05f9aa74f96/multipolar_harmonics_s3_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/29556c2245b43c7b0d9cda387d0ec4cf/atomic_multipole_lg.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/e5191289ad4b4a787a6b4a2400466227/atomic_multipole_lgs.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/650bd29d13b66477342c1f66f2f587b2/atomic_multipole_jml.pdf"><span class="xref download myst">PDF</span></a></p></td>
 </tr>
 <tr class="row-odd"><td class="text-left"><p>33</p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\(D_{\rm 2d}(1)\)</span></p></td>
@@ -662,6 +882,16 @@ of the polar harmonics), created by <code class="docutils literal notranslate"><
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/7afc5b8665bd09e9b58997c4a3cd8bc8/symmetry_operation.pdf"><span class="xref download myst">PDF</span></a></p></td>
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/f8f42f7cf680b29c64fc3a056f6a4a9a/wyckoff_site.pdf"><span class="xref download myst">PDF</span></a></p></td>
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/8595929e43b75f904822e64168e23256/wyckoff_bond.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/7b84d9304129df3c44df15e07f38e786/representation_matrix.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/162d7428bd396b5ee88b3d88f11b2d80/multipolar_harmonics_s1_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/bdf20ea61e88a9e012f8d528c32724e2/multipolar_harmonics_s1_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/60475ef29f69e2d78e56171647ed89a7/multipolar_harmonics_s2_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/e4e049ead2b136c260ab706dcd4bc4ae/multipolar_harmonics_s2_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/763acd216a29dc68b65c096e7046cf44/multipolar_harmonics_s3_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/98941e95bc2bbe33443cd540f37a88eb/multipolar_harmonics_s3_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/c6eb23e399bb640e65176ba96af30d27/atomic_multipole_lg.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/2bbfd2c7727a91c3648e67b7ca7b67bc/atomic_multipole_lgs.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/8d1c36ba397986eaac4d760adb297ae6/atomic_multipole_jml.pdf"><span class="xref download myst">PDF</span></a></p></td>
 </tr>
 <tr class="row-even"><td class="text-left"><p>38</p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\(C_{\rm 4}(c)\)</span></p></td>
@@ -672,6 +902,16 @@ of the polar harmonics), created by <code class="docutils literal notranslate"><
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/2b8cfdcecbff2d38a76220a357a0d8e0/symmetry_operation.pdf"><span class="xref download myst">PDF</span></a></p></td>
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/9f4d4e91821f4209a73ac4af45921d80/wyckoff_site.pdf"><span class="xref download myst">PDF</span></a></p></td>
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/801c54fc251c8177417d5ce6a78f6d51/wyckoff_bond.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/077877d0fe152d44fd94909f6afc1b8a/representation_matrix.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/833bbecd85eea38756940741c3c5851b/multipolar_harmonics_s1_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/12743b5cfe6211e44e079f6bec715bf3/multipolar_harmonics_s1_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/a8579810f513fe4ecee68fca7da85ce8/multipolar_harmonics_s2_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/0d2bf9060e5cc8767a4c8fea7cad8e54/multipolar_harmonics_s2_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/ac5c39d5ca638572a03a2455feae4d62/multipolar_harmonics_s3_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/d93f7e1b489e0b614afbf5cca775bf73/multipolar_harmonics_s3_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/33f00b393ce9dbfe126d77d970457785/atomic_multipole_lg.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/b845e9e32b95214d42ab43d1f4ee92b5/atomic_multipole_lgs.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/bfeb79ed715dede71867af4a142e5c78/atomic_multipole_jml.pdf"><span class="xref download myst">PDF</span></a></p></td>
 </tr>
 <tr class="row-odd"><td class="text-left"><p>39</p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\(S_{\rm 4}(c)\)</span></p></td>
@@ -682,6 +922,16 @@ of the polar harmonics), created by <code class="docutils literal notranslate"><
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/ed5da3146be96733c5e77c1b23ca7c36/symmetry_operation.pdf"><span class="xref download myst">PDF</span></a></p></td>
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/78cce790b36916d114f1d911cd3401fe/wyckoff_site.pdf"><span class="xref download myst">PDF</span></a></p></td>
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/f3133a9313fb6d98098ea78fb310e816/wyckoff_bond.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/ef1802bc10c665d54396083e465ba0d7/representation_matrix.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/42bbe53d5f3ea2831e25396bf1935c71/multipolar_harmonics_s1_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/c4e6998a5396e1d90313520f9ee32404/multipolar_harmonics_s1_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/ec4419436046731a991fc4185bb859d8/multipolar_harmonics_s2_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/2ac9388d2f23d6f347072d2a03740d71/multipolar_harmonics_s2_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/59d0737a4477a3d02be85c9ac7b857dd/multipolar_harmonics_s3_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/3a98d2458d937e009bd8754126842fe7/multipolar_harmonics_s3_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/52cd3fc0317dab8f4b664892515d962f/atomic_multipole_lg.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/126a3033a7f1aeed66d7670a20ce4541/atomic_multipole_lgs.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/41d5ef10a7fc430979b076108fcf89b9/atomic_multipole_jml.pdf"><span class="xref download myst">PDF</span></a></p></td>
 </tr>
 <tr class="row-even"><td class="text-left"><p>40</p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\(C_{\rm 4h}(c)\)</span></p></td>
@@ -692,6 +942,16 @@ of the polar harmonics), created by <code class="docutils literal notranslate"><
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/6343074e25939b5ade8d4c9a503218e9/symmetry_operation.pdf"><span class="xref download myst">PDF</span></a></p></td>
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/663da7f8779f73dedeecd37537b38ce1/wyckoff_site.pdf"><span class="xref download myst">PDF</span></a></p></td>
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/131c5ba186ed9aededeb8e2526af3fa0/wyckoff_bond.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/621cc28c7a593b6b10ad41027557972c/representation_matrix.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/593e4439e7b74dc683bf049fa31ccc64/multipolar_harmonics_s1_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/f7a05849587eb1af6def5a7e4ea06ecd/multipolar_harmonics_s1_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/7ee736550dd2bf2cb1e18281d59b978d/multipolar_harmonics_s2_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/8e3ead789e81a686063cc0ecffae9743/multipolar_harmonics_s2_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/4e5eeb7b482da055605f697a8350e7e8/multipolar_harmonics_s3_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/73d53bf314c3e40029886ab22ae0d47d/multipolar_harmonics_s3_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/a1693b430afb1b84c0a0ede3f2c193ca/atomic_multipole_lg.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/fee9092027b6cff3369bbac4d67bd7f4/atomic_multipole_lgs.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/d6a401e8e59b5b1a4c1903f44b30923b/atomic_multipole_jml.pdf"><span class="xref download myst">PDF</span></a></p></td>
 </tr>
 </tbody>
 </table>
@@ -710,6 +970,16 @@ of the polar harmonics), created by <code class="docutils literal notranslate"><
 <th class="head text-left"><p>symmetry operation</p></th>
 <th class="head text-left"><p>Wyckoff site</p></th>
 <th class="head text-left"><p>Wyckoff bond</p></th>
+<th class="head text-left"><p>representation matrix</p></th>
+<th class="head text-left"><p>s=1 q</p></th>
+<th class="head text-left"><p>s=1 g</p></th>
+<th class="head text-left"><p>s=2 q</p></th>
+<th class="head text-left"><p>s=2 g</p></th>
+<th class="head text-left"><p>s=3 q</p></th>
+<th class="head text-left"><p>s=3 g</p></th>
+<th class="head text-left"><p>atomic lg</p></th>
+<th class="head text-left"><p>atomic lgs</p></th>
+<th class="head text-left"><p>atomic jml</p></th>
 </tr>
 </thead>
 <tbody>
@@ -722,6 +992,16 @@ of the polar harmonics), created by <code class="docutils literal notranslate"><
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/612d368430605009d825b38d3d7469fc/symmetry_operation.pdf"><span class="xref download myst">PDF</span></a></p></td>
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/fb1113383b8362297b661679692b6a33/wyckoff_site.pdf"><span class="xref download myst">PDF</span></a></p></td>
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/e5e8e6064b251d0ef4ef5e7f82a50fb4/wyckoff_bond.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/be50af6b02a701828d69f75936abfc30/representation_matrix.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/2d8cab9f65c091fb04cb196883712f13/multipolar_harmonics_s1_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/5403d4462547e42e269f2ef51542c523/multipolar_harmonics_s1_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/4e17bedae80fda723bc850e694a224ca/multipolar_harmonics_s2_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/d05daeeb67b50007e5342ea45bedef2f/multipolar_harmonics_s2_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/1d004defce777627422dba7c9ab226c5/multipolar_harmonics_s3_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/f7a49da4f7d5db9579c3f88b680879fa/multipolar_harmonics_s3_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/d2818e34ca58de9a0d76c9a96e63edab/atomic_multipole_lg.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/0e98c1de9dee31d2399179ab3e2cd110/atomic_multipole_lgs.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/6a284b047130133826926810f673ebfe/atomic_multipole_jml.pdf"><span class="xref download myst">PDF</span></a></p></td>
 </tr>
 <tr class="row-odd"><td class="text-left"><p>17</p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\(C_{\rm 3i}\)</span></p></td>
@@ -732,6 +1012,16 @@ of the polar harmonics), created by <code class="docutils literal notranslate"><
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/416ea97df553f5ba32a31f7c9f85b3e1/symmetry_operation.pdf"><span class="xref download myst">PDF</span></a></p></td>
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/bd0a58d9e8ad09d7245d9b166b14bbe7/wyckoff_site.pdf"><span class="xref download myst">PDF</span></a></p></td>
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/35f5584a663b40cb9f35a69dd4c0830a/wyckoff_bond.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/8eaa6d054448990679de15e4fe197ddb/representation_matrix.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/3118d7d0b3f7ba14a9d6a9346f5011ff/multipolar_harmonics_s1_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/82944a2ef787f251b8117f996f257030/multipolar_harmonics_s1_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/e4ff802c3a87d4db350d7b3aadb24616/multipolar_harmonics_s2_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/41c733678d3c77620281f7f6145a43ef/multipolar_harmonics_s2_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/6a67d07dacb68a70462dfcf2bda4a73a/multipolar_harmonics_s3_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/cf9a114c1ba4c9d8b8cfdd2d0c0d9f7c/multipolar_harmonics_s3_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/3b4cbe54327e2b7cf44263090df8119b/atomic_multipole_lg.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/d21351171bd9cc467d0cde96022f939e/atomic_multipole_lgs.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/63056113c442864db71a5cee9026bc73/atomic_multipole_jml.pdf"><span class="xref download myst">PDF</span></a></p></td>
 </tr>
 <tr class="row-even"><td class="text-left"><p>18</p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\(D_{\rm 3}\)</span></p></td>
@@ -742,6 +1032,16 @@ of the polar harmonics), created by <code class="docutils literal notranslate"><
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/83e1d9203a14308e8931ad235b12e8b9/symmetry_operation.pdf"><span class="xref download myst">PDF</span></a></p></td>
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/0049ba4359cf944d2bf2e6105f8e67fa/wyckoff_site.pdf"><span class="xref download myst">PDF</span></a></p></td>
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/61e38c784c063f95073ac8f75e8ac38c/wyckoff_bond.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/c6faeb5663660c5d9b71a94c02e8d05b/representation_matrix.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/d0c8153671ae6b4ed6eabef29527e741/multipolar_harmonics_s1_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/8464d499a283d3c11b05bc035eff3f97/multipolar_harmonics_s1_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/94bf066da1b5bb0168187b367ecb3c5d/multipolar_harmonics_s2_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/d31559822f9d52e0f9fe49962ded7463/multipolar_harmonics_s2_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/b731940c555103a018254dadfe9f8199/multipolar_harmonics_s3_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/3bbd441be2efa4bba8f7ad0b99a97cb3/multipolar_harmonics_s3_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/35ae656d2761e6d674af88821bc00ead/atomic_multipole_lg.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/d9a88dbac7db36101e2c083c81f4c383/atomic_multipole_lgs.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/87825a521c3dfbc09972f234b07ba84a/atomic_multipole_jml.pdf"><span class="xref download myst">PDF</span></a></p></td>
 </tr>
 <tr class="row-odd"><td class="text-left"><p>19</p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\(C_{\rm 3v}\)</span></p></td>
@@ -752,6 +1052,16 @@ of the polar harmonics), created by <code class="docutils literal notranslate"><
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/84aa87e8e9f9ba935a385c5eca98f2ed/symmetry_operation.pdf"><span class="xref download myst">PDF</span></a></p></td>
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/a49a6e0f6e36c2100ec3ca033455c54c/wyckoff_site.pdf"><span class="xref download myst">PDF</span></a></p></td>
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/b6b5cca25446e5bc44005659c6f21254/wyckoff_bond.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/aa46078d132be1541476f00951468662/representation_matrix.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/f675774abc7927c8f5a904b2d85ec0ad/multipolar_harmonics_s1_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/b2bc3d76d4ccc9015c6b2d501ac7ef09/multipolar_harmonics_s1_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/7f50c5da6400ae72e2c837bbdc7ce09e/multipolar_harmonics_s2_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/6cb4da77bf39780ce5c412cd04ea710b/multipolar_harmonics_s2_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/65c7bef08b600b75c5fe56db5d5d8dcb/multipolar_harmonics_s3_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/e72afe92342db6133f9ee01fb4415fdf/multipolar_harmonics_s3_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/c8f8930e674f94db284dfa68149d5ba9/atomic_multipole_lg.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/c4558808d8abc86e60dbf8c03f1b711f/atomic_multipole_lgs.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/0a69851f53d2e6ab8522e5fc36196623/atomic_multipole_jml.pdf"><span class="xref download myst">PDF</span></a></p></td>
 </tr>
 <tr class="row-even"><td class="text-left"><p>20</p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\(D_{\rm 3d}\)</span></p></td>
@@ -762,6 +1072,16 @@ of the polar harmonics), created by <code class="docutils literal notranslate"><
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/2a9dabe69c38abfacded90399df12ade/symmetry_operation.pdf"><span class="xref download myst">PDF</span></a></p></td>
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/6ef1aef38394947b5e1b14acc65d54f9/wyckoff_site.pdf"><span class="xref download myst">PDF</span></a></p></td>
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/d7c7e4afea6690484a790fc932d3d814/wyckoff_bond.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/3b42e25aaacb4b86f7421e21ee155496/representation_matrix.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/4763f354669302a3e3d621b2293e177e/multipolar_harmonics_s1_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/88bfc7909ca65f999654e2392e9b7b35/multipolar_harmonics_s1_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/6bca1bccf41ec541e10930af3d3e4b74/multipolar_harmonics_s2_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/c43a3d400a92f52d9c5b54f1745652cb/multipolar_harmonics_s2_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/08234839f0b9d79b36beb680a53c8ab7/multipolar_harmonics_s3_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/47ebde1ec7da930ab779cceb2eb40ea4/multipolar_harmonics_s3_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/1fa4e57808a9443f4cf9dda2d2070a41/atomic_multipole_lg.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/1c24dfcaf5f7a3801952a2bbb6ae862d/atomic_multipole_lgs.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/c7987d922465d5408e6710fbe6b47435/atomic_multipole_jml.pdf"><span class="xref download myst">PDF</span></a></p></td>
 </tr>
 <tr class="row-odd"><td class="text-left"><p>34</p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\(D_{\rm 3}(1)\)</span></p></td>
@@ -772,6 +1092,16 @@ of the polar harmonics), created by <code class="docutils literal notranslate"><
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/532596fecf93ec09b2d8e8abce9a87d8/symmetry_operation.pdf"><span class="xref download myst">PDF</span></a></p></td>
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/1ad6a2e366caa6a3b4048f3959ba100a/wyckoff_site.pdf"><span class="xref download myst">PDF</span></a></p></td>
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/1c19ac16f76bc1118070d9c74ee32d98/wyckoff_bond.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/b84949e9f2d0b03ac62fcf7727af717b/representation_matrix.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/d40d817fc65fc4db9f3b024dc28c13ea/multipolar_harmonics_s1_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/33669ea1ac1c0a3211c62b299c101da9/multipolar_harmonics_s1_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/d75618d5cbe1028b947a8f79a24d3cab/multipolar_harmonics_s2_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/aa68f63343d4793776912c0cd10a676b/multipolar_harmonics_s2_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/9fab8028e105fb630bfddc67a0c6e938/multipolar_harmonics_s3_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/197d54285b76f276383eb056a1f6c7b0/multipolar_harmonics_s3_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/25f62a4ae34cdc9588236e630e5b652f/atomic_multipole_lg.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/952129844485efdf1d98a091226c90e6/atomic_multipole_lgs.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/9f4748badf3d8104a6f667668b647769/atomic_multipole_jml.pdf"><span class="xref download myst">PDF</span></a></p></td>
 </tr>
 <tr class="row-even"><td class="text-left"><p>35</p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\(C_{\rm 3v}(1)\)</span></p></td>
@@ -782,6 +1112,16 @@ of the polar harmonics), created by <code class="docutils literal notranslate"><
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/83c091aa8564ceafc9ea15c291603263/symmetry_operation.pdf"><span class="xref download myst">PDF</span></a></p></td>
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/eb50a26fd5ca88b86a3d3e4701270b71/wyckoff_site.pdf"><span class="xref download myst">PDF</span></a></p></td>
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/726d61b2eff75a81271a7b1e04f60a73/wyckoff_bond.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/0952734d6c86bd89643bae480e64215d/representation_matrix.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/a21dff522b9e2a64bcd845a5bb37a777/multipolar_harmonics_s1_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/7e0a3b9ad9b0620114c7dc573818ed55/multipolar_harmonics_s1_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/16459343bc31e8ae7557116cfe919cee/multipolar_harmonics_s2_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/799807b72f7357f8b811f6050fbd36c3/multipolar_harmonics_s2_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/b9571217d71bf2f1454e9238005fb6cc/multipolar_harmonics_s3_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/196e8a5451df4c068a1b784b10f61a32/multipolar_harmonics_s3_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/97531dc9834118c0c6a09b944143e927/atomic_multipole_lg.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/2df19c7ca4e49e2467194febfb5a9691/atomic_multipole_lgs.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/4ee9610e980afdde5eca6351a7a898f6/atomic_multipole_jml.pdf"><span class="xref download myst">PDF</span></a></p></td>
 </tr>
 <tr class="row-odd"><td class="text-left"><p>36</p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\(D_{\rm 3d}(1)\)</span></p></td>
@@ -792,6 +1132,16 @@ of the polar harmonics), created by <code class="docutils literal notranslate"><
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/4dab182625d8cc53197b4f1bae2e3e85/symmetry_operation.pdf"><span class="xref download myst">PDF</span></a></p></td>
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/d3a7bf0f22d0e4e4d60ec2e546e40d24/wyckoff_site.pdf"><span class="xref download myst">PDF</span></a></p></td>
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/bb9e30e4e7db030e51fd08f3961423b9/wyckoff_bond.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/2d8a316fcc83278bd77d90cda4aa9d21/representation_matrix.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/4152d5c546082d756a93287c5b8d227d/multipolar_harmonics_s1_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/5fe424392aefbed1c689164a53bebc74/multipolar_harmonics_s1_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/50906a6d317b70540ded9fe3a5b79f9f/multipolar_harmonics_s2_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/e834a58a13da4976c6310bf37eef72ee/multipolar_harmonics_s2_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/e1746b1ce13fdaae283559259b827cf2/multipolar_harmonics_s3_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/72f296d75245888861385ccbad6bf4af/multipolar_harmonics_s3_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/eb6b5576ff0e4293cd7ac1b379501204/atomic_multipole_lg.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/a5226a0b01492c00121223c4abcdf404/atomic_multipole_lgs.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/271fd4f85fda87c9090d57c16ae86c56/atomic_multipole_jml.pdf"><span class="xref download myst">PDF</span></a></p></td>
 </tr>
 <tr class="row-even"><td class="text-left"><p>41</p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\(C_{\rm 3}(c)\)</span></p></td>
@@ -802,6 +1152,16 @@ of the polar harmonics), created by <code class="docutils literal notranslate"><
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/702c23e1623bd030fdebd03bc0b34af4/symmetry_operation.pdf"><span class="xref download myst">PDF</span></a></p></td>
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/b92e4889333f83f09e40937e26eb6f82/wyckoff_site.pdf"><span class="xref download myst">PDF</span></a></p></td>
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/7e0432ba65d226fe20c49486df503a7d/wyckoff_bond.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/68c31beb44ac2c85b333ddac9548bd6c/representation_matrix.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/3e7b5bab2c8374d3ba021bdc84798466/multipolar_harmonics_s1_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/4cea1c078d2925648edca98f40c4e3f8/multipolar_harmonics_s1_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/189ba7e35ffcafe1a8985ebec999f7b1/multipolar_harmonics_s2_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/1eddb1d4657643bffd4d62b0296df74e/multipolar_harmonics_s2_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/d8151fb98e9e6d2de8b559c7fb38dc2a/multipolar_harmonics_s3_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/90a5a665bf3f53dc18af4108896f3b0d/multipolar_harmonics_s3_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/76843f5ee8f40460c4eefdfe8c5623b2/atomic_multipole_lg.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/1f51d5dd1cabc9e7bce0541f4d57fdbe/atomic_multipole_lgs.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/9916544fbfb3b28030a14a5beab9d87f/atomic_multipole_jml.pdf"><span class="xref download myst">PDF</span></a></p></td>
 </tr>
 <tr class="row-odd"><td class="text-left"><p>42</p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\(C_{\rm 3i}(c)\)</span></p></td>
@@ -812,6 +1172,16 @@ of the polar harmonics), created by <code class="docutils literal notranslate"><
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/74c2017dcc7e448c5665e0dac8b33a77/symmetry_operation.pdf"><span class="xref download myst">PDF</span></a></p></td>
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/432a64ff89c37316aca681d55ca60f6f/wyckoff_site.pdf"><span class="xref download myst">PDF</span></a></p></td>
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/e52ccccf9f6c1ec30fe4b7b88ddee60b/wyckoff_bond.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/dd236847c8dec2e3254d5b3c71ab41a5/representation_matrix.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/349504c6380e29dc2a1d3ccbc6ec287b/multipolar_harmonics_s1_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/b1819898aca105a84021886c50bf85df/multipolar_harmonics_s1_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/04e76ffb75f59e1dd5c51a974e5007f6/multipolar_harmonics_s2_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/7861d73af3cb09e2e9e6d330ef56f755/multipolar_harmonics_s2_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/f82dc9e076195eabb290f0d88021c049/multipolar_harmonics_s3_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/b86ea19338874cee777ec9b583bea82b/multipolar_harmonics_s3_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/577fdd677d66e603e1da65a2dcb981b2/atomic_multipole_lg.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/bf484d10372886aaeb895394f3757148/atomic_multipole_lgs.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/dea9ff0388f5bee5d936a9807d74c01f/atomic_multipole_jml.pdf"><span class="xref download myst">PDF</span></a></p></td>
 </tr>
 </tbody>
 </table>
@@ -830,6 +1200,16 @@ of the polar harmonics), created by <code class="docutils literal notranslate"><
 <th class="head text-left"><p>symmetry operation</p></th>
 <th class="head text-left"><p>Wyckoff site</p></th>
 <th class="head text-left"><p>Wyckoff bond</p></th>
+<th class="head text-left"><p>representation matrix</p></th>
+<th class="head text-left"><p>s=1 q</p></th>
+<th class="head text-left"><p>s=1 g</p></th>
+<th class="head text-left"><p>s=2 q</p></th>
+<th class="head text-left"><p>s=2 g</p></th>
+<th class="head text-left"><p>s=3 q</p></th>
+<th class="head text-left"><p>s=3 g</p></th>
+<th class="head text-left"><p>atomic lg</p></th>
+<th class="head text-left"><p>atomic lgs</p></th>
+<th class="head text-left"><p>atomic jml</p></th>
 </tr>
 </thead>
 <tbody>
@@ -842,6 +1222,16 @@ of the polar harmonics), created by <code class="docutils literal notranslate"><
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/657abc4e1adb9583b84339af34aa3a99/symmetry_operation.pdf"><span class="xref download myst">PDF</span></a></p></td>
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/a7bf0fc896c94bc01b7ebe65b11ac467/wyckoff_site.pdf"><span class="xref download myst">PDF</span></a></p></td>
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/be168530a74648e2be95d93d660d1f48/wyckoff_bond.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/1cdda502fcd618ad992fc9bb65fa893c/representation_matrix.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/366138858d0e8bb493dad86a3003191d/multipolar_harmonics_s1_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/2edd7dc12a00776f565a529a91381bcd/multipolar_harmonics_s1_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/9eb13352efbfab0dbe498602a4d9e2db/multipolar_harmonics_s2_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/1df4414a3eafc28c256cb2e038640941/multipolar_harmonics_s2_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/a9b9a4dca973a6139def9f0d6978c09a/multipolar_harmonics_s3_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/210480343a1a0675de36d356cdeb1bae/multipolar_harmonics_s3_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/d12e6d89d9abdfe6765f000a1416e0cb/atomic_multipole_lg.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/786fca74eb21eec387a8906044602f24/atomic_multipole_lgs.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/ae6f6cd42cd5b95ffa771563f0bd397b/atomic_multipole_jml.pdf"><span class="xref download myst">PDF</span></a></p></td>
 </tr>
 <tr class="row-odd"><td class="text-left"><p>22</p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\(C_{\rm 3h}\)</span></p></td>
@@ -852,6 +1242,16 @@ of the polar harmonics), created by <code class="docutils literal notranslate"><
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/3dc52b4005c7c07bf5a028db1b90f72c/symmetry_operation.pdf"><span class="xref download myst">PDF</span></a></p></td>
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/9d704bb421f0716d7ab226b950acb11e/wyckoff_site.pdf"><span class="xref download myst">PDF</span></a></p></td>
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/470ba48db2aa32533c2391f531db35ef/wyckoff_bond.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/b927e6b6e1aa86e576a6d9e5187d9aa1/representation_matrix.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/6fed32fe042d7d369e90bb2cefbeb6c1/multipolar_harmonics_s1_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/97767c51c39a4c54771726489e35bfff/multipolar_harmonics_s1_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/31e69f2a49ae2332926ba90d749ea3ac/multipolar_harmonics_s2_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/c9b301de4c2bec66f43421c931c56ae1/multipolar_harmonics_s2_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/bd9dde52f0a6e1e74973424953e72f7b/multipolar_harmonics_s3_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/9c5e0ded09250e247b0e41f3eb4b5f78/multipolar_harmonics_s3_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/5386c59a1766b12695eebdb3224b00a8/atomic_multipole_lg.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/eb8d0864f33885cec9dfebfa7d3112cc/atomic_multipole_lgs.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/6031f28e343e85c285424a591aabac6b/atomic_multipole_jml.pdf"><span class="xref download myst">PDF</span></a></p></td>
 </tr>
 <tr class="row-even"><td class="text-left"><p>23</p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\(C_{\rm 6h}\)</span></p></td>
@@ -862,6 +1262,16 @@ of the polar harmonics), created by <code class="docutils literal notranslate"><
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/4b919ef6dd18c70b24b78003678089d3/symmetry_operation.pdf"><span class="xref download myst">PDF</span></a></p></td>
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/7073c87aa85ff24f06c6befe68f01573/wyckoff_site.pdf"><span class="xref download myst">PDF</span></a></p></td>
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/47fe9769908914b214bde91ba33a00dd/wyckoff_bond.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/ec0482182c6c5183a071f6747fe0a65d/representation_matrix.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/1853e78e5ec28c625b1dcd95d05cba8b/multipolar_harmonics_s1_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/f48d61385dbbdee2e848f6750a651c58/multipolar_harmonics_s1_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/4b72037f4bc874916b5733616ba5c43a/multipolar_harmonics_s2_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/80cf06b24e50438e72e00f3161f70ffe/multipolar_harmonics_s2_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/e4352040d438d930742f4bc28e4c4482/multipolar_harmonics_s3_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/32cda7d4b7f91aff446ccfc815f8168e/multipolar_harmonics_s3_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/5ba9b6999ff2c550a6aee42dc4403878/atomic_multipole_lg.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/e22a4d20a6f79ef79c0fa973bf800a18/atomic_multipole_lgs.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/80f88fafd3ef6171e0530da388a66fc9/atomic_multipole_jml.pdf"><span class="xref download myst">PDF</span></a></p></td>
 </tr>
 <tr class="row-odd"><td class="text-left"><p>24</p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\(D_{\rm 6}\)</span></p></td>
@@ -872,6 +1282,16 @@ of the polar harmonics), created by <code class="docutils literal notranslate"><
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/d13682a7d2d4b333c84bd768422b719a/symmetry_operation.pdf"><span class="xref download myst">PDF</span></a></p></td>
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/f6cf441a0b92f93272faea4f56e0e316/wyckoff_site.pdf"><span class="xref download myst">PDF</span></a></p></td>
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/88f52b75e4b21585067167e9ed40465a/wyckoff_bond.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/55803fe964c63fcdc38a994ac8a59727/representation_matrix.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/497678032ad97a3bdc52ed0acf2e49a9/multipolar_harmonics_s1_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/d4730eb0cafb0c70470a05f6ae755b40/multipolar_harmonics_s1_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/6372b5091ff4c883bdb7c364e4361544/multipolar_harmonics_s2_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/78b9723aa91340bc722296ed2ee24bc0/multipolar_harmonics_s2_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/50b633b4db462e2ddc5d78bfdc6d08cc/multipolar_harmonics_s3_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/95428f7ab98ec8789671d7f0d240f39f/multipolar_harmonics_s3_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/88cc0858af1a62957edd9cc72298bfd5/atomic_multipole_lg.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/336dc7f01ce08e60d558555d576071ed/atomic_multipole_lgs.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/c96d2dd88de096f0228971223d85c4c3/atomic_multipole_jml.pdf"><span class="xref download myst">PDF</span></a></p></td>
 </tr>
 <tr class="row-even"><td class="text-left"><p>25</p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\(C_{\rm 6v}\)</span></p></td>
@@ -882,6 +1302,16 @@ of the polar harmonics), created by <code class="docutils literal notranslate"><
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/b47cf80124b2905a584f36d628cb8182/symmetry_operation.pdf"><span class="xref download myst">PDF</span></a></p></td>
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/0d8429e74a67fe9c1355f3c7651e77a1/wyckoff_site.pdf"><span class="xref download myst">PDF</span></a></p></td>
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/0bd9d0537dcb5c78e7840b547bf55c0a/wyckoff_bond.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/c23b4d26fffb9140a4dcec6be7716742/representation_matrix.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/0f39bf8cbc68efdff7ca15dbdd479e35/multipolar_harmonics_s1_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/a517e0ca4e2b57c91910e812ecc3d5aa/multipolar_harmonics_s1_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/baa5b31789b39b64fded1f963c7c3191/multipolar_harmonics_s2_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/266755b1ecf6511c2b593d31dcd39746/multipolar_harmonics_s2_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/7c4b9c757251f480fb27aef837aecb80/multipolar_harmonics_s3_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/5e680fd09d9f55a6ef7ffdfae866ffab/multipolar_harmonics_s3_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/bcbbc5a2fb70a6b7e668e90cd97125ee/atomic_multipole_lg.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/227842290c18ee4d2d6b9f1c9ecb538d/atomic_multipole_lgs.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/0afcd205c231e9fc5b7579395d365749/atomic_multipole_jml.pdf"><span class="xref download myst">PDF</span></a></p></td>
 </tr>
 <tr class="row-odd"><td class="text-left"><p>26</p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\(D_{\rm 3h}\)</span></p></td>
@@ -892,6 +1322,16 @@ of the polar harmonics), created by <code class="docutils literal notranslate"><
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/60edfc35acf1a4886b4e649629357379/symmetry_operation.pdf"><span class="xref download myst">PDF</span></a></p></td>
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/2bcd7aed738c3de8bf2398c45d40e3c0/wyckoff_site.pdf"><span class="xref download myst">PDF</span></a></p></td>
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/68a87b64072e7dbe4530a70e96aa3a66/wyckoff_bond.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/51949f28e28062d95907bf40180c55fa/representation_matrix.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/007c130e392e13700bc6e5fd32e8613e/multipolar_harmonics_s1_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/e6f582da2c845958bcd1e713fd5c0d2e/multipolar_harmonics_s1_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/e2a8005704fea116db484c212b417003/multipolar_harmonics_s2_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/cebf199a76430b9063ecf65447109131/multipolar_harmonics_s2_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/1a4f067a67a17fafaeeda6c4d5887563/multipolar_harmonics_s3_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/57b52b5ccfa13cd1f0a9b0d1c9e2ecdf/multipolar_harmonics_s3_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/566b7920c6733b6734ff8f6deeff232a/atomic_multipole_lg.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/3af0b87099cddc96dac1c8d27adaceba/atomic_multipole_lgs.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/0ae5045def00bb86e1bde81c488e6005/atomic_multipole_jml.pdf"><span class="xref download myst">PDF</span></a></p></td>
 </tr>
 <tr class="row-even"><td class="text-left"><p>27</p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\(D_{\rm 6h}\)</span></p></td>
@@ -902,6 +1342,16 @@ of the polar harmonics), created by <code class="docutils literal notranslate"><
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/2812c8a6147054c4891d8b36aa037a17/symmetry_operation.pdf"><span class="xref download myst">PDF</span></a></p></td>
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/d2daee5de9467947928999bf17fbd406/wyckoff_site.pdf"><span class="xref download myst">PDF</span></a></p></td>
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/a52397b4fd1326b29c9f6cc2e7bdd9ce/wyckoff_bond.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/106e21af103c1e4b9cb3a85761c864db/representation_matrix.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/07dddb73aa9cfdb979565a1c23631719/multipolar_harmonics_s1_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/f1878af11e9642a6c2d997c637f2001c/multipolar_harmonics_s1_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/dd835e62cf42e96b9acabd3436e9616e/multipolar_harmonics_s2_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/4aea290338fb9ac8e955b8771a63947e/multipolar_harmonics_s2_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/1f01fd4e8f27258e74b281e6ba1137a3/multipolar_harmonics_s3_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/ffcff033ae20969e6dafd13057f8ab13/multipolar_harmonics_s3_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/86b74dc846dbc492f4abcd52f322fa0e/atomic_multipole_lg.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/d14dac5c715646857d30082c32a586ff/atomic_multipole_lgs.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/cbc4d50627a135e7bc203db1dc4c7c81/atomic_multipole_jml.pdf"><span class="xref download myst">PDF</span></a></p></td>
 </tr>
 <tr class="row-odd"><td class="text-left"><p>37</p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\(D_{\rm 3h}(1)\)</span></p></td>
@@ -912,6 +1362,16 @@ of the polar harmonics), created by <code class="docutils literal notranslate"><
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/53737f2c9d241a5389de6cd3b2db635d/symmetry_operation.pdf"><span class="xref download myst">PDF</span></a></p></td>
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/9420536521367981a52053d290e90733/wyckoff_site.pdf"><span class="xref download myst">PDF</span></a></p></td>
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/bb5ed318afd6ff6de83a9903473ee752/wyckoff_bond.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/c8ccdbf0132693a9f86cda037f84ae24/representation_matrix.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/ad18128c05cadd7940aa333f6154208c/multipolar_harmonics_s1_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/971d659bbbd00c9ada00313ac34bfcd8/multipolar_harmonics_s1_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/71997f3975b35fd62381335475549a9a/multipolar_harmonics_s2_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/5d8a336af6574befb38f3a87c857052c/multipolar_harmonics_s2_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/3b6cfe41b11e2f686bfb0275bdaa8dea/multipolar_harmonics_s3_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/db6d8626aab841f31a14ffbe57d8a971/multipolar_harmonics_s3_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/1a8d33d56ab5b4b61bc36fd460ef8e9b/atomic_multipole_lg.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/e9017677ec15131a65b4e59e155a47e7/atomic_multipole_lgs.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/8bc22ab670939e9ec31b4f1c2e9f3bfc/atomic_multipole_jml.pdf"><span class="xref download myst">PDF</span></a></p></td>
 </tr>
 <tr class="row-even"><td class="text-left"><p>43</p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\(C_{\rm 6}(c)\)</span></p></td>
@@ -922,6 +1382,16 @@ of the polar harmonics), created by <code class="docutils literal notranslate"><
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/1ee1aa3775a3ab9f06c24337483c5322/symmetry_operation.pdf"><span class="xref download myst">PDF</span></a></p></td>
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/7f7e225ce40f3035a7ab85e132900549/wyckoff_site.pdf"><span class="xref download myst">PDF</span></a></p></td>
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/45bd402707b2c358d5677147b102832e/wyckoff_bond.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/36c343427f97869cd7984a22e3e82584/representation_matrix.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/575d10588e1054e2f1e698b0c3e505c3/multipolar_harmonics_s1_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/ea3a22372d132b1cd81df30e9c8c5980/multipolar_harmonics_s1_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/4e6bc43e166a3a41d6b1009c1cbb97e6/multipolar_harmonics_s2_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/9d32cde3738efd1a1d2ad30503c831fb/multipolar_harmonics_s2_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/9c43ddefc1f7fef9d16ae6f1ed9c4983/multipolar_harmonics_s3_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/27f50b065b81af0d9bfb56a5912106cf/multipolar_harmonics_s3_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/92d2fd4942a3da717d0f9051da00c785/atomic_multipole_lg.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/d4a717294f78ec4c6de2ee92bcb50be3/atomic_multipole_lgs.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/716f5717d970c2ef6acdebbef74d4673/atomic_multipole_jml.pdf"><span class="xref download myst">PDF</span></a></p></td>
 </tr>
 <tr class="row-odd"><td class="text-left"><p>44</p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\(C_{\rm 3h}(c)\)</span></p></td>
@@ -932,6 +1402,16 @@ of the polar harmonics), created by <code class="docutils literal notranslate"><
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/064d55ee065d76bf41a72a3ca2e01b88/symmetry_operation.pdf"><span class="xref download myst">PDF</span></a></p></td>
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/57d0d4a59fd475926f1e9b9244a99354/wyckoff_site.pdf"><span class="xref download myst">PDF</span></a></p></td>
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/8c030269ec423eea745a0ac0ce2e1175/wyckoff_bond.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/f76094933737c3b812ce88db98369b38/representation_matrix.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/1493a61b2336b662570cd0ef6758af3e/multipolar_harmonics_s1_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/ab06038b070dd896c96bb7a6cf3c69d9/multipolar_harmonics_s1_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/f4f5bf8a9d0daf142992d8bb3e21f555/multipolar_harmonics_s2_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/521682a78d59c6681e064c4be6a0eae4/multipolar_harmonics_s2_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/be12c2e4b1fd7fbde58f58aa72ee7521/multipolar_harmonics_s3_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/8b8026b7cf94d6cfcec1a362ee8d960f/multipolar_harmonics_s3_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/6bcead437f4ac013e75fd01063029611/atomic_multipole_lg.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/9a59eb202e44a5f3f84618facf5b8fa5/atomic_multipole_lgs.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/2c202b5d822e1b20f6bd35dd08183452/atomic_multipole_jml.pdf"><span class="xref download myst">PDF</span></a></p></td>
 </tr>
 <tr class="row-even"><td class="text-left"><p>45</p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\(C_{\rm 6h}(c)\)</span></p></td>
@@ -942,6 +1422,16 @@ of the polar harmonics), created by <code class="docutils literal notranslate"><
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/93709935323c47c1b0c92f31d5319f6a/symmetry_operation.pdf"><span class="xref download myst">PDF</span></a></p></td>
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/e6c8584c7ca923383d48f0c27e0cf1fd/wyckoff_site.pdf"><span class="xref download myst">PDF</span></a></p></td>
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/bce3e89a1bb04b50dbb7722b8ac84823/wyckoff_bond.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/513a860c819d088600a78e56584e0c36/representation_matrix.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/6d54c98e307a84d330af426b2209cc01/multipolar_harmonics_s1_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/661d69cb91326567cdb6aee6ee39e432/multipolar_harmonics_s1_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/2c9019a6eb7e44af8d81be166f0d7f5f/multipolar_harmonics_s2_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/346217cb14419a41c2722bdc6a2b74d1/multipolar_harmonics_s2_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/4233a96de322c3667edd81923d4b8dfd/multipolar_harmonics_s3_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/880bb86a218790f7536e4e9fca9c2a7a/multipolar_harmonics_s3_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/8bd5fa467404e855b38929de4a0c9428/atomic_multipole_lg.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/d1885640a6a2033e64e09d30224d6f64/atomic_multipole_lgs.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/d40cee6025770ebeacc474dad7490b09/atomic_multipole_jml.pdf"><span class="xref download myst">PDF</span></a></p></td>
 </tr>
 </tbody>
 </table>
@@ -960,6 +1450,16 @@ of the polar harmonics), created by <code class="docutils literal notranslate"><
 <th class="head text-left"><p>symmetry operation</p></th>
 <th class="head text-left"><p>Wyckoff site</p></th>
 <th class="head text-left"><p>Wyckoff bond</p></th>
+<th class="head text-left"><p>representation matrix</p></th>
+<th class="head text-left"><p>s=1 q</p></th>
+<th class="head text-left"><p>s=1 g</p></th>
+<th class="head text-left"><p>s=2 q</p></th>
+<th class="head text-left"><p>s=2 g</p></th>
+<th class="head text-left"><p>s=3 q</p></th>
+<th class="head text-left"><p>s=3 g</p></th>
+<th class="head text-left"><p>atomic lg</p></th>
+<th class="head text-left"><p>atomic lgs</p></th>
+<th class="head text-left"><p>atomic jml</p></th>
 </tr>
 </thead>
 <tbody>
@@ -972,6 +1472,16 @@ of the polar harmonics), created by <code class="docutils literal notranslate"><
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/926ac29355752f136c559e49f472d8ec/symmetry_operation.pdf"><span class="xref download myst">PDF</span></a></p></td>
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/fc7bff4b49cccb607ceccadf0c88ef9d/wyckoff_site.pdf"><span class="xref download myst">PDF</span></a></p></td>
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/0ef9638dea31d9ec4e5a747420bd6862/wyckoff_bond.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/0f2d6abba727fe0ee81515e0bfc6f0a1/representation_matrix.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/f3d58bc87da3e86d454d6a7983963254/multipolar_harmonics_s1_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/cf484ba10be98b1a26e5c4b95799631e/multipolar_harmonics_s1_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/6d6581ed92adc28be8658a7f2cc027ab/multipolar_harmonics_s2_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/cd63a7e4edce867fb4254d0fc313da7e/multipolar_harmonics_s2_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/06dd7e4978c0b2b2fde1f890625e78fc/multipolar_harmonics_s3_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/634bc699ae718c93a3283d52416b21cd/multipolar_harmonics_s3_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/76c8ba141604621733197c6c905134c8/atomic_multipole_lg.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/1c587e0cd081f085f16f8b55f3ac9e19/atomic_multipole_lgs.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/b21ccedeee4ed29a4ca43d57b1e1ec74/atomic_multipole_jml.pdf"><span class="xref download myst">PDF</span></a></p></td>
 </tr>
 <tr class="row-odd"><td class="text-left"><p>29</p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\(T_{\rm h}\)</span></p></td>
@@ -982,6 +1492,16 @@ of the polar harmonics), created by <code class="docutils literal notranslate"><
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/400095db7c7e60e22e3e3a82cd20526d/symmetry_operation.pdf"><span class="xref download myst">PDF</span></a></p></td>
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/ae10224e0a1a68f4e18d6000ecfbdefa/wyckoff_site.pdf"><span class="xref download myst">PDF</span></a></p></td>
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/fea5dbf7b4ee4e0488450ffe8db160a3/wyckoff_bond.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/df39765071ec5a9acf3bf2107661e7c9/representation_matrix.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/ebfb3d9c2c8742ad4eb8878171f2b044/multipolar_harmonics_s1_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/0bc4eb837f1bffe430fade2fdd13f54d/multipolar_harmonics_s1_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/6873ba8fe89e7c4fe14745054ae4f12e/multipolar_harmonics_s2_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/187889f5f5b2a6acdbcecd1710150176/multipolar_harmonics_s2_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/53f09b4eb3bbb0d711a7c36de4180112/multipolar_harmonics_s3_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/90b0621c09aad7aa4328589121f3a6c0/multipolar_harmonics_s3_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/d401a037f5d78ce7cbaacfd911b3806c/atomic_multipole_lg.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/980013bcc115397968741d8bbef20ee2/atomic_multipole_lgs.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/63571d6b4dd63eebb0f95c0683c3a0f6/atomic_multipole_jml.pdf"><span class="xref download myst">PDF</span></a></p></td>
 </tr>
 <tr class="row-even"><td class="text-left"><p>30</p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\(O_{\rm }\)</span></p></td>
@@ -992,6 +1512,16 @@ of the polar harmonics), created by <code class="docutils literal notranslate"><
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/ba40f2843278a0b7a2a5acc5d771455c/symmetry_operation.pdf"><span class="xref download myst">PDF</span></a></p></td>
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/79986ccb8475f58690c491820ec07e77/wyckoff_site.pdf"><span class="xref download myst">PDF</span></a></p></td>
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/46aec9ba9e44ad665e008938ef181772/wyckoff_bond.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/26882f4c415b532dfb1df9e313692b01/representation_matrix.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/9052ca85ec5d616a1d0acb860fc6245d/multipolar_harmonics_s1_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/01683943bf30c40ef864ed9f84a3c77c/multipolar_harmonics_s1_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/a5a8fc2e203da72e0969a72670c2b3ab/multipolar_harmonics_s2_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/b60cf1d6969de52836fec80b7064a1e9/multipolar_harmonics_s2_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/b22140bfd254460dcef521a74e9d7fe9/multipolar_harmonics_s3_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/090b44df5e1869abb14d189736b3dfae/multipolar_harmonics_s3_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/753fc3e02c3721d7fa4d18dbbe7cb534/atomic_multipole_lg.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/4671d1d13729554d75b0067dc57d5443/atomic_multipole_lgs.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/2df77a4f86049744c84acb393391d966/atomic_multipole_jml.pdf"><span class="xref download myst">PDF</span></a></p></td>
 </tr>
 <tr class="row-odd"><td class="text-left"><p>31</p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\(T_{\rm d}\)</span></p></td>
@@ -1002,6 +1532,16 @@ of the polar harmonics), created by <code class="docutils literal notranslate"><
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/395ebf4d904183d87cc7a863c809199b/symmetry_operation.pdf"><span class="xref download myst">PDF</span></a></p></td>
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/141fc155100cc052007b63526e32a879/wyckoff_site.pdf"><span class="xref download myst">PDF</span></a></p></td>
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/e164b0c0861d3a2f466aebb87c9977e4/wyckoff_bond.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/7a4042d2d415acae946967d00b8d6445/representation_matrix.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/90dfbe69db1f39b832d49836c07a41ff/multipolar_harmonics_s1_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/66a713ed3371044484dc4a9b4fe24887/multipolar_harmonics_s1_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/137670229443f1d51952541ce1d1c965/multipolar_harmonics_s2_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/397b1296c0fda6cb0cffb947d7fbd9af/multipolar_harmonics_s2_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/51c0992b9649c0b60f1bc21d3020484b/multipolar_harmonics_s3_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/ea36b0770709a42fdb9fb77750b80d18/multipolar_harmonics_s3_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/4b8109578be1f2f36d25d937d35e45a5/atomic_multipole_lg.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/85876770a9032fc34d9d2a0a0649bcb3/atomic_multipole_lgs.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/2c4c4d915fa4c1c7357b47cc10915bcd/atomic_multipole_jml.pdf"><span class="xref download myst">PDF</span></a></p></td>
 </tr>
 <tr class="row-even"><td class="text-left"><p>32</p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\(O_{\rm h}\)</span></p></td>
@@ -1012,6 +1552,16 @@ of the polar harmonics), created by <code class="docutils literal notranslate"><
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/89450ccf84bf1cbca608e321c04db5ee/symmetry_operation.pdf"><span class="xref download myst">PDF</span></a></p></td>
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/6565492f8c62736caeb1299d14b95e9d/wyckoff_site.pdf"><span class="xref download myst">PDF</span></a></p></td>
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/b6bc6b03348b9c502e9f8b2397debd5a/wyckoff_bond.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/43932733ef06eda6ea0ec898e6ebd490/representation_matrix.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/97768f20758944ee9f48747abb095ad5/multipolar_harmonics_s1_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/9fe90f2242df5dfc78c33faabca10e0b/multipolar_harmonics_s1_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/b03d92acbb30ca2e11d6d8382539ffc9/multipolar_harmonics_s2_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/1c92fe1a8ccc4253ab2bf9945cccd0d8/multipolar_harmonics_s2_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/32eaa5d46a53f57ba48551b1acdc8fc4/multipolar_harmonics_s3_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/0702d502760d703d43aa76bc61e61777/multipolar_harmonics_s3_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/0c8be11a176497bd3be0f4a4c3fa2e93/atomic_multipole_lg.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/836eb73903da6de4a6cfce96697ff191/atomic_multipole_lgs.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/37cb036aa02470b21cfd8015cf87e689/atomic_multipole_jml.pdf"><span class="xref download myst">PDF</span></a></p></td>
 </tr>
 <tr class="row-odd"><td class="text-left"><p>46</p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\(T_{\rm }(c)\)</span></p></td>
@@ -1022,6 +1572,16 @@ of the polar harmonics), created by <code class="docutils literal notranslate"><
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/9435846372719f4ec0862a59deffe5ad/symmetry_operation.pdf"><span class="xref download myst">PDF</span></a></p></td>
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/31ef68793f3f0a1b4b9681074df26b4e/wyckoff_site.pdf"><span class="xref download myst">PDF</span></a></p></td>
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/40f093f679a16528ce84b155cfd9593b/wyckoff_bond.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/f644e6230b873cf9c5da6f9a470c86c4/representation_matrix.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/0aeba9476bd12eead637852ee743c2e8/multipolar_harmonics_s1_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/17bd7effbd3bd1c2b55bb4f4f0e9611c/multipolar_harmonics_s1_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/a62d2606130807df69c65b3fa646fb51/multipolar_harmonics_s2_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/6eefdc1bdbc2b4eda05901b5deb45f5b/multipolar_harmonics_s2_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/196f090b509774585327c76eb8a3d9c1/multipolar_harmonics_s3_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/00ff5cec185ed5015671ad68d3becb8b/multipolar_harmonics_s3_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/dabcb2d07eb35eeff792801c8af22c39/atomic_multipole_lg.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/875f510c8a9159d4e29003875cc5ba4a/atomic_multipole_lgs.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/c042514e9091019ca31244299a610bf5/atomic_multipole_jml.pdf"><span class="xref download myst">PDF</span></a></p></td>
 </tr>
 <tr class="row-even"><td class="text-left"><p>47</p></td>
 <td class="text-left"><p><span class="math notranslate nohighlight">\(T_{\rm h}(c)\)</span></p></td>
@@ -1032,6 +1592,16 @@ of the polar harmonics), created by <code class="docutils literal notranslate"><
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/7c78b4d248fdaae348e2842c90cbd1db/symmetry_operation.pdf"><span class="xref download myst">PDF</span></a></p></td>
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/3dd35c32dc2c1f586d3c3594d731e808/wyckoff_site.pdf"><span class="xref download myst">PDF</span></a></p></td>
 <td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/23465f1bc2c61b560eb388395c1eb4b1/wyckoff_bond.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/f6cfc4151b57e3ca6d3d1034d845b997/representation_matrix.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/0d8a82b5870da59f270396ca12c77d65/multipolar_harmonics_s1_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/21351ff9626faa36e4d005d510a6254a/multipolar_harmonics_s1_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/a1fddda423f158213f2af9b6c9dc7f3d/multipolar_harmonics_s2_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/189313303c068fbbd1b5d386a612aacc/multipolar_harmonics_s2_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/f80d82fe3f12f5c8889e3838fed2d238/multipolar_harmonics_s3_q.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/8f5fd6c57e1765ba57be85da0aaffd3a/multipolar_harmonics_s3_g.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/04645db31a2d1951a83962de6e118254/atomic_multipole_lg.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/394e55e63c569eac9827dd5b25df16d4/atomic_multipole_lgs.pdf"><span class="xref download myst">PDF</span></a></p></td>
+<td class="text-left"><p><a class="reference download internal" download="" href="../_downloads/0ac718609d910e01705d670c97219a12/atomic_multipole_jml.pdf"><span class="xref download myst">PDF</span></a></p></td>
 </tr>
 </tbody>
 </table>

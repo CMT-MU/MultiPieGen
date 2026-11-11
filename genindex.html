@@ -33,7 +33,7 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="_static/custom.css?v=34ddd5e8" />
@@ -204,30 +204,57 @@
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Documentation</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="src/data.html">Data tables</a></li>
-<li class="toctree-l1"><a class="reference internal" href="src/binary.html">Binary data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="src/pg_pdf.html">Point groups</a></li>
-<li class="toctree-l1"><a class="reference internal" href="src/sg_pdf.html">Space groups</a></li>
-<li class="toctree-l1"><a class="reference internal" href="src/mpg_pdf.html">Magnetic point groups</a></li>
-<li class="toctree-l1"><a class="reference internal" href="src/msg_pdf.html">Magnetic space groups</a></li>
-<li class="toctree-l1"><a class="reference internal" href="src/info_pdf.html">Overall information</a></li>
-<li class="toctree-l1"><a class="reference internal" href="src/examples.html">Examples</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="src/group_info.html">Group Information</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="src/info_pdf.html">Overall information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/pg_pdf.html">Point groups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/sg_pdf.html">Space groups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/mpg_pdf.html">Magnetic point groups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/msg_pdf.html">Magnetic space groups</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="src/notes.html">Notes</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="src/details.html">Details</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="src/examples.html">Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/binary.html">Binary data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/data.html">Data tables</a></li>
+</ul>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">API reference</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="src/api_util.html">Utilities</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="src/api_util/util_info.html">Info</a></li>
 <li class="toctree-l2"><a class="reference internal" href="src/api_util/util_group.html">Group</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/api_util/util_group_data.html">Group data (ids, tags, names)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/api_util/util_top_harmonics.html">Top harmonics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/api_util/util_harmonics_mapping.html">Harmonics mapping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/api_util/util_op_mapping.html">Operation mapping</a></li>
 <li class="toctree-l2"><a class="reference internal" href="src/api_util/util_cluster_basis.html">Cluster basis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/api_util/util_cluster_vector_basis.html">Vector cluster basis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/api_util/util_bond_cluster_basis.html">Bond cluster basis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/api_util/util_cluster_samb.html">Cluster SAMB</a></li>
 <li class="toctree-l2"><a class="reference internal" href="src/api_util/util_harmonics_symbol.html">Harmonics symbol</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/api_util/util_harmonics.html">Harmonics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/api_util/util_harmonics_multipole.html">Multipolar harmonics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="src/api_util/util_multipolar_harmonics.html">Multipolar harmonics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/api_util/util_atomic_multipole.html">Atomic multipole</a></li>
 <li class="toctree-l2"><a class="reference internal" href="src/api_util/util_symmetry_operation.html">Symmetry operation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/api_util/util_representation_matrix.html">Representation matrix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/api_util/util_response_tensor.html">Response tensor</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="src/api_create.html">Generators</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="src/api_create/create_info.html">Info binary</a></li>
 <li class="toctree-l2"><a class="reference internal" href="src/api_create/create_group.html">Group binary</a></li>
-<li class="toctree-l2"><a class="reference internal" href="src/api_create/create_cluster_basis.html">Cluster basis binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/api_create/create_response_tensor.html">Response tensor binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/api_create/create_harmonics.html">Harmonics binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/api_create/create_multipolar_harmonics.html">Multipolar harmonics binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/api_create/create_atomic_multipole.html">Atomic multipole binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/api_create/create_atomic_multipole_group.html">Atomic multipole group binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/api_create/create_cluster_scalar_basis.html">Cluster scalar basis binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/api_create/create_cluster_vector_basis.html">Vector cluster basis binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/api_create/create_cluster_bond_basis.html">Cluster bond basis binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/api_create/create_cluster_samb.html">Cluster SAMB binary</a></li>
 <li class="toctree-l2"><a class="reference internal" href="src/api_create/create_pdf_harmonics.html">Harmonics PDF</a></li>
 <li class="toctree-l2"><a class="reference internal" href="src/api_create/create_pdf_info.html">Information PDF</a></li>
 <li class="toctree-l2"><a class="reference internal" href="src/api_create/create_pdf_group.html">Group PDF</a></li>
@@ -281,7 +308,7 @@
 <div class="article-header-buttons">
 
 
-<a href="https://github.com/hiro-k-phys/mp-newbasis.git" target="_blank"
+<a href="https://github.com/hiro-k-phys/MultiPieGen.git" target="_blank"
    class="btn btn-sm btn-source-repository-button"
    title="Source repository"
    data-bs-placement="bottom" data-bs-toggle="tooltip"
@@ -351,25 +378,51 @@
 <h1 id="index">Index</h1>
 
 <div class="genindex-jumpbox">
- <a href="#B"><strong>B</strong></a>
+ <a href="#A"><strong>A</strong></a>
+ | <a href="#B"><strong>B</strong></a>
  | <a href="#C"><strong>C</strong></a>
  | <a href="#G"><strong>G</strong></a>
  | <a href="#H"><strong>H</strong></a>
  | <a href="#I"><strong>I</strong></a>
  | <a href="#L"><strong>L</strong></a>
  | <a href="#M"><strong>M</strong></a>
+ | <a href="#N"><strong>N</strong></a>
  | <a href="#O"><strong>O</strong></a>
  | <a href="#P"><strong>P</strong></a>
  | <a href="#R"><strong>R</strong></a>
  | <a href="#S"><strong>S</strong></a>
  | <a href="#T"><strong>T</strong></a>
  | <a href="#U"><strong>U</strong></a>
+ | <a href="#V"><strong>V</strong></a>
+ | <a href="#W"><strong>W</strong></a>
  
 </div>
+<h2 id="A">A</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="src/api_util/util_response_tensor.html#multipiegen.util.util_response_tensor.active_dict">active_dict() (in module multipiegen.util.util_response_tensor)</a>
+</li>
+      <li><a href="src/api_util/util_atomic_multipole.html#multipiegen.util.util_atomic_multipole.assemble_atomic_multipole">assemble_atomic_multipole() (in module multipiegen.util.util_atomic_multipole)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="src/api_util/util_atomic_multipole.html#multipiegen.util.util_atomic_multipole.atomic_multipole_keys">atomic_multipole_keys() (in module multipiegen.util.util_atomic_multipole)</a>
+</li>
+      <li><a href="src/api_util/util_atomic_multipole.html#multipiegen.util.util_atomic_multipole.atomic_multipole_matrix">atomic_multipole_matrix() (in module multipiegen.util.util_atomic_multipole)</a>
+</li>
+  </ul></td>
+</tr></table>
+
 <h2 id="B">B</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="src/api_create/create_info.html#multipiegen.create_binary.create_info.basis_function">basis_function() (in module multipiegen.create_binary.create_info)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="src/api_util/util_bond_cluster_basis.html#multipiegen.util.util_bond_cluster_basis.bond_cluster_basis_matrix">bond_cluster_basis_matrix() (in module multipiegen.util.util_bond_cluster_basis)</a>
+</li>
+      <li><a href="src/api_util/util_cluster_samb.html#multipiegen.util.util_cluster_samb.bond_samb">bond_samb() (in module multipiegen.util.util_cluster_samb)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -377,7 +430,13 @@
 <h2 id="C">C</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="src/api_create/create_group.html#multipiegen.create_binary.create_group.character_plus">character_plus() (in module multipiegen.create_binary.create_group)</a>
+</li>
+      <li><a href="src/api_util/util_representation_matrix.html#multipiegen.util.util_representation_matrix.check_representation_matrix">check_representation_matrix() (in module multipiegen.util.util_representation_matrix)</a>
+</li>
       <li><a href="src/api_util/util_cluster_basis.html#multipiegen.util.util_cluster_basis.cluster_basis_matrix">cluster_basis_matrix() (in module multipiegen.util.util_cluster_basis)</a>
+</li>
+      <li><a href="src/api_util/util_cluster_vector_basis.html#multipiegen.util.util_cluster_vector_basis.cluster_vector_basis_matrix">cluster_vector_basis_matrix() (in module multipiegen.util.util_cluster_vector_basis)</a>
 </li>
       <li><a href="src/api_create/create_group.html#multipiegen.create_binary.create_group.create_active_multipole">create_active_multipole() (in module multipiegen.create_binary.create_group)</a>
 
@@ -385,6 +444,20 @@
         <li><a href="src/api_create/create_pdf_info.html#multipiegen.create_pdf.create_pdf_info.create_active_multipole">(in module multipiegen.create_pdf.create_pdf_info)</a>
 </li>
       </ul></li>
+      <li><a href="src/api_create/create_atomic_multipole.html#multipiegen.create_binary.create_atomic_multipole.create_atomic_multipole">create_atomic_multipole() (in module multipiegen.create_binary.create_atomic_multipole)</a>
+
+      <ul>
+        <li><a href="src/api_create/create_pdf_group.html#multipiegen.create_pdf.create_pdf_group.create_atomic_multipole">(in module multipiegen.create_pdf.create_pdf_group)</a>
+</li>
+      </ul></li>
+      <li><a href="src/api_create/create_atomic_multipole_group.html#multipiegen.create_binary.create_atomic_multipole_group.create_atomic_multipole_group">create_atomic_multipole_group() (in module multipiegen.create_binary.create_atomic_multipole_group)</a>
+</li>
+      <li><a href="src/api_util/util_atomic_multipole.html#multipiegen.util.util_atomic_multipole.create_atomic_multipole_pg">create_atomic_multipole_pg() (in module multipiegen.util.util_atomic_multipole)</a>
+</li>
+      <li><a href="src/api_util/util_bond_cluster_basis.html#multipiegen.util.util_bond_cluster_basis.create_bond">create_bond() (in module multipiegen.util.util_bond_cluster_basis)</a>
+</li>
+      <li><a href="src/api_util/util_bond_cluster_basis.html#multipiegen.util.util_bond_cluster_basis.create_bond_cluster_basis">create_bond_cluster_basis() (in module multipiegen.util.util_bond_cluster_basis)</a>
+</li>
       <li><a href="src/api_create/create_group.html#multipiegen.create_binary.create_group.create_character">create_character() (in module multipiegen.create_binary.create_group)</a>
 </li>
       <li><a href="src/api_create/create_info.html#multipiegen.create_binary.create_info.create_character_info">create_character_info() (in module multipiegen.create_binary.create_info)</a>
@@ -394,6 +467,12 @@
       <li><a href="src/api_util/util_cluster_basis.html#multipiegen.util.util_cluster_basis.create_cluster">create_cluster() (in module multipiegen.util.util_cluster_basis)</a>
 </li>
       <li><a href="src/api_util/util_cluster_basis.html#multipiegen.util.util_cluster_basis.create_cluster_basis">create_cluster_basis() (in module multipiegen.util.util_cluster_basis)</a>
+</li>
+      <li><a href="src/api_util/util_cluster_samb.html#multipiegen.util.util_cluster_samb.create_cluster_samb">create_cluster_samb() (in module multipiegen.util.util_cluster_samb)</a>
+</li>
+      <li><a href="src/api_create/create_cluster_samb.html#multipiegen.create_binary.create_cluster_samb.create_cluster_samb_all">create_cluster_samb_all() (in module multipiegen.create_binary.create_cluster_samb)</a>
+</li>
+      <li><a href="src/api_util/util_cluster_vector_basis.html#multipiegen.util.util_cluster_vector_basis.create_cluster_vector_basis">create_cluster_vector_basis() (in module multipiegen.util.util_cluster_vector_basis)</a>
 </li>
       <li><a href="src/api_create/create_pdf_info.html#multipiegen.create_pdf.create_pdf_info.create_compatibility_relation">create_compatibility_relation() (in module multipiegen.create_pdf.create_pdf_info)</a>
 </li>
@@ -413,12 +492,16 @@
 </li>
       <li><a href="src/api_create/create_info.html#multipiegen.create_binary.create_info.create_group_name_info">create_group_name_info() (in module multipiegen.create_binary.create_info)</a>
 </li>
+      <li><a href="src/api_util/util_harmonics.html#multipiegen.util.util_harmonics.create_harmonics">create_harmonics() (in module multipiegen.util.util_harmonics)</a>
+</li>
+      <li><a href="src/api_create/create_harmonics.html#multipiegen.create_binary.create_harmonics.create_harmonics_all">create_harmonics_all() (in module multipiegen.create_binary.create_harmonics)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="src/api_create/create_info.html#multipiegen.create_binary.create_info.create_harmonics_info">create_harmonics_info() (in module multipiegen.create_binary.create_info)</a>
 </li>
       <li><a href="src/api_util/util_multipolar_harmonics.html#multipiegen.util.util_multipolar_harmonics.create_harmonics_set">create_harmonics_set() (in module multipiegen.util.util_multipolar_harmonics)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="src/api_util/util_cluster_basis.html#multipiegen.util.util_cluster_basis.create_harmonics_vectors">create_harmonics_vectors() (in module multipiegen.util.util_cluster_basis)</a>
 </li>
       <li><a href="src/api_create/create_info.html#multipiegen.create_binary.create_info.create_info">create_info() (in module multipiegen.create_binary.create_info)</a>
@@ -427,9 +510,21 @@
 </li>
       <li><a href="src/api_create/create_group.html#multipiegen.create_binary.create_group.create_m_symmetry_operation">create_m_symmetry_operation() (in module multipiegen.create_binary.create_group)</a>
 </li>
+      <li><a href="src/api_util/util_harmonics_mapping.html#multipiegen.util.util_harmonics_mapping.create_mapping">create_mapping() (in module multipiegen.util.util_harmonics_mapping)</a>
+</li>
       <li><a href="src/api_create/create_group.html#multipiegen.create_binary.create_group.create_mpg">create_mpg() (in module multipiegen.create_binary.create_group)</a>
 </li>
       <li><a href="src/api_create/create_group.html#multipiegen.create_binary.create_group.create_msg">create_msg() (in module multipiegen.create_binary.create_group)</a>
+</li>
+      <li><a href="src/api_create/create_pdf_group.html#multipiegen.create_pdf.create_pdf_group.create_multipolar_harmonics">create_multipolar_harmonics() (in module multipiegen.create_pdf.create_pdf_group)</a>
+
+      <ul>
+        <li><a href="src/api_util/util_harmonics_multipole.html#multipiegen.util.util_harmonics_multipole.create_multipolar_harmonics">(in module multipiegen.util.util_harmonics_multipole)</a>
+</li>
+      </ul></li>
+      <li><a href="src/api_create/create_multipolar_harmonics.html#multipiegen.create_binary.create_multipolar_harmonics.create_multipolar_harmonics_all">create_multipolar_harmonics_all() (in module multipiegen.create_binary.create_multipolar_harmonics)</a>
+</li>
+      <li><a href="src/api_util/util_op_mapping.html#multipiegen.util.util_op_mapping.create_op_mapping">create_op_mapping() (in module multipiegen.util.util_op_mapping)</a>
 </li>
       <li><a href="src/api_create/create_pdf_group.html#multipiegen.create_pdf.create_pdf_group.create_pdf_group">create_pdf_group() (in module multipiegen.create_pdf.create_pdf_group)</a>
 </li>
@@ -440,6 +535,16 @@
       <li><a href="src/api_create/create_pdf_info.html#multipiegen.create_pdf.create_pdf_info.create_pdf_info">create_pdf_info() (in module multipiegen.create_pdf.create_pdf_info)</a>
 </li>
       <li><a href="src/api_create/create_group.html#multipiegen.create_binary.create_group.create_pg">create_pg() (in module multipiegen.create_binary.create_group)</a>
+</li>
+      <li><a href="src/api_create/create_pdf_group.html#multipiegen.create_pdf.create_pdf_group.create_representation_matrix">create_representation_matrix() (in module multipiegen.create_pdf.create_pdf_group)</a>
+</li>
+      <li><a href="src/api_create/create_response_tensor.html#multipiegen.create_binary.create_response_tensor.create_response_tensor">create_response_tensor() (in module multipiegen.create_binary.create_response_tensor)</a>
+
+      <ul>
+        <li><a href="src/api_create/create_pdf_group.html#multipiegen.create_pdf.create_pdf_group.create_response_tensor">(in module multipiegen.create_pdf.create_pdf_group)</a>
+</li>
+      </ul></li>
+      <li><a href="src/api_create/create_response_tensor.html#multipiegen.create_binary.create_response_tensor.create_response_tensor_group">create_response_tensor_group() (in module multipiegen.create_binary.create_response_tensor)</a>
 </li>
       <li><a href="src/api_create/create_info.html#multipiegen.create_binary.create_info.create_response_tensor_info">create_response_tensor_info() (in module multipiegen.create_binary.create_info)</a>
 </li>
@@ -453,6 +558,8 @@
         <li><a href="src/api_create/create_pdf_group.html#multipiegen.create_pdf.create_pdf_group.create_symmetry_operation">(in module multipiegen.create_pdf.create_pdf_group)</a>
 </li>
       </ul></li>
+      <li><a href="src/api_util/util_atomic_multipole.html#multipiegen.util.util_atomic_multipole.create_top_samb">create_top_samb() (in module multipiegen.util.util_atomic_multipole)</a>
+</li>
       <li><a href="src/api_create/create_group.html#multipiegen.create_binary.create_group.create_wyckoff_bond">create_wyckoff_bond() (in module multipiegen.create_binary.create_group)</a>
 
       <ul>
@@ -471,21 +578,23 @@
 <h2 id="G">G</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="src/api_util/util_cluster_samb.html#multipiegen.util.util_cluster_samb.general_point_basis">general_point_basis() (in module multipiegen.util.util_cluster_samb)</a>
+</li>
       <li><a href="src/api_util/util_multipolar_harmonics.html#multipiegen.util.util_multipolar_harmonics.get_internal_basis">get_internal_basis() (in module multipiegen.util.util_multipolar_harmonics)</a>
 </li>
       <li><a href="src/api_util/util_cluster_basis.html#multipiegen.util.util_cluster_basis.gram_schmidt">gram_schmidt() (in module multipiegen.util.util_cluster_basis)</a>
 </li>
-      <li><a href="src/api_create/create_pdf_group.html#multipiegen.create_pdf.create_pdf_group.group_dir">group_dir() (in module multipiegen.create_pdf.create_pdf_group)</a>
-
-      <ul>
-        <li><a href="src/api_create/create_pdf_harmonics.html#multipiegen.create_pdf.create_pdf_harmonics.group_dir">(in module multipiegen.create_pdf.create_pdf_harmonics)</a>
+      <li><a href="src/api_create/create_cluster_samb.html#multipiegen.create_binary.create_cluster_samb.group_args">group_args() (in module multipiegen.create_binary.create_cluster_samb)</a>
 </li>
-      </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="src/api_create/create_pdf_group.html#multipiegen.create_pdf.create_pdf_group.group_dir">group_dir() (in module multipiegen.create_pdf.create_pdf_group)</a>
+</li>
       <li><a href="src/api_create/create_group.html#multipiegen.create_binary.create_group.group_ids">group_ids() (in module multipiegen.create_binary.create_group)</a>
 </li>
       <li><a href="src/api_create/create_pdf_group.html#multipiegen.create_pdf.create_pdf_group.group_latex">group_latex() (in module multipiegen.create_pdf.create_pdf_group)</a>
+</li>
+      <li><a href="src/api_util/util_symmetry_operation.html#multipiegen.util.util_symmetry_operation.group_symmetry_operation">group_symmetry_operation() (in module multipiegen.util.util_symmetry_operation)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -493,7 +602,17 @@
 <h2 id="H">H</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="src/api_util/util_representation_matrix.html#multipiegen.util.util_representation_matrix.harmonics_blocks">harmonics_blocks() (in module multipiegen.util.util_representation_matrix)</a>
+</li>
+      <li><a href="src/api_util/util_harmonics.html#multipiegen.util.util_harmonics.harmonics_expression">harmonics_expression() (in module multipiegen.util.util_harmonics)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="src/api_util/util_harmonics_symbol.html#multipiegen.util.util_harmonics_symbol.harmonics_symbol_table">harmonics_symbol_table() (in module multipiegen.util.util_harmonics_symbol)</a>
+</li>
+      <li><a href="src/api_util/util_harmonics.html#multipiegen.util.util_harmonics.harmonics_u_matrix">harmonics_u_matrix() (in module multipiegen.util.util_harmonics)</a>
+</li>
+      <li><a href="src/api_create/create_pdf_group.html#multipiegen.create_pdf.create_pdf_group.has_pdf">has_pdf() (in module multipiegen.create_pdf.create_pdf_group)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -502,11 +621,21 @@
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="src/api_create/create_info.html#multipiegen.create_binary.create_info.internal_basis">internal_basis() (in module multipiegen.create_binary.create_info)</a>
+
+      <ul>
+        <li><a href="src/api_util/util_cluster_vector_basis.html#multipiegen.util.util_cluster_vector_basis.internal_basis">(in module multipiegen.util.util_cluster_vector_basis)</a>
 </li>
-      <li><a href="src/api_util/util_multipolar_harmonics.html#multipiegen.util.util_multipolar_harmonics.InternalBasis">InternalBasis (class in multipiegen.util.util_multipolar_harmonics)</a>
+        <li><a href="src/api_util/util_harmonics_multipole.html#multipiegen.util.util_harmonics_multipole.internal_basis">(in module multipiegen.util.util_harmonics_multipole)</a>
+</li>
+      </ul></li>
+      <li><a href="src/api_util/util_harmonics_multipole.html#multipiegen.util.util_harmonics_multipole.internal_symbols">internal_symbols() (in module multipiegen.util.util_harmonics_multipole)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="src/api_util/util_harmonics_multipole.html#multipiegen.util.util_harmonics_multipole.internal_type">internal_type() (in module multipiegen.util.util_harmonics_multipole)</a>
+</li>
+      <li><a href="src/api_util/util_multipolar_harmonics.html#multipiegen.util.util_multipolar_harmonics.InternalBasis">InternalBasis (class in multipiegen.util.util_multipolar_harmonics)</a>
+</li>
       <li><a href="src/api_util/util_harmonics_symbol.html#multipiegen.util.util_harmonics_symbol.irrep_latex">irrep_latex() (in module multipiegen.util.util_harmonics_symbol)</a>
 </li>
       <li><a href="src/api_util/util_harmonics_symbol.html#multipiegen.util.util_harmonics_symbol.is_real_irrep">is_real_irrep() (in module multipiegen.util.util_harmonics_symbol)</a>
@@ -519,13 +648,33 @@
 <h2 id="L">L</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="src/api_util/util_cluster_vector_basis.html#multipiegen.util.util_cluster_vector_basis.label">label() (in module multipiegen.util.util_cluster_vector_basis)</a>
+</li>
+      <li><a href="src/api_util/util_atomic_multipole.html#multipiegen.util.util_atomic_multipole.lgs_u_matrix">lgs_u_matrix() (in module multipiegen.util.util_atomic_multipole)</a>
+</li>
+      <li><a href="src/api_util/util_atomic_multipole.html#multipiegen.util.util_atomic_multipole.load_atomic_multipole">load_atomic_multipole() (in module multipiegen.util.util_atomic_multipole)</a>
+</li>
+      <li><a href="src/api_util/util_atomic_multipole.html#multipiegen.util.util_atomic_multipole.load_atomic_multipole_group">load_atomic_multipole_group() (in module multipiegen.util.util_atomic_multipole)</a>
+</li>
+      <li><a href="src/api_util/util_bond_cluster_basis.html#multipiegen.util.util_bond_cluster_basis.load_bond_cluster_basis">load_bond_cluster_basis() (in module multipiegen.util.util_bond_cluster_basis)</a>
+</li>
       <li><a href="src/api_util/util_cluster_basis.html#multipiegen.util.util_cluster_basis.load_cluster_basis">load_cluster_basis() (in module multipiegen.util.util_cluster_basis)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="src/api_util/util_cluster_samb.html#multipiegen.util.util_cluster_samb.load_cluster_samb">load_cluster_samb() (in module multipiegen.util.util_cluster_samb)</a>
+</li>
+      <li><a href="src/api_util/util_cluster_vector_basis.html#multipiegen.util.util_cluster_vector_basis.load_cluster_vector_basis">load_cluster_vector_basis() (in module multipiegen.util.util_cluster_vector_basis)</a>
+</li>
       <li><a href="src/api_util/util_group.html#multipiegen.util.util_group.load_group">load_group() (in module multipiegen.util.util_group)</a>
 </li>
+      <li><a href="src/api_util/util_harmonics.html#multipiegen.util.util_harmonics.load_harmonics">load_harmonics() (in module multipiegen.util.util_harmonics)</a>
+</li>
       <li><a href="src/api_util/util_info.html#multipiegen.util.util_info.load_info">load_info() (in module multipiegen.util.util_info)</a>
+</li>
+      <li><a href="src/api_util/util_harmonics_multipole.html#multipiegen.util.util_harmonics_multipole.load_multipolar_harmonics">load_multipolar_harmonics() (in module multipiegen.util.util_harmonics_multipole)</a>
+</li>
+      <li><a href="src/api_util/util_response_tensor.html#multipiegen.util.util_response_tensor.load_response_tensor">load_response_tensor() (in module multipiegen.util.util_response_tensor)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -537,11 +686,27 @@
     module
 
       <ul>
-        <li><a href="src/api_create/create_cluster_basis.html#module-multipiegen.create_binary.create_cluster_basis">multipiegen.create_binary.create_cluster_basis</a>
+        <li><a href="src/api_create/create_atomic_multipole.html#module-multipiegen.create_binary.create_atomic_multipole">multipiegen.create_binary.create_atomic_multipole</a>
+</li>
+        <li><a href="src/api_create/create_atomic_multipole_group.html#module-multipiegen.create_binary.create_atomic_multipole_group">multipiegen.create_binary.create_atomic_multipole_group</a>
+</li>
+        <li><a href="src/api_create/create_cluster_bond_basis.html#module-multipiegen.create_binary.create_cluster_bond_basis">multipiegen.create_binary.create_cluster_bond_basis</a>
+</li>
+        <li><a href="src/api_create/create_cluster_samb.html#module-multipiegen.create_binary.create_cluster_samb">multipiegen.create_binary.create_cluster_samb</a>
+</li>
+        <li><a href="src/api_create/create_cluster_scalar_basis.html#module-multipiegen.create_binary.create_cluster_scalar_basis">multipiegen.create_binary.create_cluster_scalar_basis</a>
+</li>
+        <li><a href="src/api_create/create_cluster_vector_basis.html#module-multipiegen.create_binary.create_cluster_vector_basis">multipiegen.create_binary.create_cluster_vector_basis</a>
 </li>
         <li><a href="src/api_create/create_group.html#module-multipiegen.create_binary.create_group">multipiegen.create_binary.create_group</a>
 </li>
+        <li><a href="src/api_create/create_harmonics.html#module-multipiegen.create_binary.create_harmonics">multipiegen.create_binary.create_harmonics</a>
+</li>
         <li><a href="src/api_create/create_info.html#module-multipiegen.create_binary.create_info">multipiegen.create_binary.create_info</a>
+</li>
+        <li><a href="src/api_create/create_multipolar_harmonics.html#module-multipiegen.create_binary.create_multipolar_harmonics">multipiegen.create_binary.create_multipolar_harmonics</a>
+</li>
+        <li><a href="src/api_create/create_response_tensor.html#module-multipiegen.create_binary.create_response_tensor">multipiegen.create_binary.create_response_tensor</a>
 </li>
         <li><a href="src/api_create/create_pdf_group.html#module-multipiegen.create_pdf.create_pdf_group">multipiegen.create_pdf.create_pdf_group</a>
 </li>
@@ -549,9 +714,25 @@
 </li>
         <li><a href="src/api_create/create_pdf_info.html#module-multipiegen.create_pdf.create_pdf_info">multipiegen.create_pdf.create_pdf_info</a>
 </li>
+        <li><a href="src/api_util/util_atomic_multipole.html#module-multipiegen.util.util_atomic_multipole">multipiegen.util.util_atomic_multipole</a>
+</li>
+        <li><a href="src/api_util/util_bond_cluster_basis.html#module-multipiegen.util.util_bond_cluster_basis">multipiegen.util.util_bond_cluster_basis</a>
+</li>
         <li><a href="src/api_util/util_cluster_basis.html#module-multipiegen.util.util_cluster_basis">multipiegen.util.util_cluster_basis</a>
 </li>
+        <li><a href="src/api_util/util_cluster_samb.html#module-multipiegen.util.util_cluster_samb">multipiegen.util.util_cluster_samb</a>
+</li>
+        <li><a href="src/api_util/util_cluster_vector_basis.html#module-multipiegen.util.util_cluster_vector_basis">multipiegen.util.util_cluster_vector_basis</a>
+</li>
         <li><a href="src/api_util/util_group.html#module-multipiegen.util.util_group">multipiegen.util.util_group</a>
+</li>
+        <li><a href="src/api_util/util_group_data.html#module-multipiegen.util.util_group_data">multipiegen.util.util_group_data</a>
+</li>
+        <li><a href="src/api_util/util_harmonics.html#module-multipiegen.util.util_harmonics">multipiegen.util.util_harmonics</a>
+</li>
+        <li><a href="src/api_util/util_harmonics_mapping.html#module-multipiegen.util.util_harmonics_mapping">multipiegen.util.util_harmonics_mapping</a>
+</li>
+        <li><a href="src/api_util/util_harmonics_multipole.html#module-multipiegen.util.util_harmonics_multipole">multipiegen.util.util_harmonics_multipole</a>
 </li>
         <li><a href="src/api_util/util_harmonics_symbol.html#module-multipiegen.util.util_harmonics_symbol">multipiegen.util.util_harmonics_symbol</a>
 </li>
@@ -559,14 +740,57 @@
 </li>
         <li><a href="src/api_util/util_multipolar_harmonics.html#module-multipiegen.util.util_multipolar_harmonics">multipiegen.util.util_multipolar_harmonics</a>
 </li>
+        <li><a href="src/api_util/util_op_mapping.html#module-multipiegen.util.util_op_mapping">multipiegen.util.util_op_mapping</a>
+</li>
+        <li><a href="src/api_util/util_representation_matrix.html#module-multipiegen.util.util_representation_matrix">multipiegen.util.util_representation_matrix</a>
+</li>
+        <li><a href="src/api_util/util_response_tensor.html#module-multipiegen.util.util_response_tensor">multipiegen.util.util_response_tensor</a>
+</li>
         <li><a href="src/api_util/util_symmetry_operation.html#module-multipiegen.util.util_symmetry_operation">multipiegen.util.util_symmetry_operation</a>
+</li>
+        <li><a href="src/api_util/util_top_harmonics.html#module-multipiegen.util.util_top_harmonics">multipiegen.util.util_top_harmonics</a>
 </li>
       </ul></li>
       <li>
-    multipiegen.create_binary.create_cluster_basis
+    multipiegen.create_binary.create_atomic_multipole
 
       <ul>
-        <li><a href="src/api_create/create_cluster_basis.html#module-multipiegen.create_binary.create_cluster_basis">module</a>
+        <li><a href="src/api_create/create_atomic_multipole.html#module-multipiegen.create_binary.create_atomic_multipole">module</a>
+</li>
+      </ul></li>
+      <li>
+    multipiegen.create_binary.create_atomic_multipole_group
+
+      <ul>
+        <li><a href="src/api_create/create_atomic_multipole_group.html#module-multipiegen.create_binary.create_atomic_multipole_group">module</a>
+</li>
+      </ul></li>
+      <li>
+    multipiegen.create_binary.create_cluster_bond_basis
+
+      <ul>
+        <li><a href="src/api_create/create_cluster_bond_basis.html#module-multipiegen.create_binary.create_cluster_bond_basis">module</a>
+</li>
+      </ul></li>
+      <li>
+    multipiegen.create_binary.create_cluster_samb
+
+      <ul>
+        <li><a href="src/api_create/create_cluster_samb.html#module-multipiegen.create_binary.create_cluster_samb">module</a>
+</li>
+      </ul></li>
+      <li>
+    multipiegen.create_binary.create_cluster_scalar_basis
+
+      <ul>
+        <li><a href="src/api_create/create_cluster_scalar_basis.html#module-multipiegen.create_binary.create_cluster_scalar_basis">module</a>
+</li>
+      </ul></li>
+      <li>
+    multipiegen.create_binary.create_cluster_vector_basis
+
+      <ul>
+        <li><a href="src/api_create/create_cluster_vector_basis.html#module-multipiegen.create_binary.create_cluster_vector_basis">module</a>
 </li>
       </ul></li>
       <li>
@@ -577,14 +801,35 @@
 </li>
       </ul></li>
       <li>
+    multipiegen.create_binary.create_harmonics
+
+      <ul>
+        <li><a href="src/api_create/create_harmonics.html#module-multipiegen.create_binary.create_harmonics">module</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
     multipiegen.create_binary.create_info
 
       <ul>
         <li><a href="src/api_create/create_info.html#module-multipiegen.create_binary.create_info">module</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    multipiegen.create_binary.create_multipolar_harmonics
+
+      <ul>
+        <li><a href="src/api_create/create_multipolar_harmonics.html#module-multipiegen.create_binary.create_multipolar_harmonics">module</a>
+</li>
+      </ul></li>
+      <li>
+    multipiegen.create_binary.create_response_tensor
+
+      <ul>
+        <li><a href="src/api_create/create_response_tensor.html#module-multipiegen.create_binary.create_response_tensor">module</a>
+</li>
+      </ul></li>
       <li>
     multipiegen.create_pdf.create_pdf_group
 
@@ -607,6 +852,20 @@
 </li>
       </ul></li>
       <li>
+    multipiegen.util.util_atomic_multipole
+
+      <ul>
+        <li><a href="src/api_util/util_atomic_multipole.html#module-multipiegen.util.util_atomic_multipole">module</a>
+</li>
+      </ul></li>
+      <li>
+    multipiegen.util.util_bond_cluster_basis
+
+      <ul>
+        <li><a href="src/api_util/util_bond_cluster_basis.html#module-multipiegen.util.util_bond_cluster_basis">module</a>
+</li>
+      </ul></li>
+      <li>
     multipiegen.util.util_cluster_basis
 
       <ul>
@@ -614,10 +873,52 @@
 </li>
       </ul></li>
       <li>
+    multipiegen.util.util_cluster_samb
+
+      <ul>
+        <li><a href="src/api_util/util_cluster_samb.html#module-multipiegen.util.util_cluster_samb">module</a>
+</li>
+      </ul></li>
+      <li>
+    multipiegen.util.util_cluster_vector_basis
+
+      <ul>
+        <li><a href="src/api_util/util_cluster_vector_basis.html#module-multipiegen.util.util_cluster_vector_basis">module</a>
+</li>
+      </ul></li>
+      <li>
     multipiegen.util.util_group
 
       <ul>
         <li><a href="src/api_util/util_group.html#module-multipiegen.util.util_group">module</a>
+</li>
+      </ul></li>
+      <li>
+    multipiegen.util.util_group_data
+
+      <ul>
+        <li><a href="src/api_util/util_group_data.html#module-multipiegen.util.util_group_data">module</a>
+</li>
+      </ul></li>
+      <li>
+    multipiegen.util.util_harmonics
+
+      <ul>
+        <li><a href="src/api_util/util_harmonics.html#module-multipiegen.util.util_harmonics">module</a>
+</li>
+      </ul></li>
+      <li>
+    multipiegen.util.util_harmonics_mapping
+
+      <ul>
+        <li><a href="src/api_util/util_harmonics_mapping.html#module-multipiegen.util.util_harmonics_mapping">module</a>
+</li>
+      </ul></li>
+      <li>
+    multipiegen.util.util_harmonics_multipole
+
+      <ul>
+        <li><a href="src/api_util/util_harmonics_multipole.html#module-multipiegen.util.util_harmonics_multipole">module</a>
 </li>
       </ul></li>
       <li>
@@ -642,13 +943,51 @@
 </li>
       </ul></li>
       <li>
+    multipiegen.util.util_op_mapping
+
+      <ul>
+        <li><a href="src/api_util/util_op_mapping.html#module-multipiegen.util.util_op_mapping">module</a>
+</li>
+      </ul></li>
+      <li>
+    multipiegen.util.util_representation_matrix
+
+      <ul>
+        <li><a href="src/api_util/util_representation_matrix.html#module-multipiegen.util.util_representation_matrix">module</a>
+</li>
+      </ul></li>
+      <li>
+    multipiegen.util.util_response_tensor
+
+      <ul>
+        <li><a href="src/api_util/util_response_tensor.html#module-multipiegen.util.util_response_tensor">module</a>
+</li>
+      </ul></li>
+      <li>
     multipiegen.util.util_symmetry_operation
 
       <ul>
         <li><a href="src/api_util/util_symmetry_operation.html#module-multipiegen.util.util_symmetry_operation">module</a>
 </li>
       </ul></li>
+      <li>
+    multipiegen.util.util_top_harmonics
+
+      <ul>
+        <li><a href="src/api_util/util_top_harmonics.html#module-multipiegen.util.util_top_harmonics">module</a>
+</li>
+      </ul></li>
+      <li><a href="src/api_util/util_response_tensor.html#multipiegen.util.util_response_tensor.multipole_latex">multipole_latex() (in module multipiegen.util.util_response_tensor)</a>
+</li>
       <li><a href="src/api_util/util_harmonics_symbol.html#multipiegen.util.util_harmonics_symbol.multipole_symbol">multipole_symbol() (in module multipiegen.util.util_harmonics_symbol)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="N">N</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="src/api_util/util_representation_matrix.html#multipiegen.util.util_representation_matrix.numerical_representation_matrix">numerical_representation_matrix() (in module multipiegen.util.util_representation_matrix)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -670,10 +1009,12 @@
 <h2 id="P">P</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="src/api_util/util_symmetry_operation.html#multipiegen.util.util_symmetry_operation.point_tag">point_tag() (in module multipiegen.util.util_symmetry_operation)</a>
+      <li><a href="src/api_util/util_harmonics_multipole.html#multipiegen.util.util_harmonics_multipole.pg_harmonics">pg_harmonics() (in module multipiegen.util.util_harmonics_multipole)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="src/api_util/util_symmetry_operation.html#multipiegen.util.util_symmetry_operation.point_tag">point_tag() (in module multipiegen.util.util_symmetry_operation)</a>
+</li>
       <li><a href="src/api_util/util_harmonics_symbol.html#multipiegen.util.util_harmonics_symbol.polar_to_axial">polar_to_axial() (in module multipiegen.util.util_harmonics_symbol)</a>
 </li>
   </ul></td>
@@ -682,7 +1023,17 @@
 <h2 id="R">R</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="src/api_util/util_symmetry_operation.html#multipiegen.util.util_symmetry_operation.representation_matrix">representation_matrix() (in module multipiegen.util.util_symmetry_operation)</a>
+      <li><a href="src/api_util/util_representation_matrix.html#multipiegen.util.util_representation_matrix.representation_matrix">representation_matrix() (in module multipiegen.util.util_representation_matrix)</a>
+
+      <ul>
+        <li><a href="src/api_util/util_symmetry_operation.html#multipiegen.util.util_symmetry_operation.representation_matrix">(in module multipiegen.util.util_symmetry_operation)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="src/api_util/util_response_tensor.html#multipiegen.util.util_response_tensor.response_tensor_all">response_tensor_all() (in module multipiegen.util.util_response_tensor)</a>
+</li>
+      <li><a href="src/api_util/util_response_tensor.html#multipiegen.util.util_response_tensor.response_tensor_component">response_tensor_component() (in module multipiegen.util.util_response_tensor)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -690,17 +1041,37 @@
 <h2 id="S">S</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="src/api_create/create_atomic_multipole.html#multipiegen.create_binary.create_atomic_multipole.save_atomic_multipole">save_atomic_multipole() (in module multipiegen.create_binary.create_atomic_multipole)</a>
+</li>
+      <li><a href="src/api_create/create_atomic_multipole_group.html#multipiegen.create_binary.create_atomic_multipole_group.save_atomic_multipole_group">save_atomic_multipole_group() (in module multipiegen.create_binary.create_atomic_multipole_group)</a>
+</li>
+      <li><a href="src/api_util/util_bond_cluster_basis.html#multipiegen.util.util_bond_cluster_basis.save_bond_cluster_basis">save_bond_cluster_basis() (in module multipiegen.util.util_bond_cluster_basis)</a>
+</li>
       <li><a href="src/api_util/util_cluster_basis.html#multipiegen.util.util_cluster_basis.save_cluster_basis">save_cluster_basis() (in module multipiegen.util.util_cluster_basis)</a>
+</li>
+      <li><a href="src/api_create/create_cluster_samb.html#multipiegen.create_binary.create_cluster_samb.save_cluster_samb">save_cluster_samb() (in module multipiegen.create_binary.create_cluster_samb)</a>
+</li>
+      <li><a href="src/api_util/util_cluster_vector_basis.html#multipiegen.util.util_cluster_vector_basis.save_cluster_vector_basis">save_cluster_vector_basis() (in module multipiegen.util.util_cluster_vector_basis)</a>
 </li>
       <li><a href="src/api_create/create_group.html#multipiegen.create_binary.create_group.save_group">save_group() (in module multipiegen.create_binary.create_group)</a>
 </li>
-      <li><a href="src/api_create/create_info.html#multipiegen.create_binary.create_info.save_info">save_info() (in module multipiegen.create_binary.create_info)</a>
+      <li><a href="src/api_create/create_harmonics.html#multipiegen.create_binary.create_harmonics.save_harmonics">save_harmonics() (in module multipiegen.create_binary.create_harmonics)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="src/api_create/create_info.html#multipiegen.create_binary.create_info.save_info">save_info() (in module multipiegen.create_binary.create_info)</a>
+</li>
+      <li><a href="src/api_create/create_multipolar_harmonics.html#multipiegen.create_binary.create_multipolar_harmonics.save_multipolar_harmonics">save_multipolar_harmonics() (in module multipiegen.create_binary.create_multipolar_harmonics)</a>
+</li>
+      <li><a href="src/api_create/create_response_tensor.html#multipiegen.create_binary.create_response_tensor.save_response_tensor">save_response_tensor() (in module multipiegen.create_binary.create_response_tensor)</a>
+</li>
       <li><a href="src/api_util/util_symmetry_operation.html#multipiegen.util.util_symmetry_operation.simplify_array">simplify_array() (in module multipiegen.util.util_symmetry_operation)</a>
 </li>
       <li><a href="src/api_util/util_symmetry_operation.html#multipiegen.util.util_symmetry_operation.simplify_value">simplify_value() (in module multipiegen.util.util_symmetry_operation)</a>
+</li>
+      <li><a href="src/api_util/util_atomic_multipole.html#multipiegen.util.util_atomic_multipole.spinful_basis">spinful_basis() (in module multipiegen.util.util_atomic_multipole)</a>
+</li>
+      <li><a href="src/api_util/util_symmetry_operation.html#multipiegen.util.util_symmetry_operation.symmetry_operation_matrices">symmetry_operation_matrices() (in module multipiegen.util.util_symmetry_operation)</a>
 </li>
       <li><a href="src/api_util/util_symmetry_operation.html#multipiegen.util.util_symmetry_operation.symmetry_operation_matrix">symmetry_operation_matrix() (in module multipiegen.util.util_symmetry_operation)</a>
 </li>
@@ -714,8 +1085,14 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="src/api_create/create_info.html#multipiegen.create_binary.create_info.tesseral_tag">tesseral_tag() (in module multipiegen.create_binary.create_info)</a>
 </li>
+      <li><a href="src/api_util/util_cluster_samb.html#multipiegen.util.util_cluster_samb.top_index">top_index() (in module multipiegen.util.util_cluster_samb)</a>
+</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="src/api_util/util_atomic_multipole.html#multipiegen.util.util_atomic_multipole.top_keys_used">top_keys_used() (in module multipiegen.util.util_atomic_multipole)</a>
+</li>
+      <li><a href="src/api_util/util_atomic_multipole.html#multipiegen.util.util_atomic_multipole.top_samb">top_samb() (in module multipiegen.util.util_atomic_multipole)</a>
+</li>
       <li><a href="src/api_util/util_multipolar_harmonics.html#multipiegen.util.util_multipolar_harmonics.transform_harmonics">transform_harmonics() (in module multipiegen.util.util_multipolar_harmonics)</a>
 </li>
   </ul></td>
@@ -729,6 +1106,22 @@
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="src/api_util/util_multipolar_harmonics.html#multipiegen.util.util_multipolar_harmonics.InternalBasis.Uc">Uc() (InternalBasis method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="V">V</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="src/api_util/util_cluster_vector_basis.html#multipiegen.util.util_cluster_vector_basis.vector_harmonics">vector_harmonics() (in module multipiegen.util.util_cluster_vector_basis)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="W">W</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="src/api_util/util_cluster_samb.html#multipiegen.util.util_cluster_samb.wyckoff_samb">wyckoff_samb() (in module multipiegen.util.util_cluster_samb)</a>
 </li>
   </ul></td>
 </tr></table>

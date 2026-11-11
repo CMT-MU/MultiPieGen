@@ -1,0 +1,658 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>multipiegen.util.util_bond_cluster_basis &#8212; MultiPieGen</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=4418a689" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=34ddd5e8" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../../_static/documentation_options.js?v=a8e58a58"></script>
+    <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/multipiegen/util/util_bond_cluster_basis';</script>
+    <script src="../../../_static/custom.js?v=9c3a2667"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../README.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">MultiPieGen</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Documentation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../src/group_info.html">Group Information</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/info_pdf.html">Overall information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/pg_pdf.html">Point groups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/sg_pdf.html">Space groups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/mpg_pdf.html">Magnetic point groups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/msg_pdf.html">Magnetic space groups</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../src/examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../src/binary.html">Binary data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../src/data.html">Data tables</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">API reference</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../src/api_util.html">Utilities</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_util/util_info.html">Info</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_util/util_group.html">Group</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_util/util_cluster_basis.html">Cluster basis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_util/util_cluster_vector_basis.html">Vector cluster basis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_util/util_bond_cluster_basis.html">Bond cluster basis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_util/util_cluster_samb.html">Cluster SAMB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_util/util_harmonics_symbol.html">Harmonics symbol</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_util/util_harmonics.html">Harmonics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_util/util_harmonics_multipole.html">Multipolar harmonics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_util/util_multipolar_harmonics.html">Multipolar harmonics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_util/util_atomic_multipole.html">Atomic multipole</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_util/util_symmetry_operation.html">Symmetry operation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_util/util_representation_matrix.html">Representation matrix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_util/util_response_tensor.html">Response tensor</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../src/api_create.html">Generators</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_create/create_info.html">Info binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_create/create_group.html">Group binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_create/create_response_tensor.html">Response tensor binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_create/create_harmonics.html">Harmonics binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_create/create_multipolar_harmonics.html">Multipolar harmonics binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_create/create_atomic_multipole.html">Atomic multipole binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_create/create_atomic_multipole_group.html">Atomic multipole group binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_create/create_cluster_scalar_basis.html">Cluster scalar basis binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_create/create_cluster_vector_basis.html">Vector cluster basis binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_create/create_cluster_bond_basis.html">Cluster bond basis binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_create/create_cluster_samb.html">Cluster SAMB binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_create/create_pdf_harmonics.html">Harmonics PDF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_create/create_pdf_info.html">Information PDF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_create/create_pdf_group.html">Group PDF</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/hiro-k-phys/mp-newbasis.git" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for multipiegen.util.util_bond_cluster_basis</h1><div class="highlight"><pre>
+<span></span><span class="c1"># SPDX-License-Identifier: MPL-2.0</span>
+<span class="c1"># Copyright (C) 2021- The MultiPieGen developers</span>
+<span class="c1">#</span>
+<span class="c1"># This Source Code Form is subject to the terms of the Mozilla Public</span>
+<span class="c1"># License, v. 2.0. If a copy of the MPL was not distributed with this</span>
+<span class="c1"># file, You can obtain one at https://mozilla.org/MPL/2.0/.</span>
+
+<span class="sd">"""</span>
+<span class="sd">Orthonormal bond cluster basis of Oh and D6h clusters (binary: cluster_bond_basis.pkl).</span>
+
+<span class="sd">- Bond vectors. b_i is the general point i of the Oh or D6h cluster with x,y,z replaced by vector0 (unit vector,</span>
+<span class="sd">  info["root_cluster"]["oh/d6h_vector0_cart"]).</span>
+<span class="sd">- Bond cluster vectors. For each vector cluster basis v_key (util_cluster_vector_basis, (N,3)), the N-component</span>
+<span class="sd">  vector f_key(i) = v_key(i) . b_i, with the same key. They are 3N vectors in the N-dimensional space.</span>
+<span class="sd">- Orthonormalization. Within each (irrep, component), Gram-Schmidt in the order of rank, then k = -1, 0, 1, then</span>
+<span class="sd">  multiplicity; linearly dependent ones (including vanishing ones) are dropped. The result is N = 48 (Oh) or</span>
+<span class="sd">  24 (D6h) vectors for each internal basis type x = q, g. The linear dependence is first found numerically,</span>
+<span class="sd">  then the kept vectors are orthonormalized exactly.</span>
+<span class="sd">- Symmetry. f_key transforms as a scalar function on the cluster, (g f)(i) = s f(j) with R_g^{-1} p_i = p_j,</span>
+<span class="sd">  s = 1 (x = q) or det R_g (x = g), with the representation matrices of its irrep.</span>
+<span class="sd">- Key. As the anti-symmetric bond cluster SAMB (bond_a) of MultiPie Ver.2, a kept multiplet is a scalar function on the</span>
+<span class="sd">  bonds keyed by PGMultipoleType(X, l, Gamma, n, p, s=0, k=0, x), with all components in the value. (X, l, Gamma, n)</span>
+<span class="sd">  are those of the vector cluster basis. p (add_multiplicity) numbers the multiplets with the same</span>
+<span class="sd">  (X, l, Gamma, n) [components] in the Gram-Schmidt order (k = -1, 0, 1) as 1, 2, ..., and is -1 if there is only</span>
+<span class="sd">  one. x is the internal type of the vector cluster basis (MultiPie Ver.2 has x = q only).</span>
+
+<span class="sd">- cluster_bond_basis (dict)::</span>
+
+<span class="sd">    { "Oh/D6h": {</span>
+<span class="sd">        "site0": [x0,y0,z0] (sympy),</span>
+<span class="sd">        "vector0": [X0,Y0,Z0] (sympy),</span>
+<span class="sd">        "cluster": cluster points, ndarray (N,3) (sympy),</span>
+<span class="sd">        "bond": bond vectors b_i, ndarray (N,3) (sympy),</span>
+<span class="sd">        "basis": { PGMultipoleType: ndarray (dim, N) (sympy) },  # orthonormal, rows = components.</span>
+<span class="sd">        "source": { PGMultipoleType: PGMultipoleType },  # multiplet of the vector cluster basis (s=1).</span>
+<span class="sd">        "dropped": [ PGMultipoleType ],  # multiplets of the vector cluster basis dropped.</span>
+<span class="sd">    } }</span>
+
+<span class="sd">    PGMultipoleType = (X, l, Gamma, n, p, s, k, x): type Q/G, rank, irrep, multiplicity (-1: unique),</span>
+<span class="sd">        add_multiplicity (-1: unique), s = 0, k = 0, internal type of the vector cluster basis q/g.</span>
+<span class="sd">    The vector cluster basis (cluster_vector_basis.pkl) is an intermediate basis to create this one.</span>
+<span class="sd">"""</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">multipie</span><span class="w"> </span><span class="kn">import</span> <span class="n">PGMultipoleType</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sympy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sp</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">multipie.util.util</span><span class="w"> </span><span class="kn">import</span> <span class="n">str_to_sympy</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">multipie.util.util_binary</span><span class="w"> </span><span class="kn">import</span> <span class="n">BinaryManager</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">multipiegen</span><span class="w"> </span><span class="kn">import</span> <span class="n">__bin_dir__</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">multipiegen.data.data_root_cluster</span><span class="w"> </span><span class="kn">import</span> <span class="n">d6h_cluster_cart</span><span class="p">,</span> <span class="n">oh_cluster_cart</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">multipiegen.util.util_cluster_basis</span><span class="w"> </span><span class="kn">import</span> <span class="n">_simplify</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">multipiegen.util.util_cluster_vector_basis</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">TOL_DEPENDENT</span><span class="p">,</span>
+    <span class="n">_gram_schmidt_exact</span><span class="p">,</span>
+    <span class="n">_order</span><span class="p">,</span>
+    <span class="n">load_cluster_vector_basis</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">multipiegen.util.util_info</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_info</span>
+
+<span class="c1"># ==================================================</span>
+<span class="n">bond_cluster_basis_file</span> <span class="o">=</span> <span class="s2">"cluster_bond_basis"</span>
+<span class="n">_cluster_cart</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"Oh"</span><span class="p">:</span> <span class="n">oh_cluster_cart</span><span class="p">,</span> <span class="s2">"D6h"</span><span class="p">:</span> <span class="n">d6h_cluster_cart</span><span class="p">}</span>
+<span class="n">_vector0</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"Oh"</span><span class="p">:</span> <span class="s2">"oh_vector0_cart"</span><span class="p">,</span> <span class="s2">"D6h"</span><span class="p">:</span> <span class="s2">"d6h_vector0_cart"</span><span class="p">}</span>
+<span class="n">_xyz</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s2">"x y z"</span><span class="p">)</span>
+
+
+<span class="c1"># ==================================================</span>
+<div class="viewcode-block" id="create_bond">
+<a class="viewcode-back" href="../../../src/api_util/util_bond_cluster_basis.html#multipiegen.util.util_bond_cluster_basis.create_bond">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">create_bond</span><span class="p">(</span><span class="n">group</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Bond vectors by substituting vector0 into general points.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        group (str): "Oh" or "D6h".</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        - (ndarray) -- vector0 (3,) (sympy).</span>
+<span class="sd">        - (ndarray) -- bond vectors (N,3) (sympy).</span>
+<span class="sd">    """</span>
+    <span class="n">vector0</span> <span class="o">=</span> <span class="n">load_info</span><span class="p">()[</span><span class="s2">"root_cluster"</span><span class="p">][</span><span class="n">_vector0</span><span class="p">[</span><span class="n">group</span><span class="p">]]</span>
+    <span class="n">sub</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">_xyz</span><span class="p">,</span> <span class="n">vector0</span><span class="p">))</span>
+    <span class="n">bond</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vectorize</span><span class="p">(</span><span class="k">lambda</span> <span class="n">e</span><span class="p">:</span> <span class="n">_simplify</span><span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">sympify</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">sub</span><span class="p">)),</span> <span class="n">otypes</span><span class="o">=</span><span class="p">[</span><span class="nb">object</span><span class="p">])(</span><span class="n">str_to_sympy</span><span class="p">(</span><span class="n">_cluster_cart</span><span class="p">[</span><span class="n">group</span><span class="p">]))</span>
+    <span class="k">return</span> <span class="n">vector0</span><span class="p">,</span> <span class="n">bond</span></div>
+
+
+
+<span class="c1"># ==================================================</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_numerical_selection</span><span class="p">(</span><span class="n">vectors_num</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Numerical Gram-Schmidt within each (irrep, component).</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        vectors_num (dict): { key: float ndarray (N,) }.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        - (list) -- kept keys.</span>
+<span class="sd">        - (list) -- dropped keys.</span>
+<span class="sd">        - (tuple) -- (min relative residual of kept, max relative residual of dropped (vanishing ones as 0)).</span>
+<span class="sd">    """</span>
+    <span class="n">scale</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">vectors_num</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+    <span class="n">groups</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">vectors_num</span><span class="p">:</span>
+        <span class="n">groups</span><span class="o">.</span><span class="n">setdefault</span><span class="p">((</span><span class="n">key</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">key</span><span class="p">[</span><span class="mi">4</span><span class="p">]),</span> <span class="p">[])</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+    <span class="n">kept</span><span class="p">,</span> <span class="n">dropped</span><span class="p">,</span> <span class="n">rk</span><span class="p">,</span> <span class="n">rd</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[],</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">keys</span> <span class="ow">in</span> <span class="n">groups</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+        <span class="n">B</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">keys</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">_order</span><span class="p">):</span>
+            <span class="n">v</span> <span class="o">=</span> <span class="n">vectors_num</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+            <span class="n">v0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">v0</span> <span class="o">&lt;</span> <span class="n">TOL_DEPENDENT</span> <span class="o">*</span> <span class="n">scale</span><span class="p">:</span>  <span class="c1"># vanishing.</span>
+                <span class="n">dropped</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+                <span class="k">continue</span>
+            <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">B</span><span class="p">:</span>
+                <span class="n">v</span> <span class="o">-=</span> <span class="p">(</span><span class="n">b</span> <span class="o">@</span> <span class="n">v</span><span class="p">)</span> <span class="o">*</span> <span class="n">b</span>
+            <span class="n">r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="o">/</span> <span class="n">v0</span>
+            <span class="k">if</span> <span class="n">r</span> <span class="o">&gt;</span> <span class="n">TOL_DEPENDENT</span><span class="p">:</span>
+                <span class="n">B</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">v</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">v</span><span class="p">))</span>
+                <span class="n">kept</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+                <span class="n">rk</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">dropped</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+                <span class="n">rd</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">kept</span><span class="p">,</span> <span class="n">dropped</span><span class="p">,</span> <span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">rk</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">rd</span><span class="p">))</span>
+
+
+<span class="c1"># ==================================================</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_multipole_keys</span><span class="p">(</span><span class="n">basis</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Re-key orthonormal vectors by PGMultipoleType (s=0, k=0) with add_multiplicity, as MultiPie Ver.2 bond_a.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        basis (dict): { (X, rank, irrep, mul, comp, k): ndarray (N,) } in the order of the vector cluster basis.</span>
+<span class="sd">        x (str): internal type, "q" or "g".</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        - (dict) -- { PGMultipoleType: ndarray (dim, N) } with components stacked.</span>
+<span class="sd">        - (dict) -- { PGMultipoleType: PGMultipoleType } source multiplet of the vector cluster basis.</span>
+<span class="sd">    """</span>
+    <span class="n">multiplets</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">rank</span><span class="p">,</span> <span class="n">irrep</span><span class="p">,</span> <span class="n">mul</span><span class="p">,</span> <span class="n">comp</span><span class="p">,</span> <span class="n">k</span><span class="p">),</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">basis</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="n">multiplets</span><span class="o">.</span><span class="n">setdefault</span><span class="p">((</span><span class="n">X</span><span class="p">,</span> <span class="n">rank</span><span class="p">,</span> <span class="n">irrep</span><span class="p">,</span> <span class="n">mul</span><span class="p">,</span> <span class="n">k</span><span class="p">),</span> <span class="p">{})[</span><span class="n">comp</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span>
+    <span class="n">count</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">X</span><span class="p">,</span> <span class="n">rank</span><span class="p">,</span> <span class="n">irrep</span><span class="p">,</span> <span class="n">mul</span><span class="p">,</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">multiplets</span><span class="p">:</span>
+        <span class="n">count</span><span class="p">[(</span><span class="n">X</span><span class="p">,</span> <span class="n">rank</span><span class="p">,</span> <span class="n">irrep</span><span class="p">,</span> <span class="n">mul</span><span class="p">)]</span> <span class="o">=</span> <span class="n">count</span><span class="o">.</span><span class="n">get</span><span class="p">((</span><span class="n">X</span><span class="p">,</span> <span class="n">rank</span><span class="p">,</span> <span class="n">irrep</span><span class="p">,</span> <span class="n">mul</span><span class="p">),</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="n">p_of</span><span class="p">,</span> <span class="n">seen</span> <span class="o">=</span> <span class="p">{},</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">X</span><span class="p">,</span> <span class="n">rank</span><span class="p">,</span> <span class="n">irrep</span><span class="p">,</span> <span class="n">mul</span><span class="p">,</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">multiplets</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">m</span><span class="p">:</span> <span class="p">(</span><span class="n">m</span><span class="p">[:</span><span class="mi">4</span><span class="p">],</span> <span class="n">m</span><span class="p">[</span><span class="mi">4</span><span class="p">])):</span>  <span class="c1"># Gram-Schmidt order k = -1, 0, 1.</span>
+        <span class="k">if</span> <span class="n">count</span><span class="p">[(</span><span class="n">X</span><span class="p">,</span> <span class="n">rank</span><span class="p">,</span> <span class="n">irrep</span><span class="p">,</span> <span class="n">mul</span><span class="p">)]</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">p_of</span><span class="p">[(</span><span class="n">X</span><span class="p">,</span> <span class="n">rank</span><span class="p">,</span> <span class="n">irrep</span><span class="p">,</span> <span class="n">mul</span><span class="p">,</span> <span class="n">k</span><span class="p">)]</span> <span class="o">=</span> <span class="n">seen</span><span class="p">[(</span><span class="n">X</span><span class="p">,</span> <span class="n">rank</span><span class="p">,</span> <span class="n">irrep</span><span class="p">,</span> <span class="n">mul</span><span class="p">)]</span> <span class="o">=</span> <span class="n">seen</span><span class="o">.</span><span class="n">get</span><span class="p">((</span><span class="n">X</span><span class="p">,</span> <span class="n">rank</span><span class="p">,</span> <span class="n">irrep</span><span class="p">,</span> <span class="n">mul</span><span class="p">),</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">p_of</span><span class="p">[(</span><span class="n">X</span><span class="p">,</span> <span class="n">rank</span><span class="p">,</span> <span class="n">irrep</span><span class="p">,</span> <span class="n">mul</span><span class="p">,</span> <span class="n">k</span><span class="p">)]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+    <span class="n">res</span><span class="p">,</span> <span class="n">source</span> <span class="o">=</span> <span class="p">{},</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">m</span><span class="p">,</span> <span class="n">comps</span> <span class="ow">in</span> <span class="n">multiplets</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>  <span class="c1"># order of the vector cluster basis.</span>
+        <span class="n">X</span><span class="p">,</span> <span class="n">rank</span><span class="p">,</span> <span class="n">irrep</span><span class="p">,</span> <span class="n">mul</span><span class="p">,</span> <span class="n">k</span> <span class="o">=</span> <span class="n">m</span>
+        <span class="n">key</span> <span class="o">=</span> <span class="n">PGMultipoleType</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">rank</span><span class="p">,</span> <span class="n">irrep</span><span class="p">,</span> <span class="n">mul</span><span class="p">,</span> <span class="n">p_of</span><span class="p">[</span><span class="n">m</span><span class="p">],</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+        <span class="n">res</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">comps</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">comps</span><span class="p">)],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">object</span><span class="p">)</span>
+        <span class="n">source</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">PGMultipoleType</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">rank</span><span class="p">,</span> <span class="n">irrep</span><span class="p">,</span> <span class="n">mul</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">res</span><span class="p">,</span> <span class="n">source</span>
+
+
+<span class="c1"># ==================================================</span>
+<div class="viewcode-block" id="create_bond_cluster_basis">
+<a class="viewcode-back" href="../../../src/api_util/util_bond_cluster_basis.html#multipiegen.util.util_bond_cluster_basis.create_bond_cluster_basis">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">create_bond_cluster_basis</span><span class="p">(</span><span class="n">group</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Create orthonormal bond cluster basis from the vector cluster basis.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        group (str): "Oh" or "D6h".</span>
+<span class="sd">        verbose (bool, optional): print the separation of kept and dropped vectors ?</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        - (dict) -- { "site0", "vector0", "cluster", "bond", "basis", "source", "dropped" }.</span>
+<span class="sd">    """</span>
+    <span class="n">vb</span> <span class="o">=</span> <span class="n">load_cluster_vector_basis</span><span class="p">()[</span><span class="n">group</span><span class="p">]</span>
+    <span class="n">vector0</span><span class="p">,</span> <span class="n">bond</span> <span class="o">=</span> <span class="n">create_bond</span><span class="p">(</span><span class="n">group</span><span class="p">)</span>
+    <span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">bond</span><span class="p">)</span>
+    <span class="n">bond_f</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">bond</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+
+    <span class="n">basis</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span> <span class="n">dropped</span> <span class="o">=</span> <span class="p">{},</span> <span class="p">{},</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">"q"</span><span class="p">,</span> <span class="s2">"g"</span><span class="p">]:</span>
+        <span class="c1"># components of the vector cluster basis, keyed by (X, rank, irrep, mul, comp, k).</span>
+        <span class="n">vbx</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">vb</span><span class="p">[</span><span class="s2">"basis"</span><span class="p">]</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">key</span><span class="o">.</span><span class="n">x</span> <span class="o">==</span> <span class="n">x</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">c</span><span class="p">,</span> <span class="n">vc</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">v</span><span class="p">):</span>
+                    <span class="n">vbx</span><span class="p">[(</span><span class="n">key</span><span class="o">.</span><span class="n">X</span><span class="p">,</span> <span class="n">key</span><span class="o">.</span><span class="n">l</span><span class="p">,</span> <span class="n">key</span><span class="o">.</span><span class="n">Gamma</span><span class="p">,</span> <span class="n">key</span><span class="o">.</span><span class="n">n</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span> <span class="k">else</span> <span class="n">c</span><span class="p">,</span> <span class="n">key</span><span class="o">.</span><span class="n">k</span><span class="p">)]</span> <span class="o">=</span> <span class="n">vc</span>
+        <span class="n">num</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s2">"ia,ia-&gt;i"</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">),</span> <span class="n">bond_f</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">vbx</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+        <span class="n">kept</span><span class="p">,</span> <span class="n">drop</span><span class="p">,</span> <span class="p">(</span><span class="n">rk</span><span class="p">,</span> <span class="n">rd</span><span class="p">)</span> <span class="o">=</span> <span class="n">_numerical_selection</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">group</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">: kept </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">kept</span><span class="p">)</span><span class="si">}</span><span class="s2">, dropped </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">drop</span><span class="p">)</span><span class="si">}</span><span class="s2">, min residual kept </span><span class="si">{</span><span class="n">rk</span><span class="si">:</span><span class="s2">.1e</span><span class="si">}</span><span class="s2">, max dropped </span><span class="si">{</span><span class="n">rd</span><span class="si">:</span><span class="s2">.1e</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">kept</span><span class="p">)</span> <span class="o">!=</span> <span class="n">N</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"number of basis (</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">kept</span><span class="p">)</span><span class="si">}</span><span class="s2">) differs from N (</span><span class="si">{</span><span class="n">N</span><span class="si">}</span><span class="s2">)."</span><span class="p">)</span>
+        <span class="n">vec</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="n">k</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">_simplify</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">a</span> <span class="o">*</span> <span class="n">b</span> <span class="k">for</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">vbx</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">i</span><span class="p">],</span> <span class="n">bond</span><span class="p">[</span><span class="n">i</span><span class="p">])))</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">)],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">object</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">kept</span>
+        <span class="p">}</span>
+        <span class="n">b</span> <span class="o">=</span> <span class="n">_gram_schmidt_exact</span><span class="p">(</span><span class="n">vec</span><span class="p">)</span>
+        <span class="n">bx</span><span class="p">,</span> <span class="n">sx</span> <span class="o">=</span> <span class="n">_multipole_keys</span><span class="p">({</span><span class="n">k</span><span class="p">:</span> <span class="n">b</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">vbx</span> <span class="k">if</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">b</span><span class="p">},</span> <span class="n">x</span><span class="p">)</span>
+        <span class="n">basis</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">bx</span><span class="p">)</span>
+        <span class="n">source</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">sx</span><span class="p">)</span>
+        <span class="n">dropped</span> <span class="o">+=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">dict</span><span class="o">.</span><span class="n">fromkeys</span><span class="p">(</span><span class="n">PGMultipoleType</span><span class="p">(</span><span class="n">k</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">k</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">k</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">k</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">k</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">vbx</span> <span class="k">if</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">drop</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="s2">"site0"</span><span class="p">:</span> <span class="n">vb</span><span class="p">[</span><span class="s2">"site0"</span><span class="p">],</span>
+        <span class="s2">"vector0"</span><span class="p">:</span> <span class="n">vector0</span><span class="p">,</span>
+        <span class="s2">"cluster"</span><span class="p">:</span> <span class="n">vb</span><span class="p">[</span><span class="s2">"cluster"</span><span class="p">],</span>
+        <span class="s2">"bond"</span><span class="p">:</span> <span class="n">bond</span><span class="p">,</span>
+        <span class="s2">"basis"</span><span class="p">:</span> <span class="n">basis</span><span class="p">,</span>
+        <span class="s2">"source"</span><span class="p">:</span> <span class="n">source</span><span class="p">,</span>
+        <span class="s2">"dropped"</span><span class="p">:</span> <span class="n">dropped</span><span class="p">,</span>
+    <span class="p">}</span></div>
+
+
+
+<span class="c1"># ==================================================</span>
+<div class="viewcode-block" id="save_bond_cluster_basis">
+<a class="viewcode-back" href="../../../src/api_util/util_bond_cluster_basis.html#multipiegen.util.util_bond_cluster_basis.save_bond_cluster_basis">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">save_bond_cluster_basis</span><span class="p">(</span><span class="n">groups</span><span class="o">=</span><span class="p">(</span><span class="s2">"Oh"</span><span class="p">,</span> <span class="s2">"D6h"</span><span class="p">),</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Create and save bond cluster basis as binary (multipiegen/binary/cluster_bond_basis.pkl).</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        groups (tuple, optional): groups.</span>
+<span class="sd">        verbose (bool, optional): verbose ?</span>
+<span class="sd">    """</span>
+    <span class="n">bm</span> <span class="o">=</span> <span class="n">BinaryManager</span><span class="p">(</span><span class="n">topdir</span><span class="o">=</span><span class="n">__bin_dir__</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="n">verbose</span><span class="p">,</span> <span class="n">comment</span><span class="o">=</span><span class="vm">__doc__</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">group</span> <span class="ow">in</span> <span class="n">groups</span><span class="p">:</span>
+        <span class="n">bm</span><span class="p">[</span><span class="n">group</span><span class="p">]</span> <span class="o">=</span> <span class="n">create_bond_cluster_basis</span><span class="p">(</span><span class="n">group</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="n">verbose</span><span class="p">)</span>
+    <span class="n">bm</span><span class="o">.</span><span class="n">save_binary</span><span class="p">(</span><span class="n">bond_cluster_basis_file</span><span class="p">)</span></div>
+
+
+
+<span class="c1"># ==================================================</span>
+<div class="viewcode-block" id="load_bond_cluster_basis">
+<a class="viewcode-back" href="../../../src/api_util/util_bond_cluster_basis.html#multipiegen.util.util_bond_cluster_basis.load_bond_cluster_basis">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">load_bond_cluster_basis</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Load bond cluster basis.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        - (dict) -- { "Oh/D6h": { "site0", "vector0", "cluster", "bond", "basis", "source", "dropped" } }.</span>
+<span class="sd">    """</span>
+    <span class="k">return</span> <span class="nb">dict</span><span class="p">(</span><span class="n">BinaryManager</span><span class="p">(</span><span class="n">bond_cluster_basis_file</span><span class="p">,</span> <span class="n">topdir</span><span class="o">=</span><span class="n">__bin_dir__</span><span class="p">))</span></div>
+
+
+
+<span class="c1"># ==================================================</span>
+<div class="viewcode-block" id="bond_cluster_basis_matrix">
+<a class="viewcode-back" href="../../../src/api_util/util_bond_cluster_basis.html#multipiegen.util.util_bond_cluster_basis.bond_cluster_basis_matrix">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">bond_cluster_basis_matrix</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">numeric</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Basis as matrix, each row is a component of a basis multiplet.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        data (dict): bond cluster basis of a group, load_bond_cluster_basis()[group].</span>
+<span class="sd">        x (str): "q" or "g".</span>
+<span class="sd">        numeric (bool, optional): float ndarray ? otherwise sympy object ndarray.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        - (ndarray) -- basis matrix (N, N).</span>
+<span class="sd">        - (list) -- (PGMultipoleType, component index) of each row.</span>
+<span class="sd">    """</span>
+    <span class="n">rows</span><span class="p">,</span> <span class="n">keys</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="s2">"basis"</span><span class="p">]</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">key</span><span class="o">.</span><span class="n">x</span> <span class="o">!=</span> <span class="n">x</span><span class="p">:</span>
+            <span class="k">continue</span>
+        <span class="k">for</span> <span class="n">c</span><span class="p">,</span> <span class="n">vc</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">v</span><span class="p">):</span>
+            <span class="n">rows</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">vc</span><span class="p">)</span>
+            <span class="n">keys</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">key</span><span class="p">,</span> <span class="n">c</span><span class="p">))</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">rows</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">object</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">numeric</span><span class="p">:</span>
+        <span class="n">m</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">m</span><span class="p">,</span> <span class="n">keys</span></div>
+
+</pre></div>
+
+                </article>
+              
+
+              
+              
+              
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Hiroaki Kusunose
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2021-.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

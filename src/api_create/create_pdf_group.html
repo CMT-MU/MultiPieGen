@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=9c3e77be" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=34ddd5e8" />
@@ -208,30 +208,57 @@
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Documentation</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../data.html">Data tables</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../binary.html">Binary data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../pg_pdf.html">Point groups</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../sg_pdf.html">Space groups</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../mpg_pdf.html">Magnetic point groups</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../msg_pdf.html">Magnetic space groups</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../info_pdf.html">Overall information</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../examples.html">Examples</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../group_info.html">Group Information</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../info_pdf.html">Overall information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pg_pdf.html">Point groups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sg_pdf.html">Space groups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mpg_pdf.html">Magnetic point groups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../msg_pdf.html">Magnetic space groups</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes.html">Notes</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../details.html">Details</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../examples.html">Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../binary.html">Binary data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../data.html">Data tables</a></li>
+</ul>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">API reference</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../api_util.html">Utilities</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../api_util/util_info.html">Info</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api_util/util_group.html">Group</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_util/util_group_data.html">Group data (ids, tags, names)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_util/util_top_harmonics.html">Top harmonics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_util/util_harmonics_mapping.html">Harmonics mapping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_util/util_op_mapping.html">Operation mapping</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api_util/util_cluster_basis.html">Cluster basis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_util/util_cluster_vector_basis.html">Vector cluster basis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_util/util_bond_cluster_basis.html">Bond cluster basis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_util/util_cluster_samb.html">Cluster SAMB</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api_util/util_harmonics_symbol.html">Harmonics symbol</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_util/util_harmonics.html">Harmonics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_util/util_harmonics_multipole.html">Multipolar harmonics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api_util/util_multipolar_harmonics.html">Multipolar harmonics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_util/util_atomic_multipole.html">Atomic multipole</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api_util/util_symmetry_operation.html">Symmetry operation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_util/util_representation_matrix.html">Representation matrix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_util/util_response_tensor.html">Response tensor</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../api_create.html">Generators</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="create_info.html">Info binary</a></li>
 <li class="toctree-l2"><a class="reference internal" href="create_group.html">Group binary</a></li>
-<li class="toctree-l2"><a class="reference internal" href="create_cluster_basis.html">Cluster basis binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="create_response_tensor.html">Response tensor binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="create_harmonics.html">Harmonics binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="create_multipolar_harmonics.html">Multipolar harmonics binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="create_atomic_multipole.html">Atomic multipole binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="create_atomic_multipole_group.html">Atomic multipole group binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="create_cluster_scalar_basis.html">Cluster scalar basis binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="create_cluster_vector_basis.html">Vector cluster basis binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="create_cluster_bond_basis.html">Cluster bond basis binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="create_cluster_samb.html">Cluster SAMB binary</a></li>
 <li class="toctree-l2"><a class="reference internal" href="create_pdf_harmonics.html">Harmonics PDF</a></li>
 <li class="toctree-l2"><a class="reference internal" href="create_pdf_info.html">Information PDF</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Group PDF</a></li>
@@ -285,7 +312,7 @@
 <div class="article-header-buttons">
 
 
-<a href="https://github.com/hiro-k-phys/mp-newbasis.git" target="_blank"
+<a href="https://github.com/hiro-k-phys/MultiPieGen.git" target="_blank"
    class="btn btn-sm btn-source-repository-button"
    title="Source repository"
    data-bs-placement="bottom" data-bs-toggle="tooltip"
@@ -397,12 +424,17 @@
             </div>
             <nav aria-label="Page">
                 <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multipiegen.create_pdf.create_pdf_group.has_pdf"><code class="docutils literal notranslate"><span class="pre">has_pdf()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multipiegen.create_pdf.create_pdf_group.group_dir"><code class="docutils literal notranslate"><span class="pre">group_dir()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multipiegen.create_pdf.create_pdf_group.group_latex"><code class="docutils literal notranslate"><span class="pre">group_latex()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multipiegen.create_pdf.create_pdf_group.create_character_table"><code class="docutils literal notranslate"><span class="pre">create_character_table()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multipiegen.create_pdf.create_pdf_group.create_symmetry_operation"><code class="docutils literal notranslate"><span class="pre">create_symmetry_operation()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multipiegen.create_pdf.create_pdf_group.create_representation_matrix"><code class="docutils literal notranslate"><span class="pre">create_representation_matrix()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multipiegen.create_pdf.create_pdf_group.create_wyckoff_site"><code class="docutils literal notranslate"><span class="pre">create_wyckoff_site()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multipiegen.create_pdf.create_pdf_group.create_wyckoff_bond"><code class="docutils literal notranslate"><span class="pre">create_wyckoff_bond()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multipiegen.create_pdf.create_pdf_group.create_response_tensor"><code class="docutils literal notranslate"><span class="pre">create_response_tensor()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multipiegen.create_pdf.create_pdf_group.create_multipolar_harmonics"><code class="docutils literal notranslate"><span class="pre">create_multipolar_harmonics()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multipiegen.create_pdf.create_pdf_group.create_atomic_multipole"><code class="docutils literal notranslate"><span class="pre">create_atomic_multipole()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multipiegen.create_pdf.create_pdf_group.create_pdf_group"><code class="docutils literal notranslate"><span class="pre">create_pdf_group()</span></code></a></li>
 </ul>
             </nav>
@@ -417,24 +449,35 @@
                   
   <section class="tex2jax_ignore mathjax_ignore" id="module-multipiegen.create_pdf.create_pdf_group">
 <span id="group-pdf"></span><h1>Group PDF<a class="headerlink" href="#module-multipiegen.create_pdf.create_pdf_group" title="Link to this heading">#</a></h1>
-<p>Create LaTeX and PDF of each group (based on MultiPie others/tools/create_PDF/create_pdf_character.py,
+<p>Create LaTeX and PDF of each group (based on MultiPie Ver.2 others/tools/create_PDF/create_pdf_character.py,
 create_pdf_symmetry_operation.py, create_pdf_wyckoff.py), from group.pkl.</p>
 <blockquote>
 <div><ul class="simple">
-<li><p>multipiegen/pdf/PG/{no}-{tag}/{character_table,symmetry_operation,wyckoff_site,wyckoff_bond}.{tex,pdf}</p></li>
+<li><p>multipiegen/pdf/PG/{no}-{tag}/{character_table,symmetry_operation,wyckoff_site,wyckoff_bond,
+representation_matrix,multipolar_harmonics_s{1,2,3}_{q,g}}.{tex,pdf}
+(multipolar harmonics from multipolar_harmonics.pkl, split by internal rank s and internal type q/g)</p></li>
+<li><p>multipiegen/pdf/PG/{no}-{tag}/atomic_multipole_{jml,lgs,lg}.{tex,pdf} (from atomic_multipole_group.pkl)</p></li>
 <li><p>multipiegen/pdf/SG/{no}-{tag}/{symmetry_operation,wyckoff_site,wyckoff_bond}.{tex,pdf} (“^” in tag -&gt; “_”)</p></li>
-<li><p>multipiegen/pdf/MPG/{id}/{symmetry_operation,wyckoff_site}.{tex,pdf}</p></li>
+<li><p>multipiegen/pdf/MPG/{id}/{symmetry_operation,wyckoff_site,response_tensor_X}.{tex,pdf}
+(X = Q, G, and T, M except for type II, from response_tensor.pkl)</p></li>
 <li><p>multipiegen/pdf/MSG/{id}/{symmetry_operation,wyckoff_site}.{tex,pdf}</p></li>
 </ul>
 </div></blockquote>
-<p>Differences from MultiPie:</p>
+<p>Differences from MultiPie Ver.2:</p>
 <blockquote>
 <div><ul class="simple">
 <li><p>complex PG (“-c”) also has wyckoff_site and wyckoff_bond (same as the real PG).</p></li>
 <li><p>the caption of a Wyckoff bond shows the bond symmetry.</p></li>
+<li><p>complex PG (“-c”) also has atomic_multipole_{jml,lgs,lg}.</p></li>
 </ul>
 </div></blockquote>
 <p>Run:  python -m multipiegen.create_pdf.create_pdf_group [–group PG,SG,MPG,MSG] [–kind …] [–serial]</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="multipiegen.create_pdf.create_pdf_group.has_pdf">
+<span class="sig-name descname"><span class="pre">has_pdf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">kind</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gid</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/multipiegen/create_pdf/create_pdf_group.html#has_pdf"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#multipiegen.create_pdf.create_pdf_group.has_pdf" title="Link to this definition">#</a></dt>
+<dd><p>Is the PDF of kind created for the group ? (magnetic tensors T, M are not for type II MPG, as MultiPie Ver.2).</p>
+</dd></dl>
+
 <dl class="py function">
 <dt class="sig sig-object py" id="multipiegen.create_pdf.create_pdf_group.group_dir">
 <span class="sig-name descname"><span class="pre">group_dir</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tag</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/multipiegen/create_pdf/create_pdf_group.html#group_dir"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#multipiegen.create_pdf.create_pdf_group.group_dir" title="Link to this definition">#</a></dt>
@@ -458,7 +501,7 @@ create_pdf_symmetry_operation.py, create_pdf_wyckoff.py), from group.pkl.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="multipiegen.create_pdf.create_pdf_group.group_latex">
 <span class="sig-name descname"><span class="pre">group_latex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">g_info</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/multipiegen/create_pdf/create_pdf_group.html#group_latex"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#multipiegen.create_pdf.create_pdf_group.group_latex" title="Link to this definition">#</a></dt>
-<dd><p>Title of a group in LaTeX (as MultiPie Group.latex(True)).</p>
+<dd><p>Title of a group in LaTeX (as MultiPie Ver.2 Group.latex(True)).</p>
 </dd></dl>
 
 <dl class="py function">
@@ -472,6 +515,12 @@ create_pdf_symmetry_operation.py, create_pdf_wyckoff.py), from group.pkl.</p>
 <dd></dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="multipiegen.create_pdf.create_pdf_group.create_representation_matrix">
+<span class="sig-name descname"><span class="pre">create_representation_matrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tag</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/multipiegen/create_pdf/create_pdf_group.html#create_representation_matrix"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#multipiegen.create_pdf.create_pdf_group.create_representation_matrix" title="Link to this definition">#</a></dt>
+<dd><p>Representation matrices from the harmonics (util_representation_matrix), as MultiPie Ver.2.</p>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="multipiegen.create_pdf.create_pdf_group.create_wyckoff_site">
 <span class="sig-name descname"><span class="pre">create_wyckoff_site</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tag</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/multipiegen/create_pdf/create_pdf_group.html#create_wyckoff_site"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#multipiegen.create_pdf.create_pdf_group.create_wyckoff_site" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
@@ -480,6 +529,24 @@ create_pdf_symmetry_operation.py, create_pdf_wyckoff.py), from group.pkl.</p>
 <dt class="sig sig-object py" id="multipiegen.create_pdf.create_pdf_group.create_wyckoff_bond">
 <span class="sig-name descname"><span class="pre">create_wyckoff_bond</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tag</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/multipiegen/create_pdf/create_pdf_group.html#create_wyckoff_bond"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#multipiegen.create_pdf.create_pdf_group.create_wyckoff_bond" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="multipiegen.create_pdf.create_pdf_group.create_response_tensor">
+<span class="sig-name descname"><span class="pre">create_response_tensor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tag</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">X</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/multipiegen/create_pdf/create_pdf_group.html#create_response_tensor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#multipiegen.create_pdf.create_pdf_group.create_response_tensor" title="Link to this definition">#</a></dt>
+<dd><p>Response tensors of type X up to rank 4 (response_tensor.pkl), as MultiPie Ver.2.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="multipiegen.create_pdf.create_pdf_group.create_multipolar_harmonics">
+<span class="sig-name descname"><span class="pre">create_multipolar_harmonics</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tag</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">s</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/multipiegen/create_pdf/create_pdf_group.html#create_multipolar_harmonics"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#multipiegen.create_pdf.create_pdf_group.create_multipolar_harmonics" title="Link to this definition">#</a></dt>
+<dd><p>Multipolar harmonics of internal rank s and internal type x (multipolar_harmonics.pkl), as MultiPie Ver.2.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="multipiegen.create_pdf.create_pdf_group.create_atomic_multipole">
+<span class="sig-name descname"><span class="pre">create_atomic_multipole</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tag</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b_type</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/multipiegen/create_pdf/create_pdf_group.html#create_atomic_multipole"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#multipiegen.create_pdf.create_pdf_group.create_atomic_multipole" title="Link to this definition">#</a></dt>
+<dd><p>Atomic multipole SAMB in b_type basis (atomic_multipole_group.pkl), as MultiPie Ver.2.</p>
+</dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="multipiegen.create_pdf.create_pdf_group.create_pdf_group">
@@ -540,12 +607,17 @@ create_pdf_symmetry_operation.py, create_pdf_wyckoff.py), from group.pkl.</p>
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multipiegen.create_pdf.create_pdf_group.has_pdf"><code class="docutils literal notranslate"><span class="pre">has_pdf()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multipiegen.create_pdf.create_pdf_group.group_dir"><code class="docutils literal notranslate"><span class="pre">group_dir()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multipiegen.create_pdf.create_pdf_group.group_latex"><code class="docutils literal notranslate"><span class="pre">group_latex()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multipiegen.create_pdf.create_pdf_group.create_character_table"><code class="docutils literal notranslate"><span class="pre">create_character_table()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multipiegen.create_pdf.create_pdf_group.create_symmetry_operation"><code class="docutils literal notranslate"><span class="pre">create_symmetry_operation()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multipiegen.create_pdf.create_pdf_group.create_representation_matrix"><code class="docutils literal notranslate"><span class="pre">create_representation_matrix()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multipiegen.create_pdf.create_pdf_group.create_wyckoff_site"><code class="docutils literal notranslate"><span class="pre">create_wyckoff_site()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multipiegen.create_pdf.create_pdf_group.create_wyckoff_bond"><code class="docutils literal notranslate"><span class="pre">create_wyckoff_bond()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multipiegen.create_pdf.create_pdf_group.create_response_tensor"><code class="docutils literal notranslate"><span class="pre">create_response_tensor()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multipiegen.create_pdf.create_pdf_group.create_multipolar_harmonics"><code class="docutils literal notranslate"><span class="pre">create_multipolar_harmonics()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multipiegen.create_pdf.create_pdf_group.create_atomic_multipole"><code class="docutils literal notranslate"><span class="pre">create_atomic_multipole()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multipiegen.create_pdf.create_pdf_group.create_pdf_group"><code class="docutils literal notranslate"><span class="pre">create_pdf_group()</span></code></a></li>
 </ul>
   </nav></div>

@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=34ddd5e8" />
@@ -67,7 +67,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Info binary" href="api_create/create_info.html" />
-    <link rel="prev" title="Symmetry operation" href="api_util/util_symmetry_operation.html" />
+    <link rel="prev" title="Response tensor" href="api_util/util_response_tensor.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -205,30 +205,57 @@
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Documentation</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="data.html">Data tables</a></li>
-<li class="toctree-l1"><a class="reference internal" href="binary.html">Binary data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="pg_pdf.html">Point groups</a></li>
-<li class="toctree-l1"><a class="reference internal" href="sg_pdf.html">Space groups</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mpg_pdf.html">Magnetic point groups</a></li>
-<li class="toctree-l1"><a class="reference internal" href="msg_pdf.html">Magnetic space groups</a></li>
-<li class="toctree-l1"><a class="reference internal" href="info_pdf.html">Overall information</a></li>
-<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="group_info.html">Group Information</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="info_pdf.html">Overall information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pg_pdf.html">Point groups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sg_pdf.html">Space groups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mpg_pdf.html">Magnetic point groups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="msg_pdf.html">Magnetic space groups</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="notes.html">Notes</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="details.html">Details</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="binary.html">Binary data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data.html">Data tables</a></li>
+</ul>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">API reference</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="api_util.html">Utilities</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="api_util/util_info.html">Info</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api_util/util_group.html">Group</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_util/util_group_data.html">Group data (ids, tags, names)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_util/util_top_harmonics.html">Top harmonics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_util/util_harmonics_mapping.html">Harmonics mapping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_util/util_op_mapping.html">Operation mapping</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api_util/util_cluster_basis.html">Cluster basis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_util/util_cluster_vector_basis.html">Vector cluster basis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_util/util_bond_cluster_basis.html">Bond cluster basis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_util/util_cluster_samb.html">Cluster SAMB</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api_util/util_harmonics_symbol.html">Harmonics symbol</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_util/util_harmonics.html">Harmonics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_util/util_harmonics_multipole.html">Multipolar harmonics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api_util/util_multipolar_harmonics.html">Multipolar harmonics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_util/util_atomic_multipole.html">Atomic multipole</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api_util/util_symmetry_operation.html">Symmetry operation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_util/util_representation_matrix.html">Representation matrix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_util/util_response_tensor.html">Response tensor</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Generators</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="api_create/create_info.html">Info binary</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api_create/create_group.html">Group binary</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api_create/create_cluster_basis.html">Cluster basis binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_create/create_response_tensor.html">Response tensor binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_create/create_harmonics.html">Harmonics binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_create/create_multipolar_harmonics.html">Multipolar harmonics binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_create/create_atomic_multipole.html">Atomic multipole binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_create/create_atomic_multipole_group.html">Atomic multipole group binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_create/create_cluster_scalar_basis.html">Cluster scalar basis binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_create/create_cluster_vector_basis.html">Vector cluster basis binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_create/create_cluster_bond_basis.html">Cluster bond basis binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_create/create_cluster_samb.html">Cluster SAMB binary</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api_create/create_pdf_harmonics.html">Harmonics PDF</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api_create/create_pdf_info.html">Information PDF</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api_create/create_pdf_group.html">Group PDF</a></li>
@@ -282,7 +309,7 @@
 <div class="article-header-buttons">
 
 
-<a href="https://github.com/hiro-k-phys/mp-newbasis.git" target="_blank"
+<a href="https://github.com/hiro-k-phys/MultiPieGen.git" target="_blank"
    class="btn btn-sm btn-source-repository-button"
    title="Source repository"
    data-bs-placement="bottom" data-bs-toggle="tooltip"
@@ -408,17 +435,29 @@ Run each as <code class="docutils literal notranslate"><span class="pre">python<
 <tr class="row-even"><td><p><a class="reference internal" href="api_create/create_group.html#module-multipiegen.create_binary.create_group" title="multipiegen.create_binary.create_group"><code class="xref py py-obj docutils literal notranslate"><span class="pre">multipiegen.create_binary.create_group</span></code></a></p></td>
 <td><p>Create group.pkl (symmetry operation, character, Wyckoff site/bond for all PG, SG, MPG and MSG).</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="api_create/create_cluster_basis.html#module-multipiegen.create_binary.create_cluster_basis" title="multipiegen.create_binary.create_cluster_basis"><code class="xref py py-obj docutils literal notranslate"><span class="pre">multipiegen.create_binary.create_cluster_basis</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="api_create/create_response_tensor.html#module-multipiegen.create_binary.create_response_tensor" title="multipiegen.create_binary.create_response_tensor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">multipiegen.create_binary.create_response_tensor</span></code></a></p></td>
+<td><p>Create response_tensor.pkl (response tensors of all magnetic point groups in terms of active multipoles).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api_create/create_multipolar_harmonics.html#module-multipiegen.create_binary.create_multipolar_harmonics" title="multipiegen.create_binary.create_multipolar_harmonics"><code class="xref py py-obj docutils literal notranslate"><span class="pre">multipiegen.create_binary.create_multipolar_harmonics</span></code></a></p></td>
+<td><p>Create multipolar_harmonics.pkl (multipolar harmonics, s = 1, 2, 3, up to rank 3, of all 47 point groups).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api_create/create_cluster_scalar_basis.html#module-multipiegen.create_binary.create_cluster_scalar_basis" title="multipiegen.create_binary.create_cluster_scalar_basis"><code class="xref py py-obj docutils literal notranslate"><span class="pre">multipiegen.create_binary.create_cluster_scalar_basis</span></code></a></p></td>
 <td><p>Create orthonormal cluster basis of Oh and D6h, and save it as binary.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api_create/create_cluster_vector_basis.html#module-multipiegen.create_binary.create_cluster_vector_basis" title="multipiegen.create_binary.create_cluster_vector_basis"><code class="xref py py-obj docutils literal notranslate"><span class="pre">multipiegen.create_binary.create_cluster_vector_basis</span></code></a></p></td>
+<td><p>Create orthonormal vector cluster basis (internal rank s=1) of Oh and D6h, and save it as binary.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api_create/create_cluster_bond_basis.html#module-multipiegen.create_binary.create_cluster_bond_basis" title="multipiegen.create_binary.create_cluster_bond_basis"><code class="xref py py-obj docutils literal notranslate"><span class="pre">multipiegen.create_binary.create_cluster_bond_basis</span></code></a></p></td>
+<td><p>Create orthonormal bond cluster basis of Oh and D6h from the vector cluster basis, and save it as binary.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="api_create/create_pdf_harmonics.html#module-multipiegen.create_pdf.create_pdf_harmonics" title="multipiegen.create_pdf.create_pdf_harmonics"><code class="xref py py-obj docutils literal notranslate"><span class="pre">multipiegen.create_pdf.create_pdf_harmonics</span></code></a></p></td>
 <td><p>Create LaTeX and PDF of harmonics with polar and axial symbols side by side, for all 47 point groups.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="api_create/create_pdf_info.html#module-multipiegen.create_pdf.create_pdf_info" title="multipiegen.create_pdf.create_pdf_info"><code class="xref py py-obj docutils literal notranslate"><span class="pre">multipiegen.create_pdf.create_pdf_info</span></code></a></p></td>
-<td><p>Create LaTeX and PDF of overall information (based on MultiPie others/tools/create_PDF/create_pdf_group_info.py, create_pdf_compatibility_relation.py, create_pdf_active_multipole.py).</p></td>
+<td><p>Create LaTeX and PDF of overall information (based on MultiPie Ver.2 others/tools/create_PDF/create_pdf_group_info.py, create_pdf_compatibility_relation.py, create_pdf_active_multipole.py).</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="api_create/create_pdf_group.html#module-multipiegen.create_pdf.create_pdf_group" title="multipiegen.create_pdf.create_pdf_group"><code class="xref py py-obj docutils literal notranslate"><span class="pre">multipiegen.create_pdf.create_pdf_group</span></code></a></p></td>
-<td><p>Create LaTeX and PDF of each group (based on MultiPie others/tools/create_PDF/create_pdf_character.py, create_pdf_symmetry_operation.py, create_pdf_wyckoff.py), from group.pkl.</p></td>
+<td><p>Create LaTeX and PDF of each group (based on MultiPie Ver.2 others/tools/create_PDF/create_pdf_character.py, create_pdf_symmetry_operation.py, create_pdf_wyckoff.py), from group.pkl.</p></td>
 </tr>
 </tbody>
 </table>

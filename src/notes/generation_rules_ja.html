@@ -1,0 +1,907 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>多極子データの生成：アルゴリズム、キー、軌道基底 &#8212; MultiPieGen</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=34ddd5e8" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+
+    <script src="../../_static/documentation_options.js?v=a8e58a58"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'src/notes/generation_rules_ja';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <script src="../../_static/custom.js?v=9c3a2667"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../_static/searchtools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../README.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">MultiPieGen</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Documentation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../group_info.html">Group Information</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../info_pdf.html">Overall information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pg_pdf.html">Point groups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sg_pdf.html">Space groups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mpg_pdf.html">Magnetic point groups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../msg_pdf.html">Magnetic space groups</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes.html">Notes</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../details.html">Details</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../examples.html">Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../binary.html">Binary data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../data.html">Data tables</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">API reference</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../api_util.html">Utilities</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../api_util/util_info.html">Info</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_util/util_group.html">Group</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_util/util_group_data.html">Group data (ids, tags, names)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_util/util_top_harmonics.html">Top harmonics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_util/util_harmonics_mapping.html">Harmonics mapping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_util/util_op_mapping.html">Operation mapping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_util/util_cluster_basis.html">Cluster basis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_util/util_cluster_vector_basis.html">Vector cluster basis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_util/util_bond_cluster_basis.html">Bond cluster basis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_util/util_cluster_samb.html">Cluster SAMB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_util/util_harmonics_symbol.html">Harmonics symbol</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_util/util_harmonics.html">Harmonics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_util/util_harmonics_multipole.html">Multipolar harmonics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_util/util_multipolar_harmonics.html">Multipolar harmonics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_util/util_atomic_multipole.html">Atomic multipole</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_util/util_symmetry_operation.html">Symmetry operation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_util/util_representation_matrix.html">Representation matrix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_util/util_response_tensor.html">Response tensor</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../api_create.html">Generators</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../api_create/create_info.html">Info binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_create/create_group.html">Group binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_create/create_response_tensor.html">Response tensor binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_create/create_harmonics.html">Harmonics binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_create/create_multipolar_harmonics.html">Multipolar harmonics binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_create/create_atomic_multipole.html">Atomic multipole binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_create/create_atomic_multipole_group.html">Atomic multipole group binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_create/create_cluster_scalar_basis.html">Cluster scalar basis binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_create/create_cluster_vector_basis.html">Vector cluster basis binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_create/create_cluster_bond_basis.html">Cluster bond basis binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_create/create_cluster_samb.html">Cluster SAMB binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_create/create_pdf_harmonics.html">Harmonics PDF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_create/create_pdf_info.html">Information PDF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_create/create_pdf_group.html">Group PDF</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/hiro-k-phys/MultiPieGen.git" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>多極子データの生成：アルゴリズム、キー、軌道基底</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">1. 共通の規則</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">1.1 多極子のキー</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">1.2 既約表現</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">1.3 トップの群</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">1.4 軌道名</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">2. 点群の調和関数</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multipolar-harmonics-multipolar-harmonics-pkl">3. multipolar harmonics（<code class="docutils literal notranslate"><span class="pre">multipolar_harmonics.pkl</span></code>）</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cluster">4. トップの群の cluster 基底</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">4.1 クラスター</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cluster-cluster-scalar-basis-pkl">4.2 スカラーの cluster 基底（<code class="docutils literal notranslate"><span class="pre">cluster_scalar_basis.pkl</span></code>）</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cluster-cluster-vector-basis-pkls-1">4.3 ベクトルの cluster 基底（<code class="docutils literal notranslate"><span class="pre">cluster_vector_basis.pkl</span></code>、s = 1）</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cluster-cluster-bond-basis-pkl">4.4 ボンドの cluster 基底（<code class="docutils literal notranslate"><span class="pre">cluster_bond_basis.pkl</span></code>）</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wyckoff-cluster-samb-cluster-samb-pkl">5. 各 Wyckoff のサイトとボンドの cluster SAMB（<code class="docutils literal notranslate"><span class="pre">cluster_samb.pkl</span></code>）</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">6. 原子多極子</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#atomic-multipole-pkl">6.1 原子多極子の行列（<code class="docutils literal notranslate"><span class="pre">atomic_multipole.pkl</span></code>）</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#samb-atomic-multipole-group-pkl">6.2 点群の SAMB（<code class="docutils literal notranslate"><span class="pre">atomic_multipole_group.pkl</span></code>）</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">7. 厳密計算と式の簡約</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1>多極子データの生成：アルゴリズム、キー、軌道基底<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
+<p>MultiPieGen が多極子のキーを使うデータをどう作っているか、そしてキーと軌道基底の規則を、1 か所にまとめた
+ものです。このパッケージのアルゴリズムだけを説明します。<a class="reference internal" href="generation_rules.html"><span class="std std-doc">英語版</span></a>
+と同じ内容です。各節に、処理を実装しているコードの場所を書いています。MultiPie Ver.2 からの
+変更点は、別の文書 <a class="reference internal" href="changes_from_multipie_v2_ja.html"><span class="std std-doc">MultiPie Ver.2 からの変更点</span></a> にまとめています。</p>
+<p>目次：</p>
+<ol class="arabic simple">
+<li><p>共通の規則（キー、既約表現、トップの群、軌道名）</p></li>
+<li><p>点群の調和関数</p></li>
+<li><p>multipolar harmonics（<code class="docutils literal notranslate"><span class="pre">multipolar_harmonics.pkl</span></code>）</p></li>
+<li><p>トップの群の cluster 基底（<code class="docutils literal notranslate"><span class="pre">cluster_scalar_basis.pkl</span></code>、<code class="docutils literal notranslate"><span class="pre">cluster_vector_basis.pkl</span></code>、<code class="docutils literal notranslate"><span class="pre">cluster_bond_basis.pkl</span></code>）</p></li>
+<li><p>各 Wyckoff のサイトとボンドの cluster SAMB（<code class="docutils literal notranslate"><span class="pre">cluster_samb.pkl</span></code>）</p></li>
+<li><p>原子多極子（<code class="docutils literal notranslate"><span class="pre">atomic_multipole.pkl</span></code>）と点群の SAMB（<code class="docutils literal notranslate"><span class="pre">atomic_multipole_group.pkl</span></code>）</p></li>
+<li><p>厳密計算と式の簡約</p></li>
+</ol>
+<hr class="docutils" />
+<section id="id2">
+<h2>1. 共通の規則<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<section id="id3">
+<h3>1.1 多極子のキー<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<p>多極子のキーは、すべて <code class="docutils literal notranslate"><span class="pre">multipie</span></code> パッケージの <code class="docutils literal notranslate"><span class="pre">PGMultipoleType(X,</span> <span class="pre">l,</span> <span class="pre">Gamma,</span> <span class="pre">n,</span> <span class="pre">p,</span> <span class="pre">s,</span> <span class="pre">k,</span> <span class="pre">x)</span></code> です。対称性に合わせる前の原子多極子
+には <code class="docutils literal notranslate"><span class="pre">SphericalMultipoleType(X,</span> <span class="pre">l,</span> <span class="pre">s,</span> <span class="pre">k,</span> <span class="pre">x)</span></code> を使います。</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>項目</p></th>
+<th class="head"><p>意味</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">X</span></code></p></td>
+<td><p>種類：<code class="docutils literal notranslate"><span class="pre">Q</span></code>（電気）、<code class="docutils literal notranslate"><span class="pre">G</span></code>（電気トロイダル）、<code class="docutils literal notranslate"><span class="pre">T</span></code>（磁気トロイダル）、<code class="docutils literal notranslate"><span class="pre">M</span></code>（磁気）。調和関数と cluster のデータは <code class="docutils literal notranslate"><span class="pre">Q</span></code> と <code class="docutils literal notranslate"><span class="pre">G</span></code> だけ。</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">l</span></code></p></td>
+<td><p>ランク</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Gamma</span></code></p></td>
+<td><p>点群の既約表現（<code class="docutils literal notranslate"><span class="pre">data_character_table</span></code> の名前）</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">n</span></code></p></td>
+<td><p>その点群の調和関数 <code class="docutils literal notranslate"><span class="pre">(X,</span> <span class="pre">l,</span> <span class="pre">Gamma)</span></code> の多重度。<strong>1 から数え</strong>、ただ 1 つなら <code class="docutils literal notranslate"><span class="pre">-1</span></code>。常に調和関数の xyz の多項式を特定する（振り直さない）。</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">p</span></code></p></td>
+<td><p>追加の多重度。<code class="docutils literal notranslate"><span class="pre">(X,</span> <span class="pre">l,</span> <span class="pre">Gamma,</span> <span class="pre">n)</span></code> とほかの項目が同じものを番号付けするときだけ使う。ただ 1 つなら <code class="docutils literal notranslate"><span class="pre">-1</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">s</span></code></p></td>
+<td><p>内部ランク（スカラー関数は 0）</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">k</span></code></p></td>
+<td><p>内部成分、<code class="docutils literal notranslate"><span class="pre">-s</span> <span class="pre">&lt;=</span> <span class="pre">k</span> <span class="pre">&lt;=</span> <span class="pre">s</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">x</span></code></p></td>
+<td><p>内部の種類。<code class="docutils literal notranslate"><span class="pre">q</span></code>（極性の内部基底）か <code class="docutils literal notranslate"><span class="pre">g</span></code>（軸性の内部基底）</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>多重項のすべての成分は、成分の順に行として、1 つの値にまとめて入れます。</p>
+<p>そのほかのキー：</p>
+<ul class="simple">
+<li><p>調和関数のキー <code class="docutils literal notranslate"><span class="pre">(l,</span> <span class="pre">irrep,</span> <span class="pre">n,</span> <span class="pre">comp)</span></code>：<code class="docutils literal notranslate"><span class="pre">n</span></code> は 1 から（ただ 1 つなら <code class="docutils literal notranslate"><span class="pre">-1</span></code>）、<code class="docutils literal notranslate"><span class="pre">comp</span></code> は 0 から（1 成分なら <code class="docutils literal notranslate"><span class="pre">-1</span></code>）。</p></li>
+<li><p>tesseral のキー <code class="docutils literal notranslate"><span class="pre">(l,</span> <span class="pre">m)</span></code>：<code class="docutils literal notranslate"><span class="pre">m</span> <span class="pre">&gt;=</span> <span class="pre">0</span></code> は cos 型の <code class="docutils literal notranslate"><span class="pre">C_{l,m}</span></code>、<code class="docutils literal notranslate"><span class="pre">m</span> <span class="pre">&lt;</span> <span class="pre">0</span></code> は sin 型の <code class="docutils literal notranslate"><span class="pre">S_{l,|m|}</span></code>。</p></li>
+<li><p>mapping の中の対称操作の番号は 1 から数える。</p></li>
+</ul>
+</section>
+<section id="id4">
+<h3>1.2 既約表現<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>並べ替えでは、<code class="docutils literal notranslate"><span class="pre">data_character_table</span></code> の既約表現の並びを正とします。<code class="docutils literal notranslate"><span class="pre">g</span></code> が <code class="docutils literal notranslate"><span class="pre">u</span></code> より先、<code class="docutils literal notranslate"><span class="pre">'</span></code> のまとまりが <code class="docutils literal notranslate"><span class="pre">''</span></code> の
+まとまりより先です（C3h、D3h、D3h-1、C3h-c もこの順です）。</p></li>
+<li><p>複素の既約表現（<code class="docutils literal notranslate"><span class="pre">-c</span></code> の点群）は名前が <code class="docutils literal notranslate"><span class="pre">a</span></code>/<code class="docutils literal notranslate"><span class="pre">b</span></code> で終わります（<code class="docutils literal notranslate"><span class="pre">Ega</span></code>、<code class="docutils literal notranslate"><span class="pre">T1ua</span></code> など）。実の点群では、複素型の実 2 次元
+既約表現（C3、C4、C6、S4、C3i、C4h、C6h、T、Th の <code class="docutils literal notranslate"><span class="pre">E</span></code> など）を使います。</p></li>
+</ul>
+</section>
+<section id="id5">
+<h3>1.3 トップの群<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>調和関数は、2 つのトップの群 Oh と D6h について一度だけ定義し、47 点群（結晶点群 32、別設定 <code class="docutils literal notranslate"><span class="pre">-1</span></code> が 5、複素
+<code class="docutils literal notranslate"><span class="pre">-c</span></code> が 10）のそれぞれに対応させます。</p></li>
+<li><p>立方晶の点群は Oh を、三方晶と六方晶の点群は D6h を使います。それより対称性の低い群は、親の群をたどって着く
+トップの群を使います（<code class="docutils literal notranslate"><span class="pre">data_harmonics_mapping[pg][&quot;top&quot;]</span></code>）。</p></li>
+</ul>
+</section>
+<section id="id6">
+<h3>1.4 軌道名<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<p>軌道名は <code class="docutils literal notranslate"><span class="pre">data_basis</span></code> が正です（<code class="docutils literal notranslate"><span class="pre">data_harmonics</span></code> には古い名前の表があるので、名前には使いません）。</p>
+<p>軌道名は、それぞれ調和関数のキーを指します（<code class="docutils literal notranslate"><span class="pre">data_basis.harmonics_key</span></code>）。tesseral のキーか、Oh/D6h のトップの
+キーです。式と u-matrix は <code class="docutils literal notranslate"><span class="pre">info[&quot;harmonics&quot;][&quot;basis_function&quot;][name]</span> <span class="pre">=</span> <span class="pre">(式,</span> <span class="pre">u-matrix)</span></code> で、u-matrix は
+<code class="docutils literal notranslate"><span class="pre">m</span> <span class="pre">=</span> <span class="pre">l,</span> <span class="pre">l-1,</span> <span class="pre">...,</span> <span class="pre">-l</span></code> の列 <code class="docutils literal notranslate"><span class="pre">&lt;m|orbital&gt;</span></code> です。</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p><code class="docutils literal notranslate"><span class="pre">data_basis</span></code> のリスト</p></th>
+<th class="head"><p>軌道（ランク 0…3）</p></th>
+<th class="head"><p>用途</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">atomic_orbital_basis</span></code>（tesseral の並び）</p></td>
+<td><p>s; px, py, pz; dv, dxy, dxz, dyz, du; fc, fs, fbz, f3, fx, fy, faz</p></td>
+<td><p>原子の基底（Lg/Lgs）</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">cubic_orbital_basis</span></code></p></td>
+<td><p>s; px, py, pz; du, dv, dyz, dxz, dxy; f3, fax, fay, faz, fbx, fby, fbz</p></td>
+<td><p>立方晶の群（Oh 系）の内部基底</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">hexagonal_orbital_basis</span></code></p></td>
+<td><p>s; px, py, pz; du, dxz, dyz, dxy, dv; faz, fs, fc, fx, fy, f3, fbz</p></td>
+<td><p>三方・六方晶の群（D6h 系）の内部基底</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>LaTeX の名前：原子の基底には <code class="docutils literal notranslate"><span class="pre">atomic_latex_name</span></code>（<code class="docutils literal notranslate"><span class="pre">p_{x}</span></code>、<code class="docutils literal notranslate"><span class="pre">f_{z}^{\alpha}</span></code> など）を使います。multipolar harmonics
+の内部基底の記号には <code class="docutils literal notranslate"><span class="pre">orbital_latex_name</span></code>（<code class="docutils literal notranslate"><span class="pre">_{x}</span></code>、<code class="docutils literal notranslate"><span class="pre">_{3c}</span></code> など）に Q/G を付けたものを使います
+（<code class="docutils literal notranslate"><span class="pre">info[&quot;harmonics&quot;][&quot;internal_basis&quot;]</span></code>）。</p>
+<p>スピンを含む基底（<code class="docutils literal notranslate"><span class="pre">data_basis</span></code>）：スピンは <code class="docutils literal notranslate"><span class="pre">[&quot;u&quot;,</span> <span class="pre">&quot;d&quot;]</span></code>。LM は <code class="docutils literal notranslate"><span class="pre">M</span> <span class="pre">=</span> <span class="pre">L..-L</span></code>。JM は <code class="docutils literal notranslate"><span class="pre">J</span></code> が昇順、<code class="docutils literal notranslate"><span class="pre">M</span></code> が降順。LMs と Lgs は
+<code class="docutils literal notranslate"><span class="pre">(m</span> <span class="pre">または軌道,</span> <span class="pre">スピン)</span></code> で、スピンがいちばん内側で回ります。</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="id7">
+<h2>2. 点群の調和関数<a class="headerlink" href="#id7" title="Link to this heading">#</a></h2>
+<p>データ：<code class="docutils literal notranslate"><span class="pre">data_top_harmonics</span></code>（トップの調和関数）、<code class="docutils literal notranslate"><span class="pre">data_compatibility_relation</span></code>。
+コード：<code class="docutils literal notranslate"><span class="pre">util_top_harmonics</span></code>（トップの調和関数の式と u-matrix）、<code class="docutils literal notranslate"><span class="pre">util_harmonics_mapping</span></code>（各点群への対応
+<code class="docutils literal notranslate"><span class="pre">data_harmonics_mapping</span></code>）、<code class="docutils literal notranslate"><span class="pre">util_harmonics_multipole.pg_harmonics</span></code>。</p>
+<ol class="arabic simple">
+<li><p><strong>トップの調和関数。</strong> Oh と D6h について、ランク 11 までのすべての調和関数を、デカルト座標の多項式
+（<code class="docutils literal notranslate"><span class="pre">top_harmonics_symmetry[top][top_key]</span></code>）と、球面調和関数への u-matrix（<code class="docutils literal notranslate"><span class="pre">top_harmonics_u_matrix[top][top_key]</span></code>、
+<code class="docutils literal notranslate"><span class="pre">m</span> <span class="pre">=</span> <span class="pre">l..-l</span></code>）で与えます。持っているのは極性の調和関数だけです。同じ関数の軸性のものは、既約表現の <code class="docutils literal notranslate"><span class="pre">g</span></code> と <code class="docutils literal notranslate"><span class="pre">u</span></code>
+を入れ替えたものになります。</p>
+<ul class="simple">
+<li><p>実と複素の組み合わせが混在しています。複素の既約表現は名前が <code class="docutils literal notranslate"><span class="pre">a</span></code>/<code class="docutils literal notranslate"><span class="pre">b</span></code> で終わり、1 成分です。</p></li>
+<li><p>2 次元既約表現の基底は、いちばん単純な <code class="docutils literal notranslate"><span class="pre">(x,</span> <span class="pre">y)</span></code> の基底で <code class="docutils literal notranslate"><span class="pre">C_n</span></code> の表現行列が回転行列になるように選んでいます。</p></li>
+</ul>
+</li>
+<li><p><strong>対応。</strong> <code class="docutils literal notranslate"><span class="pre">data_harmonics_mapping[pg]</span> <span class="pre">=</span> <span class="pre">{&quot;top&quot;:</span> <span class="pre">top,</span> <span class="pre">&quot;Q&quot;:</span> <span class="pre">{pg_key:</span> <span class="pre">(c,</span> <span class="pre">top_key)},</span> <span class="pre">&quot;G&quot;:</span> <span class="pre">{...}}</span></code>、<code class="docutils literal notranslate"><span class="pre">c</span> <span class="pre">=</span> <span class="pre">±1</span></code>。
+点群の調和関数はトップの調和関数の <code class="docutils literal notranslate"><span class="pre">c</span></code> 倍、<code class="docutils literal notranslate"><span class="pre">X(pg_key)</span> <span class="pre">=</span> <span class="pre">c</span> <span class="pre">T(top_key)</span></code> で、u-matrix は <code class="docutils literal notranslate"><span class="pre">c</span> <span class="pre">U_T</span></code> です。</p>
+<ul class="simple">
+<li><p>適合関係（<code class="docutils literal notranslate"><span class="pre">data_compatibility_relation</span></code>）から作ります。トップの調和関数の各成分 <code class="docutils literal notranslate"><span class="pre">(irrep,</span> <span class="pre">comp)</span></code> は、部分群の
+極性の既約表現・成分と、軸性の既約表現・成分に、係数つきで対応します。部分群の既約表現が複素のときは、
+代わりに複素のトップの調和関数（<code class="docutils literal notranslate"><span class="pre">irrep</span> <span class="pre">+</span> <span class="pre">&quot;a&quot;/&quot;b&quot;</span></code>）を参照します。</p></li>
+<li><p>部分群の多重度 <code class="docutils literal notranslate"><span class="pre">n</span></code> は、<code class="docutils literal notranslate"><span class="pre">top_harmonics_tag</span></code> の順に振ります（ただ 1 つなら <code class="docutils literal notranslate"><span class="pre">-1</span></code>）。</p></li>
+<li><p>ある群の極性 <code class="docutils literal notranslate"><span class="pre">Q</span></code> と軸性 <code class="docutils literal notranslate"><span class="pre">G</span></code> は、同じトップの調和関数から来ます。極性の調和関数に対応する軸性のものは、
+<code class="docutils literal notranslate"><span class="pre">top_key</span></code> が一致するもので、符号は <code class="docutils literal notranslate"><span class="pre">cQ</span> <span class="pre">cG</span></code> です（<code class="docutils literal notranslate"><span class="pre">util_harmonics_symbol.polar_to_axial</span></code>）。部分群では適合関係
+だけでは足りません。対応がトップの調和関数のパリティによるからです。</p></li>
+</ul>
+</li>
+<li><p><strong>表現行列</strong> は u-matrix から求めます（<code class="docutils literal notranslate"><span class="pre">util_representation_matrix</span></code>）。1 つの既約表現のすべての調和関数が同じ
+行列を与えます（ランク 11 までテスト済み）。</p></li>
+<li><p><strong>binary（<code class="docutils literal notranslate"><span class="pre">harmonics.pkl</span></code>）。</strong> <code class="docutils literal notranslate"><span class="pre">{PG_id:</span> <span class="pre">{PGMultipoleType(X,</span> <span class="pre">l,</span> <span class="pre">Gamma,</span> <span class="pre">n,</span> <span class="pre">-1,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">&quot;q&quot;):</span> <span class="pre">(式</span> <span class="pre">(dim),</span> <span class="pre">u-matrix</span> <span class="pre">(2l+1,</span> <span class="pre">dim))}}</span></code>。47 点群、ランク 11 まで、並びは Gamma、l、Q/G、n です（<code class="docutils literal notranslate"><span class="pre">util_harmonics</span></code>、
+<code class="docutils literal notranslate"><span class="pre">create_binary/create_harmonics.py</span></code>）。<code class="docutils literal notranslate"><span class="pre">PGMultipoleType</span></code> をキーに持つほかの binary は、調和関数の式も u-matrix も
+持ちません。<code class="docutils literal notranslate"><span class="pre">util_harmonics.harmonics_expression(pg,</span> <span class="pre">key)</span></code> と <code class="docutils literal notranslate"><span class="pre">harmonics_u_matrix(pg,</span> <span class="pre">key)</span></code> で、どのキーからでも
+その <code class="docutils literal notranslate"><span class="pre">(X,</span> <span class="pre">l,</span> <span class="pre">Gamma,</span> <span class="pre">n)</span></code> で引けます。T は Q、M は G の調和関数を引きます（空間群はその点群で引く）。</p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="multipolar-harmonics-multipolar-harmonics-pkl">
+<h2>3. multipolar harmonics（<code class="docutils literal notranslate"><span class="pre">multipolar_harmonics.pkl</span></code>）<a class="headerlink" href="#multipolar-harmonics-multipolar-harmonics-pkl" title="Link to this heading">#</a></h2>
+<p>コード：<code class="docutils literal notranslate"><span class="pre">util_harmonics_multipole.create_multipolar_harmonics</span></code>、<code class="docutils literal notranslate"><span class="pre">util_multipolar_harmonics</span></code>（Olm）、
+<code class="docutils literal notranslate"><span class="pre">create_binary/create_multipolar_harmonics.py</span></code>。範囲：s = 1, 2, 3、l &lt;= 3、47 点群。</p>
+<ol class="arabic simple">
+<li><p><strong>多極子球面調和関数。</strong> <code class="docutils literal notranslate"><span class="pre">O_{lm}^{(s)}(k)</span></code>（<code class="docutils literal notranslate"><span class="pre">util_multipolar_harmonics.Olm</span></code>）は、軌道ランク <code class="docutils literal notranslate"><span class="pre">l+k</span></code> の球面調和関数と、
+ランク <code class="docutils literal notranslate"><span class="pre">s</span></code> の内部基底を結合したものです：
+<code class="docutils literal notranslate"><span class="pre">O_{lm}^{(s)}(k)</span> <span class="pre">=</span> <span class="pre">i^{k+s}</span> <span class="pre">(-1)^{l+m}</span> <span class="pre">sqrt(2l+1)</span> <span class="pre">sum_n</span> <span class="pre">(l+k,</span> <span class="pre">l,</span> <span class="pre">s;</span> <span class="pre">m-n,</span> <span class="pre">-m,</span> <span class="pre">n)</span> <span class="pre">O_{l+k,</span> <span class="pre">m-n}</span> <span class="pre">e_n</span></code>。
+ここで <code class="docutils literal notranslate"><span class="pre">O_{lm}</span> <span class="pre">=</span> <span class="pre">sqrt(4</span> <span class="pre">pi/(2l+1))</span> <span class="pre">r^l</span> <span class="pre">Y_lm</span></code>、<code class="docutils literal notranslate"><span class="pre">e_n</span></code> は内部基底のベクトルで、選んだ内部基底（<code class="docutils literal notranslate"><span class="pre">InternalBasis</span></code>）で
+表します。</p></li>
+<li><p><strong>内部基底。</strong> <code class="docutils literal notranslate"><span class="pre">data_basis.cubic_orbital_basis[s]</span></code>（トップが Oh）または <code class="docutils literal notranslate"><span class="pre">hexagonal_orbital_basis[s]</span></code>（トップが D6h）
+の軌道で、u-matrix は <code class="docutils literal notranslate"><span class="pre">info[&quot;harmonics&quot;][&quot;basis_function&quot;]</span></code> から取ります。</p></li>
+<li><p><strong>射影。</strong> 群の各調和関数 <code class="docutils literal notranslate"><span class="pre">(X,</span> <span class="pre">l,</span> <span class="pre">Gamma,</span> <span class="pre">n)</span></code>（u-matrix <code class="docutils literal notranslate"><span class="pre">U</span></code>、2 節）と各 k について、内部係数
+<code class="docutils literal notranslate"><span class="pre">U^T</span> <span class="pre">O_l^{(s)}(k)</span></code> を作ります。x, y, z の多項式の <code class="docutils literal notranslate"><span class="pre">(dim,</span> <span class="pre">2s+1)</span></code> 配列（各要素は因数分解）で、内部基底の各関数に掛かる
+係数です。0 になるもの（<code class="docutils literal notranslate"><span class="pre">w3j</span> <span class="pre">=</span> <span class="pre">0</span></code>）は除きます。</p></li>
+<li><p><strong>内部の種類。</strong> (<code class="docutils literal notranslate"><span class="pre">X</span> <span class="pre">=</span> <span class="pre">Q</span></code> かつ <code class="docutils literal notranslate"><span class="pre">s+k</span></code> が偶数) または (<code class="docutils literal notranslate"><span class="pre">X</span> <span class="pre">=</span> <span class="pre">G</span></code> かつ <code class="docutils literal notranslate"><span class="pre">s+k</span></code> が奇数) なら <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">q</span></code>、それ以外は <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">g</span></code>。</p></li>
+<li><p><strong>式。</strong> 多極子の式 <code class="docutils literal notranslate"><span class="pre">=</span> <span class="pre">内部係数</span> <span class="pre">&#64;</span> <span class="pre">symbols</span></code>。内部の記号は <code class="docutils literal notranslate"><span class="pre">Q/G</span> <span class="pre">+</span> <span class="pre">orbital_latex_name</span></code>
+（<code class="docutils literal notranslate"><span class="pre">info[&quot;harmonics&quot;][&quot;internal_basis&quot;][crystal][(s,</span> <span class="pre">x)]</span></code>）。</p></li>
+<li><p><strong>キー。</strong> <code class="docutils literal notranslate"><span class="pre">PGMultipoleType(X,</span> <span class="pre">l,</span> <span class="pre">Gamma,</span> <span class="pre">n,</span> <span class="pre">p,</span> <span class="pre">s,</span> <span class="pre">k,</span> <span class="pre">x)</span></code>：<code class="docutils literal notranslate"><span class="pre">n</span></code> は調和関数の多重度（振り直さない）。<code class="docutils literal notranslate"><span class="pre">p</span></code> は
+<code class="docutils literal notranslate"><span class="pre">(x,</span> <span class="pre">l,</span> <span class="pre">X,</span> <span class="pre">Gamma,</span> <span class="pre">n,</span> <span class="pre">k)</span></code> が同じものを番号付けします（ただ 1 つなら <code class="docutils literal notranslate"><span class="pre">-1</span></code>）。</p></li>
+<li><p><strong>並び。</strong> <code class="docutils literal notranslate"><span class="pre">x</span></code>（q, g）、<code class="docutils literal notranslate"><span class="pre">s</span></code>、<code class="docutils literal notranslate"><span class="pre">Gamma</span></code>、<code class="docutils literal notranslate"><span class="pre">l</span></code>、<code class="docutils literal notranslate"><span class="pre">X</span></code>（Q, G）、<code class="docutils literal notranslate"><span class="pre">k</span></code>、<code class="docutils literal notranslate"><span class="pre">n</span></code>、<code class="docutils literal notranslate"><span class="pre">p</span></code>。</p></li>
+<li><p><strong>値。</strong> <code class="docutils literal notranslate"><span class="pre">(internal_coefficient</span> <span class="pre">(dim,</span> <span class="pre">2s+1),</span> <span class="pre">multipole_expression</span> <span class="pre">(dim))</span></code>：内部係数と多極子の式。調和関数
+<code class="docutils literal notranslate"><span class="pre">(X,</span> <span class="pre">l,</span> <span class="pre">Gamma,</span> <span class="pre">n)</span></code> そのものの式は <code class="docutils literal notranslate"><span class="pre">harmonics.pkl</span></code> にあります。</p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="cluster">
+<h2>4. トップの群の cluster 基底<a class="headerlink" href="#cluster" title="Link to this heading">#</a></h2>
+<p>コード：<code class="docutils literal notranslate"><span class="pre">util_cluster_basis</span></code>、<code class="docutils literal notranslate"><span class="pre">util_cluster_vector_basis</span></code>、<code class="docutils literal notranslate"><span class="pre">util_bond_cluster_basis</span></code> と、対応する <code class="docutils literal notranslate"><span class="pre">create_binary</span></code> の
+モジュール。データ：<code class="docutils literal notranslate"><span class="pre">data_root_cluster</span></code>、<code class="docutils literal notranslate"><span class="pre">info[&quot;root_cluster&quot;]</span></code>。</p>
+<section id="id8">
+<h3>4.1 クラスター<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Oh のクラスターは 48 点、D6h のクラスターは 24 点で、デカルト座標に <code class="docutils literal notranslate"><span class="pre">x,</span> <span class="pre">y,</span> <span class="pre">z</span></code> を入れる形で書いてあります
+（<code class="docutils literal notranslate"><span class="pre">data_root_cluster</span></code>）。点 <code class="docutils literal notranslate"><span class="pre">i</span></code> は <code class="docutils literal notranslate"><span class="pre">g_i</span> <span class="pre">site0</span></code> で、<code class="docutils literal notranslate"><span class="pre">g_i</span></code> は Oh または D6h の <code class="docutils literal notranslate"><span class="pre">i</span></code> 番目の対称操作です（<code class="docutils literal notranslate"><span class="pre">group.pkl</span></code> の順）。</p></li>
+<li><p>Oh の <code class="docutils literal notranslate"><span class="pre">site0</span></code> は <code class="docutils literal notranslate"><span class="pre">(1,</span> <span class="pre">5,</span> <span class="pre">6)</span></code>（正規化していない、長さ <code class="docutils literal notranslate"><span class="pre">sqrt(62)</span></code>）。D6h の <code class="docutils literal notranslate"><span class="pre">(2</span> <span class="pre">sqrt(2),</span> <span class="pre">sqrt(6),</span> <span class="pre">4</span> <span class="pre">sqrt(3))</span></code> は、Oh
+のものを主軸が <code class="docutils literal notranslate"><span class="pre">[111]</span></code> に向くよう回したものです。<code class="docutils literal notranslate"><span class="pre">vector0</span></code>（ボンドの向き）は <code class="docutils literal notranslate"><span class="pre">(6,</span> <span class="pre">1,</span> <span class="pre">5)</span></code> の単位ベクトルです（D6h
+では同じように回したもの）。<code class="docutils literal notranslate"><span class="pre">(5,</span> <span class="pre">1,</span> <span class="pre">6)</span></code> は使いません。<code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">+</span> <span class="pre">y</span> <span class="pre">=</span> <span class="pre">z</span></code> の面について <code class="docutils literal notranslate"><span class="pre">site0</span></code> の鏡像になっていて、いくつかの
+ボンド関数が 0 になったからです。</p></li>
+<li><p>一般点は Oh と D6h のどちらでも一般の位置にあるので、クラスターの点の数は群の位数と同じで、クラスター上の関数は
+正則表現になります。</p></li>
+</ul>
+</section>
+<section id="cluster-cluster-scalar-basis-pkl">
+<h3>4.2 スカラーの cluster 基底（<code class="docutils literal notranslate"><span class="pre">cluster_scalar_basis.pkl</span></code>）<a class="headerlink" href="#cluster-cluster-scalar-basis-pkl" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>実のトップの調和関数 <code class="docutils literal notranslate"><span class="pre">T</span></code>（ランク 0…11）のそれぞれについて、クラスターの点での値を並べたベクトル。</p></li>
+<li><p>トップの群の (既約表現, 成分) ごとに、低いランク、次に小さい多重度の順に Gram–Schmidt します。一次従属なものは
+多重項ごと除きます（<code class="docutils literal notranslate"><span class="pre">&quot;dropped&quot;</span></code> に記録）。</p></li>
+<li><p>結果：48 本（Oh）または 24 本（D6h）の正規直交基底で、正則表現です。</p></li>
+<li><p>キー：<code class="docutils literal notranslate"><span class="pre">PGMultipoleType(&quot;Q&quot;,</span> <span class="pre">l,</span> <span class="pre">Gamma,</span> <span class="pre">n,</span> <span class="pre">-1,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">&quot;q&quot;)</span></code>。<code class="docutils literal notranslate"><span class="pre">(l,</span> <span class="pre">Gamma,</span> <span class="pre">n)</span></code> はトップの調和関数のもの。</p></li>
+</ol>
+</section>
+<section id="cluster-cluster-vector-basis-pkls-1">
+<h3>4.3 ベクトルの cluster 基底（<code class="docutils literal notranslate"><span class="pre">cluster_vector_basis.pkl</span></code>、s = 1）<a class="headerlink" href="#cluster-cluster-vector-basis-pkls-1" title="Link to this heading">#</a></h3>
+<p>ボンドの cluster 基底を作るための中間の基底です。</p>
+<ol class="arabic simple">
+<li><p>実のトップの調和関数 <code class="docutils literal notranslate"><span class="pre">T</span></code> と <code class="docutils literal notranslate"><span class="pre">k</span> <span class="pre">=</span> <span class="pre">-1,</span> <span class="pre">0,</span> <span class="pre">1</span></code> のそれぞれについて、内部基底 <code class="docutils literal notranslate"><span class="pre">[px,</span> <span class="pre">py,</span> <span class="pre">pz]</span></code> のベクトル調和関数
+<code class="docutils literal notranslate"><span class="pre">sum_m</span> <span class="pre">U_T[m]</span> <span class="pre">O_{lm}^{(1)}(k)</span></code> を、クラスターの点で評価したもの（<code class="docutils literal notranslate"><span class="pre">(N,</span> <span class="pre">3)</span></code>）。</p></li>
+<li><p>種類：<code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">q</span></code> では、<code class="docutils literal notranslate"><span class="pre">s</span> <span class="pre">+</span> <span class="pre">k</span></code> が偶数なら <code class="docutils literal notranslate"><span class="pre">X</span> <span class="pre">=</span> <span class="pre">Q</span></code>、奇数なら <code class="docutils literal notranslate"><span class="pre">G</span></code>。<code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">g</span></code> ではその逆。極性のものは <code class="docutils literal notranslate"><span class="pre">T</span></code> の既約表現・
+成分のまま。軸性のものは <code class="docutils literal notranslate"><span class="pre">data_harmonics_mapping[top][&quot;G&quot;]</span></code> の既約表現・成分と係数 <code class="docutils literal notranslate"><span class="pre">c</span></code> を使います。</p></li>
+<li><p>(既約表現, 成分) ごとに、ランク <code class="docutils literal notranslate"><span class="pre">l</span></code>、次に <code class="docutils literal notranslate"><span class="pre">k</span> <span class="pre">=</span> <span class="pre">-1,</span> <span class="pre">0,</span> <span class="pre">1</span></code>、次に多重度の順に Gram–Schmidt します。一次従属なものは
+除きます（数値で判定し、残したものを厳密に正規直交化）。</p></li>
+<li><p>結果：各 <code class="docutils literal notranslate"><span class="pre">x</span></code> について <code class="docutils literal notranslate"><span class="pre">3N</span></code> 本、つまり 144 本（Oh）または 72 本（D6h）。</p></li>
+<li><p>キー：<code class="docutils literal notranslate"><span class="pre">PGMultipoleType(X,</span> <span class="pre">l,</span> <span class="pre">Gamma,</span> <span class="pre">n,</span> <span class="pre">-1,</span> <span class="pre">1,</span> <span class="pre">k,</span> <span class="pre">x)</span></code>（<code class="docutils literal notranslate"><span class="pre">p</span> <span class="pre">=</span> <span class="pre">-1</span></code>。多重項は <code class="docutils literal notranslate"><span class="pre">k</span></code> で区別される）。</p></li>
+</ol>
+</section>
+<section id="cluster-cluster-bond-basis-pkl">
+<h3>4.4 ボンドの cluster 基底（<code class="docutils literal notranslate"><span class="pre">cluster_bond_basis.pkl</span></code>）<a class="headerlink" href="#cluster-cluster-bond-basis-pkl" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>ボンドベクトル：<code class="docutils literal notranslate"><span class="pre">b_i</span></code> はクラスターの点 <code class="docutils literal notranslate"><span class="pre">i</span></code> の <code class="docutils literal notranslate"><span class="pre">x,</span> <span class="pre">y,</span> <span class="pre">z</span></code> を <code class="docutils literal notranslate"><span class="pre">vector0</span></code> に置き換えたもの、つまり <code class="docutils literal notranslate"><span class="pre">g_i</span> <span class="pre">vector0</span></code>。</p></li>
+<li><p>ベクトルの cluster 基底 <code class="docutils literal notranslate"><span class="pre">v_key</span></code>（<code class="docutils literal notranslate"><span class="pre">(N,</span> <span class="pre">3)</span></code>）のそれぞれについて、ボンド関数 <code class="docutils literal notranslate"><span class="pre">f_key(i)</span> <span class="pre">=</span> <span class="pre">v_key(i)</span> <span class="pre">.</span> <span class="pre">b_i</span></code>（同じキー）。
+<code class="docutils literal notranslate"><span class="pre">N</span></code> 次元の空間の中の <code class="docutils literal notranslate"><span class="pre">3N</span></code> 本のベクトルになります。</p></li>
+<li><p>(既約表現, 成分) ごとに、ランク、<code class="docutils literal notranslate"><span class="pre">k</span> <span class="pre">=</span> <span class="pre">-1,</span> <span class="pre">0,</span> <span class="pre">1</span></code>、多重度の順に Gram–Schmidt します。一次従属なものと 0 になる
+ものは除きます。結果：各 <code class="docutils literal notranslate"><span class="pre">x</span></code> について <code class="docutils literal notranslate"><span class="pre">N</span></code> 本。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">f_key</span></code> はクラスター上のスカラー関数として変換します（<code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">g</span></code> では符号 <code class="docutils literal notranslate"><span class="pre">det</span> <span class="pre">R</span></code> が付く）。</p></li>
+<li><p>キー：<code class="docutils literal notranslate"><span class="pre">PGMultipoleType(X,</span> <span class="pre">l,</span> <span class="pre">Gamma,</span> <span class="pre">n,</span> <span class="pre">p,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">x)</span></code>。<code class="docutils literal notranslate"><span class="pre">(X,</span> <span class="pre">l,</span> <span class="pre">Gamma,</span> <span class="pre">n)</span></code> は元の
+ベクトル基底のキーのもの。<code class="docutils literal notranslate"><span class="pre">(X,</span> <span class="pre">l,</span> <span class="pre">Gamma,</span> <span class="pre">n)</span></code> が同じ多重項には <code class="docutils literal notranslate"><span class="pre">p</span> <span class="pre">=</span> <span class="pre">1,</span> <span class="pre">2,</span> <span class="pre">...</span></code>（<code class="docutils literal notranslate"><span class="pre">k</span></code> の順）、ただ 1 つなら <code class="docutils literal notranslate"><span class="pre">-1</span></code>。
+<code class="docutils literal notranslate"><span class="pre">x</span></code> は元のもの。<code class="docutils literal notranslate"><span class="pre">&quot;source&quot;</span></code> に、各キーの元のベクトルのキー（<code class="docutils literal notranslate"><span class="pre">k</span></code> を含む）を入れています。</p></li>
+</ol>
+</section>
+</section>
+<hr class="docutils" />
+<section id="wyckoff-cluster-samb-cluster-samb-pkl">
+<h2>5. 各 Wyckoff のサイトとボンドの cluster SAMB（<code class="docutils literal notranslate"><span class="pre">cluster_samb.pkl</span></code>）<a class="headerlink" href="#wyckoff-cluster-samb-cluster-samb-pkl" title="Link to this heading">#</a></h2>
+<p>コード：<code class="docutils literal notranslate"><span class="pre">util_cluster_samb</span></code>、<code class="docutils literal notranslate"><span class="pre">create_binary/create_cluster_samb.py</span></code>。範囲：実の点群 37 と空間群 230。<code class="docutils literal notranslate"><span class="pre">&quot;site&quot;</span></code>、
+<code class="docutils literal notranslate"><span class="pre">&quot;bond&quot;</span></code>。ボンドの SAMB は、対称ボンドの SAMB（以下 <code class="docutils literal notranslate"><span class="pre">&quot;bond_s&quot;</span></code>）と反対称ボンドの SAMB（以下 <code class="docutils literal notranslate"><span class="pre">&quot;bond_a&quot;</span></code>）から
+作ります（7. を参照）。複素の点群は含みません。</p>
+<ol class="arabic simple">
+<li><p><strong>一般点。</strong> 群 <code class="docutils literal notranslate"><span class="pre">H</span></code> の一般点のクラスターは、トップのクラスターの一部です。<code class="docutils literal notranslate"><span class="pre">H</span></code> の点 <code class="docutils literal notranslate"><span class="pre">i</span></code> は、
+<code class="docutils literal notranslate"><span class="pre">util_op_mapping.op_mapping_d6h_oh_cluster[PG]</span></code> の coset 0 の <code class="docutils literal notranslate"><span class="pre">i</span></code> 番目にあるトップの点です。</p>
+<ul class="simple">
+<li><p>トップの基底をこれらの点に制限したものが、<code class="docutils literal notranslate"><span class="pre">H</span></code> の一般点の基底です。<code class="docutils literal notranslate"><span class="pre">&quot;site&quot;</span></code> と <code class="docutils literal notranslate"><span class="pre">&quot;bond_s&quot;</span></code> には
+<code class="docutils literal notranslate"><span class="pre">cluster_scalar_basis</span></code> を、<code class="docutils literal notranslate"><span class="pre">&quot;bond_a&quot;</span></code> には <code class="docutils literal notranslate"><span class="pre">cluster_bond_basis</span></code>（<code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">q</span></code> だけ。それだけで完全な基底）を使います。
+一般のボンドでは、対称ボンドと反対称ボンドは同じ空間を張ります。</p></li>
+<li><p>トップの群のキーは引き継ぎますが、既約表現と成分はトップの調和関数を通して <code class="docutils literal notranslate"><span class="pre">H</span></code> のものに付け替えます。
+トップの群のキー <code class="docutils literal notranslate"><span class="pre">=</span> <span class="pre">c_top</span> <span class="pre">T</span></code>、<code class="docutils literal notranslate"><span class="pre">H</span></code> のキー <code class="docutils literal notranslate"><span class="pre">=</span> <span class="pre">c</span> <span class="pre">T</span></code> なので、係数は <code class="docutils literal notranslate"><span class="pre">c</span> <span class="pre">c_top</span></code> です。</p></li>
+</ul>
+</li>
+<li><p><strong>空間群。</strong> 空間群の対称操作（plus set を除く）は、その点群と同じ点操作を同じ順で持ちます。各操作は点群を
+通して対応させます（<code class="docutils literal notranslate"><span class="pre">op_mapping_parent_sg</span></code> は軸を変えて親の空間群に対応させるもので、使いません）。</p></li>
+<li><p><strong>特殊点。</strong> Wyckoff のサイト（ボンド）の mapping <code class="docutils literal notranslate"><span class="pre">M_j</span></code>（代表をサイトまたはボンド <code class="docutils literal notranslate"><span class="pre">j</span></code> に移す操作、<code class="docutils literal notranslate"><span class="pre">group.pkl</span></code>
+にある）を使い、<code class="docutils literal notranslate"><span class="pre">f_j</span> <span class="pre">=</span> <span class="pre">sum_{i</span> <span class="pre">in</span> <span class="pre">M_j}</span> <span class="pre">f_i</span></code> とします。<code class="docutils literal notranslate"><span class="pre">&quot;bond_a&quot;</span></code> では、ボンドの向きを反転させる操作（mapping で
+負の番号）は <code class="docutils literal notranslate"><span class="pre">-f_i</span></code> として足します。</p></li>
+<li><p><strong>正規直交化。</strong> <code class="docutils literal notranslate"><span class="pre">H</span></code> の既約表現ごとに Gram–Schmidt します（成分ごとに順に。複素型の実 2 次元既約表現では、
+別の多重項の成分どうしが直交しないため）。順番は、<code class="docutils literal notranslate"><span class="pre">&quot;site&quot;</span></code> と <code class="docutils literal notranslate"><span class="pre">&quot;bond_s&quot;</span></code> が <code class="docutils literal notranslate"><span class="pre">[Gamma,</span> <span class="pre">l,</span> <span class="pre">n,</span> <span class="pre">p]</span></code>、
+<code class="docutils literal notranslate"><span class="pre">&quot;bond_a&quot;</span></code> が <code class="docutils literal notranslate"><span class="pre">[Gamma,</span> <span class="pre">l,</span> <span class="pre">k,</span> <span class="pre">Q/G,</span> <span class="pre">n,</span> <span class="pre">p]</span></code>（<code class="docutils literal notranslate"><span class="pre">k</span></code> は元のベクトル基底のもの）です。一次従属なものと 0 になるものは除き
+ます（数値で選び、残したものを厳密に正規直交化）。各成分は <code class="docutils literal notranslate"><span class="pre">N</span></code> 個のサイト（ボンド）上でノルム 1 です。</p></li>
+<li><p><strong>キー。</strong> <code class="docutils literal notranslate"><span class="pre">&quot;site&quot;</span></code> と <code class="docutils literal notranslate"><span class="pre">&quot;bond_s&quot;</span></code>：<code class="docutils literal notranslate"><span class="pre">PGMultipoleType(&quot;Q&quot;,</span> <span class="pre">l,</span> <span class="pre">Gamma,</span> <span class="pre">n,</span> <span class="pre">p,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">&quot;q&quot;)</span></code>。<code class="docutils literal notranslate"><span class="pre">&quot;bond_a&quot;</span></code>：
+<code class="docutils literal notranslate"><span class="pre">cluster_bond_basis</span></code> のキー（<code class="docutils literal notranslate"><span class="pre">X</span> <span class="pre">=</span> <span class="pre">Q/G</span></code>、<code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">q</span></code>）。<code class="docutils literal notranslate"><span class="pre">n</span></code> は <code class="docutils literal notranslate"><span class="pre">H</span></code> の調和関数の多重度、<code class="docutils literal notranslate"><span class="pre">p</span></code> はトップのキーのもの。</p></li>
+<li><p><strong>値。</strong> <code class="docutils literal notranslate"><span class="pre">samb</span> <span class="pre">(dim,</span> <span class="pre">N)</span></code>。点群の調和関数の式は <code class="docutils literal notranslate"><span class="pre">harmonics.pkl</span></code> にあります。</p></li>
+<li><p><strong>ボンドの SAMB。</strong> <code class="docutils literal notranslate"><span class="pre">&quot;bond&quot;</span> <span class="pre">=</span> <span class="pre">&quot;bond_s&quot;</span> <span class="pre">+</span> <span class="pre">i</span> <span class="pre">&quot;bond_a&quot;</span></code> です。反対称ボンドの SAMB に <code class="docutils literal notranslate"><span class="pre">i</span></code> を掛け（虚数の飛び移り）、
+タイプを <code class="docutils literal notranslate"><span class="pre">Q</span></code> から <code class="docutils literal notranslate"><span class="pre">T</span></code> に、<code class="docutils literal notranslate"><span class="pre">G</span></code> から <code class="docutils literal notranslate"><span class="pre">M</span></code> に付け替えます（時間反転に奇）。<code class="docutils literal notranslate"><span class="pre">&quot;bond_s&quot;</span></code>（<code class="docutils literal notranslate"><span class="pre">Q</span></code>）と <code class="docutils literal notranslate"><span class="pre">&quot;bond_a&quot;</span></code>（<code class="docutils literal notranslate"><span class="pre">T/M</span></code>）
+のキーは決して重ならないので、1 つにまとめます。時間反転の偶奇が異なる SAMB は（エルミートなボンド行列として、
+実対称と虚反対称で）直交するので、<code class="docutils literal notranslate"><span class="pre">Q</span></code> と <code class="docutils literal notranslate"><span class="pre">T/M</span></code> は別々に正規直交化します（4.）。順番は <code class="docutils literal notranslate"><span class="pre">Gamma</span></code> の順で、各
+<code class="docutils literal notranslate"><span class="pre">Gamma</span></code> の中では <code class="docutils literal notranslate"><span class="pre">Q</span></code>（<code class="docutils literal notranslate"><span class="pre">[l,</span> <span class="pre">n,</span> <span class="pre">p]</span></code>）を <code class="docutils literal notranslate"><span class="pre">T/M</span></code>（<code class="docutils literal notranslate"><span class="pre">[l,</span> <span class="pre">k,</span> <span class="pre">T/M,</span> <span class="pre">n,</span> <span class="pre">p]</span></code>）より先に並べます。値は <code class="docutils literal notranslate"><span class="pre">Q</span></code> で実数、<code class="docutils literal notranslate"><span class="pre">T,</span> <span class="pre">M</span></code> で
+純虚数です。<code class="docutils literal notranslate"><span class="pre">T</span></code>（<code class="docutils literal notranslate"><span class="pre">M</span></code>）の調和関数は <code class="docutils literal notranslate"><span class="pre">Q</span></code>（<code class="docutils literal notranslate"><span class="pre">G</span></code>）のものを使います（<code class="docutils literal notranslate"><span class="pre">util_harmonics.harmonics_type</span></code>）。</p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="id9">
+<h2>6. 原子多極子<a class="headerlink" href="#id9" title="Link to this heading">#</a></h2>
+<p>コード：<code class="docutils literal notranslate"><span class="pre">util_atomic_multipole</span></code>、<code class="docutils literal notranslate"><span class="pre">create_binary/create_atomic_multipole.py</span></code>、
+<code class="docutils literal notranslate"><span class="pre">create_binary/create_atomic_multipole_group.py</span></code>。</p>
+<section id="atomic-multipole-pkl">
+<h3>6.1 原子多極子の行列（<code class="docutils literal notranslate"><span class="pre">atomic_multipole.pkl</span></code>）<a class="headerlink" href="#atomic-multipole-pkl" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>基底（<code class="docutils literal notranslate"><span class="pre">data_basis</span></code>）：<code class="docutils literal notranslate"><span class="pre">L</span> <span class="pre">=</span> <span class="pre">0..3</span></code> のスピンを含む LMs（<code class="docutils literal notranslate"><span class="pre">atomic_lms_basis</span></code>、<code class="docutils literal notranslate"><span class="pre">(m,</span> <span class="pre">spin)</span></code>）と JML（<code class="docutils literal notranslate"><span class="pre">atomic_jm_basis</span></code>、
+<code class="docutils literal notranslate"><span class="pre">(J,</span> <span class="pre">M)</span></code>）。スピンを含まない LM は上向きスピンの部分です。</p></li>
+<li><p>行列要素 <code class="docutils literal notranslate"><span class="pre">&lt;b1|X_{lm}^{(s)}(k)|b2&gt;</span></code>（<code class="docutils literal notranslate"><span class="pre">X</span> <span class="pre">=</span> <span class="pre">Q,</span> <span class="pre">G,</span> <span class="pre">T,</span> <span class="pre">M</span></code>、<code class="docutils literal notranslate"><span class="pre">s</span> <span class="pre">=</span> <span class="pre">0,</span> <span class="pre">1</span></code>、<code class="docutils literal notranslate"><span class="pre">l</span> <span class="pre">&lt;=</span> <span class="pre">7</span></code>）を Wigner–Eckart の定理で求めます
+（<code class="docutils literal notranslate"><span class="pre">multipie.util.util_atomic_multipole</span></code>）。Jz の保存で許される要素（<code class="docutils literal notranslate"><span class="pre">m1</span> <span class="pre">+</span> <span class="pre">s1</span> <span class="pre">=</span> <span class="pre">m2</span> <span class="pre">+</span> <span class="pre">s2</span> <span class="pre">+</span> <span class="pre">m</span></code>、<code class="docutils literal notranslate"><span class="pre">M1</span> <span class="pre">=</span> <span class="pre">M2</span> <span class="pre">+</span> <span class="pre">m</span></code>）だけを
+計算し、パリティや三角条件で禁止されるブロックは飛ばします。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">data_basis.atomic_rank_block</span></code>（上三角）の各 bra-ket ブロック <code class="docutils literal notranslate"><span class="pre">(L1,</span> <span class="pre">L2)</span></code> を、0 でなければ残します。</p></li>
+<li><p>キー：<code class="docutils literal notranslate"><span class="pre">SphericalMultipoleType(X,</span> <span class="pre">l,</span> <span class="pre">s,</span> <span class="pre">k,</span> <span class="pre">&quot;q&quot;)</span></code>。並びは <code class="docutils literal notranslate"><span class="pre">Q,</span> <span class="pre">G,</span> <span class="pre">T,</span> <span class="pre">M</span></code>、<code class="docutils literal notranslate"><span class="pre">s</span></code>、<code class="docutils literal notranslate"><span class="pre">k</span></code>、<code class="docutils literal notranslate"><span class="pre">l</span></code>。値：<code class="docutils literal notranslate"><span class="pre">m</span> <span class="pre">=</span> <span class="pre">l..-l</span></code> の
+<code class="docutils literal notranslate"><span class="pre">(2l+1,</span> <span class="pre">n1,</span> <span class="pre">n2)</span></code>。<code class="docutils literal notranslate"><span class="pre">&quot;lm&quot;</span></code> は <code class="docutils literal notranslate"><span class="pre">&quot;lms&quot;</span></code> の <code class="docutils literal notranslate"><span class="pre">s</span> <span class="pre">=</span> <span class="pre">0</span></code>、上向きスピンの部分です。</p></li>
+</ol>
+</section>
+<section id="samb-atomic-multipole-group-pkl">
+<h3>6.2 点群の SAMB（<code class="docutils literal notranslate"><span class="pre">atomic_multipole_group.pkl</span></code>）<a class="headerlink" href="#samb-atomic-multipole-group-pkl" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p><strong>トップの SAMB。</strong> トップの調和関数 <code class="docutils literal notranslate"><span class="pre">T</span></code>（u-matrix <code class="docutils literal notranslate"><span class="pre">U_T</span></code>、<code class="docutils literal notranslate"><span class="pre">m</span> <span class="pre">=</span> <span class="pre">l..-l</span></code>）の各成分と、パリティが合う各原子多極子
+（極性の調和関数には <code class="docutils literal notranslate"><span class="pre">Q,</span> <span class="pre">T</span></code>、軸性には <code class="docutils literal notranslate"><span class="pre">G,</span> <span class="pre">M</span></code>）について、<code class="docutils literal notranslate"><span class="pre">sum_m</span> <span class="pre">U_T[m]</span> <span class="pre">X_{lm}^{(s)}(k)</span></code> を作り、Frobenius ノルムが
+1（対角ブロック）または <code class="docutils literal notranslate"><span class="pre">1/sqrt(2)</span></code>（非対角ブロック）になるよう正規化します。トップの群ごとに一度だけ計算します。</p></li>
+<li><p>成分どうしは直交しています（球テンソルが直交し、<code class="docutils literal notranslate"><span class="pre">U_T</span></code> の列が正規直交なため）。そのため、この正規化は (<code class="docutils literal notranslate"><span class="pre">X</span></code>, 既約
+表現) ごとの Gram–Schmidt による正規直交化と同じです。非対角ブロックでは、同じ既約表現の Q と T（G と M）は内積の
+虚部だけが重なります（エルミート共役のブロックと合わせると直交します）。</p></li>
+<li><p><strong>点群。</strong> 群の調和関数 <code class="docutils literal notranslate"><span class="pre">(X,</span> <span class="pre">l,</span> <span class="pre">Gamma,</span> <span class="pre">n)</span></code> の SAMB は、そのトップのキーのトップの SAMB の <code class="docutils literal notranslate"><span class="pre">c</span></code> 倍で
+（<code class="docutils literal notranslate"><span class="pre">data_harmonics_mapping</span></code>）、成分を重ねたものです。</p></li>
+<li><p><strong>基底。</strong> <code class="docutils literal notranslate"><span class="pre">&quot;jml&quot;</span></code> は JML の行列から作ります。<code class="docutils literal notranslate"><span class="pre">&quot;lgs&quot;</span></code> は LMs の行列 <code class="docutils literal notranslate"><span class="pre">M</span></code> から <code class="docutils literal notranslate"><span class="pre">U_bra^dagger</span> <span class="pre">M</span> <span class="pre">U_ket</span></code> で作ります。<code class="docutils literal notranslate"><span class="pre">U</span></code>
+は <code class="docutils literal notranslate"><span class="pre">data_basis.atomic_lgs_basis</span></code> の軌道（<code class="docutils literal notranslate"><span class="pre">atomic_orbital_basis</span></code>、基底関数の u-matrix をスピンに広げたもの）です。
+<code class="docutils literal notranslate"><span class="pre">&quot;lg&quot;</span></code> は <code class="docutils literal notranslate"><span class="pre">&quot;lgs&quot;</span></code> の <code class="docutils literal notranslate"><span class="pre">s</span> <span class="pre">=</span> <span class="pre">0</span></code>、上向きスピンの部分に <code class="docutils literal notranslate"><span class="pre">sqrt(2)</span></code> を掛けたものです。</p></li>
+<li><p><strong>キー。</strong> <code class="docutils literal notranslate"><span class="pre">PGMultipoleType(X,</span> <span class="pre">l,</span> <span class="pre">Gamma,</span> <span class="pre">n,</span> <span class="pre">-1,</span> <span class="pre">s,</span> <span class="pre">k,</span> <span class="pre">&quot;q&quot;)</span></code>。<code class="docutils literal notranslate"><span class="pre">n</span></code> は調和関数の多重度（振り直さない）。
+並びは <code class="docutils literal notranslate"><span class="pre">Q,</span> <span class="pre">G,</span> <span class="pre">T,</span> <span class="pre">M</span></code>、<code class="docutils literal notranslate"><span class="pre">s</span></code>、<code class="docutils literal notranslate"><span class="pre">k</span></code>、<code class="docutils literal notranslate"><span class="pre">l</span></code>、<code class="docutils literal notranslate"><span class="pre">Gamma</span></code>、<code class="docutils literal notranslate"><span class="pre">n</span></code>。</p></li>
+<li><p><strong>値。</strong> ブロックごとに <code class="docutils literal notranslate"><span class="pre">行列</span> <span class="pre">(dim,</span> <span class="pre">n1,</span> <span class="pre">n2)</span></code>（調和関数の式は <code class="docutils literal notranslate"><span class="pre">harmonics.pkl</span></code> にある）。47 点群すべて。</p></li>
+</ol>
+</section>
+</section>
+<hr class="docutils" />
+<section id="id10">
+<h2>7. 厳密計算と式の簡約<a class="headerlink" href="#id10" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>保存する値はすべて sympy です。保存する前に <code class="docutils literal notranslate"><span class="pre">util_symmetry_operation.simplify_value</span></code>
+（<code class="docutils literal notranslate"><span class="pre">expand(radsimp(expand(x)))</span></code>、有理数はそのまま）を通し、分母を有理化します（<code class="docutils literal notranslate"><span class="pre">1/sqrt(3)</span></code> ではなく <code class="docutils literal notranslate"><span class="pre">sqrt(3)/3</span></code>）。</p></li>
+<li><p>一次従属かどうかは数値で判定し（相対許容誤差 <code class="docutils literal notranslate"><span class="pre">1e-8</span></code>）、残したベクトルを厳密に正規直交化します。</p></li>
+<li><p>pickle を読み込むと、sympy が一部の積を評価し直します（<code class="docutils literal notranslate"><span class="pre">(a+b)/2</span></code> → <code class="docutils literal notranslate"><span class="pre">a/2</span> <span class="pre">+</span> <span class="pre">b/2</span></code>）。そのため「binary is up to date」
+のテストは、pickle に一度書き出して読み直した後で比べます。</p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./src/notes"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">1. 共通の規則</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">1.1 多極子のキー</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">1.2 既約表現</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">1.3 トップの群</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">1.4 軌道名</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">2. 点群の調和関数</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multipolar-harmonics-multipolar-harmonics-pkl">3. multipolar harmonics（<code class="docutils literal notranslate"><span class="pre">multipolar_harmonics.pkl</span></code>）</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cluster">4. トップの群の cluster 基底</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">4.1 クラスター</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cluster-cluster-scalar-basis-pkl">4.2 スカラーの cluster 基底（<code class="docutils literal notranslate"><span class="pre">cluster_scalar_basis.pkl</span></code>）</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cluster-cluster-vector-basis-pkls-1">4.3 ベクトルの cluster 基底（<code class="docutils literal notranslate"><span class="pre">cluster_vector_basis.pkl</span></code>、s = 1）</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cluster-cluster-bond-basis-pkl">4.4 ボンドの cluster 基底（<code class="docutils literal notranslate"><span class="pre">cluster_bond_basis.pkl</span></code>）</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wyckoff-cluster-samb-cluster-samb-pkl">5. 各 Wyckoff のサイトとボンドの cluster SAMB（<code class="docutils literal notranslate"><span class="pre">cluster_samb.pkl</span></code>）</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">6. 原子多極子</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#atomic-multipole-pkl">6.1 原子多極子の行列（<code class="docutils literal notranslate"><span class="pre">atomic_multipole.pkl</span></code>）</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#samb-atomic-multipole-group-pkl">6.2 点群の SAMB（<code class="docutils literal notranslate"><span class="pre">atomic_multipole_group.pkl</span></code>）</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">7. 厳密計算と式の簡約</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Hiroaki Kusunose
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2021-.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

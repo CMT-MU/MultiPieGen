@@ -1,0 +1,790 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Binary data &#8212; MultiPieGen</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=4418a689" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=34ddd5e8" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/documentation_options.js?v=a8e58a58"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'src/binary_data';</script>
+    <script src="../_static/custom.js?v=9c3a2667"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Harmonics of point groups" href="harmonics_pdf.html" />
+    <link rel="prev" title="Data tables" href="data.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../README.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">MultiPieGen</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Documentation</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="data.html">Data tables</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Binary data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="harmonics_pdf.html">Harmonics of point groups</a></li>
+<li class="toctree-l1"><a class="reference internal" href="info_pdf.html">Overall information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">API reference</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="api_util.html">Utilities</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="api_util/util_info.html">Info</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_util/util_group.html">Group</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_util/util_cluster_basis.html">Cluster basis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_util/util_harmonics_symbol.html">Harmonics symbol</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_util/util_multipolar_harmonics.html">Multipolar harmonics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_util/util_symmetry_operation.html">Symmetry operation</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="api_create.html">Generators</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="api_create/create_info.html">Info binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_create/create_group.html">Group binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_create/create_cluster_basis.html">Cluster basis binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_create/create_pdf_harmonics.html">Harmonics PDF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_create/create_pdf_info.html">Information PDF</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/hiro-k-phys/mp-newbasis.git" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Binary data</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#info-pkl">info.pkl</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#group-pkl">group.pkl</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cluster-basis-pkl">cluster_basis.pkl</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="binary-data">
+<h1>Binary data<a class="headerlink" href="#binary-data" title="Link to this heading">#</a></h1>
+<p>The binary data in <code class="docutils literal notranslate"><span class="pre">multipiegen/binary_data</span></code> are created from the data tables by the modules in <code class="docutils literal notranslate"><span class="pre">multipiegen/create_binary</span></code>.
+They use the format of MultiPie’s <code class="docutils literal notranslate"><span class="pre">BinaryManager</span></code> (gzip-compressed pickle with a header), so they can be read without
+MultiPieGen. <code class="docutils literal notranslate"><span class="pre">str(data)</span></code> shows the description below.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>file</p></th>
+<th class="head"><p>create</p></th>
+<th class="head"><p>load</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">info.pkl</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">multipiegen.create_binary.create_info</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">multipiegen.util.util_info.load_info()</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">group.pkl</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">multipiegen.create_binary.create_group</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">multipiegen.util.util_group.load_group()</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">cluster_basis.pkl</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">multipiegen.create_binary.create_cluster_basis</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">multipiegen.util.util_cluster_basis.load_cluster_basis()</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<section id="info-pkl">
+<h2>info.pkl<a class="headerlink" href="#info-pkl" title="Link to this heading">#</a></h2>
+<p>Overall information: group id/tag/name, character alias and compatibility relation, root cluster, orbital basis and
+basis functions, response tensor.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>* Information of all groups.
+- "id_set" (str): (dict) info. of group's IDs.
+  - "PG/SG/MPG/MSG" (str):  (dict) ID set.
+    - PG: all/crystal/complex/irrep.
+    - SG: all/crystal/PG.
+    - MPG: all/crystal/PG/type.
+    - MSG: all/crystal/PG/SG/MPG/type.
+- "tag" (str): (dict) from id to tag.
+- "id" (str):  (dict) from tag to id.
+- "group_name" (str): (dict) name list of groups (data_group_name_list).
+  - "PG/SG/MPG/MSG" (str): (dict) name info. of each group.
+    - id (str): (dict) "dir" (directory name), "md" (markdown file name), "no" (number), "tag" (tag),
+                       "name" (name in LaTeX), "PG/SG/MPG/MSG" (associated group id).
+- "character" (str): (dict) info. of character.
+  - "alias" (str): (dict) alias.
+    - "wp/wm" (str): (sympy) definition of wp and wm, exp(2 pi i/3) or exp(-2 pi i/3).
+  - "compatibility_relation" (str): (dict) compatibility relation.
+    - (PG_tag1,PG_tag2) (str,str): ([(str,str)]) list of compatibility relation, (irrep1,irrep2).
+- "root_cluster" (str): (dict) info. of root cluster.
+  - "point_group" (str): ([str]) list of PG_tag for root cluster, ["Oh", "D6h"].
+  - "scale" (str): (int) scale factor, scaled site = site/scale.
+  - "oh_site0_cart" (str): (ndarray(3,sympy)) representative site of Oh cluster (cartesian = fractional for cubic, r=1).
+  - "oh_scaled_site0_cart" (str): (ndarray(3,sympy)) scaled representative site of Oh cluster (cartesian, r=1/scale).
+  - "oh_vector0_cart" (str): (ndarray(3,sympy)) representative vector of Oh cluster (cartesian = fractional for cubic, v=1).
+  - "oh_site0_frac" (str): (ndarray(3,sympy)) representative site of Oh cluster (fractional for cubic, same as cartesian).
+  - "oh_scaled_site0_frac" (str): (ndarray(3,sympy)) scaled representative site of Oh cluster (fractional for cubic, same as cartesian).
+  - "oh_vector0_frac" (str): (ndarray(3,sympy)) representative vector of Oh cluster (fractional for cubic, same as cartesian).
+  - "d6h_site0_cart" (str): (ndarray(3,sympy)) representative site of D6h cluster (cartesian, r=1).
+  - "d6h_scaled_site0_cart" (str): (ndarray(3,sympy)) scaled representative site of D6h cluster (cartesian, r=1/scale).
+  - "d6h_vector0_cart" (str): (ndarray(3,sympy)) representative vector of D6h cluster (cartesian, v=1).
+  - "d6h_site0_frac" (str): (ndarray(3,sympy)) representative site of D6h cluster (fractional for hexagonal).
+  - "d6h_scaled_site0_frac" (str): (ndarray(3,sympy)) scaled representative site of D6h cluster (fractional for hexagonal).
+  - "d6h_vector0_frac" (str): (ndarray(3,sympy)) representative vector of D6h cluster (fractional for hexagonal).
+- "harmonics" (str): (dict) info. of harmonics.
+  - "max_rank" (str): (int) max rank of harmonics.
+  - "max_s_rank" (str): (int) max internal rank.
+  - "variable_site" (str): (ndarray(3,sympy)) variable of site, [x,y,z].
+  - "variable_vector" (str): (ndarray(3,sympy)) variable of (bond) vector, [X,Y,Z].
+  - "internal_basis" (str): (dict) internal basis of multipolar harmonics.
+    - "cubic/hexagonal" (str): (dict) basis (data_basis.cubic_orbital_basis/hexagonal_orbital_basis).
+      - (s,x) (int,str): ([sympy]) list of basis, x = "q" (polar)/"g" (axial).
+  - "atomic_basis" (str): (dict) atomic basis.
+    - "spinless" (str): (dict) spinless basis.
+      - "lm/lg/cubic/hexagonal" (str): (dict) basis.
+        - L (int): ([str]) list of basis, M or gamma.
+    - "spinful" (str): (dict) spinful basis.
+      - "jml/lms/lgs/cubic/hexagonal" (str): (dict) basis.
+        - L (int): ([str]) list of basis, (J,M) or (M,s) or (gamma,s).
+    - "spin" (str): ([str]) spin basis, ["u","d"].
+    - "rank_block" (str): ([(int,int)]) bra-ket rank block (L1,L2) (upper triangular block only).
+  - "basis_function" (str): (dict) orbital basis function.
+    - name (str): ((sympy,ndarray(2L+1,sympy))) cartesian expression and u-matrix, &lt;m|gamma&gt;.T (m: descending).
+  - "harmonics_key" (str): (dict) key of top harmonics of orbital.
+    - name (str): ((str,tuple)) ("tesseral", (l,m)) or ("Oh"/"D6h", (rank, irrep, mul, comp)), m&lt;0 for S.
+  - "wannier90" (str): (dict) alias for Wannier90.
+    - tag (str): (str) name corresponding to Wannier90 tag.
+  - "tesseral" (str): (dict) tesseral tag.
+    - name (str): ((int,int,str)) tesseral tag (L,M,"c/s").
+  - "rank_name" (str): (dict) conversion between rank and name.
+    - name/rank (str/int): (int/str) rank/name.
+  - "latex" (str): (dict) LaTeX name.
+    - "atomic" (str): (dict) name -&gt; LaTeX of atomic orbital and spin.
+    - "orbital" (str): (dict) name -&gt; LaTeX suffix of internal basis (add prefix Q/G/T/M).
+  NOTE:
+    - see "multipiegen/data/data_basis.py" for detail.
+- "response_tensor" (str): (dict) info. of response tensor.
+  - "multipole" (str): (dict) multipole info.
+    - "cubic/hexagonal" (str): ([str]) list of multipoles.
+  - "cartesian_multipole" (str): (dict) linear combination info.
+    - "cubic/hexagonal" (str): { comp (str): ([(int,str)]) }, relation between cartesian component and multipole.
+</pre></div>
+</div>
+</section>
+<section id="group-pkl">
+<h2>group.pkl<a class="headerlink" href="#group-pkl" title="Link to this heading">#</a></h2>
+<p>Data of all point groups (PG, 47), space groups (SG, 230), magnetic point groups (MPG, 157) and magnetic space groups
+(MSG, 1651), keyed by group id.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>* Information for all PG ("PG").
+- PG_id (str): (dict) id, "PG:{ID}".
+  - "info" (str): (namedtuple) info.
+    - tag: Schoenflies in text.
+    - international: international short symbol in LaTeX.
+    - schoenflies: Schoenflies symbol in LaTeX.
+    - crystal: triclinic, monoclinic, orthorhombic, tetragonal, trigonal, hexagonal, cubic.
+    - setting: setting.
+    - PG: = id.
+    - SG: associated SG, 1st SG in the same PGs.
+    - MPG: associated MPG, 1st MPG with type II in the same PGs.
+    - MSG: associated MSG, PG -&gt; MPG -&gt; MSG.
+    - lattice: "0".
+    - hexagonal_g: trigonal or hexagonal ?
+    - SO: symmetry operations.
+    - SO_gen: generator of SOs.
+  - "symmetry_operation" (str): (dict) symmetry operation (SO) of group.
+    - "tag" (str): ([str]) list of SO tag.
+    - "generator" (str): ([str]) list of generator SO tag.
+    - "cartesian" (str): (ndarray(n,3,3,sympy)) list of SO matrix (cartesian).
+    - "fractional" (str): (ndarray(n,3,3,sympy)) list of SO matrix (fractional).
+    - "det" (str): (ndarray(n,sympy)) list of determinant of SO matrix.
+    - "so_matrix" (str): (Dict) dict of SO matrix (X="Q/G", s=0,1, cartesian).
+      - (X,s) (str,int): ([ndarray(2s+1,2s+1,sympy)]) list of SO matrix.
+    - "product" (str): (dict) product table.
+      - (SO_tag1,SO_tag2) (str,str): (str) SO_tag of product, SO1 SO2.
+    - "mapping" (str): (dict) mapping of SO to the Oh/D6h cluster (data_op_mapping).
+      - "top" (str): (str) top group, "Oh" or "D6h".
+      - "mapping" (str): ([[int]]) mapping[coset][i] = SO number (from 1) of top group for i-th SO of group.
+    NOTE:
+      - SOs are in the same order of ITA (BCS).
+      - SOs of SG and PG (without translational part) are in the same order.
+      - SO matrices are in the same order of "tag".
+      - monopole (s=0) and dipole (s=1) basis are [1] and [x,y,z].
+      - mapping[0] is the group itself, and mapping[k] (k&gt;0) is the left coset g_k * group.
+  - "wyckoff" (str): (dict) Wyckoff site/bond of group.
+    - "site" (str): (dict) info. of Wyckoff site.
+      - sw_tag (str): (dict) site Wyckoff tag.
+        - "symmetry" (str): (str) site symmetry.
+        - "conventional" (str): (ndarray(n,3,sympy)) list of Wyckoff site (fractional).
+        - "reference" (str): (ndarray(n,3,sympy)) list of representative site (fractional).
+        - "mapping" (str): ([[int]]) list of SO number (from 1) for each site.
+        - "bond" (str): ([str]) list of bw_tag.
+    - "bond" (str): (dict) info. of Wyckoff bond.
+      - bw_tag (str): (dict) bond Wyckoff tag.
+        - "symmetry" (str): (str) bond symmetry.
+        - "conventional" (str): (ndarray(n,6,sympy)) list of Wyckoff bond (vector+center) (fractional).
+        - "reference" (str): (ndarray(n,6,sympy)) list of representative bond (vector+center) (fractional).
+        - "mapping" (str): ([[int]]) list of SO number (from 1) for each bond (opposite direction with negative sign).
+    NOTE:
+      - only for standard setting, (unique b axes, origin choice 2, hexagonal axes, abc).
+      - Wyckoff sites are in the same order of ITA (BCS).
+      - representative site/vector are scaled site0/vector0 of the root cluster (info["root_cluster"]).
+  - "character" (str): (dict) character table of group.
+    - "conjugacy" (str): ([[str]]) list of SO_tag in each conjugacy class.
+    - "dimension" (str): (dict) dimension of irrep.
+      - irrep_tag (str): (int) dimension.
+    - "table" (str): (dict) character table (first SO in each conjugacy class).
+      - irrep_tag (str): (ndarray(n,sympy) list of character.
+    - "table_full" (str): (dict) character table for all SO.
+      - irrep_tag (str): (ndarray(n,sympy) list of character.
+    - "polar_axial_conversion" (str): (dict) conversion between polar and axial.
+      - irrep_tag (str): (str) converted irrep_tag.
+    - "symmetric_product" (str): (dict) symmetric product decomposition.
+      - (irrep_tag,irrep_tag) (str,str): [(int,str)] list of (n, irrep_tag).
+    - "anti_symmetric_product" (str): (dict) anti-symmetric product decomposition.
+      - irrep_tag (str): ([(int,str)]) list of (n,irrep_tag).
+    NOTE:
+      - wp = exp(+2pi i/3), wm = exp(-2pi i/3) in "table", and they are substituted in "table_full".
+      - for complex character, use PG_tag with "-c", otherwise without "-c", real version is given.
+  NOTE:
+    - complex PG ("-c") has the same "symmetry_operation" and "wyckoff" as the real PG.
+
+* Information for all SG ("SG").
+- SG_id (str): (dict) id, "SG:{ID}".
+  - "info" (str): (namedtuple) info.
+    - tag: Schoenflies in text.
+    - international: international short symbol in LaTeX.
+    - schoenflies: Schoenflies symbol in LaTeX.
+    - crystal: triclinic, monoclinic, orthorhombic, tetragonal, trigonal, hexagonal, cubic.
+    - setting: setting comment.
+    - PG: associated PG, unique.
+    - SG: = id.
+    - MPG: associated MPG, SG -&gt; PG -&gt; MPG.
+    - MSG: associated MSG, 1st MSG with type II in the same SGs.
+    - lattice: A, B, C, P, I, F, R.
+    - hexagonal_g: trigonal or hexagonal ?
+    - SO: symmetry operations.
+    - SO_gen: generator of SOs.
+  - "symmetry_operation" (str): (dict) symmetry operation (SO) of group.
+    - "tag" (str): ([str]) list of SO tag.
+    - "generator" (str): ([str]) list of generator SO tag.
+    - "cartesian" (str): (ndarray(n,4,4,sympy)) list of SO matrix (cartesian, conventional).
+    - "fractional" (str): (ndarray(n,4,4,sympy)) list of SO matrix (fractional, conventional).
+    - "det" (str): (ndarray(n,sympy)) list of determinant of SO matrix.
+    - "cartesian_primitive" (str): (ndarray(n,4,4,sympy)) list of SO matrix (cartesian, primitive).
+    - "fractional_primitive" (str): (ndarray(n,4,4,sympy)) list of SO matrix (fractional, primitive).
+    - "plus_set" (str): (ndarray(n,3,sympy)) list of plus set vector (fractional, conventional).
+    - "so_matrix" (str): (Dict) dict of SO matrix (X="Q/G", s=0,1, cartesian).
+      - (X,s) (str,int): ([ndarray(2s+1,2s+1,sympy)]) list of SO matrix.
+    - "mapping" (str): (dict) mapping of SO to the Oh/D6h cluster (data_op_mapping).
+      - "top" (str): (int) top SG number (SG whose PG is Oh or D6h), the SG itself if its PG is Oh or D6h.
+      - "mapping" (str): ([[int]]) mapping[coset][i] = SO number (from 1) of top SG for i-th SO of group.
+    NOTE:
+      - SOs are in the same order of ITA (BCS).
+      - SOs of SG and PG (without translational part) are in the same order.
+      - SO matrices are in the same order of "tag".
+  - "wyckoff" (str): (dict) Wyckoff site/bond of group.
+    - "site" (str): (dict) info. of Wyckoff site.
+      - sw_tag (str): (dict) site Wyckoff tag.
+        - "symmetry" (str): (str) site symmetry.
+        - "conventional" (str): (ndarray(n,3,sympy)) list of Wyckoff site (fractional, conventional, no plus set).
+        - "primitive" (str): (ndarray(n,3,sympy)) list of Wyckoff site (fractional, primitive).
+        - "reference" (str): (ndarray(n,3,sympy)) list of representative site (fractional, conventional, plus set).
+        - "mapping" (str): ([[int]]) list of SO number (from 1) for each site.
+        - "bond" (str): ([str]) list of bw_tag.
+    - "bond" (str): (dict) info. of Wyckoff bond.
+      - bw_tag (str): (dict) bond Wyckoff tag.
+        - "symmetry" (str): (str) bond symmetry.
+        - "conventional" (str): (ndarray(n,6,sympy)) list of Wyckoff bond (vector+center) (fractional, conventional, no plus set).
+        - "primitive" (str): (ndarray(n,6,sympy)) list of Wyckoff bond (vector+center) (fractional, primitive).
+        - "reference" (str): (ndarray(n,6,sympy)) list of representative bond (vector+center) (fractional, conventional, plus set).
+        - "mapping" (str): ([[int]]) list of SO number (from 1) for each bond (opposite direction with negative sign).
+    NOTE:
+      - only for standard setting, (unique b axes, origin choice 2, hexagonal axes, abc).
+      - Wyckoff sites are in the same order of ITA (BCS).
+
+* Information for all MPG ("MPG").
+- MPG_id (str): (dict) id, "MPG:{PG}.{no}.{ID}".
+  - "info" (str): (namedtuple) info.
+    - tag: MPG_id (PG.no.ID).
+    - international: international short symbol in LaTeX.
+    - schoenflies: Schoenflies symbol in LaTeX.
+    - crystal: triclinic, monoclinic, orthorhombic, tetragonal, trigonal, hexagonal, cubic.
+    - setting: setting.
+    - PG: associated PG, unique.
+    - SG: associated SG, MPG -&gt; MSG -&gt; SG.
+    - MPG: = id.
+    - MSG: associated MSG, 1st MSG in the same MPGs.
+    - lattice: "0".
+    - hexagonal_g: trigonal or hexagonal ?
+    - type: type I, II, III.
+    - SO: symmetry operations.
+  - "symmetry_operation" (str): (dict) symmetry operation (SO) of group.
+    - "tag" (str): ([str]) list of SO tag.
+    - "cartesian" (str): (ndarray(n,3,3,sympy)) list of SO matrix (cartesian).
+    - "fractional" (str): (ndarray(n,3,3,sympy)) list of SO matrix (fractional).
+    - "det" (str): (ndarray(n,sympy)) list of determinant of SO matrix.
+    - "tr_sign" (str): (ndarray(n,sympy)) list of time-reversal sign of SO matrix.
+    NOTE:
+      - SOs are in the same order of ITA (BCS).
+      - SO matrices are in the same order of "tag".
+  - "wyckoff" (str): (dict) Wyckoff site of group.
+    - "site" (str): (dict) info. of Wyckoff site.
+      - sw_tag (str): (dict) site Wyckoff tag.
+        - "symmetry" (str): (str) site symmetry.
+        - "conventional" (str): (ndarray(n,3,sympy)) list of Wyckoff site (fractional).
+        - "reference" (str): (ndarray(n,3,sympy)) list of representative site (fractional).
+        - "mapping" (str): ([[int]]) list of SO number (from 1) for each site.
+  - "active_multipole" (list): active MPs list, [str] (multipoles in info["response_tensor"]["multipole"]).
+
+* Information for all MSG ("MSG").
+- MSG_id (str): (dict) id, "MSG:{SG}.{no}".
+  - "info" (str): (namedtuple) info.
+    - tag: BNS_id (SG.no).
+    - BNS: Belov-Neronova-Smirnova (international) notation in LaTeX.
+    - OG: Opechowski-Guccione notation in LaTeX.
+    - schoenflies: Schoenflies symbol in LaTeX.
+    - crystal: triclinic, monoclinic, orthorhombic, tetragonal, trigonal, hexagonal, cubic.
+    - setting: setting.
+    - PG: associated PG, unique.
+    - SG: associated SG, unique.
+    - MPG: associated MPG, unique.
+    - MSG: = id.
+    - lattice: A, B, C, P, I, F, R.
+    - hexagonal_g: trigonal or hexagonal ?
+    - type: type I, II, III, IV.
+    - SO: symmetry operations.
+  - "symmetry_operation" (str): (dict) symmetry operation (SO) of group.
+    - "tag" (str): ([str]) list of SO tag.
+    - "cartesian" (str): (ndarray(n,4,4,sympy)) list of SO matrix (cartesian, conventional).
+    - "fractional" (str): (ndarray(n,4,4,sympy)) list of SO matrix (fractional, conventional).
+    - "det" (str): (ndarray(n,sympy)) list of determinant of SO matrix.
+    - "tr_sign" (str): (ndarray(n,sympy)) list of time-reversal sign of SO matrix.
+    NOTE:
+      - SOs are in the same order of ITA (BCS).
+      - SO matrices are in the same order of "tag".
+  - "wyckoff" (str): (dict) Wyckoff site of group.
+    - "site" (str): (dict) info. of Wyckoff site.
+      - sw_tag (str): (dict) site Wyckoff tag.
+        - "symmetry" (str): (str) site symmetry.
+        - "conventional" (str): (ndarray(n,3,sympy)) list of Wyckoff site (fractional, conventional, no plus set).
+        - "reference" (str): (ndarray(n,3,sympy)) list of representative site (fractional, conventional).
+        - "mapping" (str): ([[int]]) list of SO number (from 1) for each site.
+
+* all sympy values are expanded with rationalized denominators.
+</pre></div>
+</div>
+</section>
+<section id="cluster-basis-pkl">
+<h2>cluster_basis.pkl<a class="headerlink" href="#cluster-basis-pkl" title="Link to this heading">#</a></h2>
+<p>Orthonormal cluster basis of the Oh (48 points) and D6h (24 points) root clusters.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Orthonormal cluster basis of Oh and D6h clusters.
+
+The cluster is made by substituting the representative site (site0) into the general points
+of the Oh (48 points) or D6h (24 points) cluster. The value of each real top harmonics at
+each cluster point gives a cluster vector. Different irreps (and components) are orthogonal
+by symmetry. Within each (irrep, component), the vectors are orthogonalized by the
+Gram-Schmidt process from lower rank (then lower multiplicity), and linearly dependent ones
+are dropped. The result is an orthonormal basis of 48 (Oh) or 24 (D6h) vectors.
+
+- cluster_basis (dict).
+    { "Oh/D6h": {
+        "site0": [x0,y0,z0] (sympy),
+        "cluster": cluster points, ndarray (N,3) (sympy),
+        "basis": { top_key: ndarray (N,) (sympy) },  # orthonormal, sum_i |v_i|^2 = 1.
+        "dropped": [top_key],  # harmonics linearly dependent on lower ones.
+    } }
+    top_key = (rank, irrep, multiplicity [1-based], component [0-based]), -1: unique.
+</pre></div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./src"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#info-pkl">info.pkl</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#group-pkl">group.pkl</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cluster-basis-pkl">cluster_basis.pkl</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Hiroaki Kusunose
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2021-.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
