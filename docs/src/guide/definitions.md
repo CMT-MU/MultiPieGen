@@ -161,8 +161,10 @@ basis, adapted to the point group.
    Their matrix elements between orbitals of ranks `L1` and `L2` follow from the Wigner-Eckart theorem.
    - For `s = 1`, the internal degree of freedom is fixed to the spin, an axial vector: the case `x = g` of the
      [multipolar harmonics](#multipolar-harmonics). $X_{lm}^{(1)}(k)$ couples an orbital multipole of rank `l + k`
-     with the spin, and its polar or axial character follows the rule there for `x = g`, taken relative to the
-     orbital multipole: the opposite one if `s + k` is even, the same one if `s + k` is odd. In addition, the spin is
+     with the spin. In the multipolar harmonics the orbital part $O_{l+k,m}$ is always a polar function, while here
+     the orbital multipole can be polar (`Q`, `T`) or axial (`G`, `M`, e.g. the orbital angular momentum). So the rule
+     there for `x = g` is taken relative to the orbital multipole: `X` has the polar or axial character opposite to
+     that of the orbital multipole if `s + k` is even, and the same one if `s + k` is odd. In addition, the spin is
      odd under time reversal, so `X` has the opposite time-reversal parity to the orbital multipole.
    - E.g. the spin magnetic dipole $\mathbb{M}_{1}^{(1,-1;a)}(T_{1g})$ is the orbital monopole `Q` (rank 0, polar,
      even) with the spin: `s + k = 0` even gives axial and the spin gives odd, i.e. `M`. The spin-orbit coupling
@@ -188,7 +190,7 @@ basis, adapted to the point group.
   $l_x/\sqrt{2}$, with the matrix element $\langle p_y | l_x | p_z \rangle / \sqrt{2} = -i/\sqrt{2}$.
 
 For the s orbital with spin (`lgs`, block `(0, 0)`, basis `(s, u), (s, d)`): $\mathbb{Q}_{0}^{(a)}(A_{1g})$ is
-$\frac{1}{\sqrt{2}}\,\mathbb{1}$, and $\mathbb{M}_{1}^{(1,-1;a)}(T_{1g})$ is $(\sigma_x, \sigma_y, \sigma_z)/\sqrt{2}$, the
+$\sigma_0/\sqrt{2}$, and $\mathbb{M}_{1}^{(1,-1;a)}(T_{1g})$ is $(\sigma_x, \sigma_y, \sigma_z)/\sqrt{2}$, the
 spin.
 
 ## 5. Cluster SAMB
@@ -228,14 +230,38 @@ the 157 magnetic point groups, MultiPieGen gives the tensors allowed by symmetry
 
 - Type `X` by the parity under the spatial inversion and the time reversal: `Q` (polar, time-reversal even), `G`
   (axial, even), `T` (polar, odd), `M` (axial, odd).
-- `opt` specifies the part of the tensor by the symmetry of its indices: `s` symmetric and `a` anti-symmetric
-  in a pair of indices, e.g. `s`/`a` for rank 2, `ss`/`sa`/`a` for rank 3, and `sss`/`ssa`/`aas`/`aaa`/`sa`/`as`/
-  `s`/`a`/`t` for rank 4.
+- `opt` specifies the part of the tensor by the symmetry of its indices: `s` symmetric and `a` anti-symmetric in a
+  pair of indices, as in the table below (for a polar, time-reversal-even tensor `X = Q`; the other types have the same
+  relations). The indices before `;` form the pair (or triple) of the rows of the matrix, and those after it the
+  columns. The index sets are `c = [x, y, z]`, `v = [xx, yy, zz, yz, zx, xy]` (symmetric pairs), `a = [yz, zx, xy]`
+  (anti-symmetric pairs), `u = [xx, yy, zz, yz, zx, xy, zy, xz, yx]` (all pairs), and
+  `t = [xxx, yyy, zzz, yyz, zzx, xxy, yzz, zxx, xyy, xyz]` (symmetric triples). "independent" is the number of
+  independent parameters of the part.
+
+| rank | `opt` | relation among the components | independent | matrix (rows x columns) |
+|---|---|---|---|---|
+| 0 | (none) | - | 1 | 1 x 1 |
+| 1 | (none) | - | 3 | 1 x 3 (`c`) |
+| 2 | `s` | $X_{ab} = X_{ba}$ | 6 | 3 x 3 (`c` x `c`) |
+| 2 | `a` | $X_{ab} = -X_{ba}$ | 3 | 3 x 3 (`c` x `c`) |
+| 3 | `ss` | $X_{abc}$ fully symmetric in $a, b, c$ | 10 | 6 x 3 (`v` x `c`) |
+| 3 | `sa` | $X_{ab;c} = X_{ba;c} = -(X_{ac;b} + X_{bc;a})$ | 8 | 6 x 3 (`v` x `c`) |
+| 3 | `a` | $X_{ab;c} = -X_{ba;c}$ | 9 | 3 x 3 (`a` x `c`) |
+| 4 | `sss` | $X_{ab;cd} = X_{ba;cd} = X_{ab;dc} = X_{cd;ab}$ | 21 | 6 x 6 (`v` x `v`) |
+| 4 | `ssa` | $X_{ab;cd} = X_{ba;cd} = X_{ab;dc} = -X_{cd;ab}$ | 15 | 6 x 6 (`v` x `v`) |
+| 4 | `aas` | $X_{ab;cd} = -X_{ba;cd} = -X_{ab;dc} = X_{cd;ab}$ | 6 | 3 x 3 (`a` x `a`) |
+| 4 | `aaa` | $X_{ab;cd} = -X_{ba;cd} = -X_{ab;dc} = -X_{cd;ab}$ | 3 | 3 x 3 (`a` x `a`) |
+| 4 | `sa` | $X_{ab;cd} = X_{ba;cd} = -X_{ab;dc}$ | 18 | 6 x 3 (`v` x `a`) |
+| 4 | `as` | $X_{ab;cd} = -X_{ba;cd} = X_{ab;dc}$ | 18 | 3 x 6 (`a` x `v`) |
+| 4 | `s` | $X_{ab;c;d} = X_{ba;c;d}$ (`sss` + `ssa` + `sa`) | 54 | 6 x 9 (`v` x `u`) |
+| 4 | `a` | $X_{ab;c;d} = -X_{ba;c;d}$ (`aas` + `aaa` + `as`) | 27 | 3 x 9 (`a` x `u`) |
+| 4 | `t` | $X_{abc;d}$ fully symmetric in $a, b, c$ | 30 | 10 x 3 (`t` x `c`) |
+
 - Each tensor component is decomposed into multipoles (irreducible cartesian parts). Only the active multipoles of
   the group, those invariant under all its operations including the time reversal, can be nonzero. This gives the
   nonvanishing components and the relations among them.
 - Value for `(X, rank, opt)`: the matrix of the components (symbols such as $Q_{xyz}$, `0` for vanishing ones;
-  rows and columns are index pairs or triples, e.g. `[xx, yy, zz, yz, zx, xy]`), and the expression of each component
+  rows and columns as in the table above), and the expression of each component
   in terms of the active multipoles.
 
 *Examples.*
