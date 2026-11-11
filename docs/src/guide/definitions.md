@@ -35,16 +35,35 @@ $$
 
 with $U$ (`(2l+1) x dim`, rows `m = l, ..., -l`), whose columns are orthonormal.
 
-- `X = Q` (polar) and `X = G` (axial) have the same function. They differ in how they transform: an axial
-  harmonics has an extra factor `det R` under an improper operation `R`. In a group with the inversion, the irrep
-  of `G` is that of `Q` with `g` and `u` interchanged.
-- The harmonics are defined once for the two top groups, Oh and D6h, up to rank 11, and every one of the 47 point
-  groups (32 crystallographic, 5 other settings `-1`, 10 complex `-c`) takes its harmonics from them:
-  $X_{\rm PG} = c\, X_{\rm top}$ with $c = \pm 1$. The representation matrices of the irreps follow from
-  $U$, and all harmonics of an irrep give the same matrices.
+- **Top groups.** The harmonics are defined once for the two top groups, Oh (cubic) and D6h (trigonal and
+  hexagonal), up to rank 11. Every one of the 47 point groups (32 crystallographic, 5 other settings `-1`, 10
+  complex `-c`) takes its harmonics from them: each component is a component of a top harmonics times a sign,
+  $X_{\rm PG} = c\, X_{\rm top}$ with $c = \pm 1$.
+- The representation matrices of the irreps follow from $U$, and all harmonics of an irrep give the same matrices.
 - The irreps follow the order of the character table. Complex irreps (in the `-c` groups) end in `a`/`b` and have a
   single component.
 - Key: `PGMultipoleType(X, l, Gamma, n, -1, 0, 0, "q")` (see [Multipole key](multipole_key.md)).
+
+**Polar (`Q`) and axial (`G`) harmonics.** An axial harmonics transforms with an extra factor `det R` under an
+improper operation `R` (a mirror, the inversion, or a rotoinversion). Both come from the same top harmonics, but in a
+point group a polar and an axial harmonics of the same function can belong to different irreps, and in the same irrep
+their components can be in another order or have other signs (the coefficient `c` and the component assigned differ
+between `Q` and `G`). So, for the same `(l, Gamma, n)`, the functions of `Q` and `G` differ in general:
+
+- In the top groups Oh and D6h, the axial harmonics is the polar one with `g` and `u` interchanged in the irrep: the
+  same function, components, and order ($c = 1$). E.g. Oh: $Q_1(T_{1u}) = G_1(T_{1g}) = (x, y, z)$.
+- In a group of proper rotations only (C1, C2, D2, C4, D4, C3, D3, D3-1, C6, D6, T, O), there is no improper
+  operation, and `Q` and `G` are identical. E.g. C4: $Q_1(E) = G_1(E) = (x, y)$.
+- In the other groups, they differ. Examples:
+
+| group | polar | axial | difference |
+|---|---|---|---|
+| C4v | $Q_1(A_1) = z$ | $G_1(A_2) = z$ | same function, another irrep |
+| C4v | $Q_1(E) = (x, y)$ | $G_1(E) = (-y, x)$ | components interchanged, with a sign |
+| C4h | $Q_1(E_u) = (x, y)$ | $G_1(E_g) = (y, x)$ | components interchanged |
+| D2d | $Q_1(E) = (x, y)$ | $G_1(E) = (x, -y)$ | sign of a component |
+| C4v | $Q_2(B_1) = \frac{\sqrt{3}}{2}(x^2 - y^2)$ | $G_2(B_1) = \sqrt{3}xy$ | another function for the same irrep |
+| D2d | $Q_2(A_1) = z^2 - \frac{x^2+y^2}{2}$ | $G_2(A_1) = \frac{\sqrt{3}}{2}(x^2 - y^2)$ | another function for the same irrep |
 
 ## 2. Multipolar harmonics
 
