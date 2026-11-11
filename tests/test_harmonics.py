@@ -70,12 +70,14 @@ def test_lookup_any_key():
 # ==================================================
 def test_keys_of_other_binaries_are_found():
     group = load_group()
+    mh = load_multipolar_harmonics()
+    amg = load_atomic_multipole_group()
     pgs = info["id_set"]["PG"]["all"] + info["id_set"]["PG"]["complex"]
     for gid in pgs:
         d = data[gid]
         find = lambda k: (harmonics_type[k.X], k.l, k.Gamma, k.n, -1, 0, 0, "q") in d
-        assert all(find(k) for k in load_multipolar_harmonics()[gid])
-        assert all(find(k) for blocks in load_atomic_multipole_group()[gid].values() for b in blocks.values() for k in b)
+        assert all(find(k) for k in mh[gid])
+        assert all(find(k) for blocks in amg[gid].values() for b in blocks.values() for k in b)
     samb = load_cluster_samb()
     for gid in samb.keys():
         pg_id = gid if gid.startswith("PG") else group[gid]["info"].PG
@@ -85,7 +87,8 @@ def test_keys_of_other_binaries_are_found():
                 for k, s in w.items():
                     key = (harmonics_type[k.X], k.l, k.Gamma, k.n, -1, 0, 0, "q")
                     assert key in d and len(d[key][0]) == len(s)
+    bases = [load_cluster_basis(), load_cluster_vector_basis(), load_bond_cluster_basis()]
     for top, gid in [("Oh", "PG:32"), ("D6h", "PG:27")]:
         d = data[gid]
-        for basis in [load_cluster_basis(), load_cluster_vector_basis(), load_bond_cluster_basis()]:
+        for basis in bases:
             assert all((k.X, k.l, k.Gamma, k.n, -1, 0, 0, "q") in d for k in basis[top]["basis"])
