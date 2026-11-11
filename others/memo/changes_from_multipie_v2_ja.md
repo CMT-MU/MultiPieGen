@@ -2,8 +2,9 @@
 
 多極子のキーを使うデータについて、MultiPieGen が MultiPie Ver.2 と違うことをしている点（規則、アルゴリズム、
 その結果の違い）をまとめた確認用のメモです（パッケージのドキュメントではありません）。MultiPieGen のアルゴリズム
-そのものは `generation_rules_ja.md` にあります。下の数字は `multipie_v2_comparison/` の比較（`README.md` と
-`result/*.json`）によるものです。英語版は `changes_from_multipie_v2.md` です。
+そのものは `generation_rules_ja.md` にあります。下の数字は 2026-11-11 に比較スクリプトで
+比べた結果です（develop 369c8bf の時点）。スクリプトと結果は、手元の `others/archive/claude/multipie_v2_comparison/`
+にだけ置いています。英語版は `changes_from_multipie_v2.md` です。
 
 目次：
 
@@ -122,4 +123,4 @@
 - MPG の active multipole（`group.pkl`）：軌道名を対応させれば同じです（157 群のうち 51 群で軌道名が変わっている。
   例：`Qf1` → `Qfs`）。
 - 応答テンソル（`response_tensor.pkl`）：MultiPie Ver.2 の `Group.response_tensor_all` と、多極子の名前以外は同じです
-  （binary を作ったときに確認したもので、`multipie_v2_comparison/compare.py` では比べていません）。
+  （binary を作ったときに確認したもので、比較スクリプトでは比べていません）。

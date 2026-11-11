@@ -92,11 +92,10 @@ Gram–Schmidt basis per (irrep, component), from lower rank, and must yield 48 
   first.** This includes running an `others/creation/create_*.py` script, copying a result into `multipiegen/data/`,
   and editing or reformatting a data table, even when only the order or formatting changes. These tables are
   curated by hand; regenerating them can silently undo manual fixes.
-- `others/` holds non-package material: `creation/` (table generators) and `claude/` (verification notes:
-  generation rules, changes from MultiPie Ver.2, the comparison script). `others/archive/` keeps old material
-  (memo, etc, notebooks, an earlier verification pipeline, old scripts) locally only; it is in `.gitignore` and will
-  be deleted.
-  Do not add files there to git, and do not depend on them.
+- `others/` holds non-package material: `creation/` (table generators) and `memo/` (notes: generation rules and
+  changes from MultiPie Ver.2, in English and Japanese). `others/archive/` keeps old material locally only (old
+  memo, etc, notebooks, earlier verification pipelines, the MultiPie Ver.2 comparison script, old scripts); it is
+  in `.gitignore` and will be deleted. Do not add files there to git, and do not depend on them.
 - Every new feature also gets a runnable sample `docs/examples/<feature>.py` and a row in `docs/examples/README.md`
   (the docs page `docs/src/examples.md` is generated from that table by `docs/create_pages.py`).
 
