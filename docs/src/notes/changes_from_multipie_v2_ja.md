@@ -1,3 +1,7 @@
+---
+orphan: true
+---
+
 # MultiPie Ver.2 からの変更点（多極子のデータ）
 
 多極子のキーを使うデータについて、MultiPieGen が MultiPie Ver.2 と違うことをしている点（規則、アルゴリズム、
