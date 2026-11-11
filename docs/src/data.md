@@ -5,7 +5,7 @@ The data tables in `multipiegen/data` are the source of all generated data. They
 | file | content | origin | created by | used by |
 |---|---|---|---|---|
 | [`data_basis.py`](#data-basis-py) | orbital and basis definitions: atomic orbitals, spin, LM/JM/LMs/Lgs basis, bra-ket blocks, LaTeX names, Wannier90 aliases, cubic/hexagonal orbitals (internal basis of multipolar harmonics), harmonics keys | new | - | `util/util_atomic_multipole`, `util/util_cluster_vector_basis`, `util/util_harmonics_multipole`, `create_binary/create_atomic_multipole_group`, `create_binary/create_info`, `create_pdf/create_pdf_group` |
-| [`data_character_table.py`](#data-character-table-py) | character tables of all 47 point groups | MultiPie Ver.2.4.0 | - | `util/util_atomic_multipole`, `util/util_cluster_samb`, `util/util_harmonics_multipole`, `util/util_harmonics_symbol`, `util/util_representation_matrix`, `create_binary/create_group` |
+| [`data_character_table.py`](#data-character-table-py) | character tables of all 47 point groups | MultiPie Ver.2.4.0 | - | `util/util_atomic_multipole`, `util/util_cluster_samb`, `util/util_harmonics`, `util/util_harmonics_multipole`, `util/util_harmonics_symbol`, `util/util_representation_matrix`, `create_binary/create_group` |
 | [`data_compatibility_relation.py`](#data-compatibility-relation-py) | compatibility relations of the Oh and D6h subgroups | MultiPie Ver.2.4.0 | - | `create_binary/create_info` |
 | [`data_coset_so.py`](#data-coset-so-py) | symmetry operations of the cosets to the parent group | new | - | - |
 | [`data_group_mpg.py`](#data-group-mpg-py) | group information of the magnetic point groups | MultiPie Ver.2.4.0 | - | `create_binary/create_group`, `create_binary/create_info` |

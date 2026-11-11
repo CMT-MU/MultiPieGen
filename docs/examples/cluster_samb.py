@@ -18,26 +18,28 @@ cluster_bond_basis.pkl.
 import numpy as np
 
 from multipiegen.util.util_cluster_samb import load_cluster_samb
+from multipiegen.util.util_harmonics import harmonics_expression
 from multipiegen.util.util_info import load_info
 
 info = load_info()
 data = load_cluster_samb()
 
 # ==================================================
-# {PG_id/SG_id: {"site"/"bond_s"/"bond_a": {wyckoff: {PGMultipoleType: (samb (dim, N), ex (dim))}}}}.
+# {PG_id/SG_id: {"site"/"bond_s"/"bond_a": {wyckoff: {PGMultipoleType: samb (dim, N)}}}}.
+# the expression of the harmonics (X, l, Gamma, n) is looked up by the key in harmonics.pkl.
 d = data[info["id"]["D4h"]]
 for kind in ["site", "bond_s", "bond_a"]:
     w = list(d[kind].keys())[1]
     print(f"* {kind} {w}")
-    for key, (samb, ex) in d[kind][w].items():
-        print("  ", key, "ex =", list(ex))
+    for key, samb in d[kind][w].items():
+        print("  ", key, "ex =", list(harmonics_expression("D4h", key)))
         print("  ", samb.tolist())
 
 # orthonormality on the N sites (bonds) of each Wyckoff position.
 d = data["SG:225"]
 for kind in ["site", "bond_s", "bond_a"]:
     ok = all(
-        np.allclose((v := np.vstack([np.array(s, dtype=float) for s, _ in samb.values()])) @ v.T, np.eye(len(v)))
+        np.allclose((v := np.vstack([np.array(s, dtype=float) for s in samb.values()])) @ v.T, np.eye(len(v)))
         for samb in d[kind].values()
     )
     print(f"SG:225 {kind}: {len(d[kind])} Wyckoff positions, orthonormal: {ok}")

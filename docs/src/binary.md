@@ -4,6 +4,7 @@ The binary data in `multipiegen/binary` are created from the data tables by the 
 
 | file | content | top-level keys | create | load |
 |---|---|---|---|---|
+| [`harmonics.pkl`](#harmonics-pkl) | expression and u-matrix of the harmonics of all PG (rank <= 11), looked up by a multipole key | 47 keys: `PG:1`, `PG:2`, ..., `PG:47` | `python -m multipiegen.create_binary.create_harmonics` | `multipiegen.util.util_harmonics.load_harmonics()` |
 | [`info.pkl`](#info-pkl) | overall information of all groups, harmonics, basis, root cluster, response tensor | `id_set`, `tag`, `id`, `group_name`, `character`, `root_cluster`, `harmonics`, `response_tensor` | `python -m multipiegen.create_binary.create_info` | `multipiegen.util.util_info.load_info()` |
 | [`group.pkl`](#group-pkl) | data of each PG, SG, MPG, MSG: symmetry operations, character, Wyckoff sites and bonds | 2085 keys: `PG:1`, `PG:2`, ..., `MSG:230.149` | `python -m multipiegen.create_binary.create_group` | `multipiegen.util.util_group.load_group()` |
 | [`response_tensor.pkl`](#response-tensor-pkl) | response tensors (rank 0-4) of all MPG | 157 keys: `MPG:1.1.1`, `MPG:1.2.2`, ..., `MPG:37.5.155` | `python -m multipiegen.create_binary.create_response_tensor` | `multipiegen.util.util_response_tensor.load_response_tensor()` |
@@ -14,6 +15,30 @@ The binary data in `multipiegen/binary` are created from the data tables by the 
 | [`cluster_vector_basis.pkl`](#cluster-vector-basis-pkl) | orthonormal vector cluster basis (s=1) of the Oh and D6h clusters | `Oh`, `D6h` | `python -m multipiegen.create_binary.create_cluster_vector_basis` | `multipiegen.util.util_cluster_vector_basis.load_cluster_vector_basis()` |
 | [`cluster_bond_basis.pkl`](#cluster-bond-basis-pkl) | orthonormal bond cluster basis of the Oh and D6h clusters | `Oh`, `D6h` | `python -m multipiegen.create_binary.create_cluster_bond_basis` | `multipiegen.util.util_bond_cluster_basis.load_bond_cluster_basis()` |
 | [`cluster_samb.pkl`](#cluster-samb-pkl) | cluster SAMB of each Wyckoff site and bond of the real PG and SG | 267 keys: `PG:1`, `PG:2`, ..., `SG:230` | `python -m multipiegen.create_binary.create_cluster_samb` | `multipiegen.util.util_cluster_samb.load_cluster_samb()` |
+
+## harmonics.pkl
+
+Expression and u-matrix of the harmonics of all PG (rank <= 11), looked up by a multipole key.
+
+- create: `python -m multipiegen.create_binary.create_harmonics`
+- load: `multipiegen.util.util_harmonics.load_harmonics()`
+- top-level keys: 47 keys: `PG:1`, `PG:2`, ..., `PG:47`
+- size: 604 KB
+
+Description of the dictionary keys (header of the binary):
+
+```text
+* Harmonics of all PG (rank l <= 11): cartesian expression and u-matrix for each multipole key.
+- PG_id (str): (dict) harmonics.
+  - (X,l,Gamma,n,p,s,k,x) (PGMultipoleType): (ndarray(dim,sympy), ndarray(2l+1,dim,sympy)) [expression] and [u-matrix].
+NOTE:
+  - X = Q/G, p = -1, s = k = 0, x = "q" in the key. Look up the harmonics of a key of the other binaries by its
+    (X,l,Gamma,n), with T -> Q and M -> G (multipiegen.util.util_harmonics.harmonics_expression, harmonics_u_matrix).
+  - n is the multiplicity of the harmonics (X,l,Gamma), 1-based; "-1" represents no multiplicity.
+  - expression: polynomial in x, y, z of each component; u-matrix: <m|component> for m = l, l-1, ..., -l.
+  - the harmonics is c times a top harmonics of Oh or D6h (data_harmonics_mapping).
+  - sorted in order of [Gamma, l, Q/G, n].
+```
 
 ## info.pkl
 
@@ -348,16 +373,18 @@ Multipolar harmonics (s=1-3, l<=3) of all PG.
 - create: `python -m multipiegen.create_binary.create_multipolar_harmonics`
 - load: `multipiegen.util.util_harmonics_multipole.load_multipolar_harmonics()`
 - top-level keys: 47 keys: `PG:1`, `PG:2`, ..., `PG:47`
-- size: 1,233 KB
+- size: 1,187 KB
 
 Description of the dictionary keys (header of the binary):
 
 ```text
 * Multipolar harmonics of all PG (s = 1..3, rank l <= 3) with polar (q) and axial (g) internal basis.
 - PG_id (str): (dict) multipolar harmonics.
-  - (X,l,Gamma,n,p,s,k,x) (PGMultipoleType): (ndarray(dim,sympy), ndarray(dim,2s+1,sympy), ndarray(dim,sympy))
-    [cartesian ex.] of the harmonics (X,l,Gamma), [coefficient of each internal basis], and [multipole ex.].
+  - (X,l,Gamma,n,p,s,k,x) (PGMultipoleType): (ndarray(dim,2s+1,sympy), ndarray(dim,sympy))
+    [internal coefficient] (polynomial in x,y,z multiplying each internal basis function) and [multipole expression]
+    (with the internal symbols), for each component.
 NOTE:
+  - the expression of the harmonics (X,l,Gamma,n) of a key is in harmonics.pkl.
   - internal basis: orbitals of data_basis.cubic_orbital_basis[s] (cubic) or hexagonal_orbital_basis[s] (trigonal,
     hexagonal), with the symbols Q/G + orbital_latex_name (info["harmonics"]["internal_basis"]).
   - x = q if (X = Q and s+k even) or (X = G and s+k odd), otherwise g.
@@ -395,7 +422,7 @@ Atomic multipole SAMB of all PG in the JML/Lgs/Lg basis.
 - create: `python -m multipiegen.create_binary.create_atomic_multipole_group`
 - load: `multipiegen.util.util_atomic_multipole.load_atomic_multipole_group()`
 - top-level keys: 47 keys: `PG:1`, `PG:2`, ..., `PG:47`
-- size: 6,375 KB
+- size: 6,161 KB
 
 Description of the dictionary keys (header of the binary):
 
@@ -404,9 +431,9 @@ Description of the dictionary keys (header of the binary):
 - PG_id (str): (dict) matrix data.
   - "jml/lgs/lg" (str): (dict) matrix of atomic multipole in (J,M;L)/(L,gamma,s)/(L,gamma) basis.
     - (L1,L2) (int,int): (dict) atomic multipole data for each bra-ket block.
-      - (X,l,Gamma,n,p,s,k,x) (PGMultipoleType): (ndarray(dim,2(2L1+1),2(2L2+1),sympy), ndarray(dim,sympy))
-        [matrix] and [cartesian ex.] for each component.
+      - (X,l,Gamma,n,p,s,k,x) (PGMultipoleType): (ndarray(dim,2(2L1+1),2(2L2+1),sympy)) matrix for each component.
 NOTE:
+  - the expression of the harmonics (X,l,Gamma,n) of a key is in harmonics.pkl.
   - (L,gamma) basis: orbitals of info["harmonics"]["atomic_basis"]["spinless"]["lg"].
   - half size of matrix for spinless "lg" (s = 0, up-spin part of "lgs" times sqrt(2)).
   - each component is normalized to the Frobenius norm 1 (diagonal block) or 1/sqrt(2) (off-diagonal block).
@@ -549,7 +576,7 @@ Cluster SAMB of each Wyckoff site and bond of the real PG and SG.
 - create: `python -m multipiegen.create_binary.create_cluster_samb`
 - load: `multipiegen.util.util_cluster_samb.load_cluster_samb()`
 - top-level keys: 267 keys: `PG:1`, `PG:2`, ..., `SG:230`
-- size: 435 KB
+- size: 377 KB
 
 Description of the dictionary keys (header of the binary):
 
@@ -558,13 +585,13 @@ Description of the dictionary keys (header of the binary):
 - PG_id/SG_id (str): (dict) SAMB data.
   - "site" (str): (dict) site-cluster SAMB data.
     - sw_tag (str): (dict) SAMB data at site Wyckoff.
-      - (X,l,Gamma,n,p,s,k,x) (PGMultipoleType): (ndarray(dim,ns,sympy), ndarray(dim,sympy)) [SAMB] and [cartesian ex.]
-        for each component.
+      - (X,l,Gamma,n,p,s,k,x) (PGMultipoleType): (ndarray(dim,ns,sympy)) SAMB for each component.
   - "bond_s" (str): (dict) symmetric-bond-cluster SAMB data.
     - bw_tag (str): (dict) SAMB data at bond Wyckoff, as "site".
   - "bond_a" (str): (dict) anti-symmetric-bond-cluster SAMB data.
     - bw_tag (str): (dict) SAMB data at bond Wyckoff, as "site".
 NOTE:
+  - the expression of the harmonics (X,l,Gamma,n) of a key is in harmonics.pkl.
   - created from the general-point SAMB of each group, i.e., cluster_scalar_basis ("site", "bond_s") and
     cluster_bond_basis (x = "q", "bond_a") of Oh or D6h restricted by the operation mapping (coset 0), and averaged
     by the mapping of each Wyckoff site and bond (with the sign of the bond reversal for "bond_a").

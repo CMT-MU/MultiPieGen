@@ -12,14 +12,14 @@ Based on MultiPie Ver.2 (others/tools/create_binary/create_data_multipolar_harmo
 
 - Harmonics of a point group. For each harmonics (X, l, Gamma, n) of the point group (data_harmonics_mapping,
   X(key) = c T with the top harmonics T), its cartesian expression is c T and its u-matrix is U = c U_T (m, dim).
-- Multipolar harmonics. For s = 1, 2, 3 and k = -s..s, mharm = U^T O_l^{(s)}(k) (dim, 2s+1) (each element
-  factorized by sympy.factor), where
+- Internal coefficient. For s = 1, 2, 3 and k = -s..s, internal_coefficient = U^T O_l^{(s)}(k) (dim, 2s+1): the
+  coefficient (polynomial in x, y, z, each element factorized by sympy.factor) of each internal basis function, where
   O_l^{(s)}(k) is the multipolar spherical harmonics (util_multipolar_harmonics, orbital rank l+k) whose internal
   components are in the order of the internal basis: the orbitals of data_basis.cubic_orbital_basis[s] (cubic
   groups, top Oh) or hexagonal_orbital_basis[s] (trigonal and hexagonal groups, top D6h).
 - Internal type. x = "q" (polar internal basis) if (X = Q and s+k even) or (X = G and s+k odd), otherwise "g".
-- Multipole expression. m_ex = mharm @ (internal symbols), where the internal symbols are those of
-  info["harmonics"]["internal_basis"] ((s, x) -> [Q or G + orbital_latex_name of each orbital]).
+- Multipole expression. multipole_expression = internal_coefficient @ (internal symbols) (dim), where the internal
+  symbols are those of info["harmonics"]["internal_basis"] ((s, x) -> [Q or G + orbital_latex_name of each orbital]).
 - Key. PGMultipoleType(X, l, Gamma, n, p, s, k, x): n is the multiplicity of the harmonics (X, l, Gamma, n), which
   fixes its xyz polynomial (not renumbered, unlike MultiPie Ver.2); p numbers those with the same
   (x, l, X, Gamma, n, k) as 1, 2, ... (-1 if unique). Vanishing ones (w3j = 0) are excluded.
@@ -27,10 +27,11 @@ Based on MultiPie Ver.2 (others/tools/create_binary/create_data_multipolar_harmo
 
 - multipolar_harmonics (dict)::
 
-    { PG_id: { PGMultipoleType: (ex, mharm, m_ex) } }
-        ex: ndarray (dim) (sympy), cartesian expression of the harmonics.
-        mharm: ndarray (dim, 2s+1) (sympy), coefficient (polynomial in x,y,z) of each internal basis.
-        m_ex: ndarray (dim) (sympy), multipole expression with internal symbols.
+    { PG_id: { PGMultipoleType: (internal_coefficient, multipole_expression) } }
+        internal_coefficient: ndarray (dim, 2s+1) (sympy), coefficient (polynomial in x, y, z) of each internal basis
+            function, for each component.
+        multipole_expression: ndarray (dim) (sympy), multipole expression with the internal symbols.
+        The expression of the harmonics (X, l, Gamma, n) itself is in harmonics.pkl (util_harmonics).
 """
 
 from functools import lru_cache
@@ -139,7 +140,7 @@ def create_multipolar_harmonics(pg, rank=max_rank, s_rank=max_s_rank):
         s_rank (int, optional): max internal rank s.
 
     Returns:
-        - (dict) -- {PGMultipoleType: (ex, mharm, m_ex)}, sorted.
+        - (dict) -- {PGMultipoleType: (internal_coefficient, multipole_expression)}, sorted.
     """
     crystal = _crystal[data_harmonics_mapping[pg]["top"]]
     basis = internal_basis(crystal)
@@ -153,12 +154,12 @@ def create_multipolar_harmonics(pg, rank=max_rank, s_rank=max_s_rank):
                 if l + k < 0:
                     continue
                 v = create_harmonics_set(l, s=s, k=k, basis=basis)  # (2l+1, 2s+1)
-                mharm = np.vectorize(lambda e: sp.factor(sp.expand(e)), otypes=[object])(U.T @ v)
-                if (mharm == 0).all():
+                coeff = np.vectorize(lambda e: sp.factor(sp.expand(e)), otypes=[object])(U.T @ v)
+                if (coeff == 0).all():
                     continue
                 x = internal_type(X, s, k)
-                m_ex = np.array([sum(c * sym for c, sym in zip(row, symbols[(s, x)])) for row in mharm], dtype=object)
-                raw.setdefault((x, s, l, X, irrep, n, k), []).append((ex, mharm, m_ex))
+                expr = np.array([sum(c * sym for c, sym in zip(row, symbols[(s, x)])) for row in coeff], dtype=object)
+                raw.setdefault((x, s, l, X, irrep, n, k), []).append((coeff, expr))
 
     # keep the multiplicity n of the harmonics (its xyz polynomial); number duplicates by p.
     res = {}
@@ -187,6 +188,7 @@ def load_multipolar_harmonics():
     Load multipolar harmonics (multipiegen/binary/multipolar_harmonics.pkl).
 
     Returns:
-        - (BinaryManager) -- {PG_id: {PGMultipoleType: (ex, mharm, m_ex)}}. str() gives the description.
+        - (BinaryManager) -- {PG_id: {PGMultipoleType: (internal_coefficient, multipole_expression)}}. str() gives the
+          description.
     """
     return BinaryManager(multipolar_harmonics_file, topdir=__bin_dir__)

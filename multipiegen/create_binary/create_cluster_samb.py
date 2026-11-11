@@ -31,13 +31,13 @@ h_cluster_samb = """
 - PG_id/SG_id (str): (dict) SAMB data.
   - "site" (str): (dict) site-cluster SAMB data.
     - sw_tag (str): (dict) SAMB data at site Wyckoff.
-      - (X,l,Gamma,n,p,s,k,x) (PGMultipoleType): (ndarray(dim,ns,sympy), ndarray(dim,sympy)) [SAMB] and [cartesian ex.]
-        for each component.
+      - (X,l,Gamma,n,p,s,k,x) (PGMultipoleType): (ndarray(dim,ns,sympy)) SAMB for each component.
   - "bond_s" (str): (dict) symmetric-bond-cluster SAMB data.
     - bw_tag (str): (dict) SAMB data at bond Wyckoff, as "site".
   - "bond_a" (str): (dict) anti-symmetric-bond-cluster SAMB data.
     - bw_tag (str): (dict) SAMB data at bond Wyckoff, as "site".
 NOTE:
+  - the expression of the harmonics (X,l,Gamma,n) of a key is in harmonics.pkl.
   - created from the general-point SAMB of each group, i.e., cluster_scalar_basis ("site", "bond_s") and
     cluster_bond_basis (x = "q", "bond_a") of Oh or D6h restricted by the operation mapping (coset 0), and averaged
     by the mapping of each Wyckoff site and bond (with the sign of the bond reversal for "bond_a").
@@ -84,7 +84,7 @@ def create_cluster_samb_all(serial=False, verbose=True):
         verbose (bool, optional): verbose ?
 
     Returns:
-        - (BinaryManager) -- {PG_id/SG_id: {"site"/"bond_s"/"bond_a": {wyckoff: {PGMultipoleType: (samb, ex)}}}}.
+        - (BinaryManager) -- {PG_id/SG_id: {"site"/"bond_s"/"bond_a": {wyckoff: {PGMultipoleType: samb}}}}.
     """
     args = group_args()
     if serial:

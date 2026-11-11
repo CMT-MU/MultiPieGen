@@ -48,6 +48,7 @@ from multipie.util.util_tag import TagBasis, TagMultipole
 
 from multipiegen.data.data_basis import atomic_jm_basis, atomic_latex_name, atomic_lgs_basis, atomic_orbital_basis
 from multipiegen.util.util_atomic_multipole import load_atomic_multipole_group
+from multipiegen.util.util_harmonics import harmonics_expression
 
 pdfdir = os.path.join(__top_dir__, "multipiegen", "pdf")
 kinds = {
@@ -383,9 +384,10 @@ def create_multipolar_harmonics(gid, tag, s, x):
 
     for rank in range(mh_max_rank + 1):
         pdf.text("\n" + r"\noindent * Harmonics for rank " + str(rank) + "\n")
-        for key, (ex, _, m_ex) in d.items():
+        for key, (_, m_ex) in d.items():
             if key.s != s or key.x != x or key.l != rank:
                 continue
+            ex = harmonics_expression(gid, key)
             dim = len(ex)
             tags = [TagMultipole.latex(key, "point_group", -1 if dim == 1 else i + 1, "", True, True) for i in range(dim)]
             pdf.text(r"\noindent\quad " + "$" + "$, $".join(tags) + "$\n")
@@ -418,7 +420,8 @@ def create_atomic_multipole(gid, tag, b_type):
     cnt = 1
     for (bra, ket), samb in _atomic_multipole_group()[gid][b_type].items():
         tbl, row = [], []
-        for key, (mat, ex) in samb.items():
+        for key, mat in samb.items():
+            ex = harmonics_expression(gid, key)
             dim = len(mat)
             for i, (e, m) in enumerate(zip(ex, mat)):
                 tbl.append([r"\text{symmetry}", to_latex(e, "scalar")])

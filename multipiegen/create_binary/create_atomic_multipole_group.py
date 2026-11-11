@@ -30,7 +30,6 @@ from multipiegen.util.util_atomic_multipole import (
     load_atomic_multipole,
     max_rank,
 )
-from multipiegen.util.util_harmonics_multipole import pg_harmonics
 from multipiegen.util.util_info import load_info
 
 h_atomic_multipole_group = f"""
@@ -38,9 +37,9 @@ h_atomic_multipole_group = f"""
 - PG_id (str): (dict) matrix data.
   - "jml/lgs/lg" (str): (dict) matrix of atomic multipole in (J,M;L)/(L,gamma,s)/(L,gamma) basis.
     - (L1,L2) (int,int): (dict) atomic multipole data for each bra-ket block.
-      - (X,l,Gamma,n,p,s,k,x) (PGMultipoleType): (ndarray(dim,2(2L1+1),2(2L2+1),sympy), ndarray(dim,sympy))
-        [matrix] and [cartesian ex.] for each component.
+      - (X,l,Gamma,n,p,s,k,x) (PGMultipoleType): (ndarray(dim,2(2L1+1),2(2L2+1),sympy)) matrix for each component.
 NOTE:
+  - the expression of the harmonics (X,l,Gamma,n) of a key is in harmonics.pkl.
   - (L,gamma) basis: orbitals of info["harmonics"]["atomic_basis"]["spinless"]["lg"].
   - half size of matrix for spinless "lg" (s = 0, up-spin part of "lgs" times sqrt(2)).
   - each component is normalized to the Frobenius norm 1 (diagonal block) or 1/sqrt(2) (off-diagonal block).
@@ -69,7 +68,7 @@ def create_atomic_multipole_group(serial=False, verbose=True):
         verbose (bool, optional): verbose ?
 
     Returns:
-        - (BinaryManager) -- {PG_id: {"jml"/"lgs"/"lg": {(L1, L2): {PGMultipoleType: (matrix, ex)}}}}.
+        - (BinaryManager) -- {PG_id: {"jml"/"lgs"/"lg": {(L1, L2): {PGMultipoleType: matrix}}}}.
     """
     args = [(top, block, bt) for top in ["Oh", "D6h"] for block in atomic_rank_block for bt in ["jml", "lgs"]]
     if serial:
@@ -85,8 +84,7 @@ def create_atomic_multipole_group(serial=False, verbose=True):
     bm = BinaryManager(verbose=verbose, topdir=__bin_dir__)
     for gid in info["id_set"]["PG"]["all"] + info["id_set"]["PG"]["complex"]:
         pg = info["tag"][gid]
-        ex = {key: e for key, (e, _) in pg_harmonics(pg, max_rank).items()}
-        bm[gid] = create_atomic_multipole_pg(pg, top_data[data_harmonics_mapping[pg]["top"]], ex)
+        bm[gid] = create_atomic_multipole_pg(pg, top_data[data_harmonics_mapping[pg]["top"]])
     bm.add_comment(h_atomic_multipole_group)
     return bm
 

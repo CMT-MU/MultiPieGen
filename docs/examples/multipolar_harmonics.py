@@ -16,6 +16,7 @@ multipiegen/create_binary/create_multipolar_harmonics.py (python -m multipiegen.
 
 import collections
 
+from multipiegen.util.util_harmonics import harmonics_expression
 from multipiegen.util.util_harmonics_multipole import load_multipolar_harmonics
 from multipiegen.util.util_info import load_info
 
@@ -23,7 +24,8 @@ info = load_info()
 hm = load_multipolar_harmonics()
 
 # ==================================================
-# 1. keys: PGMultipoleType(X, l, Gamma, n, p, s, k, x); value: (cartesian ex., coefficient of internal basis, multipole ex.)
+# 1. keys: PGMultipoleType(X, l, Gamma, n, p, s, k, x); value: (internal_coefficient, multipole_expression).
+#    the expression of the harmonics (X, l, Gamma, n) is looked up by the key in harmonics.pkl.
 for pg in ["Oh", "D6h"]:
     d = hm[info["id"][pg]]
     print(pg, len(d), "multipolar harmonics:", dict(collections.Counter((k.x, k.s) for k in d)))
@@ -34,14 +36,14 @@ for pg in ["Oh", "D6h"]:
 # 2. an example: a dipole-type (s=1) multipole of rank 2 in Oh.
 d = hm[info["id"]["Oh"]]
 key = [k for k in d if k.s == 1 and k.l == 2 and k.Gamma == "Eg" and k.k == 1][0]
-ex, mharm, m_ex = d[key]
+coeff, expr = d[key]
 print("\n", key)
-print("  harmonics:", ex.tolist())
-print("  coefficient of [Q_x, Q_y, Q_z] (first component):", mharm[0].tolist())
-print("  multipole expression (first component):", m_ex[0])
+print("  harmonics:", harmonics_expression("Oh", key).tolist())
+print("  internal coefficient of [Q_x, Q_y, Q_z] (first component):", coeff[0].tolist())
+print("  multipole expression (first component):", expr[0])
 
 # ==================================================
 # 3. axial internal basis (g) of rank s=2 in D6h.
 d = hm[info["id"]["D6h"]]
 key = [k for k in d if k.x == "g" and k.s == 2][0]
-print("\n", key, "\n  ", d[key][2].tolist())
+print("\n", key, "\n  ", d[key][1].tolist())

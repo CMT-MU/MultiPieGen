@@ -29,6 +29,7 @@
 | 軌道の定義 | `data_definition.py` | `data_basis.py`。各軌道は調和関数のキーを指し、式はトップの調和関数から取る |
 | D6h の rank 4 `E2g` 多重度 2 の符号 | MultiPie のまま | −1 倍（2 成分とも） |
 | 軌道 `gv` の符号 | MultiPie のまま | −1 倍（`data_response_tensor`） |
+| 値の中の調和関数の式 | 多極子のキーを持つ binary が調和関数のデカルト座標の式 `ex` を持つ | 持たない。キーの `(X, l, Gamma, n)` で `harmonics.pkl` から引く（値は、multipolar harmonics が `(internal_coefficient, multipole_expression)`、atomic multipole group が `matrix`、cluster SAMB が `samb`） |
 
 - `E2g` の符号の変更はトップの調和関数の変更です。D6h 系の部分群（六方・三方晶系 16 群の rank 4 の E の多重項）と、
   調和関数から作るすべてのデータに引き継がれます。

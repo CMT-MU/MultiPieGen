@@ -30,6 +30,7 @@ Contents:
 | orbital definitions | `data_definition.py` | `data_basis.py`; each orbital points to a harmonics key, expressions come from the top harmonics |
 | sign of D6h rank-4 `E2g` multiplicity 2 | as in MultiPie | multiplied by -1 (both components) |
 | sign of the orbital `gv` | as in MultiPie | multiplied by -1 (`data_response_tensor`) |
+| expression of the harmonics in the values | the multipole-keyed binaries hold the cartesian expression `ex` of the harmonics | not held; looked up by `(X, l, Gamma, n)` of the key in `harmonics.pkl` (values: multipolar harmonics `(internal_coefficient, multipole_expression)`, atomic multipole group `matrix`, cluster SAMB `samb`) |
 
 - The `E2g` sign change is a change of the top harmonics. It carries into the D6h-family subgroups (rank-4 E
   multiplets of 16 hexagonal/trigonal groups) and into everything built on the harmonics.

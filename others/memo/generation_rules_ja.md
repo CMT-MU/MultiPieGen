@@ -103,6 +103,11 @@ LaTeX の名前：原子の基底には `atomic_latex_name`（`p_{x}`、`f_{z}^{
      だけでは足りません。対応がトップの調和関数のパリティによるからです。
 3. **表現行列** は u-matrix から求めます（`util_representation_matrix`）。1 つの既約表現のすべての調和関数が同じ
    行列を与えます（ランク 11 までテスト済み）。
+4. **binary（`harmonics.pkl`）。** `{PG_id: {PGMultipoleType(X, l, Gamma, n, -1, 0, 0, "q"): (式 (dim), u-matrix
+   (2l+1, dim))}}`。47 点群、ランク 11 まで、並びは Gamma、l、Q/G、n です（`util_harmonics`、
+   `create_binary/create_harmonics.py`）。`PGMultipoleType` をキーに持つほかの binary は、調和関数の式も u-matrix も
+   持ちません。`util_harmonics.harmonics_expression(pg, key)` と `harmonics_u_matrix(pg, key)` で、どのキーからでも
+   その `(X, l, Gamma, n)` で引けます。T は Q、M は G の調和関数を引きます（空間群はその点群で引く）。
 
 ---
 
@@ -118,15 +123,17 @@ LaTeX の名前：原子の基底には `atomic_latex_name`（`p_{x}`、`f_{z}^{
    表します。
 2. **内部基底。** `data_basis.cubic_orbital_basis[s]`（トップが Oh）または `hexagonal_orbital_basis[s]`（トップが D6h）
    の軌道で、u-matrix は `info["harmonics"]["basis_function"]` から取ります。
-3. **射影。** 群の各調和関数 `(X, l, Gamma, n)`（u-matrix `U`、2 節）と各 k について、`mharm = U^T O_l^{(s)}(k)`。
-   多項式の `(dim, 2s+1)` 配列で、各要素は因数分解します。0 になるもの（`w3j = 0`）は除きます。
+3. **射影。** 群の各調和関数 `(X, l, Gamma, n)`（u-matrix `U`、2 節）と各 k について、内部係数
+   `U^T O_l^{(s)}(k)` を作ります。x, y, z の多項式の `(dim, 2s+1)` 配列（各要素は因数分解）で、内部基底の各関数に掛かる
+   係数です。0 になるもの（`w3j = 0`）は除きます。
 4. **内部の種類。** (`X = Q` かつ `s+k` が偶数) または (`X = G` かつ `s+k` が奇数) なら `x = q`、それ以外は `x = g`。
-5. **式。** `m_ex = mharm @ symbols`。内部の記号は `Q/G + orbital_latex_name`
+5. **式。** 多極子の式 `= 内部係数 @ symbols`。内部の記号は `Q/G + orbital_latex_name`
    （`info["harmonics"]["internal_basis"][crystal][(s, x)]`）。
 6. **キー。** `PGMultipoleType(X, l, Gamma, n, p, s, k, x)`：`n` は調和関数の多重度（振り直さない）。`p` は
    `(x, l, X, Gamma, n, k)` が同じものを番号付けします（ただ 1 つなら `-1`）。
 7. **並び。** `x`（q, g）、`s`、`Gamma`、`l`、`X`（Q, G）、`k`、`n`、`p`。
-8. **値。** `(ex, mharm, m_ex)`：調和関数のデカルト座標の式、内部基底の係数、多極子の式。
+8. **値。** `(internal_coefficient (dim, 2s+1), multipole_expression (dim))`：内部係数と多極子の式。調和関数
+   `(X, l, Gamma, n)` そのものの式は `harmonics.pkl` にあります。
 
 ---
 
@@ -204,7 +211,7 @@ LaTeX の名前：原子の基底には `atomic_latex_name`（`p_{x}`、`f_{z}^{
    ます（数値で選び、残したものを厳密に正規直交化）。各成分は `N` 個のサイト（ボンド）上でノルム 1 です。
 5. **キー。** `"site"` と `"bond_s"`：`PGMultipoleType("Q", l, Gamma, n, p, 0, 0, "q")`。`"bond_a"`：
    `cluster_bond_basis` のキー（`X = Q/G`、`x = q`）。`n` は `H` の調和関数の多重度、`p` はトップのキーのもの。
-6. **値。** `(samb (dim, N), ex (dim))`。`ex` は点群の調和関数のデカルト座標の式です。
+6. **値。** `samb (dim, N)`。点群の調和関数の式は `harmonics.pkl` にあります。
 
 ---
 
@@ -239,7 +246,7 @@ LaTeX の名前：原子の基底には `atomic_latex_name`（`p_{x}`、`f_{z}^{
    `"lg"` は `"lgs"` の `s = 0`、上向きスピンの部分に `sqrt(2)` を掛けたものです。
 5. **キー。** `PGMultipoleType(X, l, Gamma, n, -1, s, k, "q")`。`n` は調和関数の多重度（振り直さない）。
    並びは `Q, G, T, M`、`s`、`k`、`l`、`Gamma`、`n`。
-6. **値。** ブロックごとに `(行列 (dim, n1, n2), ex (dim))`。47 点群すべて。
+6. **値。** ブロックごとに `行列 (dim, n1, n2)`（調和関数の式は `harmonics.pkl` にある）。47 点群すべて。
 
 ---
 

@@ -249,6 +249,12 @@ data_var_note = {
 
 binary_content = [
     (
+        "harmonics.pkl",
+        "expression and u-matrix of the harmonics of all PG (rank <= 11), looked up by a multipole key",
+        "create_harmonics",
+        "util_harmonics.load_harmonics",
+    ),
+    (
         "info.pkl",
         "overall information of all groups, harmonics, basis, root cluster, response tensor",
         "create_info",
