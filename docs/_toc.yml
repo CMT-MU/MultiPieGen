@@ -42,6 +42,7 @@ parts:
       - file: src/api_util/util_symmetry_operation
       - file: src/api_util/util_representation_matrix
       - file: src/api_util/util_response_tensor
+      - file: src/api_util/util_binary_data
     - file: src/api_create
       sections:
       - file: src/api_create/create_info
@@ -55,6 +56,7 @@ parts:
       - file: src/api_create/create_cluster_vector_basis
       - file: src/api_create/create_cluster_bond_basis
       - file: src/api_create/create_cluster_samb
+      - file: src/api_create/create_binary_data
       - file: src/api_create/create_pdf_harmonics
       - file: src/api_create/create_pdf_info
       - file: src/api_create/create_pdf_group

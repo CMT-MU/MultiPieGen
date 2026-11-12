@@ -15,4 +15,5 @@ Loaders of the binary data and reusable logic (`multipiegen.util`).
     multipiegen.util.util_symmetry_operation
     multipiegen.util.util_representation_matrix
     multipiegen.util.util_response_tensor
+    multipiegen.util.util_binary_data
 ```

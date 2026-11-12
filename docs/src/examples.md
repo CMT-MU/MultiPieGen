@@ -110,3 +110,12 @@ Overall information of groups (info.pkl): group id/tag/name, orbital basis and b
 :language: python
 :start-at: from multipiegen.util.util_info import load_info
 ```
+
+## binary_data.py
+
+Binary data for MultiPie (binary_data): info.pkl and one file for each group, read with BinaryManager alone, and the look-up of the harmonics of a SAMB key in the PG file.
+
+```{literalinclude} ../examples/binary_data.py
+:language: python
+:start-at: from multipie.util.util_binary import BinaryManager
+```

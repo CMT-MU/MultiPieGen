@@ -37,6 +37,7 @@ python -m multipiegen.create_binary.create_atomic_multipole        # -> binary/a
 python -m multipiegen.create_binary.create_atomic_multipole_group  # -> binary/atomic_multipole_group.pkl (47 PGs, needs atomic_multipole.pkl; ~30 s)
 python -m multipiegen.create_binary.create_group           # -> binary/group.pkl (parallel ~35 s; --serial ~2 min)
 python -m multipiegen.create_binary.create_response_tensor # -> binary/response_tensor.pkl (needs group.pkl; ~20 s)
+python -m multipiegen.create_binary.create_binary_data     # -> binary_data/{info.pkl,PG,SG,MPG,MSG/{id}.pkl} for MultiPie Ver.3+ (one file per group, regrouped from binary/; run last; ~30 s)
 python -m multipiegen.create_pdf.create_pdf_harmonics      # -> pdf/PG/{no}-{tag}/harmonics.{tex,pdf} (needs ptex2pdf, ~1.5 min)
 python -m multipiegen.create_pdf.create_pdf_group         # -> pdf/{PG,SG,MPG,MSG}/*/{character_table,symmetry_operation,wyckoff_*,representation_matrix,multipolar_harmonics_s*_*,atomic_multipole_*,response_tensor_X}.{tex,pdf} (~5200 PDFs, parallel; --group/--kind to limit)
 python -m multipiegen.create_pdf.create_pdf_info          # -> pdf/info/{PG,SG,MPG,MSG,compatibility_relation,active_multipole}.{tex,pdf} (~30 s)
@@ -44,14 +45,15 @@ python docs/examples/<name>.py                             # runnable samples
 make -C docs build                                         # Jupyter Book -> docs/_build/html (gh-pages on main)
 ```
 
-`binary/` and `pdf/` are in git but deliberately **not packaged** (`include-package-data = false`; the wheel is
+`binary/`, `binary_data/`, and `pdf/` are in git but deliberately **not packaged** (`include-package-data = false`; the wheel is
 `.py` only). Anything that loads a binary needs the editable install, and CI uses `pip install -e .`. Do not re-add
 package-data.
 
 Regenerating a binary or PDF whose content is unchanged still produces a git diff (gzip/PDF timestamps). Compare the
 content, and `git restore` the file if only the timestamp changed. `tests/test_*` include "binary is up to date"
 checks that rebuild in memory and compare with the saved `.pkl`, so after changing a data table, rerun the matching
-`create_binary` module.
+`create_binary` module, and then `create_binary_data` (`binary_data/` is regrouped from `binary/`; `tests/test_binary_data.py`
+checks that it is up to date).
 
 ## Architecture
 
