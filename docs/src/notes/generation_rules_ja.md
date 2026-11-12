@@ -18,6 +18,7 @@ MultiPieGen が多極子のキーを使うデータをどう作っているか�
 5. 各 Wyckoff のサイトとボンドの cluster SAMB（`cluster_samb.pkl`）
 6. 原子多極子（`atomic_multipole.pkl`）と点群の SAMB（`atomic_multipole_group.pkl`）
 7. 厳密計算と式の簡約
+8. MultiPie 向けの binary データ（`binary_data`）
 
 ---
 
@@ -268,3 +269,19 @@ LaTeX の名前：原子の基底には `atomic_latex_name`（`p_{x}`、`f_{z}^{
 - 一次従属かどうかは数値で判定し（相対許容誤差 `1e-8`）、残したベクトルを厳密に正規直交化します。
 - pickle を読み込むと、sympy が一部の積を評価し直します（`(a+b)/2` → `a/2 + b/2`）。そのため「binary is up to date」
   のテストは、pickle に一度書き出して読み直した後で比べます。
+
+---
+
+## 8. MultiPie 向けの binary データ（`binary_data`）
+
+コード：`util_binary_data`、`create_binary/create_binary_data.py`。
+
+1. **構成。** MultiPie の `multipie/binary_data` と同じく、`info.pkl`（`binary/info.pkl` と同じデータ。ヘッダに構成の説明を追加）と、群ごとのファイル `{PG,SG,MPG,MSG}/{id}.pkl`（47、230、157、1651 個）です。`_opt` のファイルには分けません。PG のファイルは最大でも約 260 KB です。
+2. **中身。** `multipiegen/binary` の binary を群ごとに並べ直したもので、計算し直すのは PG の表現行列（`util_representation_matrix`、1 群 1 KB 未満）だけです。
+   - PG：`info`、`symmetry_operation`、`wyckoff`、`character`、`representation_matrix`、`harmonics`、`multipolar_harmonics`、`atomic_samb`、`cluster_samb`（実の点群だけ）。
+   - SG：`info`、`symmetry_operation`、`wyckoff`、`cluster_samb`。
+   - MPG：`info`、`symmetry_operation`、`wyckoff`、`active_multipole`、`response_tensor`。
+   - MSG：`info`、`symmetry_operation`、`wyckoff`。
+3. **入れないもの。** 中間データのクラスター基底（`cluster_scalar_basis`、`cluster_vector_basis`、`cluster_bond_basis`）と、球面の原子多極子（`atomic_multipole`）。
+4. **調和関数。** 重複させません。SAMB と点群多極子調和関数の調和関数は、PG のファイルの `"harmonics"` から `(X, l, Gamma, n)` で引きます（T → Q、M → G）。SG と MPG では、`info.PG` の PG のファイルを使います。
+5. **ヘッダ。** 各ファイルに、元の binary のヘッダから作ったヘッダ（`str()`）を付けます。そのため、`BinaryManager` だけでファイルの意味が分かります。

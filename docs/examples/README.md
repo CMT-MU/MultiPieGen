@@ -16,3 +16,4 @@ Sample code for the features of MultiPieGen. Run each file from anywhere after `
 | [atomic_multipole.py](atomic_multipole.py) | atomic multipole matrices (atomic_multipole.pkl) and atomic multipole SAMB of a point group in the jml/lgs/lg basis, keyed by PGMultipoleType (atomic_multipole_group.pkl) |
 | [harmonics_symbol.py](harmonics_symbol.py) | polar and axial symbols of harmonics side by side for all 47 point groups (as in the harmonics PDF) |
 | [info.py](info.py) | overall information of groups (info.pkl): group id/tag/name, orbital basis and basis functions, root cluster |
+| [binary_data.py](binary_data.py) | binary data for MultiPie (binary_data): info.pkl and one file for each group, read with BinaryManager alone, and the look-up of the harmonics of a SAMB key in the PG file |

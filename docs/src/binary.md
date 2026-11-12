@@ -601,3 +601,328 @@ NOTE:
   - multipoles are sorted in order of [Gamma, l, n, p] ("site"), and of Gamma, then [l, n, p] for Q and
     [l, k, T/M, n, p] for T/M ("bond", Q before T/M in each Gamma).
 ```
+
+## Binary data for MultiPie (binary_data)
+
+`multipiegen/binary_data` holds the binary data to be built into MultiPie Ver.3 and later, in the layout of MultiPie's `multipie/binary_data`: `info.pkl` (the same as `binary/info.pkl`) and one file for each group, `{PG,SG,MPG,MSG}/{id}.pkl`. They are made from the binaries above, regrouped by group (the representation matrices of PG are added), by `python -m multipiegen.create_binary.create_binary_data`. Load a file with `BinaryManager("PG/PG:32", topdir=...)` or `multipiegen.util.util_binary_data.load_binary_data("PG:32")`. The SAMB and the multipolar harmonics hold no expression of the harmonics: look it up by `(X, l, Gamma, n)` of the key in `"harmonics"` of the PG file (T -> Q, M -> G); for SG and MPG, the PG file is that of `info.PG`.
+
+| group | files | keys | size |
+|---|---|---|---|
+| PG | 47 (`PG/PG:1.pkl`, ...) | `info`, `symmetry_operation`, `wyckoff`, `character`, `representation_matrix`, `harmonics`, `multipolar_harmonics`, `atomic_samb`, `cluster_samb` | 9,656 KB |
+| SG | 230 (`SG/SG:1.pkl`, ...) | `info`, `symmetry_operation`, `wyckoff`, `cluster_samb` | 2,091 KB |
+| MPG | 157 (`MPG/MPG:1.1.1.pkl`, ...) | `info`, `symmetry_operation`, `wyckoff`, `active_multipole`, `response_tensor` | 805 KB |
+| MSG | 1651 (`MSG/MSG:1.1.pkl`, ...) | `info`, `symmetry_operation`, `wyckoff` | 3,913 KB |
+
+The keys of the complex PG (`-c`) lack `cluster_samb`.
+
+### PG files
+
+Description of the dictionary keys (header of `PG/PG:32.pkl`):
+
+```text
+* Data of a PG.
+- "info" (str): (namedtuple) info.
+  - tag: Schoenflies in text.
+  - international: international short symbol in LaTeX.
+  - schoenflies: Schoenflies symbol in LaTeX.
+  - crystal: triclinic, monoclinic, orthorhombic, tetragonal, trigonal, hexagonal, cubic.
+  - setting: setting.
+  - PG: = id.
+  - SG: associated SG, 1st SG in the same PGs.
+  - MPG: associated MPG, 1st MPG with type II in the same PGs.
+  - MSG: associated MSG, PG -> MPG -> MSG.
+  - lattice: "0".
+  - hexagonal_g: trigonal or hexagonal ?
+  - SO: symmetry operations.
+  - SO_gen: generator of SOs.
+- "symmetry_operation" (str): (dict) symmetry operation (SO) of group.
+  - "tag" (str): ([str]) list of SO tag.
+  - "generator" (str): ([str]) list of generator SO tag.
+  - "cartesian" (str): (ndarray(n,3,3,sympy)) list of SO matrix (cartesian).
+  - "fractional" (str): (ndarray(n,3,3,sympy)) list of SO matrix (fractional).
+  - "det" (str): (ndarray(n,sympy)) list of determinant of SO matrix.
+  - "so_matrix" (str): (Dict) dict of SO matrix (X="Q/G", s=0,1, cartesian).
+    - (X,s) (str,int): ([ndarray(2s+1,2s+1,sympy)]) list of SO matrix.
+  - "product" (str): (dict) product table.
+    - (SO_tag1,SO_tag2) (str,str): (str) SO_tag of product, SO1 SO2.
+  - "mapping" (str): (dict) mapping of SO to the Oh/D6h cluster (util_op_mapping).
+    - "top" (str): (str) top group, "Oh" or "D6h".
+    - "mapping" (str): ([[int]]) mapping[coset][i] = SO number (from 1) of top group for i-th SO of group.
+  NOTE:
+    - SOs are in the same order of ITA (BCS).
+    - SOs of SG and PG (without translational part) are in the same order.
+    - SO matrices are in the same order of "tag".
+    - monopole (s=0) and dipole (s=1) basis are [1] and [x,y,z].
+    - mapping[0] is the group itself, and mapping[k] (k>0) is the left coset g_k * group.
+- "wyckoff" (str): (dict) Wyckoff site/bond of group.
+  - "site" (str): (dict) info. of Wyckoff site.
+    - sw_tag (str): (dict) site Wyckoff tag.
+      - "symmetry" (str): (str) site symmetry.
+      - "conventional" (str): (ndarray(n,3,sympy)) list of Wyckoff site (fractional).
+      - "reference" (str): (ndarray(n,3,sympy)) list of representative site (fractional).
+      - "mapping" (str): ([[int]]) list of SO number (from 1) for each site.
+      - "bond" (str): ([str]) list of bw_tag.
+  - "bond" (str): (dict) info. of Wyckoff bond.
+    - bw_tag (str): (dict) bond Wyckoff tag.
+      - "symmetry" (str): (str) bond symmetry.
+      - "conventional" (str): (ndarray(n,6,sympy)) list of Wyckoff bond (vector+center) (fractional).
+      - "reference" (str): (ndarray(n,6,sympy)) list of representative bond (vector+center) (fractional).
+      - "mapping" (str): ([[int]]) list of SO number (from 1) for each bond (opposite direction with negative sign).
+  NOTE:
+    - only for standard setting, (unique b axes, origin choice 2, hexagonal axes, abc).
+    - Wyckoff sites are in the same order of ITA (BCS).
+    - representative site/vector are scaled site0/vector0 of the root cluster (info["root_cluster"]).
+- "character" (str): (dict) character table of group.
+  - "conjugacy" (str): ([[str]]) list of SO_tag in each conjugacy class.
+  - "dimension" (str): (dict) dimension of irrep.
+    - irrep_tag (str): (int) dimension.
+  - "table" (str): (dict) character table (first SO in each conjugacy class).
+    - irrep_tag (str): (ndarray(n,sympy) list of character.
+  - "table_full" (str): (dict) character table for all SO.
+    - irrep_tag (str): (ndarray(n,sympy) list of character.
+  - "polar_axial_conversion" (str): (dict) conversion between polar and axial.
+    - irrep_tag (str): (str) converted irrep_tag.
+  - "symmetric_product" (str): (dict) symmetric product decomposition.
+    - (irrep_tag,irrep_tag) (str,str): [(int,str)] list of (n, irrep_tag).
+  - "anti_symmetric_product" (str): (dict) anti-symmetric product decomposition.
+    - irrep_tag (str): ([(int,str)]) list of (n,irrep_tag).
+  NOTE:
+    - wp = exp(+2pi i/3), wm = exp(-2pi i/3) in "table", and they are substituted in "table_full".
+    - for complex character, use PG_tag with "-c", otherwise without "-c", real version is given.
+NOTE:
+  - complex PG ("-c") has the same "symmetry_operation" and "wyckoff" as the real PG.
+- "representation_matrix" (str): (dict) representation matrices of the irreps.
+  - "tag" (str): ([str]) list of SO tag.
+  - "matrix" (str): (dict) representation matrices.
+    - irrep_tag (str): (ndarray(n,dim,dim,sympy)) matrix of each SO, in the order of "tag".
+  NOTE:
+    - obtained from the u-matrices of the harmonics (util_representation_matrix).
+- "harmonics" (str): (dict) harmonics (rank l <= 11): cartesian expression and u-matrix for each multipole key.
+  - (X,l,Gamma,n,p,s,k,x) (PGMultipoleType): (ndarray(dim,sympy), ndarray(2l+1,dim,sympy)) [expression] and [u-matrix].
+  NOTE:
+    - X = Q/G, p = -1, s = k = 0, x = "q" in the key. Look up the harmonics of a key of the other data by its
+      (X,l,Gamma,n), with T -> Q and M -> G (multipiegen.util.util_harmonics.harmonics_expression, harmonics_u_matrix).
+    - n is the multiplicity of the harmonics (X,l,Gamma), 1-based; "-1" represents no multiplicity.
+    - expression: polynomial in x, y, z of each component; u-matrix: <m|component> for m = l, l-1, ..., -l.
+    - the harmonics is c times a top harmonics of Oh or D6h (data_harmonics_mapping).
+    - sorted in order of [Gamma, l, Q/G, n].
+- "multipolar_harmonics" (str): (dict) multipolar harmonics (s = 1..3, rank l <= 3) with polar (q) and axial (g) internal basis.
+  - (X,l,Gamma,n,p,s,k,x) (PGMultipoleType): (ndarray(dim,2s+1,sympy), ndarray(dim,sympy))
+    [internal coefficient] (polynomial in x,y,z multiplying each internal basis function) and [multipole expression]
+    (with the internal symbols), for each component.
+  NOTE:
+    - the expression of the harmonics (X,l,Gamma,n) of a key is in "harmonics" of the PG file (of info.PG for SG and MPG).
+    - internal basis: orbitals of data_basis.cubic_orbital_basis[s] (cubic) or hexagonal_orbital_basis[s] (trigonal,
+      hexagonal), with the symbols Q/G + orbital_latex_name (info["harmonics"]["internal_basis"]).
+    - x = q if (X = Q and s+k even) or (X = G and s+k odd), otherwise g.
+    - n is the multiplicity of the harmonics (X,l,Gamma) (its xyz polynomial, not renumbered); p numbers the same
+      (x, l, X, Gamma, n, k) as 1, 2, ...; "-1" represents no multiplicity / no additional multiplicity.
+    - sorted in order of [q/g, s, Gamma, l, Q/G, k, n, p].
+- "atomic_samb" (str): (dict) matrix of atomic multipole SAMB (rank l <= 7, s = 0, 1, orbitals of L = 0..3).
+  - "jml/lgs/lg" (str): (dict) matrix of atomic multipole in (J,M;L)/(L,gamma,s)/(L,gamma) basis.
+    - (L1,L2) (int,int): (dict) atomic multipole data for each bra-ket block.
+      - (X,l,Gamma,n,p,s,k,x) (PGMultipoleType): (ndarray(dim,2(2L1+1),2(2L2+1),sympy)) matrix for each component.
+  NOTE:
+    - the expression of the harmonics (X,l,Gamma,n) of a key is in "harmonics" of the PG file (of info.PG for SG and MPG).
+    - (L,gamma) basis: orbitals of info["harmonics"]["atomic_basis"]["spinless"]["lg"].
+    - half size of matrix for spinless "lg" (s = 0, up-spin part of "lgs" times sqrt(2)).
+    - each component is normalized to the Frobenius norm 1 (diagonal block) or 1/sqrt(2) (off-diagonal block).
+    - n is the multiplicity of the harmonics (X,l,Gamma) (its xyz polynomial, not renumbered); p = -1; x = "q".
+    - multipoles are sorted in order of [Q/G/T/M, s, k, l, Gamma, n, p].
+- "cluster_samb" (str): (dict) cluster SAMB of each Wyckoff site and bond.
+  - "site" (str): (dict) site-cluster SAMB data.
+    - sw_tag (str): (dict) SAMB data at site Wyckoff.
+      - (X,l,Gamma,n,p,s,k,x) (PGMultipoleType): (ndarray(dim,ns,sympy)) SAMB for each component.
+  - "bond" (str): (dict) bond-cluster SAMB data.
+    - bw_tag (str): (dict) SAMB data at bond Wyckoff, as "site".
+  NOTE:
+    - the expression of the harmonics (X,l,Gamma,n) of a key is in "harmonics" of the PG file (of info.PG for SG and MPG) (T and M use those of Q and G).
+    - created from the general-point SAMB of each group, i.e., the scalar cluster basis ("site", symmetric bond) and
+      the bond cluster basis (x = "q", anti-symmetric bond) of Oh or D6h restricted by the operation mapping (coset 0), and
+      averaged by the mapping of each Wyckoff site and bond (with the sign of the bond reversal for anti-symmetric bond).
+    - "bond" = symmetric bond SAMB (X = Q, real) + i anti-symmetric bond SAMB (X = Q -> T, G -> M, pure imaginary).
+      Q and T/M are orthonormalized separately (different time-reversal parity).
+    - keys of the top group with the irrep and component of the group; n is the multiplicity of the harmonics (X,l,Gamma).
+    - "-1" in multiplicity represents no multiplicity.
+    - each component is normalized on the ns sites (bonds).
+    - multipoles are sorted in order of [Gamma, l, n, p] ("site"), and of Gamma, then [l, n, p] for Q and
+      [l, k, T/M, n, p] for T/M ("bond", Q before T/M in each Gamma).
+    - only for real PG (not for "-c").
+* all sympy values are expanded with rationalized denominators.
+```
+
+### SG files
+
+Description of the dictionary keys (header of `SG/SG:221.pkl`):
+
+```text
+* Data of an SG.
+- "info" (str): (namedtuple) info.
+  - tag: Schoenflies in text.
+  - international: international short symbol in LaTeX.
+  - schoenflies: Schoenflies symbol in LaTeX.
+  - crystal: triclinic, monoclinic, orthorhombic, tetragonal, trigonal, hexagonal, cubic.
+  - setting: setting comment.
+  - PG: associated PG, unique.
+  - SG: = id.
+  - MPG: associated MPG, SG -> PG -> MPG.
+  - MSG: associated MSG, 1st MSG with type II in the same SGs.
+  - lattice: A, B, C, P, I, F, R.
+  - hexagonal_g: trigonal or hexagonal ?
+  - SO: symmetry operations.
+  - SO_gen: generator of SOs.
+- "symmetry_operation" (str): (dict) symmetry operation (SO) of group.
+  - "tag" (str): ([str]) list of SO tag.
+  - "generator" (str): ([str]) list of generator SO tag.
+  - "cartesian" (str): (ndarray(n,4,4,sympy)) list of SO matrix (cartesian, conventional).
+  - "fractional" (str): (ndarray(n,4,4,sympy)) list of SO matrix (fractional, conventional).
+  - "det" (str): (ndarray(n,sympy)) list of determinant of SO matrix.
+  - "cartesian_primitive" (str): (ndarray(n,4,4,sympy)) list of SO matrix (cartesian, primitive).
+  - "fractional_primitive" (str): (ndarray(n,4,4,sympy)) list of SO matrix (fractional, primitive).
+  - "plus_set" (str): (ndarray(n,3,sympy)) list of plus set vector (fractional, conventional).
+  - "so_matrix" (str): (Dict) dict of SO matrix (X="Q/G", s=0,1, cartesian).
+    - (X,s) (str,int): ([ndarray(2s+1,2s+1,sympy)]) list of SO matrix.
+  - "mapping" (str): (dict) mapping of SO to the Oh/D6h cluster (that of the PG, util_op_mapping).
+    - "top" (str): (str) top group, "Oh" or "D6h".
+    - "mapping" (str): ([[int]]) mapping[coset][i] = SO number (from 1) of top group for i-th SO of group.
+  NOTE:
+    - SOs are in the same order of ITA (BCS).
+    - SOs of SG and PG (without translational part) are in the same order.
+    - SO matrices are in the same order of "tag".
+- "wyckoff" (str): (dict) Wyckoff site/bond of group.
+  - "site" (str): (dict) info. of Wyckoff site.
+    - sw_tag (str): (dict) site Wyckoff tag.
+      - "symmetry" (str): (str) site symmetry.
+      - "conventional" (str): (ndarray(n,3,sympy)) list of Wyckoff site (fractional, conventional, no plus set).
+      - "primitive" (str): (ndarray(n,3,sympy)) list of Wyckoff site (fractional, primitive).
+      - "reference" (str): (ndarray(n,3,sympy)) list of representative site (fractional, conventional, plus set).
+      - "mapping" (str): ([[int]]) list of SO number (from 1) for each site.
+      - "bond" (str): ([str]) list of bw_tag.
+  - "bond" (str): (dict) info. of Wyckoff bond.
+    - bw_tag (str): (dict) bond Wyckoff tag.
+      - "symmetry" (str): (str) bond symmetry.
+      - "conventional" (str): (ndarray(n,6,sympy)) list of Wyckoff bond (vector+center) (fractional, conventional, no plus set).
+      - "primitive" (str): (ndarray(n,6,sympy)) list of Wyckoff bond (vector+center) (fractional, primitive).
+      - "reference" (str): (ndarray(n,6,sympy)) list of representative bond (vector+center) (fractional, conventional, plus set).
+      - "mapping" (str): ([[int]]) list of SO number (from 1) for each bond (opposite direction with negative sign).
+  NOTE:
+    - only for standard setting, (unique b axes, origin choice 2, hexagonal axes, abc).
+    - Wyckoff sites are in the same order of ITA (BCS).
+- "cluster_samb" (str): (dict) cluster SAMB of each Wyckoff site and bond.
+  - "site" (str): (dict) site-cluster SAMB data.
+    - sw_tag (str): (dict) SAMB data at site Wyckoff.
+      - (X,l,Gamma,n,p,s,k,x) (PGMultipoleType): (ndarray(dim,ns,sympy)) SAMB for each component.
+  - "bond" (str): (dict) bond-cluster SAMB data.
+    - bw_tag (str): (dict) SAMB data at bond Wyckoff, as "site".
+  NOTE:
+    - the expression of the harmonics (X,l,Gamma,n) of a key is in "harmonics" of the PG file (of info.PG for SG and MPG) (T and M use those of Q and G).
+    - created from the general-point SAMB of each group, i.e., the scalar cluster basis ("site", symmetric bond) and
+      the bond cluster basis (x = "q", anti-symmetric bond) of Oh or D6h restricted by the operation mapping (coset 0), and
+      averaged by the mapping of each Wyckoff site and bond (with the sign of the bond reversal for anti-symmetric bond).
+    - "bond" = symmetric bond SAMB (X = Q, real) + i anti-symmetric bond SAMB (X = Q -> T, G -> M, pure imaginary).
+      Q and T/M are orthonormalized separately (different time-reversal parity).
+    - keys of the top group with the irrep and component of the group; n is the multiplicity of the harmonics (X,l,Gamma).
+    - "-1" in multiplicity represents no multiplicity.
+    - each component is normalized on the ns sites (bonds).
+    - multipoles are sorted in order of [Gamma, l, n, p] ("site"), and of Gamma, then [l, n, p] for Q and
+      [l, k, T/M, n, p] for T/M ("bond", Q before T/M in each Gamma).
+* all sympy values are expanded with rationalized denominators.
+```
+
+### MPG files
+
+Description of the dictionary keys (header of `MPG/MPG:1.1.1.pkl`):
+
+```text
+* Data of an MPG.
+- "info" (str): (namedtuple) info.
+  - tag: MPG_id (PG.no.ID).
+  - international: international short symbol in LaTeX.
+  - schoenflies: Schoenflies symbol in LaTeX.
+  - crystal: triclinic, monoclinic, orthorhombic, tetragonal, trigonal, hexagonal, cubic.
+  - setting: setting.
+  - PG: associated PG, unique.
+  - SG: associated SG, MPG -> MSG -> SG.
+  - MPG: = id.
+  - MSG: associated MSG, 1st MSG in the same MPGs.
+  - lattice: "0".
+  - hexagonal_g: trigonal or hexagonal ?
+  - type: type I, II, III.
+  - SO: symmetry operations.
+- "symmetry_operation" (str): (dict) symmetry operation (SO) of group.
+  - "tag" (str): ([str]) list of SO tag.
+  - "cartesian" (str): (ndarray(n,3,3,sympy)) list of SO matrix (cartesian).
+  - "fractional" (str): (ndarray(n,3,3,sympy)) list of SO matrix (fractional).
+  - "det" (str): (ndarray(n,sympy)) list of determinant of SO matrix.
+  - "tr_sign" (str): (ndarray(n,sympy)) list of time-reversal sign of SO matrix.
+  NOTE:
+    - SOs are in the same order of ITA (BCS).
+    - SO matrices are in the same order of "tag".
+- "wyckoff" (str): (dict) Wyckoff site of group.
+  - "site" (str): (dict) info. of Wyckoff site.
+    - sw_tag (str): (dict) site Wyckoff tag.
+      - "symmetry" (str): (str) site symmetry.
+      - "conventional" (str): (ndarray(n,3,sympy)) list of Wyckoff site (fractional).
+      - "reference" (str): (ndarray(n,3,sympy)) list of representative site (fractional).
+      - "mapping" (str): ([[int]]) list of SO number (from 1) for each site.
+- "active_multipole" (list): active MPs list, [str] (multipoles in info["response_tensor"]["multipole"]).
+- "response_tensor" (str): (dict) response tensors (up to rank 4).
+  - (X, rank, opt) (str,int,str): ((ndarray(sympy), dict)) tensor matrix and expression.
+    - X: tensor type, "Q" (polar), "G" (axial), "T" (magnetic polar), "M" (magnetic axial).
+    - rank: tensor rank, 0-4.
+    - opt: "" (rank 0,1), "s/a" (rank 2), "ss/sa/a" (rank 3), "sss/ssa/aas/aaa/sa/as/s/a/t" (rank 4).
+    - matrix: tensor components, e.g. Q_{xyz} (sympy symbol), 0 for vanishing components.
+      - rank 0: (1,1), rank 1: (1,3) [x,y,z].
+      - rank 2 (s/a): (3,3) [x,y,z] x [x,y,z].
+      - rank 3: (6,3) [xx,yy,zz,yz,zx,xy] x [x,y,z] (ss/sa), (3,3) [yz,zx,xy] x [x,y,z] (a).
+      - rank 4: (6,6) (sss/ssa), (3,3) (aas/aaa), (6,3) (sa), (3,6) (as), (6,9) (s), (3,9) (a), (10,3) (t),
+                with pairs v=[xx,yy,zz,yz,zx,xy], a=[yz,zx,xy], u=[xx,yy,zz,yz,zx,xy,zy,xz,yx],
+                and triples t=[xxx,yyy,zzz,yyz,zzx,xxy,yzz,zxx,xyy,xyz].
+    - expression: {component symbol: expression in terms of active multipoles (LaTeX symbols)}.
+  NOTE:
+    - multipole symbol: \mathbb{X}_{sub}^{sup(n)} with the LaTeX names of info["harmonics"]["latex"]["orbital"],
+      (n) labels the independent cartesian decomposition.
+    - same as MultiPie Ver.2 Group.response_tensor_all except for the multipole names.
+* all sympy values are expanded with rationalized denominators.
+```
+
+### MSG files
+
+Description of the dictionary keys (header of `MSG/MSG:1.1.pkl`):
+
+```text
+* Data of an MSG.
+- "info" (str): (namedtuple) info.
+  - tag: BNS_id (SG.no).
+  - BNS: Belov-Neronova-Smirnova (international) notation in LaTeX.
+  - OG: Opechowski-Guccione notation in LaTeX.
+  - schoenflies: Schoenflies symbol in LaTeX.
+  - crystal: triclinic, monoclinic, orthorhombic, tetragonal, trigonal, hexagonal, cubic.
+  - setting: setting.
+  - PG: associated PG, unique.
+  - SG: associated SG, unique.
+  - MPG: associated MPG, unique.
+  - MSG: = id.
+  - lattice: A, B, C, P, I, F, R.
+  - hexagonal_g: trigonal or hexagonal ?
+  - type: type I, II, III, IV.
+  - SO: symmetry operations.
+- "symmetry_operation" (str): (dict) symmetry operation (SO) of group.
+  - "tag" (str): ([str]) list of SO tag.
+  - "cartesian" (str): (ndarray(n,4,4,sympy)) list of SO matrix (cartesian, conventional).
+  - "fractional" (str): (ndarray(n,4,4,sympy)) list of SO matrix (fractional, conventional).
+  - "det" (str): (ndarray(n,sympy)) list of determinant of SO matrix.
+  - "tr_sign" (str): (ndarray(n,sympy)) list of time-reversal sign of SO matrix.
+  NOTE:
+    - SOs are in the same order of ITA (BCS).
+    - SO matrices are in the same order of "tag".
+- "wyckoff" (str): (dict) Wyckoff site of group.
+  - "site" (str): (dict) info. of Wyckoff site.
+    - sw_tag (str): (dict) site Wyckoff tag.
+      - "symmetry" (str): (str) site symmetry.
+      - "conventional" (str): (ndarray(n,3,sympy)) list of Wyckoff site (fractional, conventional, no plus set).
+      - "reference" (str): (ndarray(n,3,sympy)) list of representative site (fractional, conventional).
+      - "mapping" (str): ([[int]]) list of SO number (from 1) for each site.
+* all sympy values are expanded with rationalized denominators.
+```
+
