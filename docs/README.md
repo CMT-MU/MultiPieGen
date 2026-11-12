@@ -49,6 +49,7 @@ The binary data (`multipiegen/binary`) and the PDFs (`multipiegen/pdf`) are kept
 | `binary/harmonics.pkl` | expression and u-matrix of the harmonics of all 47 point groups (rank l <= 11); the other multipole-keyed binaries look them up by the key | `python -m multipiegen.create_binary.create_harmonics` | `multipiegen.util.util_harmonics.load_harmonics()` |
 | `binary/multipolar_harmonics.pkl` | multipolar harmonics (s = 1, 2, 3, rank l <= 3) of all 47 point groups with polar (q) and axial (g) internal basis (data_basis orbitals) | `python -m multipiegen.create_binary.create_multipolar_harmonics` | `multipiegen.util.util_harmonics_multipole.load_multipolar_harmonics()` |
 | `binary/group.pkl` | data of all PG (47), SG, MPG and MSG: symmetry operations, product table, mapping to the Oh/D6h cluster, character, Wyckoff site and bond, active multipoles | `python -m multipiegen.create_binary.create_group` | `multipiegen.util.util_group.load_group()` |
+| `binary_data/info.pkl`, `binary_data/{PG,SG,MPG,MSG}/{id}.pkl` | binary data for MultiPie Ver.3 and later, in the layout of MultiPie's `multipie/binary_data`: info and one file for each group, made from the binaries above (see the "Binary data" page) | `python -m multipiegen.create_binary.create_binary_data` | `multipiegen.util.util_binary_data.load_binary_data("PG:32")` |
 | `pdf/PG/{no}-{tag}/harmonics.{tex,pdf}` | harmonics of all 47 point groups, with polar and axial symbols side by side | `python -m multipiegen.create_pdf.create_pdf_harmonics` | |
 | `pdf/{PG,SG,MPG,MSG}/*/{character_table,symmetry_operation,wyckoff_site,wyckoff_bond,representation_matrix,multipolar_harmonics_s{1,2,3}_{q,g},atomic_multipole_{lg,lgs,jml},response_tensor_X}.{tex,pdf}` | each group: character table, representation matrices, multipolar harmonics and atomic multipoles (PG), symmetry operations, Wyckoff site and bond (PG, SG), response tensors (MPG) | `python -m multipiegen.create_pdf.create_pdf_group` | |
 | `pdf/info/*.{tex,pdf}` | overall information: lists of PG, SG, MPG and MSG, compatibility relation with orbitals, active multipoles | `python -m multipiegen.create_pdf.create_pdf_info` | |
@@ -76,6 +77,7 @@ multipiegen/        package
   create_binary/    code that generates the binary data
   create_pdf/       code that generates the PDFs
   binary/           generated binary data (info.pkl, cluster_scalar_basis.pkl, cluster_vector_basis.pkl, cluster_bond_basis.pkl, cluster_samb.pkl, harmonics.pkl, multipolar_harmonics.pkl, atomic_multipole.pkl, atomic_multipole_group.pkl, group.pkl, response_tensor.pkl) [not packaged]
+  binary_data/      binary data for MultiPie (info.pkl, PG/, SG/, MPG/, MSG/: one file for each group, made from binary/) [not packaged]
   pdf/              generated LaTeX and PDF (PG/032-Oh/harmonics.pdf, info/PG.pdf, ...) [not packaged]
 docs/
   examples/         sample code for each feature
@@ -90,7 +92,8 @@ others/             non-package material
 
 1. **Data tables**: the scripts in `others/creation/` write their output next to themselves. Copy the result into
    `multipiegen/data/` when it is final.
-2. **Binary data**: run the modules in `multipiegen/create_binary/`. Each writes to `multipiegen/binary/`.
+2. **Binary data**: run the modules in `multipiegen/create_binary/`. Each writes to `multipiegen/binary/`. Then
+   `create_binary_data` regroups them into `multipiegen/binary_data/` for MultiPie.
 3. **PDFs**: run the modules in `multipiegen/create_pdf/`. Each writes to `multipiegen/pdf/`.
 4. **Check**: run `pytest`. The tests also check that the saved binaries agree with the current data tables.
 

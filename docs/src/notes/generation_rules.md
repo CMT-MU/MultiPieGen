@@ -17,6 +17,7 @@ Contents:
 5. Cluster SAMB of each Wyckoff site and bond (`cluster_samb.pkl`)
 6. Atomic multipoles (`atomic_multipole.pkl`) and their point-group SAMB (`atomic_multipole_group.pkl`)
 7. Exact arithmetic and simplification
+8. Binary data for MultiPie (`binary_data`)
 
 ---
 
@@ -279,3 +280,26 @@ Code: `util_atomic_multipole`, `create_binary/create_atomic_multipole.py`,
   exactly.
 - sympy re-evaluates some products when a pickle is loaded (`(a+b)/2` → `a/2 + b/2`), so "binary is up to date"
   tests compare after a pickle round trip.
+
+---
+
+## 8. Binary data for MultiPie (`binary_data`)
+
+Code: `util_binary_data`, `create_binary/create_binary_data.py`.
+
+1. **Layout.** As MultiPie's `multipie/binary_data`: `info.pkl` (the same data as `binary/info.pkl`, with the layout
+   added to the header) and one file for each group, `{PG,SG,MPG,MSG}/{id}.pkl` (47, 230, 157, 1651 files). No
+   separate `_opt` files: a PG file is at most about 260 KB.
+2. **Contents.** Regrouped from the binaries in `multipiegen/binary`; nothing is recomputed except the representation
+   matrices of PG (`util_representation_matrix`, below 1 KB each).
+   - PG: `info`, `symmetry_operation`, `wyckoff`, `character`, `representation_matrix`, `harmonics`,
+     `multipolar_harmonics`, `atomic_samb`, `cluster_samb` (real PG only).
+   - SG: `info`, `symmetry_operation`, `wyckoff`, `cluster_samb`.
+   - MPG: `info`, `symmetry_operation`, `wyckoff`, `active_multipole`, `response_tensor`.
+   - MSG: `info`, `symmetry_operation`, `wyckoff`.
+3. **Not included.** The intermediate cluster bases (`cluster_scalar_basis`, `cluster_vector_basis`,
+   `cluster_bond_basis`) and the spherical atomic multipoles (`atomic_multipole`).
+4. **Harmonics.** Not repeated: the SAMB and the multipolar harmonics are looked up by `(X, l, Gamma, n)` in
+   `"harmonics"` of the PG file (T -> Q, M -> G); for SG and MPG, the PG file is that of `info.PG`.
+5. **Header.** Each file has its own header (`str()`), made from the headers of the source binaries, so a file can be
+   read with `BinaryManager` alone.
