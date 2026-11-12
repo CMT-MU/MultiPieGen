@@ -250,6 +250,7 @@
 <li class="toctree-l2"><a class="reference internal" href="src/api_util/util_symmetry_operation.html">Symmetry operation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="src/api_util/util_representation_matrix.html">Representation matrix</a></li>
 <li class="toctree-l2"><a class="reference internal" href="src/api_util/util_response_tensor.html">Response tensor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/api_util/util_binary_data.html">Binary data for MultiPie</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="src/api_create.html">Generators</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -264,6 +265,7 @@
 <li class="toctree-l2"><a class="reference internal" href="src/api_create/create_cluster_vector_basis.html">Vector cluster basis binary</a></li>
 <li class="toctree-l2"><a class="reference internal" href="src/api_create/create_cluster_bond_basis.html">Cluster bond basis binary</a></li>
 <li class="toctree-l2"><a class="reference internal" href="src/api_create/create_cluster_samb.html">Cluster SAMB binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/api_create/create_binary_data.html">Binary data for MultiPie</a></li>
 <li class="toctree-l2"><a class="reference internal" href="src/api_create/create_pdf_harmonics.html">Harmonics PDF</a></li>
 <li class="toctree-l2"><a class="reference internal" href="src/api_create/create_pdf_info.html">Information PDF</a></li>
 <li class="toctree-l2"><a class="reference internal" href="src/api_create/create_pdf_group.html">Group PDF</a></li>
@@ -548,17 +550,22 @@ of the binaries and the PDFs to a separate repository.</p>
 <td><p><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">multipiegen.create_binary.create_group</span></code></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">multipiegen.util.util_group.load_group()</span></code></p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">pdf/PG/{no}-{tag}/harmonics.{tex,pdf}</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">binary_data/info.pkl</span></code>, <code class="docutils literal notranslate"><span class="pre">binary_data/{PG,SG,MPG,MSG}/{id}.pkl</span></code></p></td>
+<td><p>binary data for MultiPie Ver.3 and later, in the layout of MultiPie’s <code class="docutils literal notranslate"><span class="pre">multipie/binary_data</span></code>: info and one file for each group, made from the binaries above (see the “Binary data” page)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">multipiegen.create_binary.create_binary_data</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">multipiegen.util.util_binary_data.load_binary_data(&quot;PG:32&quot;)</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">pdf/PG/{no}-{tag}/harmonics.{tex,pdf}</span></code></p></td>
 <td><p>harmonics of all 47 point groups, with polar and axial symbols side by side</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">multipiegen.create_pdf.create_pdf_harmonics</span></code></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">pdf/{PG,SG,MPG,MSG}/*/{character_table,symmetry_operation,wyckoff_site,wyckoff_bond,representation_matrix,multipolar_harmonics_s{1,2,3}_{q,g},atomic_multipole_{lg,lgs,jml},response_tensor_X}.{tex,pdf}</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">pdf/{PG,SG,MPG,MSG}/*/{character_table,symmetry_operation,wyckoff_site,wyckoff_bond,representation_matrix,multipolar_harmonics_s{1,2,3}_{q,g},atomic_multipole_{lg,lgs,jml},response_tensor_X}.{tex,pdf}</span></code></p></td>
 <td><p>each group: character table, representation matrices, multipolar harmonics and atomic multipoles (PG), symmetry operations, Wyckoff site and bond (PG, SG), response tensors (MPG)</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">multipiegen.create_pdf.create_pdf_group</span></code></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">pdf/info/*.{tex,pdf}</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">pdf/info/*.{tex,pdf}</span></code></p></td>
 <td><p>overall information: lists of PG, SG, MPG and MSG, compatibility relation with orbitals, active multipoles</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">multipiegen.create_pdf.create_pdf_info</span></code></p></td>
 <td><p></p></td>
@@ -586,6 +593,7 @@ shows the description of the contents.</p>
   <span class="n">create_binary</span><span class="o">/</span>    <span class="n">code</span> <span class="n">that</span> <span class="n">generates</span> <span class="n">the</span> <span class="n">binary</span> <span class="n">data</span>
   <span class="n">create_pdf</span><span class="o">/</span>       <span class="n">code</span> <span class="n">that</span> <span class="n">generates</span> <span class="n">the</span> <span class="n">PDFs</span>
   <span class="n">binary</span><span class="o">/</span>           <span class="n">generated</span> <span class="n">binary</span> <span class="n">data</span> <span class="p">(</span><span class="n">info</span><span class="o">.</span><span class="n">pkl</span><span class="p">,</span> <span class="n">cluster_scalar_basis</span><span class="o">.</span><span class="n">pkl</span><span class="p">,</span> <span class="n">cluster_vector_basis</span><span class="o">.</span><span class="n">pkl</span><span class="p">,</span> <span class="n">cluster_bond_basis</span><span class="o">.</span><span class="n">pkl</span><span class="p">,</span> <span class="n">cluster_samb</span><span class="o">.</span><span class="n">pkl</span><span class="p">,</span> <span class="n">harmonics</span><span class="o">.</span><span class="n">pkl</span><span class="p">,</span> <span class="n">multipolar_harmonics</span><span class="o">.</span><span class="n">pkl</span><span class="p">,</span> <span class="n">atomic_multipole</span><span class="o">.</span><span class="n">pkl</span><span class="p">,</span> <span class="n">atomic_multipole_group</span><span class="o">.</span><span class="n">pkl</span><span class="p">,</span> <span class="n">group</span><span class="o">.</span><span class="n">pkl</span><span class="p">,</span> <span class="n">response_tensor</span><span class="o">.</span><span class="n">pkl</span><span class="p">)</span> <span class="p">[</span><span class="ow">not</span> <span class="n">packaged</span><span class="p">]</span>
+  <span class="n">binary_data</span><span class="o">/</span>      <span class="n">binary</span> <span class="n">data</span> <span class="k">for</span> <span class="n">MultiPie</span> <span class="p">(</span><span class="n">info</span><span class="o">.</span><span class="n">pkl</span><span class="p">,</span> <span class="n">PG</span><span class="o">/</span><span class="p">,</span> <span class="n">SG</span><span class="o">/</span><span class="p">,</span> <span class="n">MPG</span><span class="o">/</span><span class="p">,</span> <span class="n">MSG</span><span class="o">/</span><span class="p">:</span> <span class="n">one</span> <span class="n">file</span> <span class="k">for</span> <span class="n">each</span> <span class="n">group</span><span class="p">,</span> <span class="n">made</span> <span class="kn">from</span><span class="w"> </span><span class="nn">binary</span><span class="o">/</span><span class="p">)</span> <span class="p">[</span><span class="ow">not</span> <span class="n">packaged</span><span class="p">]</span>
   <span class="n">pdf</span><span class="o">/</span>              <span class="n">generated</span> <span class="n">LaTeX</span> <span class="ow">and</span> <span class="n">PDF</span> <span class="p">(</span><span class="n">PG</span><span class="o">/</span><span class="mi">032</span><span class="o">-</span><span class="n">Oh</span><span class="o">/</span><span class="n">harmonics</span><span class="o">.</span><span class="n">pdf</span><span class="p">,</span> <span class="n">info</span><span class="o">/</span><span class="n">PG</span><span class="o">.</span><span class="n">pdf</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span> <span class="p">[</span><span class="ow">not</span> <span class="n">packaged</span><span class="p">]</span>
 <span class="n">docs</span><span class="o">/</span>
   <span class="n">examples</span><span class="o">/</span>         <span class="n">sample</span> <span class="n">code</span> <span class="k">for</span> <span class="n">each</span> <span class="n">feature</span>
@@ -602,7 +610,8 @@ shows the description of the contents.</p>
 <ol class="arabic simple">
 <li><p><strong>Data tables</strong>: the scripts in <code class="docutils literal notranslate"><span class="pre">others/creation/</span></code> write their output next to themselves. Copy the result into
 <code class="docutils literal notranslate"><span class="pre">multipiegen/data/</span></code> when it is final.</p></li>
-<li><p><strong>Binary data</strong>: run the modules in <code class="docutils literal notranslate"><span class="pre">multipiegen/create_binary/</span></code>. Each writes to <code class="docutils literal notranslate"><span class="pre">multipiegen/binary/</span></code>.</p></li>
+<li><p><strong>Binary data</strong>: run the modules in <code class="docutils literal notranslate"><span class="pre">multipiegen/create_binary/</span></code>. Each writes to <code class="docutils literal notranslate"><span class="pre">multipiegen/binary/</span></code>. Then
+<code class="docutils literal notranslate"><span class="pre">create_binary_data</span></code> regroups them into <code class="docutils literal notranslate"><span class="pre">multipiegen/binary_data/</span></code> for MultiPie.</p></li>
 <li><p><strong>PDFs</strong>: run the modules in <code class="docutils literal notranslate"><span class="pre">multipiegen/create_pdf/</span></code>. Each writes to <code class="docutils literal notranslate"><span class="pre">multipiegen/pdf/</span></code>.</p></li>
 <li><p><strong>Check</strong>: run <code class="docutils literal notranslate"><span class="pre">pytest</span></code>. The tests also check that the saved binaries agree with the current data tables.</p></li>
 </ol>

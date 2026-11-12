@@ -247,6 +247,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../api_util/util_symmetry_operation.html">Symmetry operation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api_util/util_representation_matrix.html">Representation matrix</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api_util/util_response_tensor.html">Response tensor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_util/util_binary_data.html">Binary data for MultiPie</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../api_create.html">Generators</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -261,6 +262,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../api_create/create_cluster_vector_basis.html">Vector cluster basis binary</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api_create/create_cluster_bond_basis.html">Cluster bond basis binary</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api_create/create_cluster_samb.html">Cluster SAMB binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_create/create_binary_data.html">Binary data for MultiPie</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api_create/create_pdf_harmonics.html">Harmonics PDF</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api_create/create_pdf_info.html">Information PDF</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api_create/create_pdf_group.html">Group PDF</a></li>
@@ -449,6 +451,7 @@
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exact-arithmetic-and-simplification">7. Exact arithmetic and simplification</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#binary-data-for-multipie-binary-data">8. Binary data for MultiPie (<code class="docutils literal notranslate"><span class="pre">binary_data</span></code>)</a></li>
 </ul>
             </nav>
         </div>
@@ -474,6 +477,7 @@ The changes from MultiPie Ver.2 are collected separately in <a class="reference 
 <li><p>Cluster SAMB of each Wyckoff site and bond (<code class="docutils literal notranslate"><span class="pre">cluster_samb.pkl</span></code>)</p></li>
 <li><p>Atomic multipoles (<code class="docutils literal notranslate"><span class="pre">atomic_multipole.pkl</span></code>) and their point-group SAMB (<code class="docutils literal notranslate"><span class="pre">atomic_multipole_group.pkl</span></code>)</p></li>
 <li><p>Exact arithmetic and simplification</p></li>
+<li><p>Binary data for MultiPie (<code class="docutils literal notranslate"><span class="pre">binary_data</span></code>)</p></li>
 </ol>
 <hr class="docutils" />
 <section id="common-conventions">
@@ -794,6 +798,32 @@ exactly.</p></li>
 tests compare after a pickle round trip.</p></li>
 </ul>
 </section>
+<hr class="docutils" />
+<section id="binary-data-for-multipie-binary-data">
+<h2>8. Binary data for MultiPie (<code class="docutils literal notranslate"><span class="pre">binary_data</span></code>)<a class="headerlink" href="#binary-data-for-multipie-binary-data" title="Link to this heading">#</a></h2>
+<p>Code: <code class="docutils literal notranslate"><span class="pre">util_binary_data</span></code>, <code class="docutils literal notranslate"><span class="pre">create_binary/create_binary_data.py</span></code>.</p>
+<ol class="arabic simple">
+<li><p><strong>Layout.</strong> As MultiPie’s <code class="docutils literal notranslate"><span class="pre">multipie/binary_data</span></code>: <code class="docutils literal notranslate"><span class="pre">info.pkl</span></code> (the same data as <code class="docutils literal notranslate"><span class="pre">binary/info.pkl</span></code>, with the layout
+added to the header) and one file for each group, <code class="docutils literal notranslate"><span class="pre">{PG,SG,MPG,MSG}/{id}.pkl</span></code> (47, 230, 157, 1651 files). No
+separate <code class="docutils literal notranslate"><span class="pre">_opt</span></code> files: a PG file is at most about 260 KB.</p></li>
+<li><p><strong>Contents.</strong> Regrouped from the binaries in <code class="docutils literal notranslate"><span class="pre">multipiegen/binary</span></code>; nothing is recomputed except the representation
+matrices of PG (<code class="docutils literal notranslate"><span class="pre">util_representation_matrix</span></code>, below 1 KB each).</p>
+<ul class="simple">
+<li><p>PG: <code class="docutils literal notranslate"><span class="pre">info</span></code>, <code class="docutils literal notranslate"><span class="pre">symmetry_operation</span></code>, <code class="docutils literal notranslate"><span class="pre">wyckoff</span></code>, <code class="docutils literal notranslate"><span class="pre">character</span></code>, <code class="docutils literal notranslate"><span class="pre">representation_matrix</span></code>, <code class="docutils literal notranslate"><span class="pre">harmonics</span></code>,
+<code class="docutils literal notranslate"><span class="pre">multipolar_harmonics</span></code>, <code class="docutils literal notranslate"><span class="pre">atomic_samb</span></code>, <code class="docutils literal notranslate"><span class="pre">cluster_samb</span></code> (real PG only).</p></li>
+<li><p>SG: <code class="docutils literal notranslate"><span class="pre">info</span></code>, <code class="docutils literal notranslate"><span class="pre">symmetry_operation</span></code>, <code class="docutils literal notranslate"><span class="pre">wyckoff</span></code>, <code class="docutils literal notranslate"><span class="pre">cluster_samb</span></code>.</p></li>
+<li><p>MPG: <code class="docutils literal notranslate"><span class="pre">info</span></code>, <code class="docutils literal notranslate"><span class="pre">symmetry_operation</span></code>, <code class="docutils literal notranslate"><span class="pre">wyckoff</span></code>, <code class="docutils literal notranslate"><span class="pre">active_multipole</span></code>, <code class="docutils literal notranslate"><span class="pre">response_tensor</span></code>.</p></li>
+<li><p>MSG: <code class="docutils literal notranslate"><span class="pre">info</span></code>, <code class="docutils literal notranslate"><span class="pre">symmetry_operation</span></code>, <code class="docutils literal notranslate"><span class="pre">wyckoff</span></code>.</p></li>
+</ul>
+</li>
+<li><p><strong>Not included.</strong> The intermediate cluster bases (<code class="docutils literal notranslate"><span class="pre">cluster_scalar_basis</span></code>, <code class="docutils literal notranslate"><span class="pre">cluster_vector_basis</span></code>,
+<code class="docutils literal notranslate"><span class="pre">cluster_bond_basis</span></code>) and the spherical atomic multipoles (<code class="docutils literal notranslate"><span class="pre">atomic_multipole</span></code>).</p></li>
+<li><p><strong>Harmonics.</strong> Not repeated: the SAMB and the multipolar harmonics are looked up by <code class="docutils literal notranslate"><span class="pre">(X,</span> <span class="pre">l,</span> <span class="pre">Gamma,</span> <span class="pre">n)</span></code> in
+<code class="docutils literal notranslate"><span class="pre">&quot;harmonics&quot;</span></code> of the PG file (T -&gt; Q, M -&gt; G); for SG and MPG, the PG file is that of <code class="docutils literal notranslate"><span class="pre">info.PG</span></code>.</p></li>
+<li><p><strong>Header.</strong> Each file has its own header (<code class="docutils literal notranslate"><span class="pre">str()</span></code>), made from the headers of the source binaries, so a file can be
+read with <code class="docutils literal notranslate"><span class="pre">BinaryManager</span></code> alone.</p></li>
+</ol>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -861,6 +891,7 @@ tests compare after a pickle round trip.</p></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exact-arithmetic-and-simplification">7. Exact arithmetic and simplification</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#binary-data-for-multipie-binary-data">8. Binary data for MultiPie (<code class="docutils literal notranslate"><span class="pre">binary_data</span></code>)</a></li>
 </ul>
   </nav></div>
 

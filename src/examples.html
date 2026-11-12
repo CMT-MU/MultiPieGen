@@ -247,6 +247,7 @@
 <li class="toctree-l2"><a class="reference internal" href="api_util/util_symmetry_operation.html">Symmetry operation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api_util/util_representation_matrix.html">Representation matrix</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api_util/util_response_tensor.html">Response tensor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_util/util_binary_data.html">Binary data for MultiPie</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="api_create.html">Generators</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -261,6 +262,7 @@
 <li class="toctree-l2"><a class="reference internal" href="api_create/create_cluster_vector_basis.html">Vector cluster basis binary</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api_create/create_cluster_bond_basis.html">Cluster bond basis binary</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api_create/create_cluster_samb.html">Cluster SAMB binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_create/create_binary_data.html">Binary data for MultiPie</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api_create/create_pdf_harmonics.html">Harmonics PDF</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api_create/create_pdf_info.html">Information PDF</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api_create/create_pdf_group.html">Group PDF</a></li>
@@ -438,6 +440,7 @@
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#atomic-multipole-py">atomic_multipole.py</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#harmonics-symbol-py">harmonics_symbol.py</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#info-py">info.py</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#binary-data-py">binary_data.py</a></li>
 </ul>
             </nav>
         </div>
@@ -912,6 +915,56 @@
 </pre></div>
 </div>
 </section>
+<section id="binary-data-py">
+<h2>binary_data.py<a class="headerlink" href="#binary-data-py" title="Link to this heading">#</a></h2>
+<p>Binary data for MultiPie (binary_data): info.pkl and one file for each group, read with BinaryManager alone, and the look-up of the harmonics of a SAMB key in the PG file.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">multipie.util.util_binary</span><span class="w"> </span><span class="kn">import</span> <span class="n">BinaryManager</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">multipiegen.util.util_binary_data</span><span class="w"> </span><span class="kn">import</span> <span class="n">binary_data_dir</span>
+
+<span class="c1"># ==================================================</span>
+<span class="c1"># 1. info.pkl: information of all groups (the same as binary/info.pkl).</span>
+<span class="n">info</span> <span class="o">=</span> <span class="n">BinaryManager</span><span class="p">(</span><span class="s2">"info"</span><span class="p">,</span> <span class="n">topdir</span><span class="o">=</span><span class="n">binary_data_dir</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"info:"</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="n">info</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"PG:32 -&gt;"</span><span class="p">,</span> <span class="n">info</span><span class="p">[</span><span class="s2">"tag"</span><span class="p">][</span><span class="s2">"PG:32"</span><span class="p">],</span> <span class="s2">", name:"</span><span class="p">,</span> <span class="n">info</span><span class="p">[</span><span class="s2">"group_name"</span><span class="p">][</span><span class="s2">"PG"</span><span class="p">][</span><span class="s2">"PG:32"</span><span class="p">][</span><span class="s2">"name"</span><span class="p">])</span>
+
+<span class="c1"># ==================================================</span>
+<span class="c1"># 2. a PG file. str() shows the description of its keys.</span>
+<span class="n">pg</span> <span class="o">=</span> <span class="n">BinaryManager</span><span class="p">(</span><span class="s2">"PG/PG:32"</span><span class="p">,</span> <span class="n">topdir</span><span class="o">=</span><span class="n">binary_data_dir</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">PG/PG:32:"</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="n">pg</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">pg</span><span class="p">)[:</span><span class="mi">300</span><span class="p">],</span> <span class="s2">"..."</span><span class="p">)</span>
+
+<span class="c1"># ==================================================</span>
+<span class="c1"># 3. the SAMB hold no expression: look up the harmonics by (X, l, Gamma, n) of the key, with T -&gt; Q and M -&gt; G.</span>
+<span class="n">harmonics_type</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"Q"</span><span class="p">:</span> <span class="s2">"Q"</span><span class="p">,</span> <span class="s2">"G"</span><span class="p">:</span> <span class="s2">"G"</span><span class="p">,</span> <span class="s2">"T"</span><span class="p">:</span> <span class="s2">"Q"</span><span class="p">,</span> <span class="s2">"M"</span><span class="p">:</span> <span class="s2">"G"</span><span class="p">}</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">expression</span><span class="p">(</span><span class="n">harmonics</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+    <span class="n">ex</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">harmonics</span><span class="p">[(</span><span class="n">harmonics_type</span><span class="p">[</span><span class="n">key</span><span class="o">.</span><span class="n">X</span><span class="p">],</span> <span class="n">key</span><span class="o">.</span><span class="n">l</span><span class="p">,</span> <span class="n">key</span><span class="o">.</span><span class="n">Gamma</span><span class="p">,</span> <span class="n">key</span><span class="o">.</span><span class="n">n</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">"q"</span><span class="p">)]</span>
+    <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="n">ex</span><span class="p">)</span>
+
+
+<span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">samb</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">pg</span><span class="p">[</span><span class="s2">"cluster_samb"</span><span class="p">][</span><span class="s2">"bond"</span><span class="p">][</span><span class="s2">"3a@1o"</span><span class="p">]</span><span class="o">.</span><span class="n">items</span><span class="p">())[:</span><span class="mi">3</span><span class="p">]:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">" "</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="s2">"ex ="</span><span class="p">,</span> <span class="n">expression</span><span class="p">(</span><span class="n">pg</span><span class="p">[</span><span class="s2">"harmonics"</span><span class="p">],</span> <span class="n">key</span><span class="p">),</span> <span class="s2">"samb ="</span><span class="p">,</span> <span class="n">samb</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
+
+<span class="c1"># ==================================================</span>
+<span class="c1"># 4. an SG file: its harmonics are those of its PG (info.PG).</span>
+<span class="n">sg</span> <span class="o">=</span> <span class="n">BinaryManager</span><span class="p">(</span><span class="s2">"SG/SG:221"</span><span class="p">,</span> <span class="n">topdir</span><span class="o">=</span><span class="n">binary_data_dir</span><span class="p">)</span>
+<span class="n">pg_of_sg</span> <span class="o">=</span> <span class="n">BinaryManager</span><span class="p">(</span><span class="sa">f</span><span class="s2">"PG/</span><span class="si">{</span><span class="n">sg</span><span class="p">[</span><span class="s1">'info'</span><span class="p">]</span><span class="o">.</span><span class="n">PG</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span> <span class="n">topdir</span><span class="o">=</span><span class="n">binary_data_dir</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">SG/SG:221:"</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="n">sg</span><span class="o">.</span><span class="n">keys</span><span class="p">()),</span> <span class="s2">", PG:"</span><span class="p">,</span> <span class="n">sg</span><span class="p">[</span><span class="s2">"info"</span><span class="p">]</span><span class="o">.</span><span class="n">PG</span><span class="p">)</span>
+<span class="n">w</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">sg</span><span class="p">[</span><span class="s2">"cluster_samb"</span><span class="p">][</span><span class="s2">"site"</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">())[</span><span class="mi">1</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">samb</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">sg</span><span class="p">[</span><span class="s2">"cluster_samb"</span><span class="p">][</span><span class="s2">"site"</span><span class="p">][</span><span class="n">w</span><span class="p">]</span><span class="o">.</span><span class="n">items</span><span class="p">())[:</span><span class="mi">2</span><span class="p">]:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">" "</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="s2">"ex ="</span><span class="p">,</span> <span class="n">expression</span><span class="p">(</span><span class="n">pg_of_sg</span><span class="p">[</span><span class="s2">"harmonics"</span><span class="p">],</span> <span class="n">key</span><span class="p">))</span>
+
+<span class="c1"># ==================================================</span>
+<span class="c1"># 5. an MPG file: active multipoles and response tensors.</span>
+<span class="n">mpg</span> <span class="o">=</span> <span class="n">BinaryManager</span><span class="p">(</span><span class="s2">"MPG/MPG:15.6.58"</span><span class="p">,</span> <span class="n">topdir</span><span class="o">=</span><span class="n">binary_data_dir</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">MPG/MPG:15.6.58:"</span><span class="p">,</span> <span class="n">mpg</span><span class="p">[</span><span class="s2">"info"</span><span class="p">]</span><span class="o">.</span><span class="n">international</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="n">mpg</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span>
+<span class="n">matrix</span><span class="p">,</span> <span class="n">ex</span> <span class="o">=</span> <span class="n">mpg</span><span class="p">[</span><span class="s2">"response_tensor"</span><span class="p">][(</span><span class="s2">"T"</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">"a"</span><span class="p">)]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"  (T, 2, a):"</span><span class="p">,</span> <span class="n">matrix</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span> <span class="n">ex</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -968,6 +1021,7 @@
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#atomic-multipole-py">atomic_multipole.py</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#harmonics-symbol-py">harmonics_symbol.py</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#info-py">info.py</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#binary-data-py">binary_data.py</a></li>
 </ul>
   </nav></div>
 

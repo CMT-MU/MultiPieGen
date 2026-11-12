@@ -1,0 +1,722 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>multipiegen.util.util_binary_data &#8212; MultiPieGen</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=34ddd5e8" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+
+    <script src="../../../_static/documentation_options.js?v=a8e58a58"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/multipiegen/util/util_binary_data';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <script src="../../../_static/custom.js?v=9c3a2667"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../../_static/searchtools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    <script src="../../../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../README.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">MultiPieGen</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Documentation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../src/guide.html">User Guide</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../src/group_info.html">Group Information</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/info_pdf.html">Overall information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/pg_pdf.html">Point groups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/sg_pdf.html">Space groups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/mpg_pdf.html">Magnetic point groups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/msg_pdf.html">Magnetic space groups</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../src/notes.html">Notes</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../src/details.html">Details</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/examples.html">Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/binary.html">Binary data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/data.html">Data tables</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">API reference</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../src/api_util.html">Utilities</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_util/util_info.html">Info</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_util/util_group.html">Group</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_util/util_group_data.html">Group data (ids, tags, names)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_util/util_top_harmonics.html">Top harmonics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_util/util_harmonics_mapping.html">Harmonics mapping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_util/util_op_mapping.html">Operation mapping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_util/util_cluster_basis.html">Cluster basis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_util/util_cluster_vector_basis.html">Vector cluster basis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_util/util_bond_cluster_basis.html">Bond cluster basis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_util/util_cluster_samb.html">Cluster SAMB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_util/util_harmonics_symbol.html">Harmonics symbol</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_util/util_harmonics.html">Harmonics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_util/util_harmonics_multipole.html">Multipolar harmonics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_util/util_multipolar_harmonics.html">Multipolar harmonics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_util/util_atomic_multipole.html">Atomic multipole</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_util/util_symmetry_operation.html">Symmetry operation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_util/util_representation_matrix.html">Representation matrix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_util/util_response_tensor.html">Response tensor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_util/util_binary_data.html">Binary data for MultiPie</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../src/api_create.html">Generators</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_create/create_info.html">Info binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_create/create_group.html">Group binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_create/create_response_tensor.html">Response tensor binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_create/create_harmonics.html">Harmonics binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_create/create_multipolar_harmonics.html">Multipolar harmonics binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_create/create_atomic_multipole.html">Atomic multipole binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_create/create_atomic_multipole_group.html">Atomic multipole group binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_create/create_cluster_scalar_basis.html">Cluster scalar basis binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_create/create_cluster_vector_basis.html">Vector cluster basis binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_create/create_cluster_bond_basis.html">Cluster bond basis binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_create/create_cluster_samb.html">Cluster SAMB binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_create/create_binary_data.html">Binary data for MultiPie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_create/create_pdf_harmonics.html">Harmonics PDF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_create/create_pdf_info.html">Information PDF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../src/api_create/create_pdf_group.html">Group PDF</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/hiro-k-phys/MultiPieGen.git" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for multipiegen.util.util_binary_data</h1><div class="highlight"><pre>
+<span></span><span class="c1"># SPDX-License-Identifier: MPL-2.0</span>
+<span class="c1"># Copyright (C) 2021- The MultiPieGen developers</span>
+<span class="c1">#</span>
+<span class="c1"># This Source Code Form is subject to the terms of the Mozilla Public</span>
+<span class="c1"># License, v. 2.0. If a copy of the MPL was not distributed with this</span>
+<span class="c1"># file, You can obtain one at https://mozilla.org/MPL/2.0/.</span>
+
+<span class="sd">"""</span>
+<span class="sd">Binary data for MultiPie (multipiegen/binary_data), in the layout of MultiPie's multipie/binary_data.</span>
+
+<span class="sd">- info.pkl: information of all groups (= binary/info.pkl).</span>
+<span class="sd">- {PG,SG,MPG,MSG}/{id}.pkl: data of each group, e.g. PG/PG:32.pkl, SG/SG:221.pkl, MPG/MPG:32.1.118.pkl,</span>
+<span class="sd">  MSG/MSG:221.92.pkl. Each file has its own header (str() of the loaded data).</span>
+
+<span class="sd">The data are taken from the binaries in multipiegen/binary (nothing is recomputed, except the representation</span>
+<span class="sd">matrices of PG by util_representation_matrix), and regrouped by group:</span>
+
+<span class="sd">- PG: info, symmetry_operation, wyckoff, character (group.pkl), representation_matrix, harmonics (harmonics.pkl),</span>
+<span class="sd">  multipolar_harmonics (multipolar_harmonics.pkl), atomic_samb (atomic_multipole_group.pkl), and cluster_samb</span>
+<span class="sd">  (cluster_samb.pkl, real PG only).</span>
+<span class="sd">- SG: info, symmetry_operation, wyckoff (group.pkl), and cluster_samb (cluster_samb.pkl).</span>
+<span class="sd">- MPG: info, symmetry_operation, wyckoff, active_multipole (group.pkl), and response_tensor (response_tensor.pkl).</span>
+<span class="sd">- MSG: info, symmetry_operation, wyckoff (group.pkl).</span>
+
+<span class="sd">The SAMB and the multipolar harmonics hold no expression of the harmonics: look it up by (X, l, Gamma, n) of the key</span>
+<span class="sd">in "harmonics" of the PG file (T -&gt; Q, M -&gt; G); for SG and MPG, the PG file is that of info.PG.</span>
+<span class="sd">"""</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">multipie.util.util_binary</span><span class="w"> </span><span class="kn">import</span> <span class="n">BinaryManager</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">multipiegen</span><span class="w"> </span><span class="kn">import</span> <span class="n">__top_dir__</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">multipiegen.util.util_atomic_multipole</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_atomic_multipole_group</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">multipiegen.util.util_cluster_samb</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_cluster_samb</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">multipiegen.util.util_group</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_group</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">multipiegen.util.util_harmonics</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_harmonics</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">multipiegen.util.util_harmonics_multipole</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_multipolar_harmonics</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">multipiegen.util.util_info</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_info</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">multipiegen.util.util_representation_matrix</span><span class="w"> </span><span class="kn">import</span> <span class="n">representation_matrix</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">multipiegen.util.util_response_tensor</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_response_tensor</span>
+
+<span class="c1"># ==================================================</span>
+<span class="n">binary_data_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">__top_dir__</span><span class="p">,</span> <span class="s2">"multipiegen"</span><span class="p">,</span> <span class="s2">"binary_data"</span><span class="p">)</span> <span class="o">+</span> <span class="n">os</span><span class="o">.</span><span class="n">sep</span>
+<span class="n">group_types</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"PG"</span><span class="p">,</span> <span class="s2">"SG"</span><span class="p">,</span> <span class="s2">"MPG"</span><span class="p">,</span> <span class="s2">"MSG"</span><span class="p">]</span>
+
+<span class="n">h_info_layout</span> <span class="o">=</span> <span class="s2">"""</span>
+<span class="s2">* Layout of the binary data (multipiegen/binary_data, as MultiPie's multipie/binary_data).</span>
+<span class="s2">- info.pkl: this file.</span>
+<span class="s2">- {PG,SG,MPG,MSG}/</span><span class="si">{id}</span><span class="s2">.pkl: data of each group, e.g. "PG/PG:32", "SG/SG:221", "MPG/MPG:32.1.118", "MSG/MSG:221.92".</span>
+<span class="s2">  str() of each file shows the description of its keys.</span>
+<span class="s2">"""</span>
+
+<span class="n">h_representation_matrix</span> <span class="o">=</span> <span class="s2">"""</span>
+<span class="s2">- "representation_matrix" (str): (dict) representation matrices of the irreps.</span>
+<span class="s2">  - "tag" (str): ([str]) list of SO tag.</span>
+<span class="s2">  - "matrix" (str): (dict) representation matrices.</span>
+<span class="s2">    - irrep_tag (str): (ndarray(n,dim,dim,sympy)) matrix of each SO, in the order of "tag".</span>
+<span class="s2">  NOTE:</span>
+<span class="s2">    - obtained from the u-matrices of the harmonics (util_representation_matrix).</span>
+<span class="s2">"""</span>
+
+<span class="n">_section_title</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">"harmonics"</span><span class="p">:</span> <span class="s2">"(dict) harmonics (rank l &lt;= 11): cartesian expression and u-matrix for each multipole key."</span><span class="p">,</span>
+    <span class="s2">"multipolar_harmonics"</span><span class="p">:</span> <span class="s2">"(dict) multipolar harmonics (s = 1..3, rank l &lt;= 3) with polar (q) and axial (g) internal basis."</span><span class="p">,</span>
+    <span class="s2">"atomic_samb"</span><span class="p">:</span> <span class="s2">"(dict) matrix of atomic multipole SAMB (rank l &lt;= 7, s = 0, 1, orbitals of L = 0..3)."</span><span class="p">,</span>
+    <span class="s2">"cluster_samb"</span><span class="p">:</span> <span class="s2">"(dict) cluster SAMB of each Wyckoff site and bond."</span><span class="p">,</span>
+    <span class="s2">"response_tensor"</span><span class="p">:</span> <span class="s2">"(dict) response tensors (up to rank 4)."</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="n">_shared</span> <span class="o">=</span> <span class="p">{}</span>
+
+
+<span class="c1"># ==================================================</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_sources</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">"""Source binaries in multipiegen/binary (loaded once per process)."""</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">_shared</span><span class="p">:</span>
+        <span class="n">_shared</span><span class="o">.</span><span class="n">update</span><span class="p">(</span>
+            <span class="p">{</span>
+                <span class="s2">"info"</span><span class="p">:</span> <span class="n">load_info</span><span class="p">(),</span>
+                <span class="s2">"group"</span><span class="p">:</span> <span class="n">load_group</span><span class="p">(),</span>
+                <span class="s2">"harmonics"</span><span class="p">:</span> <span class="n">load_harmonics</span><span class="p">(),</span>
+                <span class="s2">"multipolar_harmonics"</span><span class="p">:</span> <span class="n">load_multipolar_harmonics</span><span class="p">(),</span>
+                <span class="s2">"atomic_samb"</span><span class="p">:</span> <span class="n">load_atomic_multipole_group</span><span class="p">(),</span>
+                <span class="s2">"cluster_samb"</span><span class="p">:</span> <span class="n">load_cluster_samb</span><span class="p">(),</span>
+                <span class="s2">"response_tensor"</span><span class="p">:</span> <span class="n">load_response_tensor</span><span class="p">(),</span>
+            <span class="p">}</span>
+        <span class="p">)</span>
+    <span class="k">return</span> <span class="n">_shared</span>
+
+
+<span class="c1"># ==================================================</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_group_section</span><span class="p">(</span><span class="n">header</span><span class="p">,</span> <span class="n">tp</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Description of the group data of a type in the header of group.pkl, one level up.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        header (str): header of group.pkl.</span>
+<span class="sd">        tp (str): "PG", "SG", "MPG" or "MSG".</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        - (str) -- description of the keys "info", "symmetry_operation", ... of a group file.</span>
+<span class="sd">    """</span>
+    <span class="n">lines</span> <span class="o">=</span> <span class="n">header</span><span class="o">.</span><span class="n">splitlines</span><span class="p">()</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">n</span> <span class="k">for</span> <span class="n">n</span><span class="p">,</span> <span class="n">l</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">lines</span><span class="p">)</span> <span class="k">if</span> <span class="n">l</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="sa">f</span><span class="s1">'* Information for all </span><span class="si">{</span><span class="n">tp</span><span class="si">}</span><span class="s1"> ("</span><span class="si">{</span><span class="n">tp</span><span class="si">}</span><span class="s1">")'</span><span class="p">))</span>
+    <span class="n">j</span> <span class="o">=</span> <span class="nb">next</span><span class="p">((</span><span class="n">n</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">lines</span><span class="p">))</span> <span class="k">if</span> <span class="n">lines</span><span class="p">[</span><span class="n">n</span><span class="p">]</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">"* "</span><span class="p">)),</span> <span class="nb">len</span><span class="p">(</span><span class="n">lines</span><span class="p">))</span>
+    <span class="n">body</span> <span class="o">=</span> <span class="n">lines</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">2</span> <span class="p">:</span> <span class="n">j</span><span class="p">]</span>  <span class="c1"># skip the title and "- {tp}_id (str): ..." lines.</span>
+    <span class="k">return</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">l</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span> <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">body</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+
+
+<span class="c1"># ==================================================</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_source_section</span><span class="p">(</span><span class="n">header</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Description of a source binary as a key of a group file.</span>
+
+<span class="sd">    The first "- PG_id (str): (dict) text" line becomes '- "name" (str): (dict) text', the lines below it are kept, and</span>
+<span class="sd">    the top-level NOTE is moved under the key. References to the source binaries are replaced by the group files.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        header (str): header of the source binary.</span>
+<span class="sd">        name (str): key in the group file.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        - (str) -- description.</span>
+<span class="sd">    """</span>
+    <span class="n">lines</span> <span class="o">=</span> <span class="n">header</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span><span class="o">.</span><span class="n">splitlines</span><span class="p">()</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">n</span> <span class="k">for</span> <span class="n">n</span><span class="p">,</span> <span class="n">l</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">lines</span><span class="p">)</span> <span class="k">if</span> <span class="n">l</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">"- "</span><span class="p">))</span>
+    <span class="n">first</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">'- "</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1">" (str): </span><span class="si">{</span><span class="n">_section_title</span><span class="p">[</span><span class="n">name</span><span class="p">]</span><span class="si">}</span><span class="s1">'</span>
+    <span class="n">out</span><span class="p">,</span> <span class="n">in_note</span> <span class="o">=</span> <span class="p">[</span><span class="n">first</span><span class="p">],</span> <span class="kc">False</span>
+    <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">:]:</span>
+        <span class="k">if</span> <span class="n">l</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">"NOTE"</span><span class="p">):</span>
+            <span class="n">in_note</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="n">out</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"  "</span> <span class="o">+</span> <span class="n">l</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">out</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"  "</span> <span class="o">+</span> <span class="n">l</span> <span class="k">if</span> <span class="n">in_note</span> <span class="k">else</span> <span class="n">l</span><span class="p">)</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">"of a key of the other binaries"</span><span class="p">,</span> <span class="s2">"of a key of the other data"</span><span class="p">)</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">"is in harmonics.pkl"</span><span class="p">,</span> <span class="s1">'is in "harmonics" of the PG file (of info.PG for SG and MPG)'</span><span class="p">)</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">"cluster_scalar_basis ("</span><span class="p">,</span> <span class="s2">"the scalar cluster basis ("</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span>
+        <span class="s2">"cluster_bond_basis ("</span><span class="p">,</span> <span class="s2">"the bond cluster basis ("</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="n">s</span>
+
+
+<span class="c1"># ==================================================</span>
+<div class="viewcode-block" id="group_header">
+<a class="viewcode-back" href="../../../src/api_util/util_binary_data.html#multipiegen.util.util_binary_data.group_header">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">group_header</span><span class="p">(</span><span class="n">tp</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Header of a group file.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        tp (str): "PG", "SG", "MPG" or "MSG".</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        - (str) -- header.</span>
+<span class="sd">    """</span>
+    <span class="n">src</span> <span class="o">=</span> <span class="n">_sources</span><span class="p">()</span>
+    <span class="n">title</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">"PG"</span><span class="p">:</span> <span class="s2">"* Data of a PG."</span><span class="p">,</span>
+        <span class="s2">"SG"</span><span class="p">:</span> <span class="s2">"* Data of an SG."</span><span class="p">,</span>
+        <span class="s2">"MPG"</span><span class="p">:</span> <span class="s2">"* Data of an MPG."</span><span class="p">,</span>
+        <span class="s2">"MSG"</span><span class="p">:</span> <span class="s2">"* Data of an MSG."</span><span class="p">,</span>
+    <span class="p">}[</span><span class="n">tp</span><span class="p">]</span>
+    <span class="n">parts</span> <span class="o">=</span> <span class="p">[</span><span class="n">title</span><span class="p">,</span> <span class="n">_group_section</span><span class="p">(</span><span class="n">src</span><span class="p">[</span><span class="s2">"group"</span><span class="p">]</span><span class="o">.</span><span class="n">comment</span><span class="p">,</span> <span class="n">tp</span><span class="p">)]</span>
+    <span class="k">if</span> <span class="n">tp</span> <span class="o">==</span> <span class="s2">"PG"</span><span class="p">:</span>
+        <span class="n">parts</span> <span class="o">+=</span> <span class="p">[</span>
+            <span class="n">h_representation_matrix</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">),</span>
+            <span class="n">_source_section</span><span class="p">(</span><span class="n">src</span><span class="p">[</span><span class="s2">"harmonics"</span><span class="p">]</span><span class="o">.</span><span class="n">comment</span><span class="p">,</span> <span class="s2">"harmonics"</span><span class="p">),</span>
+            <span class="n">_source_section</span><span class="p">(</span><span class="n">src</span><span class="p">[</span><span class="s2">"multipolar_harmonics"</span><span class="p">]</span><span class="o">.</span><span class="n">comment</span><span class="p">,</span> <span class="s2">"multipolar_harmonics"</span><span class="p">),</span>
+            <span class="n">_source_section</span><span class="p">(</span><span class="n">src</span><span class="p">[</span><span class="s2">"atomic_samb"</span><span class="p">]</span><span class="o">.</span><span class="n">comment</span><span class="p">,</span> <span class="s2">"atomic_samb"</span><span class="p">),</span>
+            <span class="n">_source_section</span><span class="p">(</span><span class="n">src</span><span class="p">[</span><span class="s2">"cluster_samb"</span><span class="p">]</span><span class="o">.</span><span class="n">comment</span><span class="p">,</span> <span class="s2">"cluster_samb"</span><span class="p">)</span> <span class="o">+</span> <span class="s1">'</span><span class="se">\n</span><span class="s1">    - only for real PG (not for "-c").'</span><span class="p">,</span>
+        <span class="p">]</span>
+    <span class="k">elif</span> <span class="n">tp</span> <span class="o">==</span> <span class="s2">"SG"</span><span class="p">:</span>
+        <span class="n">parts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">_source_section</span><span class="p">(</span><span class="n">src</span><span class="p">[</span><span class="s2">"cluster_samb"</span><span class="p">]</span><span class="o">.</span><span class="n">comment</span><span class="p">,</span> <span class="s2">"cluster_samb"</span><span class="p">))</span>
+    <span class="k">elif</span> <span class="n">tp</span> <span class="o">==</span> <span class="s2">"MPG"</span><span class="p">:</span>
+        <span class="n">parts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">_source_section</span><span class="p">(</span><span class="n">src</span><span class="p">[</span><span class="s2">"response_tensor"</span><span class="p">]</span><span class="o">.</span><span class="n">comment</span><span class="p">,</span> <span class="s2">"response_tensor"</span><span class="p">))</span>
+    <span class="n">parts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"* all sympy values are expanded with rationalized denominators."</span><span class="p">)</span>
+    <span class="k">return</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">parts</span><span class="p">)</span> <span class="o">+</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span></div>
+
+
+
+<span class="c1"># ==================================================</span>
+<div class="viewcode-block" id="group_file">
+<a class="viewcode-back" href="../../../src/api_util/util_binary_data.html#multipiegen.util.util_binary_data.group_file">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">group_file</span><span class="p">(</span><span class="n">gid</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    File name of a group in binary_data.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        gid (str): group id, e.g. "PG:32".</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        - (str) -- file name, e.g. "PG/PG:32".</span>
+<span class="sd">    """</span>
+    <span class="k">return</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">gid</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">':'</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">gid</span><span class="si">}</span><span class="s2">"</span></div>
+
+
+
+<span class="c1"># ==================================================</span>
+<div class="viewcode-block" id="create_group_data">
+<a class="viewcode-back" href="../../../src/api_util/util_binary_data.html#multipiegen.util.util_binary_data.create_group_data">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">create_group_data</span><span class="p">(</span><span class="n">gid</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Data of a group file.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        gid (str): group id, e.g. "PG:32".</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        - (BinaryManager) -- group data with its header.</span>
+<span class="sd">    """</span>
+    <span class="n">src</span> <span class="o">=</span> <span class="n">_sources</span><span class="p">()</span>
+    <span class="n">tp</span> <span class="o">=</span> <span class="n">gid</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">":"</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">bm</span> <span class="o">=</span> <span class="n">BinaryManager</span><span class="p">(</span><span class="n">topdir</span><span class="o">=</span><span class="n">binary_data_dir</span><span class="p">,</span> <span class="n">comment</span><span class="o">=</span><span class="n">group_header</span><span class="p">(</span><span class="n">tp</span><span class="p">))</span>
+    <span class="n">bm</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">src</span><span class="p">[</span><span class="s2">"group"</span><span class="p">][</span><span class="n">gid</span><span class="p">])</span>
+    <span class="k">if</span> <span class="n">tp</span> <span class="o">==</span> <span class="s2">"PG"</span><span class="p">:</span>
+        <span class="n">bm</span><span class="p">[</span><span class="s2">"representation_matrix"</span><span class="p">]</span> <span class="o">=</span> <span class="n">representation_matrix</span><span class="p">(</span><span class="n">src</span><span class="p">[</span><span class="s2">"info"</span><span class="p">][</span><span class="s2">"tag"</span><span class="p">][</span><span class="n">gid</span><span class="p">])</span>
+        <span class="n">bm</span><span class="p">[</span><span class="s2">"harmonics"</span><span class="p">]</span> <span class="o">=</span> <span class="n">src</span><span class="p">[</span><span class="s2">"harmonics"</span><span class="p">][</span><span class="n">gid</span><span class="p">]</span>
+        <span class="n">bm</span><span class="p">[</span><span class="s2">"multipolar_harmonics"</span><span class="p">]</span> <span class="o">=</span> <span class="n">src</span><span class="p">[</span><span class="s2">"multipolar_harmonics"</span><span class="p">][</span><span class="n">gid</span><span class="p">]</span>
+        <span class="n">bm</span><span class="p">[</span><span class="s2">"atomic_samb"</span><span class="p">]</span> <span class="o">=</span> <span class="n">src</span><span class="p">[</span><span class="s2">"atomic_samb"</span><span class="p">][</span><span class="n">gid</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">gid</span> <span class="ow">in</span> <span class="n">src</span><span class="p">[</span><span class="s2">"cluster_samb"</span><span class="p">]:</span>
+            <span class="n">bm</span><span class="p">[</span><span class="s2">"cluster_samb"</span><span class="p">]</span> <span class="o">=</span> <span class="n">src</span><span class="p">[</span><span class="s2">"cluster_samb"</span><span class="p">][</span><span class="n">gid</span><span class="p">]</span>
+    <span class="k">elif</span> <span class="n">tp</span> <span class="o">==</span> <span class="s2">"SG"</span><span class="p">:</span>
+        <span class="n">bm</span><span class="p">[</span><span class="s2">"cluster_samb"</span><span class="p">]</span> <span class="o">=</span> <span class="n">src</span><span class="p">[</span><span class="s2">"cluster_samb"</span><span class="p">][</span><span class="n">gid</span><span class="p">]</span>
+    <span class="k">elif</span> <span class="n">tp</span> <span class="o">==</span> <span class="s2">"MPG"</span><span class="p">:</span>
+        <span class="n">bm</span><span class="p">[</span><span class="s2">"response_tensor"</span><span class="p">]</span> <span class="o">=</span> <span class="n">src</span><span class="p">[</span><span class="s2">"response_tensor"</span><span class="p">][</span><span class="n">gid</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">bm</span></div>
+
+
+
+<span class="c1"># ==================================================</span>
+<div class="viewcode-block" id="create_info_data">
+<a class="viewcode-back" href="../../../src/api_util/util_binary_data.html#multipiegen.util.util_binary_data.create_info_data">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">create_info_data</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Data of info.pkl.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        - (BinaryManager) -- info with its header.</span>
+<span class="sd">    """</span>
+    <span class="n">info</span> <span class="o">=</span> <span class="n">_sources</span><span class="p">()[</span><span class="s2">"info"</span><span class="p">]</span>
+    <span class="n">bm</span> <span class="o">=</span> <span class="n">BinaryManager</span><span class="p">(</span><span class="n">topdir</span><span class="o">=</span><span class="n">binary_data_dir</span><span class="p">,</span> <span class="n">comment</span><span class="o">=</span><span class="n">info</span><span class="o">.</span><span class="n">comment</span><span class="p">)</span>
+    <span class="n">bm</span><span class="o">.</span><span class="n">add_comment</span><span class="p">(</span><span class="n">h_info_layout</span><span class="p">)</span>
+    <span class="n">bm</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">info</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">bm</span></div>
+
+
+
+<span class="c1"># ==================================================</span>
+<div class="viewcode-block" id="group_ids">
+<a class="viewcode-back" href="../../../src/api_util/util_binary_data.html#multipiegen.util.util_binary_data.group_ids">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">group_ids</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Ids of all groups, in the order PG, SG, MPG, MSG.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        - (list) -- group ids.</span>
+<span class="sd">    """</span>
+    <span class="n">info</span> <span class="o">=</span> <span class="n">_sources</span><span class="p">()[</span><span class="s2">"info"</span><span class="p">]</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">gid</span> <span class="k">for</span> <span class="n">tp</span> <span class="ow">in</span> <span class="n">group_types</span> <span class="k">for</span> <span class="n">gid</span> <span class="ow">in</span> <span class="n">info</span><span class="p">[</span><span class="s2">"tag"</span><span class="p">]</span> <span class="k">if</span> <span class="n">gid</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">":"</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">tp</span><span class="p">]</span></div>
+
+
+
+<span class="c1"># ==================================================</span>
+<div class="viewcode-block" id="load_binary_data">
+<a class="viewcode-back" href="../../../src/api_util/util_binary_data.html#multipiegen.util.util_binary_data.load_binary_data">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">load_binary_data</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Load a file of binary_data.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        name (str): "info" or a group id, e.g. "PG:32".</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        - (BinaryManager) -- data, str() gives the description of the keys.</span>
+<span class="sd">    """</span>
+    <span class="k">return</span> <span class="n">BinaryManager</span><span class="p">(</span><span class="n">name</span> <span class="k">if</span> <span class="n">name</span> <span class="o">==</span> <span class="s2">"info"</span> <span class="k">else</span> <span class="n">group_file</span><span class="p">(</span><span class="n">name</span><span class="p">),</span> <span class="n">topdir</span><span class="o">=</span><span class="n">binary_data_dir</span><span class="p">)</span></div>
+
+</pre></div>
+
+                </article>
+              
+
+              
+              
+              
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Hiroaki Kusunose
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2021-.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -247,6 +247,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../api_util/util_symmetry_operation.html">Symmetry operation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api_util/util_representation_matrix.html">Representation matrix</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api_util/util_response_tensor.html">Response tensor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_util/util_binary_data.html">Binary data for MultiPie</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../api_create.html">Generators</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -261,6 +262,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../api_create/create_cluster_vector_basis.html">Vector cluster basis binary</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api_create/create_cluster_bond_basis.html">Cluster bond basis binary</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api_create/create_cluster_samb.html">Cluster SAMB binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_create/create_binary_data.html">Binary data for MultiPie</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api_create/create_pdf_harmonics.html">Harmonics PDF</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api_create/create_pdf_info.html">Information PDF</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api_create/create_pdf_group.html">Group PDF</a></li>
@@ -449,6 +451,7 @@
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">7. 厳密計算と式の簡約</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multipie-binary-binary-data">8. MultiPie 向けの binary データ（<code class="docutils literal notranslate"><span class="pre">binary_data</span></code>）</a></li>
 </ul>
             </nav>
         </div>
@@ -475,6 +478,7 @@
 <li><p>各 Wyckoff のサイトとボンドの cluster SAMB（<code class="docutils literal notranslate"><span class="pre">cluster_samb.pkl</span></code>）</p></li>
 <li><p>原子多極子（<code class="docutils literal notranslate"><span class="pre">atomic_multipole.pkl</span></code>）と点群の SAMB（<code class="docutils literal notranslate"><span class="pre">atomic_multipole_group.pkl</span></code>）</p></li>
 <li><p>厳密計算と式の簡約</p></li>
+<li><p>MultiPie 向けの binary データ（<code class="docutils literal notranslate"><span class="pre">binary_data</span></code>）</p></li>
 </ol>
 <hr class="docutils" />
 <section id="id2">
@@ -784,6 +788,25 @@
 のテストは、pickle に一度書き出して読み直した後で比べます。</p></li>
 </ul>
 </section>
+<hr class="docutils" />
+<section id="multipie-binary-binary-data">
+<h2>8. MultiPie 向けの binary データ（<code class="docutils literal notranslate"><span class="pre">binary_data</span></code>）<a class="headerlink" href="#multipie-binary-binary-data" title="Link to this heading">#</a></h2>
+<p>コード：<code class="docutils literal notranslate"><span class="pre">util_binary_data</span></code>、<code class="docutils literal notranslate"><span class="pre">create_binary/create_binary_data.py</span></code>。</p>
+<ol class="arabic simple">
+<li><p><strong>構成。</strong> MultiPie の <code class="docutils literal notranslate"><span class="pre">multipie/binary_data</span></code> と同じく、<code class="docutils literal notranslate"><span class="pre">info.pkl</span></code>（<code class="docutils literal notranslate"><span class="pre">binary/info.pkl</span></code> と同じデータ。ヘッダに構成の説明を追加）と、群ごとのファイル <code class="docutils literal notranslate"><span class="pre">{PG,SG,MPG,MSG}/{id}.pkl</span></code>（47、230、157、1651 個）です。<code class="docutils literal notranslate"><span class="pre">_opt</span></code> のファイルには分けません。PG のファイルは最大でも約 260 KB です。</p></li>
+<li><p><strong>中身。</strong> <code class="docutils literal notranslate"><span class="pre">multipiegen/binary</span></code> の binary を群ごとに並べ直したもので、計算し直すのは PG の表現行列（<code class="docutils literal notranslate"><span class="pre">util_representation_matrix</span></code>、1 群 1 KB 未満）だけです。</p>
+<ul class="simple">
+<li><p>PG：<code class="docutils literal notranslate"><span class="pre">info</span></code>、<code class="docutils literal notranslate"><span class="pre">symmetry_operation</span></code>、<code class="docutils literal notranslate"><span class="pre">wyckoff</span></code>、<code class="docutils literal notranslate"><span class="pre">character</span></code>、<code class="docutils literal notranslate"><span class="pre">representation_matrix</span></code>、<code class="docutils literal notranslate"><span class="pre">harmonics</span></code>、<code class="docutils literal notranslate"><span class="pre">multipolar_harmonics</span></code>、<code class="docutils literal notranslate"><span class="pre">atomic_samb</span></code>、<code class="docutils literal notranslate"><span class="pre">cluster_samb</span></code>（実の点群だけ）。</p></li>
+<li><p>SG：<code class="docutils literal notranslate"><span class="pre">info</span></code>、<code class="docutils literal notranslate"><span class="pre">symmetry_operation</span></code>、<code class="docutils literal notranslate"><span class="pre">wyckoff</span></code>、<code class="docutils literal notranslate"><span class="pre">cluster_samb</span></code>。</p></li>
+<li><p>MPG：<code class="docutils literal notranslate"><span class="pre">info</span></code>、<code class="docutils literal notranslate"><span class="pre">symmetry_operation</span></code>、<code class="docutils literal notranslate"><span class="pre">wyckoff</span></code>、<code class="docutils literal notranslate"><span class="pre">active_multipole</span></code>、<code class="docutils literal notranslate"><span class="pre">response_tensor</span></code>。</p></li>
+<li><p>MSG：<code class="docutils literal notranslate"><span class="pre">info</span></code>、<code class="docutils literal notranslate"><span class="pre">symmetry_operation</span></code>、<code class="docutils literal notranslate"><span class="pre">wyckoff</span></code>。</p></li>
+</ul>
+</li>
+<li><p><strong>入れないもの。</strong> 中間データのクラスター基底（<code class="docutils literal notranslate"><span class="pre">cluster_scalar_basis</span></code>、<code class="docutils literal notranslate"><span class="pre">cluster_vector_basis</span></code>、<code class="docutils literal notranslate"><span class="pre">cluster_bond_basis</span></code>）と、球面の原子多極子（<code class="docutils literal notranslate"><span class="pre">atomic_multipole</span></code>）。</p></li>
+<li><p><strong>調和関数。</strong> 重複させません。SAMB と点群多極子調和関数の調和関数は、PG のファイルの <code class="docutils literal notranslate"><span class="pre">&quot;harmonics&quot;</span></code> から <code class="docutils literal notranslate"><span class="pre">(X,</span> <span class="pre">l,</span> <span class="pre">Gamma,</span> <span class="pre">n)</span></code> で引きます（T → Q、M → G）。SG と MPG では、<code class="docutils literal notranslate"><span class="pre">info.PG</span></code> の PG のファイルを使います。</p></li>
+<li><p><strong>ヘッダ。</strong> 各ファイルに、元の binary のヘッダから作ったヘッダ（<code class="docutils literal notranslate"><span class="pre">str()</span></code>）を付けます。そのため、<code class="docutils literal notranslate"><span class="pre">BinaryManager</span></code> だけでファイルの意味が分かります。</p></li>
+</ol>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -851,6 +874,7 @@
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">7. 厳密計算と式の簡約</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multipie-binary-binary-data">8. MultiPie 向けの binary データ（<code class="docutils literal notranslate"><span class="pre">binary_data</span></code>）</a></li>
 </ul>
   </nav></div>
 

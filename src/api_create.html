@@ -67,7 +67,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Info binary" href="api_create/create_info.html" />
-    <link rel="prev" title="Response tensor" href="api_util/util_response_tensor.html" />
+    <link rel="prev" title="Binary data for MultiPie" href="api_util/util_binary_data.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -243,6 +243,7 @@
 <li class="toctree-l2"><a class="reference internal" href="api_util/util_symmetry_operation.html">Symmetry operation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api_util/util_representation_matrix.html">Representation matrix</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api_util/util_response_tensor.html">Response tensor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_util/util_binary_data.html">Binary data for MultiPie</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Generators</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -257,6 +258,7 @@
 <li class="toctree-l2"><a class="reference internal" href="api_create/create_cluster_vector_basis.html">Vector cluster basis binary</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api_create/create_cluster_bond_basis.html">Cluster bond basis binary</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api_create/create_cluster_samb.html">Cluster SAMB binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_create/create_binary_data.html">Binary data for MultiPie</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api_create/create_pdf_harmonics.html">Harmonics PDF</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api_create/create_pdf_info.html">Information PDF</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api_create/create_pdf_group.html">Group PDF</a></li>
@@ -451,13 +453,16 @@ Run each as <code class="docutils literal notranslate"><span class="pre">python<
 <tr class="row-odd"><td><p><a class="reference internal" href="api_create/create_cluster_bond_basis.html#module-multipiegen.create_binary.create_cluster_bond_basis" title="multipiegen.create_binary.create_cluster_bond_basis"><code class="xref py py-obj docutils literal notranslate"><span class="pre">multipiegen.create_binary.create_cluster_bond_basis</span></code></a></p></td>
 <td><p>Create orthonormal bond cluster basis of Oh and D6h from the vector cluster basis, and save it as binary.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="api_create/create_pdf_harmonics.html#module-multipiegen.create_pdf.create_pdf_harmonics" title="multipiegen.create_pdf.create_pdf_harmonics"><code class="xref py py-obj docutils literal notranslate"><span class="pre">multipiegen.create_pdf.create_pdf_harmonics</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="api_create/create_binary_data.html#module-multipiegen.create_binary.create_binary_data" title="multipiegen.create_binary.create_binary_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">multipiegen.create_binary.create_binary_data</span></code></a></p></td>
+<td><p>Create binary_data for MultiPie (multipiegen/binary_data), in the layout of MultiPie's multipie/binary_data.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api_create/create_pdf_harmonics.html#module-multipiegen.create_pdf.create_pdf_harmonics" title="multipiegen.create_pdf.create_pdf_harmonics"><code class="xref py py-obj docutils literal notranslate"><span class="pre">multipiegen.create_pdf.create_pdf_harmonics</span></code></a></p></td>
 <td><p>Create LaTeX and PDF of harmonics with polar and axial symbols side by side, for all 47 point groups.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="api_create/create_pdf_info.html#module-multipiegen.create_pdf.create_pdf_info" title="multipiegen.create_pdf.create_pdf_info"><code class="xref py py-obj docutils literal notranslate"><span class="pre">multipiegen.create_pdf.create_pdf_info</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="api_create/create_pdf_info.html#module-multipiegen.create_pdf.create_pdf_info" title="multipiegen.create_pdf.create_pdf_info"><code class="xref py py-obj docutils literal notranslate"><span class="pre">multipiegen.create_pdf.create_pdf_info</span></code></a></p></td>
 <td><p>Create LaTeX and PDF of overall information (based on MultiPie Ver.2 others/tools/create_PDF/create_pdf_group_info.py, create_pdf_compatibility_relation.py, create_pdf_active_multipole.py).</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="api_create/create_pdf_group.html#module-multipiegen.create_pdf.create_pdf_group" title="multipiegen.create_pdf.create_pdf_group"><code class="xref py py-obj docutils literal notranslate"><span class="pre">multipiegen.create_pdf.create_pdf_group</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="api_create/create_pdf_group.html#module-multipiegen.create_pdf.create_pdf_group" title="multipiegen.create_pdf.create_pdf_group"><code class="xref py py-obj docutils literal notranslate"><span class="pre">multipiegen.create_pdf.create_pdf_group</span></code></a></p></td>
 <td><p>Create LaTeX and PDF of each group (based on MultiPie Ver.2 others/tools/create_PDF/create_pdf_character.py, create_pdf_symmetry_operation.py, create_pdf_wyckoff.py), from group.pkl.</p></td>
 </tr>
 </tbody>
