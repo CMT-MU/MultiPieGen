@@ -16,7 +16,7 @@ multipiegen/binary. They are read with MultiPie's BinaryManager alone, without c
 
 from multipie.util.util_binary import BinaryManager
 
-from multipiegen.util.util_binary_data import binary_data_dir
+from multipiegen.util.util_binary_data import binary_data_dir, group_file
 
 # ==================================================
 # 1. info.pkl: information of all groups (the same as binary/info.pkl).
@@ -46,7 +46,7 @@ for key, samb in list(pg["cluster_samb"]["bond"]["3a@1o"].items())[:3]:
 # ==================================================
 # 4. an SG file: its harmonics are those of its PG (info.PG).
 sg = BinaryManager("SG/SG_221", topdir=binary_data_dir)
-pg_of_sg = BinaryManager(f"PG/{sg['info'].PG}", topdir=binary_data_dir)
+pg_of_sg = BinaryManager(group_file(sg["info"].PG), topdir=binary_data_dir)
 print("\nSG/SG_221:", list(sg.keys()), ", PG:", sg["info"].PG)
 w = list(sg["cluster_samb"]["site"].keys())[1]
 for key, samb in list(sg["cluster_samb"]["site"][w].items())[:2]:

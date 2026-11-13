@@ -164,17 +164,44 @@ def create_group_pages():
 
 # ==================================================
 def create_examples():
+    """
+    The page of the examples, as a notebook (MyST-NB) executed when the docs are built: the code of each example after
+    its docstring, split into cells at the "# ===..." lines, with the output below each cell.
+    """
     lines = [
+        "---",
+        "jupytext:",
+        "  text_representation:",
+        "    format_name: myst",
+        "kernelspec:",
+        "  display_name: Python 3",
+        "  language: python",
+        "  name: python3",
+        "---",
+        "",
         "# Examples",
         "",
         "Sample code for each feature, in `docs/examples`. Run each file from anywhere after `pip install -e .`, e.g.",
-        "`python docs/examples/group.py`.",
+        "`python docs/examples/group.py`. The outputs below are made when the documentation is built.",
     ]
     readme = open(os.path.join(doc_dir, "examples", "README.md")).read()
     for name, desc in re.findall(r"\| \[(\w+\.py)\]\(\S+\) \| (.+) \|", readme):
-        first = next(l for l in open(os.path.join(doc_dir, "examples", name)) if l.startswith(("from ", "import ")))
-        lines += ["", f"## {name}", "", f"{desc[0].upper() + desc[1:]}.", ""]
-        lines += [f"```{{literalinclude}} ../examples/{name}", ":language: python", f":start-at: {first.strip()}", "```"]
+        src = open(os.path.join(doc_dir, "examples", name)).read()
+        body = ast.parse(src).body
+        start = body[1].lineno if isinstance(body[0], ast.Expr) else body[0].lineno  # after the module docstring.
+        code = src.split("\n")
+        first = start - 1
+        cells = [[]]
+        for l in code[first:]:
+            if l.startswith("# ===="):
+                cells.append([])
+            else:
+                cells[-1].append(l)
+        lines += ["", f"## {name}", "", f"{desc[0].upper() + desc[1:]}."]
+        for cell in cells:
+            cell = "\n".join(cell).strip("\n")
+            if cell:
+                lines += ["", "```{code-cell} ipython3", cell, "```"]
     write("examples.md", lines)
 
 
