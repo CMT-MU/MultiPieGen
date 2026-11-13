@@ -20,6 +20,8 @@ parts:
       - file: src/examples
       - file: src/binary
       - file: src/data
+    - url: https://cmt-mu.github.io/MultiPie/
+      title: MultiPie documentation
 - caption: API reference
   chapters:
     - file: src/api_util

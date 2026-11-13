@@ -6,8 +6,13 @@ copyright: "2021-"
 
 # ==================================================
 # Execution settings
+# The pages with {code-cell} (src/examples.md, made by create_pages.py) are executed when the docs are built, and the
+# results are cached in _build/.jupyter_cache.
 execute:
-  execute_notebooks: off
+  execute_notebooks: cache
+  stderr_output: "remove"
+  allow_errors: false
+  timeout: 600
 
 # ==================================================
 # Parse and render settings
