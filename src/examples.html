@@ -37,7 +37,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
-    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=d144ded4" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=8d1e04a5" />
   
   <!-- So that users can add custom icons -->
   <script defer src="../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
@@ -63,7 +63,7 @@
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'src/examples';</script>
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
-    <script src="../_static/custom.js?v=4dffa8a4"></script>
+    <script src="../_static/custom.js?v=58b788d2"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Binary data" href="binary.html" />
@@ -209,7 +209,10 @@
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Documentation</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="guide.html">User Guide</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="guide.html">User Guide</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="guide/definitions.html">Definitions</a></li>
+</ul>
+</details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="group_info.html">Group Information</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="info_pdf.html">Overall information</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pg_pdf.html">Point groups</a></li>
@@ -218,7 +221,11 @@
 <li class="toctree-l2"><a class="reference internal" href="msg_pdf.html">Magnetic space groups</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1"><a class="reference internal" href="notes.html">Notes</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="notes.html">Notes</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="notes/generation_rules.html">Generation of the multipole data: algorithms, keys, and orbital basis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notes/changes_from_multipie_v2.html">Changes from MultiPie Ver.2 (multipole data)</a></li>
+</ul>
+</details></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="details.html">Details</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Examples</a></li>
 <li class="toctree-l2"><a class="reference internal" href="binary.html">Binary data</a></li>
@@ -601,10 +608,7 @@ irrep weights: {'T1u': 992.0, 'A2u': 10800.0}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>D6h basis matrix shape:
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> (24, 24) , orthonormal ? True
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>D6h basis matrix shape: (24, 24) , orthonormal ? True
 D6h irreps: ['A1g', 'A1u', 'A2g', 'A2u', 'B1g', 'B1u', 'B2g', 'B2u', 'E1g', 'E1u', 'E2g', 'E2u']
 </pre></div>
 </div>
@@ -643,9 +647,7 @@ D6h irreps: ['A1g', 'A1u', 'A2g', 'A2u', 'B1g', 'B1u', 'B2g', 'B2u', 'E1g', 'E1u
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  x=g: 144 vectors in 60 multiplets, orthonormal: True, dropped multiplets: 118
 D6h: 24 points, internal basis ['px', 'py', 'pz']
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  x=q: 72 vectors in 48 multiplets, orthonormal: True, dropped multiplets: 238
+  x=q: 72 vectors in 48 multiplets, orthonormal: True, dropped multiplets: 238
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  x=g: 72 vectors in 48 multiplets, orthonormal: True, dropped multiplets: 238
@@ -708,9 +710,7 @@ PGMultipoleType(X='Q', l=1, Gamma='T1u', n=-1, p=-1, s=1, k=1, x='q') at the fir
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Oh: 48 points, vector0 = [3*sqrt(62)/31 sqrt(62)/62 5*sqrt(62)/62], bond b_0 = [3*sqrt(62)/31 sqrt(62)/62 5*sqrt(62)/62]
   x=q: 48 vectors in 20 multiplets, orthonormal: True, dropped vector multiplets: 40
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  x=g: 48 vectors in 20 multiplets, orthonormal: True, dropped vector multiplets: 40
+  x=g: 48 vectors in 20 multiplets, orthonormal: True, dropped vector multiplets: 40
 D6h: 24 points, vector0 = [-5*sqrt(31)/62 sqrt(93)/62 2*sqrt(186)/31], bond b_0 = [-5*sqrt(31)/62 sqrt(93)/62 2*sqrt(186)/31]
   x=q: 24 vectors in 16 multiplets, orthonormal: True, dropped vector multiplets: 32
   x=g: 24 vectors in 16 multiplets, orthonormal: True, dropped vector multiplets: 32
@@ -801,9 +801,7 @@ dropped vector cluster basis multiplets (first 2): [PGMultipoleType(X='Q', l=3, 
    [[-sqrt(2)/2, sqrt(2)/2]]
    PGMultipoleType(X='T', l=1, Gamma='Eu', n=-1, p=1, s=0, k=0, x='q') ex = [x, y]
    [[I, 0], [0, I]]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>SG:225 site Q: 12 Wyckoff positions, orthonormal: True
+SG:225 site Q: 12 Wyckoff positions, orthonormal: True
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>SG:225 bond Q: 62 Wyckoff positions, orthonormal: True
@@ -1361,9 +1359,7 @@ PGMultipoleType(X='Q', l=2, Gamma='T2g', n=-1, p=-1, s=0, k=0, x='q') symmetry: 
  [0 0 1/2 0 0 0]
  [0 0 0 1/2 0 0]]
 (1, 1) 36 matrices, orthonormal: True
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1, 2) 120 matrices, orthonormal: True
+(1, 2) 120 matrices, orthonormal: True
 </pre></div>
 </div>
 </div>
