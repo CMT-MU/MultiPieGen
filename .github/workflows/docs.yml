@@ -2,7 +2,7 @@ name: docs
 
 # Build the documentation with Jupyter Book (as `make build` in docs/). On main (a push, or "Run workflow" on main),
 # also publish it to the gh-pages branch (as `make upload`), which GitHub Pages serves at
-# https://hiro-k-phys.github.io/MultiPieGen/ (Pages must be enabled in Settings -> Pages, source "gh-pages" branch).
+# https://cmt-mu.github.io/MultiPieGen/ (Pages must be enabled in Settings -> Pages, source "gh-pages" branch).
 # Pull requests and pushes to develop only check that the documentation builds.
 
 on:

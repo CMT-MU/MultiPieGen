@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this is
 
-MultiPieGen (`multipiegen`, repo `hiro-k-phys/MultiPieGen`) is the generator for the new multipole basis of
+MultiPieGen (`multipiegen`, repo `CMT-MU/MultiPieGen`) is the generator for the new multipole basis of
 [MultiPie](https://github.com/CMT-MU/MultiPie) Ver.3 and later. It holds data tables (`multipiegen/data`) and code that turns them into
 binaries (`multipiegen/binary/*.pkl`) and PDFs (`multipiegen/pdf/`). Those outputs are delivered elsewhere (part of
 the binaries to MultiPie Ver.3 and later, the rest plus the PDFs to a separate repo), so keep binaries in MultiPie Ver.2's `BinaryManager`
@@ -37,7 +37,7 @@ python -m multipiegen.create_binary.create_atomic_multipole        # -> binary/a
 python -m multipiegen.create_binary.create_atomic_multipole_group  # -> binary/atomic_multipole_group.pkl (47 PGs, needs atomic_multipole.pkl; ~30 s)
 python -m multipiegen.create_binary.create_group           # -> binary/group.pkl (parallel ~35 s; --serial ~2 min)
 python -m multipiegen.create_binary.create_response_tensor # -> binary/response_tensor.pkl (needs group.pkl; ~20 s)
-python -m multipiegen.create_binary.create_binary_data     # -> binary_data/{info.pkl,PG,SG,MPG,MSG/{id}.pkl} for MultiPie Ver.3+ (one file per group, regrouped from binary/; run last; ~30 s)
+python -m multipiegen.create_binary.create_binary_data     # -> binary_data/{info.pkl,PG,SG,MPG,MSG/{id}.pkl} for MultiPie Ver.3+ (one file per group, ":" of the id -> "_" in the file name, e.g. PG/PG_32.pkl, regrouped from binary/; run last; ~30 s)
 python -m multipiegen.create_pdf.create_pdf_harmonics      # -> pdf/PG/{no}-{tag}/harmonics.{tex,pdf} (needs ptex2pdf, ~1.5 min)
 python -m multipiegen.create_pdf.create_pdf_group         # -> pdf/{PG,SG,MPG,MSG}/*/{character_table,symmetry_operation,wyckoff_*,representation_matrix,multipolar_harmonics_s*_*,atomic_multipole_*,response_tensor_X}.{tex,pdf} (~5200 PDFs, parallel; --group/--kind to limit)
 python -m multipiegen.create_pdf.create_pdf_info          # -> pdf/info/{PG,SG,MPG,MSG,compatibility_relation,active_multipole}.{tex,pdf} (~30 s)
