@@ -13,6 +13,7 @@ from multipiegen.util.util_binary_data import (
     binary_data_dir,
     create_group_data,
     create_info_data,
+    group_file,
     group_ids,
     group_types,
     load_binary_data,
@@ -48,7 +49,8 @@ def _round_trip(obj):
 # ==================================================
 def test_files():
     files = {f"{tp}/{f[:-4]}" for tp in group_types for f in os.listdir(os.path.join(binary_data_dir, tp))}
-    assert files == {f"{gid.split(':')[0]}/{gid}" for gid in group_ids()}
+    assert files == {group_file(gid) for gid in group_ids()}
+    assert not any(":" in f for f in files)  # git on Windows cannot check out a file name with ":".
     assert len(group_ids()) == len(info["tag"]) == 47 + 230 + 157 + 1651
 
 

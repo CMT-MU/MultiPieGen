@@ -9,8 +9,9 @@
 Binary data for MultiPie (multipiegen/binary_data), in the layout of MultiPie's multipie/binary_data.
 
 - info.pkl: information of all groups (= binary/info.pkl).
-- {PG,SG,MPG,MSG}/{id}.pkl: data of each group, e.g. PG/PG:32.pkl, SG/SG:221.pkl, MPG/MPG:32.1.118.pkl,
-  MSG/MSG:221.92.pkl. Each file has its own header (str() of the loaded data).
+- {PG,SG,MPG,MSG}/{id}.pkl: data of each group, with ":" of the id replaced by "_" (git on Windows cannot check out a
+  file name with ":"), e.g. PG/PG_32.pkl, SG/SG_221.pkl, MPG/MPG_32.1.118.pkl, MSG/MSG_221.92.pkl. Each file has its
+  own header (str() of the loaded data).
 
 The data are taken from the binaries in multipiegen/binary (nothing is recomputed, except the representation
 matrices of PG by util_representation_matrix), and regrouped by group:
@@ -47,7 +48,8 @@ group_types = ["PG", "SG", "MPG", "MSG"]
 h_info_layout = """
 * Layout of the binary data (multipiegen/binary_data, as MultiPie's multipie/binary_data).
 - info.pkl: this file.
-- {PG,SG,MPG,MSG}/{id}.pkl: data of each group, e.g. "PG/PG:32", "SG/SG:221", "MPG/MPG:32.1.118", "MSG/MSG:221.92".
+- {PG,SG,MPG,MSG}/{id}.pkl: data of each group, with ":" of the id replaced by "_", e.g. "PG/PG_32" (id "PG:32"),
+  "SG/SG_221", "MPG/MPG_32.1.118", "MSG/MSG_221.92".
   str() of each file shows the description of its keys.
 """
 
@@ -186,9 +188,12 @@ def group_file(gid):
         gid (str): group id, e.g. "PG:32".
 
     Returns:
-        - (str) -- file name, e.g. "PG/PG:32".
+        - (str) -- file name, e.g. "PG/PG_32".
+
+    Note:
+        - ":" of the id is replaced by "_", as a file name with ":" cannot be checked out by git on Windows.
     """
-    return f"{gid.split(':')[0]}/{gid}"
+    return f"{gid.split(':')[0]}/{gid.replace(':', '_')}"
 
 
 # ==================================================

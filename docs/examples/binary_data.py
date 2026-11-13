@@ -26,8 +26,8 @@ print("PG:32 ->", info["tag"]["PG:32"], ", name:", info["group_name"]["PG"]["PG:
 
 # ==================================================
 # 2. a PG file. str() shows the description of its keys.
-pg = BinaryManager("PG/PG:32", topdir=binary_data_dir)
-print("\nPG/PG:32:", list(pg.keys()))
+pg = BinaryManager("PG/PG_32", topdir=binary_data_dir)
+print("\nPG/PG_32:", list(pg.keys()))
 print(str(pg)[:300], "...")
 
 # ==================================================
@@ -45,16 +45,16 @@ for key, samb in list(pg["cluster_samb"]["bond"]["3a@1o"].items())[:3]:
 
 # ==================================================
 # 4. an SG file: its harmonics are those of its PG (info.PG).
-sg = BinaryManager("SG/SG:221", topdir=binary_data_dir)
+sg = BinaryManager("SG/SG_221", topdir=binary_data_dir)
 pg_of_sg = BinaryManager(f"PG/{sg['info'].PG}", topdir=binary_data_dir)
-print("\nSG/SG:221:", list(sg.keys()), ", PG:", sg["info"].PG)
+print("\nSG/SG_221:", list(sg.keys()), ", PG:", sg["info"].PG)
 w = list(sg["cluster_samb"]["site"].keys())[1]
 for key, samb in list(sg["cluster_samb"]["site"][w].items())[:2]:
     print(" ", w, key, "ex =", expression(pg_of_sg["harmonics"], key))
 
 # ==================================================
 # 5. an MPG file: active multipoles and response tensors.
-mpg = BinaryManager("MPG/MPG:15.6.58", topdir=binary_data_dir)
-print("\nMPG/MPG:15.6.58:", mpg["info"].international, list(mpg.keys()))
+mpg = BinaryManager("MPG/MPG_15.6.58", topdir=binary_data_dir)
+print("\nMPG/MPG_15.6.58:", mpg["info"].international, list(mpg.keys()))
 matrix, ex = mpg["response_tensor"][("T", 2, "a")]
 print("  (T, 2, a):", matrix.tolist(), ex)

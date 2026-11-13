@@ -288,7 +288,7 @@ Code: `util_atomic_multipole`, `create_binary/create_atomic_multipole.py`,
 Code: `util_binary_data`, `create_binary/create_binary_data.py`.
 
 1. **Layout.** As MultiPie's `multipie/binary_data`: `info.pkl` (the same data as `binary/info.pkl`, with the layout
-   added to the header) and one file for each group, `{PG,SG,MPG,MSG}/{id}.pkl` (47, 230, 157, 1651 files). No
+   added to the header) and one file for each group, `{PG,SG,MPG,MSG}/{id}.pkl` with `:` of the id replaced by `_`, e.g. `PG/PG_32.pkl` (47, 230, 157, 1651 files; git on Windows cannot check out a file name with `:`). No
    separate `_opt` files: a PG file is at most about 260 KB.
 2. **Contents.** Regrouped from the binaries in `multipiegen/binary`; nothing is recomputed except the representation
    matrices of PG (`util_representation_matrix`, below 1 KB each).

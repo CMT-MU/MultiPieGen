@@ -604,20 +604,20 @@ NOTE:
 
 ## Binary data for MultiPie (binary_data)
 
-`multipiegen/binary_data` holds the binary data to be built into MultiPie Ver.3 and later, in the layout of MultiPie's `multipie/binary_data`: `info.pkl` (the same as `binary/info.pkl`) and one file for each group, `{PG,SG,MPG,MSG}/{id}.pkl`. They are made from the binaries above, regrouped by group (the representation matrices of PG are added), by `python -m multipiegen.create_binary.create_binary_data`. Load a file with `BinaryManager("PG/PG:32", topdir=...)` or `multipiegen.util.util_binary_data.load_binary_data("PG:32")`. The SAMB and the multipolar harmonics hold no expression of the harmonics: look it up by `(X, l, Gamma, n)` of the key in `"harmonics"` of the PG file (T -> Q, M -> G); for SG and MPG, the PG file is that of `info.PG`.
+`multipiegen/binary_data` holds the binary data to be built into MultiPie Ver.3 and later, in the layout of MultiPie's `multipie/binary_data`: `info.pkl` (the same as `binary/info.pkl`) and one file for each group, `{PG,SG,MPG,MSG}/{id}.pkl`. They are made from the binaries above, regrouped by group (the representation matrices of PG are added), by `python -m multipiegen.create_binary.create_binary_data`. Load a file with `BinaryManager("PG/PG_32", topdir=...)` (`:` of the id is replaced by `_` in the file names) or `multipiegen.util.util_binary_data.load_binary_data("PG:32")`. The SAMB and the multipolar harmonics hold no expression of the harmonics: look it up by `(X, l, Gamma, n)` of the key in `"harmonics"` of the PG file (T -> Q, M -> G); for SG and MPG, the PG file is that of `info.PG`.
 
 | group | files | keys | size |
 |---|---|---|---|
-| PG | 47 (`PG/PG:1.pkl`, ...) | `info`, `symmetry_operation`, `wyckoff`, `character`, `representation_matrix`, `harmonics`, `multipolar_harmonics`, `atomic_samb`, `cluster_samb` | 9,656 KB |
-| SG | 230 (`SG/SG:1.pkl`, ...) | `info`, `symmetry_operation`, `wyckoff`, `cluster_samb` | 2,091 KB |
-| MPG | 157 (`MPG/MPG:1.1.1.pkl`, ...) | `info`, `symmetry_operation`, `wyckoff`, `active_multipole`, `response_tensor` | 805 KB |
-| MSG | 1651 (`MSG/MSG:1.1.pkl`, ...) | `info`, `symmetry_operation`, `wyckoff` | 3,913 KB |
+| PG | 47 (`PG/PG_1.pkl`, ...) | `info`, `symmetry_operation`, `wyckoff`, `character`, `representation_matrix`, `harmonics`, `multipolar_harmonics`, `atomic_samb`, `cluster_samb` | 9,656 KB |
+| SG | 230 (`SG/SG_1.pkl`, ...) | `info`, `symmetry_operation`, `wyckoff`, `cluster_samb` | 2,091 KB |
+| MPG | 157 (`MPG/MPG_1.1.1.pkl`, ...) | `info`, `symmetry_operation`, `wyckoff`, `active_multipole`, `response_tensor` | 805 KB |
+| MSG | 1651 (`MSG/MSG_1.1.pkl`, ...) | `info`, `symmetry_operation`, `wyckoff` | 3,913 KB |
 
 The keys of the complex PG (`-c`) lack `cluster_samb`.
 
 ### PG files
 
-Description of the dictionary keys (header of `PG/PG:32.pkl`):
+Description of the dictionary keys (header of `PG/PG_32.pkl`):
 
 ```text
 * Data of a PG.
@@ -753,7 +753,7 @@ NOTE:
 
 ### SG files
 
-Description of the dictionary keys (header of `SG/SG:221.pkl`):
+Description of the dictionary keys (header of `SG/SG_221.pkl`):
 
 ```text
 * Data of an SG.
@@ -831,7 +831,7 @@ Description of the dictionary keys (header of `SG/SG:221.pkl`):
 
 ### MPG files
 
-Description of the dictionary keys (header of `MPG/MPG:1.1.1.pkl`):
+Description of the dictionary keys (header of `MPG/MPG_1.1.1.pkl`):
 
 ```text
 * Data of an MPG.
@@ -888,7 +888,7 @@ Description of the dictionary keys (header of `MPG/MPG:1.1.1.pkl`):
 
 ### MSG files
 
-Description of the dictionary keys (header of `MSG/MSG:1.1.pkl`):
+Description of the dictionary keys (header of `MSG/MSG_1.1.pkl`):
 
 ```text
 * Data of an MSG.

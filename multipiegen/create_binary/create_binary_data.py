@@ -8,7 +8,7 @@
 """
 Create binary_data for MultiPie (multipiegen/binary_data), in the layout of MultiPie's multipie/binary_data.
     - info.pkl
-    - {PG,SG,MPG,MSG}/{id}.pkl (one file for each group)
+    - {PG,SG,MPG,MSG}/{id}.pkl (one file for each group, ":" of the id replaced by "_", e.g. PG/PG_32.pkl)
 
 Needs the binaries in multipiegen/binary (info, group, harmonics, multipolar_harmonics, atomic_multipole_group,
 cluster_samb, response_tensor); run their create_binary modules first.

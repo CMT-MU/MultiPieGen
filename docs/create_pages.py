@@ -471,7 +471,7 @@ def create_binary_page():
 # ==================================================
 def binary_data_section():
     """Section of binary.md on the binary data for MultiPie (multipiegen/binary_data)."""
-    from multipiegen.util.util_binary_data import binary_data_dir, group_types, load_binary_data
+    from multipiegen.util.util_binary_data import binary_data_dir, group_file, group_types, load_binary_data
 
     lines = [
         "",
@@ -481,7 +481,7 @@ def binary_data_section():
         "MultiPie's `multipie/binary_data`: `info.pkl` (the same as `binary/info.pkl`) and one file for each group, "
         "`{PG,SG,MPG,MSG}/{id}.pkl`. They are made from the binaries above, regrouped by group "
         "(the representation matrices of PG are added), by `python -m multipiegen.create_binary.create_binary_data`. "
-        'Load a file with `BinaryManager("PG/PG:32", topdir=...)` or `multipiegen.util.util_binary_data.load_binary_data("PG:32")`. '
+        'Load a file with `BinaryManager("PG/PG_32", topdir=...)` (`:` of the id is replaced by `_` in the file names) or `multipiegen.util.util_binary_data.load_binary_data("PG:32")`. '
         "The SAMB and the multipolar harmonics hold no expression of the harmonics: look it up by `(X, l, Gamma, n)` of "
         'the key in `"harmonics"` of the PG file (T -> Q, M -> G); for SG and MPG, the PG file is that of `info.PG`.',
         "",
@@ -493,7 +493,7 @@ def binary_data_section():
         d = os.path.join(binary_data_dir, tp)
         files = sorted(os.listdir(d))
         size = sum(os.path.getsize(os.path.join(d, f)) for f in files)
-        gid = {"PG": "PG:32", "SG": "SG:221"}.get(tp, files[0][:-4])
+        gid = {"PG": "PG:32", "SG": "SG:221"}.get(tp, files[0][:-4].replace("_", ":", 1))  # file name -> id.
         bm = load_binary_data(gid)
         examples[tp] = (gid, bm)
         keys = ", ".join(f"`{k}`" for k in bm.keys())
@@ -503,7 +503,7 @@ def binary_data_section():
         lines += [
             f"### {tp} files",
             "",
-            f"Description of the dictionary keys (header of `{tp}/{gid}.pkl`):",
+            f"Description of the dictionary keys (header of `{group_file(gid)}.pkl`):",
             "",
             "```text",
             str(bm).strip().strip('"').strip(),

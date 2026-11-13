@@ -276,7 +276,7 @@ LaTeX の名前：原子の基底には `atomic_latex_name`（`p_{x}`、`f_{z}^{
 
 コード：`util_binary_data`、`create_binary/create_binary_data.py`。
 
-1. **構成。** MultiPie の `multipie/binary_data` と同じく、`info.pkl`（`binary/info.pkl` と同じデータ。ヘッダに構成の説明を追加）と、群ごとのファイル `{PG,SG,MPG,MSG}/{id}.pkl`（47、230、157、1651 個）です。`_opt` のファイルには分けません。PG のファイルは最大でも約 260 KB です。
+1. **構成。** MultiPie の `multipie/binary_data` と同じく、`info.pkl`（`binary/info.pkl` と同じデータ。ヘッダに構成の説明を追加）と、群ごとのファイル `{PG,SG,MPG,MSG}/{id}.pkl`（47、230、157、1651 個。ファイル名では id の `:` を `_` に置き換えます。例：`PG/PG_32.pkl`。Windows の git は `:` を含むファイル名を checkout できないためです）です。`_opt` のファイルには分けません。PG のファイルは最大でも約 260 KB です。
 2. **中身。** `multipiegen/binary` の binary を群ごとに並べ直したもので、計算し直すのは PG の表現行列（`util_representation_matrix`、1 群 1 KB 未満）だけです。
    - PG：`info`、`symmetry_operation`、`wyckoff`、`character`、`representation_matrix`、`harmonics`、`multipolar_harmonics`、`atomic_samb`、`cluster_samb`（実の点群だけ）。
    - SG：`info`、`symmetry_operation`、`wyckoff`、`cluster_samb`。
