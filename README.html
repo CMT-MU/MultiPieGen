@@ -37,7 +37,7 @@
     <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
-    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=34ddd5e8" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=953d99d8" />
   
   <!-- So that users can add custom icons -->
   <script defer src="_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
@@ -65,7 +65,7 @@
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'README';</script>
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
-    <script src="_static/custom.js?v=9c3a2667"></script>
+    <script src="_static/custom.js?v=fc9be9e2"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="User Guide" href="src/guide.html" />
@@ -319,7 +319,7 @@
 <div class="article-header-buttons">
 
 
-<a href="https://github.com/hiro-k-phys/MultiPieGen.git" target="_blank"
+<a href="https://github.com/CMT-MU/MultiPieGen.git" target="_blank"
    class="btn btn-sm btn-source-repository-button"
    title="Source repository"
    data-bs-placement="bottom" data-bs-toggle="tooltip"
@@ -453,7 +453,7 @@
                   
   <section class="tex2jax_ignore mathjax_ignore" id="multipiegen">
 <h1>MultiPieGen<a class="headerlink" href="#multipiegen" title="Link to this heading">#</a></h1>
-<p><a class="reference external" href="https://github.com/hiro-k-phys/MultiPieGen/actions/workflows/test.yml"><img alt="test" src="https://github.com/hiro-k-phys/MultiPieGen/actions/workflows/test.yml/badge.svg" /></a></p>
+<p><a class="reference external" href="https://github.com/CMT-MU/MultiPieGen/actions/workflows/test.yml"><img alt="test" src="https://github.com/CMT-MU/MultiPieGen/actions/workflows/test.yml/badge.svg" /></a></p>
 <p>Generation code and data for the new multipole basis of <a class="reference external" href="https://github.com/CMT-MU/MultiPie">MultiPie</a> Ver.3 and later.
 MultiPie in this package and its documentation means MultiPie Ver.2 (whose general utilities are used here) unless
 another version is named.</p>
@@ -550,7 +550,7 @@ of the binaries and the PDFs to a separate repository.</p>
 <td><p><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">multipiegen.create_binary.create_group</span></code></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">multipiegen.util.util_group.load_group()</span></code></p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">binary_data/info.pkl</span></code>, <code class="docutils literal notranslate"><span class="pre">binary_data/{PG,SG,MPG,MSG}/{id}.pkl</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">binary_data/info.pkl</span></code>, <code class="docutils literal notranslate"><span class="pre">binary_data/{PG,SG,MPG,MSG}/{id}.pkl</span></code> (<code class="docutils literal notranslate"><span class="pre">:</span></code> of the id replaced by <code class="docutils literal notranslate"><span class="pre">_</span></code>, e.g. <code class="docutils literal notranslate"><span class="pre">PG/PG_32.pkl</span></code>)</p></td>
 <td><p>binary data for MultiPie Ver.3 and later, in the layout of MultiPie’s <code class="docutils literal notranslate"><span class="pre">multipie/binary_data</span></code>: info and one file for each group, made from the binaries above (see the “Binary data” page)</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">multipiegen.create_binary.create_binary_data</span></code></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">multipiegen.util.util_binary_data.load_binary_data(&quot;PG:32&quot;)</span></code></p></td>

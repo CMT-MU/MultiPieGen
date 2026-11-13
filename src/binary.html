@@ -37,7 +37,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
-    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=34ddd5e8" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=953d99d8" />
   
   <!-- So that users can add custom icons -->
   <script defer src="../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
@@ -63,7 +63,7 @@
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'src/binary';</script>
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
-    <script src="../_static/custom.js?v=9c3a2667"></script>
+    <script src="../_static/custom.js?v=fc9be9e2"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Data tables" href="data.html" />
@@ -316,7 +316,7 @@
 <div class="article-header-buttons">
 
 
-<a href="https://github.com/hiro-k-phys/MultiPieGen.git" target="_blank"
+<a href="https://github.com/CMT-MU/MultiPieGen.git" target="_blank"
    class="btn btn-sm btn-source-repository-button"
    title="Source repository"
    data-bs-placement="bottom" data-bs-toggle="tooltip"
@@ -1116,7 +1116,7 @@ NOTE:
 </section>
 <section id="binary-data-for-multipie-binary-data">
 <h2>Binary data for MultiPie (binary_data)<a class="headerlink" href="#binary-data-for-multipie-binary-data" title="Link to this heading">#</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">multipiegen/binary_data</span></code> holds the binary data to be built into MultiPie Ver.3 and later, in the layout of MultiPie’s <code class="docutils literal notranslate"><span class="pre">multipie/binary_data</span></code>: <code class="docutils literal notranslate"><span class="pre">info.pkl</span></code> (the same as <code class="docutils literal notranslate"><span class="pre">binary/info.pkl</span></code>) and one file for each group, <code class="docutils literal notranslate"><span class="pre">{PG,SG,MPG,MSG}/{id}.pkl</span></code>. They are made from the binaries above, regrouped by group (the representation matrices of PG are added), by <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">multipiegen.create_binary.create_binary_data</span></code>. Load a file with <code class="docutils literal notranslate"><span class="pre">BinaryManager(&quot;PG/PG:32&quot;,</span> <span class="pre">topdir=...)</span></code> or <code class="docutils literal notranslate"><span class="pre">multipiegen.util.util_binary_data.load_binary_data(&quot;PG:32&quot;)</span></code>. The SAMB and the multipolar harmonics hold no expression of the harmonics: look it up by <code class="docutils literal notranslate"><span class="pre">(X,</span> <span class="pre">l,</span> <span class="pre">Gamma,</span> <span class="pre">n)</span></code> of the key in <code class="docutils literal notranslate"><span class="pre">&quot;harmonics&quot;</span></code> of the PG file (T -&gt; Q, M -&gt; G); for SG and MPG, the PG file is that of <code class="docutils literal notranslate"><span class="pre">info.PG</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">multipiegen/binary_data</span></code> holds the binary data to be built into MultiPie Ver.3 and later, in the layout of MultiPie’s <code class="docutils literal notranslate"><span class="pre">multipie/binary_data</span></code>: <code class="docutils literal notranslate"><span class="pre">info.pkl</span></code> (the same as <code class="docutils literal notranslate"><span class="pre">binary/info.pkl</span></code>) and one file for each group, <code class="docutils literal notranslate"><span class="pre">{PG,SG,MPG,MSG}/{id}.pkl</span></code>. They are made from the binaries above, regrouped by group (the representation matrices of PG are added), by <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">multipiegen.create_binary.create_binary_data</span></code>. Load a file with <code class="docutils literal notranslate"><span class="pre">BinaryManager(&quot;PG/PG_32&quot;,</span> <span class="pre">topdir=...)</span></code> (<code class="docutils literal notranslate"><span class="pre">:</span></code> of the id is replaced by <code class="docutils literal notranslate"><span class="pre">_</span></code> in the file names) or <code class="docutils literal notranslate"><span class="pre">multipiegen.util.util_binary_data.load_binary_data(&quot;PG:32&quot;)</span></code>. The SAMB and the multipolar harmonics hold no expression of the harmonics: look it up by <code class="docutils literal notranslate"><span class="pre">(X,</span> <span class="pre">l,</span> <span class="pre">Gamma,</span> <span class="pre">n)</span></code> of the key in <code class="docutils literal notranslate"><span class="pre">&quot;harmonics&quot;</span></code> of the PG file (T -&gt; Q, M -&gt; G); for SG and MPG, the PG file is that of <code class="docutils literal notranslate"><span class="pre">info.PG</span></code>.</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>group</p></th>
@@ -1127,22 +1127,22 @@ NOTE:
 </thead>
 <tbody>
 <tr class="row-even"><td><p>PG</p></td>
-<td><p>47 (<code class="docutils literal notranslate"><span class="pre">PG/PG:1.pkl</span></code>, …)</p></td>
+<td><p>47 (<code class="docutils literal notranslate"><span class="pre">PG/PG_1.pkl</span></code>, …)</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">info</span></code>, <code class="docutils literal notranslate"><span class="pre">symmetry_operation</span></code>, <code class="docutils literal notranslate"><span class="pre">wyckoff</span></code>, <code class="docutils literal notranslate"><span class="pre">character</span></code>, <code class="docutils literal notranslate"><span class="pre">representation_matrix</span></code>, <code class="docutils literal notranslate"><span class="pre">harmonics</span></code>, <code class="docutils literal notranslate"><span class="pre">multipolar_harmonics</span></code>, <code class="docutils literal notranslate"><span class="pre">atomic_samb</span></code>, <code class="docutils literal notranslate"><span class="pre">cluster_samb</span></code></p></td>
 <td><p>9,656 KB</p></td>
 </tr>
 <tr class="row-odd"><td><p>SG</p></td>
-<td><p>230 (<code class="docutils literal notranslate"><span class="pre">SG/SG:1.pkl</span></code>, …)</p></td>
+<td><p>230 (<code class="docutils literal notranslate"><span class="pre">SG/SG_1.pkl</span></code>, …)</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">info</span></code>, <code class="docutils literal notranslate"><span class="pre">symmetry_operation</span></code>, <code class="docutils literal notranslate"><span class="pre">wyckoff</span></code>, <code class="docutils literal notranslate"><span class="pre">cluster_samb</span></code></p></td>
 <td><p>2,091 KB</p></td>
 </tr>
 <tr class="row-even"><td><p>MPG</p></td>
-<td><p>157 (<code class="docutils literal notranslate"><span class="pre">MPG/MPG:1.1.1.pkl</span></code>, …)</p></td>
+<td><p>157 (<code class="docutils literal notranslate"><span class="pre">MPG/MPG_1.1.1.pkl</span></code>, …)</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">info</span></code>, <code class="docutils literal notranslate"><span class="pre">symmetry_operation</span></code>, <code class="docutils literal notranslate"><span class="pre">wyckoff</span></code>, <code class="docutils literal notranslate"><span class="pre">active_multipole</span></code>, <code class="docutils literal notranslate"><span class="pre">response_tensor</span></code></p></td>
 <td><p>805 KB</p></td>
 </tr>
 <tr class="row-odd"><td><p>MSG</p></td>
-<td><p>1651 (<code class="docutils literal notranslate"><span class="pre">MSG/MSG:1.1.pkl</span></code>, …)</p></td>
+<td><p>1651 (<code class="docutils literal notranslate"><span class="pre">MSG/MSG_1.1.pkl</span></code>, …)</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">info</span></code>, <code class="docutils literal notranslate"><span class="pre">symmetry_operation</span></code>, <code class="docutils literal notranslate"><span class="pre">wyckoff</span></code></p></td>
 <td><p>3,913 KB</p></td>
 </tr>
@@ -1152,7 +1152,7 @@ NOTE:
 <p>The keys of the complex PG (<code class="docutils literal notranslate"><span class="pre">-c</span></code>) lack <code class="docutils literal notranslate"><span class="pre">cluster_samb</span></code>.</p>
 <section id="pg-files">
 <h3>PG files<a class="headerlink" href="#pg-files" title="Link to this heading">#</a></h3>
-<p>Description of the dictionary keys (header of <code class="docutils literal notranslate"><span class="pre">PG/PG:32.pkl</span></code>):</p>
+<p>Description of the dictionary keys (header of <code class="docutils literal notranslate"><span class="pre">PG/PG_32.pkl</span></code>):</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>* Data of a PG.
 - "info" (str): (namedtuple) info.
   - tag: Schoenflies in text.
@@ -1287,7 +1287,7 @@ NOTE:
 </section>
 <section id="sg-files">
 <h3>SG files<a class="headerlink" href="#sg-files" title="Link to this heading">#</a></h3>
-<p>Description of the dictionary keys (header of <code class="docutils literal notranslate"><span class="pre">SG/SG:221.pkl</span></code>):</p>
+<p>Description of the dictionary keys (header of <code class="docutils literal notranslate"><span class="pre">SG/SG_221.pkl</span></code>):</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>* Data of an SG.
 - "info" (str): (namedtuple) info.
   - tag: Schoenflies in text.
@@ -1364,7 +1364,7 @@ NOTE:
 </section>
 <section id="mpg-files">
 <h3>MPG files<a class="headerlink" href="#mpg-files" title="Link to this heading">#</a></h3>
-<p>Description of the dictionary keys (header of <code class="docutils literal notranslate"><span class="pre">MPG/MPG:1.1.1.pkl</span></code>):</p>
+<p>Description of the dictionary keys (header of <code class="docutils literal notranslate"><span class="pre">MPG/MPG_1.1.1.pkl</span></code>):</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>* Data of an MPG.
 - "info" (str): (namedtuple) info.
   - tag: MPG_id (PG.no.ID).
@@ -1420,7 +1420,7 @@ NOTE:
 </section>
 <section id="msg-files">
 <h3>MSG files<a class="headerlink" href="#msg-files" title="Link to this heading">#</a></h3>
-<p>Description of the dictionary keys (header of <code class="docutils literal notranslate"><span class="pre">MSG/MSG:1.1.pkl</span></code>):</p>
+<p>Description of the dictionary keys (header of <code class="docutils literal notranslate"><span class="pre">MSG/MSG_1.1.pkl</span></code>):</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>* Data of an MSG.
 - "info" (str): (namedtuple) info.
   - tag: BNS_id (SG.no).

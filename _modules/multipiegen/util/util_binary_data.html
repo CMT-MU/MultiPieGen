@@ -36,7 +36,7 @@
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=34ddd5e8" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=953d99d8" />
   
   <!-- So that users can add custom icons -->
   <script defer src="../../../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
@@ -62,7 +62,7 @@
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = '_modules/multipiegen/util/util_binary_data';</script>
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
-    <script src="../../../_static/custom.js?v=9c3a2667"></script>
+    <script src="../../../_static/custom.js?v=fc9be9e2"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -311,7 +311,7 @@
 <div class="article-header-buttons">
 
 
-<a href="https://github.com/hiro-k-phys/MultiPieGen.git" target="_blank"
+<a href="https://github.com/CMT-MU/MultiPieGen.git" target="_blank"
    class="btn btn-sm btn-source-repository-button"
    title="Source repository"
    data-bs-placement="bottom" data-bs-toggle="tooltip"
@@ -389,8 +389,9 @@
 <span class="sd">Binary data for MultiPie (multipiegen/binary_data), in the layout of MultiPie's multipie/binary_data.</span>
 
 <span class="sd">- info.pkl: information of all groups (= binary/info.pkl).</span>
-<span class="sd">- {PG,SG,MPG,MSG}/{id}.pkl: data of each group, e.g. PG/PG:32.pkl, SG/SG:221.pkl, MPG/MPG:32.1.118.pkl,</span>
-<span class="sd">  MSG/MSG:221.92.pkl. Each file has its own header (str() of the loaded data).</span>
+<span class="sd">- {PG,SG,MPG,MSG}/{id}.pkl: data of each group, with ":" of the id replaced by "_" (git on Windows cannot check out a</span>
+<span class="sd">  file name with ":"), e.g. PG/PG_32.pkl, SG/SG_221.pkl, MPG/MPG_32.1.118.pkl, MSG/MSG_221.92.pkl. Each file has its</span>
+<span class="sd">  own header (str() of the loaded data).</span>
 
 <span class="sd">The data are taken from the binaries in multipiegen/binary (nothing is recomputed, except the representation</span>
 <span class="sd">matrices of PG by util_representation_matrix), and regrouped by group:</span>
@@ -427,7 +428,8 @@
 <span class="n">h_info_layout</span> <span class="o">=</span> <span class="s2">"""</span>
 <span class="s2">* Layout of the binary data (multipiegen/binary_data, as MultiPie's multipie/binary_data).</span>
 <span class="s2">- info.pkl: this file.</span>
-<span class="s2">- {PG,SG,MPG,MSG}/</span><span class="si">{id}</span><span class="s2">.pkl: data of each group, e.g. "PG/PG:32", "SG/SG:221", "MPG/MPG:32.1.118", "MSG/MSG:221.92".</span>
+<span class="s2">- {PG,SG,MPG,MSG}/</span><span class="si">{id}</span><span class="s2">.pkl: data of each group, with ":" of the id replaced by "_", e.g. "PG/PG_32" (id "PG:32"),</span>
+<span class="s2">  "SG/SG_221", "MPG/MPG_32.1.118", "MSG/MSG_221.92".</span>
 <span class="s2">  str() of each file shows the description of its keys.</span>
 <span class="s2">"""</span>
 
@@ -571,9 +573,12 @@
 <span class="sd">        gid (str): group id, e.g. "PG:32".</span>
 
 <span class="sd">    Returns:</span>
-<span class="sd">        - (str) -- file name, e.g. "PG/PG:32".</span>
+<span class="sd">        - (str) -- file name, e.g. "PG/PG_32".</span>
+
+<span class="sd">    Note:</span>
+<span class="sd">        - ":" of the id is replaced by "_", as a file name with ":" cannot be checked out by git on Windows.</span>
 <span class="sd">    """</span>
-    <span class="k">return</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">gid</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">':'</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">gid</span><span class="si">}</span><span class="s2">"</span></div>
+    <span class="k">return</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">gid</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">':'</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">gid</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">':'</span><span class="p">,</span><span class="w"> </span><span class="s1">'_'</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span></div>
 
 
 
