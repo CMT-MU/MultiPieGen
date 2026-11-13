@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this is
 
-MultiPieGen (`multipiegen`, repo `hiro-k-phys/MultiPieGen`) is the generator for the new multipole basis of
+MultiPieGen (`multipiegen`, repo `CMT-MU/MultiPieGen`) is the generator for the new multipole basis of
 [MultiPie](https://github.com/CMT-MU/MultiPie) Ver.3 and later. It holds data tables (`multipiegen/data`) and code that turns them into
 binaries (`multipiegen/binary/*.pkl`) and PDFs (`multipiegen/pdf/`). Those outputs are delivered elsewhere (part of
 the binaries to MultiPie Ver.3 and later, the rest plus the PDFs to a separate repo), so keep binaries in MultiPie Ver.2's `BinaryManager`
