@@ -37,7 +37,7 @@
     <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
-    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=953d99d8" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=d144ded4" />
   
   <!-- So that users can add custom icons -->
   <script defer src="_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
@@ -65,7 +65,7 @@
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'README';</script>
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
-    <script src="_static/custom.js?v=fc9be9e2"></script>
+    <script src="_static/custom.js?v=4dffa8a4"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="User Guide" href="src/guide.html" />
@@ -486,89 +486,75 @@ of the binaries and the PDFs to a separate repository.</p>
 </section>
 <section id="generated-data">
 <h2>Generated data<a class="headerlink" href="#generated-data" title="Link to this heading">#</a></h2>
+<p>In the last column, the first line <code class="docutils literal notranslate"><span class="pre">&lt;generate&gt;</span></code> is the module that generates the output (<code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">multipiegen.&lt;generate&gt;</span></code>), and the second
+line <code class="docutils literal notranslate"><span class="pre">&lt;load&gt;</span></code> the function that loads it (<code class="docutils literal notranslate"><span class="pre">multipiegen.util.&lt;load&gt;</span></code>).</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>output</p></th>
 <th class="head"><p>content</p></th>
-<th class="head"><p>generate</p></th>
-<th class="head"><p>load</p></th>
+<th class="head"><p>generate / load</p></th>
 </tr>
 </thead>
 <tbody>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">binary/info.pkl</span></code></p></td>
 <td><p>overall information: group id/tag/name, character alias and compatibility relation, root cluster, orbital basis and basis functions, response tensor</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">multipiegen.create_binary.create_info</span></code></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">multipiegen.util.util_info.load_info()</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">create_binary.create_info</span></code><br><code class="docutils literal notranslate"><span class="pre">util_info.load_info()</span></code></p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">binary/cluster_scalar_basis.pkl</span></code></p></td>
 <td><p>orthonormal (scalar) cluster basis of the Oh (48) and D6h (24) clusters, keyed by PGMultipoleType as MultiPie Ver.2’s site SAMB</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">multipiegen.create_binary.create_cluster_scalar_basis</span></code></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">multipiegen.util.util_cluster_basis.load_cluster_basis()</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">create_binary.create_cluster_scalar_basis</span></code><br><code class="docutils literal notranslate"><span class="pre">util_cluster_basis.load_cluster_basis()</span></code></p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">binary/cluster_vector_basis.pkl</span></code></p></td>
 <td><p>orthonormal vector cluster basis (internal rank s=1, polar q / axial g internal basis) of the Oh (144) and D6h (72) clusters, keyed by PGMultipoleType as MultiPie Ver.2’s vector SAMB; intermediate basis for cluster_bond_basis.pkl</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">multipiegen.create_binary.create_cluster_vector_basis</span></code></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">multipiegen.util.util_cluster_vector_basis.load_cluster_vector_basis()</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">create_binary.create_cluster_vector_basis</span></code><br><code class="docutils literal notranslate"><span class="pre">util_cluster_vector_basis.load_cluster_vector_basis()</span></code></p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">binary/cluster_bond_basis.pkl</span></code></p></td>
 <td><p>orthonormal bond cluster basis of the Oh (48) and D6h (24) clusters, from the vector cluster basis and the bond vectors (vector0), keyed by PGMultipoleType as MultiPie Ver.2’s bond_a</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">multipiegen.create_binary.create_cluster_bond_basis</span></code></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">multipiegen.util.util_bond_cluster_basis.load_bond_cluster_basis()</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">create_binary.create_cluster_bond_basis</span></code><br><code class="docutils literal notranslate"><span class="pre">util_bond_cluster_basis.load_bond_cluster_basis()</span></code></p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">binary/response_tensor.pkl</span></code></p></td>
 <td><p>response tensors (rank 0-4, Q/G/T/M) of all MPG in terms of active multipoles</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">multipiegen.create_binary.create_response_tensor</span></code></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">multipiegen.util.util_response_tensor.load_response_tensor()</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">create_binary.create_response_tensor</span></code><br><code class="docutils literal notranslate"><span class="pre">util_response_tensor.load_response_tensor()</span></code></p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">binary/atomic_multipole.pkl</span></code></p></td>
 <td><p>matrices of atomic multipoles (rank l &lt;= 7, s = 0, 1) in the LMs/JML/LM basis of s, p, d, f orbitals</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">multipiegen.create_binary.create_atomic_multipole</span></code></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">multipiegen.util.util_atomic_multipole.load_atomic_multipole()</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">create_binary.create_atomic_multipole</span></code><br><code class="docutils literal notranslate"><span class="pre">util_atomic_multipole.load_atomic_multipole()</span></code></p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">binary/atomic_multipole_group.pkl</span></code></p></td>
 <td><p>atomic multipole SAMB of all 47 point groups in the JML/Lgs/Lg basis</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">multipiegen.create_binary.create_atomic_multipole_group</span></code></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">multipiegen.util.util_atomic_multipole.load_atomic_multipole_group()</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">create_binary.create_atomic_multipole_group</span></code><br><code class="docutils literal notranslate"><span class="pre">util_atomic_multipole.load_atomic_multipole_group()</span></code></p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">binary/cluster_samb.pkl</span></code></p></td>
 <td><p>cluster SAMB of each Wyckoff site and bond (site; bond = symmetric Q and anti-symmetric T/M) of the real point groups and the space groups</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">multipiegen.create_binary.create_cluster_samb</span></code></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">multipiegen.util.util_cluster_samb.load_cluster_samb()</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">create_binary.create_cluster_samb</span></code><br><code class="docutils literal notranslate"><span class="pre">util_cluster_samb.load_cluster_samb()</span></code></p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">binary/harmonics.pkl</span></code></p></td>
 <td><p>expression and u-matrix of the harmonics of all 47 point groups (rank l &lt;= 11); the other multipole-keyed binaries look them up by the key</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">multipiegen.create_binary.create_harmonics</span></code></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">multipiegen.util.util_harmonics.load_harmonics()</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">create_binary.create_harmonics</span></code><br><code class="docutils literal notranslate"><span class="pre">util_harmonics.load_harmonics()</span></code></p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">binary/multipolar_harmonics.pkl</span></code></p></td>
 <td><p>multipolar harmonics (s = 1, 2, 3, rank l &lt;= 3) of all 47 point groups with polar (q) and axial (g) internal basis (data_basis orbitals)</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">multipiegen.create_binary.create_multipolar_harmonics</span></code></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">multipiegen.util.util_harmonics_multipole.load_multipolar_harmonics()</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">create_binary.create_multipolar_harmonics</span></code><br><code class="docutils literal notranslate"><span class="pre">util_harmonics_multipole.load_multipolar_harmonics()</span></code></p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">binary/group.pkl</span></code></p></td>
 <td><p>data of all PG (47), SG, MPG and MSG: symmetry operations, product table, mapping to the Oh/D6h cluster, character, Wyckoff site and bond, active multipoles</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">multipiegen.create_binary.create_group</span></code></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">multipiegen.util.util_group.load_group()</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">create_binary.create_group</span></code><br><code class="docutils literal notranslate"><span class="pre">util_group.load_group()</span></code></p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">binary_data/info.pkl</span></code>, <code class="docutils literal notranslate"><span class="pre">binary_data/{PG,SG,MPG,MSG}/{id}.pkl</span></code> (<code class="docutils literal notranslate"><span class="pre">:</span></code> of the id replaced by <code class="docutils literal notranslate"><span class="pre">_</span></code>, e.g. <code class="docutils literal notranslate"><span class="pre">PG/PG_32.pkl</span></code>)</p></td>
 <td><p>binary data for MultiPie Ver.3 and later, in the layout of MultiPie’s <code class="docutils literal notranslate"><span class="pre">multipie/binary_data</span></code>: info and one file for each group, made from the binaries above (see the “Binary data” page)</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">multipiegen.create_binary.create_binary_data</span></code></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">multipiegen.util.util_binary_data.load_binary_data(&quot;PG:32&quot;)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">create_binary.create_binary_data</span></code><br><code class="docutils literal notranslate"><span class="pre">util_binary_data.load_binary_data(&quot;PG:32&quot;)</span></code></p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">pdf/PG/{no}-{tag}/harmonics.{tex,pdf}</span></code></p></td>
 <td><p>harmonics of all 47 point groups, with polar and axial symbols side by side</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">multipiegen.create_pdf.create_pdf_harmonics</span></code></p></td>
-<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">create_pdf.create_pdf_harmonics</span></code></p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">pdf/{PG,SG,MPG,MSG}/*/{character_table,symmetry_operation,wyckoff_site,wyckoff_bond,representation_matrix,multipolar_harmonics_s{1,2,3}_{q,g},atomic_multipole_{lg,lgs,jml},response_tensor_X}.{tex,pdf}</span></code></p></td>
 <td><p>each group: character table, representation matrices, multipolar harmonics and atomic multipoles (PG), symmetry operations, Wyckoff site and bond (PG, SG), response tensors (MPG)</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">multipiegen.create_pdf.create_pdf_group</span></code></p></td>
-<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">create_pdf.create_pdf_group</span></code></p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">pdf/info/*.{tex,pdf}</span></code></p></td>
 <td><p>overall information: lists of PG, SG, MPG and MSG, compatibility relation with orbitals, active multipoles</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">multipiegen.create_pdf.create_pdf_info</span></code></p></td>
-<td><p></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">create_pdf.create_pdf_info</span></code></p></td>
 </tr>
 </tbody>
 </table>
