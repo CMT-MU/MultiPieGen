@@ -1,7 +1,3 @@
----
-orphan: true
----
-
 # Changes from MultiPie Ver.2 (multipole data)
 
 This note lists what MultiPieGen does differently from MultiPie Ver.2 for the multipole-keyed data: conventions,

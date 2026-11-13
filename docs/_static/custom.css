@@ -67,6 +67,7 @@ dl.py.signal dl.field-list > dt {
 .bd-content table.table thead th {
     border-bottom: 2px solid var(--pst-color-text-muted);
     font-weight: 600;
+    word-break: keep-all;  /* Japanese headers are not broken between characters. */
 }
 
 .bd-content table.table tr,
@@ -89,4 +90,36 @@ dl.py.signal dl.field-list > dt {
 .bd-content table.table code.literal.table-code-wrap,
 .bd-content table.table code.literal.table-code-wrap span.pre {
     white-space: normal;
+}
+
+/* Sidebar: "[en, ja]" links after the entries with a Japanese version (custom.js). */
+.bd-sidebar-primary li:has(> .language-links) {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+}
+
+.bd-sidebar-primary li:has(> .language-links) > a.reference {
+    flex: 0 1 auto;
+}
+
+.bd-sidebar-primary li:has(> .language-links) > :not(a):not(.language-links) {
+    flex-basis: 100%;
+}
+
+.bd-sidebar-primary .language-links {
+    font-size: 0.8em;
+    color: var(--pst-color-text-muted);
+    white-space: nowrap;
+    margin-left: 0.4em;
+}
+
+.bd-sidebar-primary .language-links a {
+    display: inline;
+    padding: 0;
+    color: var(--pst-color-link);
+}
+
+.bd-sidebar-primary .language-links a.current-language {
+    font-weight: 700;
 }
