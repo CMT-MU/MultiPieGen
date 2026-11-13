@@ -1,7 +1,3 @@
----
-orphan: true
----
-
 # Definitions
 
 This page defines the quantities provided by MultiPieGen. How to get the actual function forms and $U$
