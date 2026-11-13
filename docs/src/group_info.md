@@ -1,5 +1,7 @@
 # Group Information
 
+A Japanese version is [here](group_info_ja.md).
+
 Tables of the point groups, space groups, magnetic point groups, and magnetic space groups in the new multipole basis
 for MultiPie Ver.3 and later, as PDF files.
 

@@ -67,6 +67,7 @@ dl.py.signal dl.field-list > dt {
 .bd-content table.table thead th {
     border-bottom: 2px solid var(--pst-color-text-muted);
     font-weight: 600;
+    word-break: keep-all;  /* Japanese headers are not broken between characters. */
 }
 
 .bd-content table.table tr,

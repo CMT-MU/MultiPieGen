@@ -1,5 +1,7 @@
 # User Guide
 
+A Japanese version is [here](guide_ja.md).
+
 A guide to the quantities provided by MultiPieGen and how to use them, in English (en) and Japanese (ja).
 
 - **Definitions** [[en](guide/definitions.md), [ja](guide/definitions_ja.md)]: point-group harmonics, PG multipolar
