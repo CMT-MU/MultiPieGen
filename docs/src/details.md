@@ -1,5 +1,7 @@
 # Details
 
+A Japanese version is [here](details_ja.md).
+
 Details of the package: how to use the generated data, and what the binaries and the data tables contain.
 
 - [Examples](examples.md): sample code for each feature (`docs/examples`).

@@ -1,7 +1,3 @@
----
-orphan: true
----
-
 # Generation of the multipole data: algorithms, keys, and orbital basis
 
 This note collects, in one place, how MultiPieGen builds its multipole-keyed data, and the rules for keys and orbital

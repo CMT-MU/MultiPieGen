@@ -1,5 +1,7 @@
 # Notes
 
+A Japanese version is [here](notes_ja.md).
+
 Notes on how the multipole data are generated and how they differ from MultiPie Ver.2, each in English (en) and
 Japanese (ja).
 

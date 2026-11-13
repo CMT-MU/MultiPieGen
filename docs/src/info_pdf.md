@@ -1,5 +1,7 @@
 # Overall information
 
+A Japanese version is [here](info_pdf_ja.md).
+
 Lists of all groups, compatibility relations, and active multipoles.
 
 | PDF | content |
