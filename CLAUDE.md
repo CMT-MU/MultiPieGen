@@ -130,6 +130,7 @@ Gram–Schmidt basis per (irrep, component), from lower rank, and must yield 48 
 The default branch is `main`, but work is cut from `origin/develop`, and every PR targets `develop`
 (`gh pr create --base develop`). develop→main PRs and merges are done manually by the maintainer on GitHub; never push
 to main. Repo-level auto-delete is off so that develop survives develop→main merges. Instead,
-`.github/workflows/delete-merged-branch.yml` deletes head branches merged into develop, and
-`.githooks/post-merge` (enable with `git config core.hooksPath .githooks`) deletes local merged branches on
-`git pull` in develop.
+`.github/workflows/delete-merged-branch.yml` deletes head branches merged into develop or into a development branch
+`develop-*` (e.g. `develop-v3`), and `.githooks/post-merge` (enable with `git config core.hooksPath .githooks`) deletes
+local branches whose remote is gone and that are merged into develop or `develop-*`, on `git pull` in main, develop, or
+`develop-*`. main, develop, and `develop-*` themselves are never deleted.
