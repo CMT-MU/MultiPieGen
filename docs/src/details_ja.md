@@ -12,3 +12,4 @@ orphan: true
 - [バイナリデータ](binary_ja.md)：バイナリデータ（`multipiegen/binary`）の最上位のキーと、中身の説明。
 - [データテーブル](data_ja.md)：生成するすべてのデータの元になるデータテーブル（`multipiegen/data`）の変数、出典、
   それを作るモジュールと使うモジュール。
+- [MultiPie Ver.2 からの変更点](changes_from_multipie_v2_ja.md)：MultiPie Ver.2 と比べた、多極子データの規約・アルゴリズムと、その結果の違い。

@@ -6,7 +6,7 @@ orphan: true
 
 多極子のキーを使うデータについて、MultiPieGen が MultiPie Ver.2 と違うことをしている点（規則、アルゴリズム、
 その結果の違い）をまとめたものです。MultiPieGen のアルゴリズム
-そのものは [多極子データの生成](generation_rules_ja.md) にあります。下の数字は 2026-11-11 に MultiPie Ver.2 と
+そのものは [ユーザーガイド](guide_ja.md)の第 2 部「生成規則」にあります。下の数字は 2026-11-11 に MultiPie Ver.2 と
 比べた結果です（develop 369c8bf の時点）。[英語版](changes_from_multipie_v2.md) もあります。
 
 目次：
