@@ -1,6 +1,7 @@
 # MultiPieGen
 
 [![test](https://github.com/CMT-MU/MultiPieGen/actions/workflows/test.yml/badge.svg)](https://github.com/CMT-MU/MultiPieGen/actions/workflows/test.yml)
+[![PyPI](https://img.shields.io/pypi/v/multipiegen?label=pip%20install%20multipiegen)](https://pypi.org/project/multipiegen/)
 
 Generation code and data for the new multipole basis of [MultiPie](https://github.com/CMT-MU/MultiPie) Ver.3 and later.
 MultiPie in this package and its documentation means MultiPie Ver.2 (whose general utilities are used here) unless
