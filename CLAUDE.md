@@ -45,9 +45,16 @@ python docs/examples/<name>.py                             # runnable samples
 make -C docs build                                         # Jupyter Book -> docs/_build/html (gh-pages on main)
 ```
 
-`binary/`, `binary_data/`, and `pdf/` are in git but deliberately **not packaged** (`include-package-data = false`; the wheel is
-`.py` only). Anything that loads a binary needs the editable install, and CI uses `pip install -e .`. Do not re-add
-package-data.
+`binary/`, `binary_data/`, and `pdf/` are in git. Only `binary_data/` is packaged (`[tool.setuptools.package-data]`
+`binary_data/**/*.pkl`, as MultiPie; the wheel is about 18 MB); `binary/` (with the intermediate data) and `pdf/` are
+deliberately **not packaged** (`include-package-data = false`). Anything that loads `binary/` needs the editable
+install, and CI uses `pip install -e .`. Do not add `binary/` or `pdf/` to the package.
+
+Release: `.github/workflows/release.yml` (as MultiPie) builds the sdist and wheel when a GitHub release is published and
+uploads them to TestPyPI and then PyPI by trusted publishing (no API token; set up on PyPI/TestPyPI for this repository,
+`release.yml`, and the environments `testpypi`/`pypi`). The tag must be `v` + `multipiegen.__version__` (e.g. `v0.1.0`);
+"Run workflow" and prereleases upload to TestPyPI only. A version on PyPI cannot be replaced: bump `__version__` for a
+new release.
 
 Regenerating a binary or PDF whose content is unchanged still produces a git diff (gzip/PDF timestamps). Compare the
 content, and `git restore` the file if only the timestamp changed. `tests/test_*` include "binary is up to date"
