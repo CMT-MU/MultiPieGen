@@ -25,14 +25,21 @@ of the binaries and the PDFs to a separate repository.
 - [MultiPie](https://github.com/CMT-MU/MultiPie) Ver.2.4 or later, NumPy 2, SymPy
 - for the PDFs only: a TeX distribution with `ptex2pdf` (e.g., TeX Live)
 
-## Install (development)
+## Install
+
+```bash
+pip install multipiegen
+```
+
+The package includes the binary data for MultiPie (`multipiegen/binary_data`), which can be loaded with
+`multipiegen.util.util_binary_data.load_binary_data`. The other binary data (`multipiegen/binary`) and the PDFs
+(`multipiegen/pdf`) are kept in the repository but are **not** included in the package.
+
+For development (to generate and load all the binaries), clone the repository and use the editable install:
 
 ```bash
 pip install -e ".[dev]"
 ```
-
-The binary data (`multipiegen/binary`) and the PDFs (`multipiegen/pdf`) are kept in the repository but are
-**not** included in the package; the package contains only `.py` files. Use the editable install above to load the binaries.
 
 ## Generated data
 
@@ -80,7 +87,7 @@ multipiegen/        package
   create_binary/    code that generates the binary data
   create_pdf/       code that generates the PDFs
   binary/           generated binary data (info.pkl, cluster_scalar_basis.pkl, cluster_vector_basis.pkl, cluster_bond_basis.pkl, cluster_samb.pkl, harmonics.pkl, multipolar_harmonics.pkl, atomic_multipole.pkl, atomic_multipole_group.pkl, group.pkl, response_tensor.pkl) [not packaged]
-  binary_data/      binary data for MultiPie (info.pkl, PG/, SG/, MPG/, MSG/: one file for each group, made from binary/) [not packaged]
+  binary_data/      binary data for MultiPie (info.pkl, PG/, SG/, MPG/, MSG/: one file for each group, made from binary/) [packaged]
   pdf/              generated LaTeX and PDF (PG/032-Oh/harmonics.pdf, info/PG.pdf, ...) [not packaged]
 docs/
   examples/         sample code for each feature
