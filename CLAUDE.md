@@ -108,11 +108,13 @@ Gram–Schmidt basis per (irrep, component), from lower rank, and must yield 48 
 - `others/` holds non-package material: `creation/` (table generators). `others/archive/` keeps old material locally
   only (old memo, etc, notebooks, earlier verification pipelines, the MultiPie Ver.2 comparison script, old scripts);
   it is in `.gitignore` and will be deleted. Do not add files there to git, and do not depend on them.
-- `docs/src/notes/` holds the notes on the multipole data (generation rules and changes from MultiPie Ver.2, in
-  English and Japanese), the "Notes" chapter of the docs. Update them when the algorithms or keys change.
-- `docs/src/guide/` holds the user guide, the "User Guide" chapter (`docs/src/guide.md`): `definitions(_ja).md`
-  (the quantities provided; the last section is the multipole key `PGMultipoleType`, linked from where a key appears). Keep the English and Japanese versions in step, and
-  update them when a definition, key, basis order, or binary structure changes.
+- `docs/src/guide.md` (and `guide_ja.md`) is the "User Guide" chapter, one page with the content itself (no list of
+  links to sub-pages): part 1 "Definitions" (the quantities provided; its last section is the multipole key
+  `PGMultipoleType`, linked from where a key appears within the page) and part 2 "Generation rules" (algorithms, keys,
+  orbital bases, and the binary data for MultiPie). Keep the English and Japanese versions in step, and update them
+  when a definition, key, basis order, algorithm, or binary structure changes.
+- `docs/src/changes_from_multipie_v2.md` (and `_ja.md`), under the "Details" chapter, lists the changes from MultiPie
+  Ver.2 (conventions, algorithms, resulting differences). Update it when such a change is made.
 - Every new feature also gets a runnable sample `docs/examples/<feature>.py` and a row in `docs/examples/README.md`
   (the docs page `docs/src/examples.md` is generated from that table by `docs/create_pages.py`).
 

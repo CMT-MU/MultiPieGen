@@ -7,8 +7,6 @@ parts:
 - caption: Documentation
   chapters:
     - file: src/guide
-      sections:
-      - file: src/guide/definitions
     - file: src/group_info
       sections:
       - file: src/info_pdf
@@ -16,15 +14,12 @@ parts:
       - file: src/sg_pdf
       - file: src/mpg_pdf
       - file: src/msg_pdf
-    - file: src/notes
-      sections:
-      - file: src/notes/generation_rules
-      - file: src/notes/changes_from_multipie_v2
     - file: src/details
       sections:
       - file: src/examples
       - file: src/binary
       - file: src/data
+      - file: src/changes_from_multipie_v2
     - url: https://cmt-mu.github.io/MultiPie/
       title: MultiPie documentation
 - caption: API reference

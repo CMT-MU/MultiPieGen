@@ -9,3 +9,5 @@ Details of the package: how to use the generated data, and what the binaries and
   their contents.
 - [Data tables](data.md): the data tables (`multipiegen/data`), the source of all generated data, with their
   variables, origin, and the modules that create and use them.
+- [Changes from MultiPie Ver.2](changes_from_multipie_v2.md): conventions, algorithms, and the resulting differences
+  in the multipole data from MultiPie Ver.2.
