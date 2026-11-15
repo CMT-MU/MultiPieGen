@@ -2,7 +2,7 @@
 
 This note lists what MultiPieGen does differently from MultiPie Ver.2 for the multipole-keyed data: conventions,
 algorithms, and the resulting differences. The algorithms of MultiPieGen themselves are described in
-[Generation of the multipole data](generation_rules.md). The numbers below come from a comparison with MultiPie Ver.2
+the second part of the [User Guide](guide.md), "Generation rules". The numbers below come from a comparison with MultiPie Ver.2
 made on 2026-11-11 (develop 369c8bf). A Japanese version is [here](changes_from_multipie_v2_ja.md).
 
 Contents:

@@ -40,20 +40,17 @@ document.addEventListener("DOMContentLoaded", function() {
 // pair, add a line to LANGUAGE_PAIRS (paths from the root of the docs).
 var LANGUAGE_PAIRS = {
     "src/guide.html": "src/guide_ja.html",
-    "src/guide/definitions.html": "src/guide/definitions_ja.html",
     "src/group_info.html": "src/group_info_ja.html",
     "src/info_pdf.html": "src/info_pdf_ja.html",
     "src/pg_pdf.html": "src/pg_pdf_ja.html",
     "src/sg_pdf.html": "src/sg_pdf_ja.html",
     "src/mpg_pdf.html": "src/mpg_pdf_ja.html",
     "src/msg_pdf.html": "src/msg_pdf_ja.html",
-    "src/notes.html": "src/notes_ja.html",
-    "src/notes/generation_rules.html": "src/notes/generation_rules_ja.html",
-    "src/notes/changes_from_multipie_v2.html": "src/notes/changes_from_multipie_v2_ja.html",
     "src/details.html": "src/details_ja.html",
     "src/examples.html": "src/examples_ja.html",
     "src/binary.html": "src/binary_ja.html",
     "src/data.html": "src/data_ja.html",
+    "src/changes_from_multipie_v2.html": "src/changes_from_multipie_v2_ja.html",
 };
 
 document.addEventListener("DOMContentLoaded", function() {

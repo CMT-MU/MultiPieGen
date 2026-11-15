@@ -84,8 +84,8 @@ multipiegen/        package
   pdf/              generated LaTeX and PDF (PG/032-Oh/harmonics.pdf, info/PG.pdf, ...) [not packaged]
 docs/
   examples/         sample code for each feature
-  src/guide/        user guide (definitions of the provided quantities; English and Japanese)
-  src/notes/        notes on the multipole data (generation rules, changes from MultiPie Ver.2; English and Japanese)
+  src/guide.md      user guide: definitions of the provided quantities and their generation rules (guide_ja.md: Japanese)
+  src/changes_from_multipie_v2.md  changes from MultiPie Ver.2, in the Details chapter (_ja.md: Japanese)
 tests/              pytest tests
 others/             non-package material
   creation/         scripts that generate the data tables in multipiegen/data
