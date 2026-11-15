@@ -126,10 +126,8 @@ orphan: true
 
 - 表現行列：47 点群の 241 既約表現すべてで同じです。
 - `group.pkl` の指標のデータにある既約表現の積（polar–axial の対応、対称積、反対称積）：データ表に持たず、指標から
-  計算します（`create_group.character_plus`）。MultiPie Ver.2 との違いは 2 つです。
-  - 誤りの修正：C4 と S4 の E、C4h の Eg と Eu（複素型の実 2 次元既約表現）で、MultiPie Ver.2 は対称積を 2A + B、
-    反対称積を B としています。正しくは A + 2B と A です。基底 (x, y) で、x² + y² が A、x² − y² と xy が B で、
-    x₁y₂ − y₁x₂ は C4 で不変です（E = Ea + Eb で、Ea⊗Ea = Eb⊗Eb = B、Ea⊗Eb = A）。
+  計算します（`create_group.character_plus`）。
+  - C4 と S4 の E、C4h の Eg と Eu（複素型の実 2 次元既約表現）の積：MultiPieGen では対称積が A + 2B、反対称積が A です。基底 (x, y) で、x² + y² が A、x² − y² と xy が B で、x₁y₂ − y₁x₂ は C4 で不変です（E = Ea + Eb で、Ea⊗Ea = Eb⊗Eb = B、Ea⊗Eb = A）。MultiPie Ver.2.4.1 までは 2A + B と B でしたが、MultiPie Ver.2.5.0（CMT-MU/MultiPie#177）で修正されたので、今は一致していて、違いではなくなりました。
   - polar–axial の対応の並びを、指標表の順にしました（10 群で並びが違っていました）。
 - MPG の active multipole（`group.pkl`）：軌道名を対応させれば同じです（157 群のうち 51 群で軌道名が変わっている。
   例：`Qf1` → `Qfs`）。
