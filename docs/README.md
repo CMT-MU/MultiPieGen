@@ -3,6 +3,7 @@
 [![PyPI](https://img.shields.io/pypi/v/multipiegen?label=pip%20install%20multipiegen)](https://pypi.org/project/multipiegen/)
 [![Python](https://img.shields.io/pypi/pyversions/multipiegen)](https://pypi.org/project/multipiegen/)
 [![License](https://img.shields.io/github/license/CMT-MU/MultiPieGen)](https://github.com/CMT-MU/MultiPieGen/blob/main/LICENSE)
+[![test](https://github.com/CMT-MU/MultiPieGen/actions/workflows/test.yml/badge.svg)](https://github.com/CMT-MU/MultiPieGen/actions/workflows/test.yml)
 [![docs](https://github.com/CMT-MU/MultiPieGen/actions/workflows/docs.yml/badge.svg)](https://cmt-mu.github.io/MultiPieGen/)
 
 Generation code and data for the new multipole basis of [MultiPie](https://github.com/CMT-MU/MultiPie) Ver.3 and later.
