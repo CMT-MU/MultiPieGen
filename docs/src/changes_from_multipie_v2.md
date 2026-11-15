@@ -125,12 +125,12 @@ Ver.2. The closest one is `harmonics_root_cluster.pkl`.
 
 - Representation matrices: identical for all 241 irreps of the 47 point groups.
 - Products of irreps in the character data of `group.pkl` (polar-axial conversion, symmetric and anti-symmetric
-  products): computed from the characters (`create_group.character_plus`) instead of being stored. Two differences
-  from MultiPie Ver.2:
-  - Corrected: for E of C4 and S4 and Eg, Eu of C4h (real 2D irreps of complex type), MultiPie Ver.2 has the symmetric
-    product 2A + B and the anti-symmetric product B. The correct values are A + 2B and A: for the basis (x, y),
-    x² + y² is A, x² − y² and xy are B, and x₁y₂ − y₁x₂ is invariant under C4. (E = Ea + Eb with Ea⊗Ea = Eb⊗Eb = B and
-    Ea⊗Eb = A.)
+  products): computed from the characters (`create_group.character_plus`) instead of being stored.
+  - Products of E of C4 and S4 and Eg, Eu of C4h (real 2D irreps of complex type): MultiPieGen has the symmetric
+    product A + 2B and the anti-symmetric product A. For the basis (x, y), x² + y² is A, x² − y² and xy are B, and
+    x₁y₂ − y₁x₂ is invariant under C4 (E = Ea + Eb with Ea⊗Ea = Eb⊗Eb = B and Ea⊗Eb = A). MultiPie Ver.2.4.1 and
+    earlier had 2A + B and B; this was fixed in MultiPie Ver.2.5.0 (CMT-MU/MultiPie#177), so the products now agree
+    and this is no longer a difference.
   - The order of the polar-axial conversion follows the character table (10 groups had another order).
 - Active multipoles of MPG (`group.pkl`): identical after renaming the orbitals (51 of 157 groups have renamed
   orbitals, e.g. `Qf1` → `Qfs`).
