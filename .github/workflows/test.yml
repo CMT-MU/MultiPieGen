@@ -22,6 +22,13 @@ jobs:
       matrix:
         os: [ubuntu-latest, macos-latest]
         python-version: ["3.12", "3.13"]
+        multipie: ["latest"]
+        # the tests that compare with MultiPie's Group are an independent check only with Ver.2 (Ver.3 is made from
+        # the data of this repo): one job with MultiPie 2.5.
+        include:
+          - os: ubuntu-latest
+            python-version: "3.12"
+            multipie: "2.5"
     steps:
       - uses: actions/checkout@v4
         with:
@@ -34,8 +41,13 @@ jobs:
       - name: Install
         run: |
           python -m pip install --upgrade pip
-          python -m pip install -e . pytest pytest-xdist
+          pins=""
+          if [ "${{ matrix.multipie }}" = "2.5" ]; then
+            pins="multipie~=2.5.0"
+          fi
+          python -m pip install -e . pytest pytest-xdist $pins
           python -m pip check
+          python -c "import multipie; print('MultiPie', multipie.__version__)"
       # editable install: the binary data (multipiegen/binary) is not packaged, so the tests use the source tree.
       # -n auto: run the tests in parallel, one process per CPU core.
       - name: Test

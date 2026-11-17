@@ -13,7 +13,8 @@ functions and utilities only (`str_to_sympy`, `BinaryManager`, `PDFviaLaTeX`, ta
 must be independent of MultiPie Ver.2:** never read its data (`Group`, its binaries or data modules) in `multipiegen/` or in
 the table generators in `others/creation/`; take groups and symmetry operations from our own tables
 (`util_group_data`, `util_symmetry_operation.group_symmetry_operation`). Tests may use `Group` to compare with
-MultiPie Ver.2. A sibling checkout `../MultiPie` (tools in
+MultiPie Ver.2. Such a comparison is an independent check only with Ver.2, since Ver.3 (3.0.0 on PyPI, which pip installs
+by default) is made from the data of this repo: CI runs one job with `multipie~=2.5.0` for it. A sibling checkout `../MultiPie` (tools in
 `../MultiPie/others/tools/`) is the reference implementation that many generators here were ported from. MultiPie here means
 Ver.2 (`multipie>=2.4`) unless another version is named; write "MultiPie Ver.2" when citing it in code, docs, or PRs.
 
