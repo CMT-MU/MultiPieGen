@@ -10,7 +10,9 @@ Response tensors of magnetic point groups in terms of active multipoles (up to r
 
 Ported from MultiPie Ver.2 (Group.response_tensor_all and Group.response_tensor), without Group: the active multipoles
 are taken from group.pkl and the cartesian-multipole relation and the LaTeX names from info.pkl. The cartesian
-decomposition of tensor components (P0-P4), mp_string and simplify_tensor are those of multipie.util.util_response_tensor.
+decomposition of tensor components (P0-P4), mp_string and simplify_tensor are those of multipie.util.util_response_tensor,
+except for the rank-4 t part (T1234), which is defined here (fully symmetric; that of MultiPie Ver.2 and 3.0-3.2.0 is
+not), so that the tensors do not depend on the installed MultiPie.
 
 - response tensor of a group (dict) = {(X, rank, opt): (matrix, expression)}
     - X: tensor type, "Q" (polar), "G" (axial), "T" (magnetic polar), "M" (magnetic axial).
@@ -57,7 +59,73 @@ tensor_shape = {
     (4, "t"): (_t, [(j,) for j in _c]),
 }
 
-_P = {0: P0, 1: P1, 2: P2, 3: P3, 4: P4}
+
+# ==================================================
+def T1234(i1, i2, i3, i4):
+    """
+    T part of rank 4 tensor component (fully symmetric in i1, i2, i3).
+
+    The same as multipie.util.util_response_tensor.T1234 of MultiPie 3.2.1 or later (CMT-MU/MultiPie#255), so that the
+    tensors do not depend on the installed MultiPie (that of MultiPie Ver.2 and 3.0-3.2.0 is not fully symmetric).
+
+    Args:
+        i1 (int): index 1, 1-3.
+        i2 (int): index 2, 1-3.
+        i3 (int): index 3, 1-3.
+        i4 (int): index 4, 1-3.
+
+    Returns:
+        - (list) -- expression list, (coeff, multipole).
+    """
+
+    def delta(i, j):
+        return int(i == j)
+
+    def epsilon(i, j, k):
+        return int(sp.LeviCivita(i, j, k))
+
+    # (d12 d34 + d13 d24 + d14 d23) Q^{(1)}.
+    d = delta(i1, i2) * delta(i3, i4) + delta(i1, i3) * delta(i2, i4) + delta(i1, i4) * delta(i2, i3)
+    l1 = [(d, "Q^{(1)}")] if d != 0 else []
+
+    # d12 Q^{(1)}_{34} + d13 Q^{(1)}_{24} + d23 Q^{(1)}_{14}.
+    l2 = [(1, mp_string(k, "Q^{(1)}")) for a, b, k in [(i1, i2, [i3, i4]), (i1, i3, [i2, i4]), (i2, i3, [i1, i4])] if a == b]
+
+    # d14 Q^{(2)}_{23} + d24 Q^{(2)}_{13} + d34 Q^{(2)}_{12}.
+    l3 = [(1, mp_string(k, "Q^{(2)}")) for a, b, k in [(i1, i4, [i2, i3]), (i2, i4, [i1, i3]), (i3, i4, [i1, i2])] if a == b]
+
+    # (d12 e345 + d13 e245 + d23 e145) G^{(1)}_{5}.
+    l4 = []
+    for i5 in range(1, 4):
+        e = delta(i1, i2) * epsilon(i3, i4, i5) + delta(i1, i3) * epsilon(i2, i4, i5) + delta(i2, i3) * epsilon(i1, i4, i5)
+        if e != 0:
+            l4.append((e, mp_string([i5], "G^{(1)}")))
+
+    # e345 G^{(1)}_{125} + e145 G^{(1)}_{235} + e245 G^{(1)}_{135}.
+    l5 = []
+    for i5 in range(1, 4):
+        for a, b, c in [(i1, i2, i3), (i2, i3, i1), (i1, i3, i2)]:
+            e = epsilon(c, i4, i5)
+            if e != 0:
+                l5.append((e, mp_string([a, b, i5], "G^{(1)}")))
+
+    # Q^{(1)}_{1234}.
+    l6 = [(1, mp_string([i1, i2, i3, i4], "Q^{(1)}"))]
+
+    return l1 + l2 + l3 + l4 + l5 + l6
+
+
+# ==================================================
+def _P4(i1, i2, i3, i4, opt=None):
+    """
+    Rank 4 tensor component, P4 of MultiPie with the t part of T1234.
+    """
+    if opt == "t":
+        return T1234(i1, i2, i3, i4)
+    return P4(i1, i2, i3, i4, opt)
+
+
+_P = {0: P0, 1: P1, 2: P2, 3: P3, 4: _P4}
 _to_axial = {"Q": "G", "G": "Q", "T": "M", "M": "T"}
 _to_magnetic = {"Q": "T", "G": "M", "T": "Q", "M": "G"}
 
