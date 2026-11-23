@@ -186,15 +186,16 @@ MPG No. 7.5.124\quad$m'm2'$\quad(mm'2' setting)\quad[ Type III, orthorhombic ] [
 \end{align*}
 * Rank 4 tensor (t).
 \begin{align*}
-\begin{bmatrix} 0 & 0 & M_{xxxz} \\ 0 & 0 & 0 \\ M_{zzzx} & 0 & 0 \\ M_{yyzx} & 0 & 0 \\ 0 & 0 & M_{zzxz} \\ 0 & 0 & 0 \\ 0 & 0 & 0 \\ M_{zxxx} & 0 & 0 \\ 0 & 0 & M_{xyyz} \\ 0 & M_{xyyz} + \frac{M_{zzxz}}{2} - \frac{M_{zzzx}}{2} & 0 \end{bmatrix}
+\begin{bmatrix} 0 & 0 & M_{xxxz} \\ 0 & 0 & 0 \\ M_{zzzx} & 0 & 0 \\ M_{yyzx} & 0 & 0 \\ 0 & 0 & M_{zzxz} \\ 0 & 0 & 0 \\ 0 & 0 & 0 \\ M_{zxxx} & 0 & 0 \\ 0 & 0 & M_{xyyz} \\ 0 & M_{xyzy} & 0 \end{bmatrix}
 \end{align*}
 \begin{align*}
-& M_{xxxz} = - \mathbb{M}_{4y}^{\alpha(1)} - \mathbb{M}_{4y}^{\beta(1)} + \mathbb{M}_{xz}^{(1)} + 2 \mathbb{M}_{xz}^{(2)} + \mathbb{M}_{xz}^{(3)} - 2 \mathbb{M}_{xz}^{(5)} \\
-& M_{zzzx} = \mathbb{M}_{4y}^{\alpha(1)} - \mathbb{M}_{4y}^{\beta(1)} + \mathbb{M}_{xz}^{(1)} + 2 \mathbb{M}_{xz}^{(2)} + \mathbb{M}_{xz}^{(3)} - 2 \mathbb{M}_{xz}^{(5)} \\
-& M_{yyzx} = 2 \mathbb{M}_{4y}^{\beta(1)} + \mathbb{M}_{xz}^{(1)} + \mathbb{M}_{xz}^{(3)} \\
-& M_{zzxz} = \mathbb{M}_{4y}^{\alpha(1)} - \mathbb{M}_{4y}^{\beta(1)} + \mathbb{M}_{xz}^{(1)} + 2 \mathbb{M}_{xz}^{(2)} + \mathbb{M}_{xz}^{(3)} + 2 \mathbb{M}_{xz}^{(5)} \\
-& M_{zxxx} = - \mathbb{M}_{4y}^{\alpha(1)} - \mathbb{M}_{4y}^{\beta(1)} + \mathbb{M}_{xz}^{(1)} + 2 \mathbb{M}_{xz}^{(2)} - \mathbb{M}_{xz}^{(3)} \\
-& M_{xyyz} = 2 \mathbb{M}_{4y}^{\beta(1)} + \mathbb{M}_{xz}^{(2)} - \mathbb{M}_{xz}^{(5)}
+& M_{xxxz} = - \mathbb{M}_{4y}^{\alpha(1)} - \mathbb{M}_{4y}^{\beta(1)} + 3 \mathbb{M}_{xz}^{(1)} - 3 \mathbb{T}_{y}^{(1)} + 3 \mathbb{T}_{y}^{\alpha(1)} + 3 \mathbb{T}_{y}^{\beta(1)} \\
+& M_{zzzx} = \mathbb{M}_{4y}^{\alpha(1)} - \mathbb{M}_{4y}^{\beta(1)} + 3 \mathbb{M}_{xz}^{(1)} + 3 \mathbb{T}_{y}^{(1)} - 3 \mathbb{T}_{y}^{\alpha(1)} + 3 \mathbb{T}_{y}^{\beta(1)} \\
+& M_{yyzx} = 2 \mathbb{M}_{4y}^{\beta(1)} + \mathbb{M}_{xz}^{(1)} + \mathbb{T}_{y}^{(1)} + 4 \mathbb{T}_{y}^{\alpha(1)} - 2 \mathbb{T}_{y}^{\beta(1)} \\
+& M_{zzxz} = \mathbb{M}_{4y}^{\alpha(1)} - \mathbb{M}_{4y}^{\beta(1)} + \mathbb{M}_{xz}^{(1)} + 2 \mathbb{M}_{xz}^{(2)} - \mathbb{T}_{y}^{(1)} + \mathbb{T}_{y}^{\alpha(1)} - \mathbb{T}_{y}^{\beta(1)} \\
+& M_{zxxx} = - \mathbb{M}_{4y}^{\alpha(1)} - \mathbb{M}_{4y}^{\beta(1)} + \mathbb{M}_{xz}^{(1)} + 2 \mathbb{M}_{xz}^{(2)} + \mathbb{T}_{y}^{(1)} - \mathbb{T}_{y}^{\alpha(1)} - \mathbb{T}_{y}^{\beta(1)} \\
+& M_{xyyz} = 2 \mathbb{M}_{4y}^{\beta(1)} + \mathbb{M}_{xz}^{(1)} - \mathbb{T}_{y}^{(1)} - 4 \mathbb{T}_{y}^{\alpha(1)} - 2 \mathbb{T}_{y}^{\beta(1)} \\
+& M_{xyzy} = 2 \mathbb{M}_{4y}^{\beta(1)} + \mathbb{M}_{xz}^{(2)} + 2 \mathbb{T}_{y}^{\beta(1)}
 \end{align*}
 
 \end{document}

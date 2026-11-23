@@ -31,13 +31,14 @@ orphan: true
 | 軌道名 | f2, f1, f3x, f3y, ga, gb, gc, i, l, i0, j | fc, fs, fx, fy, gc, gs, gc4, i3, l3, ixy, j3（`gc` は旧 `ga` を指す） |
 | 軌道の定義 | `data_definition.py` | `data_basis.py`。各軌道は調和関数のキーを指し、式はトップの調和関数から取る |
 | D6h の rank 4 `E2g` 多重度 2 の符号 | MultiPie のまま | −1 倍（2 成分とも） |
-| 軌道 `gv` の符号 | MultiPie のまま | −1 倍（`data_response_tensor`） |
+| 軌道 `gv` の符号 | MultiPie のまま | −1 倍 |
 | 値の中の調和関数の式 | 多極子のキーを持つ binary が調和関数のデカルト座標の式 `ex` を持つ | 持たない。キーの `(X, l, Gamma, n)` で `harmonics.pkl` から引く（値は、multipolar harmonics が `(internal_coefficient, multipole_expression)`、atomic multipole group が `matrix`、cluster SAMB が `samb`） |
 
 - `E2g` の符号の変更はトップの調和関数の変更です。D6h 系の部分群（六方・三方晶系 16 群の rank 4 の E の多重項）と、
   調和関数から作るすべてのデータに引き継がれます。
-- `gv` の符号の変更は軌道（と応答テンソルの多極子）の変更です。Oh のトップの調和関数は変わらず、Oh 系の調和関数は
-  MultiPie Ver.2 と一致します。
+- `gv` の符号の変更は軌道の変更です。Oh のトップの調和関数は変わらず、Oh 系の調和関数は MultiPie Ver.2 と一致します。
+- 応答テンソル（`data_response_tensor`）では、どの多極子も同じ名前の調和関数の正の倍数です。`gv` の係数は
+  MultiPie Ver.2 と同じで、六方晶の `gav` の係数は −1 倍です。
 - これまで比べた範囲（multipolar harmonics、atomic multipole group）では、調和関数の多重度 `n` は MultiPie Ver.2 の
   振り直した `n` と結果的に一致していました。規則の違いが効くのは、cluster SAMB の bond_a です。
 

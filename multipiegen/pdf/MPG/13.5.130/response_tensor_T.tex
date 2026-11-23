@@ -84,9 +84,9 @@ MPG No. 13.5.130\quad$4'm'm$\quad(4'mm' setting)\quad[ Type III, tetragonal ] [T
 \begin{bmatrix} T_{xxxx} & 0 & T_{xxzz} & 0 & 0 & 0 \\ 0 & - T_{xxxx} & - T_{xxzz} & 0 & 0 & 0 \\ T_{xxzz} & - T_{xxzz} & 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & T_{yzyz} & 0 & 0 \\ 0 & 0 & 0 & 0 & - T_{yzyz} & 0 \\ 0 & 0 & 0 & 0 & 0 & 0 \end{bmatrix}
 \end{align*}
 \begin{align*}
-& T_{xxxx} = - \mathbb{T}_{4v}^{(1)} + 2 \mathbb{T}_{v}^{(1)} + 4 \mathbb{T}_{v}^{(2)} \\
-& T_{xxzz} = \mathbb{T}_{4v}^{(1)} + \mathbb{T}_{v}^{(1)} \\
-& T_{yzyz} = - \mathbb{T}_{4v}^{(1)} - \mathbb{T}_{v}^{(2)}
+& T_{xxxx} = \mathbb{T}_{4v}^{(1)} + 2 \mathbb{T}_{v}^{(1)} + 4 \mathbb{T}_{v}^{(2)} \\
+& T_{xxzz} = - \mathbb{T}_{4v}^{(1)} + \mathbb{T}_{v}^{(1)} \\
+& T_{yzyz} = \mathbb{T}_{4v}^{(1)} - \mathbb{T}_{v}^{(2)}
 \end{align*}
 * Rank 4 tensor (ssa).
 \begin{align*}
@@ -125,12 +125,12 @@ MPG No. 13.5.130\quad$4'm'm$\quad(4'mm' setting)\quad[ Type III, tetragonal ] [T
 \begin{bmatrix} T_{xxxx} & T_{xxyy} & T_{xxzz} & 0 & 0 & 0 & 0 & 0 & 0 \\ - T_{xxyy} & - T_{xxxx} & - T_{xxzz} & 0 & 0 & 0 & 0 & 0 & 0 \\ T_{zzxx} & - T_{zzxx} & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & T_{yzyz} & 0 & 0 & T_{yzzy} & 0 & 0 \\ 0 & 0 & 0 & 0 & - T_{yzzy} & 0 & 0 & - T_{yzyz} & 0 \\ 0 & 0 & 0 & 0 & 0 & T_{xyxy} & 0 & 0 & - T_{xyxy} \end{bmatrix}
 \end{align*}
 \begin{align*}
-& T_{xxxx} = - \mathbb{T}_{4v}^{(1)} + 2 \mathbb{T}_{v}^{(1)} + 4 \mathbb{T}_{v}^{(2)} \\
+& T_{xxxx} = \mathbb{T}_{4v}^{(1)} + 2 \mathbb{T}_{v}^{(1)} + 4 \mathbb{T}_{v}^{(2)} \\
 & T_{xxyy} = 4 \mathbb{M}_{xyz}^{(1)} - 2 \mathbb{T}_{v}^{(3)} \\
-& T_{xxzz} = - 4 \mathbb{M}_{xyz}^{(1)} + \mathbb{T}_{4v}^{(1)} + \mathbb{T}_{v}^{(1)} - \mathbb{T}_{v}^{(3)} \\
-& T_{zzxx} = 4 \mathbb{M}_{xyz}^{(1)} + \mathbb{T}_{4v}^{(1)} + \mathbb{T}_{v}^{(1)} + \mathbb{T}_{v}^{(3)} \\
-& T_{yzyz} = \mathbb{M}_{xyz}^{(2)} - \mathbb{T}_{4v}^{(1)} - \mathbb{T}_{v}^{(2)} - \mathbb{T}_{v}^{(5)} \\
-& T_{yzzy} = - \mathbb{M}_{xyz}^{(2)} - \mathbb{T}_{4v}^{(1)} - \mathbb{T}_{v}^{(2)} + \mathbb{T}_{v}^{(5)} \\
+& T_{xxzz} = - 4 \mathbb{M}_{xyz}^{(1)} - \mathbb{T}_{4v}^{(1)} + \mathbb{T}_{v}^{(1)} - \mathbb{T}_{v}^{(3)} \\
+& T_{zzxx} = 4 \mathbb{M}_{xyz}^{(1)} - \mathbb{T}_{4v}^{(1)} + \mathbb{T}_{v}^{(1)} + \mathbb{T}_{v}^{(3)} \\
+& T_{yzyz} = \mathbb{M}_{xyz}^{(2)} + \mathbb{T}_{4v}^{(1)} - \mathbb{T}_{v}^{(2)} - \mathbb{T}_{v}^{(5)} \\
+& T_{yzzy} = - \mathbb{M}_{xyz}^{(2)} + \mathbb{T}_{4v}^{(1)} - \mathbb{T}_{v}^{(2)} + \mathbb{T}_{v}^{(5)} \\
 & T_{xyxy} = \mathbb{M}_{xyz}^{(2)} + 2 \mathbb{T}_{v}^{(5)}
 \end{align*}
 * Rank 4 tensor (a).
@@ -144,14 +144,13 @@ MPG No. 13.5.130\quad$4'm'm$\quad(4'mm' setting)\quad[ Type III, tetragonal ] [T
 \end{align*}
 * Rank 4 tensor (t).
 \begin{align*}
-\begin{bmatrix} T_{xxxx} & 0 & 0 \\ 0 & - T_{xxxx} & 0 \\ 0 & 0 & 0 \\ 0 & 0 & T_{yyzz} \\ T_{zzxx} & 0 & 0 \\ 0 & - T_{yyzz} - T_{zzxx} & 0 \\ 0 & T_{yzzy} & 0 \\ 0 & 0 & T_{zxxz} \\ - T_{yzzy} - T_{zxxz} & 0 & 0 \\ 0 & 0 & 0 \end{bmatrix}
+\begin{bmatrix} T_{xxxx} & 0 & 0 \\ 0 & - T_{xxxx} & 0 \\ 0 & 0 & 0 \\ 0 & 0 & T_{yyzz} \\ T_{zzxx} & 0 & 0 \\ 0 & T_{xxyy} & 0 \\ 0 & - T_{zzxx} & 0 \\ 0 & 0 & - T_{yyzz} \\ - T_{xxyy} & 0 & 0 \\ 0 & 0 & 0 \end{bmatrix}
 \end{align*}
 \begin{align*}
-& T_{xxxx} = - \mathbb{T}_{4v}^{(1)} + 2 \mathbb{T}_{v}^{(1)} + 4 \mathbb{T}_{v}^{(2)} \\
-& T_{yyzz} = - \mathbb{T}_{4v}^{(1)} - \mathbb{T}_{v}^{(1)} + \mathbb{T}_{v}^{(3)} \\
-& T_{zzxx} = \mathbb{T}_{4v}^{(1)} + \mathbb{T}_{v}^{(1)} + \mathbb{T}_{v}^{(3)} \\
-& T_{yzzy} = - \mathbb{T}_{4v}^{(1)} - \mathbb{T}_{v}^{(2)} + \mathbb{T}_{v}^{(5)} \\
-& T_{zxxz} = \mathbb{T}_{4v}^{(1)} + \mathbb{T}_{v}^{(2)} + \mathbb{T}_{v}^{(5)}
+& T_{xxxx} = \mathbb{T}_{4v}^{(1)} + 3 \mathbb{T}_{v}^{(1)} + 3 \mathbb{T}_{v}^{(2)} \\
+& T_{yyzz} = 2 \mathbb{M}_{xyz}^{(1)} + \mathbb{T}_{4v}^{(1)} - \mathbb{T}_{v}^{(2)} \\
+& T_{zzxx} = 2 \mathbb{M}_{xyz}^{(1)} - \mathbb{T}_{4v}^{(1)} + \mathbb{T}_{v}^{(1)} \\
+& T_{xxyy} = 2 \mathbb{M}_{xyz}^{(1)} - \mathbb{T}_{v}^{(1)} + \mathbb{T}_{v}^{(2)}
 \end{align*}
 
 \end{document}

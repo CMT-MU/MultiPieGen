@@ -140,14 +140,14 @@ MPG No. 1.1.1\quad$1$\quad[ Type I, triclinic ] [Q tensor]
 \begin{bmatrix} Q_{xxxx} & Q_{xxyy} & Q_{xxzz} & Q_{xxyz} & Q_{xxzx} & Q_{xxxy} \\ Q_{xxyy} & Q_{yyyy} & Q_{yyzz} & Q_{yyyz} & Q_{yyzx} & Q_{yyxy} \\ Q_{xxzz} & Q_{yyzz} & Q_{zzzz} & Q_{zzyz} & Q_{zzzx} & Q_{zzxy} \\ Q_{xxyz} & Q_{yyyz} & Q_{zzyz} & Q_{yzyz} & Q_{yzzx} & Q_{yzxy} \\ Q_{xxzx} & Q_{yyzx} & Q_{zzzx} & Q_{yzzx} & Q_{zxzx} & Q_{zxxy} \\ Q_{xxxy} & Q_{yyxy} & Q_{zzxy} & Q_{yzxy} & Q_{zxxy} & Q_{xyxy} \end{bmatrix}
 \end{align*}
 \begin{align*}
-& Q_{xxxx} = \mathbb{Q}_{0}^{(1)} + 2 \mathbb{Q}_{0}^{(2)} - \mathbb{Q}_{4u}^{(1)} - \mathbb{Q}_{4v}^{(1)} + 2 \mathbb{Q}_{4}^{(1)} - 2 \mathbb{Q}_{u}^{(1)} - 4 \mathbb{Q}_{u}^{(2)} + 2 \mathbb{Q}_{v}^{(1)} + 4 \mathbb{Q}_{v}^{(2)} \\
+& Q_{xxxx} = \mathbb{Q}_{0}^{(1)} + 2 \mathbb{Q}_{0}^{(2)} - \mathbb{Q}_{4u}^{(1)} + \mathbb{Q}_{4v}^{(1)} + 2 \mathbb{Q}_{4}^{(1)} - 2 \mathbb{Q}_{u}^{(1)} - 4 \mathbb{Q}_{u}^{(2)} + 2 \mathbb{Q}_{v}^{(1)} + 4 \mathbb{Q}_{v}^{(2)} \\
 & Q_{xxyy} = \mathbb{Q}_{0}^{(1)} + 2 \mathbb{Q}_{4u}^{(1)} - \mathbb{Q}_{4}^{(1)} - 2 \mathbb{Q}_{u}^{(1)} \\
-& Q_{xxzz} = \mathbb{Q}_{0}^{(1)} - \mathbb{Q}_{4u}^{(1)} + \mathbb{Q}_{4v}^{(1)} - \mathbb{Q}_{4}^{(1)} + \mathbb{Q}_{u}^{(1)} + \mathbb{Q}_{v}^{(1)} \\
+& Q_{xxzz} = \mathbb{Q}_{0}^{(1)} - \mathbb{Q}_{4u}^{(1)} - \mathbb{Q}_{4v}^{(1)} - \mathbb{Q}_{4}^{(1)} + \mathbb{Q}_{u}^{(1)} + \mathbb{Q}_{v}^{(1)} \\
 & Q_{xxyz} = 2 \mathbb{Q}_{4x}^{\beta(1)} + \mathbb{Q}_{yz}^{(1)} \\
 & Q_{xxzx} = - \mathbb{Q}_{4y}^{\alpha(1)} - \mathbb{Q}_{4y}^{\beta(1)} + \mathbb{Q}_{xz}^{(1)} + 2 \mathbb{Q}_{xz}^{(2)} \\
 & Q_{xxxy} = \mathbb{Q}_{4z}^{\alpha(1)} - \mathbb{Q}_{4z}^{\beta(1)} + \mathbb{Q}_{xy}^{(1)} + 2 \mathbb{Q}_{xy}^{(2)} \\
-& Q_{yyyy} = \mathbb{Q}_{0}^{(1)} + 2 \mathbb{Q}_{0}^{(2)} - \mathbb{Q}_{4u}^{(1)} + \mathbb{Q}_{4v}^{(1)} + 2 \mathbb{Q}_{4}^{(1)} - 2 \mathbb{Q}_{u}^{(1)} - 4 \mathbb{Q}_{u}^{(2)} - 2 \mathbb{Q}_{v}^{(1)} - 4 \mathbb{Q}_{v}^{(2)} \\
-& Q_{yyzz} = \mathbb{Q}_{0}^{(1)} - \mathbb{Q}_{4u}^{(1)} - \mathbb{Q}_{4v}^{(1)} - \mathbb{Q}_{4}^{(1)} + \mathbb{Q}_{u}^{(1)} - \mathbb{Q}_{v}^{(1)} \\
+& Q_{yyyy} = \mathbb{Q}_{0}^{(1)} + 2 \mathbb{Q}_{0}^{(2)} - \mathbb{Q}_{4u}^{(1)} - \mathbb{Q}_{4v}^{(1)} + 2 \mathbb{Q}_{4}^{(1)} - 2 \mathbb{Q}_{u}^{(1)} - 4 \mathbb{Q}_{u}^{(2)} - 2 \mathbb{Q}_{v}^{(1)} - 4 \mathbb{Q}_{v}^{(2)} \\
+& Q_{yyzz} = \mathbb{Q}_{0}^{(1)} - \mathbb{Q}_{4u}^{(1)} + \mathbb{Q}_{4v}^{(1)} - \mathbb{Q}_{4}^{(1)} + \mathbb{Q}_{u}^{(1)} - \mathbb{Q}_{v}^{(1)} \\
 & Q_{yyyz} = \mathbb{Q}_{4x}^{\alpha(1)} - \mathbb{Q}_{4x}^{\beta(1)} + \mathbb{Q}_{yz}^{(1)} + 2 \mathbb{Q}_{yz}^{(2)} \\
 & Q_{yyzx} = 2 \mathbb{Q}_{4y}^{\beta(1)} + \mathbb{Q}_{xz}^{(1)} \\
 & Q_{yyxy} = - \mathbb{Q}_{4z}^{\alpha(1)} - \mathbb{Q}_{4z}^{\beta(1)} + \mathbb{Q}_{xy}^{(1)} + 2 \mathbb{Q}_{xy}^{(2)} \\
@@ -155,10 +155,10 @@ MPG No. 1.1.1\quad$1$\quad[ Type I, triclinic ] [Q tensor]
 & Q_{zzyz} = - \mathbb{Q}_{4x}^{\alpha(1)} - \mathbb{Q}_{4x}^{\beta(1)} + \mathbb{Q}_{yz}^{(1)} + 2 \mathbb{Q}_{yz}^{(2)} \\
 & Q_{zzzx} = \mathbb{Q}_{4y}^{\alpha(1)} - \mathbb{Q}_{4y}^{\beta(1)} + \mathbb{Q}_{xz}^{(1)} + 2 \mathbb{Q}_{xz}^{(2)} \\
 & Q_{zzxy} = 2 \mathbb{Q}_{4z}^{\beta(1)} + \mathbb{Q}_{xy}^{(1)} \\
-& Q_{yzyz} = \mathbb{Q}_{0}^{(2)} - \mathbb{Q}_{4u}^{(1)} - \mathbb{Q}_{4v}^{(1)} - \mathbb{Q}_{4}^{(1)} + \mathbb{Q}_{u}^{(2)} - \mathbb{Q}_{v}^{(2)} \\
+& Q_{yzyz} = \mathbb{Q}_{0}^{(2)} - \mathbb{Q}_{4u}^{(1)} + \mathbb{Q}_{4v}^{(1)} - \mathbb{Q}_{4}^{(1)} + \mathbb{Q}_{u}^{(2)} - \mathbb{Q}_{v}^{(2)} \\
 & Q_{yzzx} = 2 \mathbb{Q}_{4z}^{\beta(1)} + \mathbb{Q}_{xy}^{(2)} \\
 & Q_{yzxy} = 2 \mathbb{Q}_{4y}^{\beta(1)} + \mathbb{Q}_{xz}^{(2)} \\
-& Q_{zxzx} = \mathbb{Q}_{0}^{(2)} - \mathbb{Q}_{4u}^{(1)} + \mathbb{Q}_{4v}^{(1)} - \mathbb{Q}_{4}^{(1)} + \mathbb{Q}_{u}^{(2)} + \mathbb{Q}_{v}^{(2)} \\
+& Q_{zxzx} = \mathbb{Q}_{0}^{(2)} - \mathbb{Q}_{4u}^{(1)} - \mathbb{Q}_{4v}^{(1)} - \mathbb{Q}_{4}^{(1)} + \mathbb{Q}_{u}^{(2)} + \mathbb{Q}_{v}^{(2)} \\
 & Q_{zxxy} = 2 \mathbb{Q}_{4x}^{\beta(1)} + \mathbb{Q}_{yz}^{(2)} \\
 & Q_{xyxy} = \mathbb{Q}_{0}^{(2)} + 2 \mathbb{Q}_{4u}^{(1)} - \mathbb{Q}_{4}^{(1)} - 2 \mathbb{Q}_{u}^{(2)}
 \end{align*}
@@ -257,9 +257,9 @@ MPG No. 1.1.1\quad$1$\quad[ Type I, triclinic ] [Q tensor]
 \begin{bmatrix} Q_{xxxx} & Q_{xxyy} & Q_{xxzz} & Q_{xxyz} & Q_{xxzx} & Q_{xxxy} & Q_{xxzy} & Q_{xxxz} & Q_{xxyx} \\ Q_{yyxx} & Q_{yyyy} & Q_{yyzz} & Q_{yyyz} & Q_{yyzx} & Q_{yyxy} & Q_{yyzy} & Q_{yyxz} & Q_{yyyx} \\ Q_{zzxx} & Q_{zzyy} & Q_{zzzz} & Q_{zzyz} & Q_{zzzx} & Q_{zzxy} & Q_{zzzy} & Q_{zzxz} & Q_{zzyx} \\ Q_{yzxx} & Q_{yzyy} & Q_{yzzz} & Q_{yzyz} & Q_{yzzx} & Q_{yzxy} & Q_{yzzy} & Q_{yzxz} & Q_{yzyx} \\ Q_{zxxx} & Q_{zxyy} & Q_{zxzz} & Q_{zxyz} & Q_{zxzx} & Q_{zxxy} & Q_{zxzy} & Q_{zxxz} & Q_{zxyx} \\ Q_{xyxx} & Q_{xyyy} & Q_{xyzz} & Q_{xyyz} & Q_{xyzx} & Q_{xyxy} & Q_{xyzy} & Q_{xyxz} & Q_{xyyx} \end{bmatrix}
 \end{align*}
 \begin{align*}
-& Q_{xxxx} = \mathbb{Q}_{0}^{(1)} + 2 \mathbb{Q}_{0}^{(2)} - \mathbb{Q}_{4u}^{(1)} - \mathbb{Q}_{4v}^{(1)} + 2 \mathbb{Q}_{4}^{(1)} - 2 \mathbb{Q}_{u}^{(1)} - 4 \mathbb{Q}_{u}^{(2)} + 2 \mathbb{Q}_{v}^{(1)} + 4 \mathbb{Q}_{v}^{(2)} \\
+& Q_{xxxx} = \mathbb{Q}_{0}^{(1)} + 2 \mathbb{Q}_{0}^{(2)} - \mathbb{Q}_{4u}^{(1)} + \mathbb{Q}_{4v}^{(1)} + 2 \mathbb{Q}_{4}^{(1)} - 2 \mathbb{Q}_{u}^{(1)} - 4 \mathbb{Q}_{u}^{(2)} + 2 \mathbb{Q}_{v}^{(1)} + 4 \mathbb{Q}_{v}^{(2)} \\
 & Q_{xxyy} = 4 \mathbb{G}_{xyz}^{(1)} + \mathbb{Q}_{0}^{(1)} + 2 \mathbb{Q}_{4u}^{(1)} - \mathbb{Q}_{4}^{(1)} - 2 \mathbb{Q}_{u}^{(1)} - 2 \mathbb{Q}_{v}^{(3)} \\
-& Q_{xxzz} = - 4 \mathbb{G}_{xyz}^{(1)} + \mathbb{Q}_{0}^{(1)} - \mathbb{Q}_{4u}^{(1)} + \mathbb{Q}_{4v}^{(1)} - \mathbb{Q}_{4}^{(1)} + \mathbb{Q}_{u}^{(1)} + 3 \mathbb{Q}_{u}^{(3)} + \mathbb{Q}_{v}^{(1)} - \mathbb{Q}_{v}^{(3)} \\
+& Q_{xxzz} = - 4 \mathbb{G}_{xyz}^{(1)} + \mathbb{Q}_{0}^{(1)} - \mathbb{Q}_{4u}^{(1)} - \mathbb{Q}_{4v}^{(1)} - \mathbb{Q}_{4}^{(1)} + \mathbb{Q}_{u}^{(1)} + 3 \mathbb{Q}_{u}^{(3)} + \mathbb{Q}_{v}^{(1)} - \mathbb{Q}_{v}^{(3)} \\
 & Q_{xxyz} = \mathbb{G}_{x}^{(3)} + 2 \mathbb{G}_{x}^{(4)} + 2 \mathbb{G}_{x}^{\alpha(2)} - 4 \mathbb{G}_{x}^{\beta(1)} + 2 \mathbb{Q}_{4x}^{\beta(1)} + \mathbb{Q}_{yz}^{(1)} + \mathbb{Q}_{yz}^{(3)} \\
 & Q_{xxzx} = - 2 \mathbb{G}_{y}^{(1)} + \mathbb{G}_{y}^{(3)} + 2 \mathbb{G}_{y}^{\alpha(1)} - \mathbb{G}_{y}^{\alpha(2)} + 2 \mathbb{G}_{y}^{\beta(1)} - \mathbb{G}_{y}^{\beta(2)} - \mathbb{Q}_{4y}^{\alpha(1)} - \mathbb{Q}_{4y}^{\beta(1)} + \mathbb{Q}_{xz}^{(1)} + 2 \mathbb{Q}_{xz}^{(2)} + \mathbb{Q}_{xz}^{(3)} + 2 \mathbb{Q}_{xz}^{(5)} \\
 & Q_{xxxy} = 2 \mathbb{G}_{z}^{(1)} + \mathbb{G}_{z}^{(3)} - 2 \mathbb{G}_{z}^{\alpha(1)} - \mathbb{G}_{z}^{\alpha(2)} + 2 \mathbb{G}_{z}^{\beta(1)} + \mathbb{G}_{z}^{\beta(2)} + \mathbb{Q}_{4z}^{\alpha(1)} - \mathbb{Q}_{4z}^{\beta(1)} + \mathbb{Q}_{xy}^{(1)} + 2 \mathbb{Q}_{xy}^{(2)} + \mathbb{Q}_{xy}^{(3)} - 2 \mathbb{Q}_{xy}^{(5)} \\
@@ -267,16 +267,16 @@ MPG No. 1.1.1\quad$1$\quad[ Type I, triclinic ] [Q tensor]
 & Q_{xxxz} = - 2 \mathbb{G}_{y}^{(1)} - \mathbb{G}_{y}^{(3)} + 2 \mathbb{G}_{y}^{\alpha(1)} + \mathbb{G}_{y}^{\alpha(2)} + 2 \mathbb{G}_{y}^{\beta(1)} + \mathbb{G}_{y}^{\beta(2)} - \mathbb{Q}_{4y}^{\alpha(1)} - \mathbb{Q}_{4y}^{\beta(1)} + \mathbb{Q}_{xz}^{(1)} + 2 \mathbb{Q}_{xz}^{(2)} + \mathbb{Q}_{xz}^{(3)} - 2 \mathbb{Q}_{xz}^{(5)} \\
 & Q_{xxyx} = 2 \mathbb{G}_{z}^{(1)} - \mathbb{G}_{z}^{(3)} - 2 \mathbb{G}_{z}^{\alpha(1)} + \mathbb{G}_{z}^{\alpha(2)} + 2 \mathbb{G}_{z}^{\beta(1)} - \mathbb{G}_{z}^{\beta(2)} + \mathbb{Q}_{4z}^{\alpha(1)} - \mathbb{Q}_{4z}^{\beta(1)} + \mathbb{Q}_{xy}^{(1)} + 2 \mathbb{Q}_{xy}^{(2)} + \mathbb{Q}_{xy}^{(3)} + 2 \mathbb{Q}_{xy}^{(5)} \\
 & Q_{yyxx} = - 4 \mathbb{G}_{xyz}^{(1)} + \mathbb{Q}_{0}^{(1)} + 2 \mathbb{Q}_{4u}^{(1)} - \mathbb{Q}_{4}^{(1)} - 2 \mathbb{Q}_{u}^{(1)} + 2 \mathbb{Q}_{v}^{(3)} \\
-& Q_{yyyy} = \mathbb{Q}_{0}^{(1)} + 2 \mathbb{Q}_{0}^{(2)} - \mathbb{Q}_{4u}^{(1)} + \mathbb{Q}_{4v}^{(1)} + 2 \mathbb{Q}_{4}^{(1)} - 2 \mathbb{Q}_{u}^{(1)} - 4 \mathbb{Q}_{u}^{(2)} - 2 \mathbb{Q}_{v}^{(1)} - 4 \mathbb{Q}_{v}^{(2)} \\
-& Q_{yyzz} = 4 \mathbb{G}_{xyz}^{(1)} + \mathbb{Q}_{0}^{(1)} - \mathbb{Q}_{4u}^{(1)} - \mathbb{Q}_{4v}^{(1)} - \mathbb{Q}_{4}^{(1)} + \mathbb{Q}_{u}^{(1)} + 3 \mathbb{Q}_{u}^{(3)} - \mathbb{Q}_{v}^{(1)} + \mathbb{Q}_{v}^{(3)} \\
+& Q_{yyyy} = \mathbb{Q}_{0}^{(1)} + 2 \mathbb{Q}_{0}^{(2)} - \mathbb{Q}_{4u}^{(1)} - \mathbb{Q}_{4v}^{(1)} + 2 \mathbb{Q}_{4}^{(1)} - 2 \mathbb{Q}_{u}^{(1)} - 4 \mathbb{Q}_{u}^{(2)} - 2 \mathbb{Q}_{v}^{(1)} - 4 \mathbb{Q}_{v}^{(2)} \\
+& Q_{yyzz} = 4 \mathbb{G}_{xyz}^{(1)} + \mathbb{Q}_{0}^{(1)} - \mathbb{Q}_{4u}^{(1)} + \mathbb{Q}_{4v}^{(1)} - \mathbb{Q}_{4}^{(1)} + \mathbb{Q}_{u}^{(1)} + 3 \mathbb{Q}_{u}^{(3)} - \mathbb{Q}_{v}^{(1)} + \mathbb{Q}_{v}^{(3)} \\
 & Q_{yyyz} = 2 \mathbb{G}_{x}^{(1)} + \mathbb{G}_{x}^{(3)} - 2 \mathbb{G}_{x}^{\alpha(1)} - \mathbb{G}_{x}^{\alpha(2)} + 2 \mathbb{G}_{x}^{\beta(1)} + \mathbb{G}_{x}^{\beta(2)} + \mathbb{Q}_{4x}^{\alpha(1)} - \mathbb{Q}_{4x}^{\beta(1)} + \mathbb{Q}_{yz}^{(1)} + 2 \mathbb{Q}_{yz}^{(2)} + \mathbb{Q}_{yz}^{(3)} - 2 \mathbb{Q}_{yz}^{(5)} \\
 & Q_{yyzx} = \mathbb{G}_{y}^{(3)} + 2 \mathbb{G}_{y}^{(4)} + 2 \mathbb{G}_{y}^{\alpha(2)} - 4 \mathbb{G}_{y}^{\beta(1)} + 2 \mathbb{Q}_{4y}^{\beta(1)} + \mathbb{Q}_{xz}^{(1)} + \mathbb{Q}_{xz}^{(3)} \\
 & Q_{yyxy} = - 2 \mathbb{G}_{z}^{(1)} + \mathbb{G}_{z}^{(3)} + 2 \mathbb{G}_{z}^{\alpha(1)} - \mathbb{G}_{z}^{\alpha(2)} + 2 \mathbb{G}_{z}^{\beta(1)} - \mathbb{G}_{z}^{\beta(2)} - \mathbb{Q}_{4z}^{\alpha(1)} - \mathbb{Q}_{4z}^{\beta(1)} + \mathbb{Q}_{xy}^{(1)} + 2 \mathbb{Q}_{xy}^{(2)} + \mathbb{Q}_{xy}^{(3)} + 2 \mathbb{Q}_{xy}^{(5)} \\
 & Q_{yyzy} = 2 \mathbb{G}_{x}^{(1)} - \mathbb{G}_{x}^{(3)} - 2 \mathbb{G}_{x}^{\alpha(1)} + \mathbb{G}_{x}^{\alpha(2)} + 2 \mathbb{G}_{x}^{\beta(1)} - \mathbb{G}_{x}^{\beta(2)} + \mathbb{Q}_{4x}^{\alpha(1)} - \mathbb{Q}_{4x}^{\beta(1)} + \mathbb{Q}_{yz}^{(1)} + 2 \mathbb{Q}_{yz}^{(2)} + \mathbb{Q}_{yz}^{(3)} + 2 \mathbb{Q}_{yz}^{(5)} \\
 & Q_{yyxz} = - \mathbb{G}_{y}^{(3)} - 2 \mathbb{G}_{y}^{(4)} - 2 \mathbb{G}_{y}^{\alpha(2)} - 4 \mathbb{G}_{y}^{\beta(1)} + 2 \mathbb{Q}_{4y}^{\beta(1)} + \mathbb{Q}_{xz}^{(1)} + \mathbb{Q}_{xz}^{(3)} \\
 & Q_{yyyx} = - 2 \mathbb{G}_{z}^{(1)} - \mathbb{G}_{z}^{(3)} + 2 \mathbb{G}_{z}^{\alpha(1)} + \mathbb{G}_{z}^{\alpha(2)} + 2 \mathbb{G}_{z}^{\beta(1)} + \mathbb{G}_{z}^{\beta(2)} - \mathbb{Q}_{4z}^{\alpha(1)} - \mathbb{Q}_{4z}^{\beta(1)} + \mathbb{Q}_{xy}^{(1)} + 2 \mathbb{Q}_{xy}^{(2)} + \mathbb{Q}_{xy}^{(3)} - 2 \mathbb{Q}_{xy}^{(5)} \\
-& Q_{zzxx} = 4 \mathbb{G}_{xyz}^{(1)} + \mathbb{Q}_{0}^{(1)} - \mathbb{Q}_{4u}^{(1)} + \mathbb{Q}_{4v}^{(1)} - \mathbb{Q}_{4}^{(1)} + \mathbb{Q}_{u}^{(1)} - 3 \mathbb{Q}_{u}^{(3)} + \mathbb{Q}_{v}^{(1)} + \mathbb{Q}_{v}^{(3)} \\
-& Q_{zzyy} = - 4 \mathbb{G}_{xyz}^{(1)} + \mathbb{Q}_{0}^{(1)} - \mathbb{Q}_{4u}^{(1)} - \mathbb{Q}_{4v}^{(1)} - \mathbb{Q}_{4}^{(1)} + \mathbb{Q}_{u}^{(1)} - 3 \mathbb{Q}_{u}^{(3)} - \mathbb{Q}_{v}^{(1)} - \mathbb{Q}_{v}^{(3)} \\
+& Q_{zzxx} = 4 \mathbb{G}_{xyz}^{(1)} + \mathbb{Q}_{0}^{(1)} - \mathbb{Q}_{4u}^{(1)} - \mathbb{Q}_{4v}^{(1)} - \mathbb{Q}_{4}^{(1)} + \mathbb{Q}_{u}^{(1)} - 3 \mathbb{Q}_{u}^{(3)} + \mathbb{Q}_{v}^{(1)} + \mathbb{Q}_{v}^{(3)} \\
+& Q_{zzyy} = - 4 \mathbb{G}_{xyz}^{(1)} + \mathbb{Q}_{0}^{(1)} - \mathbb{Q}_{4u}^{(1)} + \mathbb{Q}_{4v}^{(1)} - \mathbb{Q}_{4}^{(1)} + \mathbb{Q}_{u}^{(1)} - 3 \mathbb{Q}_{u}^{(3)} - \mathbb{Q}_{v}^{(1)} - \mathbb{Q}_{v}^{(3)} \\
 & Q_{zzzz} = \mathbb{Q}_{0}^{(1)} + 2 \mathbb{Q}_{0}^{(2)} + 2 \mathbb{Q}_{4u}^{(1)} + 2 \mathbb{Q}_{4}^{(1)} + 4 \mathbb{Q}_{u}^{(1)} + 8 \mathbb{Q}_{u}^{(2)} \\
 & Q_{zzyz} = - 2 \mathbb{G}_{x}^{(1)} + \mathbb{G}_{x}^{(3)} + 2 \mathbb{G}_{x}^{\alpha(1)} - \mathbb{G}_{x}^{\alpha(2)} + 2 \mathbb{G}_{x}^{\beta(1)} - \mathbb{G}_{x}^{\beta(2)} - \mathbb{Q}_{4x}^{\alpha(1)} - \mathbb{Q}_{4x}^{\beta(1)} + \mathbb{Q}_{yz}^{(1)} + 2 \mathbb{Q}_{yz}^{(2)} + \mathbb{Q}_{yz}^{(3)} + 2 \mathbb{Q}_{yz}^{(5)} \\
 & Q_{zzzx} = 2 \mathbb{G}_{y}^{(1)} + \mathbb{G}_{y}^{(3)} - 2 \mathbb{G}_{y}^{\alpha(1)} - \mathbb{G}_{y}^{\alpha(2)} + 2 \mathbb{G}_{y}^{\beta(1)} + \mathbb{G}_{y}^{\beta(2)} + \mathbb{Q}_{4y}^{\alpha(1)} - \mathbb{Q}_{4y}^{\beta(1)} + \mathbb{Q}_{xz}^{(1)} + 2 \mathbb{Q}_{xz}^{(2)} + \mathbb{Q}_{xz}^{(3)} - 2 \mathbb{Q}_{xz}^{(5)} \\
@@ -287,20 +287,20 @@ MPG No. 1.1.1\quad$1$\quad[ Type I, triclinic ] [Q tensor]
 & Q_{yzxx} = 4 \mathbb{G}_{x}^{\beta(1)} + 2 \mathbb{Q}_{4x}^{\beta(1)} + \mathbb{Q}_{yz}^{(1)} - \mathbb{Q}_{yz}^{(3)} \\
 & Q_{yzyy} = - 2 \mathbb{G}_{x}^{(1)} + 2 \mathbb{G}_{x}^{\alpha(1)} - 2 \mathbb{G}_{x}^{\beta(1)} + \mathbb{Q}_{4x}^{\alpha(1)} - \mathbb{Q}_{4x}^{\beta(1)} + \mathbb{Q}_{yz}^{(1)} + 2 \mathbb{Q}_{yz}^{(2)} - \mathbb{Q}_{yz}^{(3)} \\
 & Q_{yzzz} = 2 \mathbb{G}_{x}^{(1)} - 2 \mathbb{G}_{x}^{\alpha(1)} - 2 \mathbb{G}_{x}^{\beta(1)} - \mathbb{Q}_{4x}^{\alpha(1)} - \mathbb{Q}_{4x}^{\beta(1)} + \mathbb{Q}_{yz}^{(1)} + 2 \mathbb{Q}_{yz}^{(2)} - \mathbb{Q}_{yz}^{(3)} \\
-& Q_{yzyz} = \mathbb{G}_{xyz}^{(2)} + \mathbb{Q}_{0}^{(2)} - \mathbb{Q}_{4u}^{(1)} - \mathbb{Q}_{4v}^{(1)} - \mathbb{Q}_{4}^{(1)} + \mathbb{Q}_{u}^{(2)} - 3 \mathbb{Q}_{u}^{(5)} - \mathbb{Q}_{v}^{(2)} - \mathbb{Q}_{v}^{(5)} \\
+& Q_{yzyz} = \mathbb{G}_{xyz}^{(2)} + \mathbb{Q}_{0}^{(2)} - \mathbb{Q}_{4u}^{(1)} + \mathbb{Q}_{4v}^{(1)} - \mathbb{Q}_{4}^{(1)} + \mathbb{Q}_{u}^{(2)} - 3 \mathbb{Q}_{u}^{(5)} - \mathbb{Q}_{v}^{(2)} - \mathbb{Q}_{v}^{(5)} \\
 & Q_{yzzx} = - \mathbb{G}_{z}^{(1)} + \mathbb{G}_{z}^{(4)} - 4 \mathbb{G}_{z}^{\alpha(1)} - \mathbb{G}_{z}^{\alpha(2)} - \mathbb{G}_{z}^{\beta(2)} + 2 \mathbb{Q}_{4z}^{\beta(1)} + \mathbb{Q}_{xy}^{(2)} - \mathbb{Q}_{xy}^{(5)} \\
 & Q_{yzxy} = \mathbb{G}_{y}^{(1)} + \mathbb{G}_{y}^{(4)} + 4 \mathbb{G}_{y}^{\alpha(1)} - \mathbb{G}_{y}^{\alpha(2)} + \mathbb{G}_{y}^{\beta(2)} + 2 \mathbb{Q}_{4y}^{\beta(1)} + \mathbb{Q}_{xz}^{(2)} + \mathbb{Q}_{xz}^{(5)} \\
-& Q_{yzzy} = - \mathbb{G}_{xyz}^{(2)} + \mathbb{Q}_{0}^{(2)} - \mathbb{Q}_{4u}^{(1)} - \mathbb{Q}_{4v}^{(1)} - \mathbb{Q}_{4}^{(1)} + \mathbb{Q}_{u}^{(2)} + 3 \mathbb{Q}_{u}^{(5)} - \mathbb{Q}_{v}^{(2)} + \mathbb{Q}_{v}^{(5)} \\
+& Q_{yzzy} = - \mathbb{G}_{xyz}^{(2)} + \mathbb{Q}_{0}^{(2)} - \mathbb{Q}_{4u}^{(1)} + \mathbb{Q}_{4v}^{(1)} - \mathbb{Q}_{4}^{(1)} + \mathbb{Q}_{u}^{(2)} + 3 \mathbb{Q}_{u}^{(5)} - \mathbb{Q}_{v}^{(2)} + \mathbb{Q}_{v}^{(5)} \\
 & Q_{yzxz} = - \mathbb{G}_{z}^{(1)} - \mathbb{G}_{z}^{(4)} - 4 \mathbb{G}_{z}^{\alpha(1)} + \mathbb{G}_{z}^{\alpha(2)} + \mathbb{G}_{z}^{\beta(2)} + 2 \mathbb{Q}_{4z}^{\beta(1)} + \mathbb{Q}_{xy}^{(2)} + \mathbb{Q}_{xy}^{(5)} \\
 & Q_{yzyx} = \mathbb{G}_{y}^{(1)} - \mathbb{G}_{y}^{(4)} + 4 \mathbb{G}_{y}^{\alpha(1)} + \mathbb{G}_{y}^{\alpha(2)} - \mathbb{G}_{y}^{\beta(2)} + 2 \mathbb{Q}_{4y}^{\beta(1)} + \mathbb{Q}_{xz}^{(2)} - \mathbb{Q}_{xz}^{(5)} \\
 & Q_{zxxx} = 2 \mathbb{G}_{y}^{(1)} - 2 \mathbb{G}_{y}^{\alpha(1)} - 2 \mathbb{G}_{y}^{\beta(1)} - \mathbb{Q}_{4y}^{\alpha(1)} - \mathbb{Q}_{4y}^{\beta(1)} + \mathbb{Q}_{xz}^{(1)} + 2 \mathbb{Q}_{xz}^{(2)} - \mathbb{Q}_{xz}^{(3)} \\
 & Q_{zxyy} = 4 \mathbb{G}_{y}^{\beta(1)} + 2 \mathbb{Q}_{4y}^{\beta(1)} + \mathbb{Q}_{xz}^{(1)} - \mathbb{Q}_{xz}^{(3)} \\
 & Q_{zxzz} = - 2 \mathbb{G}_{y}^{(1)} + 2 \mathbb{G}_{y}^{\alpha(1)} - 2 \mathbb{G}_{y}^{\beta(1)} + \mathbb{Q}_{4y}^{\alpha(1)} - \mathbb{Q}_{4y}^{\beta(1)} + \mathbb{Q}_{xz}^{(1)} + 2 \mathbb{Q}_{xz}^{(2)} - \mathbb{Q}_{xz}^{(3)} \\
 & Q_{zxyz} = \mathbb{G}_{z}^{(1)} + \mathbb{G}_{z}^{(4)} + 4 \mathbb{G}_{z}^{\alpha(1)} - \mathbb{G}_{z}^{\alpha(2)} + \mathbb{G}_{z}^{\beta(2)} + 2 \mathbb{Q}_{4z}^{\beta(1)} + \mathbb{Q}_{xy}^{(2)} + \mathbb{Q}_{xy}^{(5)} \\
-& Q_{zxzx} = \mathbb{G}_{xyz}^{(2)} + \mathbb{Q}_{0}^{(2)} - \mathbb{Q}_{4u}^{(1)} + \mathbb{Q}_{4v}^{(1)} - \mathbb{Q}_{4}^{(1)} + \mathbb{Q}_{u}^{(2)} + 3 \mathbb{Q}_{u}^{(5)} + \mathbb{Q}_{v}^{(2)} - \mathbb{Q}_{v}^{(5)} \\
+& Q_{zxzx} = \mathbb{G}_{xyz}^{(2)} + \mathbb{Q}_{0}^{(2)} - \mathbb{Q}_{4u}^{(1)} - \mathbb{Q}_{4v}^{(1)} - \mathbb{Q}_{4}^{(1)} + \mathbb{Q}_{u}^{(2)} + 3 \mathbb{Q}_{u}^{(5)} + \mathbb{Q}_{v}^{(2)} - \mathbb{Q}_{v}^{(5)} \\
 & Q_{zxxy} = - \mathbb{G}_{x}^{(1)} + \mathbb{G}_{x}^{(4)} - 4 \mathbb{G}_{x}^{\alpha(1)} - \mathbb{G}_{x}^{\alpha(2)} - \mathbb{G}_{x}^{\beta(2)} + 2 \mathbb{Q}_{4x}^{\beta(1)} + \mathbb{Q}_{yz}^{(2)} - \mathbb{Q}_{yz}^{(5)} \\
 & Q_{zxzy} = \mathbb{G}_{z}^{(1)} - \mathbb{G}_{z}^{(4)} + 4 \mathbb{G}_{z}^{\alpha(1)} + \mathbb{G}_{z}^{\alpha(2)} - \mathbb{G}_{z}^{\beta(2)} + 2 \mathbb{Q}_{4z}^{\beta(1)} + \mathbb{Q}_{xy}^{(2)} - \mathbb{Q}_{xy}^{(5)} \\
-& Q_{zxxz} = - \mathbb{G}_{xyz}^{(2)} + \mathbb{Q}_{0}^{(2)} - \mathbb{Q}_{4u}^{(1)} + \mathbb{Q}_{4v}^{(1)} - \mathbb{Q}_{4}^{(1)} + \mathbb{Q}_{u}^{(2)} - 3 \mathbb{Q}_{u}^{(5)} + \mathbb{Q}_{v}^{(2)} + \mathbb{Q}_{v}^{(5)} \\
+& Q_{zxxz} = - \mathbb{G}_{xyz}^{(2)} + \mathbb{Q}_{0}^{(2)} - \mathbb{Q}_{4u}^{(1)} - \mathbb{Q}_{4v}^{(1)} - \mathbb{Q}_{4}^{(1)} + \mathbb{Q}_{u}^{(2)} - 3 \mathbb{Q}_{u}^{(5)} + \mathbb{Q}_{v}^{(2)} + \mathbb{Q}_{v}^{(5)} \\
 & Q_{zxyx} = - \mathbb{G}_{x}^{(1)} - \mathbb{G}_{x}^{(4)} - 4 \mathbb{G}_{x}^{\alpha(1)} + \mathbb{G}_{x}^{\alpha(2)} + \mathbb{G}_{x}^{\beta(2)} + 2 \mathbb{Q}_{4x}^{\beta(1)} + \mathbb{Q}_{yz}^{(2)} + \mathbb{Q}_{yz}^{(5)} \\
 & Q_{xyxx} = - 2 \mathbb{G}_{z}^{(1)} + 2 \mathbb{G}_{z}^{\alpha(1)} - 2 \mathbb{G}_{z}^{\beta(1)} + \mathbb{Q}_{4z}^{\alpha(1)} - \mathbb{Q}_{4z}^{\beta(1)} + \mathbb{Q}_{xy}^{(1)} + 2 \mathbb{Q}_{xy}^{(2)} - \mathbb{Q}_{xy}^{(3)} \\
 & Q_{xyyy} = 2 \mathbb{G}_{z}^{(1)} - 2 \mathbb{G}_{z}^{\alpha(1)} - 2 \mathbb{G}_{z}^{\beta(1)} - \mathbb{Q}_{4z}^{\alpha(1)} - \mathbb{Q}_{4z}^{\beta(1)} + \mathbb{Q}_{xy}^{(1)} + 2 \mathbb{Q}_{xy}^{(2)} - \mathbb{Q}_{xy}^{(3)} \\
@@ -347,35 +347,39 @@ MPG No. 1.1.1\quad$1$\quad[ Type I, triclinic ] [Q tensor]
 \end{align*}
 * Rank 4 tensor (t).
 \begin{align*}
-\begin{bmatrix} Q_{xxxx} & Q_{xxxy} & Q_{xxxz} \\ Q_{yyyx} & Q_{yyyy} & Q_{yyyz} \\ Q_{zzzx} & Q_{zzzy} & Q_{zzzz} \\ Q_{yyzx} & Q_{yyzy} & Q_{yyzz} \\ Q_{zzxx} & Q_{zzxy} & Q_{zzxz} \\ Q_{xxyx} & Q_{xxyy} & Q_{xxyz} \\ Q_{yzzx} & Q_{yzzy} & Q_{yzzz} \\ Q_{zxxx} & Q_{zxxy} & Q_{zxxz} \\ Q_{xxyy} + Q_{yyzz} - Q_{yzzy} - Q_{zxxz} + Q_{zzxx} & Q_{xyyy} & Q_{xyyz} \\ - \frac{Q_{yyyz}}{2} + \frac{Q_{yyzy}}{2} + Q_{zxxy} & Q_{xyyz} + \frac{Q_{zzxz}}{2} - \frac{Q_{zzzx}}{2} & \frac{Q_{xxxy}}{2} - \frac{Q_{xxyx}}{2} + Q_{xyyy} - Q_{yyyx} + Q_{zzxy} \end{bmatrix}
+\begin{bmatrix} Q_{xxxx} & Q_{xxxy} & Q_{xxxz} \\ Q_{yyyx} & Q_{yyyy} & Q_{yyyz} \\ Q_{zzzx} & Q_{zzzy} & Q_{zzzz} \\ Q_{yyzx} & Q_{yyzy} & Q_{yyzz} \\ Q_{zzxx} & Q_{zzxy} & Q_{zzxz} \\ Q_{xxyx} & Q_{xxyy} & Q_{xxyz} \\ Q_{yzzx} & Q_{yzzy} & Q_{yzzz} \\ Q_{zxxx} & Q_{zxxy} & Q_{zxxz} \\ Q_{xyyx} & Q_{xyyy} & Q_{xyyz} \\ Q_{xyzx} & Q_{xyzy} & Q_{xyzz} \end{bmatrix}
 \end{align*}
 \begin{align*}
-& Q_{xxxx} = 3 \mathbb{Q}_{0}^{(1)} - \mathbb{Q}_{4u}^{(1)} - \mathbb{Q}_{4v}^{(1)} + 2 \mathbb{Q}_{4}^{(1)} - 2 \mathbb{Q}_{u}^{(1)} - 4 \mathbb{Q}_{u}^{(2)} + 2 \mathbb{Q}_{v}^{(1)} + 4 \mathbb{Q}_{v}^{(2)} \\
-& Q_{xxxy} = \mathbb{Q}_{4z}^{\alpha(1)} - \mathbb{Q}_{4z}^{\beta(1)} + \mathbb{Q}_{xy}^{(1)} + 2 \mathbb{Q}_{xy}^{(2)} + \mathbb{Q}_{xy}^{(3)} - 2 \mathbb{Q}_{xy}^{(5)} \\
-& Q_{xxxz} = - \mathbb{Q}_{4y}^{\alpha(1)} - \mathbb{Q}_{4y}^{\beta(1)} + \mathbb{Q}_{xz}^{(1)} + 2 \mathbb{Q}_{xz}^{(2)} + \mathbb{Q}_{xz}^{(3)} - 2 \mathbb{Q}_{xz}^{(5)} \\
-& Q_{yyyx} = - \mathbb{Q}_{4z}^{\alpha(1)} - \mathbb{Q}_{4z}^{\beta(1)} + \mathbb{Q}_{xy}^{(1)} + 2 \mathbb{Q}_{xy}^{(2)} + \mathbb{Q}_{xy}^{(3)} - 2 \mathbb{Q}_{xy}^{(5)} \\
-& Q_{yyyy} = 3 \mathbb{Q}_{0}^{(1)} - \mathbb{Q}_{4u}^{(1)} + \mathbb{Q}_{4v}^{(1)} + 2 \mathbb{Q}_{4}^{(1)} - 2 \mathbb{Q}_{u}^{(1)} - 4 \mathbb{Q}_{u}^{(2)} - 2 \mathbb{Q}_{v}^{(1)} - 4 \mathbb{Q}_{v}^{(2)} \\
-& Q_{yyyz} = \mathbb{Q}_{4x}^{\alpha(1)} - \mathbb{Q}_{4x}^{\beta(1)} + \mathbb{Q}_{yz}^{(1)} + 2 \mathbb{Q}_{yz}^{(2)} + \mathbb{Q}_{yz}^{(3)} - 2 \mathbb{Q}_{yz}^{(5)} \\
-& Q_{zzzx} = \mathbb{Q}_{4y}^{\alpha(1)} - \mathbb{Q}_{4y}^{\beta(1)} + \mathbb{Q}_{xz}^{(1)} + 2 \mathbb{Q}_{xz}^{(2)} + \mathbb{Q}_{xz}^{(3)} - 2 \mathbb{Q}_{xz}^{(5)} \\
-& Q_{zzzy} = - \mathbb{Q}_{4x}^{\alpha(1)} - \mathbb{Q}_{4x}^{\beta(1)} + \mathbb{Q}_{yz}^{(1)} + 2 \mathbb{Q}_{yz}^{(2)} + \mathbb{Q}_{yz}^{(3)} - 2 \mathbb{Q}_{yz}^{(5)} \\
-& Q_{zzzz} = 3 \mathbb{Q}_{0}^{(1)} + 2 \mathbb{Q}_{4u}^{(1)} + 2 \mathbb{Q}_{4}^{(1)} + 4 \mathbb{Q}_{u}^{(1)} + 8 \mathbb{Q}_{u}^{(2)} \\
-& Q_{yyzx} = 2 \mathbb{Q}_{4y}^{\beta(1)} + \mathbb{Q}_{xz}^{(1)} + \mathbb{Q}_{xz}^{(3)} \\
-& Q_{yyzy} = \mathbb{Q}_{4x}^{\alpha(1)} - \mathbb{Q}_{4x}^{\beta(1)} + \mathbb{Q}_{yz}^{(1)} + 2 \mathbb{Q}_{yz}^{(2)} + \mathbb{Q}_{yz}^{(3)} + 2 \mathbb{Q}_{yz}^{(5)} \\
-& Q_{yyzz} = \mathbb{Q}_{0}^{(1)} - \mathbb{Q}_{4u}^{(1)} - \mathbb{Q}_{4v}^{(1)} - \mathbb{Q}_{4}^{(1)} + \mathbb{Q}_{u}^{(1)} + 3 \mathbb{Q}_{u}^{(3)} - \mathbb{Q}_{v}^{(1)} + \mathbb{Q}_{v}^{(3)} \\
-& Q_{zzxx} = \mathbb{Q}_{0}^{(1)} - \mathbb{Q}_{4u}^{(1)} + \mathbb{Q}_{4v}^{(1)} - \mathbb{Q}_{4}^{(1)} + \mathbb{Q}_{u}^{(1)} - 3 \mathbb{Q}_{u}^{(3)} + \mathbb{Q}_{v}^{(1)} + \mathbb{Q}_{v}^{(3)} \\
-& Q_{zzxy} = 2 \mathbb{Q}_{4z}^{\beta(1)} + \mathbb{Q}_{xy}^{(1)} + \mathbb{Q}_{xy}^{(3)} \\
-& Q_{zzxz} = \mathbb{Q}_{4y}^{\alpha(1)} - \mathbb{Q}_{4y}^{\beta(1)} + \mathbb{Q}_{xz}^{(1)} + 2 \mathbb{Q}_{xz}^{(2)} + \mathbb{Q}_{xz}^{(3)} + 2 \mathbb{Q}_{xz}^{(5)} \\
-& Q_{xxyx} = \mathbb{Q}_{4z}^{\alpha(1)} - \mathbb{Q}_{4z}^{\beta(1)} + \mathbb{Q}_{xy}^{(1)} + 2 \mathbb{Q}_{xy}^{(2)} + \mathbb{Q}_{xy}^{(3)} + 2 \mathbb{Q}_{xy}^{(5)} \\
-& Q_{xxyy} = \mathbb{Q}_{0}^{(1)} + 2 \mathbb{Q}_{4u}^{(1)} - \mathbb{Q}_{4}^{(1)} - 2 \mathbb{Q}_{u}^{(1)} - 2 \mathbb{Q}_{v}^{(3)} \\
-& Q_{xxyz} = 2 \mathbb{Q}_{4x}^{\beta(1)} + \mathbb{Q}_{yz}^{(1)} + \mathbb{Q}_{yz}^{(3)} \\
-& Q_{yzzx} = 2 \mathbb{Q}_{4z}^{\beta(1)} + \mathbb{Q}_{xy}^{(2)} - \mathbb{Q}_{xy}^{(5)} \\
-& Q_{yzzy} = \mathbb{Q}_{0}^{(1)} - \mathbb{Q}_{4u}^{(1)} - \mathbb{Q}_{4v}^{(1)} - \mathbb{Q}_{4}^{(1)} + \mathbb{Q}_{u}^{(2)} + 3 \mathbb{Q}_{u}^{(5)} - \mathbb{Q}_{v}^{(2)} + \mathbb{Q}_{v}^{(5)} \\
-& Q_{yzzz} = - \mathbb{Q}_{4x}^{\alpha(1)} - \mathbb{Q}_{4x}^{\beta(1)} + \mathbb{Q}_{yz}^{(1)} + 2 \mathbb{Q}_{yz}^{(2)} - \mathbb{Q}_{yz}^{(3)} \\
-& Q_{zxxx} = - \mathbb{Q}_{4y}^{\alpha(1)} - \mathbb{Q}_{4y}^{\beta(1)} + \mathbb{Q}_{xz}^{(1)} + 2 \mathbb{Q}_{xz}^{(2)} - \mathbb{Q}_{xz}^{(3)} \\
-& Q_{zxxy} = 2 \mathbb{Q}_{4x}^{\beta(1)} + \mathbb{Q}_{yz}^{(2)} - \mathbb{Q}_{yz}^{(5)} \\
-& Q_{zxxz} = \mathbb{Q}_{0}^{(1)} - \mathbb{Q}_{4u}^{(1)} + \mathbb{Q}_{4v}^{(1)} - \mathbb{Q}_{4}^{(1)} + \mathbb{Q}_{u}^{(2)} - 3 \mathbb{Q}_{u}^{(5)} + \mathbb{Q}_{v}^{(2)} + \mathbb{Q}_{v}^{(5)} \\
-& Q_{xyyy} = - \mathbb{Q}_{4z}^{\alpha(1)} - \mathbb{Q}_{4z}^{\beta(1)} + \mathbb{Q}_{xy}^{(1)} + 2 \mathbb{Q}_{xy}^{(2)} - \mathbb{Q}_{xy}^{(3)} \\
-& Q_{xyyz} = 2 \mathbb{Q}_{4y}^{\beta(1)} + \mathbb{Q}_{xz}^{(2)} - \mathbb{Q}_{xz}^{(5)}
+& Q_{xxxx} = 3 \mathbb{Q}_{0}^{(1)} - \mathbb{Q}_{4u}^{(1)} + \mathbb{Q}_{4v}^{(1)} + 2 \mathbb{Q}_{4}^{(1)} - 3 \mathbb{Q}_{u}^{(1)} - 3 \mathbb{Q}_{u}^{(2)} + 3 \mathbb{Q}_{v}^{(1)} + 3 \mathbb{Q}_{v}^{(2)} \\
+& Q_{xxxy} = 3 \mathbb{G}_{z}^{(1)} - 3 \mathbb{G}_{z}^{\alpha(1)} + 3 \mathbb{G}_{z}^{\beta(1)} + \mathbb{Q}_{4z}^{\alpha(1)} - \mathbb{Q}_{4z}^{\beta(1)} + 3 \mathbb{Q}_{xy}^{(1)} \\
+& Q_{xxxz} = - 3 \mathbb{G}_{y}^{(1)} + 3 \mathbb{G}_{y}^{\alpha(1)} + 3 \mathbb{G}_{y}^{\beta(1)} - \mathbb{Q}_{4y}^{\alpha(1)} - \mathbb{Q}_{4y}^{\beta(1)} + 3 \mathbb{Q}_{xz}^{(1)} \\
+& Q_{yyyx} = - 3 \mathbb{G}_{z}^{(1)} + 3 \mathbb{G}_{z}^{\alpha(1)} + 3 \mathbb{G}_{z}^{\beta(1)} - \mathbb{Q}_{4z}^{\alpha(1)} - \mathbb{Q}_{4z}^{\beta(1)} + 3 \mathbb{Q}_{xy}^{(1)} \\
+& Q_{yyyy} = 3 \mathbb{Q}_{0}^{(1)} - \mathbb{Q}_{4u}^{(1)} - \mathbb{Q}_{4v}^{(1)} + 2 \mathbb{Q}_{4}^{(1)} - 3 \mathbb{Q}_{u}^{(1)} - 3 \mathbb{Q}_{u}^{(2)} - 3 \mathbb{Q}_{v}^{(1)} - 3 \mathbb{Q}_{v}^{(2)} \\
+& Q_{yyyz} = 3 \mathbb{G}_{x}^{(1)} - 3 \mathbb{G}_{x}^{\alpha(1)} + 3 \mathbb{G}_{x}^{\beta(1)} + \mathbb{Q}_{4x}^{\alpha(1)} - \mathbb{Q}_{4x}^{\beta(1)} + 3 \mathbb{Q}_{yz}^{(1)} \\
+& Q_{zzzx} = 3 \mathbb{G}_{y}^{(1)} - 3 \mathbb{G}_{y}^{\alpha(1)} + 3 \mathbb{G}_{y}^{\beta(1)} + \mathbb{Q}_{4y}^{\alpha(1)} - \mathbb{Q}_{4y}^{\beta(1)} + 3 \mathbb{Q}_{xz}^{(1)} \\
+& Q_{zzzy} = - 3 \mathbb{G}_{x}^{(1)} + 3 \mathbb{G}_{x}^{\alpha(1)} + 3 \mathbb{G}_{x}^{\beta(1)} - \mathbb{Q}_{4x}^{\alpha(1)} - \mathbb{Q}_{4x}^{\beta(1)} + 3 \mathbb{Q}_{yz}^{(1)} \\
+& Q_{zzzz} = 3 \mathbb{Q}_{0}^{(1)} + 2 \mathbb{Q}_{4u}^{(1)} + 2 \mathbb{Q}_{4}^{(1)} + 6 \mathbb{Q}_{u}^{(1)} + 6 \mathbb{Q}_{u}^{(2)} \\
+& Q_{yyzx} = \mathbb{G}_{y}^{(1)} + 4 \mathbb{G}_{y}^{\alpha(1)} - 2 \mathbb{G}_{y}^{\beta(1)} + 2 \mathbb{Q}_{4y}^{\beta(1)} + \mathbb{Q}_{xz}^{(1)} \\
+& Q_{yyzy} = - \mathbb{G}_{x}^{(1)} + \mathbb{G}_{x}^{\alpha(1)} - \mathbb{G}_{x}^{\beta(1)} + \mathbb{Q}_{4x}^{\alpha(1)} - \mathbb{Q}_{4x}^{\beta(1)} + \mathbb{Q}_{yz}^{(1)} + 2 \mathbb{Q}_{yz}^{(2)} \\
+& Q_{yyzz} = 2 \mathbb{G}_{xyz}^{(1)} + \mathbb{Q}_{0}^{(1)} - \mathbb{Q}_{4u}^{(1)} + \mathbb{Q}_{4v}^{(1)} - \mathbb{Q}_{4}^{(1)} + 2 \mathbb{Q}_{u}^{(1)} - \mathbb{Q}_{u}^{(2)} - \mathbb{Q}_{v}^{(2)} \\
+& Q_{zzxx} = 2 \mathbb{G}_{xyz}^{(1)} + \mathbb{Q}_{0}^{(1)} - \mathbb{Q}_{4u}^{(1)} - \mathbb{Q}_{4v}^{(1)} - \mathbb{Q}_{4}^{(1)} - \mathbb{Q}_{u}^{(1)} + 2 \mathbb{Q}_{u}^{(2)} + \mathbb{Q}_{v}^{(1)} \\
+& Q_{zzxy} = \mathbb{G}_{z}^{(1)} + 4 \mathbb{G}_{z}^{\alpha(1)} - 2 \mathbb{G}_{z}^{\beta(1)} + 2 \mathbb{Q}_{4z}^{\beta(1)} + \mathbb{Q}_{xy}^{(1)} \\
+& Q_{zzxz} = - \mathbb{G}_{y}^{(1)} + \mathbb{G}_{y}^{\alpha(1)} - \mathbb{G}_{y}^{\beta(1)} + \mathbb{Q}_{4y}^{\alpha(1)} - \mathbb{Q}_{4y}^{\beta(1)} + \mathbb{Q}_{xz}^{(1)} + 2 \mathbb{Q}_{xz}^{(2)} \\
+& Q_{xxyx} = - \mathbb{G}_{z}^{(1)} + \mathbb{G}_{z}^{\alpha(1)} - \mathbb{G}_{z}^{\beta(1)} + \mathbb{Q}_{4z}^{\alpha(1)} - \mathbb{Q}_{4z}^{\beta(1)} + \mathbb{Q}_{xy}^{(1)} + 2 \mathbb{Q}_{xy}^{(2)} \\
+& Q_{xxyy} = 2 \mathbb{G}_{xyz}^{(1)} + \mathbb{Q}_{0}^{(1)} + 2 \mathbb{Q}_{4u}^{(1)} - \mathbb{Q}_{4}^{(1)} - \mathbb{Q}_{u}^{(1)} - \mathbb{Q}_{u}^{(2)} - \mathbb{Q}_{v}^{(1)} + \mathbb{Q}_{v}^{(2)} \\
+& Q_{xxyz} = \mathbb{G}_{x}^{(1)} + 4 \mathbb{G}_{x}^{\alpha(1)} - 2 \mathbb{G}_{x}^{\beta(1)} + 2 \mathbb{Q}_{4x}^{\beta(1)} + \mathbb{Q}_{yz}^{(1)} \\
+& Q_{yzzx} = - \mathbb{G}_{z}^{(1)} - 4 \mathbb{G}_{z}^{\alpha(1)} - 2 \mathbb{G}_{z}^{\beta(1)} + 2 \mathbb{Q}_{4z}^{\beta(1)} + \mathbb{Q}_{xy}^{(1)} \\
+& Q_{yzzy} = - 2 \mathbb{G}_{xyz}^{(1)} + \mathbb{Q}_{0}^{(1)} - \mathbb{Q}_{4u}^{(1)} + \mathbb{Q}_{4v}^{(1)} - \mathbb{Q}_{4}^{(1)} - \mathbb{Q}_{u}^{(1)} + 2 \mathbb{Q}_{u}^{(2)} - \mathbb{Q}_{v}^{(1)} \\
+& Q_{yzzz} = \mathbb{G}_{x}^{(1)} - \mathbb{G}_{x}^{\alpha(1)} - \mathbb{G}_{x}^{\beta(1)} - \mathbb{Q}_{4x}^{\alpha(1)} - \mathbb{Q}_{4x}^{\beta(1)} + \mathbb{Q}_{yz}^{(1)} + 2 \mathbb{Q}_{yz}^{(2)} \\
+& Q_{zxxx} = \mathbb{G}_{y}^{(1)} - \mathbb{G}_{y}^{\alpha(1)} - \mathbb{G}_{y}^{\beta(1)} - \mathbb{Q}_{4y}^{\alpha(1)} - \mathbb{Q}_{4y}^{\beta(1)} + \mathbb{Q}_{xz}^{(1)} + 2 \mathbb{Q}_{xz}^{(2)} \\
+& Q_{zxxy} = - \mathbb{G}_{x}^{(1)} - 4 \mathbb{G}_{x}^{\alpha(1)} - 2 \mathbb{G}_{x}^{\beta(1)} + 2 \mathbb{Q}_{4x}^{\beta(1)} + \mathbb{Q}_{yz}^{(1)} \\
+& Q_{zxxz} = - 2 \mathbb{G}_{xyz}^{(1)} + \mathbb{Q}_{0}^{(1)} - \mathbb{Q}_{4u}^{(1)} - \mathbb{Q}_{4v}^{(1)} - \mathbb{Q}_{4}^{(1)} + 2 \mathbb{Q}_{u}^{(1)} - \mathbb{Q}_{u}^{(2)} + \mathbb{Q}_{v}^{(2)} \\
+& Q_{xyyx} = - 2 \mathbb{G}_{xyz}^{(1)} + \mathbb{Q}_{0}^{(1)} + 2 \mathbb{Q}_{4u}^{(1)} - \mathbb{Q}_{4}^{(1)} - \mathbb{Q}_{u}^{(1)} - \mathbb{Q}_{u}^{(2)} + \mathbb{Q}_{v}^{(1)} - \mathbb{Q}_{v}^{(2)} \\
+& Q_{xyyy} = \mathbb{G}_{z}^{(1)} - \mathbb{G}_{z}^{\alpha(1)} - \mathbb{G}_{z}^{\beta(1)} - \mathbb{Q}_{4z}^{\alpha(1)} - \mathbb{Q}_{4z}^{\beta(1)} + \mathbb{Q}_{xy}^{(1)} + 2 \mathbb{Q}_{xy}^{(2)} \\
+& Q_{xyyz} = - \mathbb{G}_{y}^{(1)} - 4 \mathbb{G}_{y}^{\alpha(1)} - 2 \mathbb{G}_{y}^{\beta(1)} + 2 \mathbb{Q}_{4y}^{\beta(1)} + \mathbb{Q}_{xz}^{(1)} \\
+& Q_{xyzx} = 2 \mathbb{G}_{x}^{\beta(1)} + 2 \mathbb{Q}_{4x}^{\beta(1)} + \mathbb{Q}_{yz}^{(2)} \\
+& Q_{xyzy} = 2 \mathbb{G}_{y}^{\beta(1)} + 2 \mathbb{Q}_{4y}^{\beta(1)} + \mathbb{Q}_{xz}^{(2)} \\
+& Q_{xyzz} = 2 \mathbb{G}_{z}^{\beta(1)} + 2 \mathbb{Q}_{4z}^{\beta(1)} + \mathbb{Q}_{xy}^{(2)}
 \end{align*}
 
 \end{document}

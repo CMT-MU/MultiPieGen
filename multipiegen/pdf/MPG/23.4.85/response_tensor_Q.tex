@@ -161,15 +161,17 @@ MPG No. 23.4.85\quad$6/m'$\quad[ Type III, hexagonal ] [Q tensor]
 \end{align*}
 * Rank 4 tensor (t).
 \begin{align*}
-\begin{bmatrix} Q_{xxxx} & 0 & 0 \\ 0 & Q_{xxxx} & 0 \\ 0 & 0 & Q_{zzzz} \\ 0 & 0 & Q_{yyzz} \\ Q_{zzxx} & 0 & 0 \\ 0 & Q_{xxyy} & 0 \\ 0 & Q_{yzzy} & 0 \\ 0 & 0 & - \frac{Q_{xxxx}}{2} + \frac{3 Q_{xxyy}}{2} + Q_{yyzz} - Q_{yzzy} + Q_{zzxx} \\ \frac{Q_{xxxx}}{2} - \frac{Q_{xxyy}}{2} & 0 & 0 \\ 0 & 0 & 0 \end{bmatrix}
+\begin{bmatrix} Q_{xxxx} & Q_{xxxy} & 0 \\ - Q_{xxxy} & Q_{xxxx} & 0 \\ 0 & 0 & Q_{zzzz} \\ 0 & 0 & Q_{yyzz} \\ Q_{zzxx} & Q_{zzxy} & 0 \\ - \frac{Q_{xxxy}}{3} & \frac{Q_{xxxx}}{3} & 0 \\ - Q_{zzxy} & Q_{zzxx} & 0 \\ 0 & 0 & Q_{yyzz} \\ \frac{Q_{xxxx}}{3} & \frac{Q_{xxxy}}{3} & 0 \\ 0 & 0 & 0 \end{bmatrix}
 \end{align*}
 \begin{align*}
-& Q_{xxxx} = 3 \mathbb{Q}_{0}^{(1)} + 3 \mathbb{Q}_{40}^{(1)} - 2 \mathbb{Q}_{u}^{(1)} - 4 \mathbb{Q}_{u}^{(2)} \\
-& Q_{zzzz} = 3 \mathbb{Q}_{0}^{(1)} + 8 \mathbb{Q}_{40}^{(1)} + 4 \mathbb{Q}_{u}^{(1)} + 8 \mathbb{Q}_{u}^{(2)} \\
-& Q_{yyzz} = \mathbb{Q}_{0}^{(1)} - 4 \mathbb{Q}_{40}^{(1)} + \mathbb{Q}_{u}^{(1)} + 3 \mathbb{Q}_{u}^{(3)} \\
-& Q_{zzxx} = \mathbb{Q}_{0}^{(1)} - 4 \mathbb{Q}_{40}^{(1)} + \mathbb{Q}_{u}^{(1)} - 3 \mathbb{Q}_{u}^{(3)} \\
-& Q_{xxyy} = \mathbb{Q}_{0}^{(1)} + \mathbb{Q}_{40}^{(1)} - 2 \mathbb{Q}_{u}^{(1)} \\
-& Q_{yzzy} = \mathbb{Q}_{0}^{(1)} - 4 \mathbb{Q}_{40}^{(1)} + \mathbb{Q}_{u}^{(2)} + 3 \mathbb{Q}_{u}^{(5)}
+& Q_{xxxx} = 3 \mathbb{Q}_{0}^{(1)} + 3 \mathbb{Q}_{40}^{(1)} - 3 \mathbb{Q}_{u}^{(1)} - 3 \mathbb{Q}_{u}^{(2)} \\
+& Q_{xxxy} = 3 \mathbb{G}_{z}^{(1)} - 3 \mathbb{G}_{z}^{\alpha(1)} \\
+& Q_{zzzz} = 3 \mathbb{Q}_{0}^{(1)} + 8 \mathbb{Q}_{40}^{(1)} + 6 \mathbb{Q}_{u}^{(1)} + 6 \mathbb{Q}_{u}^{(2)} \\
+& Q_{yyzz} = \mathbb{Q}_{0}^{(1)} - 4 \mathbb{Q}_{40}^{(1)} + 2 \mathbb{Q}_{u}^{(1)} - \mathbb{Q}_{u}^{(2)} \\
+& Q_{zzxx} = \mathbb{Q}_{0}^{(1)} - 4 \mathbb{Q}_{40}^{(1)} - \mathbb{Q}_{u}^{(1)} + 2 \mathbb{Q}_{u}^{(2)} \\
+& Q_{zzxy} = \mathbb{G}_{z}^{(1)} + 4 \mathbb{G}_{z}^{\alpha(1)} \\
+& \frac{Q_{xxxy}}{3} = \mathbb{G}_{z}^{(1)} - \mathbb{G}_{z}^{\alpha(1)} \\
+& \frac{Q_{xxxx}}{3} = \mathbb{Q}_{0}^{(1)} + \mathbb{Q}_{40}^{(1)} - \mathbb{Q}_{u}^{(1)} - \mathbb{Q}_{u}^{(2)}
 \end{align*}
 
 \end{document}

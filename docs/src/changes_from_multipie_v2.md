@@ -27,13 +27,15 @@ Contents:
 | orbital names | f2, f1, f3x, f3y, ga, gb, gc, i, l, i0, j | fc, fs, fx, fy, gc, gs, gc4, i3, l3, ixy, j3 (`gc` now means the old `ga`) |
 | orbital definitions | `data_definition.py` | `data_basis.py`; each orbital points to a harmonics key, expressions come from the top harmonics |
 | sign of D6h rank-4 `E2g` multiplicity 2 | as in MultiPie | multiplied by -1 (both components) |
-| sign of the orbital `gv` | as in MultiPie | multiplied by -1 (`data_response_tensor`) |
+| sign of the orbital `gv` | as in MultiPie | multiplied by -1 |
 | expression of the harmonics in the values | the multipole-keyed binaries hold the cartesian expression `ex` of the harmonics | not held; looked up by `(X, l, Gamma, n)` of the key in `harmonics.pkl` (values: multipolar harmonics `(internal_coefficient, multipole_expression)`, atomic multipole group `matrix`, cluster SAMB `samb`) |
 
 - The `E2g` sign change is a change of the top harmonics. It carries into the D6h-family subgroups (rank-4 E
   multiplets of 16 hexagonal/trigonal groups) and into everything built on the harmonics.
-- The `gv` sign change is a change of the orbital (and of the response-tensor multipole); the top harmonics of Oh are
-  unchanged, and the harmonics of the Oh family agree with MultiPie Ver.2.
+- The `gv` sign change is a change of the orbital; the top harmonics of Oh are unchanged, and the harmonics of the Oh
+  family agree with MultiPie Ver.2.
+- In the response tensors (`data_response_tensor`), every multipole is a positive multiple of the harmonic of the same
+  name: the coefficients of `gv` are those of MultiPie Ver.2, and those of the hexagonal `gav` are multiplied by -1.
 - In the data compared so far, the harmonics multiplicity `n` happened to coincide with MultiPie Ver.2's renumbered
   `n` (multipolar harmonics, atomic multipole group). The difference of rule matters for the bond_a cluster SAMB.
 

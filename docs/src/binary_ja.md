@@ -53,7 +53,7 @@ NOTE:
 - 作成：`python -m multipiegen.create_binary.create_info`
 - 読み込み：`multipiegen.util.util_info.load_info()`
 - 最上位のキー：`id_set`, `tag`, `id`, `group_name`, `character`, `root_cluster`, `harmonics`, `response_tensor`
-- サイズ：137 KB
+- サイズ：133 KB
 
 辞書のキーの説明（バイナリのヘッダ）：
 
@@ -347,7 +347,7 @@ PG、SG、MPG、MSG それぞれのデータ：対称操作、指標、Wyckoff �
 - 作成：`python -m multipiegen.create_binary.create_response_tensor`
 - 読み込み：`multipiegen.util.util_response_tensor.load_response_tensor()`
 - 最上位のキー：全 157 個、`MPG:1.1.1`, `MPG:1.2.2`, ..., `MPG:37.5.155`
-- サイズ：159 KB
+- サイズ：167 KB
 
 辞書のキーの説明（バイナリのヘッダ）：
 
@@ -616,7 +616,7 @@ NOTE:
 |---|---|---|---|
 | PG | 47 (`PG/PG_1.pkl`, ...) | `info`, `symmetry_operation`, `wyckoff`, `character`, `representation_matrix`, `harmonics`, `multipolar_harmonics`, `atomic_samb`, `cluster_samb` | 9,656 KB |
 | SG | 230 (`SG/SG_1.pkl`, ...) | `info`, `symmetry_operation`, `wyckoff`, `cluster_samb` | 2,091 KB |
-| MPG | 157 (`MPG/MPG_1.1.1.pkl`, ...) | `info`, `symmetry_operation`, `wyckoff`, `active_multipole`, `response_tensor` | 805 KB |
+| MPG | 157 (`MPG/MPG_1.1.1.pkl`, ...) | `info`, `symmetry_operation`, `wyckoff`, `active_multipole`, `response_tensor` | 820 KB |
 | MSG | 1651 (`MSG/MSG_1.1.pkl`, ...) | `info`, `symmetry_operation`, `wyckoff` | 3,913 KB |
 
 複素の PG（`-c`）のキーには `cluster_samb` がありません。
