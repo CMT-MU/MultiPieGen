@@ -47,7 +47,7 @@ Overall information of all groups, harmonics, basis, root cluster, response tens
 - create: `python -m multipiegen.create_binary.create_info`
 - load: `multipiegen.util.util_info.load_info()`
 - top-level keys: `id_set`, `tag`, `id`, `group_name`, `character`, `root_cluster`, `harmonics`, `response_tensor`
-- size: 137 KB
+- size: 133 KB
 
 Description of the dictionary keys (header of the binary):
 
@@ -341,7 +341,7 @@ Response tensors (rank 0-4) of all MPG.
 - create: `python -m multipiegen.create_binary.create_response_tensor`
 - load: `multipiegen.util.util_response_tensor.load_response_tensor()`
 - top-level keys: 157 keys: `MPG:1.1.1`, `MPG:1.2.2`, ..., `MPG:37.5.155`
-- size: 159 KB
+- size: 167 KB
 
 Description of the dictionary keys (header of the binary):
 
@@ -610,7 +610,7 @@ NOTE:
 |---|---|---|---|
 | PG | 47 (`PG/PG_1.pkl`, ...) | `info`, `symmetry_operation`, `wyckoff`, `character`, `representation_matrix`, `harmonics`, `multipolar_harmonics`, `atomic_samb`, `cluster_samb` | 9,656 KB |
 | SG | 230 (`SG/SG_1.pkl`, ...) | `info`, `symmetry_operation`, `wyckoff`, `cluster_samb` | 2,091 KB |
-| MPG | 157 (`MPG/MPG_1.1.1.pkl`, ...) | `info`, `symmetry_operation`, `wyckoff`, `active_multipole`, `response_tensor` | 805 KB |
+| MPG | 157 (`MPG/MPG_1.1.1.pkl`, ...) | `info`, `symmetry_operation`, `wyckoff`, `active_multipole`, `response_tensor` | 820 KB |
 | MSG | 1651 (`MSG/MSG_1.1.pkl`, ...) | `info`, `symmetry_operation`, `wyckoff` | 3,913 KB |
 
 The keys of the complex PG (`-c`) lack `cluster_samb`.
