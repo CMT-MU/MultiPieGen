@@ -92,8 +92,9 @@ mapping depends on the parity of the top harmonic.
 **Orbitals.** `data_basis.py` replaces MultiPie Ver.2's `data_definition.py`. Orbital tags were renamed relative to MultiPie Ver.2:
 f2→fc, f1→fs, f3x→fx, f3y→fy, ga→gc, gb→gs, gc→gc4, i→i3, l→l3, i0→ixy, j→j3. Note that `gc` now means old `ga`.
 Orbitals carry no expressions; `harmonics_key[name]` points into the top harmonics. Intentional sign changes versus MultiPie Ver.2:
-`gv` and D6h rank-4 `E2g` multiplicity 2 are multiplied by −1. Both carry into D6h-family subgroups and the response
-tensor.
+`gv` and D6h rank-4 `E2g` multiplicity 2 are multiplied by −1. Both carry into D6h-family subgroups. In the response
+tensors (`data_response_tensor`) every multipole is a positive multiple of the harmonic of the same name, so the
+coefficients of `gv` there are those of MultiPie Ver.2 (and those of `gav` are multiplied by −1).
 
 **Root cluster.** Oh (48 points) and D6h (24 points) clusters are written in Cartesian coordinates with `x,y,z`
 placeholders (`data_root_cluster`). `site0` and `vector0` are substituted into them. The D6h representative point is

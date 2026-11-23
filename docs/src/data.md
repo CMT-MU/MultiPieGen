@@ -273,7 +273,8 @@ Multipoles in the response tensors and their cartesian components.
 
 ```text
 Note:
-definition of gv is changed. (it is multiplied by (-1)).
+every multipole is a positive multiple of its basis function (the harmonic of the same name):
+the coefficients of gv are those of MultiPie Ver.2 (the orbital gv is multiplied by (-1)), and those of gav are multiplied by (-1).
 change name.
 ```
 

@@ -94,14 +94,14 @@ MPG No. 6.1.17\quad$222$\quad[ Type I, orthorhombic ] [M tensor]
 \begin{bmatrix} M_{xxxx} & M_{xxyy} & M_{xxzz} & 0 & 0 & 0 \\ M_{xxyy} & M_{yyyy} & M_{yyzz} & 0 & 0 & 0 \\ M_{xxzz} & M_{yyzz} & M_{zzzz} & 0 & 0 & 0 \\ 0 & 0 & 0 & M_{yzyz} & 0 & 0 \\ 0 & 0 & 0 & 0 & M_{zxzx} & 0 \\ 0 & 0 & 0 & 0 & 0 & M_{xyxy} \end{bmatrix}
 \end{align*}
 \begin{align*}
-& M_{xxxx} = \mathbb{M}_{0}^{(1)} + 2 \mathbb{M}_{0}^{(2)} - \mathbb{M}_{4u}^{(1)} - \mathbb{M}_{4v}^{(1)} + 2 \mathbb{M}_{4}^{(1)} - 2 \mathbb{M}_{u}^{(1)} - 4 \mathbb{M}_{u}^{(2)} + 2 \mathbb{M}_{v}^{(1)} + 4 \mathbb{M}_{v}^{(2)} \\
+& M_{xxxx} = \mathbb{M}_{0}^{(1)} + 2 \mathbb{M}_{0}^{(2)} - \mathbb{M}_{4u}^{(1)} + \mathbb{M}_{4v}^{(1)} + 2 \mathbb{M}_{4}^{(1)} - 2 \mathbb{M}_{u}^{(1)} - 4 \mathbb{M}_{u}^{(2)} + 2 \mathbb{M}_{v}^{(1)} + 4 \mathbb{M}_{v}^{(2)} \\
 & M_{xxyy} = \mathbb{M}_{0}^{(1)} + 2 \mathbb{M}_{4u}^{(1)} - \mathbb{M}_{4}^{(1)} - 2 \mathbb{M}_{u}^{(1)} \\
-& M_{xxzz} = \mathbb{M}_{0}^{(1)} - \mathbb{M}_{4u}^{(1)} + \mathbb{M}_{4v}^{(1)} - \mathbb{M}_{4}^{(1)} + \mathbb{M}_{u}^{(1)} + \mathbb{M}_{v}^{(1)} \\
-& M_{yyyy} = \mathbb{M}_{0}^{(1)} + 2 \mathbb{M}_{0}^{(2)} - \mathbb{M}_{4u}^{(1)} + \mathbb{M}_{4v}^{(1)} + 2 \mathbb{M}_{4}^{(1)} - 2 \mathbb{M}_{u}^{(1)} - 4 \mathbb{M}_{u}^{(2)} - 2 \mathbb{M}_{v}^{(1)} - 4 \mathbb{M}_{v}^{(2)} \\
-& M_{yyzz} = \mathbb{M}_{0}^{(1)} - \mathbb{M}_{4u}^{(1)} - \mathbb{M}_{4v}^{(1)} - \mathbb{M}_{4}^{(1)} + \mathbb{M}_{u}^{(1)} - \mathbb{M}_{v}^{(1)} \\
+& M_{xxzz} = \mathbb{M}_{0}^{(1)} - \mathbb{M}_{4u}^{(1)} - \mathbb{M}_{4v}^{(1)} - \mathbb{M}_{4}^{(1)} + \mathbb{M}_{u}^{(1)} + \mathbb{M}_{v}^{(1)} \\
+& M_{yyyy} = \mathbb{M}_{0}^{(1)} + 2 \mathbb{M}_{0}^{(2)} - \mathbb{M}_{4u}^{(1)} - \mathbb{M}_{4v}^{(1)} + 2 \mathbb{M}_{4}^{(1)} - 2 \mathbb{M}_{u}^{(1)} - 4 \mathbb{M}_{u}^{(2)} - 2 \mathbb{M}_{v}^{(1)} - 4 \mathbb{M}_{v}^{(2)} \\
+& M_{yyzz} = \mathbb{M}_{0}^{(1)} - \mathbb{M}_{4u}^{(1)} + \mathbb{M}_{4v}^{(1)} - \mathbb{M}_{4}^{(1)} + \mathbb{M}_{u}^{(1)} - \mathbb{M}_{v}^{(1)} \\
 & M_{zzzz} = \mathbb{M}_{0}^{(1)} + 2 \mathbb{M}_{0}^{(2)} + 2 \mathbb{M}_{4u}^{(1)} + 2 \mathbb{M}_{4}^{(1)} + 4 \mathbb{M}_{u}^{(1)} + 8 \mathbb{M}_{u}^{(2)} \\
-& M_{yzyz} = \mathbb{M}_{0}^{(2)} - \mathbb{M}_{4u}^{(1)} - \mathbb{M}_{4v}^{(1)} - \mathbb{M}_{4}^{(1)} + \mathbb{M}_{u}^{(2)} - \mathbb{M}_{v}^{(2)} \\
-& M_{zxzx} = \mathbb{M}_{0}^{(2)} - \mathbb{M}_{4u}^{(1)} + \mathbb{M}_{4v}^{(1)} - \mathbb{M}_{4}^{(1)} + \mathbb{M}_{u}^{(2)} + \mathbb{M}_{v}^{(2)} \\
+& M_{yzyz} = \mathbb{M}_{0}^{(2)} - \mathbb{M}_{4u}^{(1)} + \mathbb{M}_{4v}^{(1)} - \mathbb{M}_{4}^{(1)} + \mathbb{M}_{u}^{(2)} - \mathbb{M}_{v}^{(2)} \\
+& M_{zxzx} = \mathbb{M}_{0}^{(2)} - \mathbb{M}_{4u}^{(1)} - \mathbb{M}_{4v}^{(1)} - \mathbb{M}_{4}^{(1)} + \mathbb{M}_{u}^{(2)} + \mathbb{M}_{v}^{(2)} \\
 & M_{xyxy} = \mathbb{M}_{0}^{(2)} + 2 \mathbb{M}_{4u}^{(1)} - \mathbb{M}_{4}^{(1)} - 2 \mathbb{M}_{u}^{(2)}
 \end{align*}
 * Rank 4 tensor (ssa).
@@ -146,19 +146,19 @@ MPG No. 6.1.17\quad$222$\quad[ Type I, orthorhombic ] [M tensor]
 \begin{bmatrix} M_{xxxx} & M_{xxyy} & M_{xxzz} & 0 & 0 & 0 & 0 & 0 & 0 \\ M_{yyxx} & M_{yyyy} & M_{yyzz} & 0 & 0 & 0 & 0 & 0 & 0 \\ M_{zzxx} & M_{zzyy} & M_{zzzz} & 0 & 0 & 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & M_{yzyz} & 0 & 0 & M_{yzzy} & 0 & 0 \\ 0 & 0 & 0 & 0 & M_{zxzx} & 0 & 0 & M_{zxxz} & 0 \\ 0 & 0 & 0 & 0 & 0 & M_{xyxy} & 0 & 0 & M_{xyyx} \end{bmatrix}
 \end{align*}
 \begin{align*}
-& M_{xxxx} = \mathbb{M}_{0}^{(1)} + 2 \mathbb{M}_{0}^{(2)} - \mathbb{M}_{4u}^{(1)} - \mathbb{M}_{4v}^{(1)} + 2 \mathbb{M}_{4}^{(1)} - 2 \mathbb{M}_{u}^{(1)} - 4 \mathbb{M}_{u}^{(2)} + 2 \mathbb{M}_{v}^{(1)} + 4 \mathbb{M}_{v}^{(2)} \\
+& M_{xxxx} = \mathbb{M}_{0}^{(1)} + 2 \mathbb{M}_{0}^{(2)} - \mathbb{M}_{4u}^{(1)} + \mathbb{M}_{4v}^{(1)} + 2 \mathbb{M}_{4}^{(1)} - 2 \mathbb{M}_{u}^{(1)} - 4 \mathbb{M}_{u}^{(2)} + 2 \mathbb{M}_{v}^{(1)} + 4 \mathbb{M}_{v}^{(2)} \\
 & M_{xxyy} = \mathbb{M}_{0}^{(1)} + 2 \mathbb{M}_{4u}^{(1)} - \mathbb{M}_{4}^{(1)} - 2 \mathbb{M}_{u}^{(1)} - 2 \mathbb{M}_{v}^{(3)} + 4 \mathbb{T}_{xyz}^{(1)} \\
-& M_{xxzz} = \mathbb{M}_{0}^{(1)} - \mathbb{M}_{4u}^{(1)} + \mathbb{M}_{4v}^{(1)} - \mathbb{M}_{4}^{(1)} + \mathbb{M}_{u}^{(1)} + 3 \mathbb{M}_{u}^{(3)} + \mathbb{M}_{v}^{(1)} - \mathbb{M}_{v}^{(3)} - 4 \mathbb{T}_{xyz}^{(1)} \\
+& M_{xxzz} = \mathbb{M}_{0}^{(1)} - \mathbb{M}_{4u}^{(1)} - \mathbb{M}_{4v}^{(1)} - \mathbb{M}_{4}^{(1)} + \mathbb{M}_{u}^{(1)} + 3 \mathbb{M}_{u}^{(3)} + \mathbb{M}_{v}^{(1)} - \mathbb{M}_{v}^{(3)} - 4 \mathbb{T}_{xyz}^{(1)} \\
 & M_{yyxx} = \mathbb{M}_{0}^{(1)} + 2 \mathbb{M}_{4u}^{(1)} - \mathbb{M}_{4}^{(1)} - 2 \mathbb{M}_{u}^{(1)} + 2 \mathbb{M}_{v}^{(3)} - 4 \mathbb{T}_{xyz}^{(1)} \\
-& M_{yyyy} = \mathbb{M}_{0}^{(1)} + 2 \mathbb{M}_{0}^{(2)} - \mathbb{M}_{4u}^{(1)} + \mathbb{M}_{4v}^{(1)} + 2 \mathbb{M}_{4}^{(1)} - 2 \mathbb{M}_{u}^{(1)} - 4 \mathbb{M}_{u}^{(2)} - 2 \mathbb{M}_{v}^{(1)} - 4 \mathbb{M}_{v}^{(2)} \\
-& M_{yyzz} = \mathbb{M}_{0}^{(1)} - \mathbb{M}_{4u}^{(1)} - \mathbb{M}_{4v}^{(1)} - \mathbb{M}_{4}^{(1)} + \mathbb{M}_{u}^{(1)} + 3 \mathbb{M}_{u}^{(3)} - \mathbb{M}_{v}^{(1)} + \mathbb{M}_{v}^{(3)} + 4 \mathbb{T}_{xyz}^{(1)} \\
-& M_{zzxx} = \mathbb{M}_{0}^{(1)} - \mathbb{M}_{4u}^{(1)} + \mathbb{M}_{4v}^{(1)} - \mathbb{M}_{4}^{(1)} + \mathbb{M}_{u}^{(1)} - 3 \mathbb{M}_{u}^{(3)} + \mathbb{M}_{v}^{(1)} + \mathbb{M}_{v}^{(3)} + 4 \mathbb{T}_{xyz}^{(1)} \\
-& M_{zzyy} = \mathbb{M}_{0}^{(1)} - \mathbb{M}_{4u}^{(1)} - \mathbb{M}_{4v}^{(1)} - \mathbb{M}_{4}^{(1)} + \mathbb{M}_{u}^{(1)} - 3 \mathbb{M}_{u}^{(3)} - \mathbb{M}_{v}^{(1)} - \mathbb{M}_{v}^{(3)} - 4 \mathbb{T}_{xyz}^{(1)} \\
+& M_{yyyy} = \mathbb{M}_{0}^{(1)} + 2 \mathbb{M}_{0}^{(2)} - \mathbb{M}_{4u}^{(1)} - \mathbb{M}_{4v}^{(1)} + 2 \mathbb{M}_{4}^{(1)} - 2 \mathbb{M}_{u}^{(1)} - 4 \mathbb{M}_{u}^{(2)} - 2 \mathbb{M}_{v}^{(1)} - 4 \mathbb{M}_{v}^{(2)} \\
+& M_{yyzz} = \mathbb{M}_{0}^{(1)} - \mathbb{M}_{4u}^{(1)} + \mathbb{M}_{4v}^{(1)} - \mathbb{M}_{4}^{(1)} + \mathbb{M}_{u}^{(1)} + 3 \mathbb{M}_{u}^{(3)} - \mathbb{M}_{v}^{(1)} + \mathbb{M}_{v}^{(3)} + 4 \mathbb{T}_{xyz}^{(1)} \\
+& M_{zzxx} = \mathbb{M}_{0}^{(1)} - \mathbb{M}_{4u}^{(1)} - \mathbb{M}_{4v}^{(1)} - \mathbb{M}_{4}^{(1)} + \mathbb{M}_{u}^{(1)} - 3 \mathbb{M}_{u}^{(3)} + \mathbb{M}_{v}^{(1)} + \mathbb{M}_{v}^{(3)} + 4 \mathbb{T}_{xyz}^{(1)} \\
+& M_{zzyy} = \mathbb{M}_{0}^{(1)} - \mathbb{M}_{4u}^{(1)} + \mathbb{M}_{4v}^{(1)} - \mathbb{M}_{4}^{(1)} + \mathbb{M}_{u}^{(1)} - 3 \mathbb{M}_{u}^{(3)} - \mathbb{M}_{v}^{(1)} - \mathbb{M}_{v}^{(3)} - 4 \mathbb{T}_{xyz}^{(1)} \\
 & M_{zzzz} = \mathbb{M}_{0}^{(1)} + 2 \mathbb{M}_{0}^{(2)} + 2 \mathbb{M}_{4u}^{(1)} + 2 \mathbb{M}_{4}^{(1)} + 4 \mathbb{M}_{u}^{(1)} + 8 \mathbb{M}_{u}^{(2)} \\
-& M_{yzyz} = \mathbb{M}_{0}^{(2)} - \mathbb{M}_{4u}^{(1)} - \mathbb{M}_{4v}^{(1)} - \mathbb{M}_{4}^{(1)} + \mathbb{M}_{u}^{(2)} - 3 \mathbb{M}_{u}^{(5)} - \mathbb{M}_{v}^{(2)} - \mathbb{M}_{v}^{(5)} + \mathbb{T}_{xyz}^{(2)} \\
-& M_{yzzy} = \mathbb{M}_{0}^{(2)} - \mathbb{M}_{4u}^{(1)} - \mathbb{M}_{4v}^{(1)} - \mathbb{M}_{4}^{(1)} + \mathbb{M}_{u}^{(2)} + 3 \mathbb{M}_{u}^{(5)} - \mathbb{M}_{v}^{(2)} + \mathbb{M}_{v}^{(5)} - \mathbb{T}_{xyz}^{(2)} \\
-& M_{zxzx} = \mathbb{M}_{0}^{(2)} - \mathbb{M}_{4u}^{(1)} + \mathbb{M}_{4v}^{(1)} - \mathbb{M}_{4}^{(1)} + \mathbb{M}_{u}^{(2)} + 3 \mathbb{M}_{u}^{(5)} + \mathbb{M}_{v}^{(2)} - \mathbb{M}_{v}^{(5)} + \mathbb{T}_{xyz}^{(2)} \\
-& M_{zxxz} = \mathbb{M}_{0}^{(2)} - \mathbb{M}_{4u}^{(1)} + \mathbb{M}_{4v}^{(1)} - \mathbb{M}_{4}^{(1)} + \mathbb{M}_{u}^{(2)} - 3 \mathbb{M}_{u}^{(5)} + \mathbb{M}_{v}^{(2)} + \mathbb{M}_{v}^{(5)} - \mathbb{T}_{xyz}^{(2)} \\
+& M_{yzyz} = \mathbb{M}_{0}^{(2)} - \mathbb{M}_{4u}^{(1)} + \mathbb{M}_{4v}^{(1)} - \mathbb{M}_{4}^{(1)} + \mathbb{M}_{u}^{(2)} - 3 \mathbb{M}_{u}^{(5)} - \mathbb{M}_{v}^{(2)} - \mathbb{M}_{v}^{(5)} + \mathbb{T}_{xyz}^{(2)} \\
+& M_{yzzy} = \mathbb{M}_{0}^{(2)} - \mathbb{M}_{4u}^{(1)} + \mathbb{M}_{4v}^{(1)} - \mathbb{M}_{4}^{(1)} + \mathbb{M}_{u}^{(2)} + 3 \mathbb{M}_{u}^{(5)} - \mathbb{M}_{v}^{(2)} + \mathbb{M}_{v}^{(5)} - \mathbb{T}_{xyz}^{(2)} \\
+& M_{zxzx} = \mathbb{M}_{0}^{(2)} - \mathbb{M}_{4u}^{(1)} - \mathbb{M}_{4v}^{(1)} - \mathbb{M}_{4}^{(1)} + \mathbb{M}_{u}^{(2)} + 3 \mathbb{M}_{u}^{(5)} + \mathbb{M}_{v}^{(2)} - \mathbb{M}_{v}^{(5)} + \mathbb{T}_{xyz}^{(2)} \\
+& M_{zxxz} = \mathbb{M}_{0}^{(2)} - \mathbb{M}_{4u}^{(1)} - \mathbb{M}_{4v}^{(1)} - \mathbb{M}_{4}^{(1)} + \mathbb{M}_{u}^{(2)} - 3 \mathbb{M}_{u}^{(5)} + \mathbb{M}_{v}^{(2)} + \mathbb{M}_{v}^{(5)} - \mathbb{T}_{xyz}^{(2)} \\
 & M_{xyxy} = \mathbb{M}_{0}^{(2)} + 2 \mathbb{M}_{4u}^{(1)} - \mathbb{M}_{4}^{(1)} - 2 \mathbb{M}_{u}^{(2)} + 2 \mathbb{M}_{v}^{(5)} + \mathbb{T}_{xyz}^{(2)} \\
 & M_{xyyx} = \mathbb{M}_{0}^{(2)} + 2 \mathbb{M}_{4u}^{(1)} - \mathbb{M}_{4}^{(1)} - 2 \mathbb{M}_{u}^{(2)} - 2 \mathbb{M}_{v}^{(5)} - \mathbb{T}_{xyz}^{(2)}
 \end{align*}
@@ -176,17 +176,18 @@ MPG No. 6.1.17\quad$222$\quad[ Type I, orthorhombic ] [M tensor]
 \end{align*}
 * Rank 4 tensor (t).
 \begin{align*}
-\begin{bmatrix} M_{xxxx} & 0 & 0 \\ 0 & M_{yyyy} & 0 \\ 0 & 0 & M_{zzzz} \\ 0 & 0 & M_{yyzz} \\ M_{zzxx} & 0 & 0 \\ 0 & M_{xxyy} & 0 \\ 0 & M_{yzzy} & 0 \\ 0 & 0 & M_{zxxz} \\ M_{xxyy} + M_{yyzz} - M_{yzzy} - M_{zxxz} + M_{zzxx} & 0 & 0 \\ 0 & 0 & 0 \end{bmatrix}
+\begin{bmatrix} M_{xxxx} & 0 & 0 \\ 0 & M_{yyyy} & 0 \\ 0 & 0 & M_{zzzz} \\ 0 & 0 & M_{yyzz} \\ M_{zzxx} & 0 & 0 \\ 0 & M_{xxyy} & 0 \\ 0 & M_{yzzy} & 0 \\ 0 & 0 & M_{zxxz} \\ M_{xyyx} & 0 & 0 \\ 0 & 0 & 0 \end{bmatrix}
 \end{align*}
 \begin{align*}
-& M_{xxxx} = 3 \mathbb{M}_{0}^{(1)} - \mathbb{M}_{4u}^{(1)} - \mathbb{M}_{4v}^{(1)} + 2 \mathbb{M}_{4}^{(1)} - 2 \mathbb{M}_{u}^{(1)} - 4 \mathbb{M}_{u}^{(2)} + 2 \mathbb{M}_{v}^{(1)} + 4 \mathbb{M}_{v}^{(2)} \\
-& M_{yyyy} = 3 \mathbb{M}_{0}^{(1)} - \mathbb{M}_{4u}^{(1)} + \mathbb{M}_{4v}^{(1)} + 2 \mathbb{M}_{4}^{(1)} - 2 \mathbb{M}_{u}^{(1)} - 4 \mathbb{M}_{u}^{(2)} - 2 \mathbb{M}_{v}^{(1)} - 4 \mathbb{M}_{v}^{(2)} \\
-& M_{zzzz} = 3 \mathbb{M}_{0}^{(1)} + 2 \mathbb{M}_{4u}^{(1)} + 2 \mathbb{M}_{4}^{(1)} + 4 \mathbb{M}_{u}^{(1)} + 8 \mathbb{M}_{u}^{(2)} \\
-& M_{yyzz} = \mathbb{M}_{0}^{(1)} - \mathbb{M}_{4u}^{(1)} - \mathbb{M}_{4v}^{(1)} - \mathbb{M}_{4}^{(1)} + \mathbb{M}_{u}^{(1)} + 3 \mathbb{M}_{u}^{(3)} - \mathbb{M}_{v}^{(1)} + \mathbb{M}_{v}^{(3)} \\
-& M_{zzxx} = \mathbb{M}_{0}^{(1)} - \mathbb{M}_{4u}^{(1)} + \mathbb{M}_{4v}^{(1)} - \mathbb{M}_{4}^{(1)} + \mathbb{M}_{u}^{(1)} - 3 \mathbb{M}_{u}^{(3)} + \mathbb{M}_{v}^{(1)} + \mathbb{M}_{v}^{(3)} \\
-& M_{xxyy} = \mathbb{M}_{0}^{(1)} + 2 \mathbb{M}_{4u}^{(1)} - \mathbb{M}_{4}^{(1)} - 2 \mathbb{M}_{u}^{(1)} - 2 \mathbb{M}_{v}^{(3)} \\
-& M_{yzzy} = \mathbb{M}_{0}^{(1)} - \mathbb{M}_{4u}^{(1)} - \mathbb{M}_{4v}^{(1)} - \mathbb{M}_{4}^{(1)} + \mathbb{M}_{u}^{(2)} + 3 \mathbb{M}_{u}^{(5)} - \mathbb{M}_{v}^{(2)} + \mathbb{M}_{v}^{(5)} \\
-& M_{zxxz} = \mathbb{M}_{0}^{(1)} - \mathbb{M}_{4u}^{(1)} + \mathbb{M}_{4v}^{(1)} - \mathbb{M}_{4}^{(1)} + \mathbb{M}_{u}^{(2)} - 3 \mathbb{M}_{u}^{(5)} + \mathbb{M}_{v}^{(2)} + \mathbb{M}_{v}^{(5)}
+& M_{xxxx} = 3 \mathbb{M}_{0}^{(1)} - \mathbb{M}_{4u}^{(1)} + \mathbb{M}_{4v}^{(1)} + 2 \mathbb{M}_{4}^{(1)} - 3 \mathbb{M}_{u}^{(1)} - 3 \mathbb{M}_{u}^{(2)} + 3 \mathbb{M}_{v}^{(1)} + 3 \mathbb{M}_{v}^{(2)} \\
+& M_{yyyy} = 3 \mathbb{M}_{0}^{(1)} - \mathbb{M}_{4u}^{(1)} - \mathbb{M}_{4v}^{(1)} + 2 \mathbb{M}_{4}^{(1)} - 3 \mathbb{M}_{u}^{(1)} - 3 \mathbb{M}_{u}^{(2)} - 3 \mathbb{M}_{v}^{(1)} - 3 \mathbb{M}_{v}^{(2)} \\
+& M_{zzzz} = 3 \mathbb{M}_{0}^{(1)} + 2 \mathbb{M}_{4u}^{(1)} + 2 \mathbb{M}_{4}^{(1)} + 6 \mathbb{M}_{u}^{(1)} + 6 \mathbb{M}_{u}^{(2)} \\
+& M_{yyzz} = \mathbb{M}_{0}^{(1)} - \mathbb{M}_{4u}^{(1)} + \mathbb{M}_{4v}^{(1)} - \mathbb{M}_{4}^{(1)} + 2 \mathbb{M}_{u}^{(1)} - \mathbb{M}_{u}^{(2)} - \mathbb{M}_{v}^{(2)} + 2 \mathbb{T}_{xyz}^{(1)} \\
+& M_{zzxx} = \mathbb{M}_{0}^{(1)} - \mathbb{M}_{4u}^{(1)} - \mathbb{M}_{4v}^{(1)} - \mathbb{M}_{4}^{(1)} - \mathbb{M}_{u}^{(1)} + 2 \mathbb{M}_{u}^{(2)} + \mathbb{M}_{v}^{(1)} + 2 \mathbb{T}_{xyz}^{(1)} \\
+& M_{xxyy} = \mathbb{M}_{0}^{(1)} + 2 \mathbb{M}_{4u}^{(1)} - \mathbb{M}_{4}^{(1)} - \mathbb{M}_{u}^{(1)} - \mathbb{M}_{u}^{(2)} - \mathbb{M}_{v}^{(1)} + \mathbb{M}_{v}^{(2)} + 2 \mathbb{T}_{xyz}^{(1)} \\
+& M_{yzzy} = \mathbb{M}_{0}^{(1)} - \mathbb{M}_{4u}^{(1)} + \mathbb{M}_{4v}^{(1)} - \mathbb{M}_{4}^{(1)} - \mathbb{M}_{u}^{(1)} + 2 \mathbb{M}_{u}^{(2)} - \mathbb{M}_{v}^{(1)} - 2 \mathbb{T}_{xyz}^{(1)} \\
+& M_{zxxz} = \mathbb{M}_{0}^{(1)} - \mathbb{M}_{4u}^{(1)} - \mathbb{M}_{4v}^{(1)} - \mathbb{M}_{4}^{(1)} + 2 \mathbb{M}_{u}^{(1)} - \mathbb{M}_{u}^{(2)} + \mathbb{M}_{v}^{(2)} - 2 \mathbb{T}_{xyz}^{(1)} \\
+& M_{xyyx} = \mathbb{M}_{0}^{(1)} + 2 \mathbb{M}_{4u}^{(1)} - \mathbb{M}_{4}^{(1)} - \mathbb{M}_{u}^{(1)} - \mathbb{M}_{u}^{(2)} + \mathbb{M}_{v}^{(1)} - \mathbb{M}_{v}^{(2)} - 2 \mathbb{T}_{xyz}^{(1)}
 \end{align*}
 
 \end{document}
