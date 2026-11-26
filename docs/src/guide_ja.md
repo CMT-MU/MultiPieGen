@@ -199,8 +199,33 @@ Wyckoff 位置のクラスター SAMB は、その `N` 個の等価なサイト�
 - 4/mmm（`MPG:15.1.53`）の `(Q, 2, s)`（例えば電気伝導度）：$\mathrm{diag}(Q_{xx}, Q_{xx}, Q_{zz})$ で、$Q_{xx} = \mathbb{Q}_0^{(1)} - \mathbb{Q}_u^{(1)}$、$Q_{zz} = \mathbb{Q}_0^{(1)} + 2\mathbb{Q}_u^{(1)}$。
 - 4/mm'm'（`MPG:15.6.58`、`z` 方向の強磁性体）の `(T, 2, a)`（例えば異常ホール効果）：0 でない成分は $T_{xy} = -T_{yx} = \mathbb{M}_z^{(1)}$ だけで、active な磁気双極子 $M_z$ で与えられます。
 
+### 7. 親の群での剰余類
+
+親 `P`（`data_parent_pg/sg`）を持つ群 `H`（実の点群または空間群）について、`P` を左剰余類 `g H` に分けます。代表
+`g` は `H` の構造を別の構造に写し、その群は `g H g^-1` です。`P` で不変な構造（親構造）では、`g` は対称操作です。
+MultiPieGen は、親を持つすべての群（複素の点群を除く）について次を与えます。
+
+- **親と剰余類。** トップの群（Oh、D6h、SG 221–230、191–194）までの親の列（すぐ上の親が先）と、各親での左剰余類
+  （各剰余類にある親の対称操作。SG では並進を `H` の座標で、`H` の格子を法として書きます）。`H` 自身と並進だけの
+  剰余類は除きます。
+- **最初の剰余類。** すぐ上の親での、`H` 以外の最初の剰余類、その代表 `g`（最初の操作）、`g` の位数 `n`
+  （`g^n` が `H` に入る最小の `n`）、`g` の種類（回転、または空間反転。SG では並進を伴うこともあります）。空間反転は
+  `H` がカイラルなときだけに現れます（77 群：点群 12、空間群 65）。
+  - 回転：像の構造は、`H` の構造を `g` で動かした座標系で書いたものです。すべての SAMB で `g Z_j = +Z'_j` です
+    （`Z'_j` は像の同じラベルの SAMB）。
+  - 空間反転：像の群 `H' = I H I^-1`（鏡像異性体、または `H` 自身）、`H` の座標から `H'` の座標への写像 `M`、
+    各 Wyckoff のサイトとボンドの像（Wyckoff 位置、サイトやボンドの順、ボンドの反転）、クラスター SAMB の像。
+    クラスター SAMB はラベルごとに `I Z_j = eps_j Z'_j`（`eps = +-1`）で写ります。ただし自分自身に写る Wyckoff
+    位置の一部（38 個。例：SG 210 の 48f）では、既約表現の中で `I Z_a = sum_b U_ab Z'_b` です。
+- **親構造。** 自由なパラメータを持つ Wyckoff 位置ごとに、`H` の軌道がサイトを重ねずにすぐ上の親で不変になる
+  パラメータの値（その最大の集合）、そこで占める親の Wyckoff 位置、それを保つ剰余類。
+
+*例（Te、P3_121 = No.152）。* すぐ上の親は P-3m1（No.164）、最初の剰余類の代表は `g = -1`（`n = 2`）で、その像は
+`x -> -x` で P3_221（No.154）です。`3a` のサイトとボンドの SAMB はすべて `eps = +1` で写ります。`3a` の親構造は
+`x = 0`（P-3m1 の Wyckoff 位置 `1a`。その単位胞は `H` の 3 分の 1）です。
+
 (ja-multipole-key)=
-### 7. 多極子のキー（`PGMultipoleType`）
+### 8. 多極子のキー（`PGMultipoleType`）
 
 この節では、調和関数や SAMB を使うときに必要な、多極子のキーを説明します。
 
@@ -474,6 +499,13 @@ LaTeX の名前：原子の基底には `atomic_latex_name`（`p_{x}`、`f_{z}^{
    実対称と虚反対称で）直交するので、`Q` と `T/M` は別々に正規直交化します（4.）。順番は `Gamma` の順で、各
    `Gamma` の中では `Q`（`[l, n, p]`）を `T/M`（`[l, k, T/M, n, p]`）より先に並べます。値は `Q` で実数、`T, M` で
    純虚数です。`T`（`M`）の調和関数は `Q`（`G`）のものを使います（`util_harmonics.harmonics_type`）。
+8. **空間反転の剰余類のための基準サイト。** 特殊点の SAMB は、平均をとる元の代表（0 行目）によって変わります。
+   最初の剰余類が空間反転の群（9. を参照）では、Wyckoff 位置 `W` の代表の像が、像 `W'` の代表になるとは限りません。
+   そのとき、同じ既約表現の SAMB が空間反転で混ざることがあります。そこで、`W != W'`（または `H != H'`）の組で
+   SAMB がまだラベルごとに写らないものは、（群、Wyckoff の順）が後の方を、もう片方の代表の像から平均して作ります
+   （`util_cluster_samb_image.cluster_samb_reference`、`create_cluster_samb(..., reference=...)`）。対象は SG 98、
+   208、211、213、214 の 20 個の Wyckoff 位置です。自分自身に写る Wyckoff 位置はデータを変えません（その行列 `U` は
+   `coset.pkl` にあります）。
 
 ---
 
@@ -528,10 +560,41 @@ LaTeX の名前：原子の基底には `atomic_latex_name`（`p_{x}`、`f_{z}^{
 
 1. **構成。** MultiPie の `multipie/binary_data` と同じく、`info.pkl`（`binary/info.pkl` と同じデータ。ヘッダに構成の説明を追加）と、群ごとのファイル `{PG,SG,MPG,MSG}/{id}.pkl`（47、230、157、1651 個。ファイル名では id の `:` を `_` に置き換えます。例：`PG/PG_32.pkl`。Windows の git は `:` を含むファイル名を checkout できないためです）です。`_opt` のファイルには分けません。PG のファイルは最大でも約 260 KB です。
 2. **中身。** `multipiegen/binary` の binary を群ごとに並べ直したもので、計算し直すのは PG の表現行列（`util_representation_matrix`、1 群 1 KB 未満）だけです。
-   - PG：`info`、`symmetry_operation`、`wyckoff`、`character`、`representation_matrix`、`harmonics`、`multipolar_harmonics`、`atomic_samb`、`cluster_samb`（実の点群だけ）。
-   - SG：`info`、`symmetry_operation`、`wyckoff`、`cluster_samb`。
+   - PG：`info`、`symmetry_operation`、`wyckoff`、`character`、`representation_matrix`、`harmonics`、`multipolar_harmonics`、`atomic_samb`、`cluster_samb`（実の点群だけ）、`coset`（親を持つ実の点群だけ。`coset.pkl` の `"first"`）。
+   - SG：`info`、`symmetry_operation`、`wyckoff`、`cluster_samb`、`coset`（親を持つ空間群だけ）。
+   - `info.pkl` には `"parent"` と `"coset"`（`coset.pkl` の `"parent"` と `"coset"`）も入れます。
    - MPG：`info`、`symmetry_operation`、`wyckoff`、`active_multipole`、`response_tensor`。
    - MSG：`info`、`symmetry_operation`、`wyckoff`。
 3. **入れないもの。** 中間データのクラスター基底（`cluster_scalar_basis`、`cluster_vector_basis`、`cluster_bond_basis`）と、球面の原子多極子（`atomic_multipole`）。
 4. **調和関数。** 重複させません。SAMB と点群多極子調和関数の調和関数は、PG のファイルの `"harmonics"` から `(X, l, Gamma, n)` で引きます（T → Q、M → G）。SG と MPG では、`info.PG` の PG のファイルを使います。
 5. **ヘッダ。** 各ファイルに、元の binary のヘッダから作ったヘッダ（`str()`）を付けます。そのため、`BinaryManager` だけでファイルの意味が分かります。
+
+---
+
+### 9. 剰余類（`coset.pkl`）
+
+コード：`util_coset`、`util_cluster_samb_image`、`create_binary/create_coset.py`。範囲：親を持つ実の点群 35 と空間群
+216。群と対称操作はこのリポジトリの表（`data_parent_pg/sg`、`data_wyckoff_site`、`group_symmetry_operation`）だけ
+から取り、表は保存しません。
+
+1. **剰余類。** 親 `P` を左剰余類 `g H` に分けます（SG では `H` の格子を法として。`H` の格子の並進でない `P` の
+   並進は別の剰余類になります）。順番は、回転部分が恒等のものを先に、次に並進の長さの順です。親の列は
+   `data_representative_parent_pg/sg` をたどり、変換 `x_P = R x_H` を掛け合わせます。
+2. **像。** すぐ上の親の各剰余類について、像 `g H g^-1` を `P` の子のうち軸が同じものから探します（SG では原点の
+   移動 `k` を許し、その中で自分自身に写る Wyckoff 位置が最も多いもの、次に最も短いものを選びます）。写像
+   `M = R'^-1 k^-1 g R` で、`H` の各 Wyckoff 位置を像の Wyckoff 位置に、パラメータの対応とともに写します。
+3. **最初の剰余類。** `data_parent_pg/sg[H][P]` の 2 番目の剰余類（`H` 以外の最初のもの）と、その代表（最初の操作）、
+   位数 `n`。種類は `"rotation"`（det > 0）か `"inversion"` です。
+4. **サイト、ボンド、クラスター SAMB の像（空間反転）。** `H` の各 Wyckoff 位置 `W` を、`M` でその軌道が写る `H'` の
+   Wyckoff 位置 `W'` と組にします（軌道の大きさと自由パラメータの数が同じもの。格子と面心・体心の並進とボンドの
+   反転を許します）。`W` の `i` 行目は `W'` の `perm[i]` 行目に写ります。こうして動かしたクラスター SAMB（サイト `i`
+   の値をサイト `perm[i]` に移し、`T/M` ではボンドの反転の符号を付ける）を、既約表現ごとに（ボンドでは `Q` と
+   `T/M` を分けて）`W'` のクラスター SAMB で展開します。対角なら `"eps"`（成分ごとの `+-1`）、そうでなければ `"U"`
+   （できるところは厳密な `+-sqrt(有理数)`）です。77 群（1847 個の Wyckoff 位置）の結果：ラベルごとに写るものが
+   1809（そのうち 20 は基準サイトを替えた後。5.8）、`U` が 38。
+5. **親構造。** 自由なパラメータを持つ Wyckoff 位置ごとに、右剰余類 `H c` のすべての代表 `c` で `c p` が `H` の軌道に
+   載る（このとき軌道は `P` で不変）パラメータの最大のアフィン部分空間を、軌道の大きさが `W` の多重度のもの
+   （サイトが重ならないもの）に限って求めます。最初の探索範囲で見つかった極限を先に並べ、それ以外は、`H` の
+   軌道が既出のものと同じでなければ後に加えます。
+6. **ヘッダとキー。** `coset.pkl` のヘッダ（`str(load_coset())`）を参照。`binary_data` では、`"first"` を各群の
+   ファイルの `coset` に、`"parent"` と `"coset"` を `info.pkl` に入れます。

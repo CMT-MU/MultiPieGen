@@ -274,8 +274,36 @@ the 157 magnetic point groups, MultiPieGen gives the tensors allowed by symmetry
 - 4/mm'm' (`MPG:15.6.58`, a ferromagnet along `z`), `(T, 2, a)` (e.g. the anomalous Hall effect): the only nonzero
   components are $T_{xy} = -T_{yx} = \mathbb{M}_z^{(1)}$, given by the active magnetic dipole $M_z$.
 
+### 7. Cosets in the parents
+
+A group `H` (a real point group or a space group) with a parent `P` (`data_parent_pg/sg`) is split into the left
+cosets `g H` of `P`. A representative `g` maps the structure of `H` to another one, which has the group
+`g H g^-1`; on a structure invariant under `P` (the parent structure), `g` is a symmetry. MultiPieGen gives, for every
+group with a parent (not the complex point groups):
+
+- **Parents and cosets.** The chain of parents up to the top group (Oh, D6h, SG 221-230, 191-194), the direct parent
+  first, and the left cosets in each parent (the operations of the parent in each coset; for SG with the translation in
+  the coordinates of `H` modulo its lattice). `H` itself and the cosets of translations only are left out.
+- **First coset.** The first coset other than `H` in the direct parent, its representative `g` (the first operation),
+  the order `n` of `g` (the smallest `n` with `g^n` in `H`), and the kind of `g`: a rotation, or the inversion (with a
+  translation for SG). The inversion appears only for a chiral `H` (77 groups: 12 point groups and 65 space groups).
+  - Rotation: the image structure is the structure of `H` written in the frame moved by `g`, and `g Z_j = +Z'_j` for
+    every SAMB (the SAMB `Z'_j` of the image with the same label).
+  - Inversion: the image group `H' = I H I^-1` (an enantiomorph, or `H` itself), the map `M` from the coordinates of
+    `H` to those of `H'`, the image of each Wyckoff site and bond (Wyckoff position, order of its sites or bonds, and
+    the reversal of a bond), and the image of the cluster SAMB: `I Z_j = eps_j Z'_j` label by label (`eps = +-1`), or
+    `I Z_a = sum_b U_ab Z'_b` within an irrep for some Wyckoff positions mapped onto themselves (38 Wyckoff positions,
+    e.g. 48f of SG 210).
+- **Parent structure.** For each Wyckoff position with free parameters, the values of the parameters at which the
+  orbit of `H` is invariant under the direct parent with no coinciding sites (the largest such sets), the Wyckoff
+  position of the parent occupied there, and the cosets that keep it.
+
+*Example (Te, P3_121 = No.152).* The direct parent is P-3m1 (No.164), the first coset has `g = -1` (`n = 2`), and its
+image is P3_221 (No.154) with `x -> -x`. Every site and bond SAMB of `3a` is mapped with `eps = +1`. The parent
+structure of `3a` is `x = 0` (the Wyckoff position `1a` of P-3m1, whose cell is a third of that of `H`).
+
 (multipole-key)=
-### 7. Multipole key (`PGMultipoleType`)
+### 8. Multipole key (`PGMultipoleType`)
 
 This section explains the key of the multipoles, which is needed to use the harmonics and the SAMB.
 
@@ -566,6 +594,14 @@ anti-symmetric bond SAMB (`"bond_a"` below), see 7. Complex point groups are not
    orthonormalized separately (4.). Order: `Gamma`, and in each `Gamma`, `Q` (`[l, n, p]`) before `T/M`
    (`[l, k, T/M, n, p]`). Values are real for `Q` and pure imaginary for `T, M`; the harmonics of `T` (`M`) are those
    of `Q` (`G`) (`util_harmonics.harmonics_type`).
+8. **Reference sites for the inversion coset.** The SAMB of a special point depends on the representative (row 0)
+   from which it is averaged. For a group whose first coset is the inversion (see 9.), the image of the
+   representative of a Wyckoff position `W` need not be the representative of its image `W'`, and the SAMB of an irrep
+   can then be mixed under the inversion. For a pair `W != W'` (or `H != H'`) whose SAMB are not mapped label by label
+   already, the side with the larger (group, Wyckoff order) is averaged from the image of the representative of the
+   other side (`util_cluster_samb_image.cluster_samb_reference`, `create_cluster_samb(..., reference=...)`). This
+   applies to 20 Wyckoff positions of SG 98, 208, 211, 213, and 214; a Wyckoff position mapped onto itself keeps its
+   data (its matrix `U` is given in `coset.pkl`).
 
 ---
 
@@ -628,8 +664,10 @@ Code: `util_binary_data`, `create_binary/create_binary_data.py`.
 2. **Contents.** Regrouped from the binaries in `multipiegen/binary`; nothing is recomputed except the representation
    matrices of PG (`util_representation_matrix`, below 1 KB each).
    - PG: `info`, `symmetry_operation`, `wyckoff`, `character`, `representation_matrix`, `harmonics`,
-     `multipolar_harmonics`, `atomic_samb`, `cluster_samb` (real PG only).
-   - SG: `info`, `symmetry_operation`, `wyckoff`, `cluster_samb`.
+     `multipolar_harmonics`, `atomic_samb`, `cluster_samb` (real PG only), `coset` (real PG with a parent only;
+     `"first"` of `coset.pkl`).
+   - SG: `info`, `symmetry_operation`, `wyckoff`, `cluster_samb`, `coset` (SG with a parent only).
+   - `info.pkl` has also `"parent"` and `"coset"` (`"parent"` and `"coset"` of `coset.pkl`).
    - MPG: `info`, `symmetry_operation`, `wyckoff`, `active_multipole`, `response_tensor`.
    - MSG: `info`, `symmetry_operation`, `wyckoff`.
 3. **Not included.** The intermediate cluster bases (`cluster_scalar_basis`, `cluster_vector_basis`,
@@ -638,3 +676,36 @@ Code: `util_binary_data`, `create_binary/create_binary_data.py`.
    `"harmonics"` of the PG file (T -> Q, M -> G); for SG and MPG, the PG file is that of `info.PG`.
 5. **Header.** Each file has its own header (`str()`), made from the headers of the source binaries, so a file can be
    read with `BinaryManager` alone.
+
+---
+
+### 9. Cosets (`coset.pkl`)
+
+Code: `util_coset`, `util_cluster_samb_image`, `create_binary/create_coset.py`. Range: 35 real point groups and 216
+space groups with a parent. Groups and operations are taken from the tables of this repository only
+(`data_parent_pg/sg`, `data_wyckoff_site`, `group_symmetry_operation`); no table is stored.
+
+1. **Cosets.** The parent `P` is split into left cosets `g H` (for SG modulo the lattice of `H`, so that the
+   translations of `P` that are not lattice translations of `H` give separate cosets), in the order: rotation part
+   the identity first, then by the length of the translation. The chain of parents follows
+   `data_representative_parent_pg/sg`, with the composed transformations `x_P = R x_H`.
+2. **Images.** For each coset of the direct parent, the image `g H g^-1` is looked for among the children of `P` with
+   the same axes (for SG up to an origin shift `k`; among the shifts, the one that maps the largest number of Wyckoff
+   positions onto themselves, then the shortest). The map `M = R'^-1 k^-1 g R` maps each Wyckoff position of `H` to one
+   of the image, with the map of its parameters.
+3. **First coset.** The second coset of `data_parent_pg/sg[H][P]` (the first one other than `H`), with its
+   representative (first operation) and the order `n`. Its kind is `"rotation"` (det > 0) or `"inversion"`.
+4. **Images of the sites, bonds, and cluster SAMB (inversion).** Each Wyckoff position `W` of `H` is paired with the
+   Wyckoff position `W'` of `H'` onto which `M` maps its orbit (same orbit size and number of free parameters; lattice
+   and centering translations and the reversal of a bond allowed): row `i` of `W` goes to row `perm[i]` of `W'`. The
+   cluster SAMB moved in this way (the value on site `i` goes to site `perm[i]`, with the sign of the bond reversal for
+   `T/M`) are expanded in the cluster SAMB of `W'` within each irrep (`Q` and `T/M` separately for bonds): `"eps"`
+   (`+-1` for each component) when this is diagonal, otherwise `"U"` (exact `+-sqrt(rational)` where possible).
+   Results for the 77 groups (1847 Wyckoff positions): 1809 label by label (20 of them after the change of the
+   reference sites, 5.8), 38 with `U`.
+5. **Parent structure.** For each Wyckoff position with free parameters, the largest affine subspaces of the
+   parameters at which `c p` lies on the orbit of `H` for every representative `c` of the right cosets `H c` (then the
+   orbit is invariant under `P`), with the orbit of the multiplicity of `W` (no coinciding sites). The limits found with
+   the first search window come first; others are added unless their orbit of `H` is that of one listed before.
+6. **Header and keys.** See the header of `coset.pkl` (`str(load_coset())`); `binary_data` has `"first"` as `coset`
+   of each group file, and `"parent"` and `"coset"` in `info.pkl`.
