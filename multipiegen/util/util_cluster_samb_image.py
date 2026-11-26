@@ -339,6 +339,16 @@ def cluster_samb_reference(group, cs, corr):
 
 
 # ==================================================
+def _score(U, diag, self_image):
+    """(not diag, blocks with U^2 != 1 for a self image, blocks other than +-1): smaller is better."""
+    if diag:
+        return (0, 0, 0)
+    nontrivial = [Ua for ra, rb, Ua in U.values() if not np.allclose(np.abs(Ua), np.eye(len(ra)), atol=1e-7)]
+    not_involution = sum(not np.allclose(Ua @ Ua, np.eye(len(Ua)), atol=1e-7) for Ua in nontrivial) if self_image else 0
+    return (1, not_involution, len(nontrivial))
+
+
+# ==================================================
 def cluster_samb_transport(cs, corr):
     """
     Images of the cluster SAMB under the inversion coset (after the reference change).
@@ -351,6 +361,12 @@ def cluster_samb_transport(cs, corr):
         - (dict) -- {group id: {"site"/"bond": {W: {"image": (image group id, W'), "perm": [int], "sign": [int],
           "diag": bool, "eps": {PGMultipoleType: [sympy for each component]} (diag) or "U": {block: (rows, rows', U)} (otherwise)}}}}.
           rows = [(PGMultipoleType, component)]; U is exact (+- sqrt(rational)) where possible.
+
+    Note:
+        - among the equivalent correspondences (perm, sign) of a Wyckoff position (they differ by an operation of H),
+          the first one mapping the SAMB label by label is taken; for a Wyckoff position mapped onto itself without
+          such one, the one whose U are involutions (U^2 = 1, eigenvalues +-1) in every block, with the fewest blocks
+          other than +-1.
     """
     out = {}
     for (ga, kind, wa), (gb, cands) in corr.items():
@@ -363,13 +379,14 @@ def cluster_samb_transport(cs, corr):
             U, diag = transport_matrix(A, B, perm, sign, kind)
             if U is None:
                 continue
-            if best is None or (diag and not best[4]):
-                best = (wb, perm, sign, U, diag)
+            score = _score(U, diag, (ga, wa) == (gb, wb))
+            if best is None or score < best[0]:
+                best = (score, wb, perm, sign, U, diag)
             if diag:
                 break
         if best is None:
             raise Exception(f"image of {ga} {kind} {wa} with the same labels is not found.")
-        wb, perm, sign, U, diag = best
+        _, wb, perm, sign, U, diag = best
         d = {"image": (gb, wb), "perm": [int(i) for i in perm], "sign": [int(s) for s in sign], "diag": diag}
         if diag:
             d["eps"] = {}

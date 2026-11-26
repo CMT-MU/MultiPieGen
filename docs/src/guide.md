@@ -701,8 +701,13 @@ space groups with a parent. Groups and operations are taken from the tables of t
    cluster SAMB moved in this way (the value on site `i` goes to site `perm[i]`, with the sign of the bond reversal for
    `T/M`) are expanded in the cluster SAMB of `W'` within each irrep (`Q` and `T/M` separately for bonds): `"eps"`
    (`+-1` for each component) when this is diagonal, otherwise `"U"` (exact `+-sqrt(rational)` where possible).
+   Among the equivalent correspondences (`perm`, `sign`; they differ by an operation of `H`), the first one mapping
+   the SAMB label by label is taken; for a Wyckoff position mapped onto itself without such one, the one whose `U`
+   are involutions (`U^2 = 1`, eigenvalues `+-1`) in every block, with the fewest blocks other than `+-1`.
    Results for the 77 groups (1847 Wyckoff positions): 1809 label by label (20 of them after the change of the
-   reference sites, 5.8), 38 with `U`.
+   reference sites, 5.8), 38 with `U` (92 blocks other than `+-1`). All `U` are involutions except 3 blocks of SG 80
+   (I4_1; `E` of `4a@4a` (T/M) and of `8c@4a` (Q, T/M)): there `U` rotates the two components of the real 2D irrep
+   `E` of complex type of C4 by 90 degrees (`U^2 = -1`, eigenvalues `+-i`), whatever correspondence is taken.
 5. **Parent structure.** For each Wyckoff position with free parameters, the largest affine subspaces of the
    parameters at which `c p` lies on the orbit of `H` for every representative `c` of the right cosets `H c` (then the
    orbit is invariant under `P`), with the orbit of the multiplicity of `W` (no coinciding sites). The limits found with

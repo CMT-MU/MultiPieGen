@@ -22,6 +22,9 @@ group = load_group()
 data = load_coset()
 
 
+NOT_INVOLUTION = [("SG:80", "bond", "4a@4a", "E (T/M)"), ("SG:80", "bond", "8c@4a", "E"), ("SG:80", "bond", "8c@4a", "E (T/M)")]
+
+
 def _transport(gid):
     f = data[gid]["first"]
     if f["kind"] != "inversion":
@@ -88,9 +91,14 @@ def test_cluster_samb_image():
                 else:
                     n_u += 1
                     assert t["image"] == (gid, w)  # only for a Wyckoff position mapped onto itself.
-                    for rows, rows2, U in t["U"].values():
+                    for blk, (rows, rows2, U) in t["U"].items():
                         U = np.array(U, dtype=complex)
                         assert np.allclose(U @ U.conj().T, np.eye(len(rows)), atol=1e-8)
+                        # involution, except E (complex type) of C4 in SG 80 (a 90-degree rotation of its components).
+                        if (gid, kind, w, blk) in NOT_INVOLUTION:
+                            assert np.allclose(U @ U, -np.eye(len(rows)), atol=1e-8)
+                        else:
+                            assert np.allclose(U @ U, np.eye(len(rows)), atol=1e-8)
                         assert [k.Gamma for k, _ in rows] == [k.Gamma for k, _ in rows2]
     assert (n_diag, n_u) == (1809, 38)
 
