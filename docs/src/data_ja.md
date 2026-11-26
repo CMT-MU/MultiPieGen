@@ -27,15 +27,15 @@ orphan: true
 | [`data_group_msg.py`](#data-group-msg-py) | 磁気空間群の情報 | MultiPie Ver.2.4.0 | - | `util/util_group_data`, `create_binary/create_group` |
 | [`data_group_pg.py`](#data-group-pg-py) | 点群の情報 | MultiPie Ver.2.4.0 | - | `util/util_group_data`, `util/util_symmetry_operation`, `create_binary/create_group`, `create_pdf/create_pdf_harmonics` |
 | [`data_group_sg.py`](#data-group-sg-py) | 空間群の情報 | MultiPie Ver.2.4.0 | - | `util/util_group_data`, `util/util_symmetry_operation`, `create_binary/create_group` |
-| [`data_parent_pg.py`](#data-parent-pg-py) | 各点群の親の点群 | 新規 | `others/creation/create_parent_pg_mapping.py` | `util/util_op_mapping` |
-| [`data_parent_sg.py`](#data-parent-sg-py) | 各空間群の親の空間群 | 新規 | - | `util/util_op_mapping` |
+| [`data_parent_pg.py`](#data-parent-pg-py) | 各点群の親の点群 | 新規 | `others/creation/create_parent_pg_mapping.py` | `util/util_coset`, `util/util_op_mapping` |
+| [`data_parent_sg.py`](#data-parent-sg-py) | 各空間群の親の空間群 | 新規 | - | `util/util_coset`, `util/util_op_mapping` |
 | [`data_response_tensor.py`](#data-response-tensor-py) | 応答テンソルに現れる多極子と、そのデカルト成分 | MultiPie Ver.2.4.0 | - | `create_binary/create_info` |
 | [`data_root_cluster.py`](#data-root-cluster-py) | 代表サイトと代表ベクトルをもつ Oh と D6h のクラスター | 新規 | `others/creation/create_root_cluster.py` | `util/util_bond_cluster_basis`, `util/util_cluster_basis`, `create_binary/create_info` |
 | [`data_top_harmonics.py`](#data-top-harmonics-py) | トップの群（Oh、D6h）の調和関数 | MultiPie Ver.2.4.0 | - | `util/util_harmonics_mapping`, `util/util_top_harmonics` |
 | [`data_wyckoff_bond_sym.py`](#data-wyckoff-bond-sym-py) | 点群と空間群の Wyckoff ボンドと、ボンドの対称性 | MultiPie Ver.2.4.0 | `others/creation/create_wyckoff_bond.py` | `create_binary/create_group` |
 | [`data_wyckoff_mpg.py`](#data-wyckoff-mpg-py) | 磁気点群の Wyckoff サイト | MultiPie Ver.2.4.0 | - | `create_binary/create_group` |
 | [`data_wyckoff_msg.py`](#data-wyckoff-msg-py) | 磁気空間群の Wyckoff サイト | MultiPie Ver.2.4.0 | - | `create_binary/create_group` |
-| [`data_wyckoff_site.py`](#data-wyckoff-site-py) | 点群と空間群の Wyckoff サイト | MultiPie Ver.2.4.0 | - | `create_binary/create_group` |
+| [`data_wyckoff_site.py`](#data-wyckoff-site-py) | 点群と空間群の Wyckoff サイト | MultiPie Ver.2.4.0 | - | `util/util_coset`, `create_binary/create_group` |
 
 ## data_basis.py
 

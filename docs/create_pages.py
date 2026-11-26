@@ -279,6 +279,8 @@ example_desc_ja = {  # Japanese descriptions of the examples (the English ones a
     "info.py": "群の全体の情報です（info.pkl）：群の id/タグ/名前、軌道基底と基底関数、ルートクラスター。",
     "binary_data.py": "MultiPie 向けのバイナリデータ（binary_data）です：info.pkl と群ごとの 1 ファイル。BinaryManager だけで"
     "読めます。PG のファイルで SAMB のキーの調和関数を引く方法も示します。",
+    "coset.py": "群の親での剰余類です（coset.pkl）：すぐ上の親での最初の剰余類（代表、位数、回転か空間反転か）、空間反転での"
+    "サイト、ボンド、クラスター SAMB の像（eps または U）、親構造、すべての親での剰余類。",
 }
 
 

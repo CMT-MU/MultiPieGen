@@ -19,9 +19,11 @@ from multipiegen.util.util_binary_data import (
     load_binary_data,
 )
 from multipiegen.util.util_harmonics import harmonics_type
+from multipiegen.util.util_coset import load_coset
 from multipiegen.util.util_info import load_info
 
 info = load_info()
+coset = load_coset()
 KEYS = {
     "PG": [
         "info",
@@ -77,6 +79,8 @@ def test_group_is_up_to_date(gid):
 def test_keys(tp):
     for gid in [g for g in group_ids() if g.startswith(tp + ":")][:: 10 if tp == "MSG" else 1]:
         keys = KEYS[tp] if not (tp == "PG" and info["tag"][gid].endswith("-c")) else KEYS[tp][:-1]
+        if tp in ("PG", "SG") and gid in coset:  # groups with a parent (not "-c").
+            keys = keys + ["coset"]
         assert list(load_binary_data(gid).keys()) == keys, gid
 
 

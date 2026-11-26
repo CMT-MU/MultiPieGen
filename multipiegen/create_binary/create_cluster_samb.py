@@ -19,10 +19,13 @@ import os
 import time
 from multiprocessing import Pool
 
+import numpy as np
+
 from multipie.util.util_binary import BinaryManager
 
 from multipiegen import __bin_dir__
 from multipiegen.util.util_cluster_samb import cluster_samb_file, create_cluster_samb
+from multipiegen.util.util_cluster_samb_image import cluster_samb_reference, inversion_pairs, orbit_correspondence
 from multipiegen.util.util_group import load_group
 from multipiegen.util.util_info import load_info
 
@@ -51,16 +54,42 @@ NOTE:
 
 # ==================================================
 def _worker(arg):
-    gid, pg, pg_id = arg
+    gid, pg, pg_id, reference = arg
     if "group" not in _group:
         _group["group"] = load_group()
     g = _group["group"]
+    if reference is None:
+        return gid, create_cluster_samb(
+            pg, g[pg_id]["symmetry_operation"]["tag"], g[gid]["symmetry_operation"]["tag"], g[gid]["wyckoff"]
+        )
+    point_ops = [np.array(R, dtype=float)[:3, :3] for R in g[gid]["symmetry_operation"]["fractional"]]
+    only = {kind: list(refs) for kind, refs in reference.items()}
     return gid, create_cluster_samb(
-        pg, g[pg_id]["symmetry_operation"]["tag"], g[gid]["symmetry_operation"]["tag"], g[gid]["wyckoff"]
+        pg,
+        g[pg_id]["symmetry_operation"]["tag"],
+        g[gid]["symmetry_operation"]["tag"],
+        g[gid]["wyckoff"],
+        reference=reference,
+        point_ops=point_ops,
+        only=only,
     )
 
 
 _group = {}
+
+
+# ==================================================
+class _Serial:
+    """stand-in for Pool in a single process."""
+
+    def __enter__(self):
+        return self
+
+    def __exit__(self, *args):
+        return False
+
+    def imap_unordered(self, f, args):
+        return map(f, args)
 
 
 # ==================================================
@@ -87,14 +116,19 @@ def create_cluster_samb_all(serial=False, verbose=True):
     Returns:
         - (BinaryManager) -- {PG_id/SG_id: {"site"/"bond": {wyckoff: {PGMultipoleType: samb}}}}.
     """
-    args = group_args()
-    if serial:
-        results = dict(map(_worker, args))
-    else:
-        with Pool(os.cpu_count()) as pool:
-            results = dict(pool.imap_unordered(_worker, args))
+    args = [a + (None,) for a in group_args()]
+    with Pool(os.cpu_count()) if not serial else _Serial() as pool:
+        results = dict(pool.imap_unordered(_worker, args))
+        # (A): reference sites (bonds) for the images under the inversion coset.
+        group = load_group()
+        corr = orbit_correspondence(group, inversion_pairs(group, load_info()), None if serial else pool)
+        reference = cluster_samb_reference(group, results, corr)
+        args2 = [(gid, pg, pg_id, reference[gid]) for gid, pg, pg_id, _ in args if gid in reference]
+        for gid, res in pool.imap_unordered(_worker, args2):
+            for kind, d in res.items():
+                results[gid][kind].update(d)
     bm = BinaryManager(verbose=verbose, topdir=__bin_dir__)
-    for gid, _, _ in args:
+    for gid, _, _, _ in args:
         bm[gid] = results[gid]
     bm.add_comment(h_cluster_samb)
     return bm
