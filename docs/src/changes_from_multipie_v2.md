@@ -15,6 +15,7 @@ Contents:
 6. Atomic multipoles
 7. Symmetry-operation mapping used by the cluster SAMB
 8. Other data (representation matrices, active multipoles, response tensors)
+9. Cosets in the parents (new)
 
 ---
 
@@ -98,6 +99,9 @@ Ver.2. The closest one is `harmonics_root_cluster.pkl`.
   - (X, l, Gamma) (1031, 168 groups including 15 point groups): another key for the same space, often of lower rank
     here (e.g. C4v `4f@1a`: G₁(E) here, Q₁(E) in MultiPie Ver.2).
 - The values differ because the representative general point (site0) differs.
+- Reference sites (new): for the groups whose first coset is the inversion, 20 Wyckoff positions of SG 98, 208, 211,
+  213, and 214 are averaged from another site or bond than row 0, so that their SAMB are mapped label by label onto
+  those of the image (User Guide, Generation rules 5.8). MultiPie Ver.2 has no such rule.
 
 ## 6. Atomic multipoles
 
@@ -138,3 +142,10 @@ Ver.2. The closest one is `harmonics_root_cluster.pkl`.
   orbitals, e.g. `Qf1` → `Qfs`).
 - Response tensors (`response_tensor.pkl`): identical to MultiPie Ver.2's `Group.response_tensor_all` except for the
   multipole names (checked when the binary was made, not in the comparison of 2026-11-11).
+
+## 9. Cosets in the parents (new)
+
+MultiPie Ver.2 has no data of the cosets of a group in its parents. MultiPieGen gives them in `coset.pkl` (and in
+`binary_data`): the parents and the left cosets, the first coset in the direct parent with its image (for the inversion,
+the images of the sites, bonds, and cluster SAMB), and the parent structures (User Guide, Definitions 7 and Generation
+rules 9).

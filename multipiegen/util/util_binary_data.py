@@ -17,9 +17,12 @@ The data are taken from the binaries in multipiegen/binary (nothing is recompute
 matrices of PG by util_representation_matrix), and regrouped by group:
 
 - PG: info, symmetry_operation, wyckoff, character (group.pkl), representation_matrix, harmonics (harmonics.pkl),
-  multipolar_harmonics (multipolar_harmonics.pkl), atomic_samb (atomic_multipole_group.pkl), and cluster_samb
-  (cluster_samb.pkl, real PG only).
-- SG: info, symmetry_operation, wyckoff (group.pkl), and cluster_samb (cluster_samb.pkl).
+  multipolar_harmonics (multipolar_harmonics.pkl), atomic_samb (atomic_multipole_group.pkl), cluster_samb
+  (cluster_samb.pkl, real PG only), and coset ("first" of coset.pkl, real PG with a parent only).
+- SG: info, symmetry_operation, wyckoff (group.pkl), cluster_samb (cluster_samb.pkl), and coset ("first" of
+  coset.pkl, SG with a parent only).
+
+info.pkl has also "parent" and "coset" (the parents and the cosets in them, from coset.pkl).
 - MPG: info, symmetry_operation, wyckoff, active_multipole (group.pkl), and response_tensor (response_tensor.pkl).
 - MSG: info, symmetry_operation, wyckoff (group.pkl).
 
@@ -34,6 +37,7 @@ from multipie.util.util_binary import BinaryManager
 from multipiegen import __top_dir__
 from multipiegen.util.util_atomic_multipole import load_atomic_multipole_group
 from multipiegen.util.util_cluster_samb import load_cluster_samb
+from multipiegen.util.util_coset import load_coset
 from multipiegen.util.util_group import load_group
 from multipiegen.util.util_harmonics import load_harmonics
 from multipiegen.util.util_harmonics_multipole import load_multipolar_harmonics
@@ -62,6 +66,44 @@ h_representation_matrix = """
     - obtained from the u-matrices of the harmonics (util_representation_matrix).
 """
 
+h_coset = """
+- "coset" (str): (dict) first coset g H of the group H in its direct parent (the first one other than H).
+  (only for a group with a parent; not for "-c" PG.)
+  - "parent" (str): (str) direct parent.
+  - "R" (str): (Matrix(sympy)) x_parent = R x_H.
+  - "index" (str): (int) number of cosets [P:H].
+  - "ops" (str): ([str]) SO tags of the parent in the coset.
+  - "rep" (str): (str) SO tag of the representative g (first operation).
+  - "rep_matrix" (str): (Matrix(sympy)) g in the coordinates of H (4x4 for SG, 3x3 for PG).
+  - "order" (str): (int) smallest n with g^n in H (modulo the lattice of H).
+  - "kind" (str): (str) "rotation" or "inversion".
+  - "frame" (str): (Matrix(sympy)) frame of the image system (g in the coordinates of H) for "rotation", None otherwise.
+  - "inversion" (str): (dict) for "inversion", None otherwise.
+    - "image" (str): (str) image group H' = g H g^-1.
+    - "map" (str): (Matrix(sympy)) M: coordinates of H -> those of H'.
+    - "shift" (str): (Matrix(sympy)) origin shift k (coordinates of the parent) with k H' k^-1 = g H g^-1 (SG only).
+    - "wyckoff" (str): (dict) W: (W', {parameter of W': expression of the parameters of W}).
+    - "site"/"bond" (str): (dict) image of each site/bond Wyckoff position.
+      - W (str): (dict) "image": (H', W'), "perm": row i of W -> row perm[i] of W', "sign": -1 for a reversed bond,
+        "diag": the cluster SAMB are mapped label by label, "eps": {PGMultipoleType: [+-1 for each component]} (diag)
+        or "U": {block: (rows of W, rows of W', U)} (otherwise), rows = [(PGMultipoleType, component)],
+        T z_a = sum_b U_ab z'_b within each block (irrep, Q and T/M separately for bond).
+  - "parent_limit" (str): (dict) parent structures, W: [{"param": {parameter: value}, "position": representative
+    position, "parent_wyckoff": Wyckoff position of the parent, "preserved_by": indices of the cosets (in the order of
+    the coset images) that keep it}].
+"""
+
+h_info_coset = """
+* Parents and cosets of the real PG and SG (from coset.pkl).
+- "parent" (str): (dict) parents of each group.
+  - PG_id/SG_id (str): ([str]) parents along the chain of representative parents, the direct parent first.
+- "coset" (str): (dict) left cosets g H in each parent.
+  - PG_id/SG_id (str): (dict)
+    - parent_id (str): ([[str]]) operations of each coset, its representative first, without H itself and the cosets
+      of translations only (PG: SO tag of the parent; SG: "point part of the SO tag of the parent:[translation in the
+      coordinates of H modulo its lattice]").
+"""
+
 _section_title = {
     "harmonics": "(dict) harmonics (rank l <= 11): cartesian expression and u-matrix for each multipole key.",
     "multipolar_harmonics": "(dict) multipolar harmonics (s = 1..3, rank l <= 3) with polar (q) and axial (g) internal basis.",
@@ -85,6 +127,7 @@ def _sources():
                 "multipolar_harmonics": load_multipolar_harmonics(),
                 "atomic_samb": load_atomic_multipole_group(),
                 "cluster_samb": load_cluster_samb(),
+                "coset": load_coset(),
                 "response_tensor": load_response_tensor(),
             }
         )
@@ -170,9 +213,11 @@ def group_header(tp):
             _source_section(src["multipolar_harmonics"].comment, "multipolar_harmonics"),
             _source_section(src["atomic_samb"].comment, "atomic_samb"),
             _source_section(src["cluster_samb"].comment, "cluster_samb") + '\n    - only for real PG (not for "-c").',
+            h_coset.strip("\n"),
         ]
     elif tp == "SG":
         parts.append(_source_section(src["cluster_samb"].comment, "cluster_samb"))
+        parts.append(h_coset.strip("\n"))
     elif tp == "MPG":
         parts.append(_source_section(src["response_tensor"].comment, "response_tensor"))
     parts.append("* all sympy values are expanded with rationalized denominators.")
@@ -218,8 +263,12 @@ def create_group_data(gid):
         bm["atomic_samb"] = src["atomic_samb"][gid]
         if gid in src["cluster_samb"]:
             bm["cluster_samb"] = src["cluster_samb"][gid]
+        if gid in src["coset"]:
+            bm["coset"] = src["coset"][gid]["first"]
     elif tp == "SG":
         bm["cluster_samb"] = src["cluster_samb"][gid]
+        if gid in src["coset"]:
+            bm["coset"] = src["coset"][gid]["first"]
     elif tp == "MPG":
         bm["response_tensor"] = src["response_tensor"][gid]
     return bm
@@ -233,10 +282,13 @@ def create_info_data():
     Returns:
         - (BinaryManager) -- info with its header.
     """
-    info = _sources()["info"]
+    info, coset = _sources()["info"], _sources()["coset"]
     bm = BinaryManager(topdir=binary_data_dir, comment=info.comment)
+    bm.add_comment(h_info_coset)
     bm.add_comment(h_info_layout)
     bm.update(info)
+    bm["parent"] = {gid: d["parent"] for gid, d in coset.items()}
+    bm["coset"] = {gid: d["coset"] for gid, d in coset.items()}
     return bm
 
 

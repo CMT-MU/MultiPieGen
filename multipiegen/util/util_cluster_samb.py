@@ -258,7 +258,45 @@ def bond_samb(sym, anti, irreps):
 
 
 # ==================================================
-def create_cluster_samb(pg, pg_ops, ops, wyckoff):
+def rereference_mapping(mapping, r, point_ops):
+    """
+    Mapping of a Wyckoff site (bond) taken from the site (bond) r instead of the representative (row 0).
+
+    Args:
+        mapping (list): mapping of the Wyckoff site (bond), [[operation no. (1-based, negative for reversed bond)]]
+            (operations i mapping the representative to the site or bond j).
+        r (int): 0-based index of the new reference site (bond).
+        point_ops (list): point parts (3x3) of the symmetry operations (in the order of the operation numbers).
+
+    Returns:
+        - (list) -- [[operation no.]] of the operations mapping the site (bond) r to the site or bond j (negative when
+          the bond is reversed relative to the bond r).
+
+    Note:
+        the operations of a group (without the plus set) have distinct point parts, so a product is identified by its
+        point part. if op_a maps the representative to r (sign s_a) and op_b maps it to j (sign s_b), then
+        op_b op_a^-1 maps r to j with the sign s_b s_a.
+    """
+    P = [np.asarray(R, dtype=float) for R in point_ops]
+    e0 = mapping[r][0]
+    a, s_a = abs(e0) - 1, (1 if e0 > 0 else -1)
+    Ainv = np.linalg.inv(P[a])
+
+    def index(R):
+        return next(i for i, Q in enumerate(P) if np.allclose(Q, R, atol=1e-8))
+
+    res = []
+    for m in mapping:
+        row = []
+        for e in m:
+            b, s_b = abs(e) - 1, (1 if e > 0 else -1)
+            row.append((index(P[b] @ Ainv) + 1) * s_b * s_a)
+        res.append(row)
+    return res
+
+
+# ==================================================
+def create_cluster_samb(pg, pg_ops, ops, wyckoff, reference=None, point_ops=None, only=None):
     """
     Cluster SAMB of a group.
 
@@ -267,6 +305,11 @@ def create_cluster_samb(pg, pg_ops, ops, wyckoff):
         pg_ops (list): symmetry operation tags of the point group (group.pkl).
         ops (list): symmetry operation tags of the group (group.pkl).
         wyckoff (dict): group["wyckoff"] of group.pkl.
+        reference (dict, optional): {"site"/"bond": {wyckoff: r}}, average the Wyckoff site (bond) from the site (bond)
+            r instead of the representative (data_cluster_samb_reference, so that the SAMB of the image under the
+            inversion coset is +- the SAMB with the same label).
+        point_ops (list, optional): point parts of the symmetry operations (needed with reference).
+        only (dict, optional): {"site"/"bond": [wyckoff]}, create these Wyckoff positions only.
 
     Returns:
         - (dict) -- {"site"/"bond": {wyckoff: {PGMultipoleType: samb}}}.
@@ -275,13 +318,23 @@ def create_cluster_samb(pg, pg_ops, ops, wyckoff):
     site = general_point_basis(pg, top, idx, "site")
     bond = general_point_basis(pg, top, idx, "bond")
     irreps = list(character[pg][1].keys())
+    reference = {} if reference is None else reference
+
+    def mapping(kind, w, val):
+        r = reference.get(kind, {}).get(w, 0)
+        return val["mapping"] if r == 0 else rereference_mapping(val["mapping"], r, point_ops)
 
     res = {"site": {}, "bond": {}}
     for w, val in wyckoff["site"].items():
-        res["site"][w] = _to_samb(wyckoff_samb(site, val["mapping"]))
+        if only is not None and w not in only.get("site", []):
+            continue
+        res["site"][w] = _to_samb(wyckoff_samb(site, mapping("site", w, val)))
     for w, val in wyckoff["bond"].items():
-        sym = _to_samb(wyckoff_samb(site, val["mapping"]))
-        anti = _to_samb(wyckoff_samb(bond, val["mapping"], sign=True))
+        if only is not None and w not in only.get("bond", []):
+            continue
+        m = mapping("bond", w, val)
+        sym = _to_samb(wyckoff_samb(site, m))
+        anti = _to_samb(wyckoff_samb(bond, m, sign=True))
         res["bond"][w] = bond_samb(sym, anti, irreps)
     return res
 

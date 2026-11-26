@@ -21,15 +21,15 @@ Data that can be derived from these tables are computed in `multipiegen` instead
 | [`data_group_msg.py`](#data-group-msg-py) | group information of the magnetic space groups | MultiPie Ver.2.4.0 | - | `util/util_group_data`, `create_binary/create_group` |
 | [`data_group_pg.py`](#data-group-pg-py) | group information of the point groups | MultiPie Ver.2.4.0 | - | `util/util_group_data`, `util/util_symmetry_operation`, `create_binary/create_group`, `create_pdf/create_pdf_harmonics` |
 | [`data_group_sg.py`](#data-group-sg-py) | group information of the space groups | MultiPie Ver.2.4.0 | - | `util/util_group_data`, `util/util_symmetry_operation`, `create_binary/create_group` |
-| [`data_parent_pg.py`](#data-parent-pg-py) | parent point groups of each point group | new | `others/creation/create_parent_pg_mapping.py` | `util/util_op_mapping` |
-| [`data_parent_sg.py`](#data-parent-sg-py) | parent space groups of each space group | new | - | `util/util_op_mapping` |
+| [`data_parent_pg.py`](#data-parent-pg-py) | parent point groups of each point group | new | `others/creation/create_parent_pg_mapping.py` | `util/util_coset`, `util/util_op_mapping` |
+| [`data_parent_sg.py`](#data-parent-sg-py) | parent space groups of each space group | new | - | `util/util_coset`, `util/util_op_mapping` |
 | [`data_response_tensor.py`](#data-response-tensor-py) | multipoles in the response tensors and their cartesian components | MultiPie Ver.2.4.0 | - | `create_binary/create_info` |
 | [`data_root_cluster.py`](#data-root-cluster-py) | Oh and D6h clusters with the representative site and vector | new | `others/creation/create_root_cluster.py` | `util/util_bond_cluster_basis`, `util/util_cluster_basis`, `create_binary/create_info` |
 | [`data_top_harmonics.py`](#data-top-harmonics-py) | harmonics of the top groups (Oh, D6h) | MultiPie Ver.2.4.0 | - | `util/util_harmonics_mapping`, `util/util_top_harmonics` |
 | [`data_wyckoff_bond_sym.py`](#data-wyckoff-bond-sym-py) | Wyckoff bonds of the point and space groups with the bond symmetry | MultiPie Ver.2.4.0 | `others/creation/create_wyckoff_bond.py` | `create_binary/create_group` |
 | [`data_wyckoff_mpg.py`](#data-wyckoff-mpg-py) | Wyckoff sites of the magnetic point groups | MultiPie Ver.2.4.0 | - | `create_binary/create_group` |
 | [`data_wyckoff_msg.py`](#data-wyckoff-msg-py) | Wyckoff sites of the magnetic space groups | MultiPie Ver.2.4.0 | - | `create_binary/create_group` |
-| [`data_wyckoff_site.py`](#data-wyckoff-site-py) | Wyckoff sites of the point and space groups | MultiPie Ver.2.4.0 | - | `create_binary/create_group` |
+| [`data_wyckoff_site.py`](#data-wyckoff-site-py) | Wyckoff sites of the point and space groups | MultiPie Ver.2.4.0 | - | `util/util_coset`, `create_binary/create_group` |
 
 ## data_basis.py
 

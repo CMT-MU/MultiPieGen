@@ -52,6 +52,27 @@ def test_binary_is_up_to_date(gid):
 
 
 # ==================================================
+# (A) reference sites (bonds) of the images under the inversion coset (util_cluster_samb_image.cluster_samb_reference).
+REFERENCE = {
+    "SG:98": {"bond": {"16c@8e": 2}},
+    "SG:213": {"site": {"12d": 1}, "bond": {"12a@12d": 1, "12b@12d": 1, "24c@12d": 1}},
+}
+
+
+@pytest.mark.parametrize("gid", list(REFERENCE))
+def test_binary_is_up_to_date_reference(gid):
+    point_ops = [np.array(R, dtype=float)[:3, :3] for R in group[gid]["symmetry_operation"]["fractional"]]
+    ref = REFERENCE[gid]
+    new = create_cluster_samb(*_args(gid), group[gid]["wyckoff"], reference=ref, point_ops=point_ops)
+    new = pickle.loads(pickle.dumps(new))
+    assert repr(new) == repr(data[gid])
+    old = pickle.loads(pickle.dumps(create_cluster_samb(*_args(gid), group[gid]["wyckoff"])))
+    for kind, refs in ref.items():
+        for w in refs:
+            assert repr(old[kind][w]) != repr(data[gid][kind][w])
+
+
+# ==================================================
 @pytest.mark.parametrize("gid", SAMPLE)
 def test_orthonormal_and_complete(gid):
     pg = _args(gid)[0]

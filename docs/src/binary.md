@@ -576,7 +576,7 @@ Cluster SAMB of each Wyckoff site and bond of the real PG and SG.
 - create: `python -m multipiegen.create_binary.create_cluster_samb`
 - load: `multipiegen.util.util_cluster_samb.load_cluster_samb()`
 - top-level keys: 267 keys: `PG:1`, `PG:2`, ..., `SG:230`
-- size: 455 KB
+- size: 461 KB
 
 Description of the dictionary keys (header of the binary):
 
@@ -608,8 +608,8 @@ NOTE:
 
 | group | files | keys | size |
 |---|---|---|---|
-| PG | 47 (`PG/PG_1.pkl`, ...) | `info`, `symmetry_operation`, `wyckoff`, `character`, `representation_matrix`, `harmonics`, `multipolar_harmonics`, `atomic_samb`, `cluster_samb` | 9,656 KB |
-| SG | 230 (`SG/SG_1.pkl`, ...) | `info`, `symmetry_operation`, `wyckoff`, `cluster_samb` | 2,091 KB |
+| PG | 47 (`PG/PG_1.pkl`, ...) | `info`, `symmetry_operation`, `wyckoff`, `character`, `representation_matrix`, `harmonics`, `multipolar_harmonics`, `atomic_samb`, `cluster_samb` | 9,712 KB |
+| SG | 230 (`SG/SG_1.pkl`, ...) | `info`, `symmetry_operation`, `wyckoff`, `cluster_samb` | 2,432 KB |
 | MPG | 157 (`MPG/MPG_1.1.1.pkl`, ...) | `info`, `symmetry_operation`, `wyckoff`, `active_multipole`, `response_tensor` | 820 KB |
 | MSG | 1651 (`MSG/MSG_1.1.pkl`, ...) | `info`, `symmetry_operation`, `wyckoff` | 3,913 KB |
 
@@ -748,6 +748,30 @@ NOTE:
     - multipoles are sorted in order of [Gamma, l, n, p] ("site"), and of Gamma, then [l, n, p] for Q and
       [l, k, T/M, n, p] for T/M ("bond", Q before T/M in each Gamma).
     - only for real PG (not for "-c").
+- "coset" (str): (dict) first coset g H of the group H in its direct parent (the first one other than H).
+  (only for a group with a parent; not for "-c" PG.)
+  - "parent" (str): (str) direct parent.
+  - "R" (str): (Matrix(sympy)) x_parent = R x_H.
+  - "index" (str): (int) number of cosets [P:H].
+  - "ops" (str): ([str]) SO tags of the parent in the coset.
+  - "rep" (str): (str) SO tag of the representative g (first operation).
+  - "rep_matrix" (str): (Matrix(sympy)) g in the coordinates of H (4x4 for SG, 3x3 for PG).
+  - "order" (str): (int) smallest n with g^n in H (modulo the lattice of H).
+  - "kind" (str): (str) "rotation" or "inversion".
+  - "frame" (str): (Matrix(sympy)) frame of the image system (g in the coordinates of H) for "rotation", None otherwise.
+  - "inversion" (str): (dict) for "inversion", None otherwise.
+    - "image" (str): (str) image group H' = g H g^-1.
+    - "map" (str): (Matrix(sympy)) M: coordinates of H -> those of H'.
+    - "shift" (str): (Matrix(sympy)) origin shift k (coordinates of the parent) with k H' k^-1 = g H g^-1 (SG only).
+    - "wyckoff" (str): (dict) W: (W', {parameter of W': expression of the parameters of W}).
+    - "site"/"bond" (str): (dict) image of each site/bond Wyckoff position.
+      - W (str): (dict) "image": (H', W'), "perm": row i of W -> row perm[i] of W', "sign": -1 for a reversed bond,
+        "diag": the cluster SAMB are mapped label by label, "eps": {PGMultipoleType: [+-1 for each component]} (diag)
+        or "U": {block: (rows of W, rows of W', U)} (otherwise), rows = [(PGMultipoleType, component)],
+        T z_a = sum_b U_ab z'_b within each block (irrep, Q and T/M separately for bond).
+  - "parent_limit" (str): (dict) parent structures, W: [{"param": {parameter: value}, "position": representative
+    position, "parent_wyckoff": Wyckoff position of the parent, "preserved_by": indices of the cosets (in the order of
+    the coset images) that keep it}].
 * all sympy values are expanded with rationalized denominators.
 ```
 
@@ -826,6 +850,30 @@ Description of the dictionary keys (header of `SG/SG_221.pkl`):
     - each component is normalized on the ns sites (bonds).
     - multipoles are sorted in order of [Gamma, l, n, p] ("site"), and of Gamma, then [l, n, p] for Q and
       [l, k, T/M, n, p] for T/M ("bond", Q before T/M in each Gamma).
+- "coset" (str): (dict) first coset g H of the group H in its direct parent (the first one other than H).
+  (only for a group with a parent; not for "-c" PG.)
+  - "parent" (str): (str) direct parent.
+  - "R" (str): (Matrix(sympy)) x_parent = R x_H.
+  - "index" (str): (int) number of cosets [P:H].
+  - "ops" (str): ([str]) SO tags of the parent in the coset.
+  - "rep" (str): (str) SO tag of the representative g (first operation).
+  - "rep_matrix" (str): (Matrix(sympy)) g in the coordinates of H (4x4 for SG, 3x3 for PG).
+  - "order" (str): (int) smallest n with g^n in H (modulo the lattice of H).
+  - "kind" (str): (str) "rotation" or "inversion".
+  - "frame" (str): (Matrix(sympy)) frame of the image system (g in the coordinates of H) for "rotation", None otherwise.
+  - "inversion" (str): (dict) for "inversion", None otherwise.
+    - "image" (str): (str) image group H' = g H g^-1.
+    - "map" (str): (Matrix(sympy)) M: coordinates of H -> those of H'.
+    - "shift" (str): (Matrix(sympy)) origin shift k (coordinates of the parent) with k H' k^-1 = g H g^-1 (SG only).
+    - "wyckoff" (str): (dict) W: (W', {parameter of W': expression of the parameters of W}).
+    - "site"/"bond" (str): (dict) image of each site/bond Wyckoff position.
+      - W (str): (dict) "image": (H', W'), "perm": row i of W -> row perm[i] of W', "sign": -1 for a reversed bond,
+        "diag": the cluster SAMB are mapped label by label, "eps": {PGMultipoleType: [+-1 for each component]} (diag)
+        or "U": {block: (rows of W, rows of W', U)} (otherwise), rows = [(PGMultipoleType, component)],
+        T z_a = sum_b U_ab z'_b within each block (irrep, Q and T/M separately for bond).
+  - "parent_limit" (str): (dict) parent structures, W: [{"param": {parameter: value}, "position": representative
+    position, "parent_wyckoff": Wyckoff position of the parent, "preserved_by": indices of the cosets (in the order of
+    the coset images) that keep it}].
 * all sympy values are expanded with rationalized denominators.
 ```
 
