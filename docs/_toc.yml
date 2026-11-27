@@ -38,6 +38,7 @@ parts:
       - file: src/api_util/util_cluster_samb
       - file: src/api_util/util_cluster_samb_image
       - file: src/api_util/util_coset
+      - file: src/api_util/util_supergroup
       - file: src/api_util/util_harmonics_symbol
       - file: src/api_util/util_harmonics
       - file: src/api_util/util_harmonics_multipole
@@ -61,6 +62,7 @@ parts:
       - file: src/api_create/create_cluster_bond_basis
       - file: src/api_create/create_cluster_samb
       - file: src/api_create/create_coset
+      - file: src/api_create/create_supergroup
       - file: src/api_create/create_binary_data
       - file: src/api_create/create_pdf_harmonics
       - file: src/api_create/create_pdf_info
