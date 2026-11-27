@@ -15,6 +15,8 @@ The binary data in `multipiegen/binary` are created from the data tables by the 
 | [`cluster_vector_basis.pkl`](#cluster-vector-basis-pkl) | orthonormal vector cluster basis (s=1) of the Oh and D6h clusters | `Oh`, `D6h` | `python -m multipiegen.create_binary.create_cluster_vector_basis` | `multipiegen.util.util_cluster_vector_basis.load_cluster_vector_basis()` |
 | [`cluster_bond_basis.pkl`](#cluster-bond-basis-pkl) | orthonormal bond cluster basis of the Oh and D6h clusters | `Oh`, `D6h` | `python -m multipiegen.create_binary.create_cluster_bond_basis` | `multipiegen.util.util_bond_cluster_basis.load_bond_cluster_basis()` |
 | [`cluster_samb.pkl`](#cluster-samb-pkl) | cluster SAMB of each Wyckoff site and bond of the real PG and SG | 267 keys: `PG:1`, `PG:2`, ..., `SG:230` | `python -m multipiegen.create_binary.create_cluster_samb` | `multipiegen.util.util_cluster_samb.load_cluster_samb()` |
+| [`coset.pkl`](#coset-pkl) | cosets of the real PG and SG in their parents, the first coset with its image, the parent structures | 251 keys: `PG:1`, `PG:2`, ..., `SG:220` | `python -m multipiegen.create_binary.create_coset` | `multipiegen.util.util_coset.load_coset()` |
+| [`supergroup.pkl`](#supergroup-pkl) | direct (maximal) supergroups of the real PG and SG with the embeddings | 267 keys: `PG:1`, `PG:2`, ..., `SG:230` | `python -m multipiegen.create_binary.create_supergroup` | `multipiegen.util.util_supergroup.load_supergroup()` |
 
 ## harmonics.pkl
 
@@ -600,6 +602,80 @@ NOTE:
   - each component is normalized on the ns sites (bonds).
   - multipoles are sorted in order of [Gamma, l, n, p] ("site"), and of Gamma, then [l, n, p] for Q and
     [l, k, T/M, n, p] for T/M ("bond", Q before T/M in each Gamma).
+```
+
+## coset.pkl
+
+Cosets of the real PG and SG in their parents, the first coset with its image, the parent structures.
+
+- create: `python -m multipiegen.create_binary.create_coset`
+- load: `multipiegen.util.util_coset.load_coset()`
+- top-level keys: 251 keys: `PG:1`, `PG:2`, ..., `SG:220`
+- size: 145 KB
+
+Description of the dictionary keys (header of the binary):
+
+```text
+* Cosets of all real PG and SG in their parents.
+- PG_id/SG_id (str): (dict) coset data of a group H (only for a group with a parent).
+  - "parent" (str): ([str]) parents along the chain of representative parents, the direct parent first.
+  - "coset" (str): (dict) left cosets g H in each parent.
+    - parent_id (str): ([[str]]) operations of each coset, its representative first, without H itself and the cosets of
+      translations only (PG: SO tag of the parent; SG: "point part of the SO tag of the parent:[translation in the
+      coordinates of H modulo its lattice]").
+  - "first" (str): (dict) first coset of H in the direct parent (the first one other than H).
+    - "parent" (str): (str) direct parent.
+    - "R" (str): (Matrix(sympy)) x_parent = R x_H (data_parent_pg/sg).
+    - "index" (str): (int) number of cosets [P:H].
+    - "ops" (str): ([str]) SO tags of the parent in the coset.
+    - "rep" (str): (str) SO tag of the representative g (first operation).
+    - "rep_matrix" (str): (Matrix(sympy)) g in the coordinates of H (4x4 for SG, 3x3 for PG).
+    - "order" (str): (int) smallest n with g^n in H (modulo the lattice of H).
+    - "kind" (str): (str) "rotation" or "inversion".
+    - "frame" (str): (Matrix(sympy)) frame of the image system (g in the coordinates of H) for "rotation", None otherwise.
+    - "inversion" (str): (dict) for "inversion", None otherwise.
+      - "image" (str): (str) image group H' = g H g^-1.
+      - "map" (str): (Matrix(sympy)) M: coordinates of H -> those of H'.
+      - "shift" (str): (Matrix(sympy)) origin shift k (coordinates of the parent) with k H' k^-1 = g H g^-1 (SG only).
+      - "wyckoff" (str): (dict) W: (W', {parameter of W': expression of the parameters of W}).
+      - "site"/"bond" (str): (dict) image of each site/bond Wyckoff position.
+        - W (str): (dict) "image": (H', W'), "perm": row i of W -> row perm[i] of W', "sign": -1 for a reversed bond,
+          "diag": the cluster SAMB are mapped label by label, "eps": {PGMultipoleType: [+-1 for each component]} (diag)
+          or "U": {block: (rows of W, rows of W', U)} (otherwise), rows = [(PGMultipoleType, component)], T z_a = sum_b
+          U_ab z'_b within each block (irrep, Q and T/M separately for bond).
+    - "parent_limit" (str): (dict) parent structures, W: [{"param": {parameter: value}, "position": representative
+      position, "parent_wyckoff": Wyckoff position of the parent, "preserved_by": indices of the cosets (in the order of
+      the coset images) that keep it}].
+NOTE:
+  - "-c" PG are not included (they share the cosets of the real PG).
+  - the cluster SAMB of the image of the inversion are those of cluster_samb.pkl, after the change of the reference
+    sites (bonds) (util_cluster_samb_image).
+```
+
+## supergroup.pkl
+
+Direct (maximal) supergroups of the real PG and SG with the embeddings.
+
+- create: `python -m multipiegen.create_binary.create_supergroup`
+- load: `multipiegen.util.util_supergroup.load_supergroup()`
+- top-level keys: 267 keys: `PG:1`, `PG:2`, ..., `SG:230`
+- size: 17 KB
+
+Description of the dictionary keys (header of the binary):
+
+```text
+* Direct supergroups of all real PG and SG (the supergroups P in which H is a maximal subgroup).
+- PG_id/SG_id (str): ([dict]) direct supergroups of a group H, in order of the index and the group number ([] for none).
+  - "parent" (str): (str) supergroup P.
+  - "A" (str): (Matrix(sympy)) embedding x_P = A x_H (4x4, conventional coordinates; R = A[:3,:3] is right-handed).
+  - "index" (str): (int) [P:H] modulo the lattice of H.
+  - "index_parent" (str): (int) [P:H] modulo the lattice of P (= order of the point group of P / that of H).
+NOTE:
+  - maximal: a t-subgroup ([T_P:T_H] = 1, point-group index 2, 3 or 4) or a k-subgroup (the same point group,
+    [T_P:T_H] = 2, 3 or 4) with no intermediate group; isomorphic supergroups (P of the type of H) are not included.
+  - the embeddings are given up to the normalizer of P (the same set of operations of P in the coordinates of H) and up
+    to the affine normalizer of H (A and A n give the same supergroup, n H n^-1 = H): the other embeddings are A n.
+  - not always the "direct parent" of coset.pkl (the representative parent of MultiPieGen, not always maximal).
 ```
 
 ## Binary data for MultiPie (binary_data)

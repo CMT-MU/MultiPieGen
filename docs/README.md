@@ -50,10 +50,10 @@ pip install -e ".[dev]"
 ```
 multipiegen/        package
   data/             data tables (see the "Data tables" page)
-  util/             utilities (multipolar harmonics, cluster basis, vector cluster basis, bond cluster basis, cluster SAMB, harmonics, harmonics symbols, multipolar harmonics, atomic multipole, info, group, symmetry operation, representation matrix, response tensor)
+  util/             utilities (multipolar harmonics, cluster basis, vector cluster basis, bond cluster basis, cluster SAMB, harmonics, harmonics symbols, multipolar harmonics, atomic multipole, info, group, symmetry operation, representation matrix, response tensor, cosets, supergroups)
   create_binary/    code that generates the binary data
   create_pdf/       code that generates the PDFs
-  binary/           generated binary data (info.pkl, cluster_scalar_basis.pkl, cluster_vector_basis.pkl, cluster_bond_basis.pkl, cluster_samb.pkl, harmonics.pkl, multipolar_harmonics.pkl, atomic_multipole.pkl, atomic_multipole_group.pkl, group.pkl, response_tensor.pkl) [not packaged]
+  binary/           generated binary data (info.pkl, cluster_scalar_basis.pkl, cluster_vector_basis.pkl, cluster_bond_basis.pkl, cluster_samb.pkl, harmonics.pkl, multipolar_harmonics.pkl, atomic_multipole.pkl, atomic_multipole_group.pkl, group.pkl, response_tensor.pkl, coset.pkl, supergroup.pkl) [not packaged]
   binary_data/      binary data for MultiPie (info.pkl, PG/, SG/, MPG/, MSG/: one file for each group, made from binary/) [packaged]
   pdf/              generated LaTeX and PDF (PG/032-Oh/harmonics.pdf, info/PG.pdf, ...) [not packaged]
 docs/

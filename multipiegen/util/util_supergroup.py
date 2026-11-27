@@ -15,7 +15,7 @@ embeddings of H in P, from the symmetry operations of group.pkl.
   [T_P : T_H] = det N. For PG, R is orthogonal in the Cartesian coordinates.
 
   - R: from the images V_i of the generators W_i of the point group of H (N W'_i = V'_i N in the primitive bases, a
-    linear subspace of N), its integer points with small entries (|N_ij| <= 3 for a subspace of dimension <= 3, <= 2 for
+    linear subspace of N), its integer points with small entries (abs(N_ij) <= 3 for a subspace of dimension <= 3, <= 2 for
     <= 5, and the signed permutations otherwise, i.e., triclinic H).
   - s: on the grid of 1/24 in the primitive coordinates of P.
   - Two embeddings are the same when they give the same set of the operations of P in the coordinates of H modulo

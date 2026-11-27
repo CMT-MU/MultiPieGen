@@ -21,6 +21,8 @@ orphan: true
 | [`cluster_vector_basis.pkl`](#cluster-vector-basis-pkl) | Oh と D6h のクラスターの正規直交なベクトルクラスター基底（s=1） | `Oh`, `D6h` | `python -m multipiegen.create_binary.create_cluster_vector_basis` | `multipiegen.util.util_cluster_vector_basis.load_cluster_vector_basis()` |
 | [`cluster_bond_basis.pkl`](#cluster-bond-basis-pkl) | Oh と D6h のクラスターの正規直交なボンドクラスター基底 | `Oh`, `D6h` | `python -m multipiegen.create_binary.create_cluster_bond_basis` | `multipiegen.util.util_bond_cluster_basis.load_bond_cluster_basis()` |
 | [`cluster_samb.pkl`](#cluster-samb-pkl) | 実の PG と SG の各 Wyckoff サイトとボンドのクラスター SAMB | 全 267 個、`PG:1`, `PG:2`, ..., `SG:230` | `python -m multipiegen.create_binary.create_cluster_samb` | `multipiegen.util.util_cluster_samb.load_cluster_samb()` |
+| [`coset.pkl`](#coset-pkl) | 実の PG と SG の親での剰余類、最初の剰余類とその像、親構造 | 全 251 個、`PG:1`, `PG:2`, ..., `SG:220` | `python -m multipiegen.create_binary.create_coset` | `multipiegen.util.util_coset.load_coset()` |
+| [`supergroup.pkl`](#supergroup-pkl) | 実の PG と SG の直接の（極大の）上位群と埋め込み | 全 267 個、`PG:1`, `PG:2`, ..., `SG:230` | `python -m multipiegen.create_binary.create_supergroup` | `multipiegen.util.util_supergroup.load_supergroup()` |
 
 ## harmonics.pkl
 
@@ -606,6 +608,80 @@ NOTE:
   - each component is normalized on the ns sites (bonds).
   - multipoles are sorted in order of [Gamma, l, n, p] ("site"), and of Gamma, then [l, n, p] for Q and
     [l, k, T/M, n, p] for T/M ("bond", Q before T/M in each Gamma).
+```
+
+## coset.pkl
+
+実の PG と SG の親での剰余類、最初の剰余類とその像、親構造です。
+
+- 作成：`python -m multipiegen.create_binary.create_coset`
+- 読み込み：`multipiegen.util.util_coset.load_coset()`
+- 最上位のキー：全 251 個、`PG:1`, `PG:2`, ..., `SG:220`
+- サイズ：145 KB
+
+辞書のキーの説明（バイナリのヘッダ）：
+
+```text
+* Cosets of all real PG and SG in their parents.
+- PG_id/SG_id (str): (dict) coset data of a group H (only for a group with a parent).
+  - "parent" (str): ([str]) parents along the chain of representative parents, the direct parent first.
+  - "coset" (str): (dict) left cosets g H in each parent.
+    - parent_id (str): ([[str]]) operations of each coset, its representative first, without H itself and the cosets of
+      translations only (PG: SO tag of the parent; SG: "point part of the SO tag of the parent:[translation in the
+      coordinates of H modulo its lattice]").
+  - "first" (str): (dict) first coset of H in the direct parent (the first one other than H).
+    - "parent" (str): (str) direct parent.
+    - "R" (str): (Matrix(sympy)) x_parent = R x_H (data_parent_pg/sg).
+    - "index" (str): (int) number of cosets [P:H].
+    - "ops" (str): ([str]) SO tags of the parent in the coset.
+    - "rep" (str): (str) SO tag of the representative g (first operation).
+    - "rep_matrix" (str): (Matrix(sympy)) g in the coordinates of H (4x4 for SG, 3x3 for PG).
+    - "order" (str): (int) smallest n with g^n in H (modulo the lattice of H).
+    - "kind" (str): (str) "rotation" or "inversion".
+    - "frame" (str): (Matrix(sympy)) frame of the image system (g in the coordinates of H) for "rotation", None otherwise.
+    - "inversion" (str): (dict) for "inversion", None otherwise.
+      - "image" (str): (str) image group H' = g H g^-1.
+      - "map" (str): (Matrix(sympy)) M: coordinates of H -> those of H'.
+      - "shift" (str): (Matrix(sympy)) origin shift k (coordinates of the parent) with k H' k^-1 = g H g^-1 (SG only).
+      - "wyckoff" (str): (dict) W: (W', {parameter of W': expression of the parameters of W}).
+      - "site"/"bond" (str): (dict) image of each site/bond Wyckoff position.
+        - W (str): (dict) "image": (H', W'), "perm": row i of W -> row perm[i] of W', "sign": -1 for a reversed bond,
+          "diag": the cluster SAMB are mapped label by label, "eps": {PGMultipoleType: [+-1 for each component]} (diag)
+          or "U": {block: (rows of W, rows of W', U)} (otherwise), rows = [(PGMultipoleType, component)], T z_a = sum_b
+          U_ab z'_b within each block (irrep, Q and T/M separately for bond).
+    - "parent_limit" (str): (dict) parent structures, W: [{"param": {parameter: value}, "position": representative
+      position, "parent_wyckoff": Wyckoff position of the parent, "preserved_by": indices of the cosets (in the order of
+      the coset images) that keep it}].
+NOTE:
+  - "-c" PG are not included (they share the cosets of the real PG).
+  - the cluster SAMB of the image of the inversion are those of cluster_samb.pkl, after the change of the reference
+    sites (bonds) (util_cluster_samb_image).
+```
+
+## supergroup.pkl
+
+実の PG と SG の直接の（極大の）上位群と埋め込みです。
+
+- 作成：`python -m multipiegen.create_binary.create_supergroup`
+- 読み込み：`multipiegen.util.util_supergroup.load_supergroup()`
+- 最上位のキー：全 267 個、`PG:1`, `PG:2`, ..., `SG:230`
+- サイズ：17 KB
+
+辞書のキーの説明（バイナリのヘッダ）：
+
+```text
+* Direct supergroups of all real PG and SG (the supergroups P in which H is a maximal subgroup).
+- PG_id/SG_id (str): ([dict]) direct supergroups of a group H, in order of the index and the group number ([] for none).
+  - "parent" (str): (str) supergroup P.
+  - "A" (str): (Matrix(sympy)) embedding x_P = A x_H (4x4, conventional coordinates; R = A[:3,:3] is right-handed).
+  - "index" (str): (int) [P:H] modulo the lattice of H.
+  - "index_parent" (str): (int) [P:H] modulo the lattice of P (= order of the point group of P / that of H).
+NOTE:
+  - maximal: a t-subgroup ([T_P:T_H] = 1, point-group index 2, 3 or 4) or a k-subgroup (the same point group,
+    [T_P:T_H] = 2, 3 or 4) with no intermediate group; isomorphic supergroups (P of the type of H) are not included.
+  - the embeddings are given up to the normalizer of P (the same set of operations of P in the coordinates of H) and up
+    to the affine normalizer of H (A and A n give the same supergroup, n H n^-1 = H): the other embeddings are A n.
+  - not always the "direct parent" of coset.pkl (the representative parent of MultiPieGen, not always maximal).
 ```
 
 ## MultiPie 向けのバイナリデータ（binary_data）
