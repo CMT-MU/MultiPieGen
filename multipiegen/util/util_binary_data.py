@@ -22,7 +22,8 @@ matrices of PG by util_representation_matrix), and regrouped by group:
 - SG: info, symmetry_operation, wyckoff (group.pkl), cluster_samb (cluster_samb.pkl), and coset ("first" of
   coset.pkl, SG with a parent only).
 
-info.pkl has also "parent" and "coset" (the parents and the cosets in them, from coset.pkl).
+info.pkl has also "parent" and "coset" (the parents and the cosets in them, from coset.pkl), and "supergroup" (the direct
+supergroups and the embeddings, from supergroup.pkl).
 - MPG: info, symmetry_operation, wyckoff, active_multipole (group.pkl), and response_tensor (response_tensor.pkl).
 - MSG: info, symmetry_operation, wyckoff (group.pkl).
 
@@ -44,6 +45,7 @@ from multipiegen.util.util_harmonics_multipole import load_multipolar_harmonics
 from multipiegen.util.util_info import load_info
 from multipiegen.util.util_representation_matrix import representation_matrix
 from multipiegen.util.util_response_tensor import load_response_tensor
+from multipiegen.util.util_supergroup import load_supergroup
 
 # ==================================================
 binary_data_dir = os.path.join(__top_dir__, "multipiegen", "binary_data") + os.sep
@@ -102,6 +104,13 @@ h_info_coset = """
     - parent_id (str): ([[str]]) operations of each coset, its representative first, without H itself and the cosets
       of translations only (PG: SO tag of the parent; SG: "point part of the SO tag of the parent:[translation in the
       coordinates of H modulo its lattice]").
+- "supergroup" (str): (dict) direct supergroups (from supergroup.pkl).
+  - PG_id/SG_id (str): ([dict]) the supergroups P in which H is a maximal subgroup, in order of the index.
+    - "parent" (str): (str) supergroup P.
+    - "A" (str): (Matrix(sympy)) embedding x_P = A x_H (4x4, conventional coordinates), up to the normalizers of P and
+      of H (the other embeddings are A n with n H n^-1 = H).
+    - "index" (str): (int) [P:H] modulo the lattice of H.
+    - "index_parent" (str): (int) [P:H] modulo the lattice of P.
 """
 
 _section_title = {
@@ -128,6 +137,7 @@ def _sources():
                 "atomic_samb": load_atomic_multipole_group(),
                 "cluster_samb": load_cluster_samb(),
                 "coset": load_coset(),
+                "supergroup": load_supergroup(),
                 "response_tensor": load_response_tensor(),
             }
         )
@@ -289,6 +299,7 @@ def create_info_data():
     bm.update(info)
     bm["parent"] = {gid: d["parent"] for gid, d in coset.items()}
     bm["coset"] = {gid: d["coset"] for gid, d in coset.items()}
+    bm["supergroup"] = dict(_sources()["supergroup"])
     return bm
 
 

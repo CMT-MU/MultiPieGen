@@ -667,7 +667,8 @@ Code: `util_binary_data`, `create_binary/create_binary_data.py`.
      `multipolar_harmonics`, `atomic_samb`, `cluster_samb` (real PG only), `coset` (real PG with a parent only;
      `"first"` of `coset.pkl`).
    - SG: `info`, `symmetry_operation`, `wyckoff`, `cluster_samb`, `coset` (SG with a parent only).
-   - `info.pkl` has also `"parent"` and `"coset"` (`"parent"` and `"coset"` of `coset.pkl`).
+   - `info.pkl` has also `"parent"` and `"coset"` (`"parent"` and `"coset"` of `coset.pkl`), and `"supergroup"`
+     (`supergroup.pkl`).
    - MPG: `info`, `symmetry_operation`, `wyckoff`, `active_multipole`, `response_tensor`.
    - MSG: `info`, `symmetry_operation`, `wyckoff`.
 3. **Not included.** The intermediate cluster bases (`cluster_scalar_basis`, `cluster_vector_basis`,
@@ -714,3 +715,31 @@ space groups with a parent. Groups and operations are taken from the tables of t
    the first search window come first; others are added unless their orbit of `H` is that of one listed before.
 6. **Header and keys.** See the header of `coset.pkl` (`str(load_coset())`); `binary_data` has `"first"` as `coset`
    of each group file, and `"parent"` and `"coset"` in `info.pkl`.
+
+---
+
+### 10. Direct supergroups (`supergroup.pkl`)
+
+Code: `util_supergroup`, `create_binary/create_supergroup.py`. Range: the 37 real point groups and the 230 space
+groups. Only the symmetry operations of `group.pkl` are used; no table is stored.
+
+1. **Embedding.** The affine map `x_P = A x_H` (`A = [[R, s], [0, 1]]`, conventional coordinates) that maps every
+   operation of `H` to one of `P`. `R` is right-handed (an enantiomorphic pair is not a sub/supergroup). For SG, `R`
+   maps the lattice of `H` into that of `P`: `N = L_P^-1 R L_H` is an integer matrix (`L`: primitive vectors) and
+   `[T_P : T_H] = det N`; for PG, `R` is orthogonal in the Cartesian coordinates.
+2. **Search.** `N` solves `N W'_i = V'_i N` for the images `V_i` of the generators `W_i` of the point group of `H`
+   (primitive bases); its integer points with small entries are taken (`|N_ij| <= 3` for a subspace of dimension up
+   to 3, `<= 2` up to 5, the signed permutations otherwise, i.e., triclinic `H`). The shift `s` is searched on the
+   grid of 1/24 (primitive coordinates of `P`).
+3. **The same embedding.** Two embeddings are the same when they give the same set of operations of `P` in the
+   coordinates of `H` modulo the lattice of `P` (they differ by an element of the normalizer of `P`). The embeddings
+   `A n`, `n` in the affine normalizer of `H` (`n H n^-1 = H`), are also merged (one is stored); they give the same
+   supergroup with different parent structures for the atoms of `H`, and MultiPie restores them.
+4. **Direct (maximal).** By the theorem of Hermann, a maximal subgroup is a t-subgroup (`[T_P : T_H] = 1`,
+   point-group index 2, 3 or 4) or a k-subgroup (the same point group, `[T_P : T_H] = 2, 3, 4` here). `H` is maximal
+   in `P` if `<H, g> = P` for every `g` of `P` not in `H` (modulo the lattice of `H`). Isomorphic supergroups (`P` of
+   the type of `H`) are not stored. The representative parent of `coset.pkl` is not always maximal (SG 152 < 150 <
+   164 with the lattice of 164), but every parent of its chain is reached through the direct supergroups.
+5. **Header and keys.** See the header of `supergroup.pkl` (`str(load_supergroup())`): for each group, `"parent"`,
+   `"A"`, `"index"` (`[P : H]` modulo the lattice of `H`) and `"index_parent"` (modulo the lattice of `P`). It is
+   `"supergroup"` of `info.pkl` in `binary_data`.
