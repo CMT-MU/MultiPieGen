@@ -1,0 +1,1412 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Index &#8212; MultiPieGen</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=6a604523" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=8d1e04a5" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+
+    <script src="_static/documentation_options.js?v=a8e58a58"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script data-sd-tabs-storage-prefix="sphinx-design-tab-id-" src="_static/design-tabs.js?v=fcb327ea"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'genindex';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <script src="_static/custom.js?v=8726de73"></script>
+    <link rel="index" title="Index" href="#" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="_static/searchtools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="README.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">MultiPieGen</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Documentation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="src/guide.html">User Guide</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="src/group_info.html">Group Information</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="src/info_pdf.html">Overall information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/pg_pdf.html">Point groups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/sg_pdf.html">Space groups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/mpg_pdf.html">Magnetic point groups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/msg_pdf.html">Magnetic space groups</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="src/details.html">Details</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="src/examples.html">Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/binary.html">Binary data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/data.html">Data tables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/changes_from_multipie_v2.html">Changes from MultiPie Ver.2 (multipole data)</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference external" href="https://cmt-mu.github.io/MultiPie/">MultiPie documentation</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">API reference</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="src/api_util.html">Utilities</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="src/api_util/util_info.html">Info</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/api_util/util_group.html">Group</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/api_util/util_group_data.html">Group data (ids, tags, names)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/api_util/util_top_harmonics.html">Top harmonics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/api_util/util_harmonics_mapping.html">Harmonics mapping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/api_util/util_op_mapping.html">Operation mapping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/api_util/util_cluster_basis.html">Cluster basis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/api_util/util_cluster_vector_basis.html">Vector cluster basis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/api_util/util_bond_cluster_basis.html">Bond cluster basis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/api_util/util_cluster_samb.html">Cluster SAMB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/api_util/util_cluster_samb_image.html">Cluster SAMB under the inversion coset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/api_util/util_coset.html">Cosets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/api_util/util_supergroup.html">Supergroups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/api_util/util_harmonics_symbol.html">Harmonics symbol</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/api_util/util_harmonics.html">Harmonics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/api_util/util_harmonics_multipole.html">Multipolar harmonics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/api_util/util_multipolar_harmonics.html">Multipolar harmonics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/api_util/util_atomic_multipole.html">Atomic multipole</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/api_util/util_symmetry_operation.html">Symmetry operation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/api_util/util_representation_matrix.html">Representation matrix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/api_util/util_response_tensor.html">Response tensor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/api_util/util_binary_data.html">Binary data for MultiPie</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="src/api_create.html">Generators</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="src/api_create/create_info.html">Info binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/api_create/create_group.html">Group binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/api_create/create_response_tensor.html">Response tensor binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/api_create/create_harmonics.html">Harmonics binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/api_create/create_multipolar_harmonics.html">Multipolar harmonics binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/api_create/create_atomic_multipole.html">Atomic multipole binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/api_create/create_atomic_multipole_group.html">Atomic multipole group binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/api_create/create_cluster_scalar_basis.html">Cluster scalar basis binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/api_create/create_cluster_vector_basis.html">Vector cluster basis binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/api_create/create_cluster_bond_basis.html">Cluster bond basis binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/api_create/create_cluster_samb.html">Cluster SAMB binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/api_create/create_coset.html">Coset binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/api_create/create_supergroup.html">Supergroup binary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/api_create/create_binary_data.html">Binary data for MultiPie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/api_create/create_pdf_harmonics.html">Harmonics PDF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/api_create/create_pdf_info.html">Information PDF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="src/api_create/create_pdf_group.html">Group PDF</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/CMT-MU/MultiPieGen.git" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+
+<h1 id="index">Index</h1>
+
+<div class="genindex-jumpbox">
+ <a href="#A"><strong>A</strong></a>
+ | <a href="#B"><strong>B</strong></a>
+ | <a href="#C"><strong>C</strong></a>
+ | <a href="#D"><strong>D</strong></a>
+ | <a href="#E"><strong>E</strong></a>
+ | <a href="#F"><strong>F</strong></a>
+ | <a href="#G"><strong>G</strong></a>
+ | <a href="#H"><strong>H</strong></a>
+ | <a href="#I"><strong>I</strong></a>
+ | <a href="#L"><strong>L</strong></a>
+ | <a href="#M"><strong>M</strong></a>
+ | <a href="#N"><strong>N</strong></a>
+ | <a href="#O"><strong>O</strong></a>
+ | <a href="#P"><strong>P</strong></a>
+ | <a href="#R"><strong>R</strong></a>
+ | <a href="#S"><strong>S</strong></a>
+ | <a href="#T"><strong>T</strong></a>
+ | <a href="#U"><strong>U</strong></a>
+ | <a href="#V"><strong>V</strong></a>
+ | <a href="#W"><strong>W</strong></a>
+ 
+</div>
+<h2 id="A">A</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="src/api_util/util_response_tensor.html#multipiegen.util.util_response_tensor.active_dict">active_dict() (in module multipiegen.util.util_response_tensor)</a>
+</li>
+      <li><a href="src/api_util/util_coset.html#multipiegen.util.util_coset.affine_parts">affine_parts() (in module multipiegen.util.util_coset)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="src/api_util/util_atomic_multipole.html#multipiegen.util.util_atomic_multipole.assemble_atomic_multipole">assemble_atomic_multipole() (in module multipiegen.util.util_atomic_multipole)</a>
+</li>
+      <li><a href="src/api_util/util_atomic_multipole.html#multipiegen.util.util_atomic_multipole.atomic_multipole_keys">atomic_multipole_keys() (in module multipiegen.util.util_atomic_multipole)</a>
+</li>
+      <li><a href="src/api_util/util_atomic_multipole.html#multipiegen.util.util_atomic_multipole.atomic_multipole_matrix">atomic_multipole_matrix() (in module multipiegen.util.util_atomic_multipole)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="B">B</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="src/api_create/create_info.html#multipiegen.create_binary.create_info.basis_function">basis_function() (in module multipiegen.create_binary.create_info)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="src/api_util/util_bond_cluster_basis.html#multipiegen.util.util_bond_cluster_basis.bond_cluster_basis_matrix">bond_cluster_basis_matrix() (in module multipiegen.util.util_bond_cluster_basis)</a>
+</li>
+      <li><a href="src/api_util/util_cluster_samb.html#multipiegen.util.util_cluster_samb.bond_samb">bond_samb() (in module multipiegen.util.util_cluster_samb)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="C">C</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="src/api_create/create_group.html#multipiegen.create_binary.create_group.character_plus">character_plus() (in module multipiegen.create_binary.create_group)</a>
+</li>
+      <li><a href="src/api_util/util_representation_matrix.html#multipiegen.util.util_representation_matrix.check_representation_matrix">check_representation_matrix() (in module multipiegen.util.util_representation_matrix)</a>
+</li>
+      <li><a href="src/api_util/util_supergroup.html#multipiegen.util.util_supergroup.class_key">class_key() (in module multipiegen.util.util_supergroup)</a>
+</li>
+      <li><a href="src/api_util/util_cluster_basis.html#multipiegen.util.util_cluster_basis.cluster_basis_matrix">cluster_basis_matrix() (in module multipiegen.util.util_cluster_basis)</a>
+</li>
+      <li><a href="src/api_util/util_cluster_samb_image.html#multipiegen.util.util_cluster_samb_image.cluster_samb_reference">cluster_samb_reference() (in module multipiegen.util.util_cluster_samb_image)</a>
+</li>
+      <li><a href="src/api_util/util_cluster_samb_image.html#multipiegen.util.util_cluster_samb_image.cluster_samb_transport">cluster_samb_transport() (in module multipiegen.util.util_cluster_samb_image)</a>
+</li>
+      <li><a href="src/api_util/util_cluster_vector_basis.html#multipiegen.util.util_cluster_vector_basis.cluster_vector_basis_matrix">cluster_vector_basis_matrix() (in module multipiegen.util.util_cluster_vector_basis)</a>
+</li>
+      <li><a href="src/api_create/create_coset.html#multipiegen.create_binary.create_coset.coset_data">coset_data() (in module multipiegen.create_binary.create_coset)</a>
+</li>
+      <li><a href="src/api_util/util_coset.html#multipiegen.util.util_coset.coset_image_min_pg">coset_image_min_pg() (in module multipiegen.util.util_coset)</a>
+</li>
+      <li><a href="src/api_util/util_coset.html#multipiegen.util.util_coset.coset_image_min_sg">coset_image_min_sg() (in module multipiegen.util.util_coset)</a>
+</li>
+      <li><a href="src/api_util/util_coset.html#multipiegen.util.util_coset.coset_image_pg">coset_image_pg() (in module multipiegen.util.util_coset)</a>
+</li>
+      <li><a href="src/api_util/util_coset.html#multipiegen.util.util_coset.coset_image_sg">coset_image_sg() (in module multipiegen.util.util_coset)</a>
+</li>
+      <li><a href="src/api_util/util_coset.html#multipiegen.util.util_coset.coset_list">coset_list() (in module multipiegen.util.util_coset)</a>
+</li>
+      <li><a href="src/api_create/create_group.html#multipiegen.create_binary.create_group.create_active_multipole">create_active_multipole() (in module multipiegen.create_binary.create_group)</a>
+
+      <ul>
+        <li><a href="src/api_create/create_pdf_info.html#multipiegen.create_pdf.create_pdf_info.create_active_multipole">(in module multipiegen.create_pdf.create_pdf_info)</a>
+</li>
+      </ul></li>
+      <li><a href="src/api_create/create_atomic_multipole.html#multipiegen.create_binary.create_atomic_multipole.create_atomic_multipole">create_atomic_multipole() (in module multipiegen.create_binary.create_atomic_multipole)</a>
+
+      <ul>
+        <li><a href="src/api_create/create_pdf_group.html#multipiegen.create_pdf.create_pdf_group.create_atomic_multipole">(in module multipiegen.create_pdf.create_pdf_group)</a>
+</li>
+      </ul></li>
+      <li><a href="src/api_create/create_atomic_multipole_group.html#multipiegen.create_binary.create_atomic_multipole_group.create_atomic_multipole_group">create_atomic_multipole_group() (in module multipiegen.create_binary.create_atomic_multipole_group)</a>
+</li>
+      <li><a href="src/api_util/util_atomic_multipole.html#multipiegen.util.util_atomic_multipole.create_atomic_multipole_pg">create_atomic_multipole_pg() (in module multipiegen.util.util_atomic_multipole)</a>
+</li>
+      <li><a href="src/api_util/util_bond_cluster_basis.html#multipiegen.util.util_bond_cluster_basis.create_bond">create_bond() (in module multipiegen.util.util_bond_cluster_basis)</a>
+</li>
+      <li><a href="src/api_util/util_bond_cluster_basis.html#multipiegen.util.util_bond_cluster_basis.create_bond_cluster_basis">create_bond_cluster_basis() (in module multipiegen.util.util_bond_cluster_basis)</a>
+</li>
+      <li><a href="src/api_create/create_group.html#multipiegen.create_binary.create_group.create_character">create_character() (in module multipiegen.create_binary.create_group)</a>
+</li>
+      <li><a href="src/api_create/create_info.html#multipiegen.create_binary.create_info.create_character_info">create_character_info() (in module multipiegen.create_binary.create_info)</a>
+</li>
+      <li><a href="src/api_create/create_pdf_group.html#multipiegen.create_pdf.create_pdf_group.create_character_table">create_character_table() (in module multipiegen.create_pdf.create_pdf_group)</a>
+</li>
+      <li><a href="src/api_util/util_cluster_basis.html#multipiegen.util.util_cluster_basis.create_cluster">create_cluster() (in module multipiegen.util.util_cluster_basis)</a>
+</li>
+      <li><a href="src/api_util/util_cluster_basis.html#multipiegen.util.util_cluster_basis.create_cluster_basis">create_cluster_basis() (in module multipiegen.util.util_cluster_basis)</a>
+</li>
+      <li><a href="src/api_util/util_cluster_samb.html#multipiegen.util.util_cluster_samb.create_cluster_samb">create_cluster_samb() (in module multipiegen.util.util_cluster_samb)</a>
+</li>
+      <li><a href="src/api_create/create_cluster_samb.html#multipiegen.create_binary.create_cluster_samb.create_cluster_samb_all">create_cluster_samb_all() (in module multipiegen.create_binary.create_cluster_samb)</a>
+</li>
+      <li><a href="src/api_util/util_cluster_vector_basis.html#multipiegen.util.util_cluster_vector_basis.create_cluster_vector_basis">create_cluster_vector_basis() (in module multipiegen.util.util_cluster_vector_basis)</a>
+</li>
+      <li><a href="src/api_create/create_pdf_info.html#multipiegen.create_pdf.create_pdf_info.create_compatibility_relation">create_compatibility_relation() (in module multipiegen.create_pdf.create_pdf_info)</a>
+</li>
+      <li><a href="src/api_create/create_coset.html#multipiegen.create_binary.create_coset.create_coset_all">create_coset_all() (in module multipiegen.create_binary.create_coset)</a>
+</li>
+      <li><a href="src/api_create/create_group.html#multipiegen.create_binary.create_group.create_group">create_group() (in module multipiegen.create_binary.create_group)</a>
+</li>
+      <li><a href="src/api_create/create_group.html#multipiegen.create_binary.create_group.create_group_data">create_group_data() (in module multipiegen.create_binary.create_group)</a>
+
+      <ul>
+        <li><a href="src/api_util/util_binary_data.html#multipiegen.util.util_binary_data.create_group_data">(in module multipiegen.util.util_binary_data)</a>
+</li>
+      </ul></li>
+      <li><a href="src/api_create/create_info.html#multipiegen.create_binary.create_info.create_group_info">create_group_info() (in module multipiegen.create_binary.create_info)</a>
+</li>
+      <li><a href="src/api_create/create_pdf_info.html#multipiegen.create_pdf.create_pdf_info.create_group_info_mpg">create_group_info_mpg() (in module multipiegen.create_pdf.create_pdf_info)</a>
+</li>
+      <li><a href="src/api_create/create_pdf_info.html#multipiegen.create_pdf.create_pdf_info.create_group_info_msg">create_group_info_msg() (in module multipiegen.create_pdf.create_pdf_info)</a>
+</li>
+      <li><a href="src/api_create/create_pdf_info.html#multipiegen.create_pdf.create_pdf_info.create_group_info_pg">create_group_info_pg() (in module multipiegen.create_pdf.create_pdf_info)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="src/api_create/create_pdf_info.html#multipiegen.create_pdf.create_pdf_info.create_group_info_sg">create_group_info_sg() (in module multipiegen.create_pdf.create_pdf_info)</a>
+</li>
+      <li><a href="src/api_create/create_info.html#multipiegen.create_binary.create_info.create_group_name_info">create_group_name_info() (in module multipiegen.create_binary.create_info)</a>
+</li>
+      <li><a href="src/api_util/util_harmonics.html#multipiegen.util.util_harmonics.create_harmonics">create_harmonics() (in module multipiegen.util.util_harmonics)</a>
+</li>
+      <li><a href="src/api_create/create_harmonics.html#multipiegen.create_binary.create_harmonics.create_harmonics_all">create_harmonics_all() (in module multipiegen.create_binary.create_harmonics)</a>
+</li>
+      <li><a href="src/api_create/create_info.html#multipiegen.create_binary.create_info.create_harmonics_info">create_harmonics_info() (in module multipiegen.create_binary.create_info)</a>
+</li>
+      <li><a href="src/api_util/util_multipolar_harmonics.html#multipiegen.util.util_multipolar_harmonics.create_harmonics_set">create_harmonics_set() (in module multipiegen.util.util_multipolar_harmonics)</a>
+</li>
+      <li><a href="src/api_util/util_cluster_basis.html#multipiegen.util.util_cluster_basis.create_harmonics_vectors">create_harmonics_vectors() (in module multipiegen.util.util_cluster_basis)</a>
+</li>
+      <li><a href="src/api_create/create_info.html#multipiegen.create_binary.create_info.create_info">create_info() (in module multipiegen.create_binary.create_info)</a>
+</li>
+      <li><a href="src/api_util/util_binary_data.html#multipiegen.util.util_binary_data.create_info_data">create_info_data() (in module multipiegen.util.util_binary_data)</a>
+</li>
+      <li><a href="src/api_util/util_multipolar_harmonics.html#multipiegen.util.util_multipolar_harmonics.create_internal_basis">create_internal_basis() (in module multipiegen.util.util_multipolar_harmonics)</a>
+</li>
+      <li><a href="src/api_create/create_group.html#multipiegen.create_binary.create_group.create_m_symmetry_operation">create_m_symmetry_operation() (in module multipiegen.create_binary.create_group)</a>
+</li>
+      <li><a href="src/api_util/util_harmonics_mapping.html#multipiegen.util.util_harmonics_mapping.create_mapping">create_mapping() (in module multipiegen.util.util_harmonics_mapping)</a>
+</li>
+      <li><a href="src/api_create/create_group.html#multipiegen.create_binary.create_group.create_mpg">create_mpg() (in module multipiegen.create_binary.create_group)</a>
+</li>
+      <li><a href="src/api_create/create_group.html#multipiegen.create_binary.create_group.create_msg">create_msg() (in module multipiegen.create_binary.create_group)</a>
+</li>
+      <li><a href="src/api_create/create_pdf_group.html#multipiegen.create_pdf.create_pdf_group.create_multipolar_harmonics">create_multipolar_harmonics() (in module multipiegen.create_pdf.create_pdf_group)</a>
+
+      <ul>
+        <li><a href="src/api_util/util_harmonics_multipole.html#multipiegen.util.util_harmonics_multipole.create_multipolar_harmonics">(in module multipiegen.util.util_harmonics_multipole)</a>
+</li>
+      </ul></li>
+      <li><a href="src/api_create/create_multipolar_harmonics.html#multipiegen.create_binary.create_multipolar_harmonics.create_multipolar_harmonics_all">create_multipolar_harmonics_all() (in module multipiegen.create_binary.create_multipolar_harmonics)</a>
+</li>
+      <li><a href="src/api_util/util_op_mapping.html#multipiegen.util.util_op_mapping.create_op_mapping">create_op_mapping() (in module multipiegen.util.util_op_mapping)</a>
+</li>
+      <li><a href="src/api_create/create_pdf_group.html#multipiegen.create_pdf.create_pdf_group.create_pdf_group">create_pdf_group() (in module multipiegen.create_pdf.create_pdf_group)</a>
+</li>
+      <li><a href="src/api_create/create_pdf_harmonics.html#multipiegen.create_pdf.create_pdf_harmonics.create_pdf_harmonics">create_pdf_harmonics() (in module multipiegen.create_pdf.create_pdf_harmonics)</a>
+</li>
+      <li><a href="src/api_create/create_pdf_harmonics.html#multipiegen.create_pdf.create_pdf_harmonics.create_pdf_harmonics_all">create_pdf_harmonics_all() (in module multipiegen.create_pdf.create_pdf_harmonics)</a>
+</li>
+      <li><a href="src/api_create/create_pdf_info.html#multipiegen.create_pdf.create_pdf_info.create_pdf_info">create_pdf_info() (in module multipiegen.create_pdf.create_pdf_info)</a>
+</li>
+      <li><a href="src/api_create/create_group.html#multipiegen.create_binary.create_group.create_pg">create_pg() (in module multipiegen.create_binary.create_group)</a>
+</li>
+      <li><a href="src/api_create/create_pdf_group.html#multipiegen.create_pdf.create_pdf_group.create_representation_matrix">create_representation_matrix() (in module multipiegen.create_pdf.create_pdf_group)</a>
+</li>
+      <li><a href="src/api_create/create_response_tensor.html#multipiegen.create_binary.create_response_tensor.create_response_tensor">create_response_tensor() (in module multipiegen.create_binary.create_response_tensor)</a>
+
+      <ul>
+        <li><a href="src/api_create/create_pdf_group.html#multipiegen.create_pdf.create_pdf_group.create_response_tensor">(in module multipiegen.create_pdf.create_pdf_group)</a>
+</li>
+      </ul></li>
+      <li><a href="src/api_create/create_response_tensor.html#multipiegen.create_binary.create_response_tensor.create_response_tensor_group">create_response_tensor_group() (in module multipiegen.create_binary.create_response_tensor)</a>
+</li>
+      <li><a href="src/api_create/create_info.html#multipiegen.create_binary.create_info.create_response_tensor_info">create_response_tensor_info() (in module multipiegen.create_binary.create_info)</a>
+</li>
+      <li><a href="src/api_create/create_info.html#multipiegen.create_binary.create_info.create_root_cluster_info">create_root_cluster_info() (in module multipiegen.create_binary.create_info)</a>
+</li>
+      <li><a href="src/api_create/create_group.html#multipiegen.create_binary.create_group.create_sg">create_sg() (in module multipiegen.create_binary.create_group)</a>
+</li>
+      <li><a href="src/api_create/create_supergroup.html#multipiegen.create_binary.create_supergroup.create_supergroup_all">create_supergroup_all() (in module multipiegen.create_binary.create_supergroup)</a>
+</li>
+      <li><a href="src/api_create/create_group.html#multipiegen.create_binary.create_group.create_symmetry_operation">create_symmetry_operation() (in module multipiegen.create_binary.create_group)</a>
+
+      <ul>
+        <li><a href="src/api_create/create_pdf_group.html#multipiegen.create_pdf.create_pdf_group.create_symmetry_operation">(in module multipiegen.create_pdf.create_pdf_group)</a>
+</li>
+      </ul></li>
+      <li><a href="src/api_util/util_atomic_multipole.html#multipiegen.util.util_atomic_multipole.create_top_samb">create_top_samb() (in module multipiegen.util.util_atomic_multipole)</a>
+</li>
+      <li><a href="src/api_create/create_group.html#multipiegen.create_binary.create_group.create_wyckoff_bond">create_wyckoff_bond() (in module multipiegen.create_binary.create_group)</a>
+
+      <ul>
+        <li><a href="src/api_create/create_pdf_group.html#multipiegen.create_pdf.create_pdf_group.create_wyckoff_bond">(in module multipiegen.create_pdf.create_pdf_group)</a>
+</li>
+      </ul></li>
+      <li><a href="src/api_create/create_group.html#multipiegen.create_binary.create_group.create_wyckoff_site">create_wyckoff_site() (in module multipiegen.create_binary.create_group)</a>
+
+      <ul>
+        <li><a href="src/api_create/create_pdf_group.html#multipiegen.create_pdf.create_pdf_group.create_wyckoff_site">(in module multipiegen.create_pdf.create_pdf_group)</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="D">D</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="src/api_util/util_supergroup.html#multipiegen.util.util_supergroup.direct_supergroups">direct_supergroups() (in module multipiegen.util.util_supergroup)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="E">E</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="src/api_util/util_supergroup.html#multipiegen.util.util_supergroup.element_keys">element_keys() (in module multipiegen.util.util_supergroup)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="src/api_util/util_supergroup.html#multipiegen.util.util_supergroup.embeddings">embeddings() (in module multipiegen.util.util_supergroup)</a>
+</li>
+      <li><a href="src/api_util/util_supergroup.html#multipiegen.util.util_supergroup.exact_matrix">exact_matrix() (in module multipiegen.util.util_supergroup)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="F">F</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="src/api_util/util_coset.html#multipiegen.util.util_coset.first_coset_pg">first_coset_pg() (in module multipiegen.util.util_coset)</a>
+</li>
+      <li><a href="src/api_util/util_coset.html#multipiegen.util.util_coset.first_coset_rep">first_coset_rep() (in module multipiegen.util.util_coset)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="src/api_util/util_coset.html#multipiegen.util.util_coset.first_coset_sg">first_coset_sg() (in module multipiegen.util.util_coset)</a>
+</li>
+      <li><a href="src/api_util/util_coset.html#multipiegen.util.util_coset.frac">frac() (in module multipiegen.util.util_coset)</a>
+</li>
+      <li><a href="src/api_util/util_coset.html#multipiegen.util.util_coset.frac_list">frac_list() (in module multipiegen.util.util_coset)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="G">G</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="src/api_util/util_cluster_samb.html#multipiegen.util.util_cluster_samb.general_point_basis">general_point_basis() (in module multipiegen.util.util_cluster_samb)</a>
+</li>
+      <li><a href="src/api_util/util_multipolar_harmonics.html#multipiegen.util.util_multipolar_harmonics.get_internal_basis">get_internal_basis() (in module multipiegen.util.util_multipolar_harmonics)</a>
+</li>
+      <li><a href="src/api_util/util_cluster_basis.html#multipiegen.util.util_cluster_basis.gram_schmidt">gram_schmidt() (in module multipiegen.util.util_cluster_basis)</a>
+</li>
+      <li><a href="src/api_create/create_cluster_samb.html#multipiegen.create_binary.create_cluster_samb.group_args">group_args() (in module multipiegen.create_binary.create_cluster_samb)</a>
+</li>
+      <li><a href="src/api_util/util_supergroup.html#multipiegen.util.util_supergroup.group_data">group_data() (in module multipiegen.util.util_supergroup)</a>
+</li>
+      <li><a href="src/api_create/create_pdf_group.html#multipiegen.create_pdf.create_pdf_group.group_dir">group_dir() (in module multipiegen.create_pdf.create_pdf_group)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="src/api_util/util_binary_data.html#multipiegen.util.util_binary_data.group_file">group_file() (in module multipiegen.util.util_binary_data)</a>
+</li>
+      <li><a href="src/api_util/util_binary_data.html#multipiegen.util.util_binary_data.group_header">group_header() (in module multipiegen.util.util_binary_data)</a>
+</li>
+      <li><a href="src/api_create/create_group.html#multipiegen.create_binary.create_group.group_ids">group_ids() (in module multipiegen.create_binary.create_group)</a>
+
+      <ul>
+        <li><a href="src/api_util/util_binary_data.html#multipiegen.util.util_binary_data.group_ids">(in module multipiegen.util.util_binary_data)</a>
+</li>
+      </ul></li>
+      <li><a href="src/api_util/util_coset.html#multipiegen.util.util_coset.group_key">group_key() (in module multipiegen.util.util_coset)</a>
+</li>
+      <li><a href="src/api_create/create_pdf_group.html#multipiegen.create_pdf.create_pdf_group.group_latex">group_latex() (in module multipiegen.create_pdf.create_pdf_group)</a>
+</li>
+      <li><a href="src/api_util/util_symmetry_operation.html#multipiegen.util.util_symmetry_operation.group_symmetry_operation">group_symmetry_operation() (in module multipiegen.util.util_symmetry_operation)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="H">H</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="src/api_util/util_representation_matrix.html#multipiegen.util.util_representation_matrix.harmonics_blocks">harmonics_blocks() (in module multipiegen.util.util_representation_matrix)</a>
+</li>
+      <li><a href="src/api_util/util_harmonics.html#multipiegen.util.util_harmonics.harmonics_expression">harmonics_expression() (in module multipiegen.util.util_harmonics)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="src/api_util/util_harmonics_symbol.html#multipiegen.util.util_harmonics_symbol.harmonics_symbol_table">harmonics_symbol_table() (in module multipiegen.util.util_harmonics_symbol)</a>
+</li>
+      <li><a href="src/api_util/util_harmonics.html#multipiegen.util.util_harmonics.harmonics_u_matrix">harmonics_u_matrix() (in module multipiegen.util.util_harmonics)</a>
+</li>
+      <li><a href="src/api_create/create_pdf_group.html#multipiegen.create_pdf.create_pdf_group.has_pdf">has_pdf() (in module multipiegen.create_pdf.create_pdf_group)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="I">I</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="src/api_create/create_info.html#multipiegen.create_binary.create_info.internal_basis">internal_basis() (in module multipiegen.create_binary.create_info)</a>
+
+      <ul>
+        <li><a href="src/api_util/util_cluster_vector_basis.html#multipiegen.util.util_cluster_vector_basis.internal_basis">(in module multipiegen.util.util_cluster_vector_basis)</a>
+</li>
+        <li><a href="src/api_util/util_harmonics_multipole.html#multipiegen.util.util_harmonics_multipole.internal_basis">(in module multipiegen.util.util_harmonics_multipole)</a>
+</li>
+      </ul></li>
+      <li><a href="src/api_util/util_harmonics_multipole.html#multipiegen.util.util_harmonics_multipole.internal_symbols">internal_symbols() (in module multipiegen.util.util_harmonics_multipole)</a>
+</li>
+      <li><a href="src/api_util/util_harmonics_multipole.html#multipiegen.util.util_harmonics_multipole.internal_type">internal_type() (in module multipiegen.util.util_harmonics_multipole)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="src/api_util/util_multipolar_harmonics.html#multipiegen.util.util_multipolar_harmonics.InternalBasis">InternalBasis (class in multipiegen.util.util_multipolar_harmonics)</a>
+</li>
+      <li><a href="src/api_util/util_cluster_samb_image.html#multipiegen.util.util_cluster_samb_image.inversion_pairs">inversion_pairs() (in module multipiegen.util.util_cluster_samb_image)</a>
+</li>
+      <li><a href="src/api_util/util_harmonics_symbol.html#multipiegen.util.util_harmonics_symbol.irrep_latex">irrep_latex() (in module multipiegen.util.util_harmonics_symbol)</a>
+</li>
+      <li><a href="src/api_util/util_harmonics_symbol.html#multipiegen.util.util_harmonics_symbol.is_real_irrep">is_real_irrep() (in module multipiegen.util.util_harmonics_symbol)</a>
+</li>
+      <li><a href="src/api_util/util_multipolar_harmonics.html#multipiegen.util.util_multipolar_harmonics.is_transform_real">is_transform_real() (in module multipiegen.util.util_multipolar_harmonics)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="L">L</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="src/api_util/util_cluster_vector_basis.html#multipiegen.util.util_cluster_vector_basis.label">label() (in module multipiegen.util.util_cluster_vector_basis)</a>
+</li>
+      <li><a href="src/api_util/util_atomic_multipole.html#multipiegen.util.util_atomic_multipole.lgs_u_matrix">lgs_u_matrix() (in module multipiegen.util.util_atomic_multipole)</a>
+</li>
+      <li><a href="src/api_util/util_atomic_multipole.html#multipiegen.util.util_atomic_multipole.load_atomic_multipole">load_atomic_multipole() (in module multipiegen.util.util_atomic_multipole)</a>
+</li>
+      <li><a href="src/api_util/util_atomic_multipole.html#multipiegen.util.util_atomic_multipole.load_atomic_multipole_group">load_atomic_multipole_group() (in module multipiegen.util.util_atomic_multipole)</a>
+</li>
+      <li><a href="src/api_util/util_binary_data.html#multipiegen.util.util_binary_data.load_binary_data">load_binary_data() (in module multipiegen.util.util_binary_data)</a>
+</li>
+      <li><a href="src/api_util/util_bond_cluster_basis.html#multipiegen.util.util_bond_cluster_basis.load_bond_cluster_basis">load_bond_cluster_basis() (in module multipiegen.util.util_bond_cluster_basis)</a>
+</li>
+      <li><a href="src/api_util/util_cluster_basis.html#multipiegen.util.util_cluster_basis.load_cluster_basis">load_cluster_basis() (in module multipiegen.util.util_cluster_basis)</a>
+</li>
+      <li><a href="src/api_util/util_cluster_samb.html#multipiegen.util.util_cluster_samb.load_cluster_samb">load_cluster_samb() (in module multipiegen.util.util_cluster_samb)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="src/api_util/util_cluster_vector_basis.html#multipiegen.util.util_cluster_vector_basis.load_cluster_vector_basis">load_cluster_vector_basis() (in module multipiegen.util.util_cluster_vector_basis)</a>
+</li>
+      <li><a href="src/api_util/util_coset.html#multipiegen.util.util_coset.load_coset">load_coset() (in module multipiegen.util.util_coset)</a>
+</li>
+      <li><a href="src/api_util/util_group.html#multipiegen.util.util_group.load_group">load_group() (in module multipiegen.util.util_group)</a>
+</li>
+      <li><a href="src/api_util/util_harmonics.html#multipiegen.util.util_harmonics.load_harmonics">load_harmonics() (in module multipiegen.util.util_harmonics)</a>
+</li>
+      <li><a href="src/api_util/util_info.html#multipiegen.util.util_info.load_info">load_info() (in module multipiegen.util.util_info)</a>
+</li>
+      <li><a href="src/api_util/util_harmonics_multipole.html#multipiegen.util.util_harmonics_multipole.load_multipolar_harmonics">load_multipolar_harmonics() (in module multipiegen.util.util_harmonics_multipole)</a>
+</li>
+      <li><a href="src/api_util/util_response_tensor.html#multipiegen.util.util_response_tensor.load_response_tensor">load_response_tensor() (in module multipiegen.util.util_response_tensor)</a>
+</li>
+      <li><a href="src/api_util/util_supergroup.html#multipiegen.util.util_supergroup.load_supergroup">load_supergroup() (in module multipiegen.util.util_supergroup)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="M">M</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="src/api_util/util_coset.html#multipiegen.util.util_coset.match_position">match_position() (in module multipiegen.util.util_coset)</a>
+</li>
+      <li><a href="src/api_util/util_coset.html#multipiegen.util.util_coset.mod1">mod1() (in module multipiegen.util.util_coset)</a>
+</li>
+      <li>
+    module
+
+      <ul>
+        <li><a href="src/api_create/create_atomic_multipole.html#module-multipiegen.create_binary.create_atomic_multipole">multipiegen.create_binary.create_atomic_multipole</a>
+</li>
+        <li><a href="src/api_create/create_atomic_multipole_group.html#module-multipiegen.create_binary.create_atomic_multipole_group">multipiegen.create_binary.create_atomic_multipole_group</a>
+</li>
+        <li><a href="src/api_create/create_binary_data.html#module-multipiegen.create_binary.create_binary_data">multipiegen.create_binary.create_binary_data</a>
+</li>
+        <li><a href="src/api_create/create_cluster_bond_basis.html#module-multipiegen.create_binary.create_cluster_bond_basis">multipiegen.create_binary.create_cluster_bond_basis</a>
+</li>
+        <li><a href="src/api_create/create_cluster_samb.html#module-multipiegen.create_binary.create_cluster_samb">multipiegen.create_binary.create_cluster_samb</a>
+</li>
+        <li><a href="src/api_create/create_cluster_scalar_basis.html#module-multipiegen.create_binary.create_cluster_scalar_basis">multipiegen.create_binary.create_cluster_scalar_basis</a>
+</li>
+        <li><a href="src/api_create/create_cluster_vector_basis.html#module-multipiegen.create_binary.create_cluster_vector_basis">multipiegen.create_binary.create_cluster_vector_basis</a>
+</li>
+        <li><a href="src/api_create/create_coset.html#module-multipiegen.create_binary.create_coset">multipiegen.create_binary.create_coset</a>
+</li>
+        <li><a href="src/api_create/create_group.html#module-multipiegen.create_binary.create_group">multipiegen.create_binary.create_group</a>
+</li>
+        <li><a href="src/api_create/create_harmonics.html#module-multipiegen.create_binary.create_harmonics">multipiegen.create_binary.create_harmonics</a>
+</li>
+        <li><a href="src/api_create/create_info.html#module-multipiegen.create_binary.create_info">multipiegen.create_binary.create_info</a>
+</li>
+        <li><a href="src/api_create/create_multipolar_harmonics.html#module-multipiegen.create_binary.create_multipolar_harmonics">multipiegen.create_binary.create_multipolar_harmonics</a>
+</li>
+        <li><a href="src/api_create/create_response_tensor.html#module-multipiegen.create_binary.create_response_tensor">multipiegen.create_binary.create_response_tensor</a>
+</li>
+        <li><a href="src/api_create/create_supergroup.html#module-multipiegen.create_binary.create_supergroup">multipiegen.create_binary.create_supergroup</a>
+</li>
+        <li><a href="src/api_create/create_pdf_group.html#module-multipiegen.create_pdf.create_pdf_group">multipiegen.create_pdf.create_pdf_group</a>
+</li>
+        <li><a href="src/api_create/create_pdf_harmonics.html#module-multipiegen.create_pdf.create_pdf_harmonics">multipiegen.create_pdf.create_pdf_harmonics</a>
+</li>
+        <li><a href="src/api_create/create_pdf_info.html#module-multipiegen.create_pdf.create_pdf_info">multipiegen.create_pdf.create_pdf_info</a>
+</li>
+        <li><a href="src/api_util/util_atomic_multipole.html#module-multipiegen.util.util_atomic_multipole">multipiegen.util.util_atomic_multipole</a>
+</li>
+        <li><a href="src/api_util/util_binary_data.html#module-multipiegen.util.util_binary_data">multipiegen.util.util_binary_data</a>
+</li>
+        <li><a href="src/api_util/util_bond_cluster_basis.html#module-multipiegen.util.util_bond_cluster_basis">multipiegen.util.util_bond_cluster_basis</a>
+</li>
+        <li><a href="src/api_util/util_cluster_basis.html#module-multipiegen.util.util_cluster_basis">multipiegen.util.util_cluster_basis</a>
+</li>
+        <li><a href="src/api_util/util_cluster_samb.html#module-multipiegen.util.util_cluster_samb">multipiegen.util.util_cluster_samb</a>
+</li>
+        <li><a href="src/api_util/util_cluster_samb_image.html#module-multipiegen.util.util_cluster_samb_image">multipiegen.util.util_cluster_samb_image</a>
+</li>
+        <li><a href="src/api_util/util_cluster_vector_basis.html#module-multipiegen.util.util_cluster_vector_basis">multipiegen.util.util_cluster_vector_basis</a>
+</li>
+        <li><a href="src/api_util/util_coset.html#module-multipiegen.util.util_coset">multipiegen.util.util_coset</a>
+</li>
+        <li><a href="src/api_util/util_group.html#module-multipiegen.util.util_group">multipiegen.util.util_group</a>
+</li>
+        <li><a href="src/api_util/util_group_data.html#module-multipiegen.util.util_group_data">multipiegen.util.util_group_data</a>
+</li>
+        <li><a href="src/api_util/util_harmonics.html#module-multipiegen.util.util_harmonics">multipiegen.util.util_harmonics</a>
+</li>
+        <li><a href="src/api_util/util_harmonics_mapping.html#module-multipiegen.util.util_harmonics_mapping">multipiegen.util.util_harmonics_mapping</a>
+</li>
+        <li><a href="src/api_util/util_harmonics_multipole.html#module-multipiegen.util.util_harmonics_multipole">multipiegen.util.util_harmonics_multipole</a>
+</li>
+        <li><a href="src/api_util/util_harmonics_symbol.html#module-multipiegen.util.util_harmonics_symbol">multipiegen.util.util_harmonics_symbol</a>
+</li>
+        <li><a href="src/api_util/util_info.html#module-multipiegen.util.util_info">multipiegen.util.util_info</a>
+</li>
+        <li><a href="src/api_util/util_multipolar_harmonics.html#module-multipiegen.util.util_multipolar_harmonics">multipiegen.util.util_multipolar_harmonics</a>
+</li>
+        <li><a href="src/api_util/util_op_mapping.html#module-multipiegen.util.util_op_mapping">multipiegen.util.util_op_mapping</a>
+</li>
+        <li><a href="src/api_util/util_representation_matrix.html#module-multipiegen.util.util_representation_matrix">multipiegen.util.util_representation_matrix</a>
+</li>
+        <li><a href="src/api_util/util_response_tensor.html#module-multipiegen.util.util_response_tensor">multipiegen.util.util_response_tensor</a>
+</li>
+        <li><a href="src/api_util/util_supergroup.html#module-multipiegen.util.util_supergroup">multipiegen.util.util_supergroup</a>
+</li>
+        <li><a href="src/api_util/util_symmetry_operation.html#module-multipiegen.util.util_symmetry_operation">multipiegen.util.util_symmetry_operation</a>
+</li>
+        <li><a href="src/api_util/util_top_harmonics.html#module-multipiegen.util.util_top_harmonics">multipiegen.util.util_top_harmonics</a>
+</li>
+      </ul></li>
+      <li>
+    multipiegen.create_binary.create_atomic_multipole
+
+      <ul>
+        <li><a href="src/api_create/create_atomic_multipole.html#module-multipiegen.create_binary.create_atomic_multipole">module</a>
+</li>
+      </ul></li>
+      <li>
+    multipiegen.create_binary.create_atomic_multipole_group
+
+      <ul>
+        <li><a href="src/api_create/create_atomic_multipole_group.html#module-multipiegen.create_binary.create_atomic_multipole_group">module</a>
+</li>
+      </ul></li>
+      <li>
+    multipiegen.create_binary.create_binary_data
+
+      <ul>
+        <li><a href="src/api_create/create_binary_data.html#module-multipiegen.create_binary.create_binary_data">module</a>
+</li>
+      </ul></li>
+      <li>
+    multipiegen.create_binary.create_cluster_bond_basis
+
+      <ul>
+        <li><a href="src/api_create/create_cluster_bond_basis.html#module-multipiegen.create_binary.create_cluster_bond_basis">module</a>
+</li>
+      </ul></li>
+      <li>
+    multipiegen.create_binary.create_cluster_samb
+
+      <ul>
+        <li><a href="src/api_create/create_cluster_samb.html#module-multipiegen.create_binary.create_cluster_samb">module</a>
+</li>
+      </ul></li>
+      <li>
+    multipiegen.create_binary.create_cluster_scalar_basis
+
+      <ul>
+        <li><a href="src/api_create/create_cluster_scalar_basis.html#module-multipiegen.create_binary.create_cluster_scalar_basis">module</a>
+</li>
+      </ul></li>
+      <li>
+    multipiegen.create_binary.create_cluster_vector_basis
+
+      <ul>
+        <li><a href="src/api_create/create_cluster_vector_basis.html#module-multipiegen.create_binary.create_cluster_vector_basis">module</a>
+</li>
+      </ul></li>
+      <li>
+    multipiegen.create_binary.create_coset
+
+      <ul>
+        <li><a href="src/api_create/create_coset.html#module-multipiegen.create_binary.create_coset">module</a>
+</li>
+      </ul></li>
+      <li>
+    multipiegen.create_binary.create_group
+
+      <ul>
+        <li><a href="src/api_create/create_group.html#module-multipiegen.create_binary.create_group">module</a>
+</li>
+      </ul></li>
+      <li>
+    multipiegen.create_binary.create_harmonics
+
+      <ul>
+        <li><a href="src/api_create/create_harmonics.html#module-multipiegen.create_binary.create_harmonics">module</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    multipiegen.create_binary.create_info
+
+      <ul>
+        <li><a href="src/api_create/create_info.html#module-multipiegen.create_binary.create_info">module</a>
+</li>
+      </ul></li>
+      <li>
+    multipiegen.create_binary.create_multipolar_harmonics
+
+      <ul>
+        <li><a href="src/api_create/create_multipolar_harmonics.html#module-multipiegen.create_binary.create_multipolar_harmonics">module</a>
+</li>
+      </ul></li>
+      <li>
+    multipiegen.create_binary.create_response_tensor
+
+      <ul>
+        <li><a href="src/api_create/create_response_tensor.html#module-multipiegen.create_binary.create_response_tensor">module</a>
+</li>
+      </ul></li>
+      <li>
+    multipiegen.create_binary.create_supergroup
+
+      <ul>
+        <li><a href="src/api_create/create_supergroup.html#module-multipiegen.create_binary.create_supergroup">module</a>
+</li>
+      </ul></li>
+      <li>
+    multipiegen.create_pdf.create_pdf_group
+
+      <ul>
+        <li><a href="src/api_create/create_pdf_group.html#module-multipiegen.create_pdf.create_pdf_group">module</a>
+</li>
+      </ul></li>
+      <li>
+    multipiegen.create_pdf.create_pdf_harmonics
+
+      <ul>
+        <li><a href="src/api_create/create_pdf_harmonics.html#module-multipiegen.create_pdf.create_pdf_harmonics">module</a>
+</li>
+      </ul></li>
+      <li>
+    multipiegen.create_pdf.create_pdf_info
+
+      <ul>
+        <li><a href="src/api_create/create_pdf_info.html#module-multipiegen.create_pdf.create_pdf_info">module</a>
+</li>
+      </ul></li>
+      <li>
+    multipiegen.util.util_atomic_multipole
+
+      <ul>
+        <li><a href="src/api_util/util_atomic_multipole.html#module-multipiegen.util.util_atomic_multipole">module</a>
+</li>
+      </ul></li>
+      <li>
+    multipiegen.util.util_binary_data
+
+      <ul>
+        <li><a href="src/api_util/util_binary_data.html#module-multipiegen.util.util_binary_data">module</a>
+</li>
+      </ul></li>
+      <li>
+    multipiegen.util.util_bond_cluster_basis
+
+      <ul>
+        <li><a href="src/api_util/util_bond_cluster_basis.html#module-multipiegen.util.util_bond_cluster_basis">module</a>
+</li>
+      </ul></li>
+      <li>
+    multipiegen.util.util_cluster_basis
+
+      <ul>
+        <li><a href="src/api_util/util_cluster_basis.html#module-multipiegen.util.util_cluster_basis">module</a>
+</li>
+      </ul></li>
+      <li>
+    multipiegen.util.util_cluster_samb
+
+      <ul>
+        <li><a href="src/api_util/util_cluster_samb.html#module-multipiegen.util.util_cluster_samb">module</a>
+</li>
+      </ul></li>
+      <li>
+    multipiegen.util.util_cluster_samb_image
+
+      <ul>
+        <li><a href="src/api_util/util_cluster_samb_image.html#module-multipiegen.util.util_cluster_samb_image">module</a>
+</li>
+      </ul></li>
+      <li>
+    multipiegen.util.util_cluster_vector_basis
+
+      <ul>
+        <li><a href="src/api_util/util_cluster_vector_basis.html#module-multipiegen.util.util_cluster_vector_basis">module</a>
+</li>
+      </ul></li>
+      <li>
+    multipiegen.util.util_coset
+
+      <ul>
+        <li><a href="src/api_util/util_coset.html#module-multipiegen.util.util_coset">module</a>
+</li>
+      </ul></li>
+      <li>
+    multipiegen.util.util_group
+
+      <ul>
+        <li><a href="src/api_util/util_group.html#module-multipiegen.util.util_group">module</a>
+</li>
+      </ul></li>
+      <li>
+    multipiegen.util.util_group_data
+
+      <ul>
+        <li><a href="src/api_util/util_group_data.html#module-multipiegen.util.util_group_data">module</a>
+</li>
+      </ul></li>
+      <li>
+    multipiegen.util.util_harmonics
+
+      <ul>
+        <li><a href="src/api_util/util_harmonics.html#module-multipiegen.util.util_harmonics">module</a>
+</li>
+      </ul></li>
+      <li>
+    multipiegen.util.util_harmonics_mapping
+
+      <ul>
+        <li><a href="src/api_util/util_harmonics_mapping.html#module-multipiegen.util.util_harmonics_mapping">module</a>
+</li>
+      </ul></li>
+      <li>
+    multipiegen.util.util_harmonics_multipole
+
+      <ul>
+        <li><a href="src/api_util/util_harmonics_multipole.html#module-multipiegen.util.util_harmonics_multipole">module</a>
+</li>
+      </ul></li>
+      <li>
+    multipiegen.util.util_harmonics_symbol
+
+      <ul>
+        <li><a href="src/api_util/util_harmonics_symbol.html#module-multipiegen.util.util_harmonics_symbol">module</a>
+</li>
+      </ul></li>
+      <li>
+    multipiegen.util.util_info
+
+      <ul>
+        <li><a href="src/api_util/util_info.html#module-multipiegen.util.util_info">module</a>
+</li>
+      </ul></li>
+      <li>
+    multipiegen.util.util_multipolar_harmonics
+
+      <ul>
+        <li><a href="src/api_util/util_multipolar_harmonics.html#module-multipiegen.util.util_multipolar_harmonics">module</a>
+</li>
+      </ul></li>
+      <li>
+    multipiegen.util.util_op_mapping
+
+      <ul>
+        <li><a href="src/api_util/util_op_mapping.html#module-multipiegen.util.util_op_mapping">module</a>
+</li>
+      </ul></li>
+      <li>
+    multipiegen.util.util_representation_matrix
+
+      <ul>
+        <li><a href="src/api_util/util_representation_matrix.html#module-multipiegen.util.util_representation_matrix">module</a>
+</li>
+      </ul></li>
+      <li>
+    multipiegen.util.util_response_tensor
+
+      <ul>
+        <li><a href="src/api_util/util_response_tensor.html#module-multipiegen.util.util_response_tensor">module</a>
+</li>
+      </ul></li>
+      <li>
+    multipiegen.util.util_supergroup
+
+      <ul>
+        <li><a href="src/api_util/util_supergroup.html#module-multipiegen.util.util_supergroup">module</a>
+</li>
+      </ul></li>
+      <li>
+    multipiegen.util.util_symmetry_operation
+
+      <ul>
+        <li><a href="src/api_util/util_symmetry_operation.html#module-multipiegen.util.util_symmetry_operation">module</a>
+</li>
+      </ul></li>
+      <li>
+    multipiegen.util.util_top_harmonics
+
+      <ul>
+        <li><a href="src/api_util/util_top_harmonics.html#module-multipiegen.util.util_top_harmonics">module</a>
+</li>
+      </ul></li>
+      <li><a href="src/api_util/util_response_tensor.html#multipiegen.util.util_response_tensor.multipole_latex">multipole_latex() (in module multipiegen.util.util_response_tensor)</a>
+</li>
+      <li><a href="src/api_util/util_harmonics_symbol.html#multipiegen.util.util_harmonics_symbol.multipole_symbol">multipole_symbol() (in module multipiegen.util.util_harmonics_symbol)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="N">N</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="src/api_util/util_coset.html#multipiegen.util.util_coset.num_str">num_str() (in module multipiegen.util.util_coset)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="src/api_util/util_representation_matrix.html#multipiegen.util.util_representation_matrix.numerical_representation_matrix">numerical_representation_matrix() (in module multipiegen.util.util_representation_matrix)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="O">O</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="src/api_util/util_supergroup.html#multipiegen.util.util_supergroup.okey">okey() (in module multipiegen.util.util_supergroup)</a>
+</li>
+      <li><a href="src/api_util/util_multipolar_harmonics.html#multipiegen.util.util_multipolar_harmonics.Olm">Olm() (in module multipiegen.util.util_multipolar_harmonics)</a>
+</li>
+      <li><a href="src/api_util/util_coset.html#multipiegen.util.util_coset.op_key">op_key() (in module multipiegen.util.util_coset)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="src/api_util/util_cluster_samb_image.html#multipiegen.util.util_cluster_samb_image.orbit_correspondence">orbit_correspondence() (in module multipiegen.util.util_cluster_samb_image)</a>
+</li>
+      <li><a href="src/api_create/create_pdf_info.html#multipiegen.create_pdf.create_pdf_info.orbital_table">orbital_table() (in module multipiegen.create_pdf.create_pdf_info)</a>
+</li>
+      <li><a href="src/api_create/create_pdf_info.html#multipiegen.create_pdf.create_pdf_info.orbital_top_key">orbital_top_key() (in module multipiegen.create_pdf.create_pdf_info)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="P">P</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="src/api_util/util_coset.html#multipiegen.util.util_coset.param_map_string">param_map_string() (in module multipiegen.util.util_coset)</a>
+</li>
+      <li><a href="src/api_util/util_coset.html#multipiegen.util.util_coset.params_of">params_of() (in module multipiegen.util.util_coset)</a>
+</li>
+      <li><a href="src/api_util/util_coset.html#multipiegen.util.util_coset.parent_chain">parent_chain() (in module multipiegen.util.util_coset)</a>
+</li>
+      <li><a href="src/api_util/util_coset.html#multipiegen.util.util_coset.parent_limit_min_pg">parent_limit_min_pg() (in module multipiegen.util.util_coset)</a>
+</li>
+      <li><a href="src/api_util/util_coset.html#multipiegen.util.util_coset.parent_limit_min_sg">parent_limit_min_sg() (in module multipiegen.util.util_coset)</a>
+</li>
+      <li><a href="src/api_util/util_coset.html#multipiegen.util.util_coset.parent_limit_pg">parent_limit_pg() (in module multipiegen.util.util_coset)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="src/api_util/util_coset.html#multipiegen.util.util_coset.parent_limit_sg">parent_limit_sg() (in module multipiegen.util.util_coset)</a>
+</li>
+      <li><a href="src/api_util/util_harmonics_multipole.html#multipiegen.util.util_harmonics_multipole.pg_harmonics">pg_harmonics() (in module multipiegen.util.util_harmonics_multipole)</a>
+</li>
+      <li><a href="src/api_util/util_coset.html#multipiegen.util.util_coset.pg_ops">pg_ops() (in module multipiegen.util.util_coset)</a>
+</li>
+      <li><a href="src/api_util/util_coset.html#multipiegen.util.util_coset.pg_real">pg_real() (in module multipiegen.util.util_coset)</a>
+</li>
+      <li><a href="src/api_util/util_symmetry_operation.html#multipiegen.util.util_symmetry_operation.point_tag">point_tag() (in module multipiegen.util.util_symmetry_operation)</a>
+</li>
+      <li><a href="src/api_util/util_harmonics_symbol.html#multipiegen.util.util_harmonics_symbol.polar_to_axial">polar_to_axial() (in module multipiegen.util.util_harmonics_symbol)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="R">R</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="src/api_util/util_representation_matrix.html#multipiegen.util.util_representation_matrix.representation_matrix">representation_matrix() (in module multipiegen.util.util_representation_matrix)</a>
+
+      <ul>
+        <li><a href="src/api_util/util_symmetry_operation.html#multipiegen.util.util_symmetry_operation.representation_matrix">(in module multipiegen.util.util_symmetry_operation)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="src/api_util/util_cluster_samb.html#multipiegen.util.util_cluster_samb.rereference_mapping">rereference_mapping() (in module multipiegen.util.util_cluster_samb)</a>
+</li>
+      <li><a href="src/api_util/util_response_tensor.html#multipiegen.util.util_response_tensor.response_tensor_all">response_tensor_all() (in module multipiegen.util.util_response_tensor)</a>
+</li>
+      <li><a href="src/api_util/util_response_tensor.html#multipiegen.util.util_response_tensor.response_tensor_component">response_tensor_component() (in module multipiegen.util.util_response_tensor)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="S">S</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="src/api_create/create_atomic_multipole.html#multipiegen.create_binary.create_atomic_multipole.save_atomic_multipole">save_atomic_multipole() (in module multipiegen.create_binary.create_atomic_multipole)</a>
+</li>
+      <li><a href="src/api_create/create_atomic_multipole_group.html#multipiegen.create_binary.create_atomic_multipole_group.save_atomic_multipole_group">save_atomic_multipole_group() (in module multipiegen.create_binary.create_atomic_multipole_group)</a>
+</li>
+      <li><a href="src/api_create/create_binary_data.html#multipiegen.create_binary.create_binary_data.save_binary_data">save_binary_data() (in module multipiegen.create_binary.create_binary_data)</a>
+</li>
+      <li><a href="src/api_util/util_bond_cluster_basis.html#multipiegen.util.util_bond_cluster_basis.save_bond_cluster_basis">save_bond_cluster_basis() (in module multipiegen.util.util_bond_cluster_basis)</a>
+</li>
+      <li><a href="src/api_util/util_cluster_basis.html#multipiegen.util.util_cluster_basis.save_cluster_basis">save_cluster_basis() (in module multipiegen.util.util_cluster_basis)</a>
+</li>
+      <li><a href="src/api_create/create_cluster_samb.html#multipiegen.create_binary.create_cluster_samb.save_cluster_samb">save_cluster_samb() (in module multipiegen.create_binary.create_cluster_samb)</a>
+</li>
+      <li><a href="src/api_util/util_cluster_vector_basis.html#multipiegen.util.util_cluster_vector_basis.save_cluster_vector_basis">save_cluster_vector_basis() (in module multipiegen.util.util_cluster_vector_basis)</a>
+</li>
+      <li><a href="src/api_create/create_coset.html#multipiegen.create_binary.create_coset.save_coset">save_coset() (in module multipiegen.create_binary.create_coset)</a>
+</li>
+      <li><a href="src/api_create/create_group.html#multipiegen.create_binary.create_group.save_group">save_group() (in module multipiegen.create_binary.create_group)</a>
+</li>
+      <li><a href="src/api_create/create_harmonics.html#multipiegen.create_binary.create_harmonics.save_harmonics">save_harmonics() (in module multipiegen.create_binary.create_harmonics)</a>
+</li>
+      <li><a href="src/api_create/create_info.html#multipiegen.create_binary.create_info.save_info">save_info() (in module multipiegen.create_binary.create_info)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="src/api_create/create_multipolar_harmonics.html#multipiegen.create_binary.create_multipolar_harmonics.save_multipolar_harmonics">save_multipolar_harmonics() (in module multipiegen.create_binary.create_multipolar_harmonics)</a>
+</li>
+      <li><a href="src/api_create/create_response_tensor.html#multipiegen.create_binary.create_response_tensor.save_response_tensor">save_response_tensor() (in module multipiegen.create_binary.create_response_tensor)</a>
+</li>
+      <li><a href="src/api_create/create_supergroup.html#multipiegen.create_binary.create_supergroup.save_supergroup">save_supergroup() (in module multipiegen.create_binary.create_supergroup)</a>
+</li>
+      <li><a href="src/api_util/util_coset.html#multipiegen.util.util_coset.sg_number_tag">sg_number_tag() (in module multipiegen.util.util_coset)</a>
+</li>
+      <li><a href="src/api_util/util_coset.html#multipiegen.util.util_coset.sg_ops">sg_ops() (in module multipiegen.util.util_coset)</a>
+</li>
+      <li><a href="src/api_util/util_symmetry_operation.html#multipiegen.util.util_symmetry_operation.simplify_array">simplify_array() (in module multipiegen.util.util_symmetry_operation)</a>
+</li>
+      <li><a href="src/api_util/util_symmetry_operation.html#multipiegen.util.util_symmetry_operation.simplify_value">simplify_value() (in module multipiegen.util.util_symmetry_operation)</a>
+</li>
+      <li><a href="src/api_util/util_atomic_multipole.html#multipiegen.util.util_atomic_multipole.spinful_basis">spinful_basis() (in module multipiegen.util.util_atomic_multipole)</a>
+</li>
+      <li><a href="src/api_util/util_symmetry_operation.html#multipiegen.util.util_symmetry_operation.symmetry_operation_matrices">symmetry_operation_matrices() (in module multipiegen.util.util_symmetry_operation)</a>
+</li>
+      <li><a href="src/api_util/util_symmetry_operation.html#multipiegen.util.util_symmetry_operation.symmetry_operation_matrix">symmetry_operation_matrix() (in module multipiegen.util.util_symmetry_operation)</a>
+</li>
+      <li><a href="src/api_util/util_symmetry_operation.html#multipiegen.util.util_symmetry_operation.symmetry_operation_matrix_multipole">symmetry_operation_matrix_multipole() (in module multipiegen.util.util_symmetry_operation)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="T">T</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="src/api_util/util_response_tensor.html#multipiegen.util.util_response_tensor.T1234">T1234() (in module multipiegen.util.util_response_tensor)</a>
+</li>
+      <li><a href="src/api_create/create_info.html#multipiegen.create_binary.create_info.tesseral_tag">tesseral_tag() (in module multipiegen.create_binary.create_info)</a>
+</li>
+      <li><a href="src/api_util/util_coset.html#multipiegen.util.util_coset.to_float">to_float() (in module multipiegen.util.util_coset)</a>
+</li>
+      <li><a href="src/api_util/util_cluster_samb.html#multipiegen.util.util_cluster_samb.top_index">top_index() (in module multipiegen.util.util_cluster_samb)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="src/api_util/util_atomic_multipole.html#multipiegen.util.util_atomic_multipole.top_keys_used">top_keys_used() (in module multipiegen.util.util_atomic_multipole)</a>
+</li>
+      <li><a href="src/api_util/util_atomic_multipole.html#multipiegen.util.util_atomic_multipole.top_samb">top_samb() (in module multipiegen.util.util_atomic_multipole)</a>
+</li>
+      <li><a href="src/api_util/util_multipolar_harmonics.html#multipiegen.util.util_multipolar_harmonics.transform_harmonics">transform_harmonics() (in module multipiegen.util.util_multipolar_harmonics)</a>
+</li>
+      <li><a href="src/api_util/util_cluster_samb_image.html#multipiegen.util.util_cluster_samb_image.transport_matrix">transport_matrix() (in module multipiegen.util.util_cluster_samb_image)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="U">U</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="src/api_util/util_multipolar_harmonics.html#multipiegen.util.util_multipolar_harmonics.InternalBasis.U">U() (InternalBasis method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="src/api_util/util_multipolar_harmonics.html#multipiegen.util.util_multipolar_harmonics.InternalBasis.Uc">Uc() (InternalBasis method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="V">V</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="src/api_util/util_cluster_vector_basis.html#multipiegen.util.util_cluster_vector_basis.vector_harmonics">vector_harmonics() (in module multipiegen.util.util_cluster_vector_basis)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="W">W</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="src/api_util/util_coset.html#multipiegen.util.util_coset.wyckoff_image">wyckoff_image() (in module multipiegen.util.util_coset)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="src/api_util/util_coset.html#multipiegen.util.util_coset.wyckoff_positions">wyckoff_positions() (in module multipiegen.util.util_coset)</a>
+</li>
+      <li><a href="src/api_util/util_cluster_samb.html#multipiegen.util.util_cluster_samb.wyckoff_samb">wyckoff_samb() (in module multipiegen.util.util_cluster_samb)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+
+
+                </article>
+              
+
+              
+              
+              
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Hiroaki Kusunose
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2021-.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
