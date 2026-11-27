@@ -224,6 +224,10 @@ MultiPieGen は、親を持つすべての群（複素の点群を除く）に�
 `x -> -x` で P3_221（No.154）です。`3a` のサイトとボンドの SAMB はすべて `eps = +1` で写ります。`3a` の親構造は
 `x = 0`（P-3m1 の Wyckoff 位置 `1a`。その単位胞は `H` の 3 分の 1）です。
 
+*直接の上位群。* 上の親の連鎖は、各段で代表の親を 1 つだけたどります。`H` が極大部分群であるすべての上位群は、
+埋め込み `x_P = A x_H` とともに別に与えます（`supergroup.pkl`、生成規則 10）。任意の上位群には、これをたどって
+行き着きます。例えば Te の `x = 1/3` での親 R-3m（No.166）には、P3_121 < R32（No.155）< R-3m で行き着きます。
+
 (ja-multipole-key)=
 ### 8. 多極子のキー（`PGMultipoleType`）
 
@@ -294,6 +298,8 @@ $$
 6. 原子多極子（`atomic_multipole.pkl`）と点群の SAMB（`atomic_multipole_group.pkl`）
 7. 厳密計算と式の簡約
 8. MultiPie 向けの binary データ（`binary_data`）
+9. 剰余類（`coset.pkl`）
+10. 直接の上位群（`supergroup.pkl`）
 
 ---
 

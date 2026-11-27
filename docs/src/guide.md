@@ -302,6 +302,11 @@ group with a parent (not the complex point groups):
 image is P3_221 (No.154) with `x -> -x`. Every site and bond SAMB of `3a` is mapped with `eps = +1`. The parent
 structure of `3a` is `x = 0` (the Wyckoff position `1a` of P-3m1, whose cell is a third of that of `H`).
 
+*Direct supergroups.* The chain of parents above follows one representative parent at each step. All the supergroups
+in which `H` is a maximal subgroup are given separately (`supergroup.pkl`, Generation rules 10), with the embedding
+`x_P = A x_H`; any supergroup is reached through a chain of them. E.g., R-3m (No.166), the parent of Te at `x = 1/3`,
+is reached by P3_121 < R32 (No.155) < R-3m.
+
 (multipole-key)=
 ### 8. Multipole key (`PGMultipoleType`)
 
@@ -381,6 +386,8 @@ Contents:
 6. Atomic multipoles (`atomic_multipole.pkl`) and their point-group SAMB (`atomic_multipole_group.pkl`)
 7. Exact arithmetic and simplification
 8. Binary data for MultiPie (`binary_data`)
+9. Cosets (`coset.pkl`)
+10. Direct supergroups (`supergroup.pkl`)
 
 ---
 

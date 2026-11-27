@@ -148,4 +148,5 @@ Ver.2. The closest one is `harmonics_root_cluster.pkl`.
 MultiPie Ver.2 has no data of the cosets of a group in its parents. MultiPieGen gives them in `coset.pkl` (and in
 `binary_data`): the parents and the left cosets, the first coset in the direct parent with its image (for the inversion,
 the images of the sites, bonds, and cluster SAMB), and the parent structures (User Guide, Definitions 7 and Generation
-rules 9).
+rules 9). The direct (maximal) supergroups of every real PG and SG with the embeddings are in `supergroup.pkl`
+(Generation rules 10).
