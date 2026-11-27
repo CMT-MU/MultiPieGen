@@ -18,3 +18,4 @@ Sample code for the features of MultiPieGen. Run each file from anywhere after `
 | [info.py](info.py) | overall information of groups (info.pkl): group id/tag/name, orbital basis and basis functions, root cluster |
 | [binary_data.py](binary_data.py) | binary data for MultiPie (binary_data): info.pkl and one file for each group, read with BinaryManager alone, and the look-up of the harmonics of a SAMB key in the PG file |
 | [coset.py](coset.py) | cosets of a group in its parents (coset.pkl): the first coset in the direct parent (representative, order, rotation or inversion), the images of the sites, bonds, and cluster SAMB under the inversion (eps or U), the parent structures, and the cosets of all parents |
+| [supergroup.py](supergroup.py) | direct (maximal) supergroups of a group with the embeddings x_P = A x_H (supergroup.pkl): t- and k-subgroups, the indices, and the chains of them up to the representative parents |

@@ -281,6 +281,8 @@ example_desc_ja = {  # Japanese descriptions of the examples (the English ones a
     "読めます。PG のファイルで SAMB のキーの調和関数を引く方法も示します。",
     "coset.py": "群の親での剰余類です（coset.pkl）：すぐ上の親での最初の剰余類（代表、位数、回転か空間反転か）、空間反転での"
     "サイト、ボンド、クラスター SAMB の像（eps または U）、親構造、すべての親での剰余類。",
+    "supergroup.py": "群の直接の（極大の）上位群と埋め込み x_P = A x_H です（supergroup.pkl）：t 部分群と k 部分群、指数、"
+    "埋め込みをたどって代表の親に行き着くこと。",
 }
 
 
@@ -482,6 +484,18 @@ binary_content = [
         "create_cluster_samb",
         "util_cluster_samb.load_cluster_samb",
     ),
+    (
+        "coset.pkl",
+        "cosets of the real PG and SG in their parents, the first coset with its image, the parent structures",
+        "create_coset",
+        "util_coset.load_coset",
+    ),
+    (
+        "supergroup.pkl",
+        "direct (maximal) supergroups of the real PG and SG with the embeddings",
+        "create_supergroup",
+        "util_supergroup.load_supergroup",
+    ),
 ]
 binary_content_ja = {
     "harmonics.pkl": "多極子のキーで引く、全 PG の調和関数（ランク <= 11）の式と u-matrix",
@@ -495,6 +509,8 @@ binary_content_ja = {
     "cluster_vector_basis.pkl": "Oh と D6h のクラスターの正規直交なベクトルクラスター基底（s=1）",
     "cluster_bond_basis.pkl": "Oh と D6h のクラスターの正規直交なボンドクラスター基底",
     "cluster_samb.pkl": "実の PG と SG の各 Wyckoff サイトとボンドのクラスター SAMB",
+    "coset.pkl": "実の PG と SG の親での剰余類、最初の剰余類とその像、親構造",
+    "supergroup.pkl": "実の PG と SG の直接の（極大の）上位群と埋め込み",
 }
 
 

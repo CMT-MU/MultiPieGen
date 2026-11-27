@@ -224,6 +224,10 @@ MultiPieGen は、親を持つすべての群（複素の点群を除く）に�
 `x -> -x` で P3_221（No.154）です。`3a` のサイトとボンドの SAMB はすべて `eps = +1` で写ります。`3a` の親構造は
 `x = 0`（P-3m1 の Wyckoff 位置 `1a`。その単位胞は `H` の 3 分の 1）です。
 
+*直接の上位群。* 上の親の連鎖は、各段で代表の親を 1 つだけたどります。`H` が極大部分群であるすべての上位群は、
+埋め込み `x_P = A x_H` とともに別に与えます（`supergroup.pkl`、生成規則 10）。任意の上位群には、これをたどって
+行き着きます。例えば Te の `x = 1/3` での親 R-3m（No.166）には、P3_121 < R32（No.155）< R-3m で行き着きます。
+
 (ja-multipole-key)=
 ### 8. 多極子のキー（`PGMultipoleType`）
 
@@ -294,6 +298,8 @@ $$
 6. 原子多極子（`atomic_multipole.pkl`）と点群の SAMB（`atomic_multipole_group.pkl`）
 7. 厳密計算と式の簡約
 8. MultiPie 向けの binary データ（`binary_data`）
+9. 剰余類（`coset.pkl`）
+10. 直接の上位群（`supergroup.pkl`）
 
 ---
 
@@ -562,7 +568,8 @@ LaTeX の名前：原子の基底には `atomic_latex_name`（`p_{x}`、`f_{z}^{
 2. **中身。** `multipiegen/binary` の binary を群ごとに並べ直したもので、計算し直すのは PG の表現行列（`util_representation_matrix`、1 群 1 KB 未満）だけです。
    - PG：`info`、`symmetry_operation`、`wyckoff`、`character`、`representation_matrix`、`harmonics`、`multipolar_harmonics`、`atomic_samb`、`cluster_samb`（実の点群だけ）、`coset`（親を持つ実の点群だけ。`coset.pkl` の `"first"`）。
    - SG：`info`、`symmetry_operation`、`wyckoff`、`cluster_samb`、`coset`（親を持つ空間群だけ）。
-   - `info.pkl` には `"parent"` と `"coset"`（`coset.pkl` の `"parent"` と `"coset"`）も入れます。
+   - `info.pkl` には `"parent"` と `"coset"`（`coset.pkl` の `"parent"` と `"coset"`）、`"supergroup"`
+     （`supergroup.pkl`）も入れます。
    - MPG：`info`、`symmetry_operation`、`wyckoff`、`active_multipole`、`response_tensor`。
    - MSG：`info`、`symmetry_operation`、`wyckoff`。
 3. **入れないもの。** 中間データのクラスター基底（`cluster_scalar_basis`、`cluster_vector_basis`、`cluster_bond_basis`）と、球面の原子多極子（`atomic_multipole`）。
@@ -603,3 +610,30 @@ LaTeX の名前：原子の基底には `atomic_latex_name`（`p_{x}`、`f_{z}^{
    軌道が既出のものと同じでなければ後に加えます。
 6. **ヘッダとキー。** `coset.pkl` のヘッダ（`str(load_coset())`）を参照。`binary_data` では、`"first"` を各群の
    ファイルの `coset` に、`"parent"` と `"coset"` を `info.pkl` に入れます。
+
+---
+
+### 10. 直接の上位群（`supergroup.pkl`）
+
+コード：`util_supergroup`、`create_binary/create_supergroup.py`。範囲：実の点群 37 と空間群 230。`group.pkl` の
+対称操作だけを使い、表は持ちません。
+
+1. **埋め込み。** `H` のすべての操作を `P` の操作に写すアフィン写像 `x_P = A x_H`（`A = [[R, s], [0, 1]]`、
+   慣用の座標）。`R` は右手系です（鏡像の対は部分群・上位群の関係にない）。空間群では、`R` は `H` の格子を `P`
+   の格子に写します：`N = L_P^-1 R L_H` は整数行列（`L` は基本並進）で、`[T_P : T_H] = det N`。点群では、`R`
+   はデカルト座標で直交行列です。
+2. **探索。** `H` の点群の生成元 `W_i` の像 `V_i` について `N W'_i = V'_i N`（基本並進の座標）を解き、その解の
+   うち成分の小さい整数行列をとります（部分空間の次元が 3 以下なら `|N_ij| <= 3`、5 以下なら `<= 2`、それ以外
+   （三斜晶の `H`）は符号つきの置換行列）。原点のずれ `s` は、`P` の基本並進の座標で 1/24 の格子点から探します。
+3. **同じ埋め込み。** `H` の座標で見た `P` の操作の集合（`P` の格子で割ったもの）が同じなら、同じ埋め込みと
+   みなします（`P` の正規化群の元だけ違う）。`H` のアフィン正規化群の元 `n`（`n H n^-1 = H`）について `A n`
+   もまとめて、1つだけ保存します。これらは同じ上位群で、`H` の原子に対する親構造が違います。MultiPie が復元
+   します。
+4. **直接（極大）。** Hermann の定理により、極大部分群は t 部分群（`[T_P : T_H] = 1`、点群の指数 2, 3, 4）か
+   k 部分群（同じ点群、ここでは `[T_P : T_H] = 2, 3, 4`）です。`H` に含まれない `P` のすべての `g` について
+   `<H, g> = P`（`H` の格子で割ったもの）なら、`H` は `P` の極大部分群です。同型の上位群（`H` と同じ型の `P`）
+   は保存しません。`coset.pkl` の代表の親は極大とは限りませんが（SG 152 < 150 < 164、164 は格子が c/3）、その
+   連鎖の親にはすべて、直接の上位群をたどって行き着きます。
+5. **ヘッダとキー。** `supergroup.pkl` のヘッダ（`str(load_supergroup())`）を参照。各群について `"parent"`、
+   `"A"`、`"index"`（`H` の格子で割った `[P : H]`）、`"index_parent"`（`P` の格子で割ったもの）。`binary_data`
+   では `info.pkl` の `"supergroup"` です。
